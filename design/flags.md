@@ -54,7 +54,7 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 | **0x264-0x2BB** | 88 | **Hidden items (reserved).** Hidden-item flags must be 0x1F4 or higher (the assembler macro in `asm/macros/map.inc` rejects lower ones) and 0x264 is where the existing hidden-item range grows. Config comments in `include/config/battle.h` and `pokemon.h` use 0x264 as their example toggle flag, so skip 0x264 or use it for a config switch |
 | 0x2D9 | 1 | General purpose |
 | 0x468, 0x470, 0x472, 0x479 | 1 each | General purpose |
-| **0x493-0x4EF** | 93 | **Per-map one-shots** (talked-to flags, single pickups) for towns and routes. Goldsworth houses are NPC-only and need none unless an NPC in one has a once-only line (at most one per house, up to 18 of the 93) |
+| **0x493-0x4EF** | 93 | **Per-map one-shots** (talked-to flags, single pickups) for towns and routes. Goldsworth houses are NPC-only and need none unless an NPC in one has a once-only line (at most one per house, and there are only about 7 houses) |
 | 0x4F9-0x4FA, 0x4FF | 2 + 1 | General purpose |
 | 0x863 | 1 | General purpose |
 | 0x881-0x887 | 7 | General purpose |

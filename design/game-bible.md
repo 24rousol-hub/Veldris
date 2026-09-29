@@ -8,7 +8,7 @@
 
 The player has one reason to become Champion: to humiliate Troglodyte. His real name is Beauregard Goldsworth IV. He is a sheltered, mediocre rival whose rich parents keep staging elaborate schemes to sabotage the gyms in his way. Every scheme fails. The League is just what happens to be at the end of the road.
 
-**Author note (2026-09-29):** the Goldsworths are rich frat guys who are assholes. Every city has a Goldsworth house, and one city has their skyscraper business, where Troglodyte's parents are. His grandfather, a kind old man who had to step down as family head, lives in Hollowbrook's house. The Goldsworths may swear, mildly. Details and what is still open: [characters.md](characters.md), [story-outline.md](story-outline.md).
+**Author note (2026-09-29):** the Goldsworths are rich frat guys who are assholes. Every city has a Goldsworth house (and so does Hollowbrook, the grandfather's home town, the one town exception), and one city has their skyscraper business, where Troglodyte's parents are. The parents are oblivious rather than contemptuous, unlike the rest of the family. His grandfather, a kind old man who had to step down as family head, lives in Hollowbrook's house. The Goldsworths may swear, mildly. Details and what is still open: [characters.md](characters.md), [story-outline.md](story-outline.md).
 
 ## Pillars
 
@@ -32,7 +32,7 @@ The player has one reason to become Champion: to humiliate Troglodyte. His real 
 
 1. Intro (C-driven, `data/text/birch_speech.inc`), Prof. Fennick, starter.
 2. First 3 towns and 3 routes, ending at gym 1 (Greta, Normal). Built first so all three can be flown between.
-3. Gyms 2 to 9 in order, each with its own Goldsworth scheme. Every city has a Goldsworth house (Hollowbrook's is the grandfather's), and one city has their skyscraper (PROPOSED details in [story-outline.md](story-outline.md)).
+3. Gyms 2 to 9 in order, each with its own Goldsworth scheme. Every city has a Goldsworth house (and Hollowbrook, as the one town exception), and one city has their skyscraper (PROPOSED details in [story-outline.md](story-outline.md)).
 4. Elite Four, then the Champion.
 5. Post-game.
 
@@ -52,12 +52,13 @@ These need the author's call. None blocks the first 3 towns.
 4. ~~**Names of towns 1 to 3.**~~ **Resolved (author, 2026-09-29):** Hollowbrook and Wendlebury approved. Crestfall comes from the author's trainer constant `TRAINER_CRESTFALL_GRETA` and is the first gym town. Marrow Bay (the bay) is still a placeholder.
 5. ~~**Region map style.**~~ **Resolved (author, 2026-09-29):** the vanilla GBA town-map look. See [region-map.md](region-map.md).
 6. **Trainer slots.** Only 9 new trainer IDs fit before trainer flag space overflows (`TRAINERS_COUNT` 855, `MAX_TRAINERS_COUNT` 864, upstream's own note in `include/constants/opponents.h`). A hack with a gym, Elite Four and trainers on 33 routes needs hundreds. Options: (a) reuse and rename vanilla Hoenn or FRLG trainer IDs you no longer need, or (b) raise `MAX_TRAINERS_COUNT`. Measured save headroom is about 176 bytes (roughly 1,400 flags), so a few hundred more trainers fit. It shifts every system and daily flag, which is fine on a fresh start. Untested. `TRAINER_CRESTFALL_GRETA` is the first to need a slot. Not blocking until the first new trainer is added.
-7. **Which places get a Goldsworth house?** The author said 'every single city', and later separated cities from towns (open decision 12). Hollowbrook's house is settled: it is the grandfather's. Working reading: a house in every city (except the skyscraper's) plus Hollowbrook. Do the other towns get one too?
+7. ~~**Which places get a Goldsworth house?**~~ **Resolved (author, 2026-09-29):** every **city** gets one. **Towns do not, with one exception: Hollowbrook**, the grandfather's home town. The skyscraper's city gets none. Which places are cities is open decision 12.
 8. ~~**Which town has the skyscraper, and does that town also get a house?**~~ **Partly resolved (author, 2026-09-29):** the skyscraper is in a **city**, not a town, and that city does **not** also get a house. Troglodyte's parents are in the tower. Which city is still TBD. The tower exterior needs new art or a compromise ([map-plan.md](map-plan.md)).
-9. ~~**Do Troglodyte's parents stay?**~~ **Resolved (author, 2026-09-29):** yes. They are in the tower. His grandfather, a kind old man who stepped down as family head because of his health, lives in Hollowbrook's Goldsworth house. Assumed, not said: the parents are frat-guy assholes like the rest.
+9. ~~**Do Troglodyte's parents stay?**~~ **Resolved (author, 2026-09-29):** yes. They are in the tower. They are assholes, but not on purpose like the rest of the family: they live in luxury and do not understand the lower classes, rather than disliking them. His grandfather, a kind old man who stepped down as family head because of his health, lives in Hollowbrook's Goldsworth house.
 10. ~~**Tone limits for the Goldsworths.**~~ **Resolved (author, 2026-09-29):** they can swear, but nothing 4chan level. See [dialogue-style.md](dialogue-style.md) for the working limits. Not yet answered: how cruel they may be (the assumed limit: never to innocent townsfolk).
 11. **Goldsworth house fights.** Only 9 trainer ids are spare and the 9 gym leaders use them all (decision 6). Proposed rule: the houses are NPC-only, with no trainer ids. If a house should have a fight, use one shared 'Goldsworth family' id and reset its flag with `cleartrainerflag` for repeats.
 12. **Which of the 18 places are cities and which are towns?** The author says a city and a town are different, and there may be 7 cities with the rest towns (**7 is an example, not final**). Which places are cities, what a city has that a town does not, and whether gym towns are cities are all open. Until decided, 'town' in these docs means any of the 18 settlements.
+13. **Is Troglodyte like his parents or like the rest of the family?** The parents are oblivious, and the rest of the family looks down on ordinary people on purpose. Troglodyte started as 'sheltered and mediocre' (the original brief), which fits the parents, but he is also a frat-guy Goldsworth. His voice, and how the player feels about beating him, depend on it.
 
 ## Decision log
 
@@ -73,6 +74,7 @@ These need the author's call. None blocks the first 3 towns.
 | 2026-09-29 | Palladium and vanilla pairings for towns 1 to 3 approved. Hollowbrook is the first map the author builds. | Author |
 | 2026-09-29 | Goldsworths: a house in every city, a skyscraper in one city as their business, and they are rich frat guys who are assholes (author's note; the reading of 'them' is open decision 9). | Author |
 | 2026-09-29 | Goldsworths: Troglodyte's parents are in the tower. His grandfather, a kind old man who stepped down as family head for health reasons, lives in Hollowbrook's Goldsworth house. The Goldsworths can swear but nothing 4chan level. A city, not a town, has the skyscraper, and that city gets no separate house. Cities and towns are different (7 cities is an example, not final). | Author |
+| 2026-09-29 | Goldsworth houses: cities only, with Hollowbrook (the grandfather's home town) as the one town exception. Troglodyte's parents are assholes out of obliviousness to the lower classes, not contempt like the rest of the family. | Author |
 | 2026-09-29 | Fly-town hooks (A-prime) may be applied. Applied by the other session, table still empty. | Author |
 | 2026-09-29 | New trainer card with the 9-badge strip looks good. Badge art palette question settled in the other session. | Author |
 | 2026-09-29 | Repo created as a fresh start on pokeemerald-expansion. Scope fixed at 18 towns, 33 routes, 9 gyms, Elite Four, post-game. | Author |

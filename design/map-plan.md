@@ -70,7 +70,7 @@ From comparing renders of the vanilla maps with `New Bark Town.png`, `Elm's Lab.
 
 ## Goldsworth houses and the skyscraper (author notes 2026-09-29; details PROPOSED)
 
-**Houses (one per city, plus Hollowbrook's; whether towns get one is open decision 7, and the skyscraper's city has none).** At most 18 maps, likely fewer.
+**Houses (one per city, plus Hollowbrook's, which is the one town exception; the skyscraper's city has none).** With the example of 7 cities that is 6 houses plus Hollowbrook's, so about 7 maps, not 18.
 - **One shared layout.** Maps can share a layout id (see above), so every house is its own map with its own NPCs and text, on one layout. Cost: 0 map sections, because an interior uses its town's section (checked on vanilla houses); about 200 more maps fit, with headroom; the ROM cost is small (a 10 x 9 layout is 180 bytes, stored once).
 - **The layout can start as a vanilla stand-in** (`LAYOUT_HOUSE1` is 10 x 9, `LAYOUT_HOUSE2` is 11 x 8), then be swapped for one custom Goldsworth-house layout: a nicer, richer room, painted once in Porymap.
 - **Per house:** its own `map.json`, a `map_groups.json` entry, a `scripts.inc` with a `<Map>_MapScripts::` label, and its warps (Porymap adds the `event_scripts.s` include on the first save). Do not use `shared_events_map` for houses, because it also shares warps and every exit goes to a different town. Use unique `LOCALID_` names per house.

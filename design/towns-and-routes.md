@@ -40,7 +40,7 @@ The author says a **city** and a **town** are different, and that there may be *
 
 ## Goldsworth houses and the skyscraper (author notes 2026-09-29; details PROPOSED)
 
-- **Houses:** every **city** has one (author), and Hollowbrook's is the grandfather's (author). Whether every town also gets one is open decision 7, so the number of house maps is not fixed yet: at most one per settlement, and none in the skyscraper's city.
+- **Houses:** every **city** has one (author). **Towns get none, except Hollowbrook** (author), whose house is the grandfather's because it is his home town. None in the skyscraper's city. So the number of house maps is one per city (less the skyscraper's) plus Hollowbrook's, which depends on how many places are cities (open decision 12). With the example of 7 cities, that is 6 houses plus Hollowbrook's.
 - **The skyscraper** is in one **city**, TBD, and Troglodyte's parents are in it (author). That city gets no separate house (author).
 - How they are built: [map-plan.md](map-plan.md). The houses are added per settlement as each one is built.
 

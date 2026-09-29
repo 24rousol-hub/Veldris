@@ -11,7 +11,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 
 - Sheltered and mediocre rival. **(author)**
 - Rich parents who keep trying elaborate gym sabotage schemes that fail. **(author)**
-- Voice (PROPOSED, revised 2026-09-29 after the author's note on the Goldsworths below): frat-bro entitlement and contempt, pompous, never quite understands why he lost. Refers to his family and their money. Whether he swears is open decision 10 in [game-bible.md](game-bible.md).
+- Voice (PROPOSED): pompous, entitled and sheltered, never quite understands why he lost. Refers to his family and their money. He is a Goldsworth, so he may swear a little (author). Whether his attitude to ordinary people is his parents' obliviousness or the wider family's contempt is open decision 13 in [game-bible.md](game-bible.md).
 - Team (PROPOSED): well-bred Pokémon, poorly trained. Strong on paper, tactically naive.
 - First named in Prof. Fennick's intro as BEAUREGARD GOLDSWORTH IV (PROPOSED, see Prof. Fennick below).
 - In text, write **TROGLODYTE** literally. Do not use `{RIVAL}`: in this engine it expands to MAY or BRENDAN (`src/string_util.c`).
@@ -38,18 +38,19 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - Troglodyte's parents are in the tower. His grandfather is actually a kind old man who was forced to step down from family head due to health issues, and you can find him in your home town in the Goldsworth house, living out his retirement.
 - The Goldsworths can swear, but nothing 4chan level.
 - A city has the skyscraper, not a town: there is a distinct difference, and there may be 7 cities with the rest towns (7 is an example, not final). The skyscraper's city does not also get a house.
+- Towns do not get a house: Hollowbrook is the exception, because it is the grandfather's home town.
+- Troglodyte's parents are assholes, but not on purpose like the rest of the family. They live in luxury and do not understand the lower classes. They do not dislike them, unlike the rest of the family, who do.
 
 **Taken as fixed (author):**
-- The Goldsworths are rich frat guys who are assholes, with one exception: the grandfather.
-- A Goldsworth house in every city, and Hollowbrook's house is the grandfather's.
+- The Goldsworths are rich frat guys who are assholes, with one exception: the grandfather. The parents are a different kind of asshole (below).
+- A Goldsworth house in every city, and Hollowbrook, the grandfather's home town, is the one exception: it is a town with a house. The other towns get none.
 - The skyscraper is the family business, in one city, and Troglodyte's parents are in it. That city has no separate house.
 - The Goldsworths may swear, mildly.
 
 **PROPOSED (my reading, easy to change):**
-- Because the author singled the grandfather out as kind, the rest of the family, the parents included, fits the frat-guy asshole description. The author should correct me if the parents are different.
 - The parents run the business from the tower and now head the family, since the grandfather stepped down. Whether they also live there is not said.
 - Names TBD. Troglodyte is 'IV', so the naming line would put his father at III and his grandfather at II (a possible hook, not decided).
-- Voice: loud, entitled, contemptuous of the locals, still incompetent, and they swear a little. The humour lands on them and never on innocent townsfolk. The limits are in [dialogue-style.md](dialogue-style.md).
+- Voice of the wider family (the frat guys): loud, entitled, actively contemptuous of the lower classes, still incompetent, and they swear a little. The humour lands on them and never on innocent townsfolk. The limits are in [dialogue-style.md](dialogue-style.md).
 - Overworld sprites: the `rich_boy` family in [asset-inventory.md](asset-inventory.md) fits the younger ones, picked per NPC when the houses are built.
 - The houses and the skyscraper: see 'Goldsworth presence' in [story-outline.md](story-outline.md) and [map-plan.md](map-plan.md).
 - Their schemes drive the plot: [story-outline.md](story-outline.md).
@@ -64,6 +65,8 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 ### Troglodyte's parents
 
 - They are in the Goldsworth tower, in one of the cities (author). What the player does there is TBD.
+- **Assholes by obliviousness, not by contempt (author).** They live in luxury and do not understand the lower classes. Unlike the rest of the family they do not dislike ordinary people. They just have no idea how those people live.
+- Voice (PROPOSED): well-meaning and patronising, sure that money solves things, baffled when it does not. Their schemes come from not understanding what a gym or a town actually is. The humour lands on the obliviousness, not on cruelty.
 - Names TBD.
 
 ## Trainer constants
