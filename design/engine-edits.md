@@ -19,6 +19,7 @@ Before pulling upstream, read this list. Each row is a place a merge could confl
 | 2026-09-29 | `src/field_move.c` | `HasBadgeForFieldMove` reads `gBadgeFlags[arg]` instead of `FLAG_BADGE01_GET + arg` | HM gating works for any badge flag | No |
 | 2026-09-29 | `src/battle_util.c` | Obedience: badge 9 ignores obedience, badge 8 gives level 90 (vanilla: badge 8 ignored it) | 9 badges | No |
 | 2026-09-29 | `src/caps.c` | Added `FLAG_BADGE09_GET` rows to the level-cap (50, PROPOSED placeholder) and EV-cap tables; EV fractions now /19 | 9 badges. Caps are off by default (`B_LEVEL_CAP_TYPE`) | Caps are config-gated |
+| 2026-09-29 | `src/region_map.c` | A-prime fly hooks: `#include "data/veldris_fly_towns.h"` plus one line each at the end of `sMapHealLocations`, `sFlyLocations` and before `default:` in `GetMapsecType` | One table row per fly town instead of 3 edits in this file | No |
 
 ## Planned edits (not yet made)
 

@@ -75,11 +75,11 @@ Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: 
 
 **A-prime:** new sections with clean names, but instead of adding three entries per town inside `src/region_map.c`, make one small one-time change there. It adds hooks (about three: the `GetMapsecType` default case, the fly-icon loop, and the landing-spot lookup, to be confirmed when written) that also consult a **hack-owned table** in a new file (for example `src/data/veldris_fly_towns.h`, one row per town: section, visited flag, heal location). After that, adding a fly town is one table row plus data, and the upstream file is touched in only those few places, which keeps upstream pulls cheap.
 
-**Not implemented yet.** It is an engine edit, so it waits for the author's go-ahead and gets logged in [engine-edits.md](engine-edits.md). Routes need no C at all, so once the 43 spare section IDs are used, routes can take over unused vanilla section IDs by renaming their records.
+**Implemented 2026-09-29** (see below). Routes need no C at all, so once the 43 spare section IDs are used, routes can take over unused vanilla section IDs by renaming their records.
 
-## A-prime: concrete draft (PROPOSED, NOT APPLIED, NOT COMPILED)
+## A-prime: APPLIED 2026-09-29 (author: "Yes apply"), table still empty
 
-Written 2026-09-29 against `src/region_map.c` as it is in this tree. Line numbers are from that file today and will drift.
+Applied as drafted, with `src/data/veldris_fly_towns.h` and the four hook lines in `src/region_map.c`, logged in [engine-edits.md](engine-edits.md). The table is empty, so nothing changes in game yet. Checked: the full build passes with the empty table, and a throwaway test row (the last section, `MAPSEC_TRAINER_HILL`) compiled and grew the heal table to 209 rows as expected, then was removed. Not tested in game. Draft text below was written against `src/region_map.c` as it is in this tree. Line numbers are from that file today and will drift.
 
 **Idea, simpler than the first sketch:** no runtime lookup at all. One new hack-owned header holds a single table as an X-macro and turns it into the three kinds of rows the engine already wants. The three engine tables each get **one added line** that expands to those rows. Every fly town is then one line in the hack header.
 
@@ -373,4 +373,4 @@ The author meant making the individual tiles more pixel dense so more fits into 
 1. ~~Does the overall shape work?~~ **Resolved (author, 2026-09-29):** the shape is APPROVED.
 2. ~~What did the author mean by "zoom it out"?~~ **Resolved:** denser tile art, see above.
 3. Marrow Bay is a placeholder name.
-4. Approach A-prime needs the author's go-ahead before any engine edit.
+4. Approach A-prime: applied (see above).

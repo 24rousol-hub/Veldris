@@ -19,7 +19,7 @@ Read this before designing anything that scales: 18 towns, 33 routes, 9 gyms and
 | 9 | **Map groups** | 75 groups, group and map numbers must stay at most 127 | Warp data stores them as signed bytes. Adding 51 outdoor maps to group 0 gives 108, which is fine |
 | 10 | **ROM space** | 32 MiB maximum; 25.73 MiB used, **about 6.27 MiB free** | `P_CRIES_ENABLED`, `P_FOOTPRINTS` and the `species_enabled.h` switches free space (cries alone are over 25% of the ROM by upstream's comment) |
 | 11 | **What gets built** | Only maps with region `REGION_HOENN` and layouts with `layout_version` `emerald` | The FRLG maps and layouts are skipped by the Emerald build. New maps must stay at the defaults or they are silently left out |
-| 12 | **Fly** | Needs the Feather Badge; only 16 vanilla `FLAG_VISITED_*` flags | Each new fly town needs 3 small C edits, or with the proposed A-prime hooks one table row (draft in [region-map.md](region-map.md), not applied) |
+| 12 | **Fly** | Needs the Feather Badge; only 16 vanilla `FLAG_VISITED_*` flags | Each new fly town needs 3 small C edits, or with the A-prime hooks (applied 2026-09-29) one row in `src/data/veldris_fly_towns.h`. See [region-map.md](region-map.md) |
 | 13 | **Section names** | 16 characters, charmap characters only | Longer overflows a buffer |
 
 ## Config switches worth knowing
