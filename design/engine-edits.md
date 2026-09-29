@@ -10,6 +10,14 @@ Before pulling upstream, read this list. Each row is a place a merge could confl
 |---|---|---|---|---|
 | 2026-09-29 | `.gitignore` | Appended a Veldris block at the end (ROMs, saves, build output). No upstream lines changed. | Public repo: never commit a ROM or save | n/a |
 | 2026-09-29 | `CREDITS.md` | Added a hack credits section above the upstream one. Upstream content is untouched. | Credit every third-party asset | n/a |
+| 2026-09-29 | `include/constants/flags.h` | Renamed `FLAG_UNUSED_0x88E` to `FLAG_BADGE09_GET`; `NUM_BADGES` is now the literal `9` | 9th badge for 9 gyms | No |
+| 2026-09-29 | `src/event_data.c` | Removed the `gBadgeFlags[]` definition (it moved to the hack-owned `src/veldris_badges.c`, generated from one table) | Single badge table | No |
+| 2026-09-29 | `src/trainer_card.c` | Badge tile buffer is 2 sheet rows; badges load at BG3 tiles 192 and 352; front-page badges drawn edge to edge and centred from the table; badge flags read via `gBadgeFlags`; FRLG card layout untouched | Show 9 (up to 12) badges | No |
+| 2026-09-29 | `graphics/trainer_card/badges.png`, `front.bin` | Sheet is now 128x32 (Kaixer badges 1-8 + placeholder 9); the 8 baked numbered slots in `front.bin` rows 15-16 were replaced by the plain band tile | Room for 9+ badges | No |
+| 2026-09-29 | `src/main_menu.c`, `src/menu.c`, `src/tv.c`, `src/shop_criteria.c`, `src/battle_script_commands.c` | Badge-count loops replaced by `GetBadgeCount()`; `sBadgeLevel[]` gained a 65 entry | The old loops added `NUM_BADGES` to `FLAG_BADGE01_GET`, which breaks with a non-contiguous 9th flag | No |
+| 2026-09-29 | `src/field_move.c` | `HasBadgeForFieldMove` reads `gBadgeFlags[arg]` instead of `FLAG_BADGE01_GET + arg` | HM gating works for any badge flag | No |
+| 2026-09-29 | `src/battle_util.c` | Obedience: badge 9 ignores obedience, badge 8 gives level 90 (vanilla: badge 8 ignored it) | 9 badges | No |
+| 2026-09-29 | `src/caps.c` | Added `FLAG_BADGE09_GET` rows to the level-cap (50, PROPOSED placeholder) and EV-cap tables; EV fractions now /19 | 9 badges. Caps are off by default (`B_LEVEL_CAP_TYPE`) | Caps are config-gated |
 
 ## Planned edits (not yet made)
 
@@ -17,4 +25,3 @@ Before pulling upstream, read this list. Each row is a place a merge could confl
 |---|---|---|
 | `include/constants/flags.h`, `vars.h` | One-line renames of `FLAG_UNUSED_*` / `VAR_UNUSED_*` as flags and vars are claimed. See [flags.md](flags.md) | First flag use |
 | `include/constants/opponents.h` | Trainer slot changes (only 9 free) | Open decision 6 in [game-bible.md](game-bible.md) |
-| Badge handling (`flags.h`, `src/event_data.c`, trainer card, main menu) | 9th badge, if chosen | Open decision 1 in [game-bible.md](game-bible.md) |

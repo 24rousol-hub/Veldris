@@ -1364,7 +1364,7 @@
 #define FLAG_BADGE06_GET                      (SYSTEM_FLAGS + 0xC)
 #define FLAG_BADGE07_GET                      (SYSTEM_FLAGS + 0xD)
 #define FLAG_BADGE08_GET                      (SYSTEM_FLAGS + 0xE)
-#define NUM_BADGES                            (1 + FLAG_BADGE08_GET - FLAG_BADGE01_GET)
+#define NUM_BADGES                            9 // Veldris: badges 1-8 are contiguous above, badge 9 is FLAG_BADGE09_GET. The list lives in include/veldris_badges.h
 
 // Towns and Cities
 #define FLAG_VISITED_LITTLEROOT_TOWN                (SYSTEM_FLAGS + 0xF)
@@ -1403,7 +1403,7 @@
 #define FLAG_SYS_SAFARI_MODE                        (SYSTEM_FLAGS + 0x2C)
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)
 
-#define FLAG_UNUSED_0x88E                           (SYSTEM_FLAGS + 0x2E) // Unused Flag
+#define FLAG_BADGE09_GET                            (SYSTEM_FLAGS + 0x2E) // Veldris: 9th badge (was FLAG_UNUSED_0x88E). See design/badges.md
 #define FLAG_UNUSED_0x88F                           (SYSTEM_FLAGS + 0x2F) // Unused Flag
 
 #define FLAG_SYS_TV_HOME                            (SYSTEM_FLAGS + 0x30)

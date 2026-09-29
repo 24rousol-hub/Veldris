@@ -15,7 +15,8 @@ A personal-use fan project. It is built on pokeemerald-expansion and is not affi
 
 | Asset (path in this repo) | What it is | Creator(s) | Source (repo and path) | Licence or permission | Added in |
 |---|---|---|---|---|---|
-| _(no third-party assets added yet)_ | | | | | |
+| `graphics/trainer_card/badges.png` (slots 0-7) | Coloured trainer card badge sprites, 16x16 each | Kaixer (colour edits of the standard Emerald badge shapes, so they derive from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `User Interface/Kaixer/Trainer Card Badges/badges.png` | Asset repo norm: free to use and edit, creator credit required. Author asked for it to be used | 2026-09-29 |
+| `graphics/trainer_card/badges.png` (slot 8) | Placeholder 9th badge (plain gold disc) | Drawn for this hack with the Kaixer palette | n/a | Replace with real art | 2026-09-29 |
 
 ## Tools used (not distributed)
 

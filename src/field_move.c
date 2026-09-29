@@ -21,7 +21,7 @@ static bool32 IsAlwaysTrue(enum FieldMove fieldMove)
 
 static bool32 HasBadgeForFieldMove(enum FieldMove fieldMove)
 {
-    return FlagGet(gFieldMoveInfo[fieldMove].arg + FLAG_BADGE01_GET);
+    return FlagGet(gBadgeFlags[gFieldMoveInfo[fieldMove].arg]); // arg is a badge index into gBadgeFlags
 }
 
 const struct FieldMoveUnlock gFieldMoveUnlocks[FIELD_MOVE_UNLOCK_COUNT] =

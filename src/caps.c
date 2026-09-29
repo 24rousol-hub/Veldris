@@ -17,6 +17,7 @@ u32 GetCurrentLevelCap(void)
         {FLAG_BADGE06_GET, 33},
         {FLAG_BADGE07_GET, 42},
         {FLAG_BADGE08_GET, 46},
+        {FLAG_BADGE09_GET, 50}, // Veldris: PROPOSED placeholder
         {FLAG_IS_CHAMPION, 58},
     };
 
@@ -86,14 +87,15 @@ u32 GetCurrentEVCap(void)
 {
     static const u16 sEvCapFlagMap[][2] = {
         // Define EV caps for each milestone
-        {FLAG_BADGE01_GET, MAX_TOTAL_EVS *  1 / 17},
-        {FLAG_BADGE02_GET, MAX_TOTAL_EVS *  3 / 17},
-        {FLAG_BADGE03_GET, MAX_TOTAL_EVS *  5 / 17},
-        {FLAG_BADGE04_GET, MAX_TOTAL_EVS *  7 / 17},
-        {FLAG_BADGE05_GET, MAX_TOTAL_EVS *  9 / 17},
-        {FLAG_BADGE06_GET, MAX_TOTAL_EVS * 11 / 17},
-        {FLAG_BADGE07_GET, MAX_TOTAL_EVS * 13 / 17},
-        {FLAG_BADGE08_GET, MAX_TOTAL_EVS * 15 / 17},
+        {FLAG_BADGE01_GET, MAX_TOTAL_EVS *  1 / 19},
+        {FLAG_BADGE02_GET, MAX_TOTAL_EVS *  3 / 19},
+        {FLAG_BADGE03_GET, MAX_TOTAL_EVS *  5 / 19},
+        {FLAG_BADGE04_GET, MAX_TOTAL_EVS *  7 / 19},
+        {FLAG_BADGE05_GET, MAX_TOTAL_EVS *  9 / 19},
+        {FLAG_BADGE06_GET, MAX_TOTAL_EVS * 11 / 19},
+        {FLAG_BADGE07_GET, MAX_TOTAL_EVS * 13 / 19},
+        {FLAG_BADGE08_GET, MAX_TOTAL_EVS * 15 / 19},
+        {FLAG_BADGE09_GET, MAX_TOTAL_EVS * 17 / 19},
         {FLAG_IS_CHAMPION, MAX_TOTAL_EVS},
     };
 

@@ -1,6 +1,30 @@
 # Badges: survey of other hacks and a plan for Veldris
 
-**Status: PLAN ONLY (PROPOSED).** No engine code was edited. Nothing here is approved. Implementing any option needs the author's go-ahead first (CLAUDE.md rule 8).
+**Status: IMPLEMENTED (option C, a data-driven badge table), 2026-09-29, on the author's go-ahead** ("do 9 gyms + Elite Four and Champion, do your best for badges, outsource the badge art, look at my fork of the asset repo"). The survey and options below are kept as the reasoning. **Not tested in an emulator**: the build passes, and the card layout was checked only in a mock-up rendered from the card tiles.
+
+## What was built
+
+- **`include/veldris_badges.h` and `src/veldris_badges.c` (hack-owned).** One list, `VELDRIS_BADGE_LIST(X)`, with a row per badge: `X(flag, iconSlot)`. It generates both `gVeldrisBadges[]` and `gBadgeFlags[]`, and a compile-time check fails the build if the row count is not `NUM_BADGES`. Reorder rows to change the display order, or change `iconSlot` to pick different art. `GetBadgeCount()` counts earned badges.
+- **9 badges.** Badges 1-8 keep the vanilla flags. Badge 9 is `FLAG_BADGE09_GET` = 0x88E (spare system flag, outside the story-beat range that [flags.md](flags.md) reserves). Adding badge 10 to 12 is: claim a flag, add a row, add art (the card fits 12).
+- **Trainer card.** The 8 numbered slots baked into `front.bin` are gone. Badges are drawn edge to edge (2 tiles each) and centred in the strip, so the front page shows all 9 (up to 12). Unearned badges show nothing (the numbered frames are gone, art can bring them back). The sheet `graphics/trainer_card/badges.png` is 128x32: row 1 = slots 0-7, row 2 = slots 8-15. Row 2 loads at BG3 tile 352, clear of the mon icons (224-319) and the FRLG stickers (320-351).
+- **Every "count the badges" loop** (main menu, save menu, TV, shop, catch malus, match call, debug menu, battle setup) now goes through `gBadgeFlags[]` or `GetBadgeCount()`, so a non-contiguous badge flag works.
+- **HM gating** (`src/field_move.c`) reads `gBadgeFlags[arg]`, so any HM can be tied to any badge in the table by editing that move's `arg`. No HM is bound to badge 9 yet.
+- **Level and EV caps** (`src/caps.c`) have a badge 9 row. The level 50 is a PROPOSED placeholder and the caps are off by default (`B_LEVEL_CAP_TYPE`).
+- **Obedience** (`src/battle_util.c`): badge 9 now ignores obedience, badge 8 gives level 90.
+- **Art.** Slots 0-7 are Kaixer's coloured badges from the author's asset repo fork (`User Interface/Kaixer/Trainer Card Badges`). Slot 8 is a plain gold placeholder disc I drew. **Badge art is to be outsourced**, so the sheet is the one file to swap. Credit rows are in `CREDITS.md`.
+- Edits to upstream files are logged in [engine-edits.md](engine-edits.md).
+
+## Known limits and things not done
+
+- **One palette for all badges.** The card has no free BG palette bank (0-4 card and stars, 5-10 mon icons, 11-14 stickers, 15 text), so all badges share bank 3, one 15-colour palette. A per-badge palette is not possible without freeing a bank. Any new art has to use the sheet's palette (or replace it for all badges together).
+- **The Kaixer badges are recolours of the Emerald shapes** (Stone, Knuckle...), so they will not match Veldris gym themes and derive from Game Freak art. Fine as a stand-in.
+- **Names:** the table has no badge names yet, because the gym themes are not decided. Nothing in the game prints a badge name today.
+- **Not checked in an emulator:** card layout, tile budget, the `front.bin` edit, and that the badge sheet loads at BG tile 352 without clashing. All follow from reading `src/trainer_card.c` and `src/bg.c`.
+- **FRLG card type** (only from a link partner) keeps the vanilla 8-slot layout and does not show badge 9. `veldris_badges` is Emerald only and would not compile with `IS_FRLG`.
+- **Rematches and Route 23 style badge checks** still use `FLAG_BADGE05_GET` and the FRLG scripts; nothing in Veldris uses them yet.
+- No gym is built yet, so `FLAG_BADGE09_GET` is never set in play. Use the debug menu to test.
+
+The rest of this file is the research and reasoning that led here.
 
 Research date: 2026-09-29. Method: GitHub code search, then shallow read-only clones (added with the `add_repo` read path) of the repos below, reading the files cited. Nothing was built or run, so every statement about behaviour comes from reading source. **The PokéCommunity threads could not be read (HTTP 403, not worked around).** They are listed by URL only.
 
@@ -70,7 +94,7 @@ Spare flags for a separate badge block: `SYSTEM_FLAGS + 0x86..0x9F` (`FLAG_UNUSE
 
 ### Recommendation: C, done in stages, with A as the fallback
 
-**Design (PROPOSED):**
+**Design (as built, see "What was built" above; the trainer card differs from this first sketch: one row of up to 12 edge-to-edge badges instead of two rows of 6):**
 
 1. **A data-driven badge table** in a new hack-owned file (for example `src/veldris_badges.c` with `include/veldris_badges.h`), one row per badge slot: `id`, `flag`, `name`, `iconTile` (index into our own icon sheet), `palette`. Order in the table is the display order, so badges can be reordered or swapped without touching code. Badges 1 to 8 keep the vanilla flags `FLAG_BADGE01..08_GET`; badges 9 and up use flags from a claimed spare block. Vanilla flags stay in place so other code (and the debug menu) keep working.
 2. **One set of helpers** replaces the scattered loops: `GetBadgeCount()`, `HasBadge(id)`, `GetBadgeFlag(id)`. Every `NUM_BADGES` loop (`main_menu.c`, `menu.c`, `tv.c`, `match_call.c`, `shop_criteria.c`, `battle_script_commands.c`, `debug.c`, `battle_setup.c`) calls them. `gBadgeFlags` becomes derived from the table.
@@ -95,7 +119,7 @@ Spare flags for a separate badge block: `SYSTEM_FLAGS + 0x86..0x9F` (`FLAG_UNUSE
 
 **Fallback (option A)** costs no engine work: 8 real badges and the 9th gym awards a non-badge reward tracked by its own flag. It can be switched to C later.
 
-## Decisions for the author
+## Decisions for the author (answered 2026-09-29: 9 real badges, option C, badge art to be outsourced, use the asset repo fork; badge flag 0x88E chosen instead of the 0x8E6 proposal so the story-beat range stays intact)
 
 1. Real 9th badge (option C, or B) or a non-badge 9th reward (option A)?
 2. If C: OK to carve a badge flag block out of the spare pool (proposal: 0x8E6-0x8ED, which overlaps the story-beat reservation in `flags.md`)?

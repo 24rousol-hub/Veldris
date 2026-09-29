@@ -27,7 +27,7 @@ Vars: persistent vars are 0x4000-0x40FF (256 in total). `VAR_TEMP_0` to `VAR_TEM
 
 | Name | Value | Kind | Purpose | Set by | Cleared by | Added in |
 |---|---|---|---|---|---|---|
-| _(none yet)_ | | | | | | |
+| `FLAG_BADGE09_GET` | 0x88E | Story | 9th gym badge (was `FLAG_UNUSED_0x88E`). Listed in `include/veldris_badges.h` | The 9th gym leader's script (`setflag FLAG_BADGE09_GET`) | Debug menu only | 2026-09-29 |
 
 ## Spare pool: permanent flags
 
@@ -58,7 +58,7 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 | 0x4F9-0x4FA, 0x4FF | 2 + 1 | General purpose |
 | 0x863 | 1 | General purpose |
 | 0x881-0x887 | 7 | General purpose |
-| 0x88E-0x88F | 2 | General purpose |
+| 0x88F | 1 | General purpose (0x88E is now `FLAG_BADGE09_GET`) |
 | 0x8E3 | 1 | General purpose |
 | **0x8E5-0x91E** | 58 | **Story beats and cutscenes:** gyms, Elite Four, post-game. Spill into the general flags if needed |
 
@@ -83,5 +83,5 @@ Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x4
 ## Related limits worth knowing
 
 - **Trainer slots.** `TRAINERS_COUNT` is 855 and `MAX_TRAINERS_COUNT` is 864, so only **9 new trainer IDs** fit before trainer flag space overflows (upstream's own note in `include/constants/opponents.h`). New trainers must reuse IDs of vanilla trainers you no longer need (rename them), or `MAX_TRAINERS_COUNT` is raised. That costs save block space, but there are about 176 bytes of headroom (roughly 1,400 flags), so a few hundred more trainers fit. It shifts every system and daily flag, which is fine on a fresh start. See [engine-limits.md](engine-limits.md). `TRAINER_CRESTFALL_GRETA` needs one of these. See open decision 6 in [game-bible.md](game-bible.md).
-- **Badges.** Flags 0x867-0x86E, and 0x86F is already a `FLAG_VISITED_*`. See open decision 1 in [game-bible.md](game-bible.md).
+- **Badges.** Flags 0x867-0x86E are badges 1-8, and 0x86F is already a `FLAG_VISITED_*`, so badge 9 is `FLAG_BADGE09_GET` at 0x88E. See [badges.md](badges.md).
 - **Fly flags.** `FLAG_VISITED_*` are Hoenn-named and sit in the system block. See [region-map.md](region-map.md).
