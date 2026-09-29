@@ -4,7 +4,7 @@ Fixed by the author: **18 towns, 33 routes.** Status legend: PROPOSED / APPROVED
 
 Only the first 3 towns and 3 routes are named for now, so they can be flown between. Everything else is a numbered placeholder. **The names of towns 1 to 3 are APPROVED** (author, 2026-09-29): Hollowbrook, Wendlebury, and Crestfall (from the author's `TRAINER_CRESTFALL_GRETA`, the first gym town). Everything else is a placeholder.
 
-Map cells, connections and the full section list for all 18 towns and 33 routes are in [region-map.md](region-map.md) (layout proposal). Towns 4 to 18 and routes 4 to 33 keep placeholder names until the author names them.
+Where each map comes from (Palladium references and vanilla bases): [map-plan.md](map-plan.md). Map cells, connections and the full section list for all 18 towns and 33 routes are in [region-map.md](region-map.md) (layout proposal). Towns 4 to 18 and routes 4 to 33 keep placeholder names until the author names them.
 
 ## Naming convention (PROPOSED)
 

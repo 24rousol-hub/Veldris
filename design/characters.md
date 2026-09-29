@@ -21,7 +21,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - The professor who starts the player's journey.
 - Replaces Prof. Birch in the intro. Intro text lives in `data/text/birch_speech.inc` (C-driven intro).
 - Voice (PROPOSED): kindly, easily distracted, endlessly tolerant of the player's grudge.
-- **Intro drafted 2026-09-29** in `data/text/birch_speech.inc` (text only, labels unchanged). **PROPOSED until the author's tone check.** Beats: he lost track of the time; 'Everyone calls me the POKéMON PROFESSOR. Except my hens.'; 'So you're PLAYER. Splendid. I'll remember that. Probably.'; and he asks the player to be polite to a boy named BEAUREGARD GOLDSWORTH IV, which seeds Troglodyte.
+- **Intro drafted 2026-09-29** in `data/text/birch_speech.inc` (text only, labels unchanged). **Tone APPROVED by the author (2026-09-29).** Beats: he lost track of the time; 'Everyone calls me the POKéMON PROFESSOR. Except my hens.'; 'So you're PLAYER. Splendid. I'll remember that. Probably.'; and he asks the player to be polite to a boy named BEAUREGARD GOLDSWORTH IV, which seeds Troglodyte.
 - FENNICK is written into the text directly (there is no placeholder for it).
 - **Art still to do:** the intro portrait `graphics/birch_speech/birch.png` (64x64, 16 colours) still shows Birch. His overworld sprite could be RavePossum's `prof_birch` (see [asset-inventory.md](asset-inventory.md)).
 
