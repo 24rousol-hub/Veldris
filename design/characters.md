@@ -12,6 +12,8 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - Sheltered and mediocre rival. **(author)**
 - Rich parents who keep trying elaborate gym sabotage schemes that fail. **(author)**
 - Voice (PROPOSED): pompous, entitled and sheltered, never quite understands why he lost. Refers to his family and their money. He is a Goldsworth, so he may swear a little (author). Whether his attitude to ordinary people is his parents' obliviousness or the wider family's contempt is open decision 13 in [game-bible.md](game-bible.md).
+- **Why he is in Hollowbrook (author, 2026-09-29):** he came to meet his grandfather, who was not there at the time. He takes his frustration out on Prof. Fennick and forces him to give him a Pokémon.
+- **His starter is random among the starters (author).** Mechanics and cost: 'Troglodyte's starter' in [story-outline.md](story-outline.md).
 - Team (PROPOSED): well-bred Pokémon, poorly trained. Strong on paper, tactically naive.
 - First named in Prof. Fennick's intro as BEAUREGARD GOLDSWORTH IV (PROPOSED, see Prof. Fennick below).
 - In text, write **TROGLODYTE** literally. Do not use `{RIVAL}`: in this engine it expands to MAY or BRENDAN (`src/string_util.c`).
@@ -21,6 +23,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - The professor who starts the player's journey.
 - Replaces Prof. Birch in the intro. Intro text lives in `data/text/birch_speech.inc` (C-driven intro).
 - Voice (PROPOSED): kindly, easily distracted, endlessly tolerant of the player's grudge.
+- **Troglodyte bullies him into handing over a Pokémon (author, 2026-09-29).** Fennick goes along with it. That is the player's first look at Troglodyte, and a reason for the grudge (PROPOSED).
 - **Intro drafted 2026-09-29** in `data/text/birch_speech.inc` (text only, labels unchanged). **Tone APPROVED by the author (2026-09-29).** Beats: he lost track of the time; 'Everyone calls me the POKéMON PROFESSOR. Except my hens.'; 'So you're PLAYER. Splendid. I'll remember that. Probably.'; and he asks the player to be polite to a boy named BEAUREGARD GOLDSWORTH IV, which seeds Troglodyte.
 - FENNICK is written into the text directly (there is no placeholder for it).
 - **Art still to do:** the intro portrait `graphics/birch_speech/birch.png` (64x64, 16 colours) still shows Birch. His overworld sprite could be RavePossum's `prof_birch` (see [asset-inventory.md](asset-inventory.md)).
@@ -59,7 +62,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 
 - A kind old man, the former head of the Goldsworth family, forced to step down because of his health. Retired, and living in the Goldsworth house in the player's home town (Hollowbrook).
 - He is the warm exception in a family of assholes, and the humour never lands on him (PROPOSED). His voice is gentle and dignified, with no swearing (PROPOSED).
-- He is the first Goldsworth the player can meet in person (PROPOSED). What he says and does in the story is TBD by the author.
+- Troglodyte came to Hollowbrook to meet him and he was not there at the time (author). Where he was, and what he says and does in the story, are TBD by the author.
 - Name TBD.
 
 ### Troglodyte's parents

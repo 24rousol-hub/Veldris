@@ -70,6 +70,8 @@ Reminder: the spare flags for ordinary game state are numerous but they are not 
 
 Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x40A8, 0x40B8, 0x40BB, 0x40DB, 0x40DC, 0x40E5, and 0x40F7 to 0x40FF (9 in a row). Two of them, **0x4083 and 0x408B, are also used as FRLG map-script variables** (through `vars_frlg.h` aliases). FRLG maps are not built into this Emerald ROM, so they are safe here, but skip them if FRLG maps are ever enabled. That leaves 20 with no alias at all.
 
+**Planned, not claimed yet:** one var for Troglodyte's random starter (0, 1 or 2, like `VAR_STARTER_MON`), set by the lab scene and read by every later Troglodyte battle. Claim it and add its row here when the lab script is written.
+
 **Only 22 spare persistent vars.** Use a var only for a state that has more than two values (a story chapter counter, a puzzle stage). Use a flag for anything yes/no. If we run short, the remaining Hoenn vars can be freed by removing the Hoenn maps that use them, but that is a decision for the author.
 
 ## Range and comment traps
