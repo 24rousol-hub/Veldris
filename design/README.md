@@ -16,6 +16,8 @@
 | [engine-edits.md](engine-edits.md) | Every edit to upstream (non-hack) files | You edit anything outside hack content |
 | [asset-inventory.md](asset-inventory.md) | What is usable in the asset repos, and what has been imported | An asset is imported |
 
+Tool: [tools/dialogue_check.py](tools/dialogue_check.py) checks that dialogue fits the text box (see [dialogue-style.md](dialogue-style.md)).
+
 ## Status words
 
 Everything an assistant suggests starts as **PROPOSED**. It only becomes canon when the author says so.

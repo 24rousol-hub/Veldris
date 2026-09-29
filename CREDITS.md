@@ -27,7 +27,7 @@ A personal-use fan project. It is built on pokeemerald-expansion and is not affi
 
 These are where assets are found. A row above is still needed for every individual asset used.
 
-- [Team-Aquas-Asset-Repo](https://github.com/Pawkkie/Team-Aquas-Asset-Repo), maintained by Pawkkie and the Team Aqua's Hideout community. Free to use and edit by default unless a folder README says otherwise. Creator credit is required, and each folder's README names the creators.
+- [Team-Aquas-Asset-Repo](https://github.com/TeamAquasHideout/Team-Aquas-Asset-Repo), maintained by Pawkkie and the Team Aqua's Hideout community. (The README in the author's copy links `github.com/Pawkkie/Team-Aquas-Asset-Repo`, while the Team Aqua's Hideout organisation hosts it at the link above, which was read successfully on 2026-09-29.) Free to use and edit by default unless a folder README says otherwise. Creator credit is required, and each folder's README names the creators.
 - [PokeAPI sprites](https://github.com/PokeAPI/sprites), with contributors as listed in that repository. The repository is CC0 1.0, but its licence file states that all image contents are Copyright The Pokémon Company, so the images stay personal-use fan material.
 
 ---
