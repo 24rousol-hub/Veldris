@@ -45,7 +45,7 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 
 | Range | Count | Proposed block (PROPOSED) |
 |---|---|---|
-| 0x020-0x04F | 48 | General purpose, first-fit |
+| 0x020-0x04F | 48 | **Fly visited flags** for Veldris towns (18 needed: 0x020-0x031). The rest general purpose, first-fit |
 | 0x054-0x055 | 2 | General purpose |
 | 0x068 | 1 | General purpose |
 | 0x0E9 | 1 | General purpose |
