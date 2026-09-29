@@ -167,7 +167,7 @@ Note: the `VELDRIS_FLY_ROW` parameter is called `visited`, not `flag`, because a
 
 ---
 
-# Veldris layout proposal (PROPOSED, not approved)
+# Veldris layout proposal (shape APPROVED 2026-09-29; details PROPOSED)
 
 **Version 3.** The same organic shape as version 2 (a crescent of land around an inland bay, placeholder name Marrow Bay), redrawn in the style of the game's own town map and of the example you sent: striped sea, textured green land, wide bands for routes, round markers for towns. It replaces the lattice of version 1 and the thin smooth roads of version 2.
 
@@ -358,9 +358,19 @@ These are the six records for `src/data/region_map/region_map_sections.json`. Th
 ]
 ```
 
+## Denser tile art: what "zoom out" means here (author, 2026-09-29)
+
+The author meant making the individual tiles more pixel dense so more fits into the same amount of space. Findings, checked in this tree:
+
+- **The picture and the cell grid are independent.** The picture is 8x8-pixel tiles and can carry any pixel detail: thinner roads, a finer coastline, small markers, shading. That costs no engine edit.
+- **The picture's real limit is 256 distinct tiles**, not pixels. Layout v3 uses 148, so about **108 are spare** for extra detail.
+- **Cells are not scarce.** The 28 x 15 grid uses 155 of 420 cells (37%). **Section IDs are the scarce resource** (about 43 spare, 51 wanted), and denser art does not change that.
+- **A finer cell grid** (cells smaller than one 8x8 tile, to fit more distinct places) would be an **engine edit**. Counted by grep as a rough measure: `src/region_map.c` has 26 references to the grid constants and 21 places with 8-pixel arithmetic (cursor, player icon, fly icons); `src/pokedex_area_screen.c` has 9 more; `src/field_region_map.c` and `src/pokenav_region_map.c` one each. The layout array and every section rectangle are also in cell units. Not recommended now. Revisit only if the cells run out.
+- **Recommendation:** keep 28 x 15 and spend the spare tiles on detail. Whether the Region Map Editor supports any cell size other than one tile is still to be checked against its manual.
+
 ## What is still open
 
-1. Does the overall shape work? The author approved the names and the vanilla GBA look but has not said anything about the shape itself, so treat it as not yet approved.
-2. What did the author mean by "zoom it out"? If it means more than 28 x 15 cells, that is an engine edit.
+1. ~~Does the overall shape work?~~ **Resolved (author, 2026-09-29):** the shape is APPROVED.
+2. ~~What did the author mean by "zoom it out"?~~ **Resolved:** denser tile art, see above.
 3. Marrow Bay is a placeholder name.
 4. Approach A-prime needs the author's go-ahead before any engine edit.
