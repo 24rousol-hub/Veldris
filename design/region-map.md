@@ -65,124 +65,127 @@ Recommendation: **A**, and reuse vanilla IDs for the remainder once the spare ID
 
 # Veldris layout proposal (PROPOSED, not approved)
 
-A first layout for the whole region: **18 towns, 33 routes** (30 on land, 3 by sea). Only towns 1 to 3 and routes 1 to 3 are meant to be built first, so all three towns can be flown between.
+**Version 2.** The first version was a lattice: evenly spaced towns joined by ruler-straight routes. This one replaces it with a shape that has a character of its own.
 
-**Native size, 256x160** (the whole Pokénav screen). One cell is 8x8 px. The cursor grid is 28 x 15 cells and starts at tile (1, 2), i.e. pixel (8, 16) (`MAPCURSOR_X_MIN` and `MAPCURSOR_Y_MIN` in `src/region_map.c`). The first three towns and routes have a gold outline.
+**The shape:** a crescent of land wrapped around an inland bay (placeholder name: Marrow Bay). The start is farmland in the south-west. Mountains run along the north coast and out to the north-east tip. The south arm curls around to a south-eastern peninsula. Three small islands sit in the bay for later. A river runs from the northern hills to the bay, and there are lakes and forest patches. Roads wind around all of it.
 
-![Veldris layout at 256x160](veldris-layout-256x160.png)
+**Native size, 256x160** (the whole Pokénav screen). The first three towns and routes have a gold outline.
+
+![Veldris at 256x160](veldris-layout-256x160.png)
 
 **Labelled, 4x** ([open it full size](veldris-layout-annotated.png)):
 
-![Veldris layout, labelled](veldris-layout-annotated.png)
+![Veldris, labelled](veldris-layout-annotated.png)
 
-## How to read it
+## Why it is not a grid
 
-- Farm country in the south-west (the start). Sea along the east and south. Mountains in the north-west and north-east. A lake in the middle, ringed by routes. These are only painted hints for you to reshape.
-- Every route is a straight one-cell corridor, so each route is one rectangle (`x, y, width, height`) in the section list. That keeps the grid simple. Bend them if you prefer, but then the section rectangle and the grid must be kept in agreement.
-- The town order T4 to T18 follows a suggested main path. It is **not** the gym order. Only T3 (Crestfall, gym 1) is fixed.
-- Route 3 leaves Crestfall and stays blocked (gate or barricade) until town 4 exists. Routes 27 to 33 are dead ends and sea routes for later.
-- This is a plan, not the final art. The game draws the map from 8x8 tiles and a tilemap (`graphics/pokenav/region_map/`), so the picture is painted with tiles later, in the Region Map Editor.
+- **The picture and the cells are separate things.** The picture is painted from 8x8 tiles, so the coastline, islands and roads can be any shape. The 28 x 15 cells only tell the game which section the cursor is on. They are never drawn ([technical view of the cells](veldris-layout-cells.png), for the Region Map Editor step).
+- Towns sit where the land wants them, not on a lattice. Routes wind around lakes, forest and mountains. Each route is a staircase of touching cells, which reads as a bend or a diagonal on the picture.
+- **"Zoomed out":** each cell stands for a big stretch of land, so a town is one cell and a route is a few bent cells. The 28 x 15 size itself is fixed by the engine (`MAP_WIDTH` and `MAP_HEIGHT` in `src/region_map.c`). If you meant a bigger map area than that, it needs an engine edit, so say so and I will look at what it costs.
 
 ## Numbers
 
-- 18 towns and 33 routes. 128 of the 420 cells are used. Every town is reachable from town 1 (checked).
-- **Section budget:** 18 + 33 = 51 sections, against about 43 spare IDs. See "Limits found" above. The first 6 fit easily.
+- 18 towns and 33 routes: **23 links between towns** (17 on land, 6 by sea) and **10 side paths** that dead-end (a lane into the hills, a cove). 155 of the 420 cells are used.
+- Checked by script: every route sits on the right terrain (land or sea), routes never overlap, every route touches its towns, every town is reachable from town 1, and no town has more than 4 routes (a town is one cell, so only its 4 neighbours can hold a route).
+- Numbers are placeholders. Only routes 1 to 3 are meaningful: town 1 to 2, town 2 to 3 (Crestfall), and town 3 onwards to town 4, which stays blocked at first.
+- **Section budget:** 51 sections against about 43 spare IDs. See "Limits found" above. The first 6 fit easily.
+- A winding route's rectangle is the bounding box of its cells, exactly as Hoenn does it (52 of Hoenn's 54 section rectangles equal the bounding box of their cells; Route 114 is a 4-cell bend inside a 2x3 box). The player marker is placed inside that box, so on a bent route it may not sit exactly on the road. Untested in game.
 
 ## Section list
 
-`x`, `y`, `w`, `h` are in cells and match what `region_map_sections.json` needs. Names are placeholders.
+`x`, `y`, `w`, `h` are in cells and are what `region_map_sections.json` needs. Names are placeholders. The full cell lists are in [`veldris-layout.json`](veldris-layout.json), reference data for entering the cells by hand (nothing reads it at build time).
 
-| # | Section id | Name shown | x | y | w | h | Status |
-|---|---|---|---|---|---|---|---|
-| T1 | `MAPSEC_HOLLOWBROOK` | HOLLOWBROOK | 2 | 12 | 1 | 1 | **build first** |
-| T2 | `MAPSEC_WENDLEBURY` | WENDLEBURY | 7 | 12 | 1 | 1 | **build first** |
-| T3 | `MAPSEC_CRESTFALL` | CRESTFALL | 7 | 8 | 1 | 1 | **build first** |
-| T4 | `MAPSEC_VELDRIS_TOWN_04` | TOWN 04 | 12 | 8 | 1 | 1 | planned |
-| T5 | `MAPSEC_VELDRIS_TOWN_05` | TOWN 05 | 12 | 12 | 1 | 1 | planned |
-| T6 | `MAPSEC_VELDRIS_TOWN_06` | TOWN 06 | 17 | 12 | 1 | 1 | planned |
-| T7 | `MAPSEC_VELDRIS_TOWN_07` | TOWN 07 | 22 | 12 | 1 | 1 | planned |
-| T8 | `MAPSEC_VELDRIS_TOWN_08` | TOWN 08 | 22 | 8 | 1 | 1 | planned |
-| T9 | `MAPSEC_VELDRIS_TOWN_09` | TOWN 09 | 17 | 8 | 1 | 1 | planned |
-| T10 | `MAPSEC_VELDRIS_TOWN_10` | TOWN 10 | 17 | 4 | 1 | 1 | planned |
-| T11 | `MAPSEC_VELDRIS_TOWN_11` | TOWN 11 | 22 | 4 | 1 | 1 | planned |
-| T12 | `MAPSEC_VELDRIS_TOWN_12` | TOWN 12 | 22 | 1 | 1 | 1 | planned |
-| T13 | `MAPSEC_VELDRIS_TOWN_13` | TOWN 13 | 12 | 4 | 1 | 1 | planned |
-| T14 | `MAPSEC_VELDRIS_TOWN_14` | TOWN 14 | 7 | 4 | 1 | 1 | planned |
-| T15 | `MAPSEC_VELDRIS_TOWN_15` | TOWN 15 | 2 | 4 | 1 | 1 | planned |
-| T16 | `MAPSEC_VELDRIS_TOWN_16` | TOWN 16 | 2 | 8 | 1 | 1 | planned |
-| T17 | `MAPSEC_VELDRIS_TOWN_17` | TOWN 17 | 12 | 1 | 1 | 1 | planned |
-| T18 | `MAPSEC_VELDRIS_TOWN_18` | TOWN 18 | 17 | 1 | 1 | 1 | planned |
-| R1 | `MAPSEC_VELDRIS_ROUTE_1` | ROUTE 1 | 3 | 12 | 4 | 1 | **build first** |
-| R2 | `MAPSEC_VELDRIS_ROUTE_2` | ROUTE 2 | 7 | 9 | 1 | 3 | **build first** |
-| R3 | `MAPSEC_VELDRIS_ROUTE_3` | ROUTE 3 | 8 | 8 | 4 | 1 | **build first** |
-| R4 | `MAPSEC_VELDRIS_ROUTE_4` | ROUTE 4 | 12 | 9 | 1 | 3 | planned |
-| R5 | `MAPSEC_VELDRIS_ROUTE_5` | ROUTE 5 | 13 | 12 | 4 | 1 | planned |
-| R6 | `MAPSEC_VELDRIS_ROUTE_6` | ROUTE 6 | 18 | 12 | 4 | 1 | planned |
-| R7 | `MAPSEC_VELDRIS_ROUTE_7` | ROUTE 7 | 22 | 9 | 1 | 3 | planned |
-| R8 | `MAPSEC_VELDRIS_ROUTE_8` | ROUTE 8 | 18 | 8 | 4 | 1 | planned |
-| R9 | `MAPSEC_VELDRIS_ROUTE_9` | ROUTE 9 | 17 | 5 | 1 | 3 | planned |
-| R10 | `MAPSEC_VELDRIS_ROUTE_10` | ROUTE 10 | 18 | 4 | 4 | 1 | planned |
-| R11 | `MAPSEC_VELDRIS_ROUTE_11` | ROUTE 11 | 13 | 4 | 4 | 1 | planned |
-| R12 | `MAPSEC_VELDRIS_ROUTE_12` | ROUTE 12 | 8 | 4 | 4 | 1 | planned |
-| R13 | `MAPSEC_VELDRIS_ROUTE_13` | ROUTE 13 | 3 | 4 | 4 | 1 | planned |
-| R14 | `MAPSEC_VELDRIS_ROUTE_14` | ROUTE 14 | 2 | 5 | 1 | 3 | planned |
-| R15 | `MAPSEC_VELDRIS_ROUTE_15` | ROUTE 15 | 2 | 9 | 1 | 3 | planned |
-| R16 | `MAPSEC_VELDRIS_ROUTE_16` | ROUTE 16 | 8 | 12 | 4 | 1 | planned |
-| R17 | `MAPSEC_VELDRIS_ROUTE_17` | ROUTE 17 | 7 | 5 | 1 | 3 | planned |
-| R18 | `MAPSEC_VELDRIS_ROUTE_18` | ROUTE 18 | 13 | 8 | 4 | 1 | planned |
-| R19 | `MAPSEC_VELDRIS_ROUTE_19` | ROUTE 19 | 17 | 9 | 1 | 3 | planned |
-| R20 | `MAPSEC_VELDRIS_ROUTE_20` | ROUTE 20 | 12 | 5 | 1 | 3 | planned |
-| R21 | `MAPSEC_VELDRIS_ROUTE_21` | ROUTE 21 | 22 | 5 | 1 | 3 | planned |
-| R22 | `MAPSEC_VELDRIS_ROUTE_22` | ROUTE 22 | 12 | 2 | 1 | 2 | planned |
-| R23 | `MAPSEC_VELDRIS_ROUTE_23` | ROUTE 23 | 17 | 2 | 1 | 2 | planned |
-| R24 | `MAPSEC_VELDRIS_ROUTE_24` | ROUTE 24 | 13 | 1 | 4 | 1 | planned |
-| R25 | `MAPSEC_VELDRIS_ROUTE_25` | ROUTE 25 | 22 | 2 | 1 | 2 | planned |
-| R26 | `MAPSEC_VELDRIS_ROUTE_26` | ROUTE 26 | 18 | 1 | 4 | 1 | planned |
-| R27 | `MAPSEC_VELDRIS_ROUTE_27` | ROUTE 27 | 2 | 13 | 1 | 2 | planned |
-| R28 | `MAPSEC_VELDRIS_ROUTE_28` | ROUTE 28 | 23 | 12 | 4 | 1 | planned (sea route) |
-| R29 | `MAPSEC_VELDRIS_ROUTE_29` | ROUTE 29 | 22 | 13 | 1 | 2 | planned (sea route) |
-| R30 | `MAPSEC_VELDRIS_ROUTE_30` | ROUTE 30 | 2 | 1 | 1 | 3 | planned |
-| R31 | `MAPSEC_VELDRIS_ROUTE_31` | ROUTE 31 | 7 | 1 | 1 | 3 | planned |
-| R32 | `MAPSEC_VELDRIS_ROUTE_32` | ROUTE 32 | 23 | 1 | 4 | 1 | planned |
-| R33 | `MAPSEC_VELDRIS_ROUTE_33` | ROUTE 33 | 23 | 8 | 4 | 1 | planned (sea route) |
+| # | Section id | Name shown | x | y | w | h | Cells | Status |
+|---|---|---|---|---|---|---|---|---|
+| T1 | `MAPSEC_HOLLOWBROOK` | HOLLOWBROOK | 3 | 12 | 1 | 1 | 1 | **build first** |
+| T2 | `MAPSEC_WENDLEBURY` | WENDLEBURY | 8 | 11 | 1 | 1 | 1 | **build first** |
+| T3 | `MAPSEC_CRESTFALL` | CRESTFALL | 5 | 7 | 1 | 1 | 1 | **build first** |
+| T4 | `MAPSEC_VELDRIS_TOWN_04` | TOWN 04 | 2 | 4 | 1 | 1 | 1 | planned |
+| T5 | `MAPSEC_VELDRIS_TOWN_05` | TOWN 05 | 8 | 2 | 1 | 1 | 1 | planned |
+| T6 | `MAPSEC_VELDRIS_TOWN_06` | TOWN 06 | 12 | 4 | 1 | 1 | 1 | planned |
+| T7 | `MAPSEC_VELDRIS_TOWN_07` | TOWN 07 | 11 | 8 | 1 | 1 | 1 | planned |
+| T8 | `MAPSEC_VELDRIS_TOWN_08` | TOWN 08 | 14 | 12 | 1 | 1 | 1 | planned |
+| T9 | `MAPSEC_VELDRIS_TOWN_09` | TOWN 09 | 19 | 11 | 1 | 1 | 1 | planned |
+| T10 | `MAPSEC_VELDRIS_TOWN_10` | TOWN 10 | 16 | 2 | 1 | 1 | 1 | planned |
+| T11 | `MAPSEC_VELDRIS_TOWN_11` | TOWN 11 | 21 | 3 | 1 | 1 | 1 | planned |
+| T12 | `MAPSEC_VELDRIS_TOWN_12` | TOWN 12 | 25 | 4 | 1 | 1 | 1 | planned |
+| T13 | `MAPSEC_VELDRIS_TOWN_13` | TOWN 13 | 18 | 5 | 1 | 1 | 1 | planned |
+| T14 | `MAPSEC_VELDRIS_TOWN_14` | TOWN 14 | 26 | 10 | 1 | 1 | 1 | planned |
+| T15 | `MAPSEC_VELDRIS_TOWN_15` | TOWN 15 | 23 | 12 | 1 | 1 | 1 | planned |
+| T16 | `MAPSEC_VELDRIS_TOWN_16` | TOWN 16 | 18 | 8 | 1 | 1 | 1 | planned |
+| T17 | `MAPSEC_VELDRIS_TOWN_17` | TOWN 17 | 22 | 7 | 1 | 1 | 1 | planned |
+| T18 | `MAPSEC_VELDRIS_TOWN_18` | TOWN 18 | 25 | 8 | 1 | 1 | 1 | planned |
+| R1 | `MAPSEC_VELDRIS_ROUTE_1` | ROUTE 1 | 4 | 11 | 4 | 2 | 5 | **build first** |
+| R2 | `MAPSEC_VELDRIS_ROUTE_2` | ROUTE 2 | 5 | 8 | 4 | 3 | 6 | **build first** |
+| R3 | `MAPSEC_VELDRIS_ROUTE_3` | ROUTE 3 | 2 | 5 | 3 | 3 | 5 | **build first** |
+| R4 | `MAPSEC_VELDRIS_ROUTE_4` | ROUTE 4 | 3 | 3 | 6 | 2 | 7 | planned |
+| R5 | `MAPSEC_VELDRIS_ROUTE_5` | ROUTE 5 | 9 | 2 | 3 | 3 | 5 | planned |
+| R6 | `MAPSEC_VELDRIS_ROUTE_6` | ROUTE 6 | 11 | 5 | 2 | 3 | 4 | planned |
+| R7 | `MAPSEC_VELDRIS_ROUTE_7` | ROUTE 7 | 12 | 8 | 3 | 4 | 6 | planned |
+| R8 | `MAPSEC_VELDRIS_ROUTE_8` | ROUTE 8 | 15 | 11 | 4 | 2 | 5 | planned |
+| R9 | `MAPSEC_VELDRIS_ROUTE_9` | ROUTE 9 | 19 | 12 | 4 | 1 | 4 | planned |
+| R10 | `MAPSEC_VELDRIS_ROUTE_10` | ROUTE 10 | 23 | 10 | 3 | 2 | 4 | planned |
+| R11 | `MAPSEC_VELDRIS_ROUTE_11` | ROUTE 11 | 12 | 2 | 4 | 2 | 5 | planned |
+| R12 | `MAPSEC_VELDRIS_ROUTE_12` | ROUTE 12 | 16 | 3 | 3 | 2 | 4 | planned |
+| R13 | `MAPSEC_VELDRIS_ROUTE_13` | ROUTE 13 | 19 | 4 | 3 | 2 | 4 | planned |
+| R14 | `MAPSEC_VELDRIS_ROUTE_14` | ROUTE 14 | 22 | 3 | 3 | 2 | 4 | planned |
+| R15 | `MAPSEC_VELDRIS_ROUTE_15` | ROUTE 15 | 6 | 7 | 5 | 2 | 6 | planned |
+| R16 | `MAPSEC_VELDRIS_ROUTE_16` | ROUTE 16 | 8 | 12 | 6 | 1 | 6 | planned |
+| R17 | `MAPSEC_VELDRIS_ROUTE_17` | ROUTE 17 | 8 | 1 | 9 | 1 | 9 | planned |
+| R18 | `MAPSEC_VELDRIS_ROUTE_18` | ROUTE 18 | 18 | 6 | 1 | 2 | 2 | planned (sea route) |
+| R19 | `MAPSEC_VELDRIS_ROUTE_19` | ROUTE 19 | 19 | 7 | 3 | 2 | 4 | planned (sea route) |
+| R20 | `MAPSEC_VELDRIS_ROUTE_20` | ROUTE 20 | 22 | 8 | 3 | 1 | 3 | planned (sea route) |
+| R21 | `MAPSEC_VELDRIS_ROUTE_21` | ROUTE 21 | 25 | 5 | 1 | 3 | 3 | planned (sea route) |
+| R22 | `MAPSEC_VELDRIS_ROUTE_22` | ROUTE 22 | 26 | 8 | 1 | 2 | 2 | planned (sea route) |
+| R23 | `MAPSEC_VELDRIS_ROUTE_23` | ROUTE 23 | 18 | 9 | 2 | 2 | 3 | planned (sea route) |
+| R24 | `MAPSEC_VELDRIS_ROUTE_24` | ROUTE 24 | 1 | 12 | 2 | 1 | 2 | planned (side path) |
+| R25 | `MAPSEC_VELDRIS_ROUTE_25` | ROUTE 25 | 3 | 6 | 3 | 1 | 3 | planned (side path) |
+| R26 | `MAPSEC_VELDRIS_ROUTE_26` | ROUTE 26 | 2 | 1 | 2 | 3 | 4 | planned (side path) |
+| R27 | `MAPSEC_VELDRIS_ROUTE_27` | ROUTE 27 | 5 | 2 | 3 | 1 | 3 | planned (side path) |
+| R28 | `MAPSEC_VELDRIS_ROUTE_28` | ROUTE 28 | 13 | 3 | 2 | 2 | 3 | planned (side path) |
+| R29 | `MAPSEC_VELDRIS_ROUTE_29` | ROUTE 29 | 13 | 13 | 2 | 1 | 2 | planned (side path) |
+| R30 | `MAPSEC_VELDRIS_ROUTE_30` | ROUTE 30 | 17 | 1 | 2 | 2 | 3 | planned (side path) |
+| R31 | `MAPSEC_VELDRIS_ROUTE_31` | ROUTE 31 | 21 | 2 | 4 | 2 | 5 | planned (side path) |
+| R32 | `MAPSEC_VELDRIS_ROUTE_32` | ROUTE 32 | 25 | 11 | 2 | 3 | 4 | planned (side path) |
+| R33 | `MAPSEC_VELDRIS_ROUTE_33` | ROUTE 33 | 22 | 13 | 2 | 1 | 2 | planned (side path) |
 
 ## Route connections
 
-| Route | From | To | Kind |
-|---|---|---|---|
-| R1 | T1 Hollowbrook | T2 Wendlebury | land |
-| R2 | T2 Wendlebury | T3 Crestfall | land |
-| R3 | T3 Crestfall | T4 | land |
-| R4 | T4 | T5 | land |
-| R5 | T5 | T6 | land |
-| R6 | T6 | T7 | land |
-| R7 | T7 | T8 | land |
-| R8 | T8 | T9 | land |
-| R9 | T9 | T10 | land |
-| R10 | T10 | T11 | land |
-| R11 | T10 | T13 | land |
-| R12 | T13 | T14 | land |
-| R13 | T14 | T15 | land |
-| R14 | T15 | T16 | land |
-| R15 | T16 | T1 Hollowbrook | land |
-| R16 | T2 Wendlebury | T5 | land |
-| R17 | T3 Crestfall | T14 | land |
-| R18 | T4 | T9 | land |
-| R19 | T6 | T9 | land |
-| R20 | T13 | T4 | land |
-| R21 | T11 | T8 | land |
-| R22 | T13 | T17 | land |
-| R23 | T10 | T18 | land |
-| R24 | T17 | T18 | land |
-| R25 | T11 | T12 | land |
-| R26 | T12 | T18 | land |
-| R27 | T1 Hollowbrook | dead end / sea | dead end |
-| R28 | T7 | dead end / sea | sea (Surf) |
-| R29 | T7 | dead end / sea | sea (Surf) |
-| R30 | T15 | dead end / sea | dead end |
-| R31 | T14 | dead end / sea | dead end |
-| R32 | T12 | dead end / sea | dead end |
-| R33 | T8 | dead end / sea | sea (Surf) |
+| Route | From | To | Kind | Cells |
+|---|---|---|---|---|
+| R1 | T1 Hollowbrook | T2 Wendlebury | land | 5 |
+| R2 | T2 Wendlebury | T3 Crestfall | land | 6 |
+| R3 | T3 Crestfall | T4 | land | 5 |
+| R4 | T4 | T5 | land | 7 |
+| R5 | T5 | T6 | land | 5 |
+| R6 | T6 | T7 | land | 4 |
+| R7 | T7 | T8 | land | 6 |
+| R8 | T8 | T9 | land | 5 |
+| R9 | T9 | T15 | land | 4 |
+| R10 | T15 | T14 | land | 4 |
+| R11 | T6 | T10 | land | 5 |
+| R12 | T10 | T13 | land | 4 |
+| R13 | T13 | T11 | land | 4 |
+| R14 | T11 | T12 | land | 4 |
+| R15 | T3 Crestfall | T7 | land | 6 |
+| R16 | T2 Wendlebury | T8 | land | 6 |
+| R17 | T5 | T10 | land | 9 |
+| R18 | T13 | T16 | sea (Surf) | 2 |
+| R19 | T16 | T17 | sea (Surf) | 4 |
+| R20 | T17 | T18 | sea (Surf) | 3 |
+| R21 | T12 | T18 | sea (Surf) | 3 |
+| R22 | T14 | T18 | sea (Surf) | 2 |
+| R23 | T9 | T16 | sea (Surf) | 3 |
+| R24 | T1 Hollowbrook | dead end | side path (dead end) | 2 |
+| R25 | T3 Crestfall | dead end | side path (dead end) | 3 |
+| R26 | T4 | dead end | side path (dead end) | 4 |
+| R27 | T5 | dead end | side path (dead end) | 3 |
+| R28 | T6 | dead end | side path (dead end) | 3 |
+| R29 | T8 | dead end | side path (dead end) | 2 |
+| R30 | T10 | dead end | side path (dead end) | 3 |
+| R31 | T11 | dead end | side path (dead end) | 5 |
+| R32 | T14 | dead end | side path (dead end) | 4 |
+| R33 | T15 | dead end | side path (dead end) | 2 |
 
 ## Ready to paste for the first six (do not add yet)
 
@@ -193,7 +196,7 @@ These are the six records for `src/data/region_map/region_map_sections.json`. Th
   {
     "id": "MAPSEC_HOLLOWBROOK",
     "name": "HOLLOWBROOK",
-    "x": 2,
+    "x": 3,
     "y": 12,
     "width": 1,
     "height": 1
@@ -201,48 +204,49 @@ These are the six records for `src/data/region_map/region_map_sections.json`. Th
   {
     "id": "MAPSEC_WENDLEBURY",
     "name": "WENDLEBURY",
-    "x": 7,
-    "y": 12,
+    "x": 8,
+    "y": 11,
     "width": 1,
     "height": 1
   },
   {
     "id": "MAPSEC_CRESTFALL",
     "name": "CRESTFALL",
-    "x": 7,
-    "y": 8,
+    "x": 5,
+    "y": 7,
     "width": 1,
     "height": 1
   },
   {
     "id": "MAPSEC_VELDRIS_ROUTE_1",
     "name": "ROUTE 1",
-    "x": 3,
-    "y": 12,
+    "x": 4,
+    "y": 11,
     "width": 4,
-    "height": 1
+    "height": 2
   },
   {
     "id": "MAPSEC_VELDRIS_ROUTE_2",
     "name": "ROUTE 2",
-    "x": 7,
-    "y": 9,
-    "width": 1,
+    "x": 5,
+    "y": 8,
+    "width": 4,
     "height": 3
   },
   {
     "id": "MAPSEC_VELDRIS_ROUTE_3",
     "name": "ROUTE 3",
-    "x": 8,
-    "y": 8,
-    "width": 4,
-    "height": 1
+    "x": 2,
+    "y": 5,
+    "width": 3,
+    "height": 3
   }
 ]
 ```
 
 ## What I need from you
 
-1. Do you like the shape, or should it be reshaped (a different start corner, a bigger sea, a ring road)?
-2. Are Hollowbrook and Wendlebury fine as names for towns 1 and 2? (Crestfall comes from your `TRAINER_CRESTFALL_GRETA`.)
-3. Decision A or B above for fly towns.
+1. Does this shape work, or should it change (a bigger bay, more islands, the start in another corner)?
+2. Are Hollowbrook and Wendlebury fine as names for towns 1 and 2, and Marrow Bay for the bay? (Crestfall comes from your `TRAINER_CRESTFALL_GRETA`.)
+3. What did you mean by zooming out? If you want more than 28 x 15 cells, that is an engine edit.
+4. Decision A or B above for fly towns.
