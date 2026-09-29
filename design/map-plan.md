@@ -25,7 +25,7 @@ The Johto start lines up with Veldris' first stretch: New Bark Town, Route 29, C
 | Hollowbrook: player's house 1F | `Hero's House 1st Floor.png` | about 13 x 9 | `LittlerootTown_BrendansHouse_1F` |
 | Hollowbrook: player's house 2F | `Hero's House 2nd Floor.png` | 14 x 11 | `LittlerootTown_BrendansHouse_2F` |
 | Hollowbrook: neighbour's house | `Elm's House.png` | 13 x 10 | `LittlerootTown_MaysHouse_1F` |
-| Hollowbrook: Goldsworth house (PROPOSED) | none | | Shared house layout (see below) |
+| Hollowbrook: Goldsworth house (the grandfather's, author) | none | | Shared house layout (see below) |
 | **Route 1** | `Route 29.png` | 60 x 25 | `Route101` |
 | **Wendlebury** (town) | `Cherrygrove City.png` | about 51 x 29 | `OldaleTown` |
 | Wendlebury: Pokémon Center 1F and 2F | (Palladium `PokeMon Center Johto.PNG`, about 16 x 22, is an alternative) | | Shared layouts `LAYOUT_POKEMON_CENTER_1F` and `_2F`. No painting needed |
@@ -68,16 +68,16 @@ Vanilla sizes are smaller than the plan: LittlerootTown is 20 x 20 (Hollowbrook 
 
 From comparing renders of the vanilla maps with `New Bark Town.png`, `Elm's Lab.png` and `Hero's House 1st Floor.png`: the layout (buildings, paths, pond, signs, fences, furniture positions) can be matched almost completely, and about 70% of the look. What vanilla `gTileset_General` and `gTileset_Petalburg` do not have: pine trees (only round trees), green roofs with teal trim (vanilla roofs are red or orange), the pale-green path colour, and the grey brick lab. The indoor floors and rugs also come out in different colours. So Hollowbrook would look like a Hoenn village laid out like New Bark Town. **Options:** accept that; use the LeoB ORAS recolour in the asset repo, which shows pines and pale paths but keeps brown roofs (only its preview was looked at, and it needs a `CREDITS.md` row and your OK); or draw new tiles, which is not planned. Your call, no rush: it does not block the first tracing.
 
-## Goldsworth houses and the skyscraper (author note 2026-09-29; details PROPOSED)
+## Goldsworth houses and the skyscraper (author notes 2026-09-29; details PROPOSED)
 
-**Houses (17 or 18 maps).**
+**Houses (one per city, plus Hollowbrook's; whether towns get one is open decision 7, and the skyscraper's city has none).** At most 18 maps, likely fewer.
 - **One shared layout.** Maps can share a layout id (see above), so every house is its own map with its own NPCs and text, on one layout. Cost: 0 map sections, because an interior uses its town's section (checked on vanilla houses); about 200 more maps fit, with headroom; the ROM cost is small (a 10 x 9 layout is 180 bytes, stored once).
 - **The layout can start as a vanilla stand-in** (`LAYOUT_HOUSE1` is 10 x 9, `LAYOUT_HOUSE2` is 11 x 8), then be swapped for one custom Goldsworth-house layout: a nicer, richer room, painted once in Porymap.
 - **Per house:** its own `map.json`, a `map_groups.json` entry, a `scripts.inc` with a `<Map>_MapScripts::` label, and its warps (Porymap adds the `event_scripts.s` include on the first save). Do not use `shared_events_map` for houses, because it also shares warps and every exit goes to a different town. Use unique `LOCALID_` names per house.
 - **NPC-only.** No trainer ids in the houses (open decision 11 in [game-bible.md](game-bible.md)). A vanilla house holds 1 to 7 objects, and the limit is 15 NPCs plus the player.
-- **Naming:** `<Town>_GoldsworthHouse`.
+- **Naming:** `<Town>_GoldsworthHouse` (a city's works the same way, for example `Hollowbrook_GoldsworthHouse`).
 
-**Skyscraper (one city, TBD).**
+**Skyscraper (one city, TBD; Troglodyte's parents are inside).** It goes in a city, not a town (author).
 - **Interiors need no new art:** the vanilla Devon Corp (`RustboroCity_DevonCorp_1F` to `3F`, 19 x 9 each, stairs) or the Lilycove Department Store set (five floors 18 x 8, an elevator, a rooftop). Both use their town's section. The store's elevator script is tied to a fixed five-floor list, so a taller tower needs a script check.
 - **The exterior is the hard part.** A tall, distinctive tower needs new tile art or a compromise. Nothing in the Emerald tilesets in the tree has it. Options, cheapest first: (1) a big Devon Corp style block (about 10 x 9) in a normal town tileset. It reads as a large office, not a skyscraper; (2) the vanilla or LeoB ORAS Battle Tower (about 17 wide and 15 or more tall). It looks like a Battle Frontier facility and sits in a tileset with no houses, so the author would need a combined tileset in Porymap; (3) new tiles, drawn or converted from the sprite rips in the tilesets repo (unclear licences, not recommended).
 - **Palladium references (images only):** `goldenrodcitytiled.png` and `goldenrodrodcity.png` (the Radio Tower, about 5 to 7 wide and 15 tall, none of its tiles exist in Emerald), `Goldenrod Dept Store 1F.png` (six floor panels and a roof), `President's Office Tiled.PNG` (an executive floor), `Battle Tower.png` (24 x 26). `johtobuildings.PNG` contains a Radio Tower and a skyscraper but stays on the leave-out list above.

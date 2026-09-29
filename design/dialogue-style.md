@@ -4,7 +4,9 @@
 
 - Deadpan and dry. The joke is in the situation, not in shouting.
 - The player is silent. Their attitude shows through the choices offered.
-- Troglodyte is pompous and clueless. Never cruel. Never swears. *(Under review: the author's 2026-09-29 note says the Goldsworths are rich frat guys who are assholes. Until open decisions 9 and 10 in [game-bible.md](game-bible.md) are answered, these limits stay.)*
+- Troglodyte is pompous and clueless. The Goldsworths, Troglodyte included, are rich frat guys who are assholes (author, 2026-09-29), except the kind old grandfather.
+- **Swearing (author, 2026-09-29): only the Goldsworths can swear, and nothing '4chan level'.** Working limit, PROPOSED wording of that: everyday swearing at about the level of a PG-13 film. No slurs of any kind, nothing sexual or graphic, nothing hateful. A little goes a long way: a swear is funnier as punctuation than as every line. The grandfather does not swear. Everyone else (Fennick, Greta, the locals) stays clean unless the author says otherwise.
+- Nobody in the family is cruel to innocent townsfolk (assumed, not yet confirmed). Being rude to the player is fine.
 - Locals are sincere and slightly odd.
 - Keep speeches short. A grudge is funnier when it is brief.
 

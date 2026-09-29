@@ -34,9 +34,15 @@ The tree still carries FRLG's map folders and constants. They are not built into
 | 3 | VeldrisRoute3 | Crestfall onwards to town 4. Blocked for now (gate or barricade) so the first three towns stand alone | PROPOSED | `MAPSEC_VELDRIS_ROUTE_3` | No |
 | 4 to 33 | TBD | | Not started | | |
 
-## Goldsworth houses and the skyscraper (author note 2026-09-29; details PROPOSED)
+## Cities and towns (author, 2026-09-29; the split is open)
 
-Every town has a Goldsworth house (17 or 18 maps depending on decision 8 in [game-bible.md](game-bible.md)). One town has the Goldsworth skyscraper. How they are built: [map-plan.md](map-plan.md). Town roles in the table above are not changed yet, and the houses are added per town as each town is built.
+The author says a **city** and a **town** are different, and that there may be **7 cities** with the rest towns. **7 is an example, not final.** Which of the 18 places are cities, and what a city has that a town does not, are open (decision 12 in [game-bible.md](game-bible.md)). Until then this file's 'towns' means any of the 18 settlements, the same as the author's scope of '18 towns', and no row above has a city or town type yet.
+
+## Goldsworth houses and the skyscraper (author notes 2026-09-29; details PROPOSED)
+
+- **Houses:** every **city** has one (author), and Hollowbrook's is the grandfather's (author). Whether every town also gets one is open decision 7, so the number of house maps is not fixed yet: at most one per settlement, and none in the skyscraper's city.
+- **The skyscraper** is in one **city**, TBD, and Troglodyte's parents are in it (author). That city gets no separate house (author).
+- How they are built: [map-plan.md](map-plan.md). The houses are added per settlement as each one is built.
 
 ## Fly destinations
 
