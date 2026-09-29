@@ -13,6 +13,10 @@ Every gym gets one Goldsworth scheme. Keep the beats the same so the joke builds
 5. **Battle.** Troglodyte loses. The gym battle follows as normal.
 6. **Humiliation beat.** A short line that lets the player enjoy it.
 
+## The path is not decided (author, 2026-09-29)
+
+The author has not decided which path the story takes. What is fixed: the Goldsworths are one of the obstacles, and Troglodyte starts contemptuous and may become oblivious and confused after certain story points that are not decided ([characters.md](characters.md)). Anything below Act I is a guess.
+
 ## Goldsworth presence (author notes 2026-09-29; details PROPOSED)
 
 - **A Goldsworth house in every city** (author). **Towns get none, except Hollowbrook** (author), where the house is the grandfather's because it is his home town. A house is the one place in a warm settlement that is not warm, apart from the grandfather's, who is kind. Each house is a small interior with one to three NPCs and no trainer ids (open decision 11 in [game-bible.md](game-bible.md)). All of them share one layout ([map-plan.md](map-plan.md)), so the houses differ in who is inside and what they say.

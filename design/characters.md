@@ -11,7 +11,8 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 
 - Sheltered and mediocre rival. **(author)**
 - Rich parents who keep trying elaborate gym sabotage schemes that fail. **(author)**
-- Voice (PROPOSED): pompous, entitled and sheltered, never quite understands why he lost. Refers to his family and their money. He is a Goldsworth, so he may swear a little (author). Whether his attitude to ordinary people is his parents' obliviousness or the wider family's contempt is open decision 13 in [game-bible.md](game-bible.md).
+- **Attitude and arc (author, 2026-09-29):** he starts out **contemptuous**, like the wider family. After certain story points he can change to **oblivious and confused**, like his parents. Which story points is undecided, because the story's path is not decided yet. All that is fixed is that the Goldsworths are one of the obstacles.
+- Voice (PROPOSED): pompous and entitled, never quite understands why he lost. Refers to his family and their money. He is a Goldsworth, so he may swear a little (author). Early on he looks down on ordinary people on purpose. If the arc happens, later he is bewildered that the world does not work the way he was told. Write his lines so either mode can be swapped in.
 - **Why he is in Hollowbrook (author, 2026-09-29):** he came to meet his grandfather, who was not there at the time. He takes his frustration out on Prof. Fennick and forces him to give him a Pokémon.
 - **His starter is random among the starters (author).** Mechanics and cost: 'Troglodyte's starter' in [story-outline.md](story-outline.md).
 - Team (PROPOSED): well-bred Pokémon, poorly trained. Strong on paper, tactically naive.
