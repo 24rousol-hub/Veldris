@@ -18,19 +18,36 @@ A personal-use GBA ROM hack built on pokeemerald-expansion. Custom region **Veld
 
 All checked against this tree.
 
-- **Indoor maps take walls and floors from the secondary tileset, not the primary.**
+- **Indoor maps take walls and floors from the secondary tileset, not the primary.** True for Emerald-format indoor layouts, whose primary tileset `gTileset_Building` has only 8 metatiles (98 of the 99 blocks in Brendan's house 1F are secondary). Keep new maps at `layout_version` `emerald`.
 - **Never strip the top 6 bits of a map block.** The map grid word is: bits 0-9 metatile ID (`0x03FF`), bits 10-11 collision (`0x0C00`), bits 12-15 elevation (`0xF000`). The top 6 bits are `0xFC00`. Masking to the metatile ID alone destroys collision and elevation (`include/global.fieldmap.h`).
-- **The charmap has no plain double quote (`"`).** Use single quotes for speech. Curly `“ ”` do exist (`B1`/`B2` in `charmap.txt`), but this project uses single quotes.
+- **The charmap has no plain double quote (`"`),** and even `\"` is a build error. Use single quotes for speech. The ASCII apostrophe `'` maps to the *closing* glyph (`B4`), so for an **opening** quote type `‘` (U+2018) and close with `’`. Curly `“ ”` also exist (`B1`/`B2`), but this project uses single quotes.
 - **Use `coord_event` triggers for cutscenes, not `MAP_SCRIPT_ON_TRANSITION`.** In `map.json`:
   `{ "type": "trigger", "x": 10, "y": 1, "elevation": 3, "var": "VAR_...", "var_value": "0", "script": "Map_EventScript_Name" }`
+  The tile must be walkable and its elevation must match (normally 3). `MAP_SCRIPT_ON_FRAME_TABLE` is also fine for cutscenes. `MAP_SCRIPT_ON_TRANSITION` is still the right place for instant setup such as `setflag FLAG_VISITED_<TOWN>`.
 - **Name Greta's trainer `TRAINER_CRESTFALL_GRETA`.** `TRAINER_GRETA` already exists (`include/constants/opponents.h`, `src/data/trainers.party`).
-- **The intro is C-driven.** Edit `data/text/birch_speech.inc` for intro dialogue (it is included from `data/event_scripts.s`).
+- **The intro is C-driven.** Edit `data/text/birch_speech.inc` for intro dialogue (used by `src/main_menu.c`, included from `data/event_scripts.s`). The 'This is what we call a POKéMON' line is in `src/strings.c` instead, and the Birch art is in `graphics/birch_speech/`. Birch's name is hard-coded in the `.inc` text, so renaming him to Fennick is a text edit. `ENABLE_QUICKSTART` lets you skip the intro while testing.
 - **Write map scripts as `scripts.inc`, not Poryscript.** The build has no Poryscript rules.
 - **`{RIVAL}` expands to MAY or BRENDAN** (`src/string_util.c`). Write TROGLODYTE literally.
-- **Only 9 new trainer IDs fit** before trainer flag space overflows. See `design/flags.md` and open decision 6 in `design/game-bible.md`.
+- **Only 9 new trainer IDs fit** before trainer flag space overflows. See `design/engine-limits.md` and open decision 6 in `design/game-bible.md`.
 - **The engine is built for 8 badges.** Nine gyms need a decision. See open decision 1 in `design/game-bible.md`.
 - FRLG map folders sit in `data/maps` but are **not built into this Emerald ROM** (`mapjson` skips maps not tagged `REGION_HOENN`). Their `MAP_*` and `MAPSEC_*` constants still exist (for example `MAPSEC_ROUTE_1`), so new Veldris names must not collide with them. See `design/towns-and-routes.md`.
-- **The town map picture can use at most 256 distinct 8x8 tiles**, at most about 43 more map sections fit, and Fly needs the Feather Badge in this build. See `design/region-map.md`.
+- **The town map picture can use at most 256 distinct 8x8 tiles**, at most about 43 more map sections fit, and Fly needs the Feather Badge in this build. All hard limits are in `design/engine-limits.md`; the town map wiring is in `design/region-map.md`.
+
+## Adding things
+
+**A new map.** Porymap does steps 1 to 3. **Step 4 is Claude's.**
+1. `data/maps/<Name>/map.json` and `scripts.inc` (with a `<Name>_MapScripts::` label).
+2. An entry in `data/maps/map_groups.json`.
+3. A layout entry in `data/layouts/layouts.json`.
+4. **`.include "data/maps/<Name>/scripts.inc"` in `data/event_scripts.s`.** Porymap does not write this line. Without it the build should fail at link time on the undefined label (inferred, not tested).
+
+Keep the map's `region` at `REGION_HOENN` (the default) and `layout_version` at `emerald`, or the build silently leaves it out.
+
+**A new trainer.**
+1. `src/data/trainers.party`: add a `=== TRAINER_X ===` block. Its `Pic` and `Class` must already exist.
+2. `include/constants/opponents.h`: add `#define TRAINER_X 855` (next free id) and raise `TRAINERS_COUNT_EMERALD` by one, staying at or below `MAX_TRAINERS_COUNT_EMERALD` (864). The defeated flag is `0x500 + id`.
+3. In the map script: `trainerbattle_single TRAINER_X, Intro, Defeat` (gym leaders: copy the pattern in `data/maps/RustboroCity_Gym/scripts.inc`), and an object event in `map.json` with a `trainer_type`.
+4. A brand-new trainer pic or class needs more edits (`include/constants/trainers.h`, `src/battle_main.c`, `src/data/graphics/trainers.h`). Untested end to end.
 
 ## Build
 
@@ -64,7 +81,7 @@ The Makefile takes `arm-none-eabi-*` from `PATH`, so the system toolchain needs 
 | Trainers | `src/data/trainers.party`, `include/constants/opponents.h` |
 | Flags and vars | `include/constants/flags.h`, `vars.h` |
 | Intro dialogue | `data/text/birch_speech.inc` |
-| Config switches | `include/config/*.h` |
+| Config switches | `include/config/*.h` (summary in `design/engine-limits.md`) |
 
 ## Checklist for any content change
 

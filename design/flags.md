@@ -82,6 +82,6 @@ Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x4
 
 ## Related limits worth knowing
 
-- **Trainer slots.** `TRAINERS_COUNT` is 855 and `MAX_TRAINERS_COUNT` is 864, so only **9 new trainer IDs** fit before trainer flag space overflows (upstream's own note in `include/constants/opponents.h`). New trainers must reuse IDs of vanilla trainers you no longer need (rename them), or `MAX_TRAINERS_COUNT` is raised, which costs save block space. `TRAINER_CRESTFALL_GRETA` needs one of these. See open decision 6 in [game-bible.md](game-bible.md).
+- **Trainer slots.** `TRAINERS_COUNT` is 855 and `MAX_TRAINERS_COUNT` is 864, so only **9 new trainer IDs** fit before trainer flag space overflows (upstream's own note in `include/constants/opponents.h`). New trainers must reuse IDs of vanilla trainers you no longer need (rename them), or `MAX_TRAINERS_COUNT` is raised. That costs save block space, but there are about 176 bytes of headroom (roughly 1,400 flags), so a few hundred more trainers fit. It shifts every system and daily flag, which is fine on a fresh start. See [engine-limits.md](engine-limits.md). `TRAINER_CRESTFALL_GRETA` needs one of these. See open decision 6 in [game-bible.md](game-bible.md).
 - **Badges.** Flags 0x867-0x86E, and 0x86F is already a `FLAG_VISITED_*`. See open decision 1 in [game-bible.md](game-bible.md).
 - **Fly flags.** `FLAG_VISITED_*` are Hoenn-named and sit in the system block. See [region-map.md](region-map.md).
