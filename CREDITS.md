@@ -28,7 +28,9 @@ A personal-use fan project. It is built on pokeemerald-expansion and is not affi
 
 These are where assets are found. A row above is still needed for every individual asset used.
 
-- [Team-Aquas-Asset-Repo](https://github.com/Pawkkie/Team-Aquas-Asset-Repo), maintained by Pawkkie and the Team Aqua's Hideout community. Free to use and edit by default unless a folder README says otherwise. Creator credit is required, and each folder's README names the creators.
+- **Project Palladium** (a cancelled Gold/Silver remake), via `Maps/Project Palladium` in the Team Aqua repo. The author chose to trace its map layouts in Porymap as references. Its README says: "The project team release all of their assets to the public for free use" and "Please credit the entire team for used assets." **Credit the Project Palladium team, naming the files used, in the same commit as the first traced map.** The layouts are Game Freak's Johto designs redrawn by that team. See `design/map-plan.md`.
+
+- [Team-Aquas-Asset-Repo](https://github.com/TeamAquasHideout/Team-Aquas-Asset-Repo), maintained by Pawkkie and the Team Aqua's Hideout community. (The README in the author's copy links `github.com/Pawkkie/Team-Aquas-Asset-Repo`, while the Team Aqua's Hideout organisation hosts it at the link above, which was read successfully on 2026-09-29.) Free to use and edit by default unless a folder README says otherwise. Creator credit is required, and each folder's README names the creators.
 - [PokeAPI sprites](https://github.com/PokeAPI/sprites), with contributors as listed in that repository. The repository is CC0 1.0, but its licence file states that all image contents are Copyright The Pokémon Company, so the images stay personal-use fan material.
 
 ---

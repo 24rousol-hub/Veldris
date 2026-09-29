@@ -17,7 +17,7 @@ Every gym gets one Goldsworth scheme. Keep the beats the same so the joke builds
 
 | Beat | Where | Notes | Status |
 |---|---|---|---|
-| Intro and Prof. Fennick | Start town | Intro is C-driven. Edit `data/text/birch_speech.inc` | PROPOSED |
+| Intro and Prof. Fennick | Start town | Intro is C-driven. Text drafted in `data/text/birch_speech.inc` (built, fits the text box). Portrait art still shows Birch | BUILT (text). Tone approved by the author; portrait art still to do |
 | Player learns Troglodyte got a head start | Start town | Sets the motive | PROPOSED |
 | Route 1, first trainers | Route 1 | Gentle, farm-country | PROPOSED |
 | Town 2 | Town 2 | Pokémon Center, shop, first sight of Goldsworth money | PROPOSED |

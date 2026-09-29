@@ -8,6 +8,7 @@
 | [story-outline.md](story-outline.md) | Act-by-act beats and the Goldsworth sabotage schemes | You add or change a story beat, scheme or cutscene |
 | [characters.md](characters.md) | Cast, voices, trainer constants, teams | A character or trainer is added or changed |
 | [towns-and-routes.md](towns-and-routes.md) | The 18 towns and 33 routes, map names, build status | A map is added, renamed or changes status |
+| [map-plan.md](map-plan.md) | Where each map comes from (Palladium references and vanilla bases) and who does what | A map is planned, traced or swapped for another source |
 | [region-map.md](region-map.md) | How maps, the town map and fly destinations are wired, plus the Veldris layout proposal | You touch the region map or fly destinations |
 | [dialogue-style.md](dialogue-style.md) | Voice rules, text format, charmap limits | A new text rule is found |
 | [flags.md](flags.md) | Every flag and var the hack uses, plus the spare pool | **Any** flag or var is used, added or freed |
@@ -15,6 +16,8 @@
 | [engine-limits.md](engine-limits.md) | Hard engine limits (badges, trainers, sections, tiles, space) and config switches | A limit is re-measured or an edit moves one |
 | [engine-edits.md](engine-edits.md) | Every edit to upstream (non-hack) files | You edit anything outside hack content |
 | [asset-inventory.md](asset-inventory.md) | What is usable in the asset repos, and what has been imported | An asset is imported |
+
+Tool: [tools/dialogue_check.py](tools/dialogue_check.py) checks that dialogue fits the text box (see [dialogue-style.md](dialogue-style.md)).
 
 ## Status words
 

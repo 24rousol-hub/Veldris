@@ -9,6 +9,7 @@ Before pulling upstream, read this list. Each row is a place a merge could confl
 | Date | File | Change | Why | Config switch instead? |
 |---|---|---|---|---|
 | 2026-09-29 | `.gitignore` | Appended a Veldris block at the end (ROMs, saves, build output). No upstream lines changed. | Public repo: never commit a ROM or save | n/a |
+| 2026-09-29 | `data/text/birch_speech.inc` | Rewrote the intro text as Prof. Fennick. Text only: every label is unchanged and no C was touched | The author asked for the intro to be Fennick's, in this file | n/a (text file) |
 | 2026-09-29 | `CREDITS.md` | Added a hack credits section above the upstream one. Upstream content is untouched. | Credit every third-party asset | n/a |
 | 2026-09-29 | `include/constants/flags.h` | Renamed `FLAG_UNUSED_0x88E` to `FLAG_BADGE09_GET`; `NUM_BADGES` is now the literal `9` | 9th badge for 9 gyms | No |
 | 2026-09-29 | `src/event_data.c` | Removed the `gBadgeFlags[]` definition (it moved to the hack-owned `src/veldris_badges.c`, generated from one table) | Single badge table | No |

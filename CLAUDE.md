@@ -28,6 +28,7 @@ All checked against this tree.
 - **The intro is C-driven.** Edit `data/text/birch_speech.inc` for intro dialogue (used by `src/main_menu.c`, included from `data/event_scripts.s`). The 'This is what we call a POKéMON' line is in `src/strings.c` instead, and the Birch art is in `graphics/birch_speech/`. Birch's name is hard-coded in the `.inc` text, so renaming him to Fennick is a text edit. `ENABLE_QUICKSTART` lets you skip the intro while testing.
 - **Write map scripts as `scripts.inc`, not Poryscript.** The build has no Poryscript rules.
 - **`{RIVAL}` expands to MAY or BRENDAN** (`src/string_util.c`). Write TROGLODYTE literally.
+- **Dialogue must fit the text box: 216 px wide, 2 lines** (measured). Run `python3 design/tools/dialogue_check.py <file>` before committing any text. Details in `design/dialogue-style.md`.
 - **Only 9 new trainer IDs fit** before trainer flag space overflows. See `design/engine-limits.md` and open decision 6 in `design/game-bible.md`.
 - **The engine is built for 8 badges.** Nine gyms need a decision. See open decision 1 in `design/game-bible.md`.
 - FRLG map folders sit in `data/maps` but are **not built into this Emerald ROM** (`mapjson` skips maps not tagged `REGION_HOENN`). Their `MAP_*` and `MAPSEC_*` constants still exist (for example `MAPSEC_ROUTE_1`), so new Veldris names must not collide with them. See `design/towns-and-routes.md`.
@@ -88,5 +89,5 @@ The Makefile takes `arm-none-eabi-*` from `PATH`, so the system toolchain needs 
 1. Read the relevant `design/` files.
 2. Make the change.
 3. Update `design/` (including `flags.md`, `engine-edits.md`), and `CREDITS.md` if an asset was added.
-4. `make -j4` passes.
+4. `make -j4` passes, and `python3 design/tools/dialogue_check.py` passes on any text you changed.
 5. Check no ROM or save is staged, commit, push.

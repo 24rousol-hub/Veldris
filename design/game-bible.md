@@ -60,4 +60,6 @@ These need the author's call. None blocks the first 3 towns.
 | 2026-09-29 | Fly towns: the author left it to the assistant ("whatever is best for the future"). Chosen: approach A-prime, see [region-map.md](region-map.md). | Assistant, on the author's instruction |
 | 2026-09-29 | 9 gyms, Elite Four and Champion. Real 9th badge via a data-driven badge table; badge art to be outsourced (asset repo fork used for stand-ins). Assistant told to use its best judgment. | Author |
 | 2026-09-29 | Region map shape approved. "Zoom out" means denser tile art (more detail in the same space), not more cells. | Author |
+| 2026-09-29 | Prof. Fennick's intro tone approved (`data/text/birch_speech.inc`), including the line seeding Troglodyte's full name. | Author |
+| 2026-09-29 | Maps: a mix of Project Palladium maps (Team Aqua repo, traced in Porymap as references) and vanilla bases. See [map-plan.md](map-plan.md). | Author |
 | 2026-09-29 | Repo created as a fresh start on pokeemerald-expansion. Scope fixed at 18 towns, 33 routes, 9 gyms, Elite Four, post-game. | Author |
