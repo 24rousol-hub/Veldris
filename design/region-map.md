@@ -55,16 +55,19 @@ Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: 
 7. Town's `OnTransition` script: `setflag <the flag>`.
 8. `make -j4`, then fly there in an emulator.
 
-## Decision needed before the first fly town (PROPOSED default: A)
+## Decision on fly towns: approach A-prime (author: "whatever is best for the future")
 
-| | A. Add new sections and edit the C tables | B. Reuse an unused Hoenn town's slot |
-|---|---|---|
-| C edits | 3 small ones per town | None |
-| Names | Clean (`MAPSEC_HOLLOWBROOK`, own flag) | Hoenn-named (`Hollowbrook` would sit in `MAPSEC_OLDALE_TOWN` and set `FLAG_VISITED_OLDALE_TOWN`) |
-| Section budget | Uses up the 43 spare IDs | Saves them |
-| Fits 18 towns? | Yes, until IDs run out | Only about 14 slots, since Littleroot and Ever Grande have special cases |
+| | A. New sections, edit the C tables per town | B. Reuse an unused Hoenn town's slot | **A-prime (chosen)** |
+|---|---|---|---|
+| C edits | 3 small ones per town, in an upstream file | None | **One small change once**, then none per town |
+| Names | Clean | Hoenn-named | Clean |
+| Section budget | Uses the 43 spare IDs | Saves them | Uses them, reuse vanilla IDs for routes later |
+| Fits 18 towns? | Yes, until IDs run out | Only about 14 slots | Yes |
+| Upstream merges | 54 edit sites for 18 towns | Few | **A handful of hook sites** |
 
-Recommendation: **A**, and reuse vanilla IDs for the remainder once the spare IDs are gone.
+**A-prime:** new sections with clean names, but instead of adding three entries per town inside `src/region_map.c`, make one small one-time change there. It adds hooks (about three: the `GetMapsecType` default case, the fly-icon loop, and the landing-spot lookup, to be confirmed when written) that also consult a **hack-owned table** in a new file (for example `src/data/veldris_fly_towns.h`, one row per town: section, visited flag, heal location). After that, adding a fly town is one table row plus data, and the upstream file is touched in only those few places, which keeps upstream pulls cheap.
+
+**Not implemented yet.** It is an engine edit, so it waits for the author's go-ahead and gets logged in [engine-edits.md](engine-edits.md). Routes need no C at all, so once the 43 spare section IDs are used, routes can take over unused vanilla section IDs by renaming their records.
 
 ---
 
@@ -86,7 +89,7 @@ Recommendation: **A**, and reuse vanilla IDs for the remainder once the spare ID
 
 ## Style and names
 
-- **Style.** Striped sea, textured land, **orange bands** for land routes, **blue bands** for sea routes, **red round markers** for towns, **green markers** at the end of each side path (a cove, a cave mouth). The colours are taken from vanilla's own town-map palette (16 colours, where Hoenn's picture uses 27). The colour meanings are proposals. Your example uses pink rectangles for cities and green squares for landmarks, and recolouring to that is a palette change.
+- **Style.** Striped sea, textured land, **orange bands** for land routes, **blue bands** for sea routes, **red round markers** for towns, **green markers** at the end of each side path (a cove, a cave mouth). The colours are taken from vanilla's own town-map palette (16 colours, where Hoenn's picture uses 27). **The author chose the vanilla GBA look (2026-09-29).** The colour meanings are still proposals. The example the author sent uses pink rectangles for cities and green squares for landmarks, and recolouring to that would be a palette change.
 - **Town names use the GBA font automatically.** They are not part of the picture. The engine prints the name of the section under the cursor at run time, in `FONT_NORMAL` (the game's font), into its own name windows (`WIN_MAPSEC_NAME` and `WIN_MAPSEC_NAME_TALL` in `src/region_map.c`). So there is nothing to draw and nothing to match. The labelled image above is drawn with the game's own font sheets (`graphics/fonts/latin_normal.png` and `latin_small.png`, glyph widths from `src/fonts.c`) so you can see how the names read. The plates are for the mockup only.
 - **Names** are at most 16 characters, in capitals like vanilla (`LITTLEROOT TOWN`), and charmap characters only. The names on the plates for towns 4 to 18 are placeholders.
 
@@ -259,10 +262,9 @@ These are the six records for `src/data/region_map/region_map_sections.json`. Th
 ]
 ```
 
-## What I need from you
+## What is still open
 
-1. Does this shape work, or should it change (a bigger bay, more islands, the start in another corner)?
-2. Are Hollowbrook and Wendlebury fine as names for towns 1 and 2, and Marrow Bay for the bay? (Crestfall comes from your `TRAINER_CRESTFALL_GRETA`.)
-3. What did you mean by zooming out? If you want more than 28 x 15 cells, that is an engine edit.
-4. Decision A or B above for fly towns.
-5. Colours: keep the vanilla GBA look (red towns, orange routes), or switch to your example's pink cities and green squares?
+1. Does the overall shape work? The author approved the names and the vanilla GBA look but has not said anything about the shape itself, so treat it as not yet approved.
+2. What did the author mean by "zoom it out"? If it means more than 28 x 15 cells, that is an engine edit.
+3. Marrow Bay is a placeholder name.
+4. Approach A-prime needs the author's go-ahead before any engine edit.

@@ -44,15 +44,18 @@ The player has one reason to become Champion: to humiliate Troglodyte. His real 
 
 These need the author's call. None blocks the first 3 towns.
 
-1. **Nine gyms versus eight badges.** The engine is built for 8 badges: `NUM_BADGES` is derived from `FLAG_BADGE08_GET`, and `gBadgeFlags`, the trainer card, the main menu and the shop criteria all loop over that range. The 9th slot cannot sit next to the others because `SYSTEM_FLAGS + 0xF` is already `FLAG_VISITED_LITTLEROOT_TOWN`. The list of places is in [engine-limits.md](engine-limits.md). Options: (a) extend the engine to 9 badges (multi-file edit plus trainer card art), or (b) 8 real badges and the 9th gym gives something else, such as a key item and a flag the League gate checks. Not blocking until gym 8. Needs a decision before we build gym 8.
+1. **Nine gyms versus eight badges.** The engine is built for 8 badges: `NUM_BADGES` is derived from `FLAG_BADGE08_GET`, and `gBadgeFlags`, the trainer card, the main menu and the shop criteria all loop over that range. The 9th slot cannot sit next to the others because `SYSTEM_FLAGS + 0xF` is already `FLAG_VISITED_LITTLEROOT_TOWN`. The list of places is in [engine-limits.md](engine-limits.md). Options: (a) extend the engine to 9 badges (multi-file edit plus trainer card art), or (b) 8 real badges and the 9th gym gives something else, such as a key item and a flag the League gate checks. Not blocking until gym 8. Needs a decision before we build gym 8. **Direction (author, 2026-09-29):** first look at how public ROM hacks with more than 8 badges did it, and consider our own badge case with our own badge art so badges can be mixed and matched instead of using Emerald's defaults. Research and a written plan come first (`design/badges.md`), with no engine edits until the author approves.
 2. **Who is the Champion?** Troglodyte, or someone else?
 3. **Player and rival replacement.** Emerald's rival is May or Brendan. Troglodyte replaces them, which touches rival scripts and sprites. Which parts of the Hoenn intro and rival flow do we keep?
-4. **Names of towns 1 to 3.** The names in [towns-and-routes.md](towns-and-routes.md) are placeholders. Only **Crestfall** is implied by the author's trainer constant `TRAINER_CRESTFALL_GRETA`, and it is assumed to be the first gym town.
-5. **Region map style.** See [region-map.md](region-map.md).
+4. ~~**Names of towns 1 to 3.**~~ **Resolved (author, 2026-09-29):** Hollowbrook and Wendlebury approved. Crestfall comes from the author's trainer constant `TRAINER_CRESTFALL_GRETA` and is the first gym town. Marrow Bay (the bay) is still a placeholder.
+5. ~~**Region map style.**~~ **Resolved (author, 2026-09-29):** the vanilla GBA town-map look. See [region-map.md](region-map.md).
 6. **Trainer slots.** Only 9 new trainer IDs fit before trainer flag space overflows (`TRAINERS_COUNT` 855, `MAX_TRAINERS_COUNT` 864, upstream's own note in `include/constants/opponents.h`). A hack with a gym, Elite Four and trainers on 33 routes needs hundreds. Options: (a) reuse and rename vanilla Hoenn or FRLG trainer IDs you no longer need, or (b) raise `MAX_TRAINERS_COUNT`. Measured save headroom is about 176 bytes (roughly 1,400 flags), so a few hundred more trainers fit. It shifts every system and daily flag, which is fine on a fresh start. Untested. `TRAINER_CRESTFALL_GRETA` is the first to need a slot. Not blocking until the first new trainer is added.
 
 ## Decision log
 
 | Date | Decision | Who |
 |---|---|---|
+| 2026-09-29 | Town names Hollowbrook and Wendlebury approved. Vanilla GBA town-map look approved for the region map. | Author |
+| 2026-09-29 | Badges: research public hacks with more than 8 badges, and consider a custom badge case with our own art. Plan first, no engine edits yet. | Author |
+| 2026-09-29 | Fly towns: the author left it to the assistant ("whatever is best for the future"). Chosen: approach A-prime, see [region-map.md](region-map.md). | Assistant, on the author's instruction |
 | 2026-09-29 | Repo created as a fresh start on pokeemerald-expansion. Scope fixed at 18 towns, 33 routes, 9 gyms, Elite Four, post-game. | Author |

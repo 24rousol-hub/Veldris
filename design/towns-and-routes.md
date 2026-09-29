@@ -2,7 +2,7 @@
 
 Fixed by the author: **18 towns, 33 routes.** Status legend: PROPOSED / APPROVED / BUILT (see [README.md](README.md)).
 
-Only the first 3 towns and 3 routes are named for now, so they can be flown between. Everything else is a numbered placeholder. **All names below are PROPOSED.** Only **Crestfall** is implied by the author (`TRAINER_CRESTFALL_GRETA`), and it is assumed to be the first gym town.
+Only the first 3 towns and 3 routes are named for now, so they can be flown between. Everything else is a numbered placeholder. **The names of towns 1 to 3 are APPROVED** (author, 2026-09-29): Hollowbrook, Wendlebury, and Crestfall (from the author's `TRAINER_CRESTFALL_GRETA`, the first gym town). Everything else is a placeholder.
 
 Map cells, connections and the full section list for all 18 towns and 33 routes are in [region-map.md](region-map.md) (layout proposal). Towns 4 to 18 and routes 4 to 33 keep placeholder names until the author names them.
 
@@ -19,9 +19,9 @@ The tree still carries FRLG's map folders and constants. They are not built into
 
 | # | Name | Role | Status | Map section | Built? |
 |---|---|---|---|---|---|
-| 1 | Hollowbrook | Start town, Prof. Fennick's lab | PROPOSED | `MAPSEC_HOLLOWBROOK` | No |
-| 2 | Wendlebury | Second town, Pokémon Center and shop | PROPOSED | `MAPSEC_WENDLEBURY` | No |
-| 3 | **Crestfall** | Gym 1: Greta (Normal, retired farmer) | Name implied by the author | `MAPSEC_CRESTFALL` | No |
+| 1 | Hollowbrook | Start town, Prof. Fennick's lab | APPROVED (name) | `MAPSEC_HOLLOWBROOK` | No |
+| 2 | Wendlebury | Second town, Pokémon Center and shop | APPROVED (name) | `MAPSEC_WENDLEBURY` | No |
+| 3 | **Crestfall** | Gym 1: Greta (Normal, retired farmer) | APPROVED (name, from the author's trainer constant) | `MAPSEC_CRESTFALL` | No |
 | 4 to 18 | TBD | Gyms 2 to 9, Elite Four approach, League, post-game | Not started | | |
 
 ## Routes

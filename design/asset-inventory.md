@@ -26,6 +26,7 @@ Almost everything here is **derived from official Nintendo / Game Freak art** (r
 - **`Projects/Leob0505 PokeZelda Minish Quest`**: no map data. The map renders are look references. `5 - PetalburgCity_new.png` is 480x480, the vanilla 30x30 Petalburg size. Zelda art, includes a rupee icon.
 - **`Projects/FFVII_Sprites`**: Square Enix IP, wrong setting. No.
 - **Practical route for towns 1 to 3:** duplicate vanilla maps already in this tree (Littleroot, Oldale, Route 101, Petalburg) in Porymap and rework them. Nothing to credit beyond upstream.
+- **Are community maps still the plan? Yes.** The rule stands: reuse existing community maps and tilesets instead of drawing from scratch, with credit, and never another hack's maps without the author's permission. But the two repos hold **no importable maps**, so the next step is to look for free-to-use community map resources elsewhere (a stated licence or the creator's permission), record what is found here, and add a `CREDITS.md` row for anything used. Until then, use the vanilla maps in this tree.
 
 ## Tilesets
 
