@@ -33,17 +33,19 @@ All checked against this tree.
 - **Only 9 new trainer IDs fit** before trainer flag space overflows. See `design/engine-limits.md` and open decision 6 in `design/game-bible.md`.
 - **Badges: 9, through a table.** `src/veldris_badges.c` and `include/veldris_badges.h` hold one row per badge (flag and art slot), and every badge loop goes through `gBadgeFlags[]` or `GetBadgeCount()`. Details and limits in `design/badges.md`.
 - FRLG map folders sit in `data/maps` but are **not built into this Emerald ROM** (`mapjson` skips maps not tagged `REGION_HOENN`). Their `MAP_*` and `MAPSEC_*` constants still exist (for example `MAPSEC_ROUTE_1`), so new Veldris names must not collide with them. See `design/towns-and-routes.md`.
-- **The town map picture can use at most 256 distinct 8x8 tiles**, at most about 43 more map sections fit, and Fly needs the Feather Badge in this build. All hard limits are in `design/engine-limits.md`; the town map wiring is in `design/region-map.md`.
+- **The town map picture can use at most 256 distinct 8x8 tiles**, at most about 37 more map sections fit (43 over the vanilla 209, six used), and Fly needs the Feather Badge in this build. All hard limits are in `design/engine-limits.md`; the town map wiring is in `design/region-map.md`.
 
 ## Adding things
 
-**A new map.** Porymap does all four steps when the author saves a new or duplicated map for the first time (checked in Porymap's source, `src/project.cpp` `saveMap`).
+**A new map.** Porymap does all four steps when the author saves a new or duplicated map for the first time (checked in Porymap's source: `saveMap` writes steps 1 and 4, `saveGlobalData` writes 2 and 3).
 1. `data/maps/<Name>/map.json` and `scripts.inc` (with a `<Name>_MapScripts::` label).
 2. An entry in `data/maps/map_groups.json`.
 3. A layout entry in `data/layouts/layouts.json`.
 4. **`.include "data/maps/<Name>/scripts.inc"` in `data/event_scripts.s`**, appended at the end. **Check it is there exactly once** before adding it by hand (a second copy defines the label twice). Add it yourself only for a map made without Porymap. If it is missing the build should fail at link time on the undefined label (inferred, not tested).
 
-Porymap also rewrites `region_map_sections.json`, `heal_locations.json` and `wild_encounters.json` on every save, so read the changed-files list before committing. Two maps can share one layout (vanilla does it for Pokémon Centers, Marts and houses): pick an existing Layout ID in Porymap's New Map dialog. Painting in one then changes all of them.
+Porymap also rewrites `region_map_sections.json`, `heal_locations.json` and `wild_encounters.json` on every save, so read the changed-files list before committing. Two maps can share one layout (vanilla does it for Pokémon Centers, Marts and houses): in Porymap's map list, Layouts tab, right-click the layout and choose Add New Map with Layout. Painting in one then changes all of them.
+
+**After pulling a duplicated map, grep `src/data/heal_locations.json` for duplicate ids.** Porymap's Duplicate Map copies the source's heal locations with their old ids (Littleroot's two), and a duplicate id breaks the build. The author is told to delete them before saving, and this is the check that catches a miss.
 
 Keep the map's `region` at `REGION_HOENN` (the default) and `layout_version` at `emerald`, or the build silently leaves it out.
 
@@ -71,7 +73,7 @@ The Makefile takes `arm-none-eabi-*` from `PATH`, so the system toolchain needs 
 
 ## Testing in an emulator
 
-The ROM boots headless in mGBA, which is how the intro and trainer card were checked on 2026-09-29. The container is ephemeral, so reinstall each time: `apt-get install -y mgba-sdl xdotool imagemagick x11-apps` (binary `/usr/games/mgba`, not on `PATH`). Start `Xvfb :99 -screen 0 1280x960x24`, run `SDL_AUDIODRIVER=dummy DISPLAY=:99 /usr/games/mgba <copy of the rom>` on it, send keys with `xdotool` and screenshot with `import -window root`. mGBA's keys are **X = A, Z = B**, Return = Start, Backspace = Select. This is a normal (non-release) build, so the **debug menu opens with R+START** (mGBA: the S key is R): Set Flag XYZ, Toggle All badges, Fly to map and more. Run a copy of the ROM from the scratchpad, never inside the repo.
+The ROM boots headless in mGBA, which is how the intro and trainer card were checked on 2026-09-29. The container is ephemeral, so reinstall each time: `apt-get install -y mgba-sdl xvfb xdotool imagemagick` (binary `/usr/games/mgba`, not on `PATH`). Start `Xvfb :99 -screen 0 1280x960x24`, run `SDL_AUDIODRIVER=dummy DISPLAY=:99 /usr/games/mgba <copy of the rom>` on it, send keys with `xdotool` and screenshot with `import -window root`. **Hold every key**: a plain `xdotool key` drops presses (7 of 12 registered in a test), so use `xdotool keydown Down; sleep 0.15; xdotool keyup Down`. For R+START, keydown `s` and `Return`, wait 0.2 s, then release both. mGBA's keys are **X = A, Z = B**, Return = Start, Backspace = Select. This is a normal (non-release) build, so the **debug menu opens with R+START** (mGBA: the S key is R): Set Flag XYZ, Toggle All badges, Fly to map and more. Run a copy of the ROM from the scratchpad, never inside the repo.
 
 ## Git
 

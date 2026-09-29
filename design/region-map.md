@@ -10,12 +10,12 @@ What the Region Map Editor (Tools > Region Map Editor, Ctrl+M) does:
 
 - **Three tabs:** *Background Image* (paint the tilemap), *Map Layout* (which section each cell belongs to) and *Map Entries* (each section's x, y, width, height). This matches pieces 2, 3 and 4 below, so one tool covers all three.
 - **Background Image** writes the tilemap binary (the `map.bin` of piece 4). The manual does not say whether it regenerates it or edits it in place, and it says nothing about a tile limit. The 256-tile limit below is from the engine, not the manual. Tilemap "format" can be Plain, 4bpp or 8bpp; only non-Plain formats give per-tile palette and flips. Width can be 16, 32, 64 or 128 tiles.
-- **Map Layout** writes the layout file (C array or binary). The vanilla one is `sRegionMap_MapSectionLayout` in `src/data/region_map/region_map_layout.h`. The Map Section dropdown is filled from `include/constants/region_map_sections.h`, so **a new section must exist in `region_map_sections.json` and be built once before the editor can place it.** Handy tools: Clear Map Layout, Swap Layout Sections, Replace Layout Section.
+- **Map Layout** writes the layout file (C array or binary). The vanilla one is `sRegionMap_MapSectionLayout` in `src/data/region_map/region_map_layout.h`. The Map Section dropdown is filled from `include/constants/region_map_sections.h`, so **a new section must exist in `region_map_sections.json` before the editor can place it.** (The manual says the dropdown comes from the generated header, but Porymap's source reads the JSON directly, so no build is needed.) Handy tools: Clear Map Layout, Swap Layout Sections, Replace Layout Section.
 - **Map Entries** edits `src/data/region_map/region_map_sections.json`. x and y are the top-left cell; width and height set the size. The manual says the entry decides "where the player's head appears".
 - **Config:** the editor's own settings live in `src/data/region_map/porymap_config.json` (Project Files page lists it as read and written; key `json_region_porymap_cfg`). It holds the per-region alias, tilemap and layout paths and sizes. **This file does not exist in this repo yet**, so Porymap will use its pokeemerald defaults. It is fine to commit the file Porymap creates. The Project Files page also lists `define_map_section_prefix` (`MAPSEC_`) and `define_map_section_empty` (`NONE`) as project settings, which our constants already follow.
 - **Not in the manual:** any section-count limit, any tile limit, any mention of `name_clone`, and whether the picture step keeps or rewrites other files. Those stay engine facts.
 
-**`name_clone`:** not on either manual page. In this tree it appears on 4 of 209 records in `region_map_sections.json` (the `ROUTE_4_POKECENTER`-style records) and **no build template or C file reads it** (checked with grep). So it does nothing to the build. Most likely a marker that the record only repeats another section's name. Treat it as optional and do not set it on Veldris sections.
+**`name_clone`:** not on either manual page. In this tree it appears on 4 of the 209 vanilla records in `region_map_sections.json` (the `ROUTE_4_POKECENTER`-style records) and **no build template or C file reads it** (checked with grep). So it does nothing to the build. Most likely a marker that the record only repeats another section's name. Treat it as optional and do not set it on Veldris sections.
 
 **Correction to earlier notes:** the editor does cover all three of the picture, the grid and the JSON, so step 3 of the checklist is confirmed by the manual. What is still unverified is only how it treats `map.bin` internally and the untested-in-game claims below.
 
@@ -43,7 +43,7 @@ Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: 
 
 **Limits found:**
 
-- **Map sections are 8-bit and share their value space with `0xFD-0xFF`** (special met-location codes). 209 sections already exist, so **at most 43 more fit.** Veldris wants 51 (18 towns and 33 routes) before any caves or landmarks. So at least 8 sections have to reuse the IDs of vanilla sections we no longer need (rename their record only), or vanilla content has to be stripped later. Not blocking the first 3 towns and 3 routes.
+- **Map sections are 8-bit and share their value space with `0xFD-0xFF`** (special met-location codes). 209 sections existed in vanilla, so **at most 43 more fit.** The first six Veldris sections were added on 2026-09-29, so 215 exist and **37 more fit**. Veldris wants 51 (18 towns and 33 routes) before any caves or landmarks. So 45 are still to add against 37 left, and at least 8 sections have to reuse the IDs of vanilla sections we no longer need (rename their record only), or vanilla content has to be stripped later. Not blocking the first 3 towns and 3 routes.
 - **Popup themes.** `sMapSectionToThemeId` in `src/map_name_popup.c` sets each section's popup style. New sections default to theme 0 until a line is added.
 - **Name clashes.** FRLG already owns `MAPSEC_ROUTE_1` to `MAPSEC_ROUTE_25`. See [towns-and-routes.md](towns-and-routes.md). The FRLG maps themselves are not built into this Emerald ROM (`mapjson` skips every map not tagged `REGION_HOENN`), but their `MAP_*` and `MAPSEC_*` constants still exist as placeholders.
 - **Tile budget.** At most 256 distinct 8x8 tiles in the picture (see piece 4). The finished art has to reuse tiles heavily: repeating sea, grass and mountain tiles and a small set of coast and road pieces.
@@ -52,7 +52,7 @@ Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: 
 - **Fly is gated.** In this build Fly needs the Feather Badge (`src/field_move.c`), and a town only becomes flyable after the player has walked into it once (its `OnTransition` sets the flag). To test flying between the first three towns early, use the debug menu, or point `OW_FLAG_POKE_RIDER` (`include/config/overworld.h`) at a spare flag, which lets you open the fly map from the Pokénav without the HM. The config route is untested in game.
 - **No city zoom picture is needed, but the Pokénav panel is untidy without one.** `NUM_CITY_MAPS` is 22 and all are Hoenn towns. For a flyable town with no picture, `DrawCityMap` (`src/pokenav_region_map.c` about line 664) returns early without clearing the picture area, so the previous town's picture can stay on screen (read from source, not run). It does not affect the Fly map. A fix is a small engine edit that needs the author's approval.
 - **The 16 vanilla Hoenn fly towns stay.** The hooks only add rows. `CreateFlyDestIcons` still draws the 16 vanilla locked-town icons at the vanilla sections' x/y. When the Veldris picture replaces Hoenn's, either move or reuse those 16 section records, or add a hack-owned way to drop vanilla rows (an engine edit, needs approval).
-- **Rows need ids after `MAPSEC_TRAINER_HILL`.** `VELDRIS_FLY_ROW` hard-codes `REGION_MAP_HOENN`, and the engine picks the region map from the section id. A row whose id falls in the Kanto block gets no icon. New ids appended after `MAPSEC_TRAINER_HILL` are fine.
+- **Rows need ids after `MAPSEC_TRAINER_HILL`.** `VELDRIS_FLY_ROW` hard-codes `REGION_MAP_HOENN`, and the engine picks the region map from the section id. A row in the Kanto block would sit on the wrong region map: it has no cell on the Hoenn grid so it cannot be selected, and its icon appears or not depending on which region the player is standing in. New ids appended after `MAPSEC_TRAINER_HILL` are fine.
 
 ## Checklist: add one fly town
 
@@ -60,7 +60,7 @@ Checked by a dry run on 2026-09-29: a throwaway Hollowbrook section, flag, heal 
 
 Order matters. Steps 1 and 2 build on their own. Step 7 needs steps 3 and 6. Step 9 needs 1, 2, 3 and 7.
 
-1. **U** `src/data/region_map/region_map_sections.json`: append one record at the END of the list (after `MAPSEC_TRAINER_HILL`). Uppercase name, 16 characters at most. Build once, so Porymap's Location dropdown offers the new `MAPSEC_*`.
+1. **U** `src/data/region_map/region_map_sections.json`: append one record at the very END of the list. It must stay after `MAPSEC_TRAINER_HILL`, so the Kanto block is not disturbed (today the last record is `MAPSEC_VELDRIS_ROUTE_3`). Uppercase name, 16 characters at most. Porymap reads this JSON directly, so its Location dropdown offers the new `MAPSEC_*` without a build.
 2. **U** `include/constants/flags.h`: rename the spare `FLAG_UNUSED_0x0NN` to `FLAG_VISITED_<TOWN>` (keep the value; 0x020-0x031 are reserved for this). Add the row in [flags.md](flags.md).
 3. Author, Porymap: the town map. `region_map_section` is the new section, `show_map_name` true, `map_type` `MAP_TYPE_TOWN`, group 0 (`gMapGroup_TownsAndRoutes`), `region` and `layout_version` at the defaults. Every interior of the town uses the same `region_map_section` as the town.
 4. **U** `data/event_scripts.s`: Porymap appends the `.include "data/maps/<Name>/scripts.inc"` line itself on the first save of a new map. Check it is there exactly once. Add it by hand only for a map made without Porymap.
@@ -114,7 +114,7 @@ Applied by the other session with `src/data/veldris_fly_towns.h` and four added 
 
 No new functions and no change to control flow. `field_region_map.c` and `pokenav_region_map.c` need no edit for fly (`party_menu.c` only opens the fly map, which reaches `SetFlyDestination`).
 
-**Why an out-of-range read cannot happen:** every row adds both the heal row and the `GetMapsecType` case, and every caller of `SetFlyDestination` requires `CANFLY`. So do not add a `CANFLY` case outside the table.
+**Why an out-of-range read cannot happen:** every row adds both the heal row and the `GetMapsecType` case, and every caller of `SetFlyDestination` requires `CANFLY` (the Fly map also accepts `MAPSECTYPE_BATTLE_FRONTIER`, which only the vanilla Battle Frontier section returns). So do not add a `CANFLY` case outside the table.
 
 **Guard:** `veldris_fly_towns.h` has a `STATIC_ASSERT` that fails the build when the section ids run past the met-location codes (`MAPSEC_NONE < METLOC_SPECIAL_EGG`, 43 new sections in total).
 
@@ -155,7 +155,7 @@ No new functions and no change to control flow. `field_region_map.c` and `pokena
 - 18 towns and 33 routes: **23 links between towns** (17 on land, 6 by sea) and **10 side paths** that dead-end (a lane into the hills, a cove). 155 of the 420 cells are used.
 - Checked by script: every route sits on the right terrain (land or sea), routes never overlap, every route touches its towns, every town is reachable from town 1, and no town has more than 4 routes (a town is one cell, so only its 4 neighbours can hold a route).
 - Numbers are placeholders. Only routes 1 to 3 are meaningful: town 1 to 2, town 2 to 3 (Crestfall), and town 3 onwards to town 4, which stays blocked at first.
-- **Section budget:** 51 sections against about 43 spare IDs. See "Limits found" above. The first 6 fit easily.
+- **Section budget:** 51 sections against 43 spare IDs (209 vanilla, 215 now, 37 left). See "Limits found" above. The first 6 are in.
 - **Tile budget (measured):** the picture uses **148 distinct 8x8 tiles** in the map area against the limit of 256 (vanilla Hoenn uses 215), and 16 colours. It is built from a handful of repeating patterns (land, forest, mountain, farm, route, sea) plus the coast tiles, so it fits. Version 2's smooth coast and roads needed 324 and would not have. It is still a mockup: the real picture is painted with tiles in the Region Map Editor.
 - A winding route's rectangle is the bounding box of its cells, exactly as Hoenn does it (52 of Hoenn's 54 section rectangles equal the bounding box of their cells; Route 114 is a 4-cell bend inside a 2x3 box). The player marker is placed inside that box, so on a bent route it may not sit exactly on the road. Untested in game.
 - The labelled image leaves off the numbers of R22, R24, R27, R29 and R33, which are too short to fit a label. The tables below list every route.
@@ -319,7 +319,7 @@ The author meant making the individual tiles more pixel dense so more fits into 
 
 - **The picture and the cell grid are independent.** The picture is 8x8-pixel tiles and can carry any pixel detail: thinner roads, a finer coastline, small markers, shading. That costs no engine edit.
 - **The picture's real limit is 256 distinct tiles**, not pixels. Layout v3 uses 148, so about **108 are spare** for extra detail.
-- **Cells are not scarce.** The 28 x 15 grid uses 155 of 420 cells (37%). **Section IDs are the scarce resource** (about 43 spare, 51 wanted), and denser art does not change that.
+- **Cells are not scarce.** The 28 x 15 grid uses 155 of 420 cells (37%). **Section IDs are the scarce resource** (43 spare over the vanilla 209, 37 left after the first six, 51 wanted), and denser art does not change that.
 - **A finer cell grid** (cells smaller than one 8x8 tile, to fit more distinct places) would be an **engine edit**. Counted by grep as a rough measure: `src/region_map.c` has 26 references to the grid constants and 21 places with 8-pixel arithmetic (cursor, player icon, fly icons); `src/pokedex_area_screen.c` has 9 more; `src/field_region_map.c` and `src/pokenav_region_map.c` one each. The layout array and every section rectangle are also in cell units. Not recommended now. Revisit only if the cells run out.
 - **Recommendation:** keep 28 x 15 and spend the spare tiles on detail. Whether the Region Map Editor supports any cell size other than one tile is still to be checked against its manual.
 
