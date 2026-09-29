@@ -18,7 +18,7 @@ The **town map** (Pokénav's region map) and the **Fly** picker are the same scr
 1. **Each map names its section.** Every `data/maps/<Map>/map.json` has `"region_map_section": "MAPSEC_..."`. A section is a named place: a town, a route, a cave. A town and all its houses can share one section. The name popup when you enter a map comes from this too.
 2. **Each section has a record.** `src/data/region_map/region_map_sections.json` holds, per section: `id`, `name` (what the player sees), and `x`, `y`, `width`, `height` (where it sits on the map, in cells). The build turns this file into the `MAPSEC_*` list (`include/constants/region_map_sections.h`) and the `gRegionMapEntries` table. Do not edit those two generated files.
 3. **A grid says which cell belongs to which section.** `sRegionMap_MapSectionLayout[15][28]` in `src/data/region_map/region_map_layout.h`. The cursor moves cell by cell and shows the name of the section in the cell it is on. The `x/y/width/height` in step 2 must agree with this grid.
-4. **The picture is separate.** What you see is drawn from 8x8 tiles: `graphics/pokenav/region_map/map.png` (the tile sheet, 128x120 indexed), `map.bin` (the tilemap, 2048 entries) and `map.pal`. So the picture, the grid and the JSON are three things kept in step, not one.
+4. **The picture is separate.** What you see is drawn from 8x8 tiles: `graphics/pokenav/region_map/map.png` (the tile sheet, 128x120, 8-bit indexed), `map.bin` (the tilemap: 4096 bytes, one byte per tile position) and `map.pal`. **A byte holds only 256 different tile numbers, so the picture can use at most 256 distinct 8x8 tiles.** Hoenn's uses 233. So the picture, the grid and the JSON are three things kept in step, not one.
 5. **Whether a town can be flown to is decided in C, not data.** Three places in `src/region_map.c`:
    - `GetMapsecType()` is a `switch` that says "this section is a city, and it is flyable once *this flag* is set". Any section not listed there is treated as a plain route.
    - `sFlyLocations[]` is the list of fly icons: region, flag, section.
@@ -37,7 +37,12 @@ Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: 
 
 - **Map sections are 8-bit and share their value space with `0xFD-0xFF`** (special met-location codes). 209 sections already exist, so **at most 43 more fit.** Veldris wants 51 (18 towns and 33 routes) before any caves or landmarks. So at least 8 sections have to reuse the IDs of vanilla sections we no longer need (rename their record only), or vanilla content has to be stripped later. Not blocking the first 3 towns and 3 routes.
 - **Popup themes.** `sMapSectionToThemeId` in `src/map_name_popup.c` sets each section's popup style. New sections default to theme 0 until a line is added.
-- **Name clashes.** FRLG already owns `MAPSEC_ROUTE_1` to `MAPSEC_ROUTE_25`. See [towns-and-routes.md](towns-and-routes.md).
+- **Name clashes.** FRLG already owns `MAPSEC_ROUTE_1` to `MAPSEC_ROUTE_25`. See [towns-and-routes.md](towns-and-routes.md). The FRLG maps themselves are not built into this Emerald ROM (`mapjson` skips every map not tagged `REGION_HOENN`), but their `MAP_*` and `MAPSEC_*` constants still exist as placeholders.
+- **Tile budget.** At most 256 distinct 8x8 tiles in the picture (see piece 4). The finished art has to reuse tiles heavily: repeating sea, grass and mountain tiles and a small set of coast and road pieces.
+- **Names** are at most 16 characters, charmap characters only (no double quote).
+- **Heal locations.** Each flyable section needs a row in `sMapHealLocations`, which is indexed by section number (a gap row is all zeros). The build also rewrites `heal_locations.json` when a heal location's `respawn_map` does not exist yet, so add a heal location only after its Pokémon Center map exists.
+- **Fly is gated.** In this build Fly needs the Feather Badge (`src/field_move.c`), and a town only becomes flyable after the player has walked into it once (its `OnTransition` sets the flag). To test flying between the first three towns early, use the debug menu, or point `OW_FLAG_POKE_RIDER` (`include/config/overworld.h`) at a spare flag, which lets you open the fly map from the Pokénav without the HM. The config route is untested in game.
+- **No city zoom picture is needed.** A new town simply shows none (`NUM_CITY_MAPS` is 22), which is not a blocker.
 
 ## Checklist: add one fly town
 
@@ -89,6 +94,7 @@ Recommendation: **A**, and reuse vanilla IDs for the remainder once the spare ID
 - Checked by script: every route sits on the right terrain (land or sea), routes never overlap, every route touches its towns, every town is reachable from town 1, and no town has more than 4 routes (a town is one cell, so only its 4 neighbours can hold a route).
 - Numbers are placeholders. Only routes 1 to 3 are meaningful: town 1 to 2, town 2 to 3 (Crestfall), and town 3 onwards to town 4, which stays blocked at first.
 - **Section budget:** 51 sections against about 43 spare IDs. See "Limits found" above. The first 6 fit easily.
+- **Tile budget (measured):** as painted, this mockup uses 324 distinct 8x8 tiles inside the map area, over the 256 limit. It is a shape guide, not final art. Its smooth coastline and roads make every tile unique, which tile art avoids by reusing a few coast and road pieces (Hoenn does it in 233 tiles). The finished picture needs roughly a fifth fewer distinct tiles than this mockup, so keep textures repetitive.
 - A winding route's rectangle is the bounding box of its cells, exactly as Hoenn does it (52 of Hoenn's 54 section rectangles equal the bounding box of their cells; Route 114 is a 4-cell bend inside a 2x3 box). The player marker is placed inside that box, so on a bent route it may not sit exactly on the road. Untested in game.
 
 ## Section list

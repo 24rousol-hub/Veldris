@@ -51,7 +51,7 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 | 0x0E9 | 1 | General purpose |
 | 0x1DA | 1 | General purpose |
 | 0x1DE-0x1E3 | 6 | General purpose |
-| **0x264-0x2BB** | 88 | **Story beats and cutscenes.** Note: config comments in `include/config/battle.h` and `pokemon.h` use 0x264 as their example toggle flag. Use 0x264 for a config toggle, or skip it |
+| **0x264-0x2BB** | 88 | **Hidden items (reserved).** Hidden-item flags must be 0x1F4 or higher (the assembler macro in `asm/macros/map.inc` rejects lower ones) and 0x264 is where the existing hidden-item range grows. Config comments in `include/config/battle.h` and `pokemon.h` use 0x264 as their example toggle flag, so skip 0x264 or use it for a config switch |
 | 0x2D9 | 1 | General purpose |
 | 0x468, 0x470, 0x472, 0x479 | 1 each | General purpose |
 | **0x493-0x4EF** | 93 | **Per-map one-shots** (talked-to flags, single pickups) for towns and routes |
@@ -60,17 +60,25 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 | 0x881-0x887 | 7 | General purpose |
 | 0x88E-0x88F | 2 | General purpose |
 | 0x8E3 | 1 | General purpose |
-| **0x8E5-0x91E** | 58 | **Late game:** gyms 5 to 9, Elite Four, post-game |
+| **0x8E5-0x91E** | 58 | **Story beats and cutscenes:** gyms, Elite Four, post-game. Spill into the general flags if needed |
 
 Reminder: the spare flags for ordinary game state are numerous but they are not unlimited. 317 flags for 18 towns, 33 routes, 9 gyms, the League and the post-game is enough only if boolean state is packed sensibly. Use `VAR_TEMP_*` for anything local to one map visit.
 
 ## Spare pool: permanent vars
 
-23 vars are named `VAR_UNUSED_*`. **21 are safe to claim.** Excluded: `VAR_UNUSED_0x8014`, which is a volatile special var (0x8000 block, never saved). Also note `VAR_UNUSED_0x404E`: the config comment in `include/config/battle.h` names it as an example toggle. Claim it for a config switch, or skip it.
+23 vars are named `VAR_UNUSED_*`. **22 are safe to claim.** Excluded: `VAR_UNUSED_0x8014`, which is a volatile special var (0x8000 block, never saved). Also note `VAR_UNUSED_0x404E`: the config comment in `include/config/battle.h` names it as an example toggle. Claim it for a config switch, or skip it.
 
-Claimable vars: 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x40A8, 0x40B8, 0x40BB, 0x40DB, 0x40DC, 0x40E5, 0x40F7 to 0x40FF (9 in a row, 0x40F7-0x40FF).
+Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x40A8, 0x40B8, 0x40BB, 0x40DB, 0x40DC, 0x40E5, and 0x40F7 to 0x40FF (9 in a row). Two of them, **0x4083 and 0x408B, are also used as FRLG map-script variables** (through `vars_frlg.h` aliases). FRLG maps are not built into this Emerald ROM, so they are safe here, but skip them if FRLG maps are ever enabled. That leaves 20 with no alias at all.
 
-**Only 21 spare persistent vars.** Use a var only for a state that has more than two values (a story chapter counter, a puzzle stage). Use a flag for anything yes/no. If we run short, the remaining Hoenn vars can be freed by removing the Hoenn maps that use them, but that is a decision for the author.
+**Only 22 spare persistent vars.** Use a var only for a state that has more than two values (a story chapter counter, a puzzle stage). Use a flag for anything yes/no. If we run short, the remaining Hoenn vars can be freed by removing the Hoenn maps that use them, but that is a decision for the author.
+
+## Range and comment traps
+
+- **Hidden items** are reached as `FLAG_HIDDEN_ITEMS_START` (0x1F4) plus an id, and the assembler macro rejects any hidden-item flag below 0x1F4. So the spare flags below 0x1F4 can never be hidden-item flags, and hidden items in Veldris need flags from 0x1F4 up.
+- **Rematches.** Trainer-registered flags run 0x15C-0x1A9 (78 entries). Adding rematch entries walks into 0x1AA-0x1AB and then `FLAG_DEFEATED_DEOXYS` (0x1AC), so only 2 more fit.
+- **Do not trust an `Unused Flag` comment.** `FLAG_TEMP_5` and `FLAG_TEMP_6` say so but are referenced (dozens of times). Only the name `FLAG_UNUSED_*` plus a zero-reference grep counts.
+- **Not counted:** about 10 more flags are documented as leftovers but are not named `FLAG_UNUSED_*` (for example `FLAG_RECEIVED_CONTEST_PASS`). They can be reclaimed later if the pool runs short.
+- **Flag ids of 0x960 and above** are outside the save block. The save block has no bounds check for them, and the flags array is followed directly by the vars.
 
 ## Related limits worth knowing
 

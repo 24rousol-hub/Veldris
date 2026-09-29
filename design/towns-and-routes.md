@@ -8,7 +8,7 @@ Map cells, connections and the full section list for all 18 towns and 33 routes 
 
 ## Naming convention (PROPOSED)
 
-The tree already contains the full Hoenn and FRLG maps, and FRLG already owns names such as `Route1_Frlg` and `MAPSEC_ROUTE_1` to `MAPSEC_ROUTE_25`. To stay clear of both:
+The tree still carries FRLG's map folders and constants. They are not built into this Emerald ROM, but names such as `Route1_Frlg` and `MAPSEC_ROUTE_1` to `MAPSEC_ROUTE_25` exist. To stay clear of them and of Hoenn's:
 
 - Town map folders use the town name: `Hollowbrook`, `Wendlebury`, `Crestfall`.
 - Route map folders use a `VeldrisRoute` prefix: `VeldrisRoute1` to `VeldrisRoute33`.

@@ -29,7 +29,8 @@ All checked against this tree.
 - **`{RIVAL}` expands to MAY or BRENDAN** (`src/string_util.c`). Write TROGLODYTE literally.
 - **Only 9 new trainer IDs fit** before trainer flag space overflows. See `design/flags.md` and open decision 6 in `design/game-bible.md`.
 - **The engine is built for 8 badges.** Nine gyms need a decision. See open decision 1 in `design/game-bible.md`.
-- The tree contains the full Hoenn **and** FRLG maps and constants (for example `Route1_Frlg`, `MAPSEC_ROUTE_1`). New Veldris names must not collide with them. See `design/towns-and-routes.md`.
+- FRLG map folders sit in `data/maps` but are **not built into this Emerald ROM** (`mapjson` skips maps not tagged `REGION_HOENN`). Their `MAP_*` and `MAPSEC_*` constants still exist (for example `MAPSEC_ROUTE_1`), so new Veldris names must not collide with them. See `design/towns-and-routes.md`.
+- **The town map picture can use at most 256 distinct 8x8 tiles**, at most about 43 more map sections fit, and Fly needs the Feather Badge in this build. See `design/region-map.md`.
 
 ## Build
 
