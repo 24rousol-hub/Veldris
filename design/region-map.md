@@ -70,22 +70,30 @@ Recommendation: **A**, and reuse vanilla IDs for the remainder once the spare ID
 
 # Veldris layout proposal (PROPOSED, not approved)
 
-**Version 2.** The first version was a lattice: evenly spaced towns joined by ruler-straight routes. This one replaces it with a shape that has a character of its own.
+**Version 3.** The same organic shape as version 2 (a crescent of land around an inland bay, placeholder name Marrow Bay), redrawn in the style of the game's own town map and of the example you sent: striped sea, textured green land, wide bands for routes, round markers for towns. It replaces the lattice of version 1 and the thin smooth roads of version 2.
 
-**The shape:** a crescent of land wrapped around an inland bay (placeholder name: Marrow Bay). The start is farmland in the south-west. Mountains run along the north coast and out to the north-east tip. The south arm curls around to a south-eastern peninsula. Three small islands sit in the bay for later. A river runs from the northern hills to the bay, and there are lakes and forest patches. Roads wind around all of it.
-
-**Native size, 256x160** (the whole Pokénav screen). The first three towns and routes have a gold outline.
+**The picture as it would sit in the game** (native 256x160, no text baked in):
 
 ![Veldris at 256x160](veldris-layout-256x160.png)
 
-**Labelled, 4x** ([open it full size](veldris-layout-annotated.png)):
+**Labelled, with the game's own font** ([open it full size](veldris-layout-annotated.png)). The first three towns have gold plates. Other towns are T4 to T18, and routes are R1 to R33:
 
 ![Veldris, labelled](veldris-layout-annotated.png)
 
+**The 28 x 15 cell grid the game stores**, with coordinates, for the Region Map Editor step ([full size](veldris-layout-cells.png)):
+
+![Veldris cells](veldris-layout-cells.png)
+
+## Style and names
+
+- **Style.** Striped sea, textured land, **orange bands** for land routes, **blue bands** for sea routes, **red round markers** for towns, **green markers** at the end of each side path (a cove, a cave mouth). The colours are taken from vanilla's own town-map palette (16 colours, where Hoenn's picture uses 27). The colour meanings are proposals. Your example uses pink rectangles for cities and green squares for landmarks, and recolouring to that is a palette change.
+- **Town names use the GBA font automatically.** They are not part of the picture. The engine prints the name of the section under the cursor at run time, in `FONT_NORMAL` (the game's font), into its own name windows (`WIN_MAPSEC_NAME` and `WIN_MAPSEC_NAME_TALL` in `src/region_map.c`). So there is nothing to draw and nothing to match. The labelled image above is drawn with the game's own font sheets (`graphics/fonts/latin_normal.png` and `latin_small.png`, glyph widths from `src/fonts.c`) so you can see how the names read. The plates are for the mockup only.
+- **Names** are at most 16 characters, in capitals like vanilla (`LITTLEROOT TOWN`), and charmap characters only. The names on the plates for towns 4 to 18 are placeholders.
+
 ## Why it is not a grid
 
-- **The picture and the cells are separate things.** The picture is painted from 8x8 tiles, so the coastline, islands and roads can be any shape. The 28 x 15 cells only tell the game which section the cursor is on. They are never drawn ([technical view of the cells](veldris-layout-cells.png), for the Region Map Editor step).
-- Towns sit where the land wants them, not on a lattice. Routes wind around lakes, forest and mountains. Each route is a staircase of touching cells, which reads as a bend or a diagonal on the picture.
+- **The picture and the cells are separate things.** The picture is painted from 8x8 tiles, so the coastline, islands and lakes can be any shape. The 28 x 15 cells only tell the game which section the cursor is on. The grid is never drawn in the game.
+- Towns sit where the land wants them, not on a lattice. Routes wind around lakes, forest and mountains as bands of touching cells, the way vanilla's routes do.
 - **"Zoomed out":** each cell stands for a big stretch of land, so a town is one cell and a route is a few bent cells. The 28 x 15 size itself is fixed by the engine (`MAP_WIDTH` and `MAP_HEIGHT` in `src/region_map.c`). If you meant a bigger map area than that, it needs an engine edit, so say so and I will look at what it costs.
 
 ## Numbers
@@ -94,8 +102,9 @@ Recommendation: **A**, and reuse vanilla IDs for the remainder once the spare ID
 - Checked by script: every route sits on the right terrain (land or sea), routes never overlap, every route touches its towns, every town is reachable from town 1, and no town has more than 4 routes (a town is one cell, so only its 4 neighbours can hold a route).
 - Numbers are placeholders. Only routes 1 to 3 are meaningful: town 1 to 2, town 2 to 3 (Crestfall), and town 3 onwards to town 4, which stays blocked at first.
 - **Section budget:** 51 sections against about 43 spare IDs. See "Limits found" above. The first 6 fit easily.
-- **Tile budget (measured):** as painted, this mockup uses 324 distinct 8x8 tiles inside the map area, over the 256 limit. It is a shape guide, not final art. Its smooth coastline and roads make every tile unique, which tile art avoids by reusing a few coast and road pieces (Hoenn does it in 233 tiles). The finished picture needs roughly a fifth fewer distinct tiles than this mockup, so keep textures repetitive.
+- **Tile budget (measured):** the picture uses **148 distinct 8x8 tiles** in the map area against the limit of 256 (vanilla Hoenn uses 215), and 16 colours. It is built from a handful of repeating patterns (land, forest, mountain, farm, route, sea) plus the coast tiles, so it fits. Version 2's smooth coast and roads needed 324 and would not have. It is still a mockup: the real picture is painted with tiles in the Region Map Editor.
 - A winding route's rectangle is the bounding box of its cells, exactly as Hoenn does it (52 of Hoenn's 54 section rectangles equal the bounding box of their cells; Route 114 is a 4-cell bend inside a 2x3 box). The player marker is placed inside that box, so on a bent route it may not sit exactly on the road. Untested in game.
+- The labelled image leaves off the numbers of R22, R24, R27, R29 and R33, which are too short to fit a label. The tables below list every route.
 
 ## Section list
 
@@ -256,3 +265,4 @@ These are the six records for `src/data/region_map/region_map_sections.json`. Th
 2. Are Hollowbrook and Wendlebury fine as names for towns 1 and 2, and Marrow Bay for the bay? (Crestfall comes from your `TRAINER_CRESTFALL_GRETA`.)
 3. What did you mean by zooming out? If you want more than 28 x 15 cells, that is an engine edit.
 4. Decision A or B above for fly towns.
+5. Colours: keep the vanilla GBA look (red towns, orange routes), or switch to your example's pink cities and green squares?
