@@ -12,7 +12,9 @@
 - **Leave out.** Files with other authors or unknown origin: `johtobuildings.PNG` (credits Gridiron, Kyledove and Pokémon Platinum art), the two `..._by_lostimpact-...` images, and `New Bark Town Lab tile.png` (a comic, not a map). Treat hash-named uploads (for example `bobhx7.png`) as unconfirmed and check with the author before using them.
 - **Layouts are Game Freak's Johto designs, redrawn by the team.** That is the same footing as the vanilla Hoenn maps upstream already ships, but it is a fan project's redraw. Noted for a public repo. The author's call.
 
-## Plan for the first three towns and routes (PROPOSED)
+## Plan for the first three towns and routes (APPROVED)
+
+The author approved these pairings on 2026-09-29 ("the palladium and vanilla pairings looks great"). **Hollowbrook is the first map the author builds.** Later swaps are still fine; note them here.
 
 The Johto start lines up with Veldris' first stretch: New Bark Town, Route 29, Cherrygrove, Route 30, and so on. Sizes are in tiles. Every one is well inside the engine's map-size limit `(width + 15) * (height + 14) <= 10240`.
 
@@ -48,6 +50,6 @@ Pokémon Centers and Marts should come from the vanilla maps above, since each t
 
 ## Open items
 
-- Confirm the mapping above, or swap any pairing.
+- ~~Confirm the mapping above, or swap any pairing.~~ Approved (author, 2026-09-29).
 - Which Palladium images cover towns 4 to 18 and routes 4 to 33: decide as each comes up.
 - Whether to use any hash-named uploads.

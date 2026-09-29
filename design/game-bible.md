@@ -62,4 +62,7 @@ These need the author's call. None blocks the first 3 towns.
 | 2026-09-29 | Region map shape approved. "Zoom out" means denser tile art (more detail in the same space), not more cells. | Author |
 | 2026-09-29 | Prof. Fennick's intro tone approved (`data/text/birch_speech.inc`), including the line seeding Troglodyte's full name. | Author |
 | 2026-09-29 | Maps: a mix of Project Palladium maps (Team Aqua repo, traced in Porymap as references) and vanilla bases. See [map-plan.md](map-plan.md). | Author |
+| 2026-09-29 | Palladium and vanilla pairings for towns 1 to 3 approved. Hollowbrook is the first map the author builds. | Author |
+| 2026-09-29 | Fly-town hooks (A-prime) may be applied. Applied by the other session, table still empty. | Author |
+| 2026-09-29 | New trainer card with the 9-badge strip looks good. Badge art palette question settled in the other session. | Author |
 | 2026-09-29 | Repo created as a fresh start on pokeemerald-expansion. Scope fixed at 18 towns, 33 routes, 9 gyms, Elite Four, post-game. | Author |
