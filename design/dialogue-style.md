@@ -4,7 +4,7 @@
 
 - Deadpan and dry. The joke is in the situation, not in shouting.
 - The player is silent. Their attitude shows through the choices offered.
-- Troglodyte is pompous and clueless. Never cruel. Never swears.
+- Troglodyte is pompous and clueless. Never cruel. Never swears. *(Under review: the author's 2026-09-29 note says the Goldsworths are rich frat guys who are assholes. Until open decisions 9 and 10 in [game-bible.md](game-bible.md) are answered, these limits stay.)*
 - Locals are sincere and slightly odd.
 - Keep speeches short. A grudge is funnier when it is brief.
 

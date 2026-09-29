@@ -14,6 +14,7 @@ The tree still carries FRLG's map folders and constants. They are not built into
 - Route map folders use a `VeldrisRoute` prefix: `VeldrisRoute1` to `VeldrisRoute33`.
 - Map constants follow from the folder name (`MAP_VELDRIS_ROUTE1`). Map sections use `MAPSEC_VELDRIS_ROUTE_1` and `MAPSEC_HOLLOWBROOK`.
 - Indoor maps append the building: `Hollowbrook_ProfFennickLab`, `Crestfall_Gym`, `Crestfall_PokemonCenter_1F`.
+- Goldsworth houses (PROPOSED): `<Town>_GoldsworthHouse`, for example `Hollowbrook_GoldsworthHouse`, all on one shared layout.
 
 ## Towns
 
@@ -32,6 +33,10 @@ The tree still carries FRLG's map folders and constants. They are not built into
 | 2 | VeldrisRoute2 | Wendlebury and Crestfall | PROPOSED | `MAPSEC_VELDRIS_ROUTE_2` | No |
 | 3 | VeldrisRoute3 | Crestfall onwards to town 4. Blocked for now (gate or barricade) so the first three towns stand alone | PROPOSED | `MAPSEC_VELDRIS_ROUTE_3` | No |
 | 4 to 33 | TBD | | Not started | | |
+
+## Goldsworth houses and the skyscraper (author note 2026-09-29; details PROPOSED)
+
+Every town has a Goldsworth house (17 or 18 maps depending on decision 8 in [game-bible.md](game-bible.md)). One town has the Goldsworth skyscraper. How they are built: [map-plan.md](map-plan.md). Town roles in the table above are not changed yet, and the houses are added per town as each town is built.
 
 ## Fly destinations
 

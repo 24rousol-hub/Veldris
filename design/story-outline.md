@@ -13,14 +13,21 @@ Every gym gets one Goldsworth scheme. Keep the beats the same so the joke builds
 5. **Battle.** Troglodyte loses. The gym battle follows as normal.
 6. **Humiliation beat.** A short line that lets the player enjoy it.
 
+## Goldsworth presence (author note 2026-09-29; details PROPOSED)
+
+- **A Goldsworth house in every town** (author). It is the one place in a warm town that is not warm. Each is a small interior with one to three NPCs and no trainer ids (see open decision 11 in [game-bible.md](game-bible.md)). All of them share one layout ([map-plan.md](map-plan.md)), so the houses differ in who is inside and what they say.
+- **The skyscraper** (author): the family business, in one city (TBD). What the player does there is TBD. It has several floors, which are separate interior maps.
+- **Who is inside:** rich frat guys who are assholes (author). See [characters.md](characters.md) for the open question on the parents.
+- A house can carry its town's scheme beat (the 'setup' and 'reveal' in the formula above) or a small joke on its own. Which is up to each town.
+
 ## Act I: Hollowbrook to Crestfall  (first 3 towns, 3 routes)
 
 | Beat | Where | Notes | Status |
 |---|---|---|---|
 | Intro and Prof. Fennick | Start town | Intro is C-driven. Text drafted in `data/text/birch_speech.inc` (built, fits the text box). Portrait art still shows Birch | BUILT (text). Tone approved by the author; portrait art still to do |
-| Player learns Troglodyte got a head start | Start town | Sets the motive | PROPOSED |
+| Player learns Troglodyte got a head start | Start town | Sets the motive. Could happen at or near Hollowbrook's Goldsworth house | PROPOSED |
 | Route 1, first trainers | Route 1 | Gentle, farm-country | PROPOSED |
-| Town 2 | Town 2 | Pokémon Center, shop, first sight of Goldsworth money | PROPOSED |
+| Town 2 | Town 2 | Pokémon Center, shop, and the town's Goldsworth house | PROPOSED |
 | Route 2 | Route 2 | Route leads to the gym town | PROPOSED |
 | **Scheme 1 at Crestfall** | Crestfall | See below | PROPOSED |
 | Gym 1: Greta (Normal) | Crestfall | `TRAINER_CRESTFALL_GRETA` | author fixed leader and type |

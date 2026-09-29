@@ -11,7 +11,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 
 - Sheltered and mediocre rival. **(author)**
 - Rich parents who keep trying elaborate gym sabotage schemes that fail. **(author)**
-- Voice (PROPOSED): pompous, entitled, never quite understands why he lost. Refers to his parents and their money. Never swears.
+- Voice (PROPOSED, revised 2026-09-29 after the author's note on the Goldsworths below): frat-bro entitlement and contempt, pompous, never quite understands why he lost. Refers to his family and their money. Whether he swears is open decision 10 in [game-bible.md](game-bible.md).
 - Team (PROPOSED): well-bred Pokémon, poorly trained. Strong on paper, tactically naive.
 - First named in Prof. Fennick's intro as BEAUREGARD GOLDSWORTH IV (PROPOSED, see Prof. Fennick below).
 - In text, write **TROGLODYTE** literally. Do not use `{RIVAL}`: in this engine it expands to MAY or BRENDAN (`src/string_util.c`).
@@ -31,9 +31,23 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - Trainer constant: **`TRAINER_CRESTFALL_GRETA`** (`TRAINER_GRETA` is already taken). **(author)**
 - Voice (PROPOSED): dry, unhurried, plain-spoken farm wisdom. Sees through the Goldsworths at once.
 
-## The Goldsworths (Troglodyte's parents)
+## The Goldsworths (Troglodyte's family)
 
-- Names TBD. **(PROPOSED)** Two people who mistake money for competence. Their schemes drive the plot. See [story-outline.md](story-outline.md).
+**Author note (2026-09-29), in the author's words:** every single city will have a Goldsworth house in it. Since they are uber rich they will have a skyscraper in one of the cities as their business. Make them a bunch of rich frat guys that are assholes.
+
+**Taken as fixed (author):**
+- A Goldsworth house in every city.
+- A Goldsworth skyscraper in one city, as the family business.
+- The Goldsworths are rich frat guys who are assholes.
+
+**PROPOSED (my reading, easy to change):**
+- 'Them' means the whole family, not only the parents. The original brief said 'rich parents' stage the schemes, so it is open whether the parents are part of the frat crowd (old money who never left the fraternity) or the schemes are run by a wider clan of brothers, cousins and uncles. See open decision 9 in [game-bible.md](game-bible.md).
+- Names TBD.
+- 'Every city' means all 18 towns, the start town included (open decision 7). The skyscraper's town is TBD (open decision 8).
+- Voice: loud, entitled, contemptuous of the locals, still incompetent. The humour lands on them and never on innocent townsfolk. Whether they swear is open decision 10.
+- Overworld sprites: the `rich_boy` family in [asset-inventory.md](asset-inventory.md) fits, picked per NPC when the houses are built.
+- The houses and the skyscraper: see 'Goldsworth presence' in [story-outline.md](story-outline.md) and [map-plan.md](map-plan.md).
+- Their schemes drive the plot: [story-outline.md](story-outline.md).
 
 ## Trainer constants
 
