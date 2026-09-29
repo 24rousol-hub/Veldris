@@ -21,7 +21,7 @@ The Johto start lines up with Veldris' first stretch: New Bark Town, Route 29, C
 | Veldris map | Palladium reference | Tiles | Vanilla alternative or base |
 |---|---|---|---|
 | **Hollowbrook** (town) | `New Bark Town.png` | 32 x 28 | `LittlerootTown` |
-| Hollowbrook: Prof. Fennick's lab | `Elm's Lab.png` | 13 x 14 | `LittlerootTown_ProfessorBirchsLab` |
+| Hollowbrook: Prof. Fennick's lab | `Elm's Lab.png` | 13 x 14 | `LittlerootTown_ProfessorBirchsLab`. **Needs a starter table**: paint a table at least 4 tiles wide (the picture's is 3) with a free tile in front of each of four Poké Ball spots. See 'Starters and the lab scene' in [story-outline.md](story-outline.md) |
 | Hollowbrook: player's house 1F | `Hero's House 1st Floor.png` | about 13 x 9 | `LittlerootTown_BrendansHouse_1F` |
 | Hollowbrook: player's house 2F | `Hero's House 2nd Floor.png` | 14 x 11 | `LittlerootTown_BrendansHouse_2F` |
 | Hollowbrook: neighbour's house | `Elm's House.png` | 13 x 10 | `LittlerootTown_MaysHouse_1F` |

@@ -29,7 +29,7 @@ The author has not decided which path the story takes. What is fixed: the Goldsw
 
 | Beat | Where | Notes | Status |
 |---|---|---|---|
-| Troglodyte at Fennick's lab | Hollowbrook | **(author, 2026-09-29)** Troglodyte is in Hollowbrook to meet his grandfather, who was not there at the time. He takes his frustration out on Fennick and forces him to give him a Pokémon. Which one is random among the starters. Where the grandfather was, and how the scene plays out, are TBD | Beat fixed by the author, details PROPOSED |
+| Troglodyte at Fennick's lab | Hollowbrook | **(author, 2026-09-29)** Troglodyte is in Hollowbrook to meet his grandfather, who was not there at the time. He takes his frustration out on Fennick and forces him to give him a Pokémon. It is one of three at random. Fennick then apologises to the player by revealing a fourth starter, and the player picks from what is left (author). Where the grandfather was, and how the rest of the scene plays out, are TBD | Beat fixed by the author, details PROPOSED |
 | Intro and Prof. Fennick | Start town | Intro is C-driven. Text drafted in `data/text/birch_speech.inc` (built, fits the text box). Portrait art still shows Birch | BUILT (text). Tone approved by the author; portrait art still to do |
 | Player learns Troglodyte got a head start | Start town | Sets the motive. The scene above shows it, and the grandfather in Hollowbrook's Goldsworth house could fill in the rest | PROPOSED |
 | Route 1, first trainers | Route 1 | Gentle, farm-country | PROPOSED |
@@ -39,12 +39,22 @@ The author has not decided which path the story takes. What is fixed: the Goldsw
 | Gym 1: Greta (Normal) | Crestfall | `TRAINER_CRESTFALL_GRETA` | author fixed leader and type |
 | Route 3 gated | Route 3 | Leads on to town 4. Blocked for now | PROPOSED |
 
-### Troglodyte's starter (author: random among the starters)
+### Starters and the lab scene (author, 2026-09-29; the build is PROPOSED)
 
-- **What the author fixed:** Troglodyte forces a Pokémon out of Fennick, and the one he ends up with is chosen at random from the starters.
-- **How it can be built without engine edits (checked in this tree):** the lab script uses `random 3` (the command exists, for example in `data/scripts/interview.inc`) and stores the result in a var. Every later Troglodyte battle then switches on that var, the way vanilla switches on `VAR_STARTER_MON` (0 Treecko, 1 Torchic, 2 Mudkip) in `data/maps/Route103/scripts.inc`. That is one spare var and no C.
-- **The cost is trainer ids.** Vanilla gives every rival battle three trainer ids, one per starter. With only 9 spare ids that cannot be paid three at a time. The likely answer is to reuse the vanilla rival rows for Troglodyte: there are 15 `TRAINER_BRENDAN_*` ids (Routes 103, 110 and 119, Rustboro and Lilycove, three starters each), and nothing in `src/` refers to them by name, only the Hoenn map scripts do. Renaming them is a data change. See open decisions 3, 6 and 14 in [game-bible.md](game-bible.md).
-- **Which three starters Veldris has is not decided.** Emerald's Treecko, Torchic and Mudkip are the default until the author says.
+**What the author fixed:**
+- There are **four** starters. Three are on show in the lab.
+- Troglodyte forces a Pokémon out of Fennick and takes **one of the three on show, at random**.
+- Fennick then reveals the **fourth** as an apology to the player, and the player picks from what is left.
+- **Which species: undecided.** The author will decide once the Hollowbrook map, the lab and the houses are done. Until then Emerald's Treecko, Torchic and Mudkip are stand-ins.
+
+**How it can be built, and what it costs (checked in this tree):**
+- **The vanilla starter screen cannot do it.** `src/starter_choose.c` is hard-wired to exactly three balls (`STARTER_MON_COUNT` is 3, and the ball positions, labels and left/right selection all assume it). A fourth ball, a ball already taken and a mid-scene reveal would mean rewriting that screen in C, an engine edit.
+- **Proposal: Poké Ball objects on a table in the lab, script only.** Four ball objects on a table, the fourth hidden by a flag. The scene: Troglodyte walks to a random one of the three and takes it (its ball disappears), Fennick apologises and the fourth ball appears, and the player talks to a ball, confirms, and gets the Pokémon with `givemon`. That is how Oak's lab works in FRLG. That lab's script, `data/maps/PalletTown_ProfessorOaksLab_Frlg/scripts.inc`, is in the tree as a reference (it is not built into this ROM). No engine edit.
+- **The random pick:** `random 3` in the lab script (the command exists, for example in `data/scripts/interview.inc`), stored in one spare var. Every later Troglodyte battle switches on that var, the way vanilla switches on `VAR_STARTER_MON` in `data/maps/Route103/scripts.inc`. Troglodyte can only have one of the three on show, so he needs three variants per battle, not four.
+- **Trainer ids:** three per Troglodyte battle. With 9 spare ids the likely answer is to reuse the 15 vanilla `TRAINER_BRENDAN_*` ids, since nothing in `src/` refers to them by name. See open decisions 3, 6 and 14 in [game-bible.md](game-bible.md).
+- **Flags and vars (planned, not claimed):** one var for Troglodyte's pick, and a flag or two for the lab scene (fourth ball revealed, player has chosen).
+- **`VAR_STARTER_MON` and `GetStarterPokemon`** hold three species (`sStarterMon[3]`), and `credits.c`, `field_specials.c` and `battle_setup.c` read them. Check what needs them once the species are chosen. If the player can end up with the fourth species, the table may need a fourth entry (a one-line engine edit).
+- **The lab map has to support it.** It needs a table with room for four ball objects. `Elm's Lab.png` has a table (green, three tiles wide), so paint it at least four wide, with a free tile in front of each ball spot. The balls are events, and I place them. See [map-plan.md](map-plan.md).
 
 ### Scheme 1 (PROPOSED example, easy to replace)
 

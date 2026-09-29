@@ -63,7 +63,8 @@ Reference: `Maps/Project Palladium/New Bark Town.png` in the asset repo. It is e
 
 - **Pokémon Center and Mart:** in the New Map dialog, pick an **existing Layout ID** (`LAYOUT_POKEMON_CENTER_1F`, `LAYOUT_POKEMON_CENTER_2F`, `LAYOUT_MART`). Nothing to paint. But painting in one then changes every map that uses that layout.
 - **Goldsworth houses:** the same trick, one shared layout for all of them. See [map-plan.md](map-plan.md).
-- **Houses and Fennick's lab:** Duplicate Map from the vanilla ones and keep them as they are for now. I re-point the warps. Repaint later if you want to match the Palladium pictures.
+- **Houses:** Duplicate Map from the vanilla ones and keep them as they are for now. I re-point the warps. Repaint later if you want to match the Palladium pictures.
+- **Fennick's lab is the one interior worth repainting early.** The story has four Poké Balls on a table (see 'Starters and the lab scene' in [story-outline.md](story-outline.md)), so the lab needs a table at least 4 tiles wide, with a free tile in front of each ball spot. `Elm's Lab.png` has a table (3 wide) to copy from. The balls themselves are events that I place.
 - **Tilesets:** never pick an FRLG tileset for a new map. This Emerald build skips them. Indoor maps take walls and floors from the secondary tileset.
 
 ## Pitfalls, short list

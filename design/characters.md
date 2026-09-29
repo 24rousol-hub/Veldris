@@ -14,7 +14,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - **Attitude and arc (author, 2026-09-29):** he starts out **contemptuous**, like the wider family. After certain story points he can change to **oblivious and confused**, like his parents. Which story points is undecided, because the story's path is not decided yet. All that is fixed is that the Goldsworths are one of the obstacles.
 - Voice (PROPOSED): pompous and entitled, never quite understands why he lost. Refers to his family and their money. He is a Goldsworth, so he may swear a little (author). Early on he looks down on ordinary people on purpose. If the arc happens, later he is bewildered that the world does not work the way he was told. Write his lines so either mode can be swapped in.
 - **Why he is in Hollowbrook (author, 2026-09-29):** he came to meet his grandfather, who was not there at the time. He takes his frustration out on Prof. Fennick and forces him to give him a Pokémon.
-- **His starter is random among the starters (author).** Mechanics and cost: 'Troglodyte's starter' in [story-outline.md](story-outline.md).
+- **His starter is random among the three on show (author).** He never gets the fourth, which Fennick reveals afterwards. Mechanics and cost: 'Starters and the lab scene' in [story-outline.md](story-outline.md).
 - Team (PROPOSED): well-bred Pokémon, poorly trained. Strong on paper, tactically naive.
 - First named in Prof. Fennick's intro as BEAUREGARD GOLDSWORTH IV (PROPOSED, see Prof. Fennick below).
 - In text, write **TROGLODYTE** literally. Do not use `{RIVAL}`: in this engine it expands to MAY or BRENDAN (`src/string_util.c`).
@@ -24,7 +24,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - The professor who starts the player's journey.
 - Replaces Prof. Birch in the intro. Intro text lives in `data/text/birch_speech.inc` (C-driven intro).
 - Voice (PROPOSED): kindly, easily distracted, endlessly tolerant of the player's grudge.
-- **Troglodyte bullies him into handing over a Pokémon (author, 2026-09-29).** Fennick goes along with it. That is the player's first look at Troglodyte, and a reason for the grudge (PROPOSED).
+- **Troglodyte bullies him into handing over a Pokémon (author, 2026-09-29).** Fennick goes along with it. He then apologises to the player by revealing a fourth starter, and the player picks from what is left (author). That is the player's first look at Troglodyte, and a reason for the grudge (PROPOSED).
 - **Intro drafted 2026-09-29** in `data/text/birch_speech.inc` (text only, labels unchanged). **Tone APPROVED by the author (2026-09-29).** Beats: he lost track of the time; 'Everyone calls me the POKéMON PROFESSOR. Except my hens.'; 'So you're PLAYER. Splendid. I'll remember that. Probably.'; and he asks the player to be polite to a boy named BEAUREGARD GOLDSWORTH IV, which seeds Troglodyte.
 - FENNICK is written into the text directly (there is no placeholder for it).
 - **Art still to do:** the intro portrait `graphics/birch_speech/birch.png` (64x64, 16 colours) still shows Birch. His overworld sprite could be RavePossum's `prof_birch` (see [asset-inventory.md](asset-inventory.md)).
