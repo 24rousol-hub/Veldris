@@ -4,6 +4,8 @@ Fixed by the author: **18 towns, 33 routes.** Status legend: PROPOSED / APPROVED
 
 Only the first 3 towns and 3 routes are named for now, so they can be flown between. Everything else is a numbered placeholder. **All names below are PROPOSED.** Only **Crestfall** is implied by the author (`TRAINER_CRESTFALL_GRETA`), and it is assumed to be the first gym town.
 
+Map cells, connections and the full section list for all 18 towns and 33 routes are in [region-map.md](region-map.md) (layout proposal). Towns 4 to 18 and routes 4 to 33 keep placeholder names until the author names them.
+
 ## Naming convention (PROPOSED)
 
 The tree already contains the full Hoenn and FRLG maps, and FRLG already owns names such as `Route1_Frlg` and `MAPSEC_ROUTE_1` to `MAPSEC_ROUTE_25`. To stay clear of both:
