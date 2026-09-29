@@ -1,3 +1,39 @@
+# Pokémon: Piss Off Troglodyte - Credits
+
+A personal-use fan project. It is built on pokeemerald-expansion and is not affiliated with or endorsed by Nintendo, Creatures Inc., GAME FREAK inc. or The Pokémon Company. Pokémon and its characters are their trademarks. No ROM is distributed from this repository.
+
+**Rule:** every asset that comes from outside this repository gets a row in the table below, **in the same commit that adds it.** Assets from other people's work need their creator named, the source, and the permission or licence under which we use them. Do not use maps from other ROM hacks without the original author's permission.
+
+## Base
+
+| Project | Authors | Link | Notes |
+|---|---|---|---|
+| pokeemerald-expansion | RH Hideout and contributors (full list further down this file) | https://github.com/rh-hideout/pokeemerald-expansion | The engine this hack is built on |
+| pokeemerald | pret and contributors | https://github.com/pret/pokeemerald | The decompilation that expansion builds on |
+
+## Asset credits
+
+| Asset (path in this repo) | What it is | Creator(s) | Source (repo and path) | Licence or permission | Added in |
+|---|---|---|---|---|---|
+| _(no third-party assets added yet)_ | | | | | |
+
+## Tools used (not distributed)
+
+| Tool | Authors | Link |
+|---|---|---|
+| Porymap | huderlem and contributors | https://github.com/huderlem/porymap |
+
+## Asset sources we draw from
+
+These are where assets are found. A row above is still needed for every individual asset used.
+
+- [Team-Aquas-Asset-Repo](https://github.com/Pawkkie/Team-Aquas-Asset-Repo), maintained by Pawkkie and the Team Aqua's Hideout community. Free to use and edit by default unless a folder README says otherwise. Creator credit is required, and each folder's README names the creators.
+- [PokeAPI sprites](https://github.com/PokeAPI/sprites), with contributors as listed in that repository. The repository is CC0 1.0, but its licence file states that all image contents are Copyright The Pokémon Company, so the images stay personal-use fan material.
+
+---
+
+<!-- Everything below this line is upstream pokeemerald-expansion's own CREDITS.md. Leave it untouched so upstream updates merge cleanly. -->
+
 ## Credits ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/en/reference/emoji-key/)):
