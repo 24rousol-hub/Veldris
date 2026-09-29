@@ -54,7 +54,7 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 | **0x264-0x2BB** | 88 | **Hidden items (reserved).** Hidden-item flags must be 0x1F4 or higher (the assembler macro in `asm/macros/map.inc` rejects lower ones) and 0x264 is where the existing hidden-item range grows. Config comments in `include/config/battle.h` and `pokemon.h` use 0x264 as their example toggle flag, so skip 0x264 or use it for a config switch |
 | 0x2D9 | 1 | General purpose |
 | 0x468, 0x470, 0x472, 0x479 | 1 each | General purpose |
-| **0x493-0x4EF** | 93 | **Per-map one-shots** (talked-to flags, single pickups) for towns and routes |
+| **0x493-0x4EF** | 93 | **Per-map one-shots** (talked-to flags, single pickups) for towns and routes. Goldsworth houses are NPC-only and need none unless an NPC in one has a once-only line (at most one per house, up to 18 of the 93) |
 | 0x4F9-0x4FA, 0x4FF | 2 + 1 | General purpose |
 | 0x863 | 1 | General purpose |
 | 0x881-0x887 | 7 | General purpose |
@@ -84,4 +84,4 @@ Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x4
 
 - **Trainer slots.** `TRAINERS_COUNT` is 855 and `MAX_TRAINERS_COUNT` is 864, so only **9 new trainer IDs** fit before trainer flag space overflows (upstream's own note in `include/constants/opponents.h`). New trainers must reuse IDs of vanilla trainers you no longer need (rename them), or `MAX_TRAINERS_COUNT` is raised. That costs save block space, but there are about 176 bytes of headroom (roughly 1,400 flags), so a few hundred more trainers fit. It shifts every system and daily flag, which is fine on a fresh start. See [engine-limits.md](engine-limits.md). `TRAINER_CRESTFALL_GRETA` needs one of these. See open decision 6 in [game-bible.md](game-bible.md).
 - **Badges.** Flags 0x867-0x86E are badges 1-8, and 0x86F is already a `FLAG_VISITED_*`, so badge 9 is `FLAG_BADGE09_GET` at 0x88E. See [badges.md](badges.md).
-- **Fly flags.** `FLAG_VISITED_*` are Hoenn-named and sit in the system block. See [region-map.md](region-map.md).
+- **Fly flags.** `FLAG_VISITED_*` are Hoenn-named and sit in the system block. The A-prime hooks are applied and the table is empty. Claim `FLAG_UNUSED_0x020` to `0x031` as `FLAG_VISITED_<TOWN>` one town at a time (renaming the one line in `include/constants/flags.h`), with the checklist in [region-map.md](region-map.md). None is claimed yet.

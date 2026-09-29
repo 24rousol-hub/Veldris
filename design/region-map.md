@@ -33,13 +33,13 @@ The **town map** (Pokénav's region map) and the **Fly** picker are the same scr
    - `sMapHealLocations[]` (plus `FilterFlyDestination()`) says where you land. Normally it is a **heal location** from `src/data/heal_locations.json`, the spot outside the Pokémon Center. Failing that, it uses the map's warp.
 6. **The visited flag is set by the town's own script.** For example `LittlerootTown_OnTransition` runs `setflag FLAG_VISITED_LITTLEROOT_TOWN` (`data/maps/LittlerootTown/scripts.inc`). Until that runs, the town shows on the map but cannot be flown to.
 
-Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: sections in the Kanto block (`KANTO_MAPSEC_START` to `KANTO_MAPSEC_END`) use the Kanto map, and **anything else uses the Hoenn map** (`GetRegionMapType`). Veldris will therefore use the Hoenn map, and new sections must go at the **end** of the JSON list, never inside the Kanto block.
+Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: sections in the Kanto block (`KANTO_MAPSEC_START` up to, but not including, `MAPSEC_SPECIAL_AREA`; `include/regions.h`) use the Kanto map, and **anything else uses the Hoenn map** (`GetRegionMapType`). Veldris will therefore use the Hoenn map, and new sections must go at the **end** of the JSON list, never inside the Kanto block.
 
 ## What this means for Veldris
 
 **Data only (no C):** section names, positions, the grid, the picture, heal locations, and each map's `region_map_section`.
 
-**C edits, three small ones per fly town, all in `src/region_map.c`:** a `GetMapsecType` case, an `sFlyLocations` entry and an `sMapHealLocations` entry. Alongside those, the data side needs a claimed visited flag ([flags.md](flags.md)), a heal location in `src/data/heal_locations.json`, and the town's `OnTransition` setting the flag. Routes need no C: an unlisted section is a route.
+**C edits: none per town any more.** The A-prime hooks (applied, see below) mean each fly town is one row in `src/data/veldris_fly_towns.h`. Alongside that, the data side needs a claimed visited flag ([flags.md](flags.md)), a heal location in `src/data/heal_locations.json`, and the town's `OnTransition` setting the flag. Routes need no C: an unlisted section is a route.
 
 **Limits found:**
 
@@ -50,18 +50,35 @@ Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: 
 - **Names** are at most 16 characters, charmap characters only (no double quote).
 - **Heal locations.** Each flyable section needs a row in `sMapHealLocations`, which is indexed by section number (a gap row is all zeros). The build also rewrites `heal_locations.json` when a heal location's `respawn_map` does not exist yet, so add a heal location only after its Pokémon Center map exists.
 - **Fly is gated.** In this build Fly needs the Feather Badge (`src/field_move.c`), and a town only becomes flyable after the player has walked into it once (its `OnTransition` sets the flag). To test flying between the first three towns early, use the debug menu, or point `OW_FLAG_POKE_RIDER` (`include/config/overworld.h`) at a spare flag, which lets you open the fly map from the Pokénav without the HM. The config route is untested in game.
-- **No city zoom picture is needed.** A new town simply shows none (`NUM_CITY_MAPS` is 22), which is not a blocker.
+- **No city zoom picture is needed, but the Pokénav panel is untidy without one.** `NUM_CITY_MAPS` is 22 and all are Hoenn towns. For a flyable town with no picture, `DrawCityMap` (`src/pokenav_region_map.c` about line 664) returns early without clearing the picture area, so the previous town's picture can stay on screen (read from source, not run). It does not affect the Fly map. A fix is a small engine edit that needs the author's approval.
+- **The 16 vanilla Hoenn fly towns stay.** The hooks only add rows. `CreateFlyDestIcons` still draws the 16 vanilla locked-town icons at the vanilla sections' x/y. When the Veldris picture replaces Hoenn's, either move or reuse those 16 section records, or add a hack-owned way to drop vanilla rows (an engine edit, needs approval).
+- **Rows need ids after `MAPSEC_TRAINER_HILL`.** `VELDRIS_FLY_ROW` hard-codes `REGION_MAP_HOENN`, and the engine picks the region map from the section id. A row whose id falls in the Kanto block gets no icon. New ids appended after `MAPSEC_TRAINER_HILL` are fine.
 
 ## Checklist: add one fly town
 
-1. Author (Porymap): make the map. Set `region_map_section` to the town's section.
-2. Add the section record to the **end** of `region_map_sections.json` (id, name, x, y, width, height).
-3. Update the grid and the picture so the new cell shows the town (author, Region Map Editor; the manual confirms it edits the picture, the grid and the entries. Build once first so the new `MAPSEC_*` shows in its dropdown).
-4. Add a heal location in `src/data/heal_locations.json`.
-5. Claim a visited flag ([flags.md](flags.md), log it in [engine-edits.md](engine-edits.md)).
-6. `src/region_map.c`: add the `GetMapsecType` case, the `sFlyLocations` entry and the `sMapHealLocations` entry.
-7. Town's `OnTransition` script: `setflag <the flag>`.
-8. `make -j4`, then fly there in an emulator.
+Checked by a dry run on 2026-09-29: a throwaway Hollowbrook section, flag, heal location and table row were added in a scratch copy of the repo (no map files) and it built. Upstream files touched are marked **U**: log each in [engine-edits.md](engine-edits.md).
+
+Order matters. Steps 1 and 2 build on their own. Step 7 needs steps 3 and 6. Step 9 needs 1, 2, 3 and 7.
+
+1. **U** `src/data/region_map/region_map_sections.json`: append one record at the END of the list (after `MAPSEC_TRAINER_HILL`). Uppercase name, 16 characters at most. Build once, so Porymap's Location dropdown offers the new `MAPSEC_*`.
+2. **U** `include/constants/flags.h`: rename the spare `FLAG_UNUSED_0x0NN` to `FLAG_VISITED_<TOWN>` (keep the value; 0x020-0x031 are reserved for this). Add the row in [flags.md](flags.md).
+3. Author, Porymap: the town map. `region_map_section` is the new section, `show_map_name` true, `map_type` `MAP_TYPE_TOWN`, group 0 (`gMapGroup_TownsAndRoutes`), `region` and `layout_version` at the defaults. Every interior of the town uses the same `region_map_section` as the town.
+4. **U** `data/event_scripts.s`: Porymap appends the `.include "data/maps/<Name>/scripts.inc"` line itself on the first save of a new map. Check it is there exactly once. Add it by hand only for a map made without Porymap.
+5. The town's `scripts.inc`: the `OnTransition` script does `setflag FLAG_VISITED_<TOWN>`. Nothing else sets it, and it only runs when the town map itself loads.
+6. The town's Pokémon Center 1F map must exist before step 7, and its nurse object needs a `local_id` (for example `LOCALID_HOLLOWBROOK_NURSE`).
+7. **U** `src/data/heal_locations.json`: append an entry at the END. `x`/`y` is where a flying player lands, so it must be a walkable town tile outside the Center door (Fly does not check that the tile is walkable). Rules found by test:
+   - The map, the `respawn_map` and the `LOCALID_*` must already exist, or the generated header fails to compile.
+   - Write `respawn_map` BEFORE `respawn_npc`. `mapjson` rewrites the file line by line, and if `respawn_map` is not a valid map it zeroes the next `LOCALID_*` line, which can be another entry's.
+   - Always give both respawn fields. Without `respawn_npc`, the whiteout tables come out one entry short and a later whiteout reads past the array (`src/heal_location.c` about line 80; read from source, not run). `"respawn_npc": "LOCALID_NONE"` is fine when there is no nurse cutscene.
+   - Never edit the generated `include/constants/heal_locations.h` or `src/data/heal_locations.h`; they are gitignored.
+8. The Center's `OnTransition`: `setrespawn HEAL_LOCATION_<TOWN>`, only after step 7 (the constant comes from the JSON).
+9. `src/data/veldris_fly_towns.h`: add the row. Every row ends with a backslash except the last one.
+10. **U** `src/data/region_map/region_map_layout.h`: put the section in its grid cell, so the cursor lands on it and shows the name (author, Region Map Editor). Nothing checks that the grid agrees with the section's x/y/width/height.
+11. **U** `graphics/pokenav/region_map/map.png` and `map.bin`: the picture. Art only. Name, cursor, icon and Fly all work without it.
+12. Optional, **U**: a popup theme in `src/map_name_popup.c` (the default is the wood frame), and the debug flag list in `src/debug.c`.
+13. `make -j4`, then test: walk into the town, then debug menu (R+START) > Fly to map, and check the name, the red icon, the landing tile and the popup. Warnings are errors in this build.
+
+A town with two heal spots, or a subtitle name (like Ever Grande), needs `FilterFlyDestination` and `sMultiNameFlyDestinations` edits in `src/region_map.c`. Not covered by the hooks.
 
 ## Decision on fly towns: approach A-prime (author: "whatever is best for the future")
 
@@ -73,97 +90,35 @@ Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: 
 | Fits 18 towns? | Yes, until IDs run out | Only about 14 slots | Yes |
 | Upstream merges | 54 edit sites for 18 towns | Few | **A handful of hook sites** |
 
-**A-prime:** new sections with clean names, but instead of adding three entries per town inside `src/region_map.c`, make one small one-time change there. It adds hooks (about three: the `GetMapsecType` default case, the fly-icon loop, and the landing-spot lookup, to be confirmed when written) that also consult a **hack-owned table** in a new file (for example `src/data/veldris_fly_towns.h`, one row per town: section, visited flag, heal location). After that, adding a fly town is one table row plus data, and the upstream file is touched in only those few places, which keeps upstream pulls cheap.
+**A-prime:** new sections with clean names, but instead of adding three entries per town inside `src/region_map.c`, make one small one-time change there. It adds one include and three table-tail lines (the heal-location table, the `GetMapsecType` switch and the fly-icon table) that also read a **hack-owned table** in a new file (for example `src/data/veldris_fly_towns.h`, one row per town: section, visited flag, heal location). After that, adding a fly town is one table row plus data, and the upstream file is touched in only those few places, which keeps upstream pulls cheap.
 
-**Implemented 2026-09-29** (see below). Routes need no C at all, so once the 43 spare section IDs are used, routes can take over unused vanilla section IDs by renaming their records.
+**Applied 2026-09-29** (see below). Routes need no C at all, so once the 43 spare section IDs are used, routes can take over unused vanilla section IDs by renaming their records.
 
 ## A-prime: APPLIED 2026-09-29 (author: "Yes apply"), table still empty
 
-Applied as drafted, with `src/data/veldris_fly_towns.h` and the four hook lines in `src/region_map.c`, logged in [engine-edits.md](engine-edits.md). The table is empty, so nothing changes in game yet. Checked: the full build passes with the empty table, and a throwaway test row (the last section, `MAPSEC_TRAINER_HILL`) compiled and grew the heal table to 209 rows as expected, then was removed. Not tested in game. Draft text below was written against `src/region_map.c` as it is in this tree. Line numbers are from that file today and will drift.
+Applied by the other session with `src/data/veldris_fly_towns.h` and four added lines in `src/region_map.c`, logged in [engine-edits.md](engine-edits.md). The table is empty, so nothing changes in game yet.
 
-**Idea, simpler than the first sketch:** no runtime lookup at all. One new hack-owned header holds a single table as an X-macro and turns it into the three kinds of rows the engine already wants. The three engine tables each get **one added line** that expands to those rows. Every fly town is then one line in the hack header.
+**Checked 2026-09-29:**
+- Two independent reviews found no defects in the hooks. With the table empty, each hooked path compiles and behaves as vanilla did (compiled with the Makefile's flags including `-Werror`, with and without LTO). One row compiled clean, and a dry-run town built and linked.
+- The ROM boots in an emulator, the intro plays and the trainer card works. That does not exercise Fly, because no town is in the table yet.
+- Not tested in game: icons, cursor snapping, popup text, landing position.
 
-### What the three hook sites are
+**The four hook sites in `src/region_map.c`** (line numbers as of this check, they will drift):
 
-| # | Site in `src/region_map.c` | What the hook does |
+| Line | Site | What the hook does |
 |---|---|---|
-| 1 | `sMapHealLocations[][3]`, closes at about line 538 (`};`) | Add `VELDRIS_HEAL_LOCATION_ROWS` as the last line inside the braces. It expands to `[MAPSEC_X] = {MAP_GROUP(MAP_X), MAP_NUM(MAP_X), HEAL_LOCATION_X},` rows. Because the rows use designated indexes, the array grows to fit the highest section id, so an out-of-range read is not possible. This is what `SetFlyDestination` and `FilterFlyDestination` read, so **landing spots need no other change** |
-| 2 | `sFlyLocations[]`, closes at about line 2322 (`};`) | Add `VELDRIS_FLY_LOCATION_ROWS` as the last line inside the braces. It expands to `{ .regionMapType = REGION_MAP_HOENN, .mapsec = MAPSEC_X, .flag = FLAG_VISITED_X },`. That array feeds the fly icons drawn in `CreateFlyDestIcons` (the loop at about line 2340), so **the icon loop is untouched** |
-| 3 | `GetMapsecType()`, the `switch` at about line 1423; the last case before `default:` is `MAPSEC_ROUTE_10_POKECENTER` (about line 1503) | Add `VELDRIS_MAPSEC_TYPE_CASES` just before `default:`. It expands to `case MAPSEC_X: return FlagGet(FLAG_VISITED_X) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;` |
-| 4 | includes, top of the file (near line 29) | `#include "data/veldris_fly_towns.h"` |
+| 31 | includes | `#include "data/veldris_fly_towns.h"` |
+| 539 | end of `sMapHealLocations[][3]` | `VELDRIS_HEAL_LOCATION_ROWS`: designated-index rows, so the array grows to the highest section id. This is what `SetFlyDestination` and `FilterFlyDestination` read, so landing spots need no other change |
+| 1507 | `GetMapsecType()`, just before `default:` | `VELDRIS_MAPSEC_TYPE_CASES`: `case MAPSEC_X: return FlagGet(FLAG_VISITED_X) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;` |
+| 2325 | end of `sFlyLocations[]` | `VELDRIS_FLY_LOCATION_ROWS`: the fly icon row. The icon loop is untouched |
 
-Total: **one include and three one-line hooks** in `src/region_map.c`, no new functions, no changes to control flow. It also needs nothing in `field_region_map.c`, `pokenav_region_map.c` or `party_menu.c`, which all reach the same tables through `SetFlyDestination`.
+No new functions and no change to control flow. `field_region_map.c` and `pokenav_region_map.c` need no edit for fly (`party_menu.c` only opens the fly map, which reaches `SetFlyDestination`).
 
-### The hack-owned header (new file, not upstream)
+**Why an out-of-range read cannot happen:** every row adds both the heal row and the `GetMapsecType` case, and every caller of `SetFlyDestination` requires `CANFLY`. So do not add a `CANFLY` case outside the table.
 
-```c
-// src/data/veldris_fly_towns.h  (hack-owned; the only place to touch to add a fly town)
-#ifndef GUARD_VELDRIS_FLY_TOWNS_H
-#define GUARD_VELDRIS_FLY_TOWNS_H
+**Guard:** `veldris_fly_towns.h` has a `STATIC_ASSERT` that fails the build when the section ids run past the met-location codes (`MAPSEC_NONE < METLOC_SPECIAL_EGG`, 43 new sections in total).
 
-// X(mapsec, visited_flag, map, heal_location)
-// Add a row only after: the map exists, its heal location exists in
-// src/data/heal_locations.json, and the flag is claimed in design/flags.md.
-#define VELDRIS_FLY_TOWNS(X) \
-    X(MAPSEC_HOLLOWBROOK, FLAG_VISITED_HOLLOWBROOK, MAP_HOLLOWBROOK, HEAL_LOCATION_HOLLOWBROOK) \
-    X(MAPSEC_WENDLEBURY,  FLAG_VISITED_WENDLEBURY,  MAP_WENDLEBURY,  HEAL_LOCATION_WENDLEBURY)  \
-    X(MAPSEC_CRESTFALL,   FLAG_VISITED_CRESTFALL,   MAP_CRESTFALL,   HEAL_LOCATION_CRESTFALL)
-
-#define VELDRIS_HEAL_ROW(sec, flag, map, heal) \
-    [sec] = {MAP_GROUP(map), MAP_NUM(map), heal},
-#define VELDRIS_FLY_ROW(sec, visited, map, heal) \
-    { .regionMapType = REGION_MAP_HOENN, .mapsec = sec, .flag = visited },
-#define VELDRIS_TYPE_CASE(sec, flag, map, heal) \
-    case sec: return FlagGet(flag) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-
-#define VELDRIS_HEAL_LOCATION_ROWS VELDRIS_FLY_TOWNS(VELDRIS_HEAL_ROW)
-#define VELDRIS_FLY_LOCATION_ROWS  VELDRIS_FLY_TOWNS(VELDRIS_FLY_ROW)
-#define VELDRIS_MAPSEC_TYPE_CASES  VELDRIS_FLY_TOWNS(VELDRIS_TYPE_CASE)
-
-#endif // GUARD_VELDRIS_FLY_TOWNS_H
-```
-
-Note: the `VELDRIS_FLY_ROW` parameter is called `visited`, not `flag`, because a parameter named `flag` would also rewrite the `.flag` field name.
-
-### The proposed diff to `src/region_map.c` (illustrative)
-
-```diff
- #include "constants/heal_locations.h"
- #include "constants/rgb.h"
- #include "constants/weather.h"
-+#include "data/veldris_fly_towns.h"
-@@ static const u8 sMapHealLocations[][3] =
-     ... last vanilla row ...
-+    VELDRIS_HEAL_LOCATION_ROWS
- };
-@@ static u8 GetMapsecType(mapsec_u16_t mapSecId)
-     case MAPSEC_ROUTE_10_POKECENTER:
-         return FlagGet(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-+    VELDRIS_MAPSEC_TYPE_CASES
-     default:
-         return MAPSECTYPE_ROUTE;
-@@ static const struct FlyLocation sFlyLocations[] =
-     ... last vanilla entry ...
-+    VELDRIS_FLY_LOCATION_ROWS
- };
-```
-
-### What has to exist before a row can be added
-
-1. The town's map exists (`MAP_<NAME>` is generated from `data/maps/map_groups.json`).
-2. A heal location for it in `src/data/heal_locations.json`, whose Pokémon Center map exists (see the build note under "Limits found").
-3. A claimed visited flag, renamed in place in `include/constants/flags.h` (see [flags.md](flags.md); the trainer-block warning there applies).
-4. The town's `OnTransition` runs `setflag <that flag>`.
-5. The section record is in `region_map_sections.json`, so `MAPSEC_<NAME>` exists.
-
-### Risks and open points
-
-- **Fly still needs the Feather Badge** (`src/field_move.c`) and the visited flag. This draft does not change that; the badge gate belongs with the badge plan (`design/badges.md`).
-- **Guard for a not-yet-built map:** a row for a town whose map does not exist is a compile error, which is the point (the build tells you). Add rows only when the map is in.
-- **One row per town, first three only** are shown above. Larger towns with two heal spots (like Ever Grande) would need a `FilterFlyDestination` case, which is not covered.
-- **Untested.** It has not been compiled. It follows the same pattern the engine already uses (designated-index rows and `case` returns), so I expect it to build, but the first compile decides.
-- **Merge cost:** 4 added lines in one upstream file, all at the ends of existing blocks, so upstream additions to those tables would only conflict if they also append at the very end.
-- **Go-ahead needed** before applying. When applied: log the 4 lines in [engine-edits.md](engine-edits.md).
+**Merge cost:** four added lines in one upstream file, all at the ends of existing blocks.
 
 ---
 
@@ -301,9 +256,9 @@ Note: the `VELDRIS_FLY_ROW` parameter is called `visited`, not `flag`, because a
 | R32 | T14 | dead end | side path (dead end) | 4 |
 | R33 | T15 | dead end | side path (dead end) | 2 |
 
-## Ready to paste for the first six (do not add yet)
+## The first six section records (ADDED 2026-09-29)
 
-These are the six records for `src/data/region_map/region_map_sections.json`. They go at the **end** of the list, and only after the maps exist and decision A or B above is made.
+These six records were appended to `src/data/region_map/region_map_sections.json` (at the **end** of the list) so Porymap's Location dropdown offers them. Their grid cells in `region_map_layout.h` and the picture are not done yet. The JSON they were added from:
 
 ```json
 [

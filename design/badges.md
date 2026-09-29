@@ -1,6 +1,6 @@
 # Badges: survey of other hacks and a plan for Veldris
 
-**Status: IMPLEMENTED (option C, a data-driven badge table), 2026-09-29, on the author's go-ahead** ("do 9 gyms + Elite Four and Champion, do your best for badges, outsource the badge art, look at my fork of the asset repo"). The survey and options below are kept as the reasoning. **Not tested in an emulator**: the build passes, and the card layout was checked only in a mock-up rendered from the card tiles.
+**Status: IMPLEMENTED (option C, a data-driven badge table), 2026-09-29, on the author's go-ahead** ("do 9 gyms + Elite Four and Champion, do your best for badges, outsource the badge art, look at my fork of the asset repo"). The survey and options below are kept as the reasoning. **Checked in an emulator on 2026-09-29:** the ROM boots, and the trainer card was opened at 0, 1 and 9 badges (screenshots in the session, not committed). At 0 badges the strip shows 9 grey sockets, at 1 the first is the Stone badge, at 9 all nine icons show with no overlap. Badges were set through the debug menu, so nothing has awarded one by a gym script yet.
 
 ## What was built
 
@@ -20,7 +20,7 @@
 - **The Kaixer badges are recolours of the Emerald shapes** (Stone, Knuckle...), so they will not match Veldris gym themes and derive from Game Freak art. Fine as a stand-in.
 - **Names:** the table has no badge names yet, because the gym themes are not decided. Nothing in the game prints a badge name today.
 - **Only 15 badge slots** are usable because slot 15 is the empty socket.
-- **Not checked in an emulator:** card layout, tile budget, the `front.bin` edit, and that the badge sheet loads at BG tile 352 without clashing. All follow from reading `src/trainer_card.c` and `src/bg.c`.
+- **Checked in an emulator (2026-09-29):** the card layout, the `front.bin` edit and the row-2 tile load at BG tile 352 look right at 0, 1 and 9 badges. **Not checked:** 2 to 8 badges, badge 9 on its own, the back of the card, the girl's card, a long player name, save and load, and the FRLG-style link card.
 - **FRLG card type** (only from a link partner) keeps the vanilla 8-slot layout and does not show badge 9. `veldris_badges` is Emerald only and would not compile with `IS_FRLG`.
 - **Rematches and Route 23 style badge checks** still use `FLAG_BADGE05_GET` and the FRLG scripts; nothing in Veldris uses them yet.
 - No gym is built yet, so `FLAG_BADGE09_GET` is never set in play. Use the debug menu to test.

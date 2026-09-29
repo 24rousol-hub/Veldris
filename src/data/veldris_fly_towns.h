@@ -4,12 +4,15 @@
 // Hack-owned (not upstream). The one place to touch to add a Veldris fly town. See design/region-map.md.
 //
 // X(mapsec, visited_flag, map, heal_location)
-// Add a row only after: the map exists, its heal location exists in src/data/heal_locations.json,
-// the visited flag is claimed in design/flags.md, and the town's OnTransition does `setflag <flag>`.
-// Example (do not enable until those exist):
-//     X(MAPSEC_HOLLOWBROOK, FLAG_VISITED_HOLLOWBROOK, MAP_HOLLOWBROOK, HEAL_LOCATION_HOLLOWBROOK) \
-//
-// Each row is one line ending in a backslash. The table is empty for now.
+// Add a row only after: the map exists, its heal location exists in src/data/heal_locations.json
+// (with BOTH respawn_map and respawn_npc, written in that order), the visited flag is claimed in
+// design/flags.md, and the town's OnTransition does `setflag <flag>`. The full checklist is in
+// design/region-map.md. New section ids go at the END of region_map_sections.json (after
+// MAPSEC_TRAINER_HILL), so they stay clear of the Kanto block.
+// Example row (do not enable until those exist):
+//     X(MAPSEC_HOLLOWBROOK, FLAG_VISITED_HOLLOWBROOK, MAP_HOLLOWBROOK, HEAL_LOCATION_HOLLOWBROOK)
+// Write the rows as continuation lines: every row ends with a backslash except the last one.
+// The table is empty for now.
 #define VELDRIS_FLY_TOWNS(X)
 
 #define VELDRIS_HEAL_ROW(sec, visited, map, heal) \
@@ -22,5 +25,8 @@
 #define VELDRIS_HEAL_LOCATION_ROWS VELDRIS_FLY_TOWNS(VELDRIS_HEAL_ROW)
 #define VELDRIS_FLY_LOCATION_ROWS  VELDRIS_FLY_TOWNS(VELDRIS_FLY_ROW)
 #define VELDRIS_MAPSEC_TYPE_CASES  VELDRIS_FLY_TOWNS(VELDRIS_TYPE_CASE)
+
+// Fails the build if the section ids grow into the met-location codes (about 43 new sections fit).
+STATIC_ASSERT(MAPSEC_NONE < METLOC_SPECIAL_EGG, VeldrisTooManyMapSections);
 
 #endif // GUARD_VELDRIS_FLY_TOWNS_H

@@ -21,6 +21,12 @@ Before pulling upstream, read this list. Each row is a place a merge could confl
 | 2026-09-29 | `src/caps.c` | Added `FLAG_BADGE09_GET` rows to the level-cap (50, PROPOSED placeholder) and EV-cap tables; EV fractions now /19 | 9 badges. Caps are off by default (`B_LEVEL_CAP_TYPE`) | Caps are config-gated |
 | 2026-09-29 | `src/region_map.c` | A-prime fly hooks: `#include "data/veldris_fly_towns.h"` plus one line each at the end of `sMapHealLocations`, `sFlyLocations` and before `default:` in `GetMapsecType` | One table row per fly town instead of 3 edits in this file | No |
 
+| 2026-09-29 | `src/data/region_map/region_map_sections.json` | Appended six records at the end: `MAPSEC_HOLLOWBROOK`, `MAPSEC_WENDLEBURY`, `MAPSEC_CRESTFALL`, `MAPSEC_VELDRIS_ROUTE_1` to `_3`. `MAPSEC_NONE` moves from 209 to 215 | So Porymap's Location dropdown offers them and the name popup works. The town map grid and picture are not touched yet | No |
+
+**Files Porymap writes.** When the author saves a new map, Porymap appends to or rewrites these upstream files. They are not engine edits, so they get one standing row here rather than a row per map: `data/maps/map_groups.json`, `data/layouts/layouts.json`, `data/event_scripts.s` (an appended `.include` line per new map), and on every save `src/data/region_map/region_map_sections.json`, `src/data/heal_locations.json`, `src/data/wild_encounters.json`. Read the changed-files list before committing.
+
+**Files each new fly town touches (PROPOSED standing rows).** Per [region-map.md](region-map.md): `region_map_sections.json`, `include/constants/flags.h` (one rename), `src/data/heal_locations.json`, `src/data/region_map/region_map_layout.h`, and the map picture. Logging each of these per town would be 18 towns x 5 files of noise, so the proposal is one standing 'appends only' row per file, added when the file is first touched. That changes the logging rule above, so it waits for the author's OK. Hack-owned files (`src/data/veldris_fly_towns.h`, `src/veldris_badges.c`, `include/veldris_badges.h`) need no row.
+
 ## Planned edits (not yet made)
 
 | File | Change | Waiting on |

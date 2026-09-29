@@ -1630,6 +1630,54 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_HOLLOWBROOK",
+      "name": "HOLLOWBROOK",
+      "x": 3,
+      "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_WENDLEBURY",
+      "name": "WENDLEBURY",
+      "x": 8,
+      "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CRESTFALL",
+      "name": "CRESTFALL",
+      "x": 5,
+      "y": 7,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_1",
+      "name": "ROUTE 1",
+      "x": 4,
+      "y": 11,
+      "width": 4,
+      "height": 2
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_2",
+      "name": "ROUTE 2",
+      "x": 5,
+      "y": 8,
+      "width": 4,
+      "height": 3
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_3",
+      "name": "ROUTE 3",
+      "x": 2,
+      "y": 5,
+      "width": 3,
+      "height": 3
     }
   ]
 }

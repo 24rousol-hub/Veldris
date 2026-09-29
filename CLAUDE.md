@@ -29,18 +29,21 @@ All checked against this tree.
 - **Write map scripts as `scripts.inc`, not Poryscript.** The build has no Poryscript rules.
 - **`{RIVAL}` expands to MAY or BRENDAN** (`src/string_util.c`). Write TROGLODYTE literally.
 - **Dialogue must fit the text box: 216 px wide, 2 lines** (measured). Run `python3 design/tools/dialogue_check.py <file>` before committing any text. Details in `design/dialogue-style.md`.
+- **A new fly town is one row in `src/data/veldris_fly_towns.h`** plus the data steps in the checklist in `design/region-map.md`. Two traps: write `respawn_map` before `respawn_npc` in `heal_locations.json`, and always give both.
 - **Only 9 new trainer IDs fit** before trainer flag space overflows. See `design/engine-limits.md` and open decision 6 in `design/game-bible.md`.
-- **The engine is built for 8 badges.** Nine gyms need a decision. See open decision 1 in `design/game-bible.md`.
+- **Badges: 9, through a table.** `src/veldris_badges.c` and `include/veldris_badges.h` hold one row per badge (flag and art slot), and every badge loop goes through `gBadgeFlags[]` or `GetBadgeCount()`. Details and limits in `design/badges.md`.
 - FRLG map folders sit in `data/maps` but are **not built into this Emerald ROM** (`mapjson` skips maps not tagged `REGION_HOENN`). Their `MAP_*` and `MAPSEC_*` constants still exist (for example `MAPSEC_ROUTE_1`), so new Veldris names must not collide with them. See `design/towns-and-routes.md`.
 - **The town map picture can use at most 256 distinct 8x8 tiles**, at most about 43 more map sections fit, and Fly needs the Feather Badge in this build. All hard limits are in `design/engine-limits.md`; the town map wiring is in `design/region-map.md`.
 
 ## Adding things
 
-**A new map.** Porymap does steps 1 to 3. **Step 4 is Claude's.**
+**A new map.** Porymap does all four steps when the author saves a new or duplicated map for the first time (checked in Porymap's source, `src/project.cpp` `saveMap`).
 1. `data/maps/<Name>/map.json` and `scripts.inc` (with a `<Name>_MapScripts::` label).
 2. An entry in `data/maps/map_groups.json`.
 3. A layout entry in `data/layouts/layouts.json`.
-4. **`.include "data/maps/<Name>/scripts.inc"` in `data/event_scripts.s`.** Porymap does not write this line. Without it the build should fail at link time on the undefined label (inferred, not tested).
+4. **`.include "data/maps/<Name>/scripts.inc"` in `data/event_scripts.s`**, appended at the end. **Check it is there exactly once** before adding it by hand (a second copy defines the label twice). Add it yourself only for a map made without Porymap. If it is missing the build should fail at link time on the undefined label (inferred, not tested).
+
+Porymap also rewrites `region_map_sections.json`, `heal_locations.json` and `wild_encounters.json` on every save, so read the changed-files list before committing. Two maps can share one layout (vanilla does it for Pokémon Centers, Marts and houses): pick an existing Layout ID in Porymap's New Map dialog. Painting in one then changes all of them.
 
 Keep the map's `region` at `REGION_HOENN` (the default) and `layout_version` at `emerald`, or the build silently leaves it out.
 
@@ -65,6 +68,10 @@ make -j4          # builds pokeemerald.gba (gitignored)
 ```
 
 The Makefile takes `arm-none-eabi-*` from `PATH`, so the system toolchain needs no `TOOLCHAIN=` override. A clean build takes about 3 min 40 s on 4 cores. The result is a 32 MiB ROM with header `POKEMON EMER` / `BPEE`. It does not match `rom.sha1`, which only applies to vanilla pokeemerald.
+
+## Testing in an emulator
+
+The ROM boots headless in mGBA, which is how the intro and trainer card were checked on 2026-09-29. The container is ephemeral, so reinstall each time: `apt-get install -y mgba-sdl xdotool imagemagick x11-apps` (binary `/usr/games/mgba`, not on `PATH`). Start `Xvfb :99 -screen 0 1280x960x24`, run `SDL_AUDIODRIVER=dummy DISPLAY=:99 /usr/games/mgba <copy of the rom>` on it, send keys with `xdotool` and screenshot with `import -window root`. mGBA's keys are **X = A, Z = B**, Return = Start, Backspace = Select. This is a normal (non-release) build, so the **debug menu opens with R+START** (mGBA: the S key is R): Set Flag XYZ, Toggle All badges, Fly to map and more. Run a copy of the ROM from the scratchpad, never inside the repo.
 
 ## Git
 
