@@ -25,6 +25,7 @@
 
 #define BADGE_ICON_SLOTS_PER_SHEET_ROW 8
 #define NUM_BADGE_ICON_SLOTS           16
+#define BADGE_ICON_SLOT_EMPTY          15 // drawn for badges not yet earned; keep this slot free for the socket art
 
 struct VeldrisBadge
 {

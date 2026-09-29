@@ -1543,13 +1543,12 @@ static void DrawStarsAndBadgesOnCard(void)
         {
             // Veldris: the numbered slots are gone from front.bin. Badges sit edge to edge (2 tiles each),
             // centred in the strip, whose interior is tiles 3-27. Fits up to 12 badges.
+            // Badges not yet earned show an empty socket (icon slot BADGE_ICON_SLOT_EMPTY).
             x = 3 + (25 - 2 * NUM_BADGES) / 2;
             for (i = 0; i < NUM_BADGES; i++, x += 2)
             {
-                u8 slot = gVeldrisBadges[i].iconSlot;
+                u8 slot = sData->badgeCount[i] ? gVeldrisBadges[i].iconSlot : BADGE_ICON_SLOT_EMPTY;
 
-                if (!sData->badgeCount[i])
-                    continue;
                 tileNum = (slot < BADGE_ICON_SLOTS_PER_SHEET_ROW ? 192 : 352) + (slot % BADGE_ICON_SLOTS_PER_SHEET_ROW) * 2;
                 FillBgTilemapBufferRect(3, tileNum, x, y, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 1, x + 1, y, 1, 1, palNum);
