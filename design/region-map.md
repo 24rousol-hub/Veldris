@@ -1,15 +1,23 @@
 # Region map and fly destinations
 
-How a map gets onto the town map and becomes a fly destination in this tree. Everything below was traced in the source of this repository (file names and function names given), except where marked **unverified**.
+How a map gets onto the town map and becomes a fly destination in this tree. Everything below was traced in the source of this repository (file names and function names given), except where marked **unverified**. The Porymap manual was read on 2026-09-29 (see below).
 
-## What I could not read
+## What the Porymap manual says (read 2026-09-29)
 
-Two sources were requested and the environment's network policy blocked both hosts:
+Source: <https://huderlem.github.io/porymap/manual/region-map-editor.html>, plus the "Project Files" page of the same manual. **The PokéCommunity guide could not be read**: `www.pokecommunity.com` answered HTTP 403 to the fetch tool. It was not worked around. Nothing here comes from that thread.
 
-- `huderlem.github.io` (Porymap's Region Map Editor manual)
-- `www.pokecommunity.com` (the "Guide to Editing the Region Map" thread)
+What the Region Map Editor (Tools > Region Map Editor, Ctrl+M) does:
 
-So **nothing here is taken from those pages.** Anything about what Porymap's Region Map Editor does with these files is marked **unverified**. To let me read them, add those two hosts under Network access in the environment settings.
+- **Three tabs:** *Background Image* (paint the tilemap), *Map Layout* (which section each cell belongs to) and *Map Entries* (each section's x, y, width, height). This matches pieces 2, 3 and 4 below, so one tool covers all three.
+- **Background Image** writes the tilemap binary (the `map.bin` of piece 4). The manual does not say whether it regenerates it or edits it in place, and it says nothing about a tile limit. The 256-tile limit below is from the engine, not the manual. Tilemap "format" can be Plain, 4bpp or 8bpp; only non-Plain formats give per-tile palette and flips. Width can be 16, 32, 64 or 128 tiles.
+- **Map Layout** writes the layout file (C array or binary). The vanilla one is `sRegionMap_MapSectionLayout` in `src/data/region_map/region_map_layout.h`. The Map Section dropdown is filled from `include/constants/region_map_sections.h`, so **a new section must exist in `region_map_sections.json` and be built once before the editor can place it.** Handy tools: Clear Map Layout, Swap Layout Sections, Replace Layout Section.
+- **Map Entries** edits `src/data/region_map/region_map_sections.json`. x and y are the top-left cell; width and height set the size. The manual says the entry decides "where the player's head appears".
+- **Config:** the editor's own settings live in `src/data/region_map/porymap_config.json` (Project Files page lists it as read and written; key `json_region_porymap_cfg`). It holds the per-region alias, tilemap and layout paths and sizes. **This file does not exist in this repo yet**, so Porymap will use its pokeemerald defaults. It is fine to commit the file Porymap creates. The Project Files page also lists `define_map_section_prefix` (`MAPSEC_`) and `define_map_section_empty` (`NONE`) as project settings, which our constants already follow.
+- **Not in the manual:** any section-count limit, any tile limit, any mention of `name_clone`, and whether the picture step keeps or rewrites other files. Those stay engine facts.
+
+**`name_clone`:** not on either manual page. In this tree it appears on 4 of 209 records in `region_map_sections.json` (the `ROUTE_4_POKECENTER`-style records) and **no build template or C file reads it** (checked with grep). So it does nothing to the build. Most likely a marker that the record only repeats another section's name. Treat it as optional and do not set it on Veldris sections.
+
+**Correction to earlier notes:** the editor does cover all three of the picture, the grid and the JSON, so step 3 of the checklist is confirmed by the manual. What is still unverified is only how it treats `map.bin` internally and the untested-in-game claims below.
 
 ## The town map and fly, in plain language
 
@@ -48,7 +56,7 @@ Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: 
 
 1. Author (Porymap): make the map. Set `region_map_section` to the town's section.
 2. Add the section record to the **end** of `region_map_sections.json` (id, name, x, y, width, height).
-3. Update the grid and the picture so the new cell shows the town (author, Region Map Editor; **unverified** that the editor covers all three files).
+3. Update the grid and the picture so the new cell shows the town (author, Region Map Editor; the manual confirms it edits the picture, the grid and the entries. Build once first so the new `MAPSEC_*` shows in its dropdown).
 4. Add a heal location in `src/data/heal_locations.json`.
 5. Claim a visited flag ([flags.md](flags.md), log it in [engine-edits.md](engine-edits.md)).
 6. `src/region_map.c`: add the `GetMapsecType` case, the `sFlyLocations` entry and the `sMapHealLocations` entry.
@@ -68,6 +76,94 @@ Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: 
 **A-prime:** new sections with clean names, but instead of adding three entries per town inside `src/region_map.c`, make one small one-time change there. It adds hooks (about three: the `GetMapsecType` default case, the fly-icon loop, and the landing-spot lookup, to be confirmed when written) that also consult a **hack-owned table** in a new file (for example `src/data/veldris_fly_towns.h`, one row per town: section, visited flag, heal location). After that, adding a fly town is one table row plus data, and the upstream file is touched in only those few places, which keeps upstream pulls cheap.
 
 **Not implemented yet.** It is an engine edit, so it waits for the author's go-ahead and gets logged in [engine-edits.md](engine-edits.md). Routes need no C at all, so once the 43 spare section IDs are used, routes can take over unused vanilla section IDs by renaming their records.
+
+## A-prime: concrete draft (PROPOSED, NOT APPLIED, NOT COMPILED)
+
+Written 2026-09-29 against `src/region_map.c` as it is in this tree. Line numbers are from that file today and will drift.
+
+**Idea, simpler than the first sketch:** no runtime lookup at all. One new hack-owned header holds a single table as an X-macro and turns it into the three kinds of rows the engine already wants. The three engine tables each get **one added line** that expands to those rows. Every fly town is then one line in the hack header.
+
+### What the three hook sites are
+
+| # | Site in `src/region_map.c` | What the hook does |
+|---|---|---|
+| 1 | `sMapHealLocations[][3]`, closes at about line 538 (`};`) | Add `VELDRIS_HEAL_LOCATION_ROWS` as the last line inside the braces. It expands to `[MAPSEC_X] = {MAP_GROUP(MAP_X), MAP_NUM(MAP_X), HEAL_LOCATION_X},` rows. Because the rows use designated indexes, the array grows to fit the highest section id, so an out-of-range read is not possible. This is what `SetFlyDestination` and `FilterFlyDestination` read, so **landing spots need no other change** |
+| 2 | `sFlyLocations[]`, closes at about line 2322 (`};`) | Add `VELDRIS_FLY_LOCATION_ROWS` as the last line inside the braces. It expands to `{ .regionMapType = REGION_MAP_HOENN, .mapsec = MAPSEC_X, .flag = FLAG_VISITED_X },`. That array feeds the fly icons drawn in `CreateFlyDestIcons` (the loop at about line 2340), so **the icon loop is untouched** |
+| 3 | `GetMapsecType()`, the `switch` at about line 1423; the last case before `default:` is `MAPSEC_ROUTE_10_POKECENTER` (about line 1503) | Add `VELDRIS_MAPSEC_TYPE_CASES` just before `default:`. It expands to `case MAPSEC_X: return FlagGet(FLAG_VISITED_X) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;` |
+| 4 | includes, top of the file (near line 29) | `#include "data/veldris_fly_towns.h"` |
+
+Total: **one include and three one-line hooks** in `src/region_map.c`, no new functions, no changes to control flow. It also needs nothing in `field_region_map.c`, `pokenav_region_map.c` or `party_menu.c`, which all reach the same tables through `SetFlyDestination`.
+
+### The hack-owned header (new file, not upstream)
+
+```c
+// src/data/veldris_fly_towns.h  (hack-owned; the only place to touch to add a fly town)
+#ifndef GUARD_VELDRIS_FLY_TOWNS_H
+#define GUARD_VELDRIS_FLY_TOWNS_H
+
+// X(mapsec, visited_flag, map, heal_location)
+// Add a row only after: the map exists, its heal location exists in
+// src/data/heal_locations.json, and the flag is claimed in design/flags.md.
+#define VELDRIS_FLY_TOWNS(X) \
+    X(MAPSEC_HOLLOWBROOK, FLAG_VISITED_HOLLOWBROOK, MAP_HOLLOWBROOK, HEAL_LOCATION_HOLLOWBROOK) \
+    X(MAPSEC_WENDLEBURY,  FLAG_VISITED_WENDLEBURY,  MAP_WENDLEBURY,  HEAL_LOCATION_WENDLEBURY)  \
+    X(MAPSEC_CRESTFALL,   FLAG_VISITED_CRESTFALL,   MAP_CRESTFALL,   HEAL_LOCATION_CRESTFALL)
+
+#define VELDRIS_HEAL_ROW(sec, flag, map, heal) \
+    [sec] = {MAP_GROUP(map), MAP_NUM(map), heal},
+#define VELDRIS_FLY_ROW(sec, visited, map, heal) \
+    { .regionMapType = REGION_MAP_HOENN, .mapsec = sec, .flag = visited },
+#define VELDRIS_TYPE_CASE(sec, flag, map, heal) \
+    case sec: return FlagGet(flag) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+
+#define VELDRIS_HEAL_LOCATION_ROWS VELDRIS_FLY_TOWNS(VELDRIS_HEAL_ROW)
+#define VELDRIS_FLY_LOCATION_ROWS  VELDRIS_FLY_TOWNS(VELDRIS_FLY_ROW)
+#define VELDRIS_MAPSEC_TYPE_CASES  VELDRIS_FLY_TOWNS(VELDRIS_TYPE_CASE)
+
+#endif // GUARD_VELDRIS_FLY_TOWNS_H
+```
+
+Note: the `VELDRIS_FLY_ROW` parameter is called `visited`, not `flag`, because a parameter named `flag` would also rewrite the `.flag` field name.
+
+### The proposed diff to `src/region_map.c` (illustrative)
+
+```diff
+ #include "constants/heal_locations.h"
+ #include "constants/rgb.h"
+ #include "constants/weather.h"
++#include "data/veldris_fly_towns.h"
+@@ static const u8 sMapHealLocations[][3] =
+     ... last vanilla row ...
++    VELDRIS_HEAL_LOCATION_ROWS
+ };
+@@ static u8 GetMapsecType(mapsec_u16_t mapSecId)
+     case MAPSEC_ROUTE_10_POKECENTER:
+         return FlagGet(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
++    VELDRIS_MAPSEC_TYPE_CASES
+     default:
+         return MAPSECTYPE_ROUTE;
+@@ static const struct FlyLocation sFlyLocations[] =
+     ... last vanilla entry ...
++    VELDRIS_FLY_LOCATION_ROWS
+ };
+```
+
+### What has to exist before a row can be added
+
+1. The town's map exists (`MAP_<NAME>` is generated from `data/maps/map_groups.json`).
+2. A heal location for it in `src/data/heal_locations.json`, whose Pokémon Center map exists (see the build note under "Limits found").
+3. A claimed visited flag, renamed in place in `include/constants/flags.h` (see [flags.md](flags.md); the trainer-block warning there applies).
+4. The town's `OnTransition` runs `setflag <that flag>`.
+5. The section record is in `region_map_sections.json`, so `MAPSEC_<NAME>` exists.
+
+### Risks and open points
+
+- **Fly still needs the Feather Badge** (`src/field_move.c`) and the visited flag. This draft does not change that; the badge gate belongs with the badge plan (`design/badges.md`).
+- **Guard for a not-yet-built map:** a row for a town whose map does not exist is a compile error, which is the point (the build tells you). Add rows only when the map is in.
+- **One row per town, first three only** are shown above. Larger towns with two heal spots (like Ever Grande) would need a `FilterFlyDestination` case, which is not covered.
+- **Untested.** It has not been compiled. It follows the same pattern the engine already uses (designated-index rows and `case` returns), so I expect it to build, but the first compile decides.
+- **Merge cost:** 4 added lines in one upstream file, all at the ends of existing blocks, so upstream additions to those tables would only conflict if they also append at the very end.
+- **Go-ahead needed** before applying. When applied: log the 4 lines in [engine-edits.md](engine-edits.md).
 
 ---
 
