@@ -96,3 +96,69 @@ Nothing was built, loaded in Porymap, or run in an emulator. Only a sample of ea
 - Reuse existing maps and tilesets before drawing anything new.
 - Every asset that comes from outside this repo gets an entry in [`CREDITS.md`](../CREDITS.md) in the same commit.
 - Do not use maps from other hacks without the original author's permission.
+
+
+---
+
+## Free community map and tileset resources beyond the two repos (PROPOSED, nothing used)
+
+Searched 2026-09-29 by a read-only agent. **Nothing was downloaded and nothing is approved for use.** Licence text is quoted from pages the agent fetched. Items marked "not read" were not. `CREDITS.md` currently links the asset repo as `Pawkkie/Team-Aquas-Asset-Repo`, while the agent read `TeamAquasHideout/Team-Aquas-Asset-Repo`: the author should confirm which is the right upstream link.
+Researched 2026-09-29. Nothing was downloaded into /home/user/Veldris. "Read" means I fetched the page and quote it; "snippet only" means I saw it only in a search-result summary.
+
+### Headline finding
+
+**No Porymap-ready free maps with a stated licence were found.** I found no public repo of importable Gen 3 `map.json` maps under a stated licence, and no hack author's permission. GitHub repo search ("pokeemerald tileset porymap", "gen3 tilesets porymap") returned only Porymap itself. The only Gen 3-format tilesets found are on Team Aqua's Hideout's Great Tileset Exchange (already covered in `design/asset-inventory.md`), and none of those carries a licence. So for maps the answer is unchanged: rework vanilla maps in the tree, or draw in Porymap.
+
+Free **generic** 16x16 tilesets with real licences (CC0 / CC-BY) do exist. They are not Gen 3 format: they need recolouring to a GBA 16-colour palette, splitting into 8x8 tiles, and conversion (Porytiles, MIT, can compile them). They are also not in Game Freak's style, so they would clash with the vanilla tiles unless redrawn.
+
+### Table
+
+| # | Resource | Link | Contains | Porymap-ready? | Licence / permission (quoted, where) | Credit terms | Lifted from other work? | Verdict |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Team Aqua's Asset Repo (upstream of the author's copy) | https://github.com/TeamAquasHideout/Team-Aquas-Asset-Repo | Sprites, tilesets, UI, music, from many creators | Some tilesets yes (see the Great Tileset Exchange), no maps | README (read): "All assets are both free to use and edit by default, but if any assets specifically mention _not_ being free to edit, please respect the author's wishes." | Credit to original creator; folder READMEs name creators | Yes, many entries derive from official or other-fan-game art (see `asset-inventory.md`). Not re-audited here | Already covered. Blanket licence is a repo norm, not a per-asset grant. Use per-folder README only |
+| 2 | The Great Tileset Exchange (repo wiki) | https://github.com/TeamAquasHideout/Team-Aquas-Asset-Repo/wiki/The-Great-Tileset-Exchange | Community full tilesets | Yes, but all **triple-layer** (needs the pret patch, which this tree lacks) | Wiki page (read): "Credits are definitely still required." Only two criteria: "formatted to be readily inserted into pokeemerald" and credits included. It gives no licence and no check for ripped art | Credit each tileset's creators | Page does not say. Earlier inventory found Reborn, Rejuvenation, Glazed, Dawn and official rips in some sets | Per set only. Nothing new beyond `asset-inventory.md` |
+| 3 | Team Aqua's Hideout wiki (46 pages) | https://github.com/TeamAquasHideout/Team-Aquas-Asset-Repo/wiki | Tutorials, tool links (Porymap, Poryscript, Porytiles), Sprite and Art Gallery, links to a "Relic Castle Resource Archive" | Not an asset host for maps | Home page (read): no licensing information on it. I did not open the other 44 pages | n/a | n/a | Reference only. I found no map resources there. Sub-pages **not read** |
+| 4 | Porytiles | https://github.com/grunt-lucas/porytiles | Tool: turns RGBA tile art into `metatiles.bin`, attributes, indexed `tiles.png`, palettes | Produces Porymap-ready output | README (read): "released under the MIT license". This licenses the tool, not any art | None for output you draw yourself | No | Usable as a tool. Handy if a CC0/CC-BY tileset is adapted |
+| 5 | Puny World Tileset, by Shade | https://merchant-shade.itch.io/16x16-puny-world | 16x16 overworld tileset | No. Needs conversion and a GBA palette | itch page (read): "Creative Commons Zero v1.0 Universal (CC0)"; "Feel free to use this for your game (commercially or not)"; "Feel free to creatively modify these sprites however you like"; "No need to give me credit but I would appreciate it :D" | Not required. Credit anyway | Not stated. It is described (snippet only) as a rework of a "Miniworld" base tileset. I did not open that source | Usable, with a CC0 grant. Style is not Gen 3 |
+| 6 | Town Tiles, by Surt | https://opengameart.org/content/town-tiles | Small 16x16 fantasy town tiles (one 2.9 KB png) | No | OGA page (read): "License: CC0" | Not required, appreciated | No | Usable but tiny and medieval, so it is a poor fit for Veldris |
+| 7 | 16x16 Town Remix, by Lanea "Sharm" Zimmerman (with Redshrike, Surt, Jetrel) | https://opengameart.org/content/16x16-town-remix | Town buildings and structures, castle start | No | OGA page (read): "CC-BY 4.0, CC-BY 3.0, OGA-BY 3.0" | Required: "Art by Lanea 'Sharm' Zimmerman, Stephen 'Redshrike' Challener, Carl 'Surt' Olsson, and Jetrel, for OpenGameArt.org" | Built on edits of Surt's and Redshrike's sets, credited | Usable with the credit line. Medieval look |
+| 8 | Roguelike/RPG Pack, by Kenney | https://kenney.nl/assets/roguelike-rpg-pack | 1,700 16x16 assets: town/dungeon blocks, furniture, UI | No | Kenney page (read): "Creative Commons CC0" | Not required | No | Usable. Style is roguelike, not Gen 3 |
+| 9 | Pokemon-like Top Down Tile Set, by maciaz | https://maciaz.itch.io/pokemon-like-top-down-tile-set | 37 floor tiles and 51 misc tiles (16x16), 3 houses, trees, 3 NPCs, 2 creatures | No | itch page (read): "You are free to use the assets from the pack in all your projects with credit. You are not allowed to modify and resell the contents in any form." | Required | Says "pokemon inspired" and "No generative AI was used". I did not check for official art | Usable with credit. "Not allowed to modify and resell" needs care: it is a personal, non-sold hack, but a public repo with edits is a grey area. Ask the creator before redistributing edits |
+| 10 | AxulArt's Beach and caves tileset | https://axulart.itch.io/axularts-beach-and-caves-tileset | Cave, mountain, water, beach tiles (RPG Maker style) | No | itch page (read): "Creative Commons Attribution 4.0 International License"; "You can modify it to suit your own needs, as long as you give appropriate credit." | Required | Not stated | Usable with credit. Not GBA style. Useful only as reference or base for beach and cave tiles |
+| 11 | OGA "CC0 Tiles & Tilesets" collection | https://opengameart.org/content/cc0-tiles-tilesets | Curated list of 90+ CC0 tilesets by n1ght4ngel19 | No | Page (read): a collection page. OGA says attribution and licence checking "remains your responsibility". Individual entries must be checked one by one | Per entry | Per entry | A finding aid only. I checked no individual entry beyond #6 and #7 |
+| 12 | itch.io "pokemon" tileset tags (free and paid) | https://itch.io/game-assets/free/tag-pokemon | Lists The Pixel Nook GB Studio Overworld Tileset and Retro RPG buildings pack, maciaz, AxulArt | No | Listing page only (read). Licences are on each asset page; I read only #9 and #10 | Per asset | Per asset | Finding aid only. The Pixel Nook packs **not read**: licence unknown |
+| 13 | pokeemerald-expansion tilesets and maps (already in the tree) | https://github.com/rh-hideout/pokeemerald-expansion | 129 secondary tilesets (Hoenn + FRLG), 5 primary (building, building_frlg, general, general_frlg, secret_base), 944 map folders in `data/maps` | Yes, native | CREDITS page (read): no art licence stated. `LICENSE` file: WebFetch returned 404 and the GitHub tool was denied (repo not in this session's allowlist), so **not read**. The tree has no LICENSE file at its root | Credit upstream once, already in `CREDITS.md` | These **are Game Freak's assets**, an official rip. Upstream ships them, but reuse in a public repo is the author's own risk call, as `asset-inventory.md` already says | Usable as-is in the tree. It is the only Porymap-ready set at zero extra work. Not "free licensed" |
+| 14 | pret/pokeemerald | https://github.com/pret/pokeemerald | Vanilla maps and tilesets | Yes | Repo page (read): no licence statement visible. LICENSE not read (tool denied) | n/a | Game Freak assets | Same status as #13 |
+| 15 | Porymap | https://github.com/huderlem/porymap | Map editor | n/a | Licence file: 404 on the path I tried, **not read** | n/a | n/a | Tool only. Has no sample map library that I found |
+| 16 | Relic Castle Resource Archive | (no link) | Old Pokémon Essentials tilesets | No, Essentials format | Search result (snippet only): the archive stopped hosting in January 2019 | n/a | Essentials packs are usually official rips | **Do not use**. Wrong engine and dead |
+
+### Not read (listed by URL only)
+
+- PokéCommunity: not fetched, per instruction (403 to fetch tools).
+  - https://www.pokecommunity.com/tags/tilesets/
+  - https://www.pokecommunity.com/tags/tileset/
+  - https://www.pokecommunity.com/threads/tile-inserting-animating-tutorial.422362/ (a tutorial, not a resource pack)
+  - https://www.pokecommunity.com/threads/gen-4-hgss-tileset.421403/ (an HGSS tileset thread, so probably official rips. Contents unknown)
+- Porymap docs and changelog pages: appeared in search only, not opened.
+- Pixel Nook GB Studio Overworld Tileset / Retro RPG buildings pack (itch.io): only seen in a listing.
+- The other 44 pages of the Team Aqua's Hideout wiki.
+- The upstream `LICENSE` files of pokeemerald, pokeemerald-expansion and Porymap (see table).
+
+### Things I could not find
+
+- Any repo or thread with Porymap-ready **maps** under a stated licence or with the creator's permission. The searches turned up none. The Team Aqua repos hold tileset packs and screenshots, not maps.
+- Any Aseprite-based GBA tileset with a licence. Not found in search.
+- Whether the pokeemerald-expansion tree added anything new in tilesets. The tree's directories match what pret ships plus FRLG sets (`*_frlg`), which are official. FRLG map folders are not built into this ROM. I did not diff against pret to find expansion-only additions, so I cannot say none exist.
+- The search tool gave answers in summary form. Only pages I fetched (marked "read") are quoted.
+
+### Points to note
+
+- `CREDITS.md` links the asset repo as `Pawkkie/Team-Aquas-Asset-Repo`. The repo I read is at `TeamAquasHideout/Team-Aquas-Asset-Repo`. The task and CLAUDE.md call it `24rousol-hub/Team-Aquas-Asset-Repo`. The URL in `CREDITS.md` may need checking.
+- `/home/user/Veldris` currently contains a built `pokeemerald.gba`, `.elf` and `.map` at the root. `.gitignore` reportedly blocks them (rule 1), but confirm before committing.
+
+### Recommendation
+
+1. For towns and routes: rework vanilla maps in Porymap (no new credit needed beyond upstream).
+2. For a farm look, the licensed options are #5 (Puny World, CC0), #8 (Kenney, CC0) and #10 (AxulArt, CC-BY), all as base art to be redrawn to a GBA palette (Porytiles can compile it). Expect a manual pass to match the Gen 3 style.
+3. Anything from #9 needs the creator's OK before edited copies go into the public repo.
+4. Add a `CREDITS.md` row per asset used, with the licence quoted from the page above.
