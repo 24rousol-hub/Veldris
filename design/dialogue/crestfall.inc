@@ -200,3 +200,54 @@ Crestfall_Text_Trainer2Defeat::
 Crestfall_Text_Trainer2After::
 	.string "I've been in here for three\n"
 	.string "years. It's very relaxing.$"
+
+@ ===================================================================
+@ CRESTFALL TOWNSFOLK AND POKEMON CENTER (PROPOSED; before the gym is beaten,
+@ then after). Nobody here swears. Pokemon only.
+@ ===================================================================
+
+Crestfall_Text_TrogPetBattle::
+	.string "SIR BISCUIT, you're up. Try not\n"
+	.string "to look so nervous.$"
+
+Crestfall_Text_FarmhandBefore::
+	.string "The boss is out back. Follow\n"
+	.string "the hay. Don't trust the hay.$"
+
+Crestfall_Text_FarmhandAfter::
+	.string "The hay maze fixed itself after\n"
+	.string "the suits left. Nobody asked it to.$"
+
+Crestfall_Text_KidBefore::
+	.string "MILTANK is my favourite.\n"
+	.string "It's like a big, pink stove.$"
+
+Crestfall_Text_KidAfter::
+	.string "You beat GRETA? She beat me once.\n"
+	.string "I wasn't crying. It was hay fever.$"
+
+Crestfall_Text_GrandmaBefore::
+	.string "Those men in suits walked right\n"
+	.string "through my tomato patch.\p"
+	.string "The TOMATO PATCH. Unforgivable.$"
+
+Crestfall_Text_GrandmaAfter::
+	.string "Since GRETA saw them off, the\n"
+	.string "tomatoes have never been better.$"
+
+Crestfall_Text_CenterNurse::
+	.string "Welcome to the POKéMON CENTER.\n"
+	.string "We can heal your POKéMON.\p"
+	.string "Would you like to rest them?$"
+
+Crestfall_Text_CenterNurseDone::
+	.string "Your POKéMON are fully healed.\n"
+	.string "We hope to see you again!$"
+
+Crestfall_Text_CenterVisitor::
+	.string "I came here to see the gym.\n"
+	.string "I stayed for the tomatoes.$"
+
+Crestfall_Text_MartClerk::
+	.string "Welcome! Hay is not for sale.\n"
+	.string "Everything else is.$"

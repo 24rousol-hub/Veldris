@@ -127,7 +127,7 @@ Tags: Tag8
 ```
 All three versions are tagged and Party Size is 1, so exactly one survives the prune. The moves are each starter's level-up moves at level 5 (checked against the learnsets this ROM uses).
 
-**Optional gag (author's idea): a level 1 LILLIPUP pet.** Add this block, change `Party Size` to 2, and leave it untagged so it is always picked. LILLIPUP is in this build (Gen 5 Pokémon are on). It faints to anything, which is the joke. Its dialogue is in `design/dialogue/hollowbrook.inc` (`TrogPetIntro`, `TrogPetAfter`).
+**Gag: a level 1 LILLIPUP pet (APPROVED by the author, 2026-09-30).** Add this block, change `Party Size` to 2, and leave it untagged so it is always picked. LILLIPUP is in this build (Gen 5 Pokémon are on). It faints to anything, which is the joke. Its dialogue is in `design/dialogue/hollowbrook.inc` (`TrogPetIntro`, `TrogPetAfter`).
 ```
 Lillipup
 Nickname: SIR BISCUIT
@@ -135,7 +135,49 @@ Level: 1
 - Tackle
 - Leer
 ```
-Recommended: keep the gag. It shows a sheltered rich boy who brought his pampered pet to a fight. Drop it if you want the classic single-starter opener.
+Kept (author, 2026-09-30): it shows a sheltered rich boy who brought his pampered pet to a fight.
 
-### Fight 2: Crestfall (Scheme 1)
-Not drafted. It is the second fight, so his team is bigger than fight 1's.
+### Fight 2: Crestfall (Scheme 1), PROPOSED
+His starter again (random, same pool prune) at level 8, plus SIR BISCUIT, now level 7 and no longer a joke. Party Size is 2: one fixed Pokémon plus one survivor of the prune. No IVs or EVs. Dialogue: `design/dialogue/crestfall.inc` (`TrogBattleIntro` and onward). Moves are each species' level-up moves at level 8 (checked against `gen_9.h`).
+```
+=== TRAINER_TROGLODYTE_CRESTFALL ===
+Name: (TBD: same as fight 1)
+Class: (TBD: must already exist)
+Pic: (TBD: must already exist)
+Gender: Male
+Music: (TBD)
+Double Battle: No
+AI: Basic Trainer
+Party Size: 2
+Pool Prune: Rival Starter
+
+Lillipup
+Nickname: SIR BISCUIT
+Level: 7
+- Tackle
+- Leer
+
+Treecko
+Level: 8
+Tags: Tag6
+- Pound
+- Leer
+- Leafage
+- Quick Attack
+
+Torchic
+Level: 8
+Tags: Tag7
+- Scratch
+- Growl
+- Ember
+- Quick Attack
+
+Mudkip
+Level: 8
+Tags: Tag8
+- Tackle
+- Growl
+- Water Gun
+```
+It costs one more trainer id (two for Troglodyte in total so far, five brand-new ids with Greta and the gym trainers, or none if he reuses a vanilla entry).
