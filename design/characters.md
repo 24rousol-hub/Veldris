@@ -29,14 +29,16 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - FENNICK is written into the text directly (there is no placeholder for it).
 - **Art still to do:** the intro portrait `graphics/birch_speech/birch.png` (64x64, 16 colours) still shows Birch. His overworld sprite could be RavePossum's `prof_birch` (see [asset-inventory.md](asset-inventory.md)).
 
-## Greta  **(author: first gym leader, Normal type, retired farmer)**
+## Greta  **(author: first gym leader, Normal type)**
 
-- Gym 1, in Crestfall. Normal type. Retired farmer.
+- Gym 1, in Crestfall. Normal type.
+- **Update (author, 2026-09-29): Greta is young, moving up quickly in the gym hierarchy, and a tad sassy but nice.** This replaces the earlier 'retired farmer'. Open: whether she keeps a farm link (the draft assumes she grew up on the Crestfall gym's farm) or the farm setting is dropped.
 - Trainer constant: **`TRAINER_CRESTFALL_GRETA`** (`TRAINER_GRETA` is already taken). **(author)**
-- Voice (PROPOSED): dry, unhurried, plain-spoken farm wisdom. Sees through the Goldsworths at once.
+- Voice (PROPOSED, revised 2026-09-29): confident, a bit sassy, kind underneath. Sees through the Goldsworths at once.
 - **Gym dialogue drafted 2026-09-29:** [dialogue/crestfall.inc](dialogue/crestfall.inc) (PROPOSED).
+- **Gym trainers (author): two.** With Greta that is 3 of the 9 spare trainer ids.
 - **Team (PROPOSED, levels not set):** ZIGZAGOON, SKITTY, and a MILTANK as the ace. All Normal types, all farm-and-field, all in this ROM. Not added to `src/data/trainers.party` yet (no map exists, and the trainer takes one of the 9 spare ids).
-- **Reward (PROPOSED):** the placeholder FIELD BADGE (badge names are not decided), a TM (not chosen), and CUT as badge 1's HM (vanilla gives it to badge 1 as well).
+- **Reward (PROPOSED):** the **STANDARD BADGE** (author's name: it is the standard you must meet to start the gym challenge), a TM (not chosen), and CUT as badge 1's HM (vanilla gives it to badge 1 as well).
 
 ## The Goldsworths (Troglodyte's family)
 

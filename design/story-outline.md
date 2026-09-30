@@ -36,7 +36,7 @@ The author has not decided which path the story takes. What is fixed: the Goldsw
 | Town 2 | Town 2 | Pokémon Center and shop. A Goldsworth house only if it turns out to be a city (open decision 12) | PROPOSED |
 | Route 2 | Route 2 | Route leads to the gym town | PROPOSED |
 | **Scheme 1 at Crestfall** | Crestfall | See below | PROPOSED |
-| Gym 1: Greta (Normal) | Crestfall | `TRAINER_CRESTFALL_GRETA` | author fixed leader and type |
+| Gym 1: Greta (Normal), STANDARD BADGE | Crestfall | `TRAINER_CRESTFALL_GRETA`, 2 gym trainers | author fixed leader, type, badge name and trainer count |
 | Route 3 gated | Route 3 | Leads on to town 4. Blocked for now | PROPOSED |
 
 ### The grandfather's whereabouts in Hollowbrook (author, 2026-09-29; scripting is PROPOSED)

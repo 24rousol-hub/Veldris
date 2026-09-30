@@ -1,9 +1,10 @@
 @ Crestfall dialogue DRAFT: gym 1, Greta (Normal type, retired farmer), and Scheme 1.
-@ Status: PROPOSED, not wired into any map (no map exists yet). Author fixed only: Greta is gym 1, Normal type,
-@ a retired farmer, trainer constant TRAINER_CRESTFALL_GRETA. Everything else here is a proposal.
+@ Status: PROPOSED, not wired into any map (no map exists yet). Author fixed: Greta is gym 1, Normal type,
+@ young, rising fast in the gym hierarchy, a tad sassy but nice (2026-09-29, replaces 'retired farmer'),
+@ trainer constant TRAINER_CRESTFALL_GRETA, the STANDARD BADGE, and two gym trainers.
 @ Check widths: python3 design/tools/dialogue_check.py design/dialogue/crestfall.inc
 @ Pokemon only: no real animals. The farm's animals are Pokemon (MILTANK, ZIGZAGOON, SKITTY, SLAKOTH).
-@ Badge name is a PLACEHOLDER (badge names are not decided): 'FIELD BADGE'.
+@ Badge 1 is the STANDARD BADGE (author): the standard you must meet to start the gym challenge.
 @ Scheme 1 (PROPOSED): hired 'efficiency consultants' come to condemn Greta's farmyard gym. They get lost in the
 @ hay maze, and the inspection ends when the farm's Pokemon take over the paperwork. Troglodyte arrives to watch
 @ it work, it has not, and he has to battle the player anyway. Then the gym battle follows as normal.
@@ -124,57 +125,58 @@ Crestfall_Text_GretaAfterTrog::
 
 @ First talk, before the battle.
 Crestfall_Text_GretaIntro::
-	.string "So you're {PLAYER}. The boy\n"
-	.string "who's been chasing that other\l"
-	.string "boy.\p"
-	.string "I'm GRETA. I grew oats for\n"
-	.string "forty years. Now I grow\l"
-	.string "trainers. They're about as\l"
-	.string "stubborn.$"
+	.string "Well, hello. You must be {PLAYER}.\n"
+	.string "The whole town has been talking.\p"
+	.string "I'm GRETA. Crestfall's gym leader.\n"
+	.string "Yes, I know. I look too young.\p"
+	.string "I get that a lot. Usually right\n"
+	.string "before I win.$"
 
 Crestfall_Text_GretaChallenge::
-	.string "Normal types, that's my line.\n"
-	.string "Nothing fancy. Nothing rare.\p"
-	.string "Just good, steady POKéMON that\n"
-	.string "show up every day and work.\p"
-	.string "Let's see what you've got.$"
+	.string "Normal types. Don't look so\n"
+	.string "disappointed. Normal is reliable.\p"
+	.string "Flashy gets you a cool entrance.\n"
+	.string "Reliable gets you badges.\p"
+	.string "This is the first gym. Everyone\n"
+	.string "starts here. Even me. For now.$"
 
 @ Battle texts (trainer window).
 Crestfall_Text_GretaBattleIntro::
-	.string "Right. Keep your boots on.$"
+	.string "Try to keep up. No pressure.$"
 
 Crestfall_Text_GretaDefeat::
-	.string "Well, I'll be. You've a good\n"
-	.string "head on you.$"
+	.string "Wow. Okay. That was good.\n"
+	.string "Really good.$"
 
 @ After the battle: badge.
 Crestfall_Text_GretaBadge1::
-	.string "Here. The FIELD BADGE. It's\n"
-	.string "made of honest metal.\p"
-	.string "{PLAYER} received the FIELD BADGE\n"
-	.string "from GRETA!$"
+	.string "Here. The STANDARD BADGE.\n"
+	.string "Congratulations!\p"
+	.string "{PLAYER} received the STANDARD\n"
+	.string "BADGE from GRETA!$"
 
 Crestfall_Text_GretaBadge2::
-	.string "It also lets you use CUT out\n"
-	.string "in the field. Handy for hay.\p"
-	.string "Take this too. It's a TM. It'll\n"
-	.string "do more than you'd think.$"
+	.string "That badge means you've met the\n"
+	.string "standard to start the gym\l"
+	.string "challenge. The real work begins.\p"
+	.string "It also lets you use CUT. Handy\n"
+	.string "for hay. Take this TM, too.$"
 
 Crestfall_Text_GretaAfterBadge::
-	.string "You'll want to keep an eye on\n"
-	.string "that Goldsworth boy.\p"
-	.string "He's not wicked. He's just\n"
-	.string "never been told 'no.'\p"
-	.string "You'd be doing him a favour.\n"
-	.string "Every time you beat him.$"
+	.string "That Goldsworth boy? Bit of a\n"
+	.string "mess, honestly. Not wicked.\p"
+	.string "He's just never been told ‘no.’\n"
+	.string "So you'd be doing the region a\l"
+	.string "favour, every time you beat him.$"
 
 Crestfall_Text_GretaIdleAfter::
-	.string "Back again? The MILTANK are\n"
-	.string "pleased. They like a winner.\p"
-	.string "So do I. Go on. Get on with it.$"
+	.string "Back already? Flattering.\n"
+	.string "I have paperwork to do.\p"
+	.string "The real kind. Not the kind\n"
+	.string "the MILTANK eat.$"
 
 @ ===================================================================
-@ GYM TRAINERS (optional, each costs one of the 9 spare trainer ids)
+@ GYM TRAINERS (author: two; each costs one of the 9 spare trainer ids)
 @ ===================================================================
 
 Crestfall_Text_Trainer1Intro::
