@@ -36,7 +36,7 @@ The tree still carries FRLG's map folders and constants. They are not built into
 
 ## Cities and towns (author, 2026-09-29; the split is open)
 
-The author says a **city** and a **town** are different, and that there may be **7 cities** with the rest towns. **7 is an example, not final.** Which of the 18 places are cities, and what a city has that a town does not, are open (decision 12 in [game-bible.md](game-bible.md)). Until then this file's 'towns' means any of the 18 settlements, the same as the author's scope of '18 towns', and no row above has a city or town type yet.
+The author says a **city** and a **town** are different, and that there may be **7 cities** with the rest towns. **7 is an example, not final.** Which of the 18 places are cities, and what a city has that a town does not, are open (decision 12 in [game-bible.md](game-bible.md)). Until then this file's 'towns' means any of the 18 settlements, the same as the author's scope of '18 towns', and no row above has a city or town type yet. **Set so far (author, 2026-09-30):** Hollowbrook and Wendlebury are towns, and Crestfall, the next stop, is a city.
 
 ## Goldsworth houses and the skyscraper (author notes 2026-09-29; details PROPOSED)
 

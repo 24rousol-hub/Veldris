@@ -3,7 +3,7 @@
 Status: **PROPOSED** except the name (approved 2026-09-29). Map plan: [map-plan.md](map-plan.md) (base `OldaleTown`, reference `Cherrygrove City.png`, about 51 x 29). Dialogue: [dialogue/wendlebury.inc](dialogue/wendlebury.inc).
 
 ## Role
-The player's first real stop: Pokémon Center, Mart, and the crossroads. It is the first place that sells things, and the first place the player hears about Troglodyte's family as a public nuisance. It has no gym. Whether it is a **town or a city** is open (decision 12 in [game-bible.md](game-bible.md)), which decides whether it has a Goldsworth house. Until decided, it has none.
+The player's first real stop: Pokémon Center, Mart, and the crossroads. It is the first place that sells things, and the first place the player hears about Troglodyte's family as a public nuisance. It has no gym. It is a **town** (author, 2026-09-30), so it has no Goldsworth house. The next stop, Crestfall, is a city.
 
 ## Where it sits
 West of it: Hollowbrook, by Route 1 (enters on Wendlebury's west edge). North: Route 2 to Crestfall (leaves on the north edge). East edge: a blocked exit toward the later routes (R16 on the region plan), shut by a barricade until the author says otherwise. South edge: sea or trees.
