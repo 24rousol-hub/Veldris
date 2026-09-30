@@ -41,6 +41,8 @@ The author has not decided which path the story takes. What is fixed: the Goldsw
 
 ### Starters and the lab scene (author, 2026-09-29; the build is PROPOSED)
 
+The draft dialogue for this scene, and for the rest of Hollowbrook, is in [dialogue/hollowbrook.inc](dialogue/hollowbrook.inc) (PROPOSED).
+
 **What the author fixed:**
 - There are **four** starters. Three are on show in the lab.
 - Troglodyte forces a Pokémon out of Fennick and takes **one of the three on show, at random**.

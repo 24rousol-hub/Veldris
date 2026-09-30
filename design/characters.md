@@ -66,6 +66,10 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - Troglodyte came to Hollowbrook to meet him and he was not there at the time (author). Where he was, and what he says and does in the story, are TBD by the author.
 - Name TBD.
 
+### Lab assistants (PROPOSED)
+
+Two aides in Fennick's lab, drafted in [dialogue/hollowbrook.inc](dialogue/hollowbrook.inc): one nervous, one deadpan. The deadpan one says the staff call Troglodyte 'TROGLODYTE' behind his back, which seeds the nickname. Unnamed for now.
+
 ### Troglodyte's parents
 
 - They are in the Goldsworth tower, in one of the cities (author). What the player does there is TBD.
