@@ -126,7 +126,7 @@ The Events tab shows the object buttons (NPC, Warp, Trigger, Sign, Hidden Item, 
 | **Trigger** (coord event) | X, Y, Elevation **3**, Var, Var Value, Script. Tile must be walkable at that elevation |
 | **Heal Location** | Do not add one by hand. I wire those (two traps, see CLAUDE.md) |
 
-**Connections (Route 1 to Hollowbrook):** Connections tab on Hollowbrook: click **+**, choose direction (for example Right), map `VeldrisRoute1`, set the offset so the two openings line up. Leave 'Mirror to Connecting Maps' ticked. Then use **File > Save All** (Ctrl+Shift+S). Until Wendlebury exists, Route 1's far end stays open or blocked by trees.
+**Connections (Route 1 to Hollowbrook):** Connections tab on Hollowbrook: click **+**, choose direction (Right, for the east exit), map `VeldrisRoute1`, set the offset so the two openings line up. Leave 'Mirror to Connecting Maps' ticked. Then use **File > Save All** (Ctrl+Shift+S). Until Wendlebury exists, Route 1's far end stays open or blocked by trees.
 
 ---
 
@@ -146,7 +146,8 @@ y12                              ~~~~~~      Pond approx x26-31, y12-17
 y16              (town sign)    ~~~~~~
 y17   [PLAYER]                               Player house approx x6-11, y17-20
 y18   [ HOUSE ]      [NEIGHBOUR]             Neighbour approx x16-21, y18-21
-y27  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  exit gap to Route 1 at the bottom or right
+y27  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  (bottom edge stays solid trees)
+                                         exit gap to Route 1 on the RIGHT edge, approx y9-10, north of the pond
 ```
 
 | Thing | Approx position | Notes |
@@ -158,7 +159,7 @@ y27  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  exit gap to Route 1 at the bottom or righ
 | Player's house | x6-11, y17-20 | Door bottom wall. Sign beside it |
 | Neighbour's house | x16-21, y18-21 | Door bottom wall |
 | Pond | x26-31, y12-17 | Blocked collision. Fence along the bottom edge |
-| Exit to Route 1 | a gap in the forest, bottom or right edge | I suggest the **bottom** so the walk south leads out. Your call, it only changes the connection direction |
+| Exit to Route 1 | a 2-tile gap in the forest on the **right (east) edge**, approx (31, 9) and (31, 10), north of the pond | Author-decided 2026-09-30. Extend the path to it. Connection: direction **Right**. The bottom edge stays solid trees |
 | Ambient Pokémon (three) | on the paths, about (12, 12), (18, 15), (10, 15) | Normal-type stand-ins, see dialogue file |
 | Farmer, kid, laundry woman | the open grass west of the pond, and beside the neighbour's house | Positions are loose, put them where they look right |
 | **Troglodyte trigger** | on the path just **outside the lab door**, about (12, 11), elevation 3 | `coord_event` on the tile the player must cross after leaving the lab |
@@ -192,7 +193,7 @@ Keep the vanilla layout. After the copy:
 | Door | Bottom centre mat, warps to Hollowbrook's lab door |
 
 ### 6.4 Route 1 (60 x 25), from `Route 29.png`
-- Runs **east-west**: Hollowbrook on the west end, Wendlebury on the east end (PROPOSED, see towns-and-routes.md).
+- Runs **east-west**: Hollowbrook on the west end, Wendlebury on the east end (PROPOSED, see towns-and-routes.md). Hollowbrook's exit is on its right edge (author, 2026-09-30), so Route 1's **left** edge joins it: make the opening on Route 1's west edge at the same height (about y9-10 on Hollowbrook; set the Connections offset so they line up).
 - Keep the tall-grass patches where the picture shows them; these are the wild-Pokémon tiles. Everything Normal-type, gentle.
 - Ledges (the one-way hops) are metatiles with a ledge behavior. Copy them from `Route101` rather than painting new ones.
 - Leave 2 or 3 spots for trainers. I place them.
