@@ -32,7 +32,7 @@ The Johto start lines up with Veldris' first stretch: New Bark Town, Route 29, C
 | Wendlebury: Mart | | | Shared layout `LAYOUT_MART`. No painting needed |
 | **Route 2** | `Route 30.png` | 37 x 59 | `Route102` |
 | **Crestfall** (town, gym 1) | `Azalea Town.png` | about 48 x 32 | `PetalburgCity` |
-| Crestfall: Greta's gym | `Azalea Town Gym.png` | 15 x 17 | `PetalburgCity_Gym` is Normal type in vanilla too, but it is 9 x 112 with 38 warps and 11 objects, so it is a poor base. Decide when Crestfall comes up |
+| Crestfall: Greta's gym (Normal type; greenery is aesthetic only, use non-encounter grass) | `Azalea Town Gym.png` | 15 x 17 | `PetalburgCity_Gym` is Normal type in vanilla too, but it is 9 x 112 with 38 warps and 11 objects, so it is a poor base. Decide when Crestfall comes up |
 | **Route 3** (blocked at first) | `Route 31.png` | 46 x 22 | `Route104` |
 
 Pokémon Centers and Marts should come from the vanilla maps above, since each town needs one and Palladium has no Mart. Fitting a Johto route to a Veldris route is a proposal. The region-map shape is independent of it.

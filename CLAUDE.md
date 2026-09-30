@@ -30,7 +30,7 @@ All checked against this tree.
 - **`{RIVAL}` expands to MAY or BRENDAN** (`src/string_util.c`). Write TROGLODYTE literally.
 - **Dialogue must fit the text box: 216 px wide, 2 lines** (measured). Run `python3 design/tools/dialogue_check.py <file>` before committing any text. Details in `design/dialogue-style.md`.
 - **A new fly town is one row in `src/data/veldris_fly_towns.h`** plus the data steps in the checklist in `design/region-map.md`. Two traps: write `respawn_map` before `respawn_npc` in `heal_locations.json`, and always give both.
-- **Only 9 new trainer IDs fit** before trainer flag space overflows. See `design/engine-limits.md` and open decision 6 in `design/game-bible.md`.
+- **Only 9 brand-new trainer IDs fit** before trainer flag space overflows, but that is not a cap on trainers: a trainer can **reuse a vanilla Hoenn entry** (rewrite its block in `src/data/trainers.party`, nothing else changes), which costs no new id. See 'A new trainer' below, `design/engine-limits.md` and open decision 6 in `design/game-bible.md`.
 - **Badges: 9, through a table.** `src/veldris_badges.c` and `include/veldris_badges.h` hold one row per badge (flag and art slot), and every badge loop goes through `gBadgeFlags[]` or `GetBadgeCount()`. Details and limits in `design/badges.md`.
 - FRLG map folders sit in `data/maps` but are **not built into this Emerald ROM** (`mapjson` skips maps not tagged `REGION_HOENN`). Their `MAP_*` and `MAPSEC_*` constants still exist (for example `MAPSEC_ROUTE_1`), so new Veldris names must not collide with them. See `design/towns-and-routes.md`.
 - **The town map picture can use at most 256 distinct 8x8 tiles**, at most about 37 more map sections fit (43 over the vanilla 209, six used), and Fly needs the Feather Badge in this build. All hard limits are in `design/engine-limits.md`; the town map wiring is in `design/region-map.md`.
@@ -53,6 +53,7 @@ Keep the map's `region` at `REGION_HOENN` (the default) and `layout_version` at 
 1. `src/data/trainers.party`: add a `=== TRAINER_X ===` block. Its `Pic` and `Class` must already exist.
 2. `include/constants/opponents.h`: add `#define TRAINER_X 855` (next free id) and raise `TRAINERS_COUNT_EMERALD` by one, staying at or below `MAX_TRAINERS_COUNT_EMERALD` (864). The defeated flag is `0x500 + id`.
 3. In the map script: `trainerbattle_single TRAINER_X, Intro, Defeat` (gym leaders: copy the pattern in `data/maps/RustboroCity_Gym/scripts.inc`), and an object event in `map.json` with a `trainer_type`.
+**Reusing a vanilla id instead (no new id, no `TRAINERS_COUNT_EMERALD` change; UNTESTED):** pick an unused vanilla trainer, rewrite its block in `src/data/trainers.party` (party, pic, class, name), and add `#define TRAINER_CRESTFALL_GRETA TRAINER_<OLD_NAME>` in `include/constants/opponents.h` so scripts can use the new name while the old Hoenn scripts keep compiling. Its defeated flag is the old id's flag. Do this for trainers beyond the spare 9.
 4. A brand-new trainer pic or class needs more edits (`include/constants/trainers.h`, `src/battle_main.c`, `src/data/graphics/trainers.h`). Untested end to end.
 
 ## Build
