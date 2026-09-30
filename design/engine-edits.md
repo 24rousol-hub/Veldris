@@ -21,6 +21,8 @@ Before pulling upstream, read this list. Each row is a place a merge could confl
 | 2026-09-29 | `src/caps.c` | Added `FLAG_BADGE09_GET` rows to the level-cap (50, PROPOSED placeholder) and EV-cap tables; EV fractions now /19 | 9 badges. Caps are off by default (`B_LEVEL_CAP_TYPE`) | Caps are config-gated |
 | 2026-09-29 | `src/region_map.c` | A-prime fly hooks: `#include "data/veldris_fly_towns.h"` plus one line each at the end of `sMapHealLocations`, `sFlyLocations` and before `default:` in `GetMapsecType` | One table row per fly town instead of 3 edits in this file | No |
 | 2026-09-29 | `src/data/region_map/region_map_sections.json` | Appended six records at the end: `MAPSEC_HOLLOWBROOK`, `MAPSEC_WENDLEBURY`, `MAPSEC_CRESTFALL`, `MAPSEC_VELDRIS_ROUTE_1` to `_3`. `MAPSEC_NONE` moves from 209 to 215 | So Porymap's Location dropdown offers them and the name popup works. The town map grid and picture are not touched yet | No |
+| 2026-09-30 | `include/trainer_pools.h`, `src/trainer_pools.c` | Added `POOL_PRUNE_RIVAL_STARTER` and `RivalStarterPrune` (about 25 lines incl. two includes): drops the two non-matching starter versions from Troglodyte's pool, reading `VAR_TROG_STARTER` | One trainer entry per Troglodyte fight instead of three (author approved 2026-09-30) | No (the pool feature itself is upstream) |
+| 2026-09-30 | `include/constants/vars.h` | Renamed `VAR_UNUSED_0x40F7` to `VAR_TROG_STARTER` | Holds Troglodyte's random starter | No |
 
 **Files Porymap writes.** When the author saves a new map, Porymap appends to or rewrites these upstream files. They are not engine edits, so they get one standing row here rather than a row per map: `data/maps/map_groups.json`, `data/layouts/layouts.json`, `data/event_scripts.s` (an appended `.include` line per new map), and on every save `src/data/region_map/region_map_sections.json`, `src/data/heal_locations.json`, `src/data/wild_encounters.json`. Read the changed-files list before committing.
 
@@ -30,6 +32,5 @@ Before pulling upstream, read this list. Each row is a place a merge could confl
 
 | File | Change | Waiting on |
 |---|---|---|
-| `include/trainer_pools.h`, `src/trainer_pools.c` | A custom pool prune option (`POOL_PRUNE_RIVAL_STARTER`, about 15 to 20 lines) so Troglodyte needs one trainer entry per fight instead of three | The author's OK (see [story-outline.md](story-outline.md)) |
 | `include/constants/flags.h`, `vars.h` | One-line renames of `FLAG_UNUSED_*` / `VAR_UNUSED_*` as flags and vars are claimed. See [flags.md](flags.md) | First non-badge flag or var claim |
 | `include/constants/opponents.h` | Trainer slot changes (only 9 free) | Open decision 6 in [game-bible.md](game-bible.md) |
