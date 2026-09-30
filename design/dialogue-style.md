@@ -9,6 +9,7 @@
 - **Swearing (author, 2026-09-29): only the Goldsworths can swear, and nothing '4chan level'.** Working limit, PROPOSED wording of that: everyday swearing at about the level of a PG-13 film. No slurs of any kind, nothing sexual or graphic, nothing hateful. A little goes a long way: a swear is funnier as punctuation than as every line. The grandfather does not swear. Everyone else (Fennick, Greta, the locals) stays clean unless the author says otherwise.
 - Nobody in the family is cruel to innocent townsfolk (assumed, not yet confirmed). Being rude to the player is fine.
 - Locals are sincere and slightly odd.
+- **Pokémon only (author, 2026-09-29):** no real animals (no hens, cats or cows, even as jokes). Ambient creatures are Pokémon, common and Normal type where possible.
 - Keep speeches short. A grudge is funnier when it is brief.
 
 Per-character voice notes are in [characters.md](characters.md).

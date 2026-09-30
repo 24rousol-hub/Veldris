@@ -79,6 +79,7 @@ These need the author's call. None blocks the first 3 towns.
 | 2026-09-29 | Troglodyte is in Hollowbrook to meet his grandfather, who was not there. He takes it out on Fennick and forces him to give him a Pokémon, random among the starters. | Author |
 | 2026-09-29 | Troglodyte starts contemptuous and can change to oblivious and confused after certain undecided story points. The story path is undecided; the Goldsworths are one of the obstacles. | Author |
 | 2026-09-29 | Four starters. Troglodyte takes one of the three on show at random, then Fennick reveals the fourth as an apology to the player, who picks from the rest. Species undecided until the hometown map, lab and houses are done. | Author |
+| 2026-09-29 | No real animals in the game: the town's ambient creatures are common Normal-type Pokémon (hens dropped). The family does not know where the grandfather was when Troglodyte came; post-game, he was meeting the previous region's Champion, an old friend. Fennick's name for Troglodyte (BEAUREGARD) approved. | Author |
 | 2026-09-29 | Fly-town hooks (A-prime) may be applied. Applied by the other session, table still empty. | Author |
 | 2026-09-29 | New trainer card with the 9-badge strip looks good. Badge art palette question settled in the other session. | Author |
 | 2026-09-29 | Repo created as a fresh start on pokeemerald-expansion. Scope fixed at 18 towns, 33 routes, 9 gyms, Elite Four, post-game. | Author |

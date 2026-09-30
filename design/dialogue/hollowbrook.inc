@@ -49,7 +49,7 @@ Hollowbrook_Text_MomIdleAfter::
 
 Hollowbrook_Text_TownSign::
 	.string "HOLLOWBROOK\n"
-	.string "‘A quiet place. Mind the hens.’$"
+	.string "‘A quiet place. Mind the ZIGZAGOON.’$"
 
 Hollowbrook_Text_LabSign::
 	.string "FENNICK'S POKéMON LAB\n"
@@ -79,7 +79,7 @@ Hollowbrook_Text_FarmerAfter::
 	.string "That clean coat stormed past\n"
 	.string "again. Muttering.\p"
 	.string "Didn't look where he stepped.\n"
-	.string "The hens saw to that.$"
+	.string "The ZIGZAGOON saw to that.$"
 
 @ Kid, near the pond.
 Hollowbrook_Text_Kid::
@@ -90,8 +90,9 @@ Hollowbrook_Text_Kid::
 
 @ Woman with washing.
 Hollowbrook_Text_Laundry::
-	.string "I'd hang this out, but the hens\n"
-	.string "think everything is a nest.\p"
+	.string "I'd hang this out, but the local\n"
+	.string "ZIGZAGOON think everything is\l"
+	.string "a treasure.\p"
 	.string "Last week they took a sock.\n"
 	.string "I respect the ambition.$"
 
@@ -111,42 +112,47 @@ Hollowbrook_Text_BenchOldManAfter::
 	.string "say thanks.$"
 
 @ ===================================================================
-@ INTERACTABLE POKéMON (the hens)
+@ INTERACTABLE POKéMON (common Normal types; ZIGZAGOON, SKITTY and SLAKOTH are PROPOSED stand-ins)
+@ The labels keep the old Hen* names until the map is wired; rename them then.
 @ ===================================================================
 
 Hollowbrook_Text_HenA::
-	.string "The hen eyes you with deep\n"
+	.string "ZIGZAGOON eyes you with deep\n"
 	.string "suspicion.\p"
 	.string "It seems to be deciding whether\n"
-	.string "you are a threat or a snack.$"
+	.string "you are a threat or a snack.\p"
+	.string "ZIGZAGOON: Zig-zig-zag!$"
 
 Hollowbrook_Text_HenB::
-	.string "The hen is sitting on an\n"
+	.string "SKITTY is sitting on a round,\n"
 	.string "egg-shaped rock.\p"
-	.string "It dares you to say something.$"
+	.string "It dares you to say something.\p"
+	.string "SKITTY: Mew!$"
 
 Hollowbrook_Text_HenC::
-	.string "The hen pecks at your shoe.\n"
-	.string "It is not sorry.$"
+	.string "SLAKOTH is lying across the path.\n"
+	.string "It has been there since dawn.\p"
+	.string "It is not sorry.\p"
+	.string "SLAKOTH: ...Kyu.$"
 
 Hollowbrook_Text_HenAfterTrog::
-	.string "The hen struts past, chest out.\p"
-	.string "A fine white feather is stuck to\n"
-	.string "its beak. It looks very pleased.$"
+	.string "ZIGZAGOON trots past, chest out.\p"
+	.string "It is wearing a very expensive\n"
+	.string "glove. It looks very pleased.\p"
+	.string "ZIGZAGOON: Zig-zig!$"
 
 @ ===================================================================
 @ THE GOLDSWORTH HOUSE: the grandfather (kind, no swearing)
 @ ===================================================================
 
-@ First visit, before the lab scene.
+@ Before the lab scene the grandfather is not home: the door is locked and this note is pinned to it.
+@ He was away and the family does not know where (post-game payoff: he was meeting the previous
+@ region's Champion, an old friend).
 Hollowbrook_Text_GrandpaBefore::
-	.string "Hello, dear. Come in, come in.\n"
-	.string "Mind the rug. It bites.\p"
-	.string "I'm told my grandson is due in\n"
-	.string "town today. I hope I've not\l"
-	.string "missed him.\p"
-	.string "If you see a very stern young\n"
-	.string "man, tell him I'm sorry.$"
+	.string "Nobody answers the door.\n"
+	.string "A note is pinned to it.\p"
+	.string "‘Out. Back when I'm back.\n"
+	.string "Do feed the SKITTY. -G.’$"
 
 @ After the lab scene, first visit.
 Hollowbrook_Text_GrandpaAfter::
@@ -155,8 +161,10 @@ Hollowbrook_Text_GrandpaAfter::
 	.string "He gets his manners from the\n"
 	.string "people who brought him up.\l"
 	.string "Not from me, I hope.\p"
-	.string "I was meant to be there when he\n"
-	.string "came. I'm very sorry I wasn't.$"
+	.string "I should have been here when he\n"
+	.string "came. I'm very sorry I wasn't.\p"
+	.string "Where was I? Somewhere I had to\n"
+	.string "be. That's all I can say.$"
 
 @ Second topic.
 Hollowbrook_Text_GrandpaAdvice::
@@ -203,7 +211,7 @@ Hollowbrook_Text_AideDeadpan::
 
 Hollowbrook_Text_LabTrogScene1::
 	.string "...three HOURS! I waited three\n"
-	.string "hours in this damn cow pasture!\p"
+	.string "hours in this damn MILTANK pasture!\p"
 	.string "Where is my grandfather? He\n"
 	.string "wrote that he'd be here!$"
 
@@ -249,11 +257,12 @@ Hollowbrook_Text_LabTrogSneer::
 	.string "I'll be Champion before you've\n"
 	.string "tied those shoes.\p"
 	.string "Tell my grandfather I was here.\n"
-	.string "Actually, don't. Damn hens.$"
+	.string "Actually, don't. He'd only ask\l"
+	.string "if I behaved.$"
 
 Hollowbrook_Text_LabTrogLeaves::
-	.string "The door slams. A hen squawks\n"
-	.string "somewhere outside.$"
+	.string "The door slams. Outside, a\n"
+	.string "ZIGZAGOON yelps and scatters.$"
 
 @ Fennick apologises and reveals the fourth.
 Hollowbrook_Text_LabApology1::
@@ -290,7 +299,7 @@ Hollowbrook_Text_LabAfterChoice::
 Hollowbrook_Text_AideNervousAfter::
 	.string "He took the {STR_VAR_1}, didn't he.\n"
 	.string "I'm sorry. I'd have given him\l"
-	.string "the hens.\p"
+	.string "the ZIGZAGOON.\p"
 	.string "Nobody ever stands up to him.$"
 
 Hollowbrook_Text_AideDeadpanAfter::
@@ -311,9 +320,9 @@ Hollowbrook_Text_FennickIdleAfter::
 @ Lab furniture.
 Hollowbrook_Text_LabBookshelf::
 	.string "Rows of notes. ‘On The Habits\n"
-	.string "of Hens’ has been borrowed\l"
+	.string "of ZIGZAGOON’ has been borrowed\l"
 	.string "eleven times by the same person.$"
 
 Hollowbrook_Text_LabComputer::
-	.string "A screen full of hen weights.\n"
+	.string "A screen full of ZIGZAGOON weights.\n"
 	.string "One is labelled ‘Menace.’$"

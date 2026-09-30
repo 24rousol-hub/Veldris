@@ -25,7 +25,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - Replaces Prof. Birch in the intro. Intro text lives in `data/text/birch_speech.inc` (C-driven intro).
 - Voice (PROPOSED): kindly, easily distracted, endlessly tolerant of the player's grudge.
 - **Troglodyte bullies him into handing over a Pokémon (author, 2026-09-29).** Fennick goes along with it. He then apologises to the player by revealing a fourth starter, and the player picks from what is left (author). That is the player's first look at Troglodyte, and a reason for the grudge (PROPOSED).
-- **Intro drafted 2026-09-29** in `data/text/birch_speech.inc` (text only, labels unchanged). **Tone APPROVED by the author (2026-09-29).** Beats: he lost track of the time; 'Everyone calls me the POKéMON PROFESSOR. Except my hens.'; 'So you're PLAYER. Splendid. I'll remember that. Probably.'; and he asks the player to be polite to a boy named BEAUREGARD GOLDSWORTH IV, which seeds Troglodyte.
+- **Intro drafted 2026-09-29** in `data/text/birch_speech.inc` (text only, labels unchanged). **Tone APPROVED by the author (2026-09-29).** Beats: he lost track of the time; 'Everyone calls me the POKéMON PROFESSOR. Except my ZIGZAGOON.' (hens were dropped on 2026-09-29: the game uses Pokémon only); 'So you're PLAYER. Splendid. I'll remember that. Probably.'; and he asks the player to be polite to a boy named BEAUREGARD GOLDSWORTH IV, which seeds Troglodyte.
 - FENNICK is written into the text directly (there is no placeholder for it).
 - **Art still to do:** the intro portrait `graphics/birch_speech/birch.png` (64x64, 16 colours) still shows Birch. His overworld sprite could be RavePossum's `prof_birch` (see [asset-inventory.md](asset-inventory.md)).
 
@@ -63,7 +63,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 
 - A kind old man, the former head of the Goldsworth family, forced to step down because of his health. Retired, and living in the Goldsworth house in the player's home town (Hollowbrook).
 - He is the warm exception in a family of assholes, and the humour never lands on him (PROPOSED). His voice is gentle and dignified, with no swearing (PROPOSED).
-- Troglodyte came to Hollowbrook to meet him and he was not there at the time (author). Where he was, and what he says and does in the story, are TBD by the author.
+- Troglodyte came to Hollowbrook to meet him and he was not there at the time (author). **The family does not know where he was (author).** **Post-game payoff (author): he was meeting the previous region's Champion, an old friend of his.** Until then he stays vague about it. Before the lab scene his door is locked with a note on it; afterwards he is home (PROPOSED). What else he says and does is TBD by the author.
 - Name TBD.
 
 ### Lab assistants (PROPOSED)

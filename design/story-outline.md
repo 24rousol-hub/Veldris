@@ -29,7 +29,7 @@ The author has not decided which path the story takes. What is fixed: the Goldsw
 
 | Beat | Where | Notes | Status |
 |---|---|---|---|
-| Troglodyte at Fennick's lab | Hollowbrook | **(author, 2026-09-29)** Troglodyte is in Hollowbrook to meet his grandfather, who was not there at the time. He takes his frustration out on Fennick and forces him to give him a Pokémon. It is one of three at random. Fennick then apologises to the player by revealing a fourth starter, and the player picks from what is left (author). Where the grandfather was, and how the rest of the scene plays out, are TBD | Beat fixed by the author, details PROPOSED |
+| Troglodyte at Fennick's lab | Hollowbrook | **(author, 2026-09-29)** Troglodyte is in Hollowbrook to meet his grandfather, who was not there at the time. He takes his frustration out on Fennick and forces him to give him a Pokémon. It is one of three at random. Fennick then apologises to the player by revealing a fourth starter, and the player picks from what is left (author). Nobody in the family knows where the grandfather was (author); the post-game reveals he was meeting the previous region's Champion, an old friend (author). How the rest of the scene plays out is TBD | Beat fixed by the author, details PROPOSED |
 | Intro and Prof. Fennick | Start town | Intro is C-driven. Text drafted in `data/text/birch_speech.inc` (built, fits the text box). Portrait art still shows Birch | BUILT (text). Tone approved by the author; portrait art still to do |
 | Player learns Troglodyte got a head start | Start town | Sets the motive. The scene above shows it, and the grandfather in Hollowbrook's Goldsworth house could fill in the rest | PROPOSED |
 | Route 1, first trainers | Route 1 | Gentle, farm-country | PROPOSED |
@@ -79,7 +79,7 @@ Hired "efficiency consultants" turn up to condemn Greta's farmyard gym. Greta le
 
 ## Post-game
 
-TBD by the author.
+Mostly TBD by the author. **Fixed (author, 2026-09-29):** the reveal of where the grandfather was the day Troglodyte came to Hollowbrook. He was meeting the previous region's Champion, an old friend of his. The family never knew.
 
 ## Cutscene rule
 

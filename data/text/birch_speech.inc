@@ -5,7 +5,7 @@ gText_Birch_Welcome::
 	.string "world of POKéMON!\p"
 	.string "My name is FENNICK.\p"
 	.string "Everyone calls me the POKéMON\n"
-	.string "PROFESSOR. Except my hens.\p"
+	.string "PROFESSOR. Except my ZIGZAGOON.\p"
 	.string "$"
 
 gText_Birch_Pokemon::
