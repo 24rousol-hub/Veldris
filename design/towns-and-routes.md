@@ -22,7 +22,7 @@ The tree still carries FRLG's map folders and constants. They are not built into
 |---|---|---|---|---|---|
 | 1 | Hollowbrook | Start town, Prof. Fennick's lab | APPROVED (name) | `MAPSEC_HOLLOWBROOK` | No |
 | 2 | Wendlebury | Second town, Pokémon Center and shop | APPROVED (name) | `MAPSEC_WENDLEBURY` | No |
-| 3 | **Crestfall** | Gym 1: Greta (Normal, retired farmer) | APPROVED (name, from the author's trainer constant) | `MAPSEC_CRESTFALL` | No |
+| 3 | **Crestfall** | Gym 1: Greta (Normal, young and rising fast) | APPROVED (name, from the author's trainer constant) | `MAPSEC_CRESTFALL` | No |
 | 4 to 18 | TBD | Gyms 2 to 9, Elite Four approach, League, post-game | Not started | | |
 
 ## Routes

@@ -15,7 +15,7 @@ The player has one reason to become Champion: to humiliate Troglodyte. His real 
 1. **The motive is petty and personal.** The player never says they want to save anything. They want Troglodyte to lose, in public, again.
 2. **The schemes always fail.** Each gym has a Goldsworth scheme (see [story-outline.md](story-outline.md)). It is built up, it is obviously flawed, it collapses, and Troglodyte loses the battle that follows.
 3. **Troglodyte is mediocre, not evil.** He is coddled and out of his depth. He loses because he never had to learn, not because he is a monster. The humour lands on him and his family, never on the townsfolk. *(The Goldsworths are now rich frat guys who are assholes, and can swear mildly. The humour still never lands on the townsfolk, and the grandfather is the kind exception. See [characters.md](characters.md).)*
-4. **The rest of Veldris is warm.** Gym leaders and locals are sincere and a bit weird. Greta is the model: a retired farmer who happens to be the best Normal-type trainer for miles.
+4. **The rest of Veldris is warm.** Gym leaders and locals are sincere and a bit weird. Greta is the model: young, sassy, kind underneath, and already the best Normal-type trainer for miles (author's update 2026-09-29, replacing 'retired farmer').
 
 ## Scope (fixed by the author)
 

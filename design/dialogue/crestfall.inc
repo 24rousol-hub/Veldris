@@ -1,4 +1,4 @@
-@ Crestfall dialogue DRAFT: gym 1, Greta (Normal type, retired farmer), and Scheme 1.
+@ Crestfall dialogue DRAFT: gym 1, Greta (Normal type, young and sassy), and Scheme 1.
 @ Status: PROPOSED, not wired into any map (no map exists yet). Author fixed: Greta is gym 1, Normal type,
 @ young, rising fast in the gym hierarchy, a tad sassy but nice (2026-09-29, replaces 'retired farmer'),
 @ trainer constant TRAINER_CRESTFALL_GRETA, the STANDARD BADGE, and two gym trainers.
