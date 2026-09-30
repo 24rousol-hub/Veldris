@@ -36,10 +36,10 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - Trainer constant: **`TRAINER_CRESTFALL_GRETA`** (`TRAINER_GRETA` is already taken). **(author)**
 - Voice (PROPOSED, revised 2026-09-29): confident, a bit sassy, kind underneath. Sees through the Goldsworths at once.
 - **Gym dialogue drafted 2026-09-29:** [dialogue/crestfall.inc](dialogue/crestfall.inc) (PROPOSED).
-- **Gym trainers (author): two.** With Greta that is 3 brand-new trainer ids (more can reuse vanilla entries, see `CLAUDE.md`).
+- **Gym trainers (author): two, one Pokémon each.** With Greta that is 3 brand-new trainer ids (more can reuse vanilla entries, see `CLAUDE.md`).
 - **The gym's look (author, 2026-09-29):** it is a Normal-type gym. It may have some greenery, but the grass is purely aesthetic: all of its Pokémon are Normal type, and the decorative grass must not be encounter grass (no wild battles inside).
 - **Her picture (author, 2026-09-29): the ORAS lass by kwenio, with her hair recoloured platinum blonde.** Draft: [art/greta_front_draft.png](art/greta_front_draft.png), 64 x 64, untouched otherwise. **Not in the game yet:** a new trainer picture needs engine edits (`CLAUDE.md`, 'A new trainer', step 4), and the file still has a solid teal background and more than 16 colours.
-- **Team (PROPOSED, levels not set):** ZIGZAGOON, SKITTY, and a MILTANK as the ace. All Normal types, all farm-and-field, all in this ROM. Not added to `src/data/trainers.party` yet (no map exists, and the trainer takes one of the 9 spare ids).
+- **Teams (author: levels and counts; me: species and moves):** full blocks in [teams.md](teams.md). Gym trainer 1: ZIGZAGOON level 9. Gym trainer 2: SLAKOTH level 10. Greta: SKITTY level 10 and MILTANK level 12. All Normal types, all in this ROM. Not added to `src/data/trainers.party` yet (no map exists, and the trainer takes one of the 9 spare ids).
 - **Reward (PROPOSED):** the **STANDARD BADGE** (author's name: it is the standard you must meet to start the gym challenge), a TM (not chosen), and CUT as badge 1's HM (vanilla gives it to badge 1 as well).
 
 ## The Goldsworths (Troglodyte's family)

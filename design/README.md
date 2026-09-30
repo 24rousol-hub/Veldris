@@ -11,6 +11,7 @@
 | [porymap-first-map.md](porymap-first-map.md) | A beginner's guide to building Hollowbrook in Porymap: setup, the git loop, a smoke test, pitfalls and a time estimate | You learn something new about Porymap or the workflow |
 | [map-plan.md](map-plan.md) | Where each map comes from (Palladium references and vanilla bases) and who does what | A map is planned, traced or swapped for another source |
 | [region-map.md](region-map.md) | How maps, the town map and fly destinations are wired, plus the Veldris layout proposal | You touch the region map or fly destinations |
+| [teams.md](teams.md) | PROPOSED trainer teams with level-legal moves (Crestfall gym first) | A team, level or trainer changes |
 | [dialogue/hollowbrook.inc](dialogue/hollowbrook.inc) | PROPOSED draft of all Hollowbrook dialogue: mother, townsfolk, hens, the grandfather, the lab aides, Fennick, and the Troglodyte encounter. Width-checked, not wired into any map | The scene or an NPC changes, or the maps exist and the text moves into `scripts.inc` |
 | [dialogue/crestfall.inc](dialogue/crestfall.inc) | PROPOSED draft of Crestfall: Scheme 1 (the consultants), the Troglodyte battle beats, Greta's gym dialogue and two optional gym trainers. Width-checked, not wired | Greta, the scheme or the gym trainers change, or the map exists |
 | [dialogue-style.md](dialogue-style.md) | Voice rules, text format, charmap limits | A new text rule is found |
