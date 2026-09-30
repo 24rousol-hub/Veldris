@@ -114,11 +114,17 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
 #define FIRE_STARTER  (IS_FRLG ? SPECIES_CHARMANDER : SPECIES_TORCHIC)
 #define WATER_STARTER (IS_FRLG ? SPECIES_SQUIRTLE   : SPECIES_MUDKIP )
 
-static const u16 sStarterMon[STARTER_MON_COUNT] =
+// Veldris: the fourth starter (revealed by Prof. Fennick) is not on the choose screen, so it sits
+// after the three. VAR_STARTER_MON can now hold 3. Stand-in species until the author decides.
+#define VELDRIS_FOURTH_STARTER SPECIES_PIKACHU
+#define STARTER_MON_TABLE_SIZE (STARTER_MON_COUNT + 1)
+
+static const u16 sStarterMon[STARTER_MON_TABLE_SIZE] =
 {
     GRASS_STARTER,
     FIRE_STARTER,
     WATER_STARTER,
+    VELDRIS_FOURTH_STARTER,
 };
 
 static const struct BgTemplate sBgTemplates[3] =
@@ -349,7 +355,7 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
 // .text
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
-    if (chosenStarterId > STARTER_MON_COUNT)
+    if (chosenStarterId >= STARTER_MON_TABLE_SIZE)
         chosenStarterId = 0;
     return sStarterMon[chosenStarterId];
 }

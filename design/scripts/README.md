@@ -47,8 +47,8 @@ Vanilla flags set or read: `FLAG_BADGE01_GET`, `FLAG_SYS_GAME_CLEAR`, `FLAG_SYS_
 
 ## Open questions and things I was unsure about
 
-1. **Fourth starter and `VAR_STARTER_MON`.** `GetStarterPokemon` in `src/starter_choose.c` guards with `> STARTER_MON_COUNT`, so index 3 would read past `sStarterMon[3]`. Ball 4 therefore stores 0 (wrong species for the credits and `field_specials.c`). A one-line engine edit (a fourth table entry, or `>=`) would fix it; needs the author's OK (CLAUDE.md rule 5).
-2. **Species are stand-ins** (Treecko, Torchic, Mudkip), and the fourth is `SPECIES_TBD4`, which must be replaced.
+1. **Fourth starter and `VAR_STARTER_MON`.** **FIXED 2026-09-30** (author approved): `sStarterMon` in `src/starter_choose.c` now has a fourth entry (`VELDRIS_FOURTH_STARTER`, stand-in PIKACHU) and the bounds check is `>= STARTER_MON_TABLE_SIZE`. Ball 4 can now store 3 in `VAR_STARTER_MON`. Logged in [engine-edits.md](../engine-edits.md).
+2. **Species are stand-ins** (Treecko, Torchic, Mudkip), and the fourth is `SPECIES_TBD4` in the scripts; use `VELDRIS_FOURTH_STARTER` (stand-in PIKACHU) until the author picks.
 3. **All coordinates and movements are placeholders** (`TODO(coords)`): door tiles, Troglodyte's walk to the balls and out, the warp into the Goldsworth house. They depend on the built maps.
 4. **Initial hide flags** are derived in `OnTransition` from `VAR_HOLLOWBROOK_STATE` instead of editing `EventScript_ResetAllMapFlags`, so no engine edit is needed. Cost: a few extra lines per map load.
 5. **Goldsworth door** is a bg_event on a door tile with no warp, and it warps with `warpdoor` only after `FLAG_SYS_GAME_CLEAR`. Untested.
