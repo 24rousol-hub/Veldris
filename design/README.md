@@ -12,6 +12,10 @@
 | [wendlebury.md](wendlebury.md) | Town 2 plan: role, position, buildings, NPCs; dialogue in `dialogue/wendlebury.inc` | The map or the town plan changes |
 | [scripts/README.md](scripts/README.md) | DRAFT, UNBUILT map scripts for Hollowbrook, the lab, Route 1 and Wendlebury, with the proposed new flags and vars. Not in `data/event_scripts.s` | The maps are built and the scripts move into their `scripts.inc`, or a scene changes |
 | [crestfall.md](crestfall.md) | Town 3 plan (a city, gym 1): buildings, layout reuse, NPC list, where Scheme 1 beats happen. PROPOSED | The map or the city plan changes |
+| [troglodyte-arc.md](troglodyte-arc.md) | PROPOSED arc options, schemes 2 to 9 and his fight schedule; samples in `dialogue/troglodyte_arc_samples.inc` | The story path is decided |
+| [gyms.md](gyms.md) | PROPOSED options for gyms 2 to 9 (types, leaders, badges, HMs, TMs, teams) | The author picks a type order |
+| [goldsworth.md](goldsworth.md) | Goldsworth houses and parents, PROPOSED; lines in `dialogue/goldsworth.inc` | The family plan changes |
+| [postgame.md](postgame.md) | PROPOSED Elite Four, Champion options, finale and post-game; lines in `dialogue/league.inc` | Open decision 2 (Champion) is made |
 | [dialogue/crestfall_extra.inc](dialogue/crestfall_extra.inc) | PROPOSED draft for the rest of Crestfall's NPCs: market, farmhands, gym statue, houses, kids, shopkeeper and the Goldsworth house. Width-checked, not wired | An NPC changes, or the map exists |
 | [dialogue/hollowbrook_houses.inc](dialogue/hollowbrook_houses.inc) | PROPOSED draft for Hollowbrook's neighbour house and the player-house extras, with starter variants. Width-checked, not wired | An NPC changes, or the maps exist |
 | [route1.md](route1.md) | Route 1 draft: wild Pokémon, three trainers, NPCs and items; dialogue in `dialogue/route1.inc` | The map or the route plan changes |
