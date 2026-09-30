@@ -160,7 +160,7 @@ Crestfall_Text_GretaBadge2::
 	.string "standard to start the gym\l"
 	.string "challenge. The real work begins.\p"
 	.string "It also lets you use CUT. Handy\n"
-	.string "for hay. Take this TM, too.$"
+	.string "for hay. Take CRUNCH, too.$"
 
 Crestfall_Text_GretaAfterBadge::
 	.string "That Goldsworth boy? Bit of a\n"

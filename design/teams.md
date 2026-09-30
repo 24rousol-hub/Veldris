@@ -19,7 +19,7 @@ Greenery in the gym is aesthetic only. Every Pokémon here is Normal type.
 ### Gym trainer 1: ZIGZAGOON, level 9
 ```
 === TRAINER_CRESTFALL_GYM_1 ===
-Name: (TBD)
+Name: DALE
 Class: (TBD: must already exist)
 Pic: (TBD: must already exist)
 Gender: (TBD)
@@ -39,7 +39,7 @@ The obvious first opponent: a quick Normal type that blinds you with Sand Attack
 ### Gym trainer 2: SLAKOTH, level 10
 ```
 === TRAINER_CRESTFALL_GYM_2 ===
-Name: (TBD)
+Name: WREN
 Class: (TBD: must already exist)
 Pic: (TBD: must already exist)
 Gender: (TBD)
