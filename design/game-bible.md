@@ -81,6 +81,7 @@ These need the author's call. None blocks the first 3 towns.
 | 2026-09-29 | Four starters. Troglodyte takes one of the three on show at random, then Fennick reveals the fourth as an apology to the player, who picks from the rest. Species undecided until the hometown map, lab and houses are done. | Author |
 | 2026-09-29 | No real animals in the game: the town's ambient creatures are common Normal-type Pokémon (hens dropped). The family does not know where the grandfather was when Troglodyte came; post-game, he was meeting the previous region's Champion, an old friend. Fennick's name for Troglodyte (BEAUREGARD) approved. | Author |
 | 2026-09-29 | Hollowbrook dialogue approved except for edits: the bench old man is one text, the grandfather's name is '???' until the League is beaten, and after the League he thanks the player for setting Troglodyte straight. | Author |
+| 2026-09-29 | Grandfather's name is Gatsby Goldsworth (hidden until the League is beaten); the door note is signed 'GG' and stays until the post-game. He sits outside the house after the lab scene, is gone after the first badge, and is back only in the post-game. | Author |
 | 2026-09-29 | Fly-town hooks (A-prime) may be applied. Applied by the other session, table still empty. | Author |
 | 2026-09-29 | New trainer card with the 9-badge strip looks good. Badge art palette question settled in the other session. | Author |
 | 2026-09-29 | Repo created as a fresh start on pokeemerald-expansion. Scope fixed at 18 towns, 33 routes, 9 gyms, Elite Four, post-game. | Author |

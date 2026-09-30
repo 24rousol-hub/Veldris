@@ -141,16 +141,17 @@ Hollowbrook_Text_HenAfterTrog::
 @ THE GOLDSWORTH HOUSE: the grandfather (kind, no swearing)
 @ ===================================================================
 
-@ Before the lab scene the grandfather is not home: the door is locked and this note is pinned to it.
+@ DOOR NOTE: the door is locked and this note is pinned to it from the start until the post-game.
 @ He was away and the family does not know where (post-game payoff: he was meeting the previous
 @ region's Champion, an old friend).
 Hollowbrook_Text_GrandpaBefore::
 	.string "Nobody answers the door.\n"
 	.string "A note is pinned to it.\p"
 	.string "‘Out. Back when I'm back.\n"
-	.string "Do feed the SKITTY. - ???’$"
+	.string "Do feed the SKITTY. - GG’$"
 
-@ After the lab scene, first visit.
+@ The old man OUTSIDE the house (only between the lab scene and the first badge; the player does not
+@ connect him to the note until he says so). After the lab scene, first talk.
 Hollowbrook_Text_GrandpaAfter::
 	.string "So you've met my grandson.\n"
 	.string "Oh dear. I can see it on you.\p"
@@ -171,12 +172,12 @@ Hollowbrook_Text_GrandpaAdvice::
 	.string "inside. Be kind if you can.\p"
 	.string "And beat him if you must.$"
 
-@ Idle.
+@ Idle (outside the house, on the bench).
 Hollowbrook_Text_GrandpaIdle::
-	.string "Ah, {PLAYER}. Come and sit.\n"
-	.string "I can't climb the stairs so\l"
-	.string "well these days.\p"
-	.string "The view from this chair is\n"
+	.string "Ah, {PLAYER}. Lovely morning.\n"
+	.string "I sit out here. The stairs\l"
+	.string "and I are no longer friends.\p"
+	.string "The view from this bench is\n"
 	.string "quite good enough.$"
 
 @ ===================================================================
@@ -329,7 +330,7 @@ Hollowbrook_Text_LabComputer::
 
 @ ===================================================================
 @ THE GRANDFATHER AFTER THE LEAGUE (triggered by FLAG_SYS_GAME_CLEAR, the Hall of Fame flag)
-@ His name is hidden ('???') until now. The real name is not chosen: replace each ??? when it is.
+@ His name (GATSBY GOLDSWORTH) stays hidden until now. The door note is signed only 'GG'.
 @ ===================================================================
 
 Hollowbrook_Text_GrandpaLeague1::
@@ -345,10 +346,10 @@ Hollowbrook_Text_GrandpaLeague2::
 	.string "You showed him that he could\n"
 	.string "lose. That's a gift.$"
 
-@ Name reveal. PLACEHOLDER: the name is undecided.
+@ Name reveal (author: Gatsby Goldsworth).
 Hollowbrook_Text_GrandpaLeagueName::
 	.string "I never did tell you my name.\n"
-	.string "It's ???.\p"
+	.string "It's GATSBY GOLDSWORTH.\p"
 	.string "It took a League to earn it\n"
 	.string "out of me. Fair enough.$"
 

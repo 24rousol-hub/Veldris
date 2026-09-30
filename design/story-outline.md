@@ -39,6 +39,17 @@ The author has not decided which path the story takes. What is fixed: the Goldsw
 | Gym 1: Greta (Normal) | Crestfall | `TRAINER_CRESTFALL_GRETA` | author fixed leader and type |
 | Route 3 gated | Route 3 | Leads on to town 4. Blocked for now | PROPOSED |
 
+### The grandfather's whereabouts in Hollowbrook (author, 2026-09-29; scripting is PROPOSED)
+
+| When | Where he is | How it is done (proposal) |
+|---|---|---|
+| Start until the lab scene | Not in town. The house door is locked, with a note signed 'GG' | Object hidden by a flag; the door is a sign/trigger that reads the note |
+| After the lab scene, before the first badge | An old man on a bench outside the house, unnamed | The flag is cleared when the lab scene ends |
+| After the first badge until the League is beaten | Not in town, even if the player returns | Town `OnTransition`: if `FLAG_BADGE01_GET` is set and `FLAG_SYS_GAME_CLEAR` is not, set the hide flag again |
+| After the League | Back, and the house is open. He thanks the player and reveals his name, GATSBY GOLDSWORTH | Clear the hide flag when `FLAG_SYS_GAME_CLEAR` is set; remove the door note |
+
+The house interior is reachable only in the post-game, so it can be built last. One hide flag is needed (planned, not claimed, see [flags.md](flags.md)).
+
 ### Starters and the lab scene (author, 2026-09-29; the build is PROPOSED)
 
 The draft dialogue for this scene, and for the rest of Hollowbrook, is in [dialogue/hollowbrook.inc](dialogue/hollowbrook.inc) (PROPOSED).

@@ -25,7 +25,7 @@ The Johto start lines up with Veldris' first stretch: New Bark Town, Route 29, C
 | Hollowbrook: player's house 1F | `Hero's House 1st Floor.png` | about 13 x 9 | `LittlerootTown_BrendansHouse_1F` |
 | Hollowbrook: player's house 2F | `Hero's House 2nd Floor.png` | 14 x 11 | `LittlerootTown_BrendansHouse_2F` |
 | Hollowbrook: neighbour's house | `Elm's House.png` | 13 x 10 | `LittlerootTown_MaysHouse_1F` |
-| Hollowbrook: Goldsworth house (the grandfather's, author) | none | | Shared house layout (see below) |
+| Hollowbrook: Goldsworth house (the grandfather's, author) | none | | Shared house layout (see below). Post-game only: the door is locked until the League is beaten, so build it last |
 | **Route 1** | `Route 29.png` | 60 x 25 | `Route101` |
 | **Wendlebury** (town) | `Cherrygrove City.png` | about 51 x 29 | `OldaleTown` |
 | Wendlebury: Pokémon Center 1F and 2F | (Palladium `PokeMon Center Johto.PNG`, about 16 x 22, is an alternative) | | Shared layouts `LAYOUT_POKEMON_CENTER_1F` and `_2F`. No painting needed |
