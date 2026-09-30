@@ -22,6 +22,12 @@ Read this before designing anything that scales: 18 towns, 33 routes, 9 gyms and
 | 12 | **Fly** | Needs the Feather Badge; only 16 vanilla `FLAG_VISITED_*` flags | Each new fly town needs 3 small C edits, or with the A-prime hooks (applied 2026-09-29) one row in `src/data/veldris_fly_towns.h`. See [region-map.md](region-map.md) |
 | 13 | **Section names** | 16 characters, charmap characters only | Longer overflows a buffer |
 
+## Battle rules already on (checked in `include/config/`)
+
+- **Fairy type** exists (`TYPE_FAIRY`) and the **updated type chart** is on (`B_UPDATED_TYPE_MATCHUPS` is `GEN_LATEST`).
+- **Physical/special split** by move is on (`B_PHYSICAL_SPECIAL_SPLIT` is `GEN_LATEST`).
+- **Updated types, base stats and abilities** are on (`P_UPDATED_TYPES`, `P_UPDATED_STATS`, `P_UPDATED_ABILITIES` are `GEN_LATEST`).
+
 ## Config switches worth knowing
 
 All in `include/config/`. Prefer these to editing code.

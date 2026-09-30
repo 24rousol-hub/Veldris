@@ -83,6 +83,7 @@ These need the author's call. None blocks the first 3 towns.
 | 2026-09-29 | Hollowbrook dialogue approved except for edits: the bench old man is one text, the grandfather's name is '???' until the League is beaten, and after the League he thanks the player for setting Troglodyte straight. | Author |
 | 2026-09-29 | Grandfather's name is Gatsby Goldsworth (hidden until the League is beaten); the door note is signed 'GG' and stays until the post-game. He sits outside the house after the lab scene, is gone after the first badge, and is back only in the post-game. | Author |
 | 2026-09-29 | Badge 1 is the STANDARD BADGE. Crestfall's gym has 2 gym trainers. Greta is young, rising quickly in the gym hierarchy, and a tad sassy but nice (replacing 'retired farmer'). | Author |
+| 2026-09-30 | No IVs or EVs on any trainer, gym leader, Elite Four member or the Champion: they belong to the player only. | Author |
 | 2026-09-29 | Fly-town hooks (A-prime) may be applied. Applied by the other session, table still empty. | Author |
 | 2026-09-29 | New trainer card with the 9-badge strip looks good. Badge art palette question settled in the other session. | Author |
 | 2026-09-29 | Repo created as a fresh start on pokeemerald-expansion. Scope fixed at 18 towns, 33 routes, 9 gyms, Elite Four, post-game. | Author |
