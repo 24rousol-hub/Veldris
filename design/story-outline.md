@@ -71,6 +71,8 @@ The draft dialogue for this scene, and for the rest of Hollowbrook, is in [dialo
 
 ### Scheme 1 (PROPOSED example, easy to replace)
 
+Dialogue draft: [dialogue/crestfall.inc](dialogue/crestfall.inc).
+
 Hired "efficiency consultants" turn up to condemn Greta's farmyard gym. Greta lets them inspect it. They get lost in the hay maze, and the inspection ends when her livestock take over the paperwork. Troglodyte arrives to watch, finds the consultants tangled in the barn, and has to battle anyway.
 
 ## Acts II to IV

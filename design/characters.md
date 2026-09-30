@@ -34,6 +34,9 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - Gym 1, in Crestfall. Normal type. Retired farmer.
 - Trainer constant: **`TRAINER_CRESTFALL_GRETA`** (`TRAINER_GRETA` is already taken). **(author)**
 - Voice (PROPOSED): dry, unhurried, plain-spoken farm wisdom. Sees through the Goldsworths at once.
+- **Gym dialogue drafted 2026-09-29:** [dialogue/crestfall.inc](dialogue/crestfall.inc) (PROPOSED).
+- **Team (PROPOSED, levels not set):** ZIGZAGOON, SKITTY, and a MILTANK as the ace. All Normal types, all farm-and-field, all in this ROM. Not added to `src/data/trainers.party` yet (no map exists, and the trainer takes one of the 9 spare ids).
+- **Reward (PROPOSED):** the placeholder FIELD BADGE (badge names are not decided), a TM (not chosen), and CUT as badge 1's HM (vanilla gives it to badge 1 as well).
 
 ## The Goldsworths (Troglodyte's family)
 
