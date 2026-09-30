@@ -46,7 +46,7 @@ The author says a **city** and a **town** are different, and that there may be *
 
 ## Fly destinations
 
-Only towns are fly destinations (see [region-map.md](region-map.md)). Initial set: Hollowbrook, Wendlebury, Crestfall.
+Only settlements (towns and cities, not routes) are fly destinations (see [region-map.md](region-map.md)). Initial set: Hollowbrook, Wendlebury, Crestfall.
 
 ## Update this file when
 

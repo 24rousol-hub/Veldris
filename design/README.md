@@ -10,7 +10,11 @@
 | [towns-and-routes.md](towns-and-routes.md) | The 18 towns and 33 routes, map names, build status | A map is added, renamed or changes status |
 | [porymap-first-map.md](porymap-first-map.md) | A beginner's guide to building Hollowbrook in Porymap: setup, the git loop, a smoke test, pitfalls and a time estimate | You learn something new about Porymap or the workflow |
 | [wendlebury.md](wendlebury.md) | Town 2 plan: role, position, buildings, NPCs; dialogue in `dialogue/wendlebury.inc` | The map or the town plan changes |
+| [crestfall.md](crestfall.md) | Town 3 plan (a city, gym 1): buildings, layout reuse, NPC list, where Scheme 1 beats happen. PROPOSED | The map or the city plan changes |
+| [dialogue/crestfall_extra.inc](dialogue/crestfall_extra.inc) | PROPOSED draft for the rest of Crestfall's NPCs: market, farmhands, gym statue, houses, kids, shopkeeper and the Goldsworth house. Width-checked, not wired | An NPC changes, or the map exists |
+| [dialogue/hollowbrook_houses.inc](dialogue/hollowbrook_houses.inc) | PROPOSED draft for Hollowbrook's neighbour house and the player-house extras, with starter variants. Width-checked, not wired | An NPC changes, or the maps exist |
 | [route1.md](route1.md) | Route 1 draft: wild Pokémon, three trainers, NPCs and items; dialogue in `dialogue/route1.inc` | The map or the route plan changes |
+| [route2.md](route2.md) | Route 2 draft: wild Pokémon, four trainers, NPCs, items and the Scheme 1 surveyors; dialogue in `dialogue/route2.inc` | The map or the route plan changes |
 | [porymap-walkthrough.md](porymap-walkthrough.md) | Click-by-click Porymap guide for Hollowbrook, the lab and Route 1, with where everything goes; preview picture in `art/first_maps_preview.png` | Porymap behaviour or the map plan changes |
 | [map-plan.md](map-plan.md) | Where each map comes from (Palladium references and vanilla bases) and who does what | A map is planned, traced or swapped for another source |
 | [region-map.md](region-map.md) | How maps, the town map and fly destinations are wired, plus the Veldris layout proposal | You touch the region map or fly destinations |
