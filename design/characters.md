@@ -64,7 +64,8 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - A kind old man, the former head of the Goldsworth family, forced to step down because of his health. Retired, and living in the Goldsworth house in the player's home town (Hollowbrook).
 - He is the warm exception in a family of assholes, and the humour never lands on him (PROPOSED). His voice is gentle and dignified, with no swearing (PROPOSED).
 - Troglodyte came to Hollowbrook to meet him and he was not there at the time (author). **The family does not know where he was (author).** **Post-game payoff (author): he was meeting the previous region's Champion, an old friend of his.** Until then he stays vague about it. Before the lab scene his door is locked with a note on it; afterwards he is home (PROPOSED). What else he says and does is TBD by the author.
-- Name TBD.
+- **Name hidden (author, 2026-09-29): in game he is only '???' until the player beats the League.** Nobody says his name before then, and his door note is signed '???'. The real name is not chosen yet.
+- **After the League (author):** he is grateful that the player set Troglodyte straight, and reveals his name. Drafted in [dialogue/hollowbrook.inc](dialogue/hollowbrook.inc) (PROPOSED wording, triggered by `FLAG_SYS_GAME_CLEAR`, the Hall of Fame flag). What the reveal means for the story is the author's.
 
 ### Lab assistants (PROPOSED)
 

@@ -54,7 +54,7 @@ The draft dialogue for this scene, and for the rest of Hollowbrook, is in [dialo
 - **Proposal: Poké Ball objects on a table in the lab, script only.** Four ball objects on a table, the fourth hidden by a flag. The scene: Troglodyte walks to a random one of the three and takes it (its ball disappears), Fennick apologises and the fourth ball appears, and the player talks to a ball, confirms, and gets the Pokémon with `givemon`. That is how Oak's lab works in FRLG. That lab's script, `data/maps/PalletTown_ProfessorOaksLab_Frlg/scripts.inc`, is in the tree as a reference (it is not built into this ROM). No engine edit.
 - **The random pick:** `random 3` in the lab script (the command exists, for example in `data/scripts/interview.inc`), stored in one spare var. Every later Troglodyte battle switches on that var, the way vanilla switches on `VAR_STARTER_MON` in `data/maps/Route103/scripts.inc`. Troglodyte can only have one of the three on show, so he needs three variants per battle, not four.
 - **Trainer ids:** three per Troglodyte battle. With 9 spare ids the likely answer is to reuse the 15 vanilla `TRAINER_BRENDAN_*` ids, since nothing in `src/` refers to them by name. See open decisions 3, 6 and 14 in [game-bible.md](game-bible.md).
-- **Flags and vars (planned, not claimed):** one var for Troglodyte's pick, and a flag or two for the lab scene (fourth ball revealed, player has chosen).
+- **Flags and vars (planned, not claimed):** one saved var for Troglodyte's pick (separate from `VAR_STARTER_MON`, which holds the player's), and a flag or two for the lab scene (fourth ball revealed, player has chosen). In the dialogue, `{STR_VAR_1}` is the player's species and `{STR_VAR_2}` is Troglodyte's. They are scratch text buffers, not saved, so each message is preceded by a `bufferspeciesname` for the right one.
 - **`VAR_STARTER_MON` and `GetStarterPokemon`** hold three species (`sStarterMon[3]`), and `credits.c`, `field_specials.c` and `battle_setup.c` read them. Check what needs them once the species are chosen. If the player can end up with the fourth species, the table may need a fourth entry (a one-line engine edit).
 - **The lab map has to support it.** It needs a table with room for four ball objects. `Elm's Lab.png` has a table (green, three tiles wide), so paint it at least four wide, with a free tile in front of each ball spot. The balls are events, and I place them. See [map-plan.md](map-plan.md).
 
@@ -79,7 +79,7 @@ Hired "efficiency consultants" turn up to condemn Greta's farmyard gym. Greta le
 
 ## Post-game
 
-Mostly TBD by the author. **Fixed (author, 2026-09-29):** the reveal of where the grandfather was the day Troglodyte came to Hollowbrook. He was meeting the previous region's Champion, an old friend of his. The family never knew.
+Mostly TBD by the author. **Fixed (author, 2026-09-29):** the reveal of where the grandfather was the day Troglodyte came to Hollowbrook. He was meeting the previous region's Champion, an old friend of his. The family never knew. **Also fixed (author):** the grandfather's name stays '???' until the player beats the League, and he is grateful that the player set Troglodyte straight.
 
 ## Cutscene rule
 

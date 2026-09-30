@@ -96,20 +96,16 @@ Hollowbrook_Text_Laundry::
 	.string "Last week they took a sock.\n"
 	.string "I respect the ambition.$"
 
-@ Old man on the bench.
+@ Old man on the bench. One text for before and after the lab scene (the after text is folded in).
 Hollowbrook_Text_BenchOldMan::
 	.string "I've watched the professor\n"
 	.string "give away POKéMON for thirty\l"
 	.string "years. Every one of them came\l"
 	.string "back to say thanks.\p"
-	.string "Well. Nearly every one.$"
-
-@ Old man on the bench, after the lab scene.
-Hollowbrook_Text_BenchOldManAfter::
-	.string "Nearly every one. Until today,\n"
-	.string "anyway.\p"
-	.string "That boy will never be back to\n"
-	.string "say thanks.$"
+	.string "Well. Nearly every one.\p"
+	.string "And that boy in the clean coat,\n"
+	.string "stomping about? I wouldn't\l"
+	.string "hold my breath for his.$"
 
 @ ===================================================================
 @ INTERACTABLE POKéMON (common Normal types; ZIGZAGOON, SKITTY and SLAKOTH are PROPOSED stand-ins)
@@ -152,7 +148,7 @@ Hollowbrook_Text_GrandpaBefore::
 	.string "Nobody answers the door.\n"
 	.string "A note is pinned to it.\p"
 	.string "‘Out. Back when I'm back.\n"
-	.string "Do feed the SKITTY. -G.’$"
+	.string "Do feed the SKITTY. - ???’$"
 
 @ After the lab scene, first visit.
 Hollowbrook_Text_GrandpaAfter::
@@ -206,7 +202,9 @@ Hollowbrook_Text_AideDeadpan::
 @ Order: Fennick spots the player -> Troglodyte rants -> he takes a POKéMON
 @        -> he dismisses the player -> Fennick apologises -> fourth POKéMON
 @        -> the player chooses.
-@ {STR_VAR_1} = the species Troglodyte takes (random among the three on show).
+@ {STR_VAR_2} = the species Troglodyte takes (random among the three on show).
+@ {STR_VAR_1} = the species the player is choosing/has chosen. They are separate on purpose.
+@ STR_VARs are scratch text buffers, not saved: always bufferspeciesname right before each message.
 @ ===================================================================
 
 Hollowbrook_Text_LabTrogScene1::
@@ -248,7 +246,7 @@ Hollowbrook_Text_LabTrogScene6::
 Hollowbrook_Text_LabTrogTakes::
 	.string "Hah! This one. Obviously.\p"
 	.string "I was going to pick the\n"
-	.string "{STR_VAR_1} anyway. Good taste\l"
+	.string "{STR_VAR_2} anyway. Good taste\l"
 	.string "is hereditary.$"
 
 Hollowbrook_Text_LabTrogSneer::
@@ -281,7 +279,7 @@ Hollowbrook_Text_LabApology3::
 	.string "Choose whichever you like.\n"
 	.string "Any of the three that are left.$"
 
-@ Each ball: buffer the species name in {STR_VAR_1}. Yes/No follows.
+@ Each ball: buffer the player's species name in {STR_VAR_1}. Yes/No follows.
 Hollowbrook_Text_LabBallAsk::
 	.string "Choose the {STR_VAR_1}?$"
 
@@ -297,25 +295,27 @@ Hollowbrook_Text_LabAfterChoice::
 
 @ Aides after the scene.
 Hollowbrook_Text_AideNervousAfter::
-	.string "He took the {STR_VAR_1}, didn't he.\n"
+	.string "He took the {STR_VAR_2}, didn't he.\n"
 	.string "I'm sorry. I'd have given him\l"
 	.string "the ZIGZAGOON.\p"
 	.string "Nobody ever stands up to him.$"
 
 Hollowbrook_Text_AideDeadpanAfter::
-	.string "Bet you ten that the {STR_VAR_1}\n"
+	.string "Bet you ten that the {STR_VAR_2}\n"
 	.string "bites him by Route 2.$"
 
-@ Fennick idle lines.
-Hollowbrook_Text_FennickIdleBefore::
-	.string "Oh, hello, {PLAYER}. I'm just\n"
-	.string "mending a kettle. With a\l"
-	.string "POKéMON.$"
-
+@ Fennick idle lines. There is no 'before' line: the lab scene starts the moment the player walks in,
+@ so the player can never talk to Fennick before it.
 Hollowbrook_Text_FennickIdleAfter::
 	.string "Off you go, {PLAYER}.\n"
 	.string "Write when you can.\p"
 	.string "Or don't. Just win something.$"
+
+@ Repeat visits after the first.
+Hollowbrook_Text_FennickIdleAfter2::
+	.string "Oh, hello, {PLAYER}. I'm just\n"
+	.string "mending a kettle. With a\l"
+	.string "POKéMON.$"
 
 @ Lab furniture.
 Hollowbrook_Text_LabBookshelf::
@@ -326,3 +326,32 @@ Hollowbrook_Text_LabBookshelf::
 Hollowbrook_Text_LabComputer::
 	.string "A screen full of ZIGZAGOON weights.\n"
 	.string "One is labelled ‘Menace.’$"
+
+@ ===================================================================
+@ THE GRANDFATHER AFTER THE LEAGUE (triggered by FLAG_SYS_GAME_CLEAR, the Hall of Fame flag)
+@ His name is hidden ('???') until now. The real name is not chosen: replace each ??? when it is.
+@ ===================================================================
+
+Hollowbrook_Text_GrandpaLeague1::
+	.string "{PLAYER}. You've done it. I heard\n"
+	.string "about the League.\p"
+	.string "And I heard what you did for my\n"
+	.string "grandson. Whatever it took,\l"
+	.string "it needed doing.$"
+
+Hollowbrook_Text_GrandpaLeague2::
+	.string "Thank you for setting him\n"
+	.string "straight. None of us ever did.\p"
+	.string "You showed him that he could\n"
+	.string "lose. That's a gift.$"
+
+@ Name reveal. PLACEHOLDER: the name is undecided.
+Hollowbrook_Text_GrandpaLeagueName::
+	.string "I never did tell you my name.\n"
+	.string "It's ???.\p"
+	.string "It took a League to earn it\n"
+	.string "out of me. Fair enough.$"
+
+Hollowbrook_Text_GrandpaLeagueIdle::
+	.string "Come and sit, {PLAYER}.\n"
+	.string "The kettle's on. The real one.$"
