@@ -30,5 +30,5 @@ Before pulling upstream, read this list. Each row is a place a merge could confl
 
 | File | Change | Waiting on |
 |---|---|---|
-| `include/constants/flags.h`, `vars.h` | One-line renames of `FLAG_UNUSED_*` / `VAR_UNUSED_*` as flags and vars are claimed. See [flags.md](flags.md) | First flag use |
+| `include/constants/flags.h`, `vars.h` | One-line renames of `FLAG_UNUSED_*` / `VAR_UNUSED_*` as flags and vars are claimed. See [flags.md](flags.md) | First non-badge flag or var claim |
 | `include/constants/opponents.h` | Trainer slot changes (only 9 free) | Open decision 6 in [game-bible.md](game-bible.md) |

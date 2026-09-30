@@ -1,6 +1,6 @@
 # Engine limits and config switches
 
-Hard limits of this tree (pokeemerald-expansion 1.17.1, an untagged commit after 1.17.0; Emerald build). Numbers were measured with the preprocessor or read from source by two independent audits. Nothing here was tested in an emulator.
+Hard limits of this tree (pokeemerald-expansion 1.17.1, an untagged commit after 1.17.0; Emerald build). Numbers were measured with the preprocessor or read from source by two independent audits. Nothing here was tested in an emulator except the boot, the intro text and the trainer card at 0, 1 and 9 badges (see [badges.md](badges.md)).
 
 Read this before designing anything that scales: 18 towns, 33 routes, 9 gyms and a lot of trainers push against several of these.
 
@@ -12,7 +12,7 @@ Read this before designing anything that scales: 18 towns, 33 routes, 9 gyms and
 | 2 | **Trainer IDs** | 9 spare (ids 855 to 863, flags 0x857-0x85F) | Every trainer's defeated flag is `0x500 + id`. **Nine gym leaders alone use all 9.** A trainer id reused in several maps shares one defeated flag (`cleartrainerflag` resets it). Raising `MAX_TRAINERS_COUNT` shifts every system and daily flag and grows `FLAGS_COUNT` (fine on a fresh start, and it needs a header edit). **Save headroom:** `SaveBlock1` is 15,696 bytes of 15,872, so about 176 bytes, roughly 1,400 flags, so a few hundred more trainers fit. `include/config/save.h` switches can free about 3,000 more bytes. Untested |
 | 3 | **Map sections** | 43 more fit (**37 left** after the first six Veldris sections were added on 2026-09-29) | Section ids are one byte (`mapsec_u8_t`) and `0xFD-0xFF` are special. 209 existed. Interiors use their town's section, so houses and skyscraper floors cost none. `veldris_fly_towns.h` has a compile-time guard. New ids go at the end of the JSON list. Veldris wants 51. See [region-map.md](region-map.md) |
 | 4 | **Town map picture** | 256 distinct 8x8 tiles, 28 x 15 cells | `map.bin` has one byte per position. Hoenn's uses 233. The grid size is a constant in `src/region_map.c` |
-| 5 | **Spare flags and vars** | 317 flags, 22 vars | See [flags.md](flags.md) |
+| 5 | **Spare flags and vars** | 316 flags, 22 vars | See [flags.md](flags.md) |
 | 6 | **Map size** | `(width + 15) * (height + 14)` must be at most 10240 | 80 x 60 is fine (7,030). 100 x 100 is too big (13,110) |
 | 7 | **Tilesets per map** | 512 primary + 512 secondary metatiles, 13 palettes (6 primary + 7 secondary) | Dual-layer metatiles only (`NUM_TILES_PER_METATILE` is 8). Triple-layer tilesets need an engine patch |
 | 8 | **Objects and events** | 16 live object events (the player takes one, so 15 NPCs); 64 object templates per map; `MAX_SPRITES` 64; event counts are one byte. Vanilla houses use 1 to 7 objects | With shadows enabled an object can cost 2 sprites, so crowded town or gym maps hit the sprite limit first |
@@ -33,7 +33,7 @@ All in `include/config/`. Prefer these to editing code.
 | `debug.h` | `DEBUG_OVERWORLD_MENU` (on in a normal `make`) | Warp, set flags and vars. Use it to test flying between the first three towns |
 | `overworld.h` | `OW_FLAG_POKE_RIDER` (off), `OW_POPUP_GENERATION` (Gen 3), `OW_REMATCH_BADGE_COUNT` (5) | Poké Rider lets the Pokénav map fly without the HM if pointed at a spare flag |
 | `wild_encounter.h` | `WE_FLAG_NO_ENCOUNTER` (0) | Point at a flag to switch encounters off, handy for cutscene maps |
-| `caps.h` | `B_LEVEL_CAP_TYPE` (none) | Level caps by badge count. Its table is sized for 8 badges plus the champion flag |
+| `caps.h` | `B_LEVEL_CAP_TYPE` (none) | Level caps by badge count. Its table has nine badge rows plus the champion flag (badge 9 at level 50 is a PROPOSED placeholder) |
 | `save.h` | `FREE_MYSTERY_EVENT_BUFFERS`, `FREE_RECORD_MIXING_HALL_RECORDS`, `FREE_MYSTERY_GIFT` (all off) | Free about 3,000 save bytes if the save block gets tight |
 | `pokemon.h` | `P_GBA_STYLE_SPECIES_GFX` and `_ICONS` (off), `P_CRIES_ENABLED`, `P_FOOTPRINTS` | The first two switch to the Gen 3 look already in the tree, so the `sprites` repo's Emerald art is not needed |
 | `map_preview_screen.h` | `MPS_ENABLE_MAP_PREVIEWS` (`IS_FRLG`, so off here) | FRLG-style splash when entering an area |

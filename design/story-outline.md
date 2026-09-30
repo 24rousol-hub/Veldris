@@ -1,6 +1,6 @@
 # Story outline
 
-Status: **PROPOSED** unless marked. Only the premise and Greta come from the author.
+Status: **PROPOSED** unless marked. Only items marked (author) come from the author.
 
 ## The scheme formula
 
@@ -66,7 +66,7 @@ Hired "efficiency consultants" turn up to condemn Greta's farmyard gym. Greta le
 |---|---|---|
 | II | 2 to 4 | TBD |
 | III | 5 to 7 | TBD |
-| IV | 8 and 9, Elite Four, Champion | See open decision 1 (badges) and 2 (Champion) in [game-bible.md](game-bible.md) |
+| IV | 8 and 9, Elite Four, Champion | See decision 1 (resolved: 9 badges) and 2 (Champion) in [game-bible.md](game-bible.md) |
 
 ## Schemes 2 to 9
 

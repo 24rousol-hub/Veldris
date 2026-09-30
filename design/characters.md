@@ -16,7 +16,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - **Why he is in Hollowbrook (author, 2026-09-29):** he came to meet his grandfather, who was not there at the time. He takes his frustration out on Prof. Fennick and forces him to give him a Pokémon.
 - **His starter is random among the three on show (author).** He never gets the fourth, which Fennick reveals afterwards. Mechanics and cost: 'Starters and the lab scene' in [story-outline.md](story-outline.md).
 - Team (PROPOSED): well-bred Pokémon, poorly trained. Strong on paper, tactically naive.
-- First named in Prof. Fennick's intro as BEAUREGARD GOLDSWORTH IV (PROPOSED, see Prof. Fennick below).
+- First named in Prof. Fennick's intro as BEAUREGARD GOLDSWORTH IV (APPROVED by the author with the intro tone, see Prof. Fennick below).
 - In text, write **TROGLODYTE** literally. Do not use `{RIVAL}`: in this engine it expands to MAY or BRENDAN (`src/string_util.c`).
 
 ## Prof. Fennick  **(author: professor)**
@@ -31,7 +31,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 
 ## Greta  **(author: first gym leader, Normal type, retired farmer)**
 
-- Gym 1, in Crestfall (assumed). Normal type. Retired farmer.
+- Gym 1, in Crestfall. Normal type. Retired farmer.
 - Trainer constant: **`TRAINER_CRESTFALL_GRETA`** (`TRAINER_GRETA` is already taken). **(author)**
 - Voice (PROPOSED): dry, unhurried, plain-spoken farm wisdom. Sees through the Goldsworths at once.
 

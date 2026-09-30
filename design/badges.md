@@ -31,7 +31,7 @@ Research date: 2026-09-29. Method: GitHub code search, then shallow read-only cl
 
 ## Why this is needed
 
-Veldris has 9 gyms, and the engine is built for 8 badges. `FLAG_BADGE01_GET` to `FLAG_BADGE08_GET` are `SYSTEM_FLAGS + 0x7` to `+ 0xE`, and `SYSTEM_FLAGS + 0xF` is already `FLAG_VISITED_LITTLEROOT_TOWN`, so a 9th badge cannot simply be the next flag. See [engine-limits.md](engine-limits.md) row 1 and open decision 1 in [game-bible.md](game-bible.md). The author also asked to consider our own badge case with our own art so badges can be mixed and matched.
+Veldris has 9 gyms, and the engine was built for 8 badges (before the table below was implemented). `FLAG_BADGE01_GET` to `FLAG_BADGE08_GET` are `SYSTEM_FLAGS + 0x7` to `+ 0xE`, and `SYSTEM_FLAGS + 0xF` is already `FLAG_VISITED_LITTLEROOT_TOWN`, so a 9th badge cannot simply be the next flag. See [engine-limits.md](engine-limits.md) row 1 and open decision 1 in [game-bible.md](game-bible.md). The author also asked to consider our own badge case with our own art so badges can be mixed and matched.
 
 ## Survey table
 
@@ -114,7 +114,7 @@ Spare flags for a separate badge block: `SYSTEM_FLAGS + 0x86..0x9F` (`FLAG_UNUSE
 - Upstream merge conflicts in about 14 upstream files. Mitigation: keep each edit tiny and put all logic in the hack-owned file, log every edit in [engine-edits.md](engine-edits.md).
 - Expansion-only sites (`caps.c`, `shop_criteria.c`, catch malus) exist in Veldris but not in the hacks surveyed, so there is no prior art to copy for them.
 - Needs the author's decision on spare flags: 0x8E6-0x8ED sits inside the range [flags.md](flags.md) reserves for story beats.
-- All of this is source-reading only. Nothing has been built or run.
+- All of this is pre-implementation source-reading. The table was built later and the card checked in mGBA (see the top of this file).
 
 **Reuse and credit:** none of the hacks surveyed has a LICENSE file, so **do not copy their code**. Their approach is described here as an idea only. If any code or art is later borrowed, credit it in `CREDITS.md` and ask the author of that hack first. HnS asks to be told about missed credits.
 

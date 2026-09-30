@@ -1,6 +1,6 @@
 # Asset inventory
 
-What is usable in `24rousol-hub/Team-Aquas-Asset-Repo` and `24rousol-hub/sprites` for this hack. Inventoried by read-only agents, then **each inventory was independently re-checked against the real files by a second agent**. The verdicts below are the corrected ones. Nothing has been imported, built or loaded in Porymap yet.
+What is usable in `24rousol-hub/Team-Aquas-Asset-Repo` and `24rousol-hub/sprites` for this hack. Inventoried by read-only agents, then **each inventory was independently re-checked against the real files by a second agent**. The verdicts below are the corrected ones. Only the Kaixer badge sheet (slots 0-7) has been imported (credited in CREDITS.md); nothing else has been imported or loaded in Porymap.
 
 ## The short version
 
@@ -73,7 +73,7 @@ Pokémon art only: no maps, tilesets, overworlds or trainers. **It adds almost n
 |---|---|
 | `Items/Cookie Softcore` (6 HM icons, 24x24 4bpp) | Yes. Exact match for item icons |
 | `User Interface/Lhea/Modern-Style Type Icons` | Yes. 32x16, drop-in |
-| `User Interface/Kaixer` | Maybe. Type icons lack `none` and `stellar`. Badge sheet replaces `graphics/trainer_card/badges.png` (8 badges only) |
+| `User Interface/Kaixer` | Maybe. Type icons lack `none` and `stellar`. Badge sheet is used for slots 0-7 of `graphics/trainer_card/badges.png` (credited in CREDITS.md) |
 | `Battle Backgrounds/RavePossum`, `PurrfectDoodle` | Maybe. Not every folder has the full file set, some need palette trimming. Derived from Ruki's HGSS/DPPt ports |
 | `Audio/Lykae/farm_tune` | Maybe. Technically fits (converts with `mid2agb`). **Originality is unstated**, and its `voicegroup191` clashes with another pack's |
 | `User Interface/Fonts/PurrfectDoodle` (FRLG font) | Maybe. Two glyphs (a star and a triangle) are blank in it |

@@ -31,12 +31,12 @@ Vars: persistent vars are 0x4000-0x40FF (256 in total). `VAR_TEMP_0` to `VAR_TEM
 
 ## Spare pool: permanent flags
 
-373 flags are named `FLAG_UNUSED_*`. **317 are safe to claim.** Excluded, with reasons:
+372 flags are named `FLAG_UNUSED_*` (373 before `FLAG_UNUSED_0x88E` became `FLAG_BADGE09_GET`). **316 are safe to claim.** Excluded, with reasons:
 
 - 52 sit in the daily range (0x920-0x95F). They reset every day. One of them, `FLAG_UNUSED_0x95F`, is also used by name: it defines `DAILY_FLAGS_END` in `flags.h`.
 - `FLAG_UNUSED_0x91F`, just below the daily range, is used by name: it defines `DAILY_FLAGS_START`.
 - `FLAG_UNUSED_RS_LEGENDARY_BATTLE_DONE` (0x71) is used by `data/maps/CaveOfOrigin_UnusedRubySapphireMap1/scripts.inc`.
-- That is 54 excluded. The 2 reserved below bring the total to 56, and 373 - 56 = 317.
+- That is 54 excluded. The 2 reserved below bring the total to 56, and 373 - 56 - 1 (badge 9) = 316.
 - `FLAG_UNUSED_0x1AA` and `FLAG_UNUSED_0x1AB` are **reserved as rematch headroom.** Trainer-registered flags run from 0x15C for `REMATCH_TABLE_ENTRIES` (78) entries, so 0x15C-0x1A9 are taken and the next two are the first to go if rematches are added. Beyond those two, the next flag (0x1AC) is `FLAG_DEFEATED_DEOXYS`.
 
 The flags in `include/constants/flags_frlg.h` with the same names are the FRLG variant. They are not compiled into the Emerald build, so they do not count as uses.
@@ -62,7 +62,7 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 | 0x8E3 | 1 | General purpose |
 | **0x8E5-0x91E** | 58 | **Story beats and cutscenes:** gyms, Elite Four, post-game. Spill into the general flags if needed |
 
-Reminder: the spare flags for ordinary game state are numerous but they are not unlimited. 317 flags for 18 towns, 33 routes, 9 gyms, the League and the post-game is enough only if boolean state is packed sensibly. Use `VAR_TEMP_*` for anything local to one map visit.
+Reminder: the spare flags for ordinary game state are numerous but they are not unlimited. 316 flags for 18 towns, 33 routes, 9 gyms, the League and the post-game is enough only if boolean state is packed sensibly. Use `VAR_TEMP_*` for anything local to one map visit.
 
 ## Spare pool: permanent vars
 
