@@ -87,4 +87,55 @@ Level: 12
 - The Oran Berry copies the vanilla first gym leader, Roxanne. Greta's two Pokémon are a level 10 and a level 12, as you asked.
 
 ## Troglodyte
-His team is not drafted yet. His first battle is at Crestfall, in Scheme 1 (see [dialogue/crestfall.inc](dialogue/crestfall.inc)). His Pokémon is one of the three starters on show, at random, so he needs one trainer id per possible starter for each fight (see [story-outline.md](story-outline.md)).
+
+His Pokémon is one of the three starters on show, at random. **One trainer entry per fight** (the pool prune, see [story-outline.md](story-outline.md)). Until the starters are chosen, Emerald's three are stand-ins.
+
+### Fight 1: right outside the lab in Hollowbrook (author: one Pokémon, the usual rival opener)
+The level is my proposal: 5, the same as your starter. No IVs or EVs, as for every trainer.
+```
+=== TRAINER_TROGLODYTE_HOLLOWBROOK ===
+Name: (TBD: see note below)
+Class: (TBD: must already exist)
+Pic: (TBD: must already exist)
+Gender: Male
+Music: (TBD)
+Double Battle: No
+AI: Basic Trainer
+Party Size: 1
+Pool Prune: Rival Starter
+
+Treecko
+Level: 5
+Tags: Tag6
+- Pound
+- Leer
+- Leafage
+
+Torchic
+Level: 5
+Tags: Tag7
+- Scratch
+- Growl
+- Ember
+
+Mudkip
+Level: 5
+Tags: Tag8
+- Tackle
+- Growl
+- Water Gun
+```
+All three versions are tagged and Party Size is 1, so exactly one survives the prune. The moves are each starter's level-up moves at level 5 (checked against the learnsets this ROM uses).
+
+**Optional gag (author's idea): a level 1 LILLIPUP pet.** Add this block, change `Party Size` to 2, and leave it untagged so it is always picked. LILLIPUP is in this build (Gen 5 Pokémon are on). It faints to anything, which is the joke. Its dialogue is in `design/dialogue/hollowbrook.inc` (`TrogPetIntro`, `TrogPetAfter`).
+```
+Lillipup
+Nickname: SIR BISCUIT
+Level: 1
+- Tackle
+- Leer
+```
+Recommended: keep the gag. It shows a sheltered rich boy who brought his pampered pet to a fight. Drop it if you want the classic single-starter opener.
+
+### Fight 2: Crestfall (Scheme 1)
+Not drafted. It is the second fight, so his team is bigger than fight 1's.

@@ -356,3 +356,40 @@ Hollowbrook_Text_GrandpaLeagueName::
 Hollowbrook_Text_GrandpaLeagueIdle::
 	.string "Come and sit, {PLAYER}.\n"
 	.string "The kettle's on. The real one.$"
+
+@ ===================================================================
+@ TROGLODYTE'S FIRST BATTLE, RIGHT OUTSIDE THE LAB (author, 2026-09-30)
+@ He has one starter (the random one, level 5). Optional gag: a level 1 LILLIPUP pet, nicknamed SIR BISCUIT.
+@ {STR_VAR_2} = his starter's species name.
+@ ===================================================================
+
+Hollowbrook_Text_TrogOutside1::
+	.string "Not so fast, whoever you are.\n"
+	.string "I want a look at that POKéMON.\p"
+	.string "Honestly? I want to watch it\n"
+	.string "lose. Don't look so worried.$"
+
+Hollowbrook_Text_TrogOutsideIntro::
+	.string "Go, {STR_VAR_2}! Show this local\n"
+	.string "what a proper start looks like!$"
+
+Hollowbrook_Text_TrogOutsideDefeat::
+	.string "What?! That was a warm-up!\n"
+	.string "A warm-up! I wasn't trying!$"
+
+Hollowbrook_Text_TrogOutsideAfter1::
+	.string "I'm not even warm yet. I skipped\n"
+	.string "breakfast. That's the reason.\p"
+	.string "This isn't over. Nothing ever is\n"
+	.string "over with a Goldsworth.$"
+
+@ Only with the optional level 1 pet.
+Hollowbrook_Text_TrogPetIntro::
+	.string "Go, {STR_VAR_2}! And stay back,\n"
+	.string "SIR BISCUIT. Daddy's watching.$"
+
+Hollowbrook_Text_TrogPetAfter::
+	.string "SIR BISCUIT didn't even get to\n"
+	.string "play! Look what you've done!\p"
+	.string "Come on, boy. We're going home.\n"
+	.string "To the house with the big door.$"

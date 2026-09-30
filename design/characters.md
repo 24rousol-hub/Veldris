@@ -15,7 +15,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - Voice (PROPOSED): pompous and entitled, never quite understands why he lost. Refers to his family and their money. He is a Goldsworth, so he may swear a little (author). Early on he looks down on ordinary people on purpose. If the arc happens, later he is bewildered that the world does not work the way he was told. Write his lines so either mode can be swapped in.
 - **Why he is in Hollowbrook (author, 2026-09-29):** he came to meet his grandfather, who was not there at the time. He takes his frustration out on Prof. Fennick and forces him to give him a Pokémon.
 - **His starter is random among the three on show (author).** He never gets the fourth, which Fennick reveals afterwards. Mechanics and cost: 'Starters and the lab scene' in [story-outline.md](story-outline.md).
-- Team (PROPOSED): well-bred Pokémon, poorly trained. Strong on paper, tactically naive.
+- Team (PROPOSED): well-bred Pokémon, poorly trained. Strong on paper, tactically naive. **First fight (author, 2026-09-30): right outside the lab, one Pokémon, his random starter (level 5).** Optional gag: a level 1 LILLIPUP pet called SIR BISCUIT. Details in [teams.md](teams.md).
 - First named in Prof. Fennick's intro as BEAUREGARD GOLDSWORTH IV (APPROVED by the author with the intro tone, see Prof. Fennick below).
 - In text, write **TROGLODYTE** literally. Do not use `{RIVAL}`: in this engine it expands to MAY or BRENDAN (`src/string_util.c`).
 

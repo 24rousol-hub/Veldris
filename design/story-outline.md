@@ -52,6 +52,8 @@ The house interior is reachable only in the post-game, so it can be built last. 
 
 ### Starters and the lab scene (author, 2026-09-29; the build is PROPOSED)
 
+**Troglodyte's first battle is right outside the lab (author, 2026-09-30),** with one Pokémon, the usual rival opener (optional gag: a level 1 LILLIPUP pet). His Crestfall fight in Scheme 1 is then his second. Team and dialogue: [teams.md](teams.md), [dialogue/hollowbrook.inc](dialogue/hollowbrook.inc).
+
 The draft dialogue for this scene, and for the rest of Hollowbrook, is in [dialogue/hollowbrook.inc](dialogue/hollowbrook.inc) (PROPOSED).
 
 **What the author fixed:**
