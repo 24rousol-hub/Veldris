@@ -17,6 +17,7 @@
 ## Known limits and things not done
 
 - **One palette for all badges.** The card has no free BG palette bank (0-4 card and stars, 5-10 mon icons, 11-14 stickers, 15 text), so all badges share bank 3, one 15-colour palette. A per-badge palette is not possible without freeing a bank. Any new art has to use the sheet's palette (or replace it for all badges together).
+- **Badge 1 is now silver with a blue centre (author request, 2026-09-29).** Slot 0 was re-coloured using colours already in the shared palette (greys for the outside, blues for the inside), so no other badge changed. It is still the Stone Badge shape, a stand-in for art drawn to match Greta and the Normal-type gym. Checked as a rendered image, not yet on the card in an emulator.
 - **The Kaixer badges are recolours of the Emerald shapes** (Stone, Knuckle...), so they will not match Veldris gym themes and derive from Game Freak art. Fine as a stand-in.
 - **Names:** the table has no badge names yet, because the gym themes are not decided. Nothing in the game prints a badge name today.
 - **Only 15 badge slots** are usable because slot 15 is the empty socket.
