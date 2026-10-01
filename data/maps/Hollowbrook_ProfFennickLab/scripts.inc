@@ -376,6 +376,7 @@ Hollowbrook_ProfFennickLab_EventScript_ChoiceDone::
 Hollowbrook_ProfFennickLab_EventScript_AideNervous::
 	lock
 	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_ProfFennickLab_EventScript_AideNervousBadge
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_ProfFennickLab_EventScript_AideNervousAfter
 	msgbox Hollowbrook_Text_AideNervous, MSGBOX_DEFAULT
 	release
@@ -390,6 +391,7 @@ Hollowbrook_ProfFennickLab_EventScript_AideNervousAfter::
 Hollowbrook_ProfFennickLab_EventScript_AideDeadpan::
 	lock
 	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_ProfFennickLab_EventScript_AideDeadpanBadge
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_ProfFennickLab_EventScript_AideDeadpanAfter
 	msgbox Hollowbrook_Text_AideDeadpan, MSGBOX_DEFAULT
 	release
@@ -401,9 +403,25 @@ Hollowbrook_ProfFennickLab_EventScript_AideDeadpanAfter::
 	release
 	end
 
+Hollowbrook_ProfFennickLab_EventScript_AideNervousBadge::
+	msgbox Hollowbrook_Text_AideNervousBadge, MSGBOX_DEFAULT
+	release
+	end
+
+Hollowbrook_ProfFennickLab_EventScript_AideDeadpanBadge::
+	msgbox Hollowbrook_Text_AideDeadpanBadge, MSGBOX_DEFAULT
+	release
+	end
+
+Hollowbrook_ProfFennickLab_EventScript_FennickBadge::
+	msgbox Hollowbrook_Text_FennickAfterBadge, MSGBOX_DEFAULT
+	release
+	end
+
 Hollowbrook_ProfFennickLab_EventScript_Fennick::
 	lock
 	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_ProfFennickLab_EventScript_FennickBadge
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 4, Hollowbrook_ProfFennickLab_EventScript_FennickRepeat
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_ProfFennickLab_EventScript_FennickAfter
 	msgbox Hollowbrook_Text_LabApology3, MSGBOX_DEFAULT
@@ -581,3 +599,21 @@ Hollowbrook_Text_LabBookshelf::
 Hollowbrook_Text_LabComputer::
 	.string "A screen full of ZIGZAGOON weights.\n"
 	.string "One is labelled ‘Menace.’$"
+
+@ ---- After the first badge (added 2026-10-01, FLAG_BADGE01_GET) ----
+Hollowbrook_Text_AideNervousBadge::
+	.string "Oh, the badge! May I look?\n"
+	.string "Please don't tell the professor\l"
+	.string "I cried a little.$"
+
+Hollowbrook_Text_AideDeadpanBadge::
+	.string "You beat a gym and the loud\n"
+	.string "one is still out there.\p"
+	.string "I'm telling you, no one has\n"
+	.string "ever been this good for morale.$"
+
+Hollowbrook_Text_FennickAfterBadge::
+	.string "A badge already? Splendid!\n"
+	.string "I'd tell you what it's for, but\l"
+	.string "I forgot. Do keep winning.\p"
+	.string "I'll find the notes. Eventually.$"

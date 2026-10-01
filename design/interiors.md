@@ -31,3 +31,7 @@ The drafts in `design/scripts/hollowbrook_scripts.inc` are now built into each m
 - **Fly point and respawn:** `HEAL_LOCATION_HOLLOWBROOK` lands on (9,21) outside the player's door; whiting out sends the player home to Mom (engine edit in `engine-edits.md`). Town `OnTransition` sets `FLAG_VISITED_HOLLOWBROOK` and the respawn. Tested in mGBA with the debug menu's Fly to map.
 
 Not done yet: the new-game start point (still the Littleroot truck), the Route 1 connection, Hollowbrook on the region map picture (the grid cell is set, the art is still Hoenn), and the Goldsworth house interior.
+
+## After-badge lines wired (2026-10-01, merged branch)
+
+The 11 'after the first badge' lines from `design/dialogue/hollowbrook.inc` and `hollowbrook_houses.inc` are now in the map scripts, switched on `FLAG_BADGE01_GET` (no new flag): town sign, farmer (plus the empty-bench remark `BenchOldManAfterBadge`, spoken by the farmer because the bench has no separate old man), kid, laundry woman; Mom and the TV in the player's house; the neighbour, her husband, the kid and the Skitty next door; the two aides and Fennick in the lab. Builds; **not yet played** (an emulator check was attempted but the debug warp menu did not open the map). Still unwired: the League-day grandfather lines (the Goldsworth house interior is not built), `BenchOldMan` (a separate old man was never placed), and `TrogOutsideIntro`.

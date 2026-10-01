@@ -42,7 +42,13 @@ Hollowbrook_PlayersHouse_1F_EventScript_Mom::
 	goto_if_eq VAR_HOLLOWBROOK_STATE, 0, Hollowbrook_PlayersHouse_1F_EventScript_MomWakeUp
 	goto_if_le VAR_HOLLOWBROOK_STATE, 2, Hollowbrook_PlayersHouse_1F_EventScript_MomIdleBefore
 	goto_if_unset FLAG_HOLLOWBROOK_MOM_GOT_MON_TOLD, Hollowbrook_PlayersHouse_1F_EventScript_MomGotPokemon
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_PlayersHouse_1F_EventScript_MomAfterBadge
 	msgbox Hollowbrook_Text_MomIdleAfter, MSGBOX_DEFAULT
+	release
+	end
+
+Hollowbrook_PlayersHouse_1F_EventScript_MomAfterBadge::
+	msgbox Hollowbrook_Text_MomAfterBadge, MSGBOX_DEFAULT
 	release
 	end
 
@@ -104,8 +110,13 @@ Hollowbrook_PlayersHouse_1F_EventScript_HousePokemonC::
 	end
 
 Hollowbrook_PlayersHouse_1F_EventScript_TV::
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_PlayersHouse_1F_EventScript_TVAfterBadge
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_PlayersHouse_1F_EventScript_TVAfter
 	msgbox Hollowbrook_Text_PlayerTVBefore, MSGBOX_SIGN
+	end
+
+Hollowbrook_PlayersHouse_1F_EventScript_TVAfterBadge::
+	msgbox Hollowbrook_Text_PlayerTVAfterBadge, MSGBOX_SIGN
 	end
 
 Hollowbrook_PlayersHouse_1F_EventScript_TVAfter::
@@ -214,3 +225,17 @@ Hollowbrook_Text_PlayerBookshelf::
 	.string "gracefully’ pamphlet.\p"
 	.string "Nobody in this house has read\n"
 	.string "the pamphlet.$"
+
+@ ---- After the first badge (added 2026-10-01, FLAG_BADGE01_GET) ----
+Hollowbrook_Text_MomAfterBadge::
+	.string "A badge! Oh, {PLAYER}. Let me\n"
+	.string "see. It's very shiny.\p"
+	.string "I've put it on the fridge.\n"
+	.string "...Not the badge. The drawing.$"
+
+Hollowbrook_Text_PlayerTVAfterBadge::
+	.string "The news: ‘Local trainer wins\n"
+	.string "gym badge. A rich family is\l"
+	.string "said to be very embarrassed.’\p"
+	.string "They cut to a clean coat\n"
+	.string "stomping out of a gym.$"
