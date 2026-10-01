@@ -23,3 +23,13 @@ Source: Legend of Zelda House Secondary (Hek-el-grande buildings, assembled by Y
 - Gives a stone and timber rustic home: pink stone floor, cream plaster wall with brick base, wooden plank hall runner, wall and corner trims, two beds (white), stove and fireplace with a cooking pot, shelf with bowls, chest, clay pots, grey bottles, tree-stump stools, a lattice window and a wide wooden table, a sword on the wall, a green mat.
 - Behaviours: metatiles 8 and 9 `MB_SOUTH_ARROW_WARP` (the mat), 14 and 15 `MB_VASE`.
 - Converter notes: no quantisation, no unmerged metatiles, 0 of 512 differ from the source render. Layer type: 16 NORMAL, 496 COVERED (mostly the blank slots).
+
+
+## Little Office (`gTileset_LittleOffice`, `data/tilesets/secondary/little_office/`)
+
+Source: Little Office Interior Secondary (Ekat99's "Little Office" tileset, imported to pokeemerald by Kumatora).
+
+- **120 metatile slots, 68 filled.** 129 tiles after dedupe. **Palettes 6 to 9** used, 10 to 12 free.
+- Gives a bright office or shop interior in Gen 3 style: cream walls with window panes and a gabled-roof facade, light wood plank floors, desks with monitors and office chairs, counters with green-trimmed panels, shelves with files, an orange carpet strip, glass walls and a glass door pane, potted plants, a reception-style counter with a round emblem.
+- Behaviours: none set (every metatile is `MB_NORMAL`). **Add doors, warps and collision in Porymap; the source ships no warp metatiles.** Layer type: 3 NORMAL, 117 COVERED.
+- Converter notes: no quantisation, no unmerged metatiles, 0 of 120 differ from the source render.

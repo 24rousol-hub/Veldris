@@ -1,0 +1,6 @@
+From DeviantArt:
+"This is a public use tileset for non-commercial projects. It has been specifically designed for RPG Maker, making it perfect for anyone using a gen 3 style with their project in Pokémon Essentials. If used, please give credit to:
+
+1. Ekat"
+
+Imported to pokeemerald by Kumatora.
