@@ -1,5 +1,8 @@
 # Roads of the centre: R10, R11, R12, R18, R19, R20, R21
 
+> **Open question (author, 2026-10-01): the Palladium route renders named in this file are NOT decided.** The author doubts that reusing Palladium route images will give a quality hack, so every 'source render' for a road below is a **mood and shape reference only** until the author decides how each road gets built (traced, redrawn or designed fresh). Lengths, edges, trainers, items and encounters stay as written.
+
+
 Status: **PROPOSED.** Written 2026-10-01 from the author's sketch ([../region-sketch.md](../region-sketch.md)), the numbering table in [README.md](README.md), and the Palladium renders in `Team-Aquas-Asset-Repo/Maps/Project Palladium/` (sizes below were measured: `(px - 1) / 17` for grid images, `px / 16` otherwise). Format: the road card template in the README. Style matches [../route1.md](../route1.md) and [../route2.md](../route2.md). Nothing is built. Species were checked against `src/data/pokemon/species_info/` (all exist except where noted). Trainer lists give class, team and level only: ids reuse vanilla entries later ([README.md](README.md)). No IVs and no EVs on any trainer.
 
 Linked cards: [towns/cragdale.md](towns/cragdale.md), [towns/lingmoor.md](towns/lingmoor.md), [towns/waymeet.md](towns/waymeet.md), [towns/gildhaven.md](towns/gildhaven.md), [landmarks-centre.md](landmarks-centre.md) (The Pinnacle). Hoarfell and Hemlock Reach cards come from the other agents.

@@ -51,6 +51,10 @@ The sketch's black numbers appear in pairs on one corridor (7 and 8, 14 and 17, 
 
 R4 to R21 already map to renamed Hoenn section entries ([../region-sketch.md](../region-sketch.md)). R22 to R31 need new section ids.
 
+## Route renders (open, author 2026-10-01)
+
+The author doubts that tracing Palladium **route** images will produce a quality hack. Until each road is decided, treat the render named on a road card as a mood and shape reference, not a tracing source. Town, building, gym and cave renders are still planned as before.
+
 ## Levels (author's gym curve)
 
 Gym leader aces: gym 1 **12** (Crestfall), 2 **19** (Briarwick), 3 **25** (Gloomsby), 4 **31** (Smeltham), 5 **37** (Hoarfell), 6 **42** (Gildhaven), 7 **48** (Hemlock Reach), 8 **55** (Primrose Vale), 9 **60** (Beaconmouth). Elite 4 from 65, Champion 75. Wild Pokémon on a road run from about **ace of the gym behind it minus 3** to **ace of the gym ahead minus 3**, shifted up a little for roads that can be walked in either order. Gym trainers sit 3 or 4 below their leader's lowest Pokémon. Post-game places run 60 to 80. Trainers carry **no IVs** (explicit `IVs: 0` lines when built) and are Pokémon only.

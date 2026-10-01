@@ -1,5 +1,8 @@
 # Road cards, west group: R3 to R9
 
+> **Open question (author, 2026-10-01): the Palladium route renders named in this file are NOT decided.** The author doubts that reusing Palladium route images will give a quality hack, so every 'source render' for a road below is a **mood and shape reference only** until the author decides how each road gets built (traced, redrawn or designed fresh). Lengths, edges, trainers, items and encounters stay as written.
+
+
 Status: **PROPOSED.** Conventions, template, route numbering and level curve: [README.md](README.md). Towns: [towns/briarwick.md](towns/briarwick.md), [towns/gloomsby.md](towns/gloomsby.md), [towns/smeltham.md](towns/smeltham.md), [towns/hoarfell.md](towns/hoarfell.md). Landmarks: [landmarks-west.md](landmarks-west.md). Existing road examples: [../route1.md](../route1.md), [../route2.md](../route2.md).
 
 ## How to read these cards

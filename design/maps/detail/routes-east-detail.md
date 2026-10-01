@@ -1,5 +1,8 @@
 # Routes, the east (R13 to R17), detailed design
 
+> **Open question (author, 2026-10-01): the Palladium route renders named in this file are NOT decided.** The author doubts that reusing Palladium route images will give a quality hack, so every 'source render' for a road below is a **mood and shape reference only** until the author decides how each road gets built (traced, redrawn or designed fresh). Lengths, edges, trainers, items and encounters stay as written.
+
+
 Status: **PROPOSED**, written 2026-10-01. Nothing here is built. This adds detail to the road cards in [../routes-east.md](../routes-east.md) (which keep the species, levels, teams, item lists and flags as canon; this file does not change them) and follows the 'Per road' list in [../interiors/README.md](../interiors/README.md). Towns: [hemlock-reach.md](hemlock-reach.md), [primrose-vale.md](primrose-vale.md), [brinecombe.md](brinecombe.md). Landmark: [mirror-isle-detail.md](mirror-isle-detail.md). **Pokémon only**: no real animals, even in names or jokes. Wild tables are not repeated here; use the card's tables. **Check:** every species named in the card was checked against the tree by the card writer; this file adds none.
 
 **Conventions.** `(x,y)` is a tile from the map's top-left corner `(0,0)`, as Porymap shows it. Trainer **sight** is the number of tiles a trainer sees in the facing direction (`trainer_sight_or_berry_tree_id` in `map.json`). Palladium sizes are `(px - 1) / 17` for the gridded renders. Trainer teams are the card's; all reuse vanilla Hoenn ids with `IVs: 0` (CLAUDE.md, author rule). Object limit: **15 live objects per map**.

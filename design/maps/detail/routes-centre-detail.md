@@ -1,5 +1,8 @@
 # Roads of the centre, detailed design: R10, R11, R12, R18, R19, R20, R21
 
+> **Open question (author, 2026-10-01): the Palladium route renders named in this file are NOT decided.** The author doubts that reusing Palladium route images will give a quality hack, so every 'source render' for a road below is a **mood and shape reference only** until the author decides how each road gets built (traced, redrawn or designed fresh). Lengths, edges, trainers, items and encounters stay as written.
+
+
 Status: **PROPOSED.** Written 2026-10-01 for the author to build from. Cards this expands: [../routes-centre.md](../routes-centre.md) (species, levels, wild tables, items, flags are **unchanged and not repeated**), template in [../interiors/README.md](../interiors/README.md) ('Per road'). Related: [cragdale.md](cragdale.md), [lingmoor.md](lingmoor.md), [waymeet.md](waymeet.md), [gildhaven.md](gildhaven.md), [pinnacle-detail.md](pinnacle-detail.md). New minor names are PROPOSED.
 
 ## How to read the tile numbers
