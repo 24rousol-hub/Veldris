@@ -9373,8 +9373,8 @@
       "name": "Hollowbrook_Layout",
       "width": 32,
       "height": 28,
-      "primary_tileset": "gTileset_Gen4Outdoor",
-      "secondary_tileset": "gTileset_Gen4Hollowbrook",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Hollowbrook/border.bin",
       "blockdata_filepath": "data/layouts/Hollowbrook/map.bin",
       "layout_version": "emerald"
@@ -9384,8 +9384,8 @@
       "name": "VeldrisRoute1_Layout",
       "width": 60,
       "height": 25,
-      "primary_tileset": "gTileset_Gen4Outdoor",
-      "secondary_tileset": "gTileset_Gen4Hollowbrook",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/VeldrisRoute1/border.bin",
       "blockdata_filepath": "data/layouts/VeldrisRoute1/map.bin",
       "layout_version": "emerald"

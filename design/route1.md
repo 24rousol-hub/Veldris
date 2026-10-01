@@ -1,6 +1,6 @@
 # Route 1 (VeldrisRoute1): Hollowbrook to Crestfall
 
-Status: **BUILT 2026-10-01** (map, events, trainers, wild Pokémon, Hollowbrook connection). Map: 60 x 25, Palladium's `Route 29.png` **mirrored left-right** (author 2026-10-01) in the Gen 4 tiles, its Route 46 gatehouse replaced by forest. West edge joins Hollowbrook's east exit (connection offset -2 from Hollowbrook, +2 back); the east edge (sand path, rows 9-12) waits for **Crestfall** (changed 2026-10-01 from Wendlebury, per the author's sketch: [region-sketch.md](region-sketch.md)). Dialogue: [dialogue/route1.inc](dialogue/route1.inc).
+Status: **BUILT 2026-10-01** (map, events, trainers, wild Pokémon, Hollowbrook connection). Map: 60 x 25, Palladium's `Route 29.png` **mirrored left-right** (author 2026-10-01), built in **LeoB ORAS** tiles (General + Petalburg, the same pieces as vanilla Route 102: trees, tall grass, ledges 213/135/214, ledge walls 255/134/635, pale path), its Route 46 gatehouse replaced by forest. The sandy patches are pale path. West edge joins Hollowbrook's east exit (connection offset -2 from Hollowbrook, +2 back); the east edge (sand path, rows 9-12) waits for **Crestfall** (changed 2026-10-01 from Wendlebury, per the author's sketch: [region-sketch.md](region-sketch.md)). Dialogue: [dialogue/route1.inc](dialogue/route1.inc).
 
 ## Feel
 Farm country, gentle, a first walk. All Normal and other common early Pokémon. No real animals.

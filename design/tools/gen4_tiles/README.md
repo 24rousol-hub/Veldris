@@ -1,5 +1,7 @@
 # Gen 4 outdoor tiles: how Hollowbrook and Route 1 were built
 
+**Shelved 2026-10-01:** the author chose LeoB ORAS for exteriors, so the Gen 4 tilesets were removed from the build (git history: `a00ee004`). `route1_leob.py` is what builds the current Route 1: it reads the mirrored Route 29 layout from `route1_g4.py` and paints it with vanilla/LeoB metatiles.
+
 Built 2026-10-01 at the author's request (every town and route in a Gen 4 style). These scripts cut Project Palladium's map pictures into GBA tiles and paint the two maps. They write map blocks, so per `CLAUDE.md` rule 2 run them only when the author asks for a map to be built; otherwise edit in Porymap.
 
 Paths inside the scripts point at `/home/claude/veldris` and `/home/claude/24rousol-hub/team-aquas-asset-repo`. Change `V` and `P` if your checkout lives elsewhere. Needs Python 3 with numpy and Pillow.
