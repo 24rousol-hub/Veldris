@@ -1,6 +1,6 @@
 # Route 1 (VeldrisRoute1): Hollowbrook to Crestfall
 
-Status: **PROPOSED**. Everything here is a draft until the author approves it. Map: 60 x 25, traced from `Route 29.png`, west end Hollowbrook (connection on Hollowbrook's right edge, author 2026-09-30), east end **Crestfall** (changed 2026-10-01 from Wendlebury, per the author's sketch: [region-sketch.md](region-sketch.md)). Dialogue: [dialogue/route1.inc](dialogue/route1.inc).
+Status: **BUILT 2026-10-01** (map, events, trainers, wild Pokémon, Hollowbrook connection). Map: 60 x 25, Palladium's `Route 29.png` **mirrored left-right** (author 2026-10-01) in the Gen 4 tiles, its Route 46 gatehouse replaced by forest. West edge joins Hollowbrook's east exit (connection offset -2 from Hollowbrook, +2 back); the east edge (sand path, rows 9-12) waits for **Crestfall** (changed 2026-10-01 from Wendlebury, per the author's sketch: [region-sketch.md](region-sketch.md)). Dialogue: [dialogue/route1.inc](dialogue/route1.inc).
 
 ## Feel
 Farm country, gentle, a first walk. All Normal and other common early Pokémon. No real animals.
@@ -46,3 +46,19 @@ West edge to Hollowbrook's east gap (offset so they line up). East edge to Crest
 
 ## Events to place (me, after the author pushes the map)
 Three trainers, the guide, two hidden items, two signs, and the connections. No triggers needed.
+
+## As built (2026-10-01, updated after the merge: Crestfall end, levels +1)
+
+| What | Where |
+|---|---|
+| West sign (WEST: HOLLOWBROOK, EAST: CRESTFALL) / east sign / field sign | (10,11) / (50,11) / (22,8) |
+| Guide (3 POTIONs once, `FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS`; after-badge line) | (12,12), faces west |
+| Youngster TOBY, Lillipup 4, sight 4 | (24,13), faces west |
+| Lass MAISIE, Zigzagoon 4 + Skitty 4, sight 3 | (38,15), faces west |
+| Farmer AMOS (Hiker stand-in), Zigzagoon 5 + Skitty 5, sight 4 | (46,14), faces west |
+| Troglodyte-sighting farmer (wanders) | (32,9) |
+| Bucket kid / walker (wanders) / SENTRET lookout | (7,10) / (36,12) / (41,9) |
+| Scheme 1 surveyors A and B (main lines before badge 1, 'After' lines once `FLAG_BADGE01_GET` is set) / worried local | (49,14), (54,13) / (44,12) |
+| Hidden POTION / REPEL | (27,13) / (44,17) |
+
+11 objects. Wild table as above (levels 3-5), rate 20. All three trainers and the guide switch to their after-badge lines on `FLAG_BADGE01_GET` (no new flag). **Not placed:** the rest bench (`RestBench`), because the Gen 4 tiles have no bench yet. Ledges are blocked tiles with the jump-south behaviour (as vanilla); the brown vertical edges are walls. **Checked in mGBA:** walking across from Hollowbrook (no seam), the guide's gift and repeat line, a wild Lillipup in the grass, TOBY's full battle (at the old level 3), a ledge jump, the new west sign. Not checked: MAISIE, AMOS, the new NPCs' lines, the hidden items.

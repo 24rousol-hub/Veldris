@@ -665,8 +665,8 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
 #define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
+#define FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_POTION 0x265
+#define FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_REPEL 0x266
 #define FLAG_UNUSED_0x267  0x267 // Unused Flag
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag
@@ -1225,7 +1225,7 @@
 #define FLAG_HOLLOWBROOK_GRANDPA_TALKED1                            0x493
 #define FLAG_HOLLOWBROOK_GRANDPA_TALKED2                            0x494
 #define FLAG_HOLLOWBROOK_MOM_GOT_MON_TOLD                           0x495
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
+#define FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS                           0x496
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag

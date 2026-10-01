@@ -3060,3 +3060,49 @@ const u16 gTilesetPalettes_Gen4Interior[][16] =
     INCGFX_U16("data/tilesets/secondary/gen4_interior/palettes/14.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/gen4_interior/palettes/15.pal", ".gbapal"),
 };
+
+// Veldris: Gen 4 outdoor tiles cut from Project Palladium's New Bark Town and Route 29 (see design/interiors.md)
+const u32 gTilesetTiles_Gen4Outdoor[] = INCGFX_U32("data/tilesets/primary/gen4_outdoor/tiles.png", ".4bpp.fastSmol");
+
+const u16 gTilesetPalettes_Gen4Outdoor[][16] =
+{
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/gen4_outdoor/palettes/15.pal", ".gbapal"),
+};
+
+const u32 gTilesetTiles_Gen4Hollowbrook[] = INCGFX_U32("data/tilesets/secondary/gen4_hollowbrook/tiles.png", ".4bpp.fastSmol");
+
+const u16 gTilesetPalettes_Gen4Hollowbrook[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gen4_hollowbrook/palettes/15.pal", ".gbapal"),
+};
+
