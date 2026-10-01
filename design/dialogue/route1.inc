@@ -66,3 +66,61 @@ VeldrisRoute1_Text_TrogSighting::
 	.string "asked me where the ‘good road’ was.\p"
 	.string "I pointed at this one. He looked\n"
 	.string "disappointed.$"
+
+@ ===================================================================
+@ ADDED 2026-10-01: MORE ROUTE 1 PEOPLE AND THINGS (non-trainers, plus return-visit lines)
+@ Suggested spots are in design/route1.md. Pokemon only, nobody swears.
+@ ===================================================================
+
+@ Child with a bucket near the Hollowbrook end.
+VeldrisRoute1_Text_BucketKid::
+	.string "I'm collecting berries for my\n"
+	.string "ZIGZAGOON. It eats them all.\p"
+	.string "I collect them again.\n"
+	.string "It's a very full day.$"
+
+@ Walker with a map, mid-route.
+VeldrisRoute1_Text_Walker::
+	.string "WENDLEBURY is a market town.\n"
+	.string "The trick is to ask the price\l"
+	.string "twice. It changes.$"
+
+@ A sleepy interactable Pokemon in the grass.
+VeldrisRoute1_Text_SentretLookout::
+	.string "SENTRET is standing up very\n"
+	.string "straight, watching the horizon.\p"
+	.string "There is nothing on the horizon.\n"
+	.string "It is committed anyway.\p"
+	.string "SENTRET: Sen!$"
+
+@ A scarecrow-style sign by the fields.
+VeldrisRoute1_Text_FieldSign::
+	.string "‘This field is guarded by\n"
+	.string "BIDOOF. Please do not wake it.’$"
+
+@ A bench with a view, interactable.
+VeldrisRoute1_Text_RestBench::
+	.string "A bench with a view of the\n"
+	.string "fields. Someone has carved\l"
+	.string "‘Best seat in VELDRIS.’$"
+
+@ Guide, on repeat visits after the first badge.
+VeldrisRoute1_Text_GuideAfterBadge::
+	.string "You came back with a badge!\n"
+	.string "I remember when you were a\l"
+	.string "small trainer with big shoes.\p"
+	.string "...Those were last week.$"
+
+@ Rematch-style after lines for each trainer once the player has the first badge.
+VeldrisRoute1_Text_Trainer1AfterBadge::
+	.string "I heard you beat a gym.\n"
+	.string "I'll do it after I beat lunch.$"
+
+VeldrisRoute1_Text_Trainer2AfterBadge::
+	.string "You're famous now. People are\n"
+	.string "talking. Mostly me.$"
+
+VeldrisRoute1_Text_Trainer3AfterBadge::
+	.string "The rich boy came back this way.\n"
+	.string "Looked tired. Stepped on my\l"
+	.string "beans again.$"

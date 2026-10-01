@@ -151,3 +151,37 @@ Hollowbrook_Text_PlayerHouseStarterC::
 	.string "The {STR_VAR_1} splashes it\l"
 	.string "gently. ZIGZAGOON does not mind.\p"
 	.string "It has been meaning to wash.$"
+
+@ ===================================================================
+@ ADDED 2026-10-01: NEIGHBOUR'S HOUSE AFTER THE FIRST BADGE (STANDARD BADGE, FLAG_BADGE01_GET)
+@ ===================================================================
+
+Hollowbrook_Text_NeighbourAfterBadge::
+	.string "A badge, dear? Your mother told\n"
+	.string "me ten minutes before you did.\p"
+	.string "She tells me everything. It is\n"
+	.string "a lot of everything.$"
+
+Hollowbrook_Text_NeighbourHusbandAfterBadge::
+	.string "I'm still on the Goldsworth\n"
+	.string "boats. Page four hundred.\p"
+	.string "There's a chapter called\n"
+	.string "‘Why We Do Not Swim.’$"
+
+Hollowbrook_Text_NeighbourKidAfterBadge::
+	.string "You've got a badge! Is it\n"
+	.string "heavy? Can I hold it?\p"
+	.string "...Can I hold it for just one\n"
+	.string "second? I'll give it back.$"
+
+Hollowbrook_Text_NeighbourPokemonAfterBadge::
+	.string "SKITTY wears a ribbon now.\n"
+	.string "It looks like it won something.\p"
+	.string "SKITTY: Mew!$"
+
+Hollowbrook_Text_PlayerTVAfterBadge::
+	.string "The news: ‘Local trainer wins\n"
+	.string "gym badge. A rich family is\l"
+	.string "said to be very embarrassed.’\p"
+	.string "They cut to a clean coat\n"
+	.string "stomping out of a gym.$"

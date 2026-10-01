@@ -37,6 +37,7 @@ All three reuse vanilla Hoenn trainer entries (no new trainer id, UNTESTED, see 
 ## NPCs and items
 - **Guide:** near the west end, gives 3 POTIONs once. Needs one flag (planned, unclaimed).
 - **Hidden item or two:** a POTION and a REPEL in the grass, to reward exploring. Placed in Porymap or by me after the map is pushed.
+- **Added 2026-10-01 (dialogue only, see `route1.inc`):** a bucket kid near the Hollowbrook end, a walker with a map, a SENTRET lookout (interactable), a field sign, a rest bench, plus return-visit lines for the guide and the three trainers once the player has badge 1 (`FLAG_BADGE01_GET`, no new flag).
 - **Troglodyte sighting** (optional): a farmer says a rich boy came through. Can be cut.
 
 ## Connections

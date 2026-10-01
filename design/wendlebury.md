@@ -22,5 +22,8 @@ A small market crossroads. Traders pass through on the way to the gym. Things ru
 ## NPCs (text in [dialogue/wendlebury.inc](dialogue/wendlebury.inc))
 Sign, Center nurse (shared wording with Crestfall's), Mart clerk, a market trader, a kid, a gossip, a traveller who warns about the route north, a man on the barricade. The Route 2 traveller hints that a rich boy hired men in suits to Crestfall, which sets up Scheme 1.
 
+## Added 2026-10-01 (dialogue only)
+Two market sellers (berries, tea), a second Center visitor, a 2F counter clerk, a Mart shopper, House 1 (resident, SLAKOTH, shelf), House 2 (resident, child, TV), a Troglodyte sighting, and four return-visit lines after Crestfall's gym (`FLAG_BADGE01_GET`, no new flag). The gossip line calls back Scheme 1.
+
 ## To place after the map is pushed
 Warps for each door, signs, the NPCs above, the heal location (two traps: `respawn_map` before `respawn_npc`, see CLAUDE.md), and the Route 1 and Route 2 connections. No triggers, no new flags.
