@@ -130,27 +130,27 @@
     },
     {
       "id": "MAPSEC_ROUTE_101",
-      "name": "ROUTE 101",
-      "x": 4,
-      "y": 10,
-      "width": 1,
-      "height": 1
+      "name": "ROUTE 4",
+      "x": 2,
+      "y": 7,
+      "width": 4,
+      "height": 3
     },
     {
       "id": "MAPSEC_ROUTE_102",
-      "name": "ROUTE 102",
+      "name": "ROUTE 5",
       "x": 2,
-      "y": 9,
-      "width": 2,
-      "height": 1
+      "y": 3,
+      "width": 3,
+      "height": 5
     },
     {
       "id": "MAPSEC_ROUTE_103",
-      "name": "ROUTE 103",
+      "name": "ROUTE 6",
       "x": 4,
-      "y": 8,
-      "width": 4,
-      "height": 1
+      "y": 2,
+      "width": 8,
+      "height": 2
     },
     {
       "id": "MAPSEC_ROUTE_104",
@@ -162,10 +162,10 @@
     },
     {
       "id": "MAPSEC_ROUTE_105",
-      "name": "ROUTE 105",
-      "x": 0,
-      "y": 10,
-      "width": 1,
+      "name": "ROUTE 7",
+      "x": 4,
+      "y": 1,
+      "width": 4,
       "height": 3
     },
     {
@@ -178,19 +178,19 @@
     },
     {
       "id": "MAPSEC_ROUTE_107",
-      "name": "ROUTE 107",
-      "x": 3,
-      "y": 14,
-      "width": 3,
-      "height": 1
+      "name": "ROUTE 8",
+      "x": 5,
+      "y": 9,
+      "width": 6,
+      "height": 2
     },
     {
       "id": "MAPSEC_ROUTE_108",
-      "name": "ROUTE 108",
-      "x": 6,
-      "y": 14,
-      "width": 2,
-      "height": 1
+      "name": "ROUTE 9",
+      "x": 5,
+      "y": 8,
+      "width": 3,
+      "height": 2
     },
     {
       "id": "MAPSEC_ROUTE_109",
@@ -226,11 +226,11 @@
     },
     {
       "id": "MAPSEC_ROUTE_113",
-      "name": "ROUTE 113",
-      "x": 4,
-      "y": 0,
-      "width": 4,
-      "height": 1
+      "name": "ROUTE 10",
+      "x": 11,
+      "y": 1,
+      "width": 5,
+      "height": 2
     },
     {
       "id": "MAPSEC_ROUTE_114",
@@ -258,19 +258,19 @@
     },
     {
       "id": "MAPSEC_ROUTE_117",
-      "name": "ROUTE 117",
-      "x": 5,
-      "y": 6,
-      "width": 3,
-      "height": 1
+      "name": "ROUTE 11",
+      "x": 15,
+      "y": 1,
+      "width": 4,
+      "height": 3
     },
     {
       "id": "MAPSEC_ROUTE_118",
-      "name": "ROUTE 118",
-      "x": 10,
-      "y": 6,
+      "name": "ROUTE 12",
+      "x": 17,
+      "y": 3,
       "width": 2,
-      "height": 1
+      "height": 4
     },
     {
       "id": "MAPSEC_ROUTE_119",
@@ -282,11 +282,11 @@
     },
     {
       "id": "MAPSEC_ROUTE_120",
-      "name": "ROUTE 120",
-      "x": 13,
-      "y": 0,
-      "width": 1,
-      "height": 4
+      "name": "ROUTE 13",
+      "x": 17,
+      "y": 5,
+      "width": 5,
+      "height": 2
     },
     {
       "id": "MAPSEC_ROUTE_121",
@@ -306,19 +306,19 @@
     },
     {
       "id": "MAPSEC_ROUTE_123",
-      "name": "ROUTE 123",
-      "x": 12,
-      "y": 6,
-      "width": 5,
-      "height": 1
+      "name": "ROUTE 14",
+      "x": 21,
+      "y": 5,
+      "width": 6,
+      "height": 2
     },
     {
       "id": "MAPSEC_ROUTE_124",
-      "name": "ROUTE 124",
-      "x": 20,
-      "y": 3,
-      "width": 4,
-      "height": 3
+      "name": "ROUTE 15",
+      "x": 25,
+      "y": 1,
+      "width": 2,
+      "height": 6
     },
     {
       "id": "MAPSEC_ROUTE_125",
@@ -330,51 +330,51 @@
     },
     {
       "id": "MAPSEC_ROUTE_126",
-      "name": "ROUTE 126",
-      "x": 20,
-      "y": 6,
-      "width": 3,
-      "height": 3
+      "name": "ROUTE 16",
+      "x": 21,
+      "y": 1,
+      "width": 1,
+      "height": 5
     },
     {
       "id": "MAPSEC_ROUTE_127",
-      "name": "ROUTE 127",
-      "x": 23,
-      "y": 6,
-      "width": 3,
-      "height": 3
-    },
-    {
-      "id": "MAPSEC_ROUTE_128",
-      "name": "ROUTE 128",
-      "x": 23,
-      "y": 9,
-      "width": 4,
+      "name": "ROUTE 17",
+      "x": 21,
+      "y": 1,
+      "width": 5,
       "height": 1
     },
     {
+      "id": "MAPSEC_ROUTE_128",
+      "name": "ROUTE 18",
+      "x": 11,
+      "y": 2,
+      "width": 1,
+      "height": 5
+    },
+    {
       "id": "MAPSEC_ROUTE_129",
-      "name": "ROUTE 129",
-      "x": 24,
-      "y": 10,
-      "width": 2,
+      "name": "ROUTE 19",
+      "x": 11,
+      "y": 6,
+      "width": 7,
       "height": 1
     },
     {
       "id": "MAPSEC_ROUTE_130",
-      "name": "ROUTE 130",
-      "x": 21,
-      "y": 10,
-      "width": 3,
-      "height": 1
+      "name": "ROUTE 20",
+      "x": 11,
+      "y": 6,
+      "width": 2,
+      "height": 3
     },
     {
       "id": "MAPSEC_ROUTE_131",
-      "name": "ROUTE 131",
-      "x": 18,
-      "y": 10,
-      "width": 3,
-      "height": 1
+      "name": "ROUTE 21",
+      "x": 12,
+      "y": 8,
+      "width": 2,
+      "height": 2
     },
     {
       "id": "MAPSEC_ROUTE_132",
@@ -442,9 +442,9 @@
     },
     {
       "id": "MAPSEC_GRANITE_CAVE",
-      "name": "GRANITE CAVE",
-      "x": 1,
-      "y": 13,
+      "name": "SLAGWELL MINE",
+      "x": 7,
+      "y": 1,
       "width": 1,
       "height": 1
     },
@@ -474,8 +474,8 @@
     },
     {
       "id": "MAPSEC_PETALBURG_WOODS",
-      "name": "PETALBURG WOODS",
-      "x": 0,
+      "name": "MOTHWOOD",
+      "x": 7,
       "y": 8,
       "width": 1,
       "height": 1
@@ -522,9 +522,9 @@
     },
     {
       "id": "MAPSEC_MT_PYRE",
-      "name": "MT. PYRE",
-      "x": 16,
-      "y": 4,
+      "name": "ARGENT PEAK",
+      "x": 1,
+      "y": 14,
       "width": 1,
       "height": 1
     },
@@ -538,9 +538,9 @@
     },
     {
       "id": "MAPSEC_SHOAL_CAVE",
-      "name": "SHOAL CAVE",
-      "x": 24,
-      "y": 4,
+      "name": "ECHO HOLLOW",
+      "x": 15,
+      "y": 12,
       "width": 1,
       "height": 1
     },
@@ -650,9 +650,9 @@
     },
     {
       "id": "MAPSEC_ISLAND_CAVE",
-      "name": "ISLAND CAVE",
-      "x": 0,
-      "y": 10,
+      "name": "MIRROR ISLE",
+      "x": 21,
+      "y": 1,
       "width": 1,
       "height": 1
     },
@@ -1642,40 +1642,272 @@
     {
       "id": "MAPSEC_WENDLEBURY",
       "name": "WENDLEBURY",
-      "x": 8,
-      "y": 11,
+      "x": 10,
+      "y": 10,
       "width": 1,
       "height": 1
     },
     {
       "id": "MAPSEC_CRESTFALL",
       "name": "CRESTFALL",
-      "x": 5,
-      "y": 7,
+      "x": 6,
+      "y": 12,
       "width": 1,
       "height": 1
     },
     {
       "id": "MAPSEC_VELDRIS_ROUTE_1",
       "name": "ROUTE 1",
-      "x": 4,
-      "y": 11,
+      "x": 3,
+      "y": 12,
       "width": 4,
-      "height": 2
+      "height": 1
     },
     {
       "id": "MAPSEC_VELDRIS_ROUTE_2",
       "name": "ROUTE 2",
-      "x": 5,
-      "y": 8,
-      "width": 4,
+      "x": 6,
+      "y": 10,
+      "width": 5,
       "height": 3
     },
     {
       "id": "MAPSEC_VELDRIS_ROUTE_3",
       "name": "ROUTE 3",
+      "x": 5,
+      "y": 9,
+      "width": 2,
+      "height": 4
+    },
+    {
+      "id": "MAPSEC_BRIARWICK",
+      "name": "BRIARWICK",
+      "x": 5,
+      "y": 9,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_GLOOMSBY",
+      "name": "GLOOMSBY",
       "x": 2,
+      "y": 7,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_SMELTHAM",
+      "name": "SMELTHAM",
+      "x": 4,
+      "y": 3,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_HOARFELL",
+      "name": "HOARFELL",
+      "x": 11,
+      "y": 2,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CRAGDALE",
+      "name": "CRAGDALE",
+      "x": 15,
+      "y": 1,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_LINGMOOR",
+      "name": "LINGMOOR",
+      "x": 18,
+      "y": 3,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_WAYMEET",
+      "name": "WAYMEET",
+      "x": 17,
+      "y": 6,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_HEMLOCK_REACH",
+      "name": "HEMLOCK REACH",
+      "x": 21,
       "y": 5,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_PRIMROSE_VALE",
+      "name": "PRIMROSE VALE",
+      "x": 25,
+      "y": 1,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_BRINECOMBE",
+      "name": "BRINECOMBE",
+      "x": 26,
+      "y": 6,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_EBBSWORTH",
+      "name": "EBBSWORTH",
+      "x": 17,
+      "y": 9,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_KINGSQUAY",
+      "name": "KINGSQUAY",
+      "x": 20,
+      "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_DRIFTSANDS",
+      "name": "DRIFTSANDS",
+      "x": 23,
+      "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_BEACONMOUTH",
+      "name": "BEACONMOUTH",
+      "x": 26,
+      "y": 10,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ALDERMERE",
+      "name": "ALDERMERE",
+      "x": 21,
+      "y": 7,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_GILDHAVEN",
+      "name": "GILDHAVEN",
+      "x": 11,
+      "y": 6,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_VESPERHAVEN",
+      "name": "VESPERHAVEN",
+      "x": 13,
+      "y": 9,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_SILVERSTRAND",
+      "name": "SILVERSTRAND",
+      "x": 12,
+      "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_PINNACLE",
+      "name": "THE PINNACLE",
+      "x": 12,
+      "y": 8,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_22",
+      "name": "ROUTE 22",
+      "x": 17,
+      "y": 6,
+      "width": 1,
+      "height": 4
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_23",
+      "name": "ROUTE 23",
+      "x": 17,
+      "y": 9,
+      "width": 4,
+      "height": 3
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_24",
+      "name": "ROUTE 24",
+      "x": 20,
+      "y": 11,
+      "width": 4,
+      "height": 2
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_25",
+      "name": "ROUTE 25",
+      "x": 23,
+      "y": 10,
+      "width": 4,
+      "height": 3
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_26",
+      "name": "ROUTE 26",
+      "x": 21,
+      "y": 7,
+      "width": 6,
+      "height": 4
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_27",
+      "name": "ROUTE 27",
+      "x": 10,
+      "y": 9,
+      "width": 4,
+      "height": 2
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_28",
+      "name": "ROUTE 28",
+      "x": 13,
+      "y": 9,
+      "width": 5,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_29",
+      "name": "ROUTE 29",
+      "x": 12,
+      "y": 9,
+      "width": 2,
+      "height": 4
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_30",
+      "name": "ROUTE 30",
+      "x": 13,
+      "y": 9,
+      "width": 3,
+      "height": 4
+    },
+    {
+      "id": "MAPSEC_VELDRIS_ROUTE_31",
+      "name": "ROUTE 31",
+      "x": 1,
+      "y": 12,
       "width": 3,
       "height": 3
     }

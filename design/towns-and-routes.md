@@ -21,7 +21,7 @@ The tree still carries FRLG's map folders and constants. They are not built into
 | # | Name | Role | Status | Map section | Built? |
 |---|---|---|---|---|---|
 | 1 | Hollowbrook | Start town, Prof. Fennick's lab | APPROVED (name) | `MAPSEC_HOLLOWBROOK` | No |
-| 2 | Wendlebury | Second town, Pokémon Center and shop | APPROVED (name) | `MAPSEC_WENDLEBURY` | No |
+| 3 | Wendlebury | Third place, a market town off the main path | APPROVED (name) | `MAPSEC_WENDLEBURY` | No |
 | 3 | **Crestfall** | Gym 1: Greta (Normal, young and rising fast) | APPROVED (name, from the author's trainer constant) | `MAPSEC_CRESTFALL` | No |
 | 4 to 18 | TBD | Gyms 2 to 9, Elite Four approach, League, post-game | Not started | | |
 
@@ -29,8 +29,8 @@ The tree still carries FRLG's map folders and constants. They are not built into
 
 | # | Name | Connects | Status | Map section | Built? |
 |---|---|---|---|---|---|
-| 1 | VeldrisRoute1 | Hollowbrook and Wendlebury | BUILT 2026-10-01 ([route1.md](route1.md)) | `MAPSEC_VELDRIS_ROUTE_1` | Yes (Wendlebury end not connected yet) |
-| 2 | VeldrisRoute2 | Wendlebury and Crestfall | PROPOSED | `MAPSEC_VELDRIS_ROUTE_2` | No |
+| 1 | VeldrisRoute1 | Hollowbrook and Crestfall | BUILT 2026-10-01 ([route1.md](route1.md)) | `MAPSEC_VELDRIS_ROUTE_1` | Yes (Crestfall end waits for Crestfall) |
+| 2 | VeldrisRoute2 | Crestfall and Wendlebury | PROPOSED | `MAPSEC_VELDRIS_ROUTE_2` | No |
 | 3 | VeldrisRoute3 | Crestfall onwards to town 4. Blocked for now (gate or barricade) so the first three towns stand alone | PROPOSED | `MAPSEC_VELDRIS_ROUTE_3` | No |
 | 4 to 33 | TBD | | Not started | | |
 
@@ -51,3 +51,7 @@ Only settlements (towns and cities, not routes) are fly destinations (see [regio
 ## Update this file when
 
 A map is created in Porymap, renamed, or changes status; when a route or town gets its real name; when a map section is added.
+
+## Names approved 2026-10-01
+
+The numbered placeholders now have approved names for the places on the author's sketch: see [region-names.md](region-names.md). The sketch's walking numbers (1 Hollowbrook, 2 Crestfall, 3 Wendlebury, 4 Briarwick, 5 Gloomsby, 6 Smeltham, 7 Hoarfell) replace the old T/R numbering in [region-map.md](region-map.md), which still describes the earlier layout.

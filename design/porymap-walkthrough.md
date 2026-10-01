@@ -193,7 +193,7 @@ Keep the vanilla layout. After the copy:
 | Door | Bottom centre mat, warps to Hollowbrook's lab door |
 
 ### 6.4 Route 1 (60 x 25), from `Route 29.png`
-- Runs **east-west**: Hollowbrook on the west end, Wendlebury on the east end (PROPOSED, see towns-and-routes.md). Hollowbrook's exit is on its right edge (author, 2026-09-30), so Route 1's **left** edge joins it: make the opening on Route 1's west edge at the same height (about y9-10 on Hollowbrook; set the Connections offset so they line up).
+- Runs **east-west**: Hollowbrook on the west end, Crestfall on the east end (changed 2026-10-01) (PROPOSED, see towns-and-routes.md). Hollowbrook's exit is on its right edge (author, 2026-09-30), so Route 1's **left** edge joins it: make the opening on Route 1's west edge at the same height (about y9-10 on Hollowbrook; set the Connections offset so they line up).
 - Keep the tall-grass patches where the picture shows them; these are the wild-Pokémon tiles. Everything Normal-type, gentle.
 - Ledges (the one-way hops) are metatiles with a ledge behavior. Copy them from `Route101` rather than painting new ones.
 - Leave 2 or 3 spots for trainers. I place them.

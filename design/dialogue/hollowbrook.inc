@@ -393,3 +393,62 @@ Hollowbrook_Text_TrogPetAfter::
 	.string "play! Look what you've done!\p"
 	.string "Come on, boy. We're going home.\n"
 	.string "To the house with the big door.$"
+
+@ ===================================================================
+@ ADDED 2026-10-01: AFTER THE FIRST BADGE (return visits). Show these once the player has the STANDARD BADGE
+@ (FLAG_BADGE01_GET). The bench grandfather is gone from this point until the post-game, so the locals never
+@ say his name (he is just 'the old gentleman'). Labels are new; none repeats an earlier one.
+@ ===================================================================
+
+Hollowbrook_Text_MomAfterBadge::
+	.string "A badge! Oh, {PLAYER}. Let me\n"
+	.string "see. It's very shiny.\p"
+	.string "I've put it on the fridge.\n"
+	.string "...Not the badge. The drawing.$"
+
+Hollowbrook_Text_FarmerAfterBadge::
+	.string "Heard you took a badge off\n"
+	.string "the Crestfall gym. Good.\p"
+	.string "The ZIGZAGOON are quieter now.\n"
+	.string "I think they're scared of you.$"
+
+Hollowbrook_Text_KidAfterBadge::
+	.string "You went past the gate!\n"
+	.string "Was it scary? Was it huge?\p"
+	.string "Mum says I can go when I'm\n"
+	.string "twelve. I'm eleven and three\l"
+	.string "quarters.$"
+
+Hollowbrook_Text_LaundryAfterBadge::
+	.string "The ZIGZAGOON brought the sock\n"
+	.string "back. With a second sock.\p"
+	.string "It isn't mine. I'm keeping it.$"
+
+Hollowbrook_Text_BenchOldManAfterBadge::
+	.string "The old gentleman's bench is\n"
+	.string "empty again. Funny how a bench\l"
+	.string "can look lonely.\p"
+	.string "He'll be back. People like that\n"
+	.string "always come home.$"
+
+Hollowbrook_Text_AideNervousBadge::
+	.string "Oh, the badge! May I look?\n"
+	.string "Please don't tell the professor\l"
+	.string "I cried a little.$"
+
+Hollowbrook_Text_AideDeadpanBadge::
+	.string "You beat a gym and the loud\n"
+	.string "one is still out there.\p"
+	.string "I'm telling you, no one has\n"
+	.string "ever been this good for morale.$"
+
+Hollowbrook_Text_FennickAfterBadge::
+	.string "A badge already? Splendid!\n"
+	.string "I'd tell you what it's for, but\l"
+	.string "I forgot. Do keep winning.\p"
+	.string "I'll find the notes. Eventually.$"
+
+Hollowbrook_Text_SignTownAfterBadge::
+	.string "HOLLOWBROOK\n"
+	.string "‘Home of a badge holder.\l"
+	.string "Still mind the ZIGZAGOON.’$"

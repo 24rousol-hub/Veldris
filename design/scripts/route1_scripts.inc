@@ -2,7 +2,7 @@
 @ DRAFT, UNBUILT, not included in data/event_scripts.s.
 @ Status: PROPOSED. Hand-written scripts.inc style (NOT Poryscript).
 @
-@ VeldrisRoute1 (Hollowbrook to Wendlebury). Paste into
+@ VeldrisRoute1 (Hollowbrook to Crestfall; 2026-10-01: dialogue now has surveyors and extra NPCs the script draft does not place yet). Paste into
 @ data/maps/VeldrisRoute1/scripts.inc once the map is built in Porymap (close or
 @ reload Porymap first). Text labels come from design/dialogue/route1.inc and are
 @ appended to the same scripts.inc (each label exactly once):
@@ -34,7 +34,7 @@
 @   guide NPC, sighting NPC (flag FLAG_HIDE_... is NOT used: see note at the NPC)
 @   2 bg_events (sign): west sign, east sign
 @   2 bg_events (hidden_item): POTION (flag FLAG_HIDDEN_ITEM_ROUTE1_POTION) and REPEL
-@   Map connections: west edge to Hollowbrook, east edge to Wendlebury.
+@   Map connections: west edge to Hollowbrook, east edge to Crestfall.
 @   No triggers and no map scripts are needed.
 @ ===========================================================================
 

@@ -7,6 +7,7 @@ Hollowbrook_NeighboursHouse_MapScripts::
 Hollowbrook_NeighboursHouse_EventScript_Neighbour::
 	lock
 	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_NeighboursHouse_EventScript_NeighbourAfterBadge
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_NeighboursHouse_EventScript_NeighbourAfter
 	msgbox Hollowbrook_Text_NeighbourBefore, MSGBOX_DEFAULT
 	release
@@ -38,15 +39,35 @@ Hollowbrook_NeighboursHouse_EventScript_NeighbourC::
 	release
 	end
 
+Hollowbrook_NeighboursHouse_EventScript_NeighbourAfterBadge::
+	msgbox Hollowbrook_Text_NeighbourAfterBadge, MSGBOX_DEFAULT
+	release
+	end
+
 Hollowbrook_NeighboursHouse_EventScript_Husband::
-	msgbox Hollowbrook_Text_NeighbourHusband, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_NeighboursHouse_EventScript_HusbandAfterBadge
+	msgbox Hollowbrook_Text_NeighbourHusband, MSGBOX_DEFAULT
+	release
+	end
+
+Hollowbrook_NeighboursHouse_EventScript_HusbandAfterBadge::
+	msgbox Hollowbrook_Text_NeighbourHusbandAfterBadge, MSGBOX_DEFAULT
+	release
 	end
 
 Hollowbrook_NeighboursHouse_EventScript_Kid::
 	lock
 	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_NeighboursHouse_EventScript_KidAfterBadge
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_NeighboursHouse_EventScript_KidAfter
 	msgbox Hollowbrook_Text_NeighbourKidBefore, MSGBOX_DEFAULT
+	release
+	end
+
+Hollowbrook_NeighboursHouse_EventScript_KidAfterBadge::
+	msgbox Hollowbrook_Text_NeighbourKidAfterBadge, MSGBOX_DEFAULT
 	release
 	end
 
@@ -59,7 +80,14 @@ Hollowbrook_NeighboursHouse_EventScript_Skitty::
 	lock
 	faceplayer
 	playmoncry SPECIES_SKITTY, CRY_MODE_NORMAL
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_NeighboursHouse_EventScript_SkittyAfterBadge
 	msgbox Hollowbrook_Text_NeighbourPokemon, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+Hollowbrook_NeighboursHouse_EventScript_SkittyAfterBadge::
+	msgbox Hollowbrook_Text_NeighbourPokemonAfterBadge, MSGBOX_DEFAULT
 	waitmoncry
 	release
 	end
@@ -126,3 +154,27 @@ Hollowbrook_Text_NeighbourBookshelf::
 	.string "A shelf full of cookbooks.\n"
 	.string "Every page is stained.\p"
 	.string "The stains are labelled.$"
+
+@ ---- After the first badge (added 2026-10-01, FLAG_BADGE01_GET) ----
+Hollowbrook_Text_NeighbourAfterBadge::
+	.string "A badge, dear? Your mother told\n"
+	.string "me ten minutes before you did.\p"
+	.string "She tells me everything. It is\n"
+	.string "a lot of everything.$"
+
+Hollowbrook_Text_NeighbourHusbandAfterBadge::
+	.string "I'm still on the Goldsworth\n"
+	.string "boats. Page four hundred.\p"
+	.string "There's a chapter called\n"
+	.string "‘Why We Do Not Swim.’$"
+
+Hollowbrook_Text_NeighbourKidAfterBadge::
+	.string "You've got a badge! Is it\n"
+	.string "heavy? Can I hold it?\p"
+	.string "...Can I hold it for just one\n"
+	.string "second? I'll give it back.$"
+
+Hollowbrook_Text_NeighbourPokemonAfterBadge::
+	.string "SKITTY wears a ribbon now.\n"
+	.string "It looks like it won something.\p"
+	.string "SKITTY: Mew!$"

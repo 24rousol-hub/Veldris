@@ -57,7 +57,7 @@ for row in ART:
 # --- sign posts (New Bark Town's sign, composited onto the route's ground); the sign events are in map.json
 from g4lib import composite as _comp
 import hollowbrook_g4 as _hb
-SIGNS = {"west": (10, 11), "east": (50, 11)}
+SIGNS = {"west": (10, 11), "east": (50, 11), "field": (22, 8)}
 for _x, _y in SIGNS.values():
     ART[_y][_x] = _comp(U[G["nbt"][8][8]], _hb.nb_bg(8, 8), ART[_y][_x])
     COLL[_y][_x] = BLOCK

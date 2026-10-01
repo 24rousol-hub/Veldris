@@ -32,9 +32,7 @@ The author has not decided which path the story takes. **Update (author, 2026-10
 | Troglodyte at Fennick's lab | Hollowbrook | **(author, 2026-09-29)** Troglodyte is in Hollowbrook to meet his grandfather, who was not there at the time. He takes his frustration out on Fennick and forces him to give him a Pokémon. It is one of three at random. Fennick then apologises to the player by revealing a fourth starter, and the player picks from what is left (author). Nobody in the family knows where the grandfather was (author); the post-game reveals he was meeting the previous region's Champion, an old friend (author). How the rest of the scene plays out is TBD | Beat fixed by the author, details PROPOSED |
 | Intro and Prof. Fennick | Start town | Intro is C-driven. Text drafted in `data/text/birch_speech.inc` (built, fits the text box). Portrait art still shows Birch | BUILT (text). Tone approved by the author; portrait art still to do |
 | Player learns Troglodyte got a head start | Start town | Sets the motive. The scene above shows it, and the grandfather in Hollowbrook's Goldsworth house could fill in the rest | PROPOSED |
-| Route 1, first trainers | Route 1 | Gentle, farm-country | PROPOSED |
-| Town 2 | Town 2 | Pokémon Center and shop. It is a town (author, 2026-09-30), so no Goldsworth house | PROPOSED |
-| Route 2 | Route 2 | Route leads to the gym town | PROPOSED |
+| Route 1, first trainers | Route 1 | Gentle, farm-country. Now ends in Crestfall; the Scheme 1 surveyors walk it | PROPOSED |
 | **Scheme 1 at Crestfall** | Crestfall | See below | PROPOSED |
 | Gym 1: Greta (Normal), STANDARD BADGE | Crestfall | `TRAINER_CRESTFALL_GRETA`, 2 gym trainers | author fixed leader, type, badge name and trainer count |
 | Route 3 gated | Route 3 | Leads on to town 4. Blocked for now | PROPOSED |

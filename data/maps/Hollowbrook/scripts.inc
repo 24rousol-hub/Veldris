@@ -49,7 +49,12 @@ Hollowbrook_EventScript_ShowTrog::
 
 @ ---- Signs ----
 Hollowbrook_EventScript_TownSign::
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_EventScript_TownSignAfterBadge
 	msgbox Hollowbrook_Text_TownSign, MSGBOX_SIGN
+	end
+
+Hollowbrook_EventScript_TownSignAfterBadge::
+	msgbox Hollowbrook_Text_SignTownAfterBadge, MSGBOX_SIGN
 	end
 
 Hollowbrook_EventScript_LabSign::
@@ -73,6 +78,7 @@ Hollowbrook_EventScript_GoldsworthDoor::
 Hollowbrook_EventScript_Farmer::
 	lock
 	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_EventScript_FarmerAfterBadge
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_EventScript_FarmerAfter
 	msgbox Hollowbrook_Text_FarmerBefore, MSGBOX_DEFAULT
 	release
@@ -83,12 +89,36 @@ Hollowbrook_EventScript_FarmerAfter::
 	release
 	end
 
+Hollowbrook_EventScript_FarmerAfterBadge::
+	msgbox Hollowbrook_Text_FarmerAfterBadge, MSGBOX_DEFAULT
+	msgbox Hollowbrook_Text_BenchOldManAfterBadge, MSGBOX_DEFAULT
+	release
+	end
+
 Hollowbrook_EventScript_Kid::
-	msgbox Hollowbrook_Text_Kid, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_EventScript_KidAfterBadge
+	msgbox Hollowbrook_Text_Kid, MSGBOX_DEFAULT
+	release
+	end
+
+Hollowbrook_EventScript_KidAfterBadge::
+	msgbox Hollowbrook_Text_KidAfterBadge, MSGBOX_DEFAULT
+	release
 	end
 
 Hollowbrook_EventScript_Laundry::
-	msgbox Hollowbrook_Text_Laundry, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Hollowbrook_EventScript_LaundryAfterBadge
+	msgbox Hollowbrook_Text_Laundry, MSGBOX_DEFAULT
+	release
+	end
+
+Hollowbrook_EventScript_LaundryAfterBadge::
+	msgbox Hollowbrook_Text_LaundryAfterBadge, MSGBOX_DEFAULT
+	release
 	end
 
 @ ---- Pokemon around town (stand-in species) ----
@@ -313,3 +343,34 @@ Hollowbrook_Text_TrogPetAfter::
 	.string "play! Look what you've done!\p"
 	.string "Come on, boy. We're going home.\n"
 	.string "To the house with the big door.$"
+
+@ ---- After the first badge (added 2026-10-01, FLAG_BADGE01_GET) ----
+Hollowbrook_Text_FarmerAfterBadge::
+	.string "Heard you took a badge off\n"
+	.string "the Crestfall gym. Good.\p"
+	.string "The ZIGZAGOON are quieter now.\n"
+	.string "I think they're scared of you.$"
+
+Hollowbrook_Text_BenchOldManAfterBadge::
+	.string "The old gentleman's bench is\n"
+	.string "empty again. Funny how a bench\l"
+	.string "can look lonely.\p"
+	.string "He'll be back. People like that\n"
+	.string "always come home.$"
+
+Hollowbrook_Text_KidAfterBadge::
+	.string "You went past the gate!\n"
+	.string "Was it scary? Was it huge?\p"
+	.string "Mum says I can go when I'm\n"
+	.string "twelve. I'm eleven and three\l"
+	.string "quarters.$"
+
+Hollowbrook_Text_LaundryAfterBadge::
+	.string "The ZIGZAGOON brought the sock\n"
+	.string "back. With a second sock.\p"
+	.string "It isn't mine. I'm keeping it.$"
+
+Hollowbrook_Text_SignTownAfterBadge::
+	.string "HOLLOWBROOK\n"
+	.string "‘Home of a badge holder.\l"
+	.string "Still mind the ZIGZAGOON.’$"

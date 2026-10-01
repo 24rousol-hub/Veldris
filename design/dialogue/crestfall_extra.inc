@@ -187,7 +187,8 @@ Crestfall_Text_ShopkeeperAfter::
 	.string "it looks. Bring more POTIONS.$"
 
 @ ===================================================================
-@ GOLDSWORTH HOUSE (NPC only, PROPOSED). Cold, tidy, rich. Residents are frat guys who
+@ GOLDSWORTH HOUSE (NPC only, PROPOSED). 2026-10-01: Crestfall is a town and gets NO Goldsworth house. These labels are
+@ kept for Briarwick's Goldsworth house (approved 2026-10-01); rename the Crestfall_ prefix to Briarwick_ when that map is built. Cold, tidy, rich. Residents are frat guys who
 @ look down on ordinary people. Mild PG-13 swearing, used as punctuation. No slurs.
 @ Nobody here is cruel to innocent townsfolk, only rude to the player and to anyone poor.
 @ ===================================================================

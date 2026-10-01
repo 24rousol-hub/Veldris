@@ -10,7 +10,12 @@
 | [interiors.md](interiors.md) | The built Hollowbrook interiors (player house 1F/2F, Fennick's lab): contents, tileset notes, which tile is what | An interior or the Gen 4 interior tileset changes |
 | [towns-and-routes.md](towns-and-routes.md) | The 18 towns and 33 routes, map names, build status | A map is added, renamed or changes status |
 | [porymap-first-map.md](porymap-first-map.md) | A beginner's guide to building Hollowbrook in Porymap: setup, the git loop, a smoke test, pitfalls and a time estimate | You learn something new about Porymap or the workflow |
-| [wendlebury.md](wendlebury.md) | Town 2 plan: role, position, buildings, NPCs; dialogue in `dialogue/wendlebury.inc` | The map or the town plan changes |
+| [wendlebury.md](wendlebury.md) | Town 3 plan: role, position, buildings, NPCs; dialogue in `dialogue/wendlebury.inc` | The map or the town plan changes |
+| [dialogue/briarwick.inc](dialogue/briarwick.inc), [dialogue/route3.inc](dialogue/route3.inc) | Dialogue drafts for Briarwick (Scheme 2 tent, gym 2 and HACHIMEL, the first Goldsworth house, Apiary, houses) and Route 3 | The maps or the cards change |
+| [dialogue/random_npcs.inc](dialogue/random_npcs.inc) | A pool of 295 filler lines for vague, random NPCs and trainers (townsfolk, elders, kids, shops, walkers, coast, caves, fields, battle tips, weather, Pokémon lovers, odd lines, and 3 intro/defeat/after sets for 16 trainer classes). Nothing story-centric | The author wants more or fewer lines |
+| [setup-budget.md](setup-budget.md) | Map sections, flags and trainer budgets for everything past Hollowbrook and Route 1, and the checks done | The cards or counts change |
+| [region-sketch.md](region-sketch.md) | The author's hand-drawn region sketch, my reading, section budget, suggested terrain | The sketch or the map changes |
+| [region-names.md](region-names.md) | PROPOSED names, themes, gyms and map sources (Palladium and vanilla) for every settlement and landmark | The author picks or changes names |
 | [scripts/README.md](scripts/README.md) | DRAFT, UNBUILT map scripts for Hollowbrook, the lab, Route 1 and Wendlebury, with the proposed new flags and vars. Not in `data/event_scripts.s` | The maps are built and the scripts move into their `scripts.inc`, or a scene changes |
 | [crestfall.md](crestfall.md) | Town 3 plan (a city, gym 1): buildings, layout reuse, NPC list, where Scheme 1 beats happen. PROPOSED | The map or the city plan changes |
 | [troglodyte-arc.md](troglodyte-arc.md) | PROPOSED arc options, schemes 2 to 9 and his fight schedule; samples in `dialogue/troglodyte_arc_samples.inc` | The story path is decided |
