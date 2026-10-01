@@ -1,5 +1,8 @@
 # Imported interior tilesets (Team Aqua repo, triple-layer to dual-layer)
 
+> **Status note (author, 2026-10-01):** the converter (`design/tools/triple2dual.py`) is parked. The author is doing tileset conversion with Porytiles in a separate chat that is making maps. The four sets below were already converted with it and are in the tree. If the Porytiles chat imports the same sets, **keep only one copy**: a second `gTileset_ZeldaHouse`, `gTileset_LittleOffice`, `gTileset_GatePlatinum` or `gTileset_BrickCafe` breaks the build. Porytiles output wins; remove the converter version (its folder, its blocks in `src/data/tilesets/`, `include/tilesets.h`, and its `CREDITS.md` and `engine-edits.md` rows) before adding the other.
+
+
 Status: built, `make -j4` passes, not yet used by any map (2026-10-01). Source: the Team Aqua repo's `Tilesets/The Great Tileset Exchange/Full Tilesets/`. Where each set is meant to be used: [catalogue.md](catalogue.md), [README.md](README.md).
 
 ## How they were converted
