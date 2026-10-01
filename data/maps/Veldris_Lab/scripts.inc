@@ -16,6 +16,14 @@ Veldris_Lab_EventScript_StarterBall3::
 Veldris_Lab_Text_StarterBallPlaceholder:
 	.string "A starter Poke Ball sits here.$"
 
+Veldris_Lab_EventScript_Professor::
+	msgbox Veldris_Lab_Text_Professor, MSGBOX_NPC
+	end
+
+Veldris_Lab_Text_Professor:
+	.string "PROF: Welcome to my lab!\p"
+	.string "Those three POKé BALLS on the table\n"
+	.string "are waiting for new TRAINERS.$"
 Veldris_Lab_EventScript_ProfPC::
 	msgbox Veldris_Lab_Text_ProfPC, MSGBOX_SIGN
 	end
