@@ -1,7 +1,7 @@
-Veldris_Home_2F_MapScripts::
+Hollowbrook_PlayersHouse_2F_MapScripts::
 	.byte 0
 
-Veldris_Home_2F_EventScript_PC::
+Hollowbrook_PlayersHouse_2F_EventScript_PC::
 	lockall
 	setvar VAR_0x8004, PC_LOCATION_VELDRIS_HOME
 	special DoPCTurnOnEffect
@@ -11,18 +11,18 @@ Veldris_Home_2F_EventScript_PC::
 	releaseall
 	end
 
-Veldris_Home_2F_EventScript_TurnOffPlayerPC::
+Hollowbrook_PlayersHouse_2F_EventScript_TurnOffPlayerPC::
 	setvar VAR_0x8004, PC_LOCATION_VELDRIS_HOME
 	playse SE_PC_OFF
 	special DoPCTurnOffEffect
 	releaseall
 	end
 
-Veldris_Home_2F_EventScript_Notebook::
-	msgbox Veldris_Home_2F_Text_Notebook, MSGBOX_SIGN
+Hollowbrook_PlayersHouse_2F_EventScript_Notebook::
+	msgbox Hollowbrook_PlayersHouse_2F_Text_Notebook, MSGBOX_SIGN
 	end
 
-Veldris_Home_2F_Text_Notebook:
+Hollowbrook_PlayersHouse_2F_Text_Notebook:
 	.string "{PLAYER} flipped open the notebook.\p"
 	.string "ADVENTURE RULE NO. 1\n"
 	.string "Open the MENU with START.\p"

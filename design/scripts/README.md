@@ -7,7 +7,7 @@ Checked: all four files plus the dialogue drafts assemble with the real macros (
 | File | Goes into | Covers |
 |---|---|---|
 | `hollowbrook_scripts.inc` | `Hollowbrook`, `Hollowbrook_PlayersHouse_1F`, `Hollowbrook_GoldsworthHouse` | signs, NPCs, Pokemon, mom, grandfather timeline, locked door, Troglodyte's first battle outside the lab with SIR BISCUIT |
-| `hollowbrook_lab_scripts.inc` | `Hollowbrook_ProfFennickLab` | the lab scene (random starter, four balls, choice, exit blocker), aides, Fennick |
+| `hollowbrook_lab_scripts.inc` | `Hollowbrook_ProfFennickLab` | **BUILT 2026-10-01** into `data/maps/Hollowbrook_ProfFennickLab/scripts.inc` with real coordinates (that file is now the source of truth; this draft is kept for history). Scene tested in mGBA: Troglodyte's random pick, ball 4 reveal, choice across the counter, leftover balls. `Hollowbrook_EventScript_BufferTrogSpecies` now lives in the lab file, so leave it out when the town file is built |
 | `route1_scripts.inc` | `VeldrisRoute1` | signs, three trainers, guide POTION gift, sighting NPC |
 | `wendlebury_scripts.inc` | `Wendlebury`, `Wendlebury_PokemonCenter_1F`, `Wendlebury_Mart` | town NPCs, nurse (vanilla heal script), mart clerk with item list |
 
@@ -19,7 +19,7 @@ Claim by renaming a spare in place (see `design/flags.md`), keep the value, log 
 
 | Name | Values | Suggested slot |
 |---|---|---|
-| `VAR_HOLLOWBROOK_STATE` | 0 new game, 1 mom woke player, 2 lab scene running (Troglodyte has his ball, player not chosen), 3 player chose a starter (Trog waits outside), 4 Trog beaten outside the lab | a spare var, e.g. `VAR_UNUSED_0x40F8` |
+| `VAR_HOLLOWBROOK_STATE` | 0 new game, 1 mom woke player, 2 lab scene running (Troglodyte has his ball, player not chosen), 3 player chose a starter (Trog waits outside), 4 Trog beaten outside the lab | **CLAIMED 2026-10-01** as 0x40F8 |
 
 Already claimed and used: `VAR_TROG_STARTER` (0x40F7). Vanilla used: `VAR_STARTER_MON`, `VAR_TEMP_TRANSFERRED_SPECIES`, `VAR_0x8008`.
 
@@ -29,8 +29,8 @@ Already claimed and used: `VAR_TROG_STARTER` (0x40F7). Vanilla used: `VAR_STARTE
 |---|---|---|
 | `FLAG_HIDE_HOLLOWBROOK_GRANDPA` | bench grandfather hidden (set/cleared by timeline) | story 0x8E5+ |
 | `FLAG_HIDE_HOLLOWBROOK_TROG` | Troglodyte outside the lab hidden (derived from state on each map load) | story 0x8E5+ |
-| `FLAG_HIDE_HOLLOWBROOK_LAB_TROG` | Troglodyte inside the lab hidden, set when he leaves | story 0x8E5+ |
-| `FLAG_HIDE_HOLLOWBROOK_LAB_BALL_1` to `_4` (4 flags) | the four Poke Ball objects hidden | story 0x8E5+ |
+| `FLAG_HIDE_HOLLOWBROOK_LAB_TROG` | Troglodyte inside the lab hidden, set when he leaves | **CLAIMED** 0x8E5 |
+| `FLAG_HIDE_HOLLOWBROOK_LAB_BALL_1` to `_4` (4 flags) | the four Poke Ball objects hidden | **CLAIMED** 0x8E6-0x8E9 |
 | `FLAG_HOLLOWBROOK_GRANDPA_TALKED1` | first bench talk done | per-map 0x493-0x4EF |
 | `FLAG_HOLLOWBROOK_GRANDPA_TALKED2` | second topic done | per-map |
 | `FLAG_HOLLOWBROOK_GRANDPA_NAME_TOLD` | post-game name reveal done | per-map |

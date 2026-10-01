@@ -1,7 +1,7 @@
 {
-  "id": "MAP_VELDRIS_HOME_2F",
-  "name": "Veldris_Home_2F",
-  "layout": "LAYOUT_VELDRIS_HOME_2F",
+  "id": "MAP_HOLLOWBROOK_PLAYERS_HOUSE_2F",
+  "name": "Hollowbrook_PlayersHouse_2F",
+  "layout": "LAYOUT_HOLLOWBROOK_PLAYERS_HOUSE_2F",
   "music": "MUS_LITTLEROOT",
   "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_NONE",
@@ -20,7 +20,7 @@
       "x": 10,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_VELDRIS_HOME_1F",
+      "dest_map": "MAP_HOLLOWBROOK_PLAYERS_HOUSE_1F",
       "dest_warp_id": "1"
     }
   ],
@@ -32,7 +32,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Veldris_Home_2F_EventScript_PC"
+      "script": "Hollowbrook_PlayersHouse_2F_EventScript_PC"
     },
     {
       "type": "sign",
@@ -40,7 +40,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Veldris_Home_2F_EventScript_Notebook"
+      "script": "Hollowbrook_PlayersHouse_2F_EventScript_Notebook"
     }
   ]
 }

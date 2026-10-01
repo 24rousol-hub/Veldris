@@ -28,6 +28,10 @@ Vars: persistent vars are 0x4000-0x40FF (256 in total). `VAR_TEMP_0` to `VAR_TEM
 | Name | Value | Kind | Purpose | Set by | Cleared by | Added in |
 |---|---|---|---|---|---|---|
 | `FLAG_BADGE09_GET` | 0x88E | Story | 9th gym badge (was `FLAG_UNUSED_0x88E`). Listed in `include/veldris_badges.h` | The 9th gym leader's script (`setflag FLAG_BADGE09_GET`) | Debug menu only | 2026-09-29 |
+| `FLAG_HIDE_HOLLOWBROOK_LAB_TROG` | 0x8E5 | Hide | Troglodyte inside Fennick's lab hidden | Lab scene, when he leaves | Never | 2026-10-01 |
+| `FLAG_HIDE_HOLLOWBROOK_LAB_BALL_1` to `_3` | 0x8E6-0x8E8 | Hide | Starter balls 1-3 on the lab table hidden (taken by Troglodyte or the player) | Lab scene / ball scripts | Never | 2026-10-01 |
+| `FLAG_HIDE_HOLLOWBROOK_LAB_BALL_4` | 0x8E9 | Hide | The fourth (revealed) starter ball hidden | Lab `OnTransition` while `VAR_HOLLOWBROOK_STATE` < 2; ball 4 script when taken | Lab scene (reveal) | 2026-10-01 |
+| `VAR_HOLLOWBROOK_STATE` | 0x40F8 | Var | 0 new game, 1 mom woke player, 2 Troglodyte has his ball (player choosing, exit blocked), 3 player chose, 4 Troglodyte beaten outside | Lab scene (2, 3); mom and the town scripts later (1, 4) | Never | 2026-10-01 |
 
 ## Spare pool: permanent flags
 
@@ -72,7 +76,7 @@ Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x4
 
 **Claimed 2026-09-30:** `VAR_TROG_STARTER` (0x40F7, was `VAR_UNUSED_0x40F7`): Troglodyte's random starter, 0, 1 or 2 for the 1st, 2nd or 3rd starter on show. Set once by the lab scene (`random 3`) and read by the pool prune in `src/trainer_pools.c`.
 
-**Planned, not claimed yet:** one object-hide flag for the grandfather's bench (Hollowbrook), driven by the lab scene, `FLAG_BADGE01_GET` and `FLAG_SYS_GAME_CLEAR`; a flag for Troglodyte's attitude, contemptuous or oblivious, once the story points that change it are decided (from the story-beat block above). Also flags for the lab scene (the fourth starter revealed, the player has chosen) and Route 1 needs one flag for the guide's POTION gift and two hidden-item flags (from `FLAG_HIDDEN_ITEMS_START` upward, see below). **Already claimed:** `VAR_TROG_STARTER` (0, 1 or 2), set by the lab scene and read by every Troglodyte battle (see its row above). Claim the rest and add rows here when the scripts are written.
+**Planned, not claimed yet:** one object-hide flag for the grandfather's bench (Hollowbrook), driven by the lab scene, `FLAG_BADGE01_GET` and `FLAG_SYS_GAME_CLEAR`; a flag for Troglodyte's attitude, contemptuous or oblivious, once the story points that change it are decided (from the story-beat block above). Route 1 needs one flag for the guide's POTION gift and two hidden-item flags (from `FLAG_HIDDEN_ITEMS_START` upward, see below). **Already claimed:** `VAR_TROG_STARTER` (0, 1 or 2), set by the lab scene and read by every Troglodyte battle (see its row above). **Claimed 2026-10-01 for the lab scene:** `VAR_HOLLOWBROOK_STATE` (0x40F8) and five hide flags 0x8E5-0x8E9 (table above). Claim the rest and add rows here when the scripts are written.
 
 **Only 22 spare persistent vars.** Use a var only for a state that has more than two values (a story chapter counter, a puzzle stage). Use a flag for anything yes/no. If we run short, the remaining Hoenn vars can be freed by removing the Hoenn maps that use them, but that is a decision for the author.
 

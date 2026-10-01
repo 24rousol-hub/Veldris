@@ -7,6 +7,7 @@
 | [game-bible.md](game-bible.md) | Title, pitch, tone, pillars, scope, progression, **open decisions** | Scope, tone or a decision changes |
 | [story-outline.md](story-outline.md) | Act-by-act beats and the Goldsworth sabotage schemes | You add or change a story beat, scheme or cutscene |
 | [characters.md](characters.md) | Cast, voices, trainer constants, teams | A character or trainer is added or changed |
+| [interiors.md](interiors.md) | The built Hollowbrook interiors (player house 1F/2F, Fennick's lab): contents, tileset notes, which tile is what | An interior or the Gen 4 interior tileset changes |
 | [towns-and-routes.md](towns-and-routes.md) | The 18 towns and 33 routes, map names, build status | A map is added, renamed or changes status |
 | [porymap-first-map.md](porymap-first-map.md) | A beginner's guide to building Hollowbrook in Porymap: setup, the git loop, a smoke test, pitfalls and a time estimate | You learn something new about Porymap or the workflow |
 | [wendlebury.md](wendlebury.md) | Town 2 plan: role, position, buildings, NPCs; dialogue in `dialogue/wendlebury.inc` | The map or the town plan changes |
