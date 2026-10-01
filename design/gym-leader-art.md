@@ -42,3 +42,15 @@ Top pick first. The pictures are in a board sent to you in chat (not committed).
 **Not enough, if you want a different look.** There is no true beekeeper, chemist or lighthouse keeper in these sets, so each of those leaders needs one recolour or small redraw whichever you pick. Recolouring is fine for a hand-edited sprite but must keep one 16-colour palette (CLAUDE.md, trainer art).
 
 **Engine side (DONE 2026-10-01).** In a `trainers.party` block write `Pic: Veldris Leader Bug` (or `Veldris Leader Ghost`, `Steel`, `Ice`, `Flying`, `Poison`, `Fairy`, `Water`, `Veldris Elite Four Drayden`, `Veldris Champion Cynthia`). Old note: A new trainer picture also needs the entries in `include/constants/trainers.h`, `src/battle_main.c` and `src/data/graphics/trainers.h` (see 'A new trainer' in `CLAUDE.md`, untested end to end), plus a `CREDITS.md` row. Overworld (walking) sprites are separate: see `Overworld Trainer Sprites` in [asset-inventory.md](asset-inventory.md).
+
+## Elite Four candidates (OSSIAN, HYACINTH, DUNMORE), proposed 2026-10-01
+
+All in `Team-Aquas-Asset-Repo/Trainer Front Sprites/`, all 64 x 64 and ready to import. Board: [art/elite_four_candidates.png](art/elite_four_candidates.png). Same licence warning as above. **PROPOSED until you pick.**
+
+| Member | Pitch | Candidates (best first) |
+|---|---|---|
+| OSSIAN (Dark) | Cheerful undertaker, crow on the hearse | 1. `Galaxeeh/leader_giovanni` (black funeral suit) 2. `Black Fragrant/morty` (dark jacket, mystic) 3. `Kumatora/looker` (long coat) 4. `Black Fragrant/petrel` 5. `BrandonXL/darach` (formal, purple) |
+| HYACINTH (Psychic) | Icy manners, deadpan, secret snow globes | 1. `Black Fragrant/karen` (cool, grey-blue hair, a woman) 2. `ryuujiryu/PsychicF` (lab coat) 3. `Black Fragrant/will` (Psychic Elite Four, a man) 4. `mudskip/hex_maniac_oras` 5. `Pawkkie/psychic_m_pp` |
+| DUNMORE (Fighting) | Huge, gentle, naps between rounds | 1. `Black Fragrant/chuck` (big, bare-chested) 2. `iriv24/wake` (masked wrestler) 3. `Pawkkie/hiker_hgss` (huge, soft, 'gentle') 4. `Kalarie/anthony` (brawler) 5. `Kasen/leader_clay` |
+
+Notes: HYACINTH's gender is not fixed in the pitch; #1 to #2 are women, #3 and #5 are men. Karen's own character is a Dark leader, so only the picture is borrowed.
