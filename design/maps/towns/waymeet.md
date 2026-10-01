@@ -115,4 +115,4 @@ Secret: the signpost says 'FOUR WAYS' but the arrows only list three destination
 1. **Does the player ever use the train?** The card makes the station dressing only (no engine work). A working rail link would be a new system and needs the author's say first.
 2. **Pier entry points:** is Surf enough, or does the author want a ferry? R19 and R22 as drawn need Surf (badge 5).
 3. **Which of R19 and R22 should be tried first** by a new player? The card does not gate either; the sketch's arrows suggest R19 first (to Gildhaven).
-4. The sketch writes **12 twice** near Waymeet and Hemlock Reach (one 12 into Waymeet from the north, another on the road beside 13): I read the second as R13. Confirm.
+4. The sketch writes **12 twice**: once on the Lingmoor to Waymeet road, once beside 13 on the Waymeet to Hemlock Reach road. I read the second as the return arrow of that road (the pair 12/13), as the other paired corridors do, so it is not a separate route. The README's other guess was that it is a mistaken 20. Confirm.

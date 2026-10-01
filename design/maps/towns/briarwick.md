@@ -85,7 +85,7 @@ Live objects per map must stay at 15 or fewer: the town outdoors holds about 10 
 | Goldsworth butler | Goldsworth house door | stiff, tells the player not to breathe loudly (`GoldButler`) |
 | Goldsworth cousins (3) | Goldsworth house | see the next section |
 
-Troglodyte sighting (optional, can be cut): a Center visitor or the east-gate hiker says a rich boy went through toward Gloomsby 'in a hurry, with a dog in a jumper'. This is the only trace of him here.
+Troglodyte sighting (optional, can be cut): a Center visitor or the east-gate hiker says a rich boy went through toward Gloomsby 'in a hurry, with a LILLIPUP in a jumper'. This is the only trace of him here.
 
 ### Goldsworth house (first one)
 

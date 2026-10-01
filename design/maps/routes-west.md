@@ -160,9 +160,9 @@ Pond (fishing only): Old Rod MAGIKARP 10 (70), POLIWAG 10 (30); Good Rod POLIWAG
 | Picnicker | SHINX 24, MAREEP 25 |
 | Fisherman | GOLDEEN 24, BARBOACH 25 |
 
-**NPCs (6).** A toll-gate-style guard at the end ('Smeltham: mind the cranes'), a surveyor with a long tape measure at the foundry end (**Scheme 4 foreshadow**: he says he is 'measuring for a scrap estimate' and gives away nothing else), a hiker who recommends the Ice cave in Hoarfell, a sleepy shepherd-type 'who counts SKIDDO', a girl with a magnet who finds nails, a kid who throws pebbles into the pond. Signs: three.
+**NPCs (6).** A toll-gate-style guard at the end ('Smeltham: mind the cranes'), a surveyor with a long tape measure at the foundry end (**Scheme 4 foreshadow**: he says he is 'measuring for a scrap estimate' and gives away nothing else), a hiker who recommends the Ice cave in Hoarfell, a sleepy farmhand 'who counts SKIDDO', a girl with a magnet who finds nails, a kid who throws pebbles into the pond. Signs: three.
 
-**Items.** POTION visible, SUPER POTION visible, GREAT BALL visible, ESCAPE ROPE hidden, MAX REPEL hidden, AWAKENING hidden, HP UP on a pond islet (Surf, badge 5), IRON behind a Cut tree (Cut), ROCK TOMB TM? **No:** TM Rock Tomb is at Slagwell, so here TM Sandstorm visible (rocky shelf).
+**Items.** POTION visible, SUPER POTION visible, GREAT BALL visible, ESCAPE ROPE hidden, MAX REPEL hidden, AWAKENING hidden, HP UP on a pond islet (Surf, badge 5), IRON behind a Cut tree (Cut), TM Sandstorm visible (rocky shelf).
 
 **Gate.** None. **Goldsworth beat:** the surveyor and a stack of rolled blueprints foreshadow Scheme 4. Troglodyte: none.
 
@@ -313,7 +313,7 @@ Lake: Surf WOOPER 12 to 16 (60), MARILL 12 to 16 (30), PSYDUCK 14 to 16 (5), SLO
 
 **Items.** POTION visible, POKÉ BALL x3 visible, ANTIDOTE hidden, TM Double Team visible (north end), GREAT BALL visible near the rest house, ELIXIR hidden (pier end), REVIVE on the lake island (Surf, badge 5), RARE CANDY on a second island (Surf, badge 5).
 
-**Goldsworth beat.** None. Troglodyte: optional sighting by the pier fisherman ('a boy complained to me about the fish for ten minutes').
+**Goldsworth beat.** None. Troglodyte: optional sighting by the pier fisherman ('a boy complained to me about the MAGIKARP for ten minutes').
 
 **Flags (not claimed).** `FLAG_R8_ITEM_*`, reused trainer flags, `FLAG_R8_REST_HEAL_USED` (a daily var only if the free heal should be limited).
 
