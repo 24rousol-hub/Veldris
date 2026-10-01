@@ -47,3 +47,28 @@ Water-only links (blue, no brown beside it): Wendlebury to the south-centre city
 ## Open questions
 
 See the chat reply of 2026-10-01 and `game-bible.md`. **Update 2026-10-01:** the author confirmed Route 1 is Hollowbrook to Crestfall and chose to make **Crestfall a town**. Route 1, Route 2, Crestfall, Wendlebury, the map plan, the story outline and the dialogue were updated. Still open: the other questions in the chat reply (gyms per place, post-game city, landmarks, sections budget).
+
+## Map section budget: no engine edit needed (2026-10-01, answering the author)
+
+**Why an engine edit to add more names does not help.** A map section id is one byte, because a Pokémon's 'met at' place is stored in 8 bits (`mapsec_u8_t`, `include/gametypes.h`). Widening it would change the Pokémon data layout and the save. The ceiling is 253 ids (0xFD to 0xFF are special), and the tree already uses 215, so 37 are free after the six Veldris ones.
+
+**What fits without any engine edit.** The 88 Hoenn sections (ids 0 to 87) are unreachable in Veldris, and a section's **name** and its **x, y, width, height** live only in `src/data/region_map/region_map_sections.json`. So Veldris routes can take over Hoenn route entries by editing JSON text only: for example, Veldris Route 4 uses the existing `MAPSEC_ROUTE_104` entry with its name changed to `ROUTE 4`. The Hoenn route entries are `MAPSEC_ROUTE_101` to `_134` (34 of them), enough for all 33 routes.
+
+| Need | Count | Where it comes from |
+|---|---|---|
+| Routes 1 to 3 | 3 | already added (`MAPSEC_VELDRIS_ROUTE_1` to `_3`) |
+| Routes 4 to 33 | 30 | renamed Hoenn route entries (`MAPSEC_ROUTE_104` to `_133`, PROPOSED), no new ids |
+| Settlements | 20 | 3 added, **17 new ids** |
+| Landmarks | up to 7 | **up to 7 new ids** (post-game ones can wait) |
+| **New ids used** | **24 of 37** | 13 left over |
+
+**Side effects to know about (untested).**
+- Porymap's dropdown shows the old constant (`MAPSEC_ROUTE_104`) while the game shows `ROUTE 4`. A lookup table in this file or `region-map.md` would be needed.
+- `src/landmark.c` gives some Hoenn routes landmark names on the Pokénav map (for example Route 104 shows PETALBURG WOODS). Pick route entries with no landmark rows, or the names would appear on the Veldris routes.
+- It edits one upstream data file, so it needs a row in [engine-edits.md](engine-edits.md).
+
+Not applied yet. It waits on the author's go.
+
+## Landmarks (author, 2026-10-01)
+
+Some of the 7 landmarks are **post-game only**, including the one next to Hollowbrook (south-west). Post-game landmarks do not need their section during the main story, so they can be added last. Still to learn from the author: which of the other six are post-game, and what each landmark is.
