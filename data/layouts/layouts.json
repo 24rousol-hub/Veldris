@@ -9338,7 +9338,7 @@
     {
       "id": "LAYOUT_VELDRIS_HOME_2F",
       "name": "Veldris_Home_2F_Layout",
-      "width": 12,
+      "width": 13,
       "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Gen4Interior",
@@ -9349,8 +9349,8 @@
     {
       "id": "LAYOUT_VELDRIS_LAB",
       "name": "Veldris_Lab_Layout",
-      "width": 13,
-      "height": 13,
+      "width": 14,
+      "height": 12,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Gen4Interior",
       "border_filepath": "data/layouts/Veldris_Lab/border.bin",
