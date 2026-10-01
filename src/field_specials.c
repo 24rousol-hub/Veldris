@@ -1071,7 +1071,8 @@ static bool8 IsPlayerInFrontOfPC(void)
         || IsBuildingPCTileFrlg(tileInFront)
         || IsPlayerHousePCTile(tileInFront)
         || IsPlayerHousePCTileFrlg(tileInFront)
-        || IsVeldrisHomePCTile(tileInFront);
+        || IsVeldrisHomePCTile(tileInFront)
+        || IsVeldrisHomePCTile(MapGridGetMetatileIdAt(x, y - 1)); // Veldris home: PC sits on the back half of the desk, one tile further
 }
 
 // Task data for Task_PCTurnOnEffect and Task_LotteryCornerComputerEffect
@@ -1175,6 +1176,8 @@ static void PCTurnOnEffect_SetMetatile(s16 isScreenOn, s8 dx, s8 dy)
         else if (gSpecialVar_0x8004 == PC_LOCATION_VELDRIS_HOME)
             metatileId = METATILE_Gen4Interior_PC_On;
     }
+    if (gSpecialVar_0x8004 == PC_LOCATION_VELDRIS_HOME)
+        dy--; // the PC tile is behind the desk front the player faces
     MapGridSetMetatileIdAt(gSaveBlock1Ptr->pos.x + dx + MAP_OFFSET, gSaveBlock1Ptr->pos.y + dy + MAP_OFFSET, metatileId | MAPGRID_IMPASSABLE);
 }
 
@@ -1222,7 +1225,10 @@ static void PCTurnOffEffect(void)
     else if (gSpecialVar_0x8004 == PC_LOCATION_PLAYER_HOUSE_FRLG)
         metatileId = METATILE_GenericBuilding1_PlayersPCOff;
     else if (gSpecialVar_0x8004 == PC_LOCATION_VELDRIS_HOME)
+    {
         metatileId = METATILE_Gen4Interior_PC_Off;
+        dy--; // the PC tile is behind the desk front the player faces
+    }
 
     MapGridSetMetatileIdAt(gSaveBlock1Ptr->pos.x + dx + MAP_OFFSET, gSaveBlock1Ptr->pos.y + dy + MAP_OFFSET, metatileId | MAPGRID_IMPASSABLE);
     DrawWholeMapView();

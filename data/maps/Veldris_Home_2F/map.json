@@ -29,7 +29,7 @@
     {
       "type": "sign",
       "x": 4,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Veldris_Home_2F_EventScript_PC"
@@ -39,7 +39,7 @@
       "x": 5,
       "y": 2,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Veldris_Home_2F_EventScript_Notebook"
     }
   ]
