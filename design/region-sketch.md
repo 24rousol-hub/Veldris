@@ -86,3 +86,25 @@ The positions (x, y, w, h) came from the **old** layout in [region-map.md](regio
 ## Landmarks (author, 2026-10-01)
 
 Some of the 7 landmarks are **post-game only**, including the one next to Hollowbrook (south-west). Post-game landmarks do not need their section during the main story, so they can be added last. Still to learn from the author: which of the other six are post-game, and what each landmark is.
+
+## Suggested terrain, gyms and landmarks (PROPOSED, 2026-10-01, for the author to react to)
+
+Follows the sketch's walking order and the gym order Normal, Bug, Ghost, Steel, Ice, Flying, Poison, Fairy, Water. Nothing here is canon.
+
+| Place (sketch) | Terrain | Gym | Nearby landmark idea |
+|---|---|---|---|
+| Hollowbrook (1) | quiet farm village, south-west corner | none | SW landmark (post-game): an old orchard or cabin where Gatsby met Cynthia |
+| Crestfall (2, town) | farmland, hay maze | 1 Normal | none |
+| Wendlebury (3, town) | market crossroads | none | none (water link south is Surf) |
+| City 4 | forest edge city, first Goldsworth house | 2 Bug | the NE landmark: a deep forest maze or hollow log cave |
+| Town 5 | foggy marsh and old graveyard | 3 Ghost | none |
+| Town 6 | mining and foundry town | 4 Steel | the spur between routes 6 and 9: the foundry mine (cave) |
+| City 7 | snowy mountain city | 5 Ice (gives Surf, which opens the water links) | a frozen cave system on its mountain, optional |
+| Central City | the skyscraper, hub of the region | 6 Flying | none; the Elite 4 landmark is just south of it |
+| North and east towns (3) | ridge and highland towns | none | none |
+| East cities (2) | cliffs and gardens | 7 Poison, 8 Fairy | far north-east landmark: a lake island or shrine |
+| Far south-east city | harbour and lighthouse | 9 Water | none |
+| Lost City | sunken ruin city, dead end | post-game | its water routes only |
+| South-centre city | hidden coast city | post-game only (author) | two south landmarks: a beach and a cliff cave |
+
+Open: the 7 landmarks' final list, which ones are post-game, and whether Poison and Fairy sit in the two east cities or elsewhere.
