@@ -3061,3 +3061,25 @@ const u16 gTilesetPalettes_Gen4Interior[][16] =
     INCGFX_U16("data/tilesets/secondary/gen4_interior/palettes/15.pal", ".gbapal"),
 };
 
+
+const u32 gTilesetTiles_ZeldaHouse[] = INCGFX_U32("data/tilesets/secondary/zelda_house/tiles.png", ".4bpp.fastSmol", "-num_tiles 133 -Wnum_tiles");
+
+const u16 gTilesetPalettes_ZeldaHouse[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/zelda_house/palettes/15.pal", ".gbapal"),
+};
