@@ -43,3 +43,13 @@ Source: Gate Platinum Secondary (blloop, redrawn from Platinum gameplay screensh
 - Gives the Sinnoh route-gate interior: slate and grey-blue floor tiles, a beige wall with window panes and an orange counter or rail, a white-and-grey bench or stair edge, potted shrubs, railings and a dark exit area with grey stair railings.
 - Behaviours: metatile 44 `MB_WEST_ARROW_WARP`, 45 `MB_EAST_ARROW_WARP`, 52 `MB_NORTH_ARROW_WARP`, 53 `MB_SOUTH_ARROW_WARP`. Layer type: 11 NORMAL, 117 COVERED.
 - Converter notes: no quantisation, no unmerged metatiles, 0 of 128 differ from the source render. The source calls itself a Platinum redraw, so the art derives from GAME FREAK's.
+
+
+## Brick Cafe (`gTileset_BrickCafe`, `data/tilesets/secondary/brick_cafe/`)
+
+Source: Brick Cafe Interior Secondary (Ekat99's "Brick Cafe" tileset; FRLG rips by Vurtax, RSE rips by Heartlessdragoon; imported to pokeemerald by Kumatora).
+
+- **512 metatile slots, 282 filled** (ids 0 to 303 with gaps). 353 tiles after dedupe. **All seven palettes, 6 to 12, are used** (15, 15, 15, 15, 15, 14 and 13 colours), so this set has no spare palette room: do not add tiles with new colours without re-running the converter.
+- Gives a brick cafe: red-brick walls with arched windows, grey checkerboard and plank floors, wooden counters with stools, coffee cups, cake stands and bowls, kitchen shelving, stairs, green chairs and armchairs round tables, blue carpets, plants, a wall lantern, roof-beam trims and doors.
+- Behaviours: metatiles 3 and 4 `MB_SOUTH_ARROW_WARP`, 118 and 119 `MB_TRASH_CAN`, 290 `MB_NON_ANIMATED_DOOR`. Layer type: 75 NORMAL, 437 COVERED.
+- Converter notes: no quantisation, no unmerged metatiles, 0 of 512 differ from the source render. **Metatiles 282 and 290 reference four primary-tileset tiles (490, 491, 506, 507, palette 2)** in the source, which assumed a primary with a wall lantern. They were rendered from this tree's `gTileset_Building` and copied into the secondary, so the set does not depend on the primary (checked by eye: a lantern on brick). If the set is ever used with a different primary, nothing changes.
