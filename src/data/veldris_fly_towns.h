@@ -12,8 +12,8 @@
 // Example row (do not enable until those exist):
 //     X(MAPSEC_HOLLOWBROOK, FLAG_VISITED_HOLLOWBROOK, MAP_HOLLOWBROOK, HEAL_LOCATION_HOLLOWBROOK)
 // Write the rows as continuation lines: every row ends with a backslash except the last one.
-// The table is empty for now.
-#define VELDRIS_FLY_TOWNS(X)
+#define VELDRIS_FLY_TOWNS(X) \
+    X(MAPSEC_HOLLOWBROOK, FLAG_VISITED_HOLLOWBROOK, MAP_HOLLOWBROOK, HEAL_LOCATION_HOLLOWBROOK)
 
 #define VELDRIS_HEAL_ROW(sec, visited, map, heal) \
     [sec] = {MAP_GROUP(map), MAP_NUM(map), heal},

@@ -51,7 +51,7 @@
 
 #else
 
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
+#define FLAG_VISITED_HOLLOWBROOK 0x20
 #define FLAG_UNUSED_0x021    0x21 // Unused Flag
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
@@ -1222,9 +1222,9 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
+#define FLAG_HOLLOWBROOK_GRANDPA_TALKED1                            0x493
+#define FLAG_HOLLOWBROOK_GRANDPA_TALKED2                            0x494
+#define FLAG_HOLLOWBROOK_MOM_GOT_MON_TOLD                           0x495
 #define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
@@ -1507,13 +1507,13 @@
 
 #define FLAG_RECEIVED_POKEDEX_FROM_BIRCH            (SYSTEM_FLAGS + 0x84)
 
-#define FLAG_UNUSED_0x8E5                           (SYSTEM_FLAGS + 0x85) // Unused Flag
-#define FLAG_UNUSED_0x8E6                           (SYSTEM_FLAGS + 0x86) // Unused Flag
-#define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
-#define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
-#define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
-#define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
-#define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
+#define FLAG_HIDE_HOLLOWBROOK_LAB_TROG              (SYSTEM_FLAGS + 0x85)
+#define FLAG_HIDE_HOLLOWBROOK_LAB_BALL_1            (SYSTEM_FLAGS + 0x86)
+#define FLAG_HIDE_HOLLOWBROOK_LAB_BALL_2            (SYSTEM_FLAGS + 0x87)
+#define FLAG_HIDE_HOLLOWBROOK_LAB_BALL_3            (SYSTEM_FLAGS + 0x88)
+#define FLAG_HIDE_HOLLOWBROOK_LAB_BALL_4            (SYSTEM_FLAGS + 0x89)
+#define FLAG_HIDE_HOLLOWBROOK_GRANDPA               (SYSTEM_FLAGS + 0x8A)
+#define FLAG_HIDE_HOLLOWBROOK_TROG                  (SYSTEM_FLAGS + 0x8B)
 #define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag
 #define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag
 #define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // Unused Flag

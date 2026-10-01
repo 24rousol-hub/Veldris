@@ -28,6 +28,15 @@ Vars: persistent vars are 0x4000-0x40FF (256 in total). `VAR_TEMP_0` to `VAR_TEM
 | Name | Value | Kind | Purpose | Set by | Cleared by | Added in |
 |---|---|---|---|---|---|---|
 | `FLAG_BADGE09_GET` | 0x88E | Story | 9th gym badge (was `FLAG_UNUSED_0x88E`). Listed in `include/veldris_badges.h` | The 9th gym leader's script (`setflag FLAG_BADGE09_GET`) | Debug menu only | 2026-09-29 |
+| `FLAG_HIDE_HOLLOWBROOK_LAB_TROG` | 0x8E5 | Hide | Troglodyte inside Fennick's lab hidden | Lab scene, when he leaves | Never | 2026-10-01 |
+| `FLAG_HIDE_HOLLOWBROOK_LAB_BALL_1` to `_3` | 0x8E6-0x8E8 | Hide | Starter balls 1-3 on the lab table hidden (taken by Troglodyte or the player) | Lab scene / ball scripts | Never | 2026-10-01 |
+| `FLAG_HIDE_HOLLOWBROOK_LAB_BALL_4` | 0x8E9 | Hide | The fourth (revealed) starter ball hidden | Lab `OnTransition` while `VAR_HOLLOWBROOK_STATE` < 2; ball 4 script when taken | Lab scene (reveal) | 2026-10-01 |
+| `FLAG_HIDE_HOLLOWBROOK_GRANDPA` | 0x8EA | Hide | Grandfather on the Hollowbrook bench hidden. Starts set (the bench is empty until the lab scene) | Town `OnTransition` while `VAR_HOLLOWBROOK_STATE` < 3 | Lab scene, after the fourth-ball reveal | 2026-10-01 |
+| `FLAG_HIDE_HOLLOWBROOK_TROG` | 0x8EB | Hide | Troglodyte waiting outside the lab hidden | Town `OnTransition` unless `VAR_HOLLOWBROOK_STATE` is 3 | Town `OnTransition` when it is 3 | 2026-10-01 |
+| `FLAG_HOLLOWBROOK_GRANDPA_TALKED1`, `_TALKED2` | 0x493, 0x494 | One-shot | First and second bench talks with the grandfather done | Grandfather's script | Never | 2026-10-01 |
+| `FLAG_HOLLOWBROOK_MOM_GOT_MON_TOLD` | 0x495 | One-shot | Mom's 'you have a POKéMON now' speech done | Mom's script in the player's house 1F | Never | 2026-10-01 |
+| `FLAG_VISITED_HOLLOWBROOK` | 0x020 | Fly | Hollowbrook is a fly destination | Town `OnTransition` | Never | 2026-10-01 |
+| `VAR_HOLLOWBROOK_STATE` | 0x40F8 | Var | 0 new game, 1 mom woke player, 2 Troglodyte has his ball (player choosing, exit blocked), 3 player chose, 4 Troglodyte beaten outside | Lab scene (2, 3); mom and the town scripts later (1, 4) | Never | 2026-10-01 |
 
 ## Spare pool: permanent flags
 
@@ -54,13 +63,13 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 | **0x264-0x2BB** | 88 | **Hidden items (reserved).** Hidden-item flags must be 0x1F4 or higher (the assembler macro in `asm/macros/map.inc` rejects lower ones) and 0x264 is where the existing hidden-item range grows. Config comments in `include/config/battle.h` and `pokemon.h` use 0x264 as their example toggle flag, so skip 0x264 or use it for a config switch |
 | 0x2D9 | 1 | General purpose |
 | 0x468, 0x470, 0x472, 0x479 | 1 each | General purpose |
-| **0x493-0x4EF** | 93 | **Per-map one-shots** (talked-to flags, single pickups) for towns and routes. Goldsworth houses are NPC-only and need none unless an NPC in one has a once-only line (at most one per house, and there are only about 7 houses) |
+| **0x496-0x4EF** | 90 | **Per-map one-shots** (talked-to flags, single pickups) for towns and routes. Goldsworth houses are NPC-only and need none unless an NPC in one has a once-only line (at most one per house, and there are only about 7 houses) |
 | 0x4F9-0x4FA, 0x4FF | 2 + 1 | General purpose |
 | 0x863 | 1 | General purpose |
 | 0x881-0x887 | 7 | General purpose |
 | 0x88F | 1 | General purpose (0x88E is now `FLAG_BADGE09_GET`) |
 | 0x8E3 | 1 | General purpose |
-| **0x8E5-0x91E** | 58 | **Story beats and cutscenes:** gyms, Elite Four, post-game. Spill into the general flags if needed |
+| **0x8EC-0x91E** | 51 | **Story beats and cutscenes:** gyms, Elite Four, post-game. Spill into the general flags if needed |
 
 Reminder: the spare flags for ordinary game state are numerous but they are not unlimited. 316 flags for 18 towns, 33 routes, 9 gyms, the League and the post-game is enough only if boolean state is packed sensibly. Use `VAR_TEMP_*` for anything local to one map visit.
 
@@ -72,7 +81,7 @@ Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x4
 
 **Claimed 2026-09-30:** `VAR_TROG_STARTER` (0x40F7, was `VAR_UNUSED_0x40F7`): Troglodyte's random starter, 0, 1 or 2 for the 1st, 2nd or 3rd starter on show. Set once by the lab scene (`random 3`) and read by the pool prune in `src/trainer_pools.c`.
 
-**Planned, not claimed yet:** one object-hide flag for the grandfather's bench (Hollowbrook), driven by the lab scene, `FLAG_BADGE01_GET` and `FLAG_SYS_GAME_CLEAR`; a flag for Troglodyte's attitude, contemptuous or oblivious, once the story points that change it are decided (from the story-beat block above). Also flags for the lab scene (the fourth starter revealed, the player has chosen) and Route 1 needs one flag for the guide's POTION gift and two hidden-item flags (from `FLAG_HIDDEN_ITEMS_START` upward, see below). **Already claimed:** `VAR_TROG_STARTER` (0, 1 or 2), set by the lab scene and read by every Troglodyte battle (see its row above). Claim the rest and add rows here when the scripts are written.
+**Planned, not claimed yet:** one object-hide flag for the grandfather's bench (Hollowbrook), driven by the lab scene, `FLAG_BADGE01_GET` and `FLAG_SYS_GAME_CLEAR`; a flag for Troglodyte's attitude, contemptuous or oblivious, once the story points that change it are decided (from the story-beat block above). Route 1 needs one flag for the guide's POTION gift and two hidden-item flags (from `FLAG_HIDDEN_ITEMS_START` upward, see below). **Already claimed:** `VAR_TROG_STARTER` (0, 1 or 2), set by the lab scene and read by every Troglodyte battle (see its row above). **Claimed 2026-10-01 for the lab scene:** `VAR_HOLLOWBROOK_STATE` (0x40F8) and five hide flags 0x8E5-0x8E9 (table above). **Claimed 2026-10-01 for the town:** the grandfather and Troglodyte hide flags (0x8EA, 0x8EB), three per-map one-shots (0x493-0x495) and `FLAG_VISITED_HOLLOWBROOK` (0x020). Claim the rest and add rows here when the scripts are written.
 
 **Only 22 spare persistent vars.** Use a var only for a state that has more than two values (a story chapter counter, a puzzle stage). Use a flag for anything yes/no. If we run short, the remaining Hoenn vars can be freed by removing the Hoenn maps that use them, but that is a decision for the author.
 
@@ -88,4 +97,4 @@ Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x4
 
 - **Trainer slots.** `TRAINERS_COUNT` is 855 and `MAX_TRAINERS_COUNT` is 864, so only **9 new trainer IDs** fit before trainer flag space overflows (upstream's own note in `include/constants/opponents.h`). New trainers must reuse IDs of vanilla trainers you no longer need (rename them), or `MAX_TRAINERS_COUNT` is raised. That costs save block space, but there are about 176 bytes of headroom (roughly 1,400 flags), so a few hundred more trainers fit. It shifts every system and daily flag, which is fine on a fresh start. See [engine-limits.md](engine-limits.md). `TRAINER_CRESTFALL_GRETA` needs one of these. See open decision 6 in [game-bible.md](game-bible.md).
 - **Badges.** Flags 0x867-0x86E are badges 1-8, and 0x86F is already a `FLAG_VISITED_*`, so badge 9 is `FLAG_BADGE09_GET` at 0x88E. See [badges.md](badges.md).
-- **Fly flags.** `FLAG_VISITED_*` are Hoenn-named and sit in the system block. The A-prime hooks are applied and the table is empty. Claim `FLAG_UNUSED_0x020` to `0x031` as `FLAG_VISITED_<TOWN>` one town at a time (renaming the one line in `include/constants/flags.h`), with the checklist in [region-map.md](region-map.md). None is claimed yet.
+- **Fly flags.** `FLAG_VISITED_*` are Hoenn-named and sit in the system block. The A-prime hooks are applied and the table is empty. Claim `FLAG_UNUSED_0x021` to `0x031` as `FLAG_VISITED_<TOWN>` one town at a time (renaming the one line in `include/constants/flags.h`), with the checklist in [region-map.md](region-map.md). `0x020` is `FLAG_VISITED_HOLLOWBROOK` (2026-10-01).
