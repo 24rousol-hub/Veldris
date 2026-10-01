@@ -15,8 +15,21 @@ for c in PAL: p+=list(c)
 sheet.putpalette(p+[0]*(768-len(p)))
 def slot(i):
     return (i%8)*16,(i//8)*16
+SC=14/16.0   # badges are drawn 14 px wide and centred, so neighbours on the card keep a 2 px gap
+class Sc:
+    def __init__(s,d): s.d=d
+    def _p(s,v): return v*SC+(1-SC*0)  # centre offset applied below
+    def _xy(s,v): return [ (c*SC+1.0) for c in v]
+    def _pts(s,pts): return [(x*SC+1.0,y*SC+1.0) for x,y in pts]
+    def polygon(s,pts,fill=None): s.d.polygon(s._pts(pts),fill=fill)
+    def ellipse(s,bb,fill=None): s.d.ellipse(s._xy(bb),fill=fill)
+    def rectangle(s,bb,fill=None): s.d.rectangle([round(c*SC+1.0) for c in bb],fill=fill)
+    def line(s,pts,fill=None,width=1):
+        if len(pts)==4: pts=[pts[0]*SC+1.0,pts[1]*SC+1.0,pts[2]*SC+1.0,pts[3]*SC+1.0]
+        s.d.line(pts,fill=fill,width=width)
+    def point(s,xy,fill=None): s.d.point([round(xy[0]*SC+1.0),round(xy[1]*SC+1.0)],fill=fill)
 def tile():
-    im=Image.new('P',(16,16),0); im.putpalette(sheet.getpalette()); return im, ImageDraw.Draw(im)
+    im=Image.new('P',(16,16),0); im.putpalette(sheet.getpalette()); return im, Sc(ImageDraw.Draw(im))
 def poly_ring(n,r,cx=7.5,cy=7.5,rot=0):
     return [(cx+r*math.cos(rot+2*math.pi*k/n),cy+r*math.sin(rot+2*math.pi*k/n)) for k in range(n)]
 def outlined(d,pts,fill):
