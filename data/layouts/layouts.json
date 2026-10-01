@@ -9323,6 +9323,17 @@
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_VELDRIS_HOME_1F",
+      "name": "Veldris_Home_1F_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/Veldris_Home_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Veldris_Home_1F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }
