@@ -2,6 +2,8 @@
 
 Status: **PROPOSED.** Written 2026-10-01 from [../interiors/README.md](../interiors/README.md), [../interiors/catalogue.md](../interiors/catalogue.md), [../README.md](../README.md), [../../interiors.md](../../interiors.md), [../index.md](../index.md), the card [../towns/kingsquay.md](../towns/kingsquay.md), roads R23 and R24 ([../routes-south.md](../routes-south.md)), the Goldsworth drafts ([../../goldsworth.md](../../goldsworth.md), [../../dialogue/goldsworth.inc](../../dialogue/goldsworth.inc)) and the Project Palladium renders `SSAqua1/2/Cabins/Captain`, `Olivine City`, `Cianwood City`. House templates **G4-A, G4-B, G4-C** are defined in [ebbsworth.md](ebbsworth.md) section 6.0. Neighbours: [ebbsworth.md](ebbsworth.md), [driftsands.md](driftsands.md), [beaconmouth.md](beaconmouth.md), [vesperhaven.md](vesperhaven.md). Road detail: [routes-south-detail.md](routes-south-detail.md).
 
+**New minor names and details introduced in this file are all PROPOSED:** Quayside Tea Rooms, `Ferry_Deck`, `Ferry_Galley`, `Ferry_CaptainsCabin`, the Ferry Captain, the optional ferry-hand rematch.
+
 Conventions: **(x, y) from the top-left tile (0,0)**; a footprint is `(x0,y0)-(x1,y1)` inclusive; a 4-wide building's door is the bottom-row tile `(x0+1, y1)` (vanilla rule, checked on Lilycove: Pokémon Center door (24,14) on footprint x23-26; houses' doors at `x0+1`); larger buildings give their door explicitly. Interior mats are two tiles wide as in vanilla.
 
 ---
@@ -242,7 +244,7 @@ Mats (5,10),(6,10). **Objects (3):** Butler (6,3), Cousin A at (3,6) `FACE_RIGHT
 ### 6.11 Harbour Master's Hut, Dockhand's House, Retired Pilot's House
 
 - **Harbour Master's Hut (G4-A 11 x 8).** The **Harbour Master** at (8,4) `FACE_LEFT` ('R24 is the road with the sand in its shoes'); a ferry rules `bg_event` at (7,2); a timetable at (8,2). Warps: mats (2,7),(3,7) to `Kingsquay` warp 8.
-- **Dockhand's House (G4-A).** A mother at (5,6) `FACE_UP`, a son at (9,5) wandering, a Wingull perch pet at (2,4). The dockhand outside (30,32) says the crates are 'permits'. Warps: mats (2,7),(3,7) to `Kingsquay` warp 9.
+- **Dockhand's House (G4-A).** A mother at (5,6) `FACE_UP`, a son at (9,5) wandering, a Wingull on a perch at (2,4) (ambient Pokémon). The dockhand outside (30,32) says the crates are 'permits'. Warps: mats (2,7),(3,7) to `Kingsquay` warp 9.
 - **Retired Pilot's House (G4-C 12 x 9).** The **pilot** at (8,5) `FACE_LEFT`: the gym 9 hint ('the lighthouse keeper drains the tower by hand, floor by floor'). Model ship on the table (bg_event (6,5)). Warps: mats (5,8),(6,8) to `Kingsquay` warp 10.
 
 ### 6.12 Quayside Tea Rooms (optional, PROPOSED name)
@@ -377,7 +379,7 @@ Interior warps (exit mats back to the outdoor warp number above):
 
 1. **Ferry.** It lets a returning player skip R24 and R25. I gate it on having walked to Beaconmouth once (card). v1 (no ferry maps) is cheapest; do you want the deck, galley and captain's cabin at all?
 2. **Winston twice.** Kingsquay's house and Aldermere's kiosk both use Winston. I made it a deliberate gag; otherwise Aldermere's kiosk takes Trip.
-3. **Shared Goldsworth layout.** I defined it here (13 x 11). Another file may define a different one; one must win before it is painted.
+3. **Shared Goldsworth layout: two definitions exist.** I defined it here (13 x 11, mats (5,10),(6,10); Hemlock Reach and Primrose Vale adopted it). [briarwick.md](briarwick.md) section 3.5 defines its own **13 x 10** layout (door mat (6,9)), which Hoarfell adopted. Only one can be painted and shared: the author picks, and the other files' coordinates shift by a row. **Cousin allocation also collides** across files (Winston appears at Kingsquay, Aldermere, Hoarfell and Primrose Vale; Prescott and Kip at Beaconmouth and elsewhere): the author or the index writer must assign each cousin to one city.
 4. **Little Office and Brick Cafe are triple-layer or ambiguous** and need a Porytiles conversion like Gen 4 Interior got (design/interiors.md). Are two more conversions worth it for one office and an optional tea room? Fallback for the office is vanilla Devon Corp 1F; the tea room can simply be dropped.
 5. **TMs in shops.** The card sells Hyper Beam and Rock Tomb at the Emporium; keep, or make them found items?
 6. **Move Reminder.** Keep (a small script system) or leave out?

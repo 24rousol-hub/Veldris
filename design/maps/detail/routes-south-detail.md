@@ -1,6 +1,11 @@
 # SOUTH ROADS R22 TO R31: detailed design
 
+> **Open question (author, 2026-10-01): the Palladium and vanilla route renders named in this file are NOT decided.** Reusing route images may not give a quality hack, so every 'source render' for a road below is a mood and shape reference only until the author decides how each road is built.
+
+
 Status: **PROPOSED.** Written 2026-10-01 from [../interiors/README.md](../interiors/README.md) ('Per road' list), [../interiors/catalogue.md](../interiors/catalogue.md), [../README.md](../README.md), [../../interiors.md](../../interiors.md), [../index.md](../index.md), the road cards in [../routes-south.md](../routes-south.md) (species, levels, items and flags are theirs, kept as they are), the settlement files in this folder ([ebbsworth.md](ebbsworth.md), [kingsquay.md](kingsquay.md), [driftsands.md](driftsands.md), [beaconmouth.md](beaconmouth.md), [aldermere.md](aldermere.md), [vesperhaven.md](vesperhaven.md), [landmarks-south-detail.md](landmarks-south-detail.md)), and by rendering the vanilla route layouts named below with the tree's own tilesets and looking at the Palladium images `Route 33.png` (375 x 307, **22 x 18** tiles) and `Route 38.png` (681 x 477, **40 x 28**).
+
+**New minor names and details introduced in this file are all PROPOSED:** the lamp-keeper, buoy keeper, signpost reader and other road NPCs, the sign texts, and every coordinate.
 
 **Nothing here changes canon**: levels, species, trainer teams, items and flags are the card's. This file adds the shape of each map, where each thing stands, and what to build.
 
@@ -41,37 +46,64 @@ Section ids `MAPSEC_VELDRIS_ROUTE_22` to `_31` (card). Palladium credit rule: a 
 
 ## R22: Waymeet to Ebbsworth (water, Waterfall weir)
 
-**Description and walk-through.** The first sea road of the south, and its first lock. *Opening view from Waymeet:* the player leaves the south dock gate and slides into a brown tidal channel between two lines of rock, reed banks on the left and a pale sandbar with a lone fisher; far ahead, across a rock island, a thin white thread that is the weir. *Main path shape:* a **three-pass switchback**: south down the west channel, a turn along the foot pool, **north up a short cascade (Waterfall)**, across an upper basin, and **south again** down a wide estuary into Ebbsworth. *Set pieces and pacing:* the weir is visible from the first pass, so the player knows what is coming (and that Waterfall is the gate); the foot pool is the quiet pause before the climb; the upper basin has the barge pontoon (Scheme 9 seed); the estuary is the long, easy run in, with trainers thinning out.
+**Description and walk-through.** The first sea road of the south, and its first lock. *Opening view from Waymeet:* the player leaves the south pier and slides into a brown tidal channel between two lines of rock, reed banks on the left and a pale sandbar with a lone fisher; across a wall of rock to the east, a thin white thread that is the weir. *Main path shape:* a **three-pass switchback**: south down a long channel, a turn into a broad foot pool, **north up a short cascade (Waterfall)** on the east side, across an upper basin, and **south again** down a second channel that doubles back **west along the bottom of the map** into Ebbsworth. *Set pieces and pacing:* the weir is visible from the first pass (a rock wall separates them), so the player knows what is coming and that Waterfall is the gate; the foot pool is the quiet pause before the climb; the upper basin has the barge pontoon (Scheme 9 seed); the last pass is the long, easy run in, with trainers thinning out.
 
-**Base.** Vanilla `Route122` (`Route122_Layout`, 40 x 40, `General` + `Lilycove`): keep the **ring of rock and whirlpool-rock tiles** (about 30 rock and whirlpool-rock tiles around the whole edge, x 0-39, y 0-39) as the map frame; **fill the Mt Pyre mountain** (x 4-33, y 7-31) with water; leave the green pad at the bottom (it becomes a reed bank). Copy the cascade pieces from vanilla Route 119 (the rock face with falling-water metatiles that Waterfall climbs).
+**Base.** Vanilla `Route122` (`Route122_Layout`, 40 x 40, `General` + `Lilycove`): keep the **ring of rock and whirlpool-rock tiles** (about 30 rock tiles around the whole edge) as the map frame; **fill the Mt Pyre mountain** (x 4-33, y 7-31) with rock-and-water as the plan below needs; the green pad at the bottom edge becomes a reed bank. Copy the cascade pieces from vanilla Route 119 (the rock face with falling-water metatiles that Waterfall climbs). **The plan was checked with a small path program while writing:** with the cascade tiles blocked the player can reach the foot pool but not the upper basin or the exit; with them open the exit is reachable.
+
+Sketch, **1 character = 2 x 2 tiles** (20 x 20 characters). `R` rock, `~` water, `F` waterfall tiles, `b` sandbar beach, `d` Waymeet dock stub, `i` rock islet, `p` pontoon, `s` foot-pool sandbar, `o` east sandbar.
+
+```
+x:  0    1    2    3    
+y0  RRRRRRRRRR~~dRRRRRRR
+y2  RRRRRRRRRR~~dRRRRRRR
+y4  RRRRRRRbbb~~RRRRRRRR
+y6  RRRRRRRbbb~~RRRRRRRR
+y8  RRRRRRRbbb~~R~~~~~~R
+y10 RRRRRRRRRR~~R~iii~~R
+y12 RRRRRRRRRR~~R~iiippR
+y14 RRRRRRRRRR~~R~~~~~~R
+y16 RRRRRRRRRR~~R~~~~~~~
+y18 RRRRRRRRRR~~RR~~R~~~
+y20 RRRRRRRRRR~~RR~~R~~~
+y22 RRRRRRRRRR~~RRFFR~~~
+y24 RRRRRRRRRR~~RRFFoo~~
+y26 RRRRRRRRRR~~RRFFoo~~
+y28 RRRRRRRRRR~~RR~~R~~~
+y30 RRRRRRRR~~~~~~~~~~~~
+y32 RRRRRRRR~~~~ss~~~~~~
+y34 RRRRRRRR~~~~ss~~~~~~
+y36 RRRRRRRR~~~~~~~~~~~~
+y38 RRRRRRRRRR~~~~~~~~~~
+```
+(Header digits mark every 10 tiles. The water is exact in the tables below; the rock between passes is solid.)
 
 **Segments** (map x,y; water unless said):
 
-1. **Waymeet dock and sandbar (y 0-8).** North edge water **x 2-6** (offset to Waymeet's south dock set when Waymeet exists). A 3-tile wooden dock stub (7,0)-(8,2) with the **Waymeet dock-gate guard** at (7,1). Sign 'EBBSWORTH: FOLLOW THE CHANNEL' at (7,3). **Sandbar** (8,4)-(12,8) with the **fisher** (rumour about the Ebbsworth barge) at (9,6). Reed bank decoration at x 7-9, y 9-12.
-2. **West channel (x 2-6, y 8-30).** A 5-wide straight run of about 22 tiles between a ridge of rock (x 7-9) and the frame rocks. Mid-way a **child watching the Wailord** at (8,13) on the ridge. **Swimmer male** at (4,12). An outcrop (8,18)-(9,22) with the **Fisherman** at (8,20); a second outcrop (8,24)-(9,26) holding the visible **Max Potion** at (8,24); **Tuber female** drifting at (5,24).
-3. **Foot pool (x 2-13, y 31-36).** The channel turns east. A sandbar (6,33)-(9,35) with a visible **Revive** at (7,33), hidden **Pearl** at (6,35) and **Heart Scale** at (9,34). A rock at (12,32) holds the visible **Dive Ball** ('Dive Ball at the weir foot', card). Water is deep and calm (a good place to fish).
-4. **The cascade (x 10-13, y 18-30).** A 4-wide channel north between cliff walls (x 9 and x 14); **Waterfall tiles at x 11-12, y 22-26** (2 wide, 5 tall); sign 'LOCK BEYOND' at (9,28) on the rock (what the player sees without Waterfall). The **Swimmer female (at the weir)** at (12,28) faces up at the foot of the fall (`FACE_UP`, sight 3). Without Waterfall (badge 8) the player is stopped here: this is the **hard gate behind gym 8** (card).
-5. **Upper basin (x 8-26, y 8-17).** A calm pool above the weir. A rock **islet (14,10)-(17,13)** with the **Sailor** at (15,13); a floating **pontoon (19,12)-(21,13)** with the **barge hand** at (20,12) ('Four hundred. Counted twice.').
-6. **Estuary (x 20-25, y 17-39).** A wide channel with reed beds each side (x 18-19, 26-27) and an east sandbar (28,24)-(31,27) (scenery). **Swimmer female** at (22,30) faces up. The channel arrives at the south edge **x 20-25**, Ebbsworth's river (x 20-25, same columns, offset 0).
+1. **Waymeet pier and sandbar (y 0-8).** North edge water **x 20-23**, matching Waymeet's south pier at columns 20-23 ([waymeet.md](waymeet.md)): offset 0. A 2-tile dock stub (24,0)-(25,2) with the **Waymeet dock-gate guard** at (24,1). Sign 'EBBSWORTH: FOLLOW THE CHANNEL' at (24,3). **Sandbar beach** (14,4)-(19,8) west of the channel with the **fisher** (rumour about the Ebbsworth barge) at (17,6).
+2. **First pass (x 20-23, y 0-30).** A 4-wide straight channel of 30 tiles between frame rock on the west and a rock wall (x 24-27) on the east. **Swimmer male** at (21,12). **Child watching the Wailord** at (18,14) on the west ridge. A west outcrop (17,20)-(19,23) with the **Fisherman** at (18,20) and the visible **Max Potion** at (18,24) on a lower rock. **Tuber female** drifting at (22,22).
+3. **Foot pool (x 17-33, y 31-36).** The channel opens into a broad calm pool. A **sandbar** (24,33)-(27,35) with a visible **Revive** at (25,33), hidden **Pearl** at (24,35) and **Heart Scale** at (27,34). A rock at (30,32) holds the visible **Dive Ball** ('Dive Ball at the weir foot', card). Deep, calm water (a good place to cast a rod). A rock ridge along y 37 (x 17-34) separates the pool from the bottom lane.
+4. **The cascade (x 29-30, y 21-27, with a 4-wide approach x 28-31).** From the pool's east end the water funnels north into a 2-wide, 5-tall **waterfall** (Waterfall tiles at x 29-30, y 22-26) between rock walls (x 28 and x 31, y 21-27); the channel is 4 wide again at the foot (y 28-30) and at the top (y 18-20). Sign 'LOCK BEYOND' at (27,28) on the rock; the **Swimmer female (at the weir)** at (29,28) faces up at the foot of the fall. Without Waterfall (badge 8) the player is stopped here: the **hard gate behind gym 8** (card). A line of whirlpool rocks (decoration) at (28..31,29).
+5. **Upper basin (x 27-37, y 8-17).** A calm pool above the weir, with a **rock islet (29,10)-(32,13)** where the **Sailor** stands at (30,13), and a floating **pontoon (34,12)-(36,13)** with the **barge hand** at (35,12) ('Four hundred. Counted twice.').
+6. **Second pass (x 35-38, y 17-37) and the bottom lane (y 38-39, x 20-38).** From the basin's south-east corner a 4-wide channel runs south with reed beds on both sides and an **east sandbar** (32,24)-(34,26) (scenery). **Swimmer female** at (36,28) faces up. At y 38 the channel turns **west along the bottom of the map** (2 tiles tall, a rock ridge on its north side) for 15 tiles and leaves by the south edge at **x 20-25**, Ebbsworth's river (offset 0).
 
-**Connections.** North edge x 2-6, water, to Waymeet's south dock (Waymeet's card). South edge x 20-25, water, to `Ebbsworth` north edge (offset 0). No other exits.
+**Connections.** North edge x 20-23, water, to `Waymeet` south edge (columns 20-23: offset 0, per Waymeet's file). South edge x 20-25, water, to `Ebbsworth` north edge (x 20-25: offset 0). No other exits.
 
 **Trainers (6, levels per the card).**
 
 | Class | Team (card) | Tile | Facing | Sight |
 |---|---|---|---|---|
-| Swimmer male | Starmie 52, Seadra 52, Floatzel 53 | (4,12) | `FACE_DOWN` | 4 |
-| Tuber female | Azumarill 52, Poliwrath 53 | (5,24) | `FACE_LEFT` | 2 |
-| Fisherman | Gyarados 52, Whiscash 53, Qwilfish 53 | (8,20) | `FACE_LEFT` | 4 |
-| Sailor | Pelipper 52, Tentacruel 53, Dewgong 53 | (15,13) | `FACE_DOWN` | 4 |
-| Swimmer female (at the weir) | Kingdra 54, Seaking 53, Milotic 54 | (12,28) | `FACE_UP` | 3 |
-| Swimmer female | Mantine 52, Lanturn 53, Jellicent 53 | (22,30) | `FACE_UP` | 4 |
+| Swimmer male | Starmie 52, Seadra 52, Floatzel 53 | (21,12) | `FACE_DOWN` | 4 |
+| Fisherman | Gyarados 52, Whiscash 53, Qwilfish 53 | (18,20) | `FACE_RIGHT` | 4 |
+| Tuber female | Azumarill 52, Poliwrath 53 | (22,22) | `FACE_DOWN` | 2 |
+| Swimmer female (at the weir) | Kingdra 54, Seaking 53, Milotic 54 | (29,28) | `FACE_UP` | 3 |
+| Sailor | Pelipper 52, Tentacruel 53, Dewgong 53 | (30,13) | `FACE_DOWN` | 4 |
+| Swimmer female | Mantine 52, Lanturn 53, Jellicent 53 | (36,28) | `FACE_UP` | 4 |
 
-**NPCs (4):** Waymeet dock-gate guard (7,1) (the weir 'climbs, it does not carry'), fisher (9,6), child (8,13), barge hand (20,12). **Items:** visible Max Potion (8,24), Revive (7,33), Dive Ball (12,32); hidden Pearl (6,35), Heart Scale (9,34); post-game optional Big Pearl Dive spot under the weir (22,15 in the basin, optional underwater map). **Objects:** 6 + 4 + 3 = **13**.
+**NPCs (4):** Waymeet dock-gate guard (24,1) (the weir 'climbs, it does not carry'), fisher (17,6), child (18,14), barge hand (35,12). **Items:** visible Max Potion (18,24), Revive (25,33), Dive Ball (30,32); hidden Pearl (24,35), Heart Scale (27,34); post-game optional Big Pearl Dive spot (35,15 in the basin, optional underwater map). **Objects:** 6 + 4 + 3 = **13**.
 
-**Water and fishing.** Surf slots (60/30/5/4/1 per the card) apply to every water tile; Old, Good and Super Rod everywhere there is water; good named fishing spots: the foot pool (7,31) and the estuary reeds (21,25). No grass on this road.
+**Water and fishing.** Surf slots (60/30/5/4/1 per the card) apply to every water tile; Old, Good and Super Rod everywhere there is water; good named fishing spots: the foot pool (20,33) and the second pass reeds (36,22). **Shore lines:** rock walls with the vanilla water-edge pieces along the three passes, reed beds (decoration) along the second pass and the bottom lane, sand where the three sandbars are. **Rocks and whirlpool rocks:** the frame ring (impassable swirl-and-rock tiles) round the whole edge, plus single rocks at (19,18), (22,28), (33,22) and (36,35). No grass on this road.
 
-**Visual identity.** Tilesets `General` + `Lilycove` (LeoB `lilycove` when Kingsquay's import is done). Colours: brown-green tidal water, pale rock, reed yellow, a white thread of cascade. Weather `WEATHER_SUNNY`. Music `MUS_ROUTE122` (vanilla's own Route 122 theme). Landmark silhouette: the weir on its rock island, visible from the first pass.
+**Visual identity.** Tilesets `General` + `Lilycove` (LeoB `lilycove` when Kingsquay's import is done). Colours: brown-green tidal water, pale rock, reed yellow, a white thread of cascade. Weather `WEATHER_SUNNY`. Music `MUS_ROUTE122` (vanilla's own Route 122 theme). Landmark silhouette: the weir on its rock wall, visible from the first pass.
 
 **Goldsworth beat.** None (the barge is the seed). **Flags (not claimed):** `FLAG_R22_BARGE_HAND_SEEN`, `FLAG_ITEM_R22_MAX_POTION`, `_REVIVE`, `_DIVE_BALL`, `FLAG_HIDDEN_ITEM_R22_HEART_SCALE`, `_PEARL`. **Build effort:** medium (a water map with one hand-built weir). **Build order:** after Ebbsworth.
 
@@ -108,7 +140,9 @@ Section ids `MAPSEC_VELDRIS_ROUTE_22` to `_31` (card). Palladium credit rule: a 
 
 **NPCs (5):** pier fisherman (36,12), barge hand (29,6), clerk (30,6), walker (29,18), picnicker (33,8). **Items:** visible Super Repel (31,24), Max Ether (30,45), Net Ball (34,36); hidden Pearl on the pier (37,19), Heart Scale (29,28), Star Piece (33,44). **Objects:** 7 + 5 + 3 = **15, the limit**. If anything is added, split the map at y 31 into R23 north and south.
 
-**Grass.** 12-slot grass tables (card) apply to **tall-grass patches** along the pine strip: (28,24)-(29,27), (32,32)-(33,35), (29,42)-(31,43), (27,50)-(30,53). Surf and fishing as usual. **Visual identity.** `General` + `Slateport` (LeoB when imported). Colours: sand, pine green, white parasol canopies, pier wood, sea blue. Weather `WEATHER_SUNNY`. Music `MUS_ROUTE104` (what vanilla Route 109 uses). Silhouette: the pier and the line of pines.
+**Grass.** 12-slot grass tables (card) apply to **tall-grass patches** along the pine strip: (28,24)-(29,27), (32,32)-(33,35), (29,42)-(31,43), (27,50)-(30,53). Surf and fishing as usual. **Water details.** *Surf patches:* the channel x 20-25 (y 0-22) and the whole west sea lane x 0-26, y 22-62 (the card's Surf table); the east side of the strip is also open sea (x 35-39). *Shore lines:* the spit's beach edge (wet-sand pieces), the strip's west edge (sand, then beach grass, then pines), the bottom island's rim. *Rocks and whirlpool rocks:* keep the vanilla rock ring along both edges (swirl-and-rock tiles, x 0-3 and x 36-39, every 4 to 6 tiles) and the larger rock stacks near (3,13), (4,29) and (7,36). *Fishing spots:* the pier end (37,22), the footbridge (22,11), the west sea lane at (14,40) and the bay at (4,60).
+
+**Visual identity.** `General` + `Slateport` (LeoB when imported). Colours: sand, pine green, white parasol canopies, pier wood, sea blue. Weather `WEATHER_SUNNY`. Music `MUS_ROUTE104` (what vanilla Route 109 uses). Silhouette: the pier and the line of pines.
 
 **Goldsworth beat.** None; the argument at (29,6) continues the barge seed. **Flags (not claimed):** `FLAG_R23_BARGE_ARGUMENT_SEEN`, `FLAG_ITEM_R23_SUPER_REPEL`, `_MAX_ETHER`, `_NET_BALL`, `FLAG_HIDDEN_ITEM_R23_PEARL`, `_HEART_SCALE`, `_STAR_PIECE`. **Build effort:** medium. **Open:** the card asks whether a halfway Pokémon Center is wanted; the rest house is a drink, not a heal.
 
@@ -220,6 +254,8 @@ Section ids `MAPSEC_VELDRIS_ROUTE_22` to `_31` (card). Palladium credit rule: a 
 
 **NPCs (3):** diver (57,14), old fisher (44,18), researcher on a boat (22,14). The 'ferry captain at Beaconmouth' lives on Beaconmouth's map ([beaconmouth.md](beaconmouth.md)). **Items:** visible Max Revive (60,8), Rare Candy (40,25). **Objects:** 6 + 3 + 2 = **11**.
 
+**Water details.** *Surf patches:* the whole map except the shoals. *Currents:* the rippled current tiles of vanilla `Route134` (x 12-55, y 6-36) set to push west; the shoal edge along y 12-18 (x 44-65) has none, so the way back can follow it. *Shore lines:* pale shoal pieces round the sandbank (x 43-65, y 12-18), the island (x 22-37, y 22-33) and the Aldermere quay; the cliff face along the north-west (x 0-20, y 0-8) with water-edge pieces. *Rocks and whirlpool rocks:* the vanilla ring of swirl-and-rock tiles round the whole edge, plus single rocks at (40,24), (60,8) and (18,12). *Fishing spots:* the shoal island edge (30,24), the bank at (50,16), the quay (2,21) and the Dive spots' rims.
+
 **Visual identity.** `General` + `Pacifidlog` (vanilla; no LeoB match). Colours: grey-blue, pale shoal sand, rock brown. Weather **`WEATHER_FOG_HORIZONTAL`** (a mist over the whole road leads into Aldermere's fogged plateau). Music `MUS_ROUTE119`. Silhouette: the ruin cliff in the mist at the west.
 
 **Goldsworth beat.** None. **Flags (not claimed):** `FLAG_R26_OPEN` (with game clear), `FLAG_ITEM_R26_MAX_REVIVE`, `_RARE_CANDY`, `FLAG_HIDDEN_ITEM_R26_*` for the Dive items. **Build effort:** medium (a sea map plus its underwater twin). **Open:** the sketch's brown line beside R26 (a cliff path) is not built; water only.
@@ -234,7 +270,7 @@ Section ids `MAPSEC_VELDRIS_ROUTE_22` to `_31` (card). Palladium credit rule: a 
 
 **Segments:** 1. **Vesperhaven end (x 66-79, y 14-24):** the cutter (`SS_TIDAL` object) at (72,19), hidden at game clear; **Sailor** at (66,19). 2. **The swell (x 40-66, y 8-32):** open water, rock arcs at the north (x 44-70, y 0-5); **Swimmer male** (58,22), **Swimmer female** (50,17), **Fisherman** (38,12). 3. **The lagoon (x 25-35, y 14-24):** **Tuber male** floats at (30,19); visible **Rare Candy** at (31,16) on the ring, **Max Elixir** (28,20), **Dive Ball** (34,23); optional Dive spot (a single Pearl String) at (30,21). 4. **The gap (x 10-24, y 26-36):** rocks and shoals; **Sailor (second)** at (14,30) (a Barraskewda and a Toxapex). 5. **Wendlebury end (x 0-9, y 14-26):** a pontoon with a **Wendlebury sailor** at (6,18) selling a rumour; a **fisher out of reach** on the rock arc at (45,6).
 
-**Connections.** East edge x 79, y 18-21 to `Vesperhaven` west edge (x 0, y 28-30): offset 9 (R27's top at Vesperhaven y 9). West edge x 0 to Wendlebury's east or south dock (Wendlebury's card: its east edge is free; **the card said R8 uses Wendlebury's west edge**): offset set when Wendlebury is built. **Gate:** post-game, `FLAG_SYS_GAME_CLEAR` (the cutter leaves; shared with `FLAG_VESPERHAVEN_GATES_OPEN`). Surf only.
+**Connections.** East edge x 79, y 18-21 to `Vesperhaven` west edge (x 0, y 28-30): offset 9 (R27's top at Vesperhaven y 9). West edge x 0 to `Wendlebury`'s **east edge**, which [wendlebury.md](wendlebury.md) keeps as open sea (its R8 is on the north edge and its barricade on the west; it leaves a sand tile at (31,12) walkable into the water for this road): offset set when Wendlebury is built. **Gate:** post-game, `FLAG_SYS_GAME_CLEAR` (the cutter leaves; shared with `FLAG_VESPERHAVEN_GATES_OPEN`). Surf only.
 
 **Trainers (6).**
 
@@ -248,6 +284,8 @@ Section ids `MAPSEC_VELDRIS_ROUTE_22` to `_31` (card). Palladium credit rule: a 
 | Sailor | Cloyster 61, Barraskewda 62, Toxapex 62 | (14,30) | `FACE_UP` | 4 |
 
 **NPCs (3):** cutter (72,19), Wendlebury sailor (6,18), fisher (45,6). **Items:** Rare Candy (31,16), Max Elixir (28,20), Dive Ball (34,23) (all visible). **Objects:** 6 + 3 + 3 = **12** (the optional underwater Pearl String is a hidden item, not an object). Wild tables per the card (no land).
+
+**Water details.** *Surf patches:* everywhere outside the shoals and the lagoon; the lagoon itself is a separate calm surf patch (x 26-34, y 15-23) with its own fishing. *Shore lines:* pale shoal pieces round the ring island and the pontoons; the north rock arc (x 44-70, y 0-5) has water-edge pieces. *Rocks and whirlpool rocks:* arcs of swirl-and-rock tiles (vanilla) at the north (x 44-70, y 0-5), along the south (x 10-24, y 32-38) and around the ring island. *Fishing spots:* the lagoon (30,21), the swell (60,26), the gap (18,28).
 
 **Visual identity.** `General` + `Mossdeep` (LeoB `mossdeep`). Colours: open blue, shoal sand, rock red-brown. Weather `WEATHER_SUNNY`. Music `MUS_ROUTE120`. Silhouette: the ring lagoon. **Flags (not claimed):** `FLAG_R27_CUTTER_GONE` (or the shared gate flag), `FLAG_ITEM_R27_RARE_CANDY`, `_MAX_ELIXIR`, `_DIVE_BALL`. **Build effort:** easy to medium. **Open:** whether Vesperhaven opens before the League: the card's note says no.
 
@@ -274,6 +312,8 @@ Section ids `MAPSEC_VELDRIS_ROUTE_22` to `_31` (card). Palladium credit rule: a 
 | Triathlete | Poliwrath 64, Ludicolo 65, Swampert 66 | (57,6) | `FACE_UP` | 3 |
 
 **NPCs (3):** buoy keeper (18,9), cutter (4,5), fisher with a story (44,16). **Items:** visible Max Revive (34,12), Rare Candy (46,14). **Objects:** **10 at most** (5 + 3 + 2).
+
+**Water details.** *Surf patches:* the channel y 0-9 (x 0-59) and the shallows over the reef (y 10-18, x 20-55). *Shore lines:* the reef shelf's edge (wet-sand pieces) along y 9-10, and a sand lip at each pontoon. *Rocks and whirlpool rocks:* the vanilla arc of swirl-and-rock tiles across the north (y 1-8) and the rock hill on the shelf. *Fishing spots:* the buoy channel (26,6), the reef edge (36,10), the Ebbsworth mouth (57,3).
 
 **Visual identity.** `General` + `Dewford` (LeoB `dewford`, shared with Driftsands and Beaconmouth). Colours: light water, pale shelf, white buoys. Weather `WEATHER_SUNNY`. Music `MUS_ROUTE104`. **Flags (not claimed):** `FLAG_R28_CUTTER_GONE` (or the shared flag), `FLAG_ITEM_R28_MAX_REVIVE`, `_RARE_CANDY`. **Build effort:** easy.
 
@@ -307,6 +347,8 @@ Section ids `MAPSEC_VELDRIS_ROUTE_22` to `_31` (card). Palladium credit rule: a 
 | Cooltrainer male (on a rock) | Milotic 68, Lanturn 66, Toxapex 67 | (34,70) | `FACE_UP` | 4 |
 
 **NPCs (3):** cutter (5,3), lamp-keeper (21,6), fisher (40,40). **Items (visible 5):** Max Revive (12,30), Rare Candy (36,56), Dive Ball x3 (30,38), (32,38), (31,40). **Objects:** 6 + 3 + 5 = **14**.
+
+**Water details.** *Surf patches:* the whole map; dark-water Dive spots are marked on the surface by darker tiles at (22,50) and (30,58). *Shore lines:* pale shoals round every islet and the reef (x 28-36, y 36-42). *Rocks and whirlpool rocks:* the ring of swirl-and-rock tiles of vanilla `Route126`, kept at the edges, plus the lamp rock (20,6). *Fishing spots:* the reef edge (34,40), the deep stretch (24,52), the strait (6,10).
 
 **Visual identity.** `General` + `Mossdeep` (LeoB `mossdeep`). Colours: deep blue, pale reef, white sand bars. Weather `WEATHER_SUNNY`. Music `MUS_ROUTE120`. Silhouette: the lamp rock. **Flags (not claimed):** `FLAG_R29_CUTTER_GONE`, `FLAG_ITEM_R29_*`, `FLAG_HIDDEN_ITEM_R29_*`. **Build effort:** medium. **Open:** Dive spots here and on R26: keep both?
 
@@ -379,7 +421,7 @@ The road has exactly **seven trainers**, the card's list of classes.
 
 **NPCs (3 objects):** ranger at the gate (24,65), old woman (27,44); the hiker with a flask (card) is merged with the Hiker's pre-fight line. (The card's child 'who has been told not to go' becomes a **sign** at the Hollowbrook gate.) **Items:** visible Max Revive (30,60), Rare Candy (16,28), Full Restore (24,12), PP Max (30,14); hidden Star Piece (24,50), Nugget (14,26), Max Elixir (22,10). **Objects:** 7 + 2 + 4 + 1 boulder = **14**. Add the optional Cut tree only by dropping one NPC (limit 15).
 
-**Visual identity.** `General` + `Fallarbor` (LeoB `fallarbor`). Colours: lowland green, pale rock, sea on the left, thin snow dusting toward the top. Weather `WEATHER_SUNNY` low, optionally `WEATHER_SNOW` in the top 10 rows (weather is per map: pick one for the whole road; the camp is snowy). Music `MUS_ROUTE104`. Silhouette: the white peak on the horizon from the first step. **Flags (not claimed):** `FLAG_R31_OPEN` (or reuse `FLAG_ARGENT_PEAK_OPEN`), `FLAG_ITEM_R31_*`, `FLAG_HIDDEN_ITEM_R31_*`. **Build effort:** medium (a long trimmed trace). **Open:** the card asks if a 70-tile climb is too long; I kept it.
+**Visual identity.** `General` + `Fallarbor` (LeoB `fallarbor`). Colours: lowland green, pale rock, sea on the left, thin snow dusting toward the top. Weather `WEATHER_SUNNY` (weather is per map; `WEATHER_SNOW` is marked Unused in `include/constants/weather.h`, so test before using it on the camp or this road). Music `MUS_ROUTE104`. Silhouette: the white peak on the horizon from the first step. **Flags (not claimed):** `FLAG_R31_OPEN` (or reuse `FLAG_ARGENT_PEAK_OPEN`), `FLAG_ITEM_R31_*`, `FLAG_HIDDEN_ITEM_R31_*`. **Build effort:** medium (a long trimmed trace). **Open:** the card asks if a 70-tile climb is too long; I kept it.
 
 ---
 
@@ -390,5 +432,6 @@ The road has exactly **seven trainers**, the card's list of classes.
 3. **R25, R24 and R23 sit exactly at the 15-object limit.** Anything added forces a split.
 4. **R30 is traced flipped** and **R31's Hollowbrook end is a warp**. OK?
 5. **R26's current field:** do you want the currents to push the player (vanilla behaviour) or to be decoration only?
-6. **R27's Wendlebury connection.** The Wendlebury card uses its west edge for R8; I assume its east edge or south dock is free.
-7. **Underwater twins** (R26, R29, Aldermere, Beaconmouth, Vesperhaven): each is a map pair with Dive and Emerge connections; how the vanilla pair maps the player's position needs a check in Porymap before the spots are placed.
+6. **R27's Wendlebury connection.** Wendlebury's detail file keeps its east edge as sea; R27 attaches there, near the sand tile at (31,12) it leaves for it. Confirm the offset when Wendlebury is traced.
+7. **'Bird Keeper' class name.** Used by R23, R24, R25 (vanilla trainer class, the cards use it). It contains a real animal word; the east-roads file raises the same question ([routes-east-detail.md](routes-east-detail.md) open question 3). Keep or rename the class.
+8. **Underwater twins** (R26, R29, Aldermere, Beaconmouth, Vesperhaven): each is a map pair with Dive and Emerge connections; how the vanilla pair maps the player's position needs a check in Porymap before the spots are placed.

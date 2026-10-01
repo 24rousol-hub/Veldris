@@ -2,6 +2,8 @@
 
 Status: **PROPOSED** (nothing here is canon until the author approves it). Written 2026-10-01 from: [../interiors/README.md](../interiors/README.md) (decisions), [../interiors/catalogue.md](../interiors/catalogue.md), [../README.md](../README.md), [../../interiors.md](../../interiors.md) (Hollowbrook house style), [../index.md](../index.md), the card [../towns/ebbsworth.md](../towns/ebbsworth.md), and the road cards R22, R23, R28 ([../routes-south.md](../routes-south.md)). Companion detail files: [routes-south-detail.md](routes-south-detail.md) (R22 weir, R23, R28), [kingsquay.md](kingsquay.md), [vesperhaven.md](vesperhaven.md).
 
+**New minor names and details introduced in this file are all PROPOSED:** Harbour Market (the card's 'Fish Market', renamed), East Gate, the G4-A, G4-B and G4-C template names, Lock House as an interior.
+
 This file follows the 'Per settlement' list in the interiors README. It also holds the **three Gen 4 house templates (G4-A, G4-B, G4-C)** that the other south files reuse by name.
 
 Conventions used in every plan below: coordinates are **(x, y) from the top-left tile (0,0) of the map**; ground elevation is 3; a '4-wide' building footprint is written `(x0,y0)-(x1,y1)` inclusive and its door is on the **bottom row**, second tile from the left (`x0+1, y1`), as in the vanilla Slateport, Lilycove and Dewford town maps (checked: Slateport Pokémon Center footprint x18-21, door (19,19); Mart door (13,26); Lilycove houses' door at `x0+1`). Interior exit mats are two tiles wide as in vanilla (both mat tiles warp to the same outside door). Maps stay `layout_version` `emerald`, region `REGION_HOENN`, section `MAPSEC_EBBSWORTH`.
@@ -31,7 +33,7 @@ Conventions used in every plan below: coordinates are **(x, y) from the top-left
 
 **From the east gate (R23 land path).** A small pine-framed gatehouse opens onto the east quay: boatyard sheds and the barge are the first things you see.
 
-**Mood, colour, sound, time of day.** A working port, unhurried and tidy: stone, rope, tar, and tarpaulin. Palette: slate blue and honey stone, brown-green water, white bollards, blue and yellow awnings (the LeoB Slateport recolour supplies all of this), with the crates as the one stark black-on-pale accent. Light is **late afternoon with the tide halfway out** (the stock sunny palette is right; the damp stone strip along the waterline sells the tide). Sound: gulls and the Slateport track; every door gives a creak, nothing louder.
+**Mood, colour, sound, time of day.** A working port, unhurried and tidy: stone, rope, tar, and tarpaulin. Palette: slate blue and honey stone, brown-green water, white bollards, blue and yellow awnings (the LeoB Slateport recolour supplies all of this), with the crates as the one stark black-on-pale accent. Light is **late afternoon with the tide halfway out** (the stock sunny palette is right; the damp stone strip along the waterline sells the tide). Sound: Wingull cries and the Slateport track; every door gives a creak, nothing louder.
 
 **The one memorable view.** The crown of the bridge, at (22,16): looking south you see both lock wheels, the barge with its crates, and the harbour mouth at the west edge; looking north you see the river running back up to a tiny white thread of cascade that is the weir you just climbed. Put a bench-sized gap in the rail there so the player stops.
 
@@ -43,7 +45,7 @@ The river is a straight tidal channel running north to south at **x 20-25** (6 t
 
 1. **North quay (x 17-27, y 0-6).** R22 arrives in the river at the top edge (x 20-25, y 0). Stone quay both sides, a bollard row (white posts every 4 tiles: (18,2), (18,6), (27,2), (27,6)), a signpost 'EBBSWORTH' at (18,4), the **Quay lookout** at (18,3). Trees fill the top corners (x 0-12 and x 31-43, y 0-1).
 2. **West lane (y 5-8, x 3-17).** A paved lane under the top row of houses: the **Net Menders' Cottage** and the **Old Captain's House**. Pale cobbles, a yellow awning arch at (3,9) marking the market's north gate.
-3. **Fish Market (x 2-9, y 10-23).** Open-air: three blue-awning stalls, crates and baskets (Slateport's stall block, copied as is: 8 x 14 tiles). Vendor behind the middle stall.
+3. **Harbour Market (x 2-9, y 10-23)** (the card's 'Fish Market'; renamed so no real animal is in the name, PROPOSED). Open-air: three blue-awning stalls, crates and baskets (Slateport's stall block, copied as is: 8 x 14 tiles). Vendor behind the middle stall.
 4. **Pokémon Center (12,10)-(15,13), door (13,13).** The Center faces south onto the lane to the bridge: from the door go (13,14), then east along y 16 to the bridge's west ramp at x 17. That is the 'about 4 tiles from the bridge end' of the card.
 5. **Mart (12,19)-(15,22), door (13,22).** Six rows south of the Center on the same lane.
 6. **The bridge (x 18-27, y 15-17).** A 3-wide stone bridge (deck x 20-25, ramps x 18-19 and 26-27). A sign 'MIND THE TIDE' at (19,14). The **Kid** races along it.
@@ -190,7 +192,7 @@ Warp mats (5,8),(6,8).
 | 8 | East Gate | (39,26)-(43,29) | (41,29) | `Ebbsworth_EastGate` | `Route110_SeasideCyclingRoadEntrance` layout (15 x 6) |
 | 9 | Warehouse | (34,9)-(40,14) | (36,14) | none | Exterior only, locked, 'TALLOW & CRANE' stencil. The door tile has a `bg_event` sign, no warp |
 | 10 | Customs Shed | (1,23)-(4,26) | (2,26) | none | Exterior only, locked, a notice board. Post-game officer stands at (2,27) |
-| 11 | Fish Market stalls | (2,10)-(9,23) | none | none | Exterior objects and `bg_event`s |
+| 11 | Harbour Market stalls | (2,10)-(9,23) | none | none | Exterior objects and `bg_event`s |
 
 ### 6.2 Pokémon Center and Mart (shared)
 
@@ -239,7 +241,7 @@ y8   .  . . . . D D . . . .  .
 
 **Purpose.** The Harbour Master (a woman) and her ledger; gives **TM Rain Dance** after the barge has been seen. **Plan:** G4-A as above.
 - **Harbour Master** (8,4) `FACE_LEFT`: ledger bg_event on the bookshelf (7,2). Her line before the barge is seen: 'Come back when you've looked at the quay.' After `FLAG_EBBSWORTH_BARGE_SEEN`: gives TM Rain Dance, 'someone should write down where it is going' (topic only).
-- **Second object:** an Azumarill or Wingull pet at (3,5) wandering (ambient, Pokémon only).
+- **Second object:** an Azumarill or Wingull at (3,5) wandering (ambient Pokémon) (ambient, Pokémon only).
 - **Warps:** mats (2,7),(3,7) to `Ebbsworth` warp 4.
 
 ### 6.6 Boatyard 1F and 2F (Sterns Shipyard layouts)

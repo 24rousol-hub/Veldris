@@ -2,6 +2,8 @@
 
 Status: **PROPOSED.** Written 2026-10-01 from [../interiors/README.md](../interiors/README.md), [../interiors/catalogue.md](../interiors/catalogue.md), [../README.md](../README.md), [../../interiors.md](../../interiors.md), [../index.md](../index.md), the card [../towns/aldermere.md](../towns/aldermere.md), [../../postgame.md](../../postgame.md), road R26 ([../routes-south.md](../routes-south.md)), and by looking at the Project Palladium renders `Ruins of Alph.png` (443 x 681, **26 x 40** tiles gridded), `RuinChambers2/3/Open/Open2.png` (about 9 x 10 each), `ruinsofalphinside2bl.png` and `ruinsofalphinside39cd.png` (**22 x 29** each), and the Team Aqua examples named below. Templates **G4-A, G4-B, G4-C** are in [ebbsworth.md](ebbsworth.md) section 6.0. Neighbours: [beaconmouth.md](beaconmouth.md) (ferry, Dive), [kingsquay.md](kingsquay.md) (Maritime Museum, Winston's house), [vesperhaven.md](vesperhaven.md).
 
+**New minor names and details introduced in this file are all PROPOSED:** Excavation Office, Research Annex, Old Town Hall lobby, Drowned Hall, Chapel, the researchers' joke file 'The Pink Problem', the four plate orders, `Aldermere_Harbour` as a map name.
+
 Conventions: **(x, y) from the top-left tile (0,0)** of each map; footprints `(x0,y0)-(x1,y1)` inclusive; a 4-wide building's door is `(x0+1, y1)`; interior mats two tiles wide; maps stay `layout_version` `emerald`, `REGION_HOENN`, section `MAPSEC_ALDERMERE`.
 
 ---

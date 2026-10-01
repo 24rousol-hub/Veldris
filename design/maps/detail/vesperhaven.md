@@ -2,6 +2,8 @@
 
 Status: **PROPOSED.** Written 2026-10-01 from [../interiors/README.md](../interiors/README.md), [../interiors/catalogue.md](../interiors/catalogue.md), [../README.md](../README.md), [../../interiors.md](../../interiors.md), [../index.md](../index.md), the card [../towns/vesperhaven.md](../towns/vesperhaven.md), [../../postgame.md](../../postgame.md), [../../trainer-roster.md](../../trainer-roster.md) (built teams), [../../dialogue/league.inc](../../dialogue/league.inc) (the drafts for OSSIAN, HYACINTH, DUNMORE, DRAYDEN, Cynthia, Troglodyte), the roads R21 and R27 to R30 ([../routes-south.md](../routes-south.md)), and by looking at the Palladium renders `halloffamegscrevampzr1.png` (160 x 263, about **10 x 16**), `Elm's House.png` (208 x 160, **13 x 10**) and `championlacetq2.png` (240 x 512, about 15 x 32), and the Team Aqua examples named below. Templates **G4-A, G4-B, G4-C** are in [ebbsworth.md](ebbsworth.md) section 6.0. Neighbours: [beaconmouth.md](beaconmouth.md) (MIZZLE's rematch seat), [ebbsworth.md](ebbsworth.md) (R28), [kingsquay.md](kingsquay.md) (the ferry), [landmarks-south-detail.md](landmarks-south-detail.md) (Silverstrand, Echo Hollow, Argent Peak), [routes-south-detail.md](routes-south-detail.md) (R27 to R30).
 
+**New minor names and details introduced in this file are all PROPOSED:** the League service gate, the cutters (card), the Lounge floor names, the Hall attendant, the staff houses' occupants.
+
 Conventions: **(x, y) from the top-left tile (0,0)**; footprints `(x0,y0)-(x1,y1)` inclusive; a 4-wide building's door is the bottom-row tile `(x0+1, y1)`, larger buildings give theirs; mats are two tiles wide; maps stay `layout_version` `emerald`, `REGION_HOENN`, section `MAPSEC_VESPERHAVEN`.
 
 ---
@@ -88,10 +90,10 @@ y42 T..gggg.........TTTT..>>..
 | Edge | Neighbour | Offset | Notes |
 |---|---|---|---|
 | North | `R21` (south end) | 0 | The stair x 24-27, y 0-3; service gate closed until `FLAG_VESPERHAVEN_GATES_OPEN` |
-| West | `R27` (east end) | 0 | Water x 0, y 28-30, rope and cutter until game clear |
-| East | `R28` (west end) | 0 | Water x 51, y 28-30, rope and cutter until game clear. Shared pontoon for the Kingsquay ferry arrival (49,29) |
-| South (west part) | `R29` (north end) | 0 | Water x 8-11 at y 43, cutter until game clear |
-| South (east part) | `R30` (north end) | 0 | Land x 44-47 at y 43 via the stair, gate until game clear |
+| West | `R27` (east end) | 9 (R27's channel y 19-21 meets y 28-30) | Water x 0, y 28-30, rope and cutter until game clear |
+| East | `R28` (west end) | 24 (R28's channel y 4-6 meets y 28-30) | Water x 51, y 28-30, rope and cutter until game clear. Shared pontoon for the Kingsquay ferry arrival (49,29) |
+| South (west part) | `R29` (north end) | 4 (R29's top water x 4-7 meets x 8-11) | Water x 8-11 at y 43, cutter until game clear |
+| South (east part) | `R30` (north end) | 36 (R30's top x 8-11 meets x 44-47) | Land x 44-47 at y 43 via the stair, gate until game clear. R30 is traced flipped so its cave is at the south end (see routes-south-detail.md) |
 
 ---
 
