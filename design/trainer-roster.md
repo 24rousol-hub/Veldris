@@ -25,5 +25,6 @@ Status: **BUILT 2026-10-01** (the ROM compiles; nothing has been fought in a gam
 - The ids are in vanilla order (Sidney, Phoebe, Glacia, Drake), so the id order is OSSIAN, HYACINTH, DRAYDEN, DUNMORE. The League script sets the actual fight order (DRAYDEN last), so nothing depends on the id order.
 - The Hoenn rematch blocks (Roxanne 2 to 5 and so on) still hold the old Hoenn teams and are never reached in Veldris. Their data stays untouched.
 - Gender and Music are placeholders chosen to fit each sprite (SANZUFORD uses the 'Girl' music).
-- Not yet seen in battle. The gym trainers (DALE, WREN) and Greta are still unbuilt blocks ([teams.md](teams.md)).
+- **Battle check (2026-10-01, mGBA, debug menu Trainers > Try Battle).** All 13 trainers were fought: intro text, class and name, picture and first send-out species and level were correct for each. CYNTHIA was played for several turns and used her curated moves (Payback seen). One bug found and fixed: MIZZLE's picture drew a light-blue box because the background was palette index 4, not 0. The indices were swapped in `veldris_leader_water.png` and the fix re-checked. Not checked: later team members, full fights, and the vanilla alias scripts.
+- The gym trainers (DALE, WREN) and Greta are still unbuilt blocks ([teams.md](teams.md)).
 - The movesets are in the file itself. Tune any set by editing its block.
