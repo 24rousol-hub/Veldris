@@ -1574,3 +1574,14 @@ const struct Tileset gTileset_LittleOffice =
     .metatileAttributes = gMetatileAttributes_LittleOffice,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_GatePlatinum =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GatePlatinum,
+    .palettes = gTilesetPalettes_GatePlatinum,
+    .metatiles = gMetatiles_GatePlatinum,
+    .metatileAttributes = gMetatileAttributes_GatePlatinum,
+    .callback = NULL,
+};

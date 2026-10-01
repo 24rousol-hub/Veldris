@@ -3105,3 +3105,25 @@ const u16 gTilesetPalettes_LittleOffice[][16] =
     INCGFX_U16("data/tilesets/secondary/little_office/palettes/14.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/little_office/palettes/15.pal", ".gbapal"),
 };
+
+const u32 gTilesetTiles_GatePlatinum[] = INCGFX_U32("data/tilesets/secondary/gate_platinum/tiles.png", ".4bpp.fastSmol", "-num_tiles 73 -Wnum_tiles");
+
+const u16 gTilesetPalettes_GatePlatinum[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/gate_platinum/palettes/15.pal", ".gbapal"),
+};

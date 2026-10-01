@@ -417,3 +417,6 @@ const u16 gMetatileAttributes_ZeldaHouse[] = INCBIN_U16("data/tilesets/secondary
 
 const u16 gMetatiles_LittleOffice[] = INCBIN_U16("data/tilesets/secondary/little_office/metatiles.bin");
 const u16 gMetatileAttributes_LittleOffice[] = INCBIN_U16("data/tilesets/secondary/little_office/metatile_attributes.bin");
+
+const u16 gMetatiles_GatePlatinum[] = INCBIN_U16("data/tilesets/secondary/gate_platinum/metatiles.bin");
+const u16 gMetatileAttributes_GatePlatinum[] = INCBIN_U16("data/tilesets/secondary/gate_platinum/metatile_attributes.bin");
