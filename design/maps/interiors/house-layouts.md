@@ -1,6 +1,6 @@
 # Shared house layouts (PROPOSED, 2026-10-01)
 
-Author direction (2026-10-01): **no custom layout for each house; at least 5 different options, all one floor.** So every ordinary house in Veldris is one of the layouts below, all on the **Gen 4 Interior Secondary** tileset with `gTileset_Building` as primary, `layout_version` `emerald`. Nothing here is built: the author paints each layout once in Porymap, then every house reuses it (Layouts tab, right-click the layout, **Add New Map with Layout**, so painting one changes all of them). Per-house differences come from objects (NPCs, a Skitty, an item ball) and from the sign outside, not from the floor plan.
+Author direction (2026-10-01, repeated twice): **no custom layout for each house; a MINIMUM of 5 different single-floor house interiors (5 is the floor, not the target).** So every ordinary house in Veldris is one of the layouts below, all on the **Gen 4 Interior Secondary** tileset with `gTileset_Building` as primary, `layout_version` `emerald`. Nothing here is built: the author paints each layout once in Porymap, then every house reuses it (Layouts tab, right-click the layout, **Add New Map with Layout**, so painting one changes all of them). Per-house differences come from objects (NPCs, a Skitty, an item ball) and from the sign outside, not from the floor plan.
 
 Scope: homes, small shops-as-homes and the Goldsworth houses. **Not covered (unchanged):** Pokémon Centers and Marts (vanilla), gyms, the lab, the League. Hollowbrook's built maps (player's house 13 x 9 two floors, neighbour 11 x 8) stay as they are.
 
@@ -78,6 +78,10 @@ The roomiest, one floor, symmetrical and a little too grand. It replaces the 13 
 ## Which town uses which (PROPOSED rule)
 
 Rotate H1 to H5 so no two adjacent buildings in a town, and no two neighbouring towns, show the same plan. Suggested start: Briarwick H2 + H4, Crestfall H1 + H5, Gloomsby H5, Smeltham H4 + H1, Hoarfell H1, Gildhaven H4 + H2, Hemlock Reach H2, Primrose Vale H5, Brinecombe H1 + H2, Ebbsworth H4, Kingsquay H5 + H3, Driftsands H1, Beaconmouth H4, Wendlebury H5 + H2. Goldsworth houses: H6 only. Final pick is the author's per card.
+
+## Minimum rule
+
+**At least 5 distinct single-floor house interiors must exist at all times** (author, 2026-10-01). Six are drawn up here (H1 to H6; H3 is already built as Hollowbrook's neighbour). If one is cut or merged, add another so the count never drops below five. Distinct means a different floor plan, not just different furniture or NPCs.
 
 ## Open questions
 

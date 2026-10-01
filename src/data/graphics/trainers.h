@@ -584,6 +584,9 @@ const union AnimCmd *const sBackAnims_OldManPokedude[] = {
     }}
 
 // Veldris: hack-owned trainer pictures (design/gym-leader-art.md, credited in CREDITS.md)
+const u32 gTrainerFrontPic_VeldrisTroglodyte[] = INCGFX_U32("graphics/trainers/front_pics/veldris_troglodyte.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisTroglodyte[] = INCGFX_U16("graphics/trainers/front_pics/veldris_troglodyte.png", ".gbapal");
+
 const u32 gTrainerFrontPic_VeldrisLeaderNormal[] = INCGFX_U32("graphics/trainers/front_pics/veldris_leader_normal.png", ".4bpp.smol");
 const u16 gTrainerPalette_VeldrisLeaderNormal[] = INCGFX_U16("graphics/trainers/front_pics/veldris_leader_normal.png", ".gbapal");
 
@@ -1324,5 +1327,9 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_VELDRIS_CHAMPION_CYNTHIA] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisChampionCynthia, gTrainerPalette_VeldrisChampionCynthia),
+    },
+    [TRAINER_PIC_VELDRIS_TROGLODYTE] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisTroglodyte, gTrainerPalette_VeldrisTroglodyte),
     },
 };
