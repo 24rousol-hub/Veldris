@@ -55,10 +55,10 @@ Roads: **R2 enters the south edge** at x 10 to 12; **R8 enters the north edge** 
 | Mart | `Wendlebury_Mart` | **`LAYOUT_MART`, unchanged** | 11 x 8 | 1 | Clerk plus a shopper |
 | House 1 | `Wendlebury_House1` | Gen 4 Interior Secondary, after `Elm's House.png` | 10 x 8 | 1 | Resident and a SLAKOTH |
 | House 2 | `Wendlebury_House2` | Gen 4 Interior Secondary, after `Hero's House 1st Floor.png` | 11 x 8 | 1 | Resident, child, TV |
-| House 3, the Inn (PROPOSED) | `Wendlebury_Inn` | **Brick Cafe Interior Secondary** (Team Aqua repo) | 14 x 9 | 1 | Innkeeper and a guest |
+| House 3, the Inn (PROPOSED) | `Wendlebury_Inn` | **Gen 4 Interior Secondary** (already in tree) | 14 x 9 | 1 | Innkeeper and a guest |
 | Market square, stalls | none | exterior objects | - | - | Three sellers |
 
-The cards give two houses, and the render has **three**. `Wendlebury_Text_ResidentB` says 'We have one inn', so a third building makes sense as the inn. **Recommended: build the Inn** (it is the catalogue's named use for the Brick Cafe tileset). **Fallback:** House 3 is scenery with a sign on the door ('CLOSED FOR THE SEASON'), no interior, no import.
+The cards give two houses, and the render has **three**. `Wendlebury_Text_ResidentB` says 'We have one inn', so a third building makes sense as the inn. **Recommended: build the Inn** (on the Gen 4 Interior set, the author's call). **Fallback:** House 3 is scenery with a sign on the door ('CLOSED FOR THE SEASON'), no interior, no import.
 
 **Building outlines on the outdoor map** (mirrored):
 
@@ -119,32 +119,33 @@ Gen 4 Interior Secondary, after `Hero's House 1st Floor.png` (13 x 9: stove, fri
 
 bg events: TV (5 and 6, 2) `House2TV` ('It ends with a boat. It always ends with a boat'). 2 objects.
 
-### 3.5 House 3, the Inn (PROPOSED): `Wendlebury_Inn`, 14 x 9
+### 3.5 House 3, the Inn: `Wendlebury_Inn`, 14 x 9 (Gen 4 Interior, author's call 2026-10-01)
 
-**Brick Cafe Interior Secondary** (Ekat99, via Kumatora). Folder `Tilesets/The Great Tileset Exchange/Full Tilesets/Brick Cafe Interior Secondary/`. What it gives that the Gen 4 set does not: a red-brick wall with arched windows and wall lamps, checker floor, a long wooden counter, a bowl display shelf, round-edged wood tables with green chairs, a blue dining rug and blue entrance mats (see its `example.png`, which shows exactly this café). It is the catalogue's choice for 'cafes, inns, market eateries (Wendlebury, Kingsquay, Gildhaven)'. **It needs a `CREDITS.md` row in the commit that imports it** (Ekat99; Vurtax FRLG rips; Heartlessdragoon RSE rips; imported to pokeemerald by Kumatora; source `Team-Aquas-Asset-Repo/Tilesets/The Great Tileset Exchange/Full Tilesets/Brick Cafe Interior Secondary`). Its folder has `metatiles.bin` and `tiles.png` (128 x 256, 512 tiles); check in Porymap that it loads next to `gTileset_Building` (the Gen 4 set did, through Porytiles). Primary is `gTileset_Building` as for every interior.
+The author likes the Inn and wants it **Gen 4**. So it uses the **Gen 4 Interior Secondary** tileset like every other home (already in the tree and credited), **not Brick Cafe**: no import, no new `CREDITS.md` row. It is a single-floor special layout (the one exception to the shared house layouts in [../interiors/house-layouts.md](../interiors/house-layouts.md), because a reception counter and two guest beds are not a home), and later inns (Kingsquay, Gildhaven) can reuse it with Add New Map with Layout. Primary is `gTileset_Building`, `layout_version` `emerald`.
 
-Plan (`.` floor, `#` wall, `K` counter, `V` bowl shelf, `J` jars counter, `T` table, `c` chair, `R` blue rug floor, `P` plant, `m` door mat, `N` NPC):
+Furniture, all from the Gen 4 set (see its `example.png`): the L-shaped kitchen counter as the reception desk, stove and fridge as the kitchen behind it, the stools, two beds (the bedroom set), the TV with the flower table and cushions as the lounge, bookshelves, the blue rug, plants. `K` counter, `S` stool, `b` bed, `B` bookshelf, `T` TV and flower table, `R` rug, `p` plant, `W` window, `m` door mat.
 
 ```
       0 1 2 3 4 5 6 7 8 9 a b c d
-y1    # # # # # # # # # # # # # #     brick wall, lamps at x 2, 5, 8, 11, window (2 and 11)
-y2    # K K K K K . . V V J J J #
-y3    # . . N . . . . . . . . . #
-y4    # . . . . . . . . . . . . #
-y5    # . R R R R R R R R R R . #
-y6    # P R c T T c . c T T c . #
-y7    # . R R R R R R R R R R . #
-y8    # . . . . . . m . . . . P #
+y1    # W K K K B B W b b W b b #     stove/fridge wall, shelves, two guest beds (x 8-9 and 11-12)
+y2    # . . . . . . . b b . b b #
+y3    # K K K K . . . . . . . . #     reception counter (L) x 1-4, y 3
+y4    # . S . S . . . . . R R . #     guest stools at (2, 4) and (4, 4)
+y5    # . . . . . . . . . R R . #
+y6    # p . . . . T T . . . . p #     lounge: TV and flower table (6-7, 6), cushions below
+y7    # . . . . . . . . . . . . #
+y8    # # # # # # m # # # # # # #     door mat (6, 8)
 ```
 
-- **Counter** (1 to 5, 2), blocked. **Bowl shelf** (8 to 9, 2) and **jar counter** (10 to 12, 2), blocked.
-- **Tables:** (4 to 5, 6) and (9 to 10, 6); chairs at (3, 6), (6, 6), (8, 6), (11, 6) (walkable decoration or blocked, as the tile says).
-- **Door mat and warp:** (7, 8) to `Wendlebury` warp 4. Arrive at (9, 17).
+Note: the Gen 4 counter blocks from one side only. Build it so the innkeeper stands at (3, 2) behind the counter row at y 3 and the player talks from (3, 4); then the stools at (2, 4) and (4, 4) are the guests' seats. Tweak freely in Porymap, the plan is a sketch.
+
+- **Door mat and warp:** (6, 8) to `Wendlebury` warp 4. Arrive at (9, 17).
+- **Beds** are scenery (the Inn offers no sleep or heal; the Center does that).
 
 | Who | Tile | Facing | Notes |
 |---|---|---|---|
-| Innkeeper (name PROPOSED: Mrs Tuppence) | (3, 3) | down (behind the counter) | new lines needed: welcome, 'we have one inn', Troglodyte asked for the best table and was given a stool |
-| Guest | (9, 7) | up (at the table) | gossip, one of the three Goldsworth lines |
+| Innkeeper (name PROPOSED: Mrs Tuppence) | (3, 2) | down (behind the counter) | new lines needed: welcome, 'we have one inn', Troglodyte asked for the best table and was given a stool |
+| Guest | (3, 4) | up (at the counter) | gossip, one of the three Goldsworth lines |
 
 No heal, no shop; it is flavour and a place to hear the gossip. **New dialogue is needed** (nothing is drafted for the inn), written in the dialogue pass.
 
@@ -226,7 +227,7 @@ The west side is a wall of pines and the barricade, not a connection. The east s
 - **Outdoor tilesets:** `gTileset_General` + `gTileset_Petalburg` (the LeoB ORAS recolour already in the tree). **No import and no new `CREDITS.md` row for the outdoor map**, except the Palladium credit that goes in with the first traced map ('credit the Project Palladium team naming the files used'). Files used by Wendlebury: `Cherrygrove City.png`, `Elm's House.png`, `Hero's House 1st Floor.png`.
 - **What the vanilla tiles do not have** ([../../map-plan.md](../../map-plan.md)): the red roofs with a chimney and a yellow door (Hoenn roofs are different colours and have no chimney), the pine look, and the two-tone sea with white-capped rocks. The layout matches; the colours will be about 70 per cent. Keep the red Center roof and blue Mart roof, so the colour code stays readable.
 - **Sea:** use the General tileset's sea tiles. The render's sand island with a rock becomes a small sandbar (Hoenn has sandbar tiles in `gTileset_Petalburg`/General). **Decoration only**: there are no wild encounters on this beach before R27.
-- **Interiors:** Houses on `gTileset_Gen4Interior` (already imported and credited). Center and Mart: vanilla. **Inn: Brick Cafe Interior Secondary, a new import**, credits in 3.5.
+- **Interiors:** Houses on `gTileset_Gen4Interior` (already imported and credited). Center and Mart: vanilla. **Inn: Gen 4 Interior too (author wants Gen 4), no import**, see 3.5.
 - **Mirroring check:** if the author would rather not mirror, the sea ends up on the west and the barricade on the east, and R8 and R2 keep their top and bottom edges. Nothing else changes. Mirroring is a recommendation, not a requirement.
 
 ---
@@ -248,7 +249,7 @@ Flags (not claimed): `FLAG_VISITED_WENDLEBURY`, `FLAG_WENDLEBURY_ITEM_*` per ite
 2. Trace `Cherrygrove City.png` **mirrored**: pines, sea and sandbar, the sand street and the south and north lanes, then the five buildings, then the flower patches, then the scenery.
 3. Create the Center 1F and 2F and the Mart as **Add New Map with Layout** (shared vanilla layouts). **Check `data/event_scripts.s` has each `.include` exactly once.**
 4. After a Duplicate Map: grep `src/data/heal_locations.json` for duplicate ids and delete the extras.
-5. Paint House 1 and House 2 (Gen 4 Interior), then the Inn if wanted (import the Brick Cafe set first, in its own commit, with the `CREDITS.md` row).
+5. Paint House 1 and House 2 (Gen 4 Interior), then the Inn (Gen 4 Interior, no import needed).
 6. Place warps from section 6, then connections (R2 and R8 as those maps exist).
 7. Tell Claude: objects, signs, the Center/Mart scripts, the two heal-location traps and the dialogue are wired afterwards. The author must close or reload Porymap first.
 8. Update `design/flags.md` and `CREDITS.md`; `make -j4`; `python3 design/tools/dialogue_check.py` on any new Inn text.
@@ -259,7 +260,7 @@ Flags (not claimed): `FLAG_VISITED_WENDLEBURY`, `FLAG_WENDLEBURY_ITEM_*` per ite
 ## Open questions
 
 1. **Mirrored render, edges moved.** The earlier cards put R8 on Wendlebury's west edge and the barricade on the east. With the render mirrored and the Route 32 render being a north-south road, R8 reaches the **north** edge, the barricade is on the **west**, the east is sea. R2 reaches the **south** edge. Confirm, or tell me which edge the author wants for each.
-2. **The Inn.** The render has three houses and the card has two. Recommended: build the Inn (Brick Cafe import). Fallback: scenery. Which?
+2. **The Inn.** The render has three houses and the card has two. RESOLVED 2026-10-01: build the Inn, on Gen 4 Interior.
 3. **Stall art.** No stall tile exists; fence or crate counters until the author draws one.
 4. **Sea access.** Nothing here is Surfable until badge 5. Is a sand tile at (31, 12) that leads into the water enough of a hook for the post-game R27, or should a dock be painted now and hidden?
 5. **Barricade man's lines** ('Road's closed. Official reasons. They keep changing') stay the same; he now blocks the west rather than the east. No text change needed.
