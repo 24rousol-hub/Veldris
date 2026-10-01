@@ -101,7 +101,7 @@ Door positions in words: shrine door north-centre on the outdoor isle; shrine ha
 
 **Mirror Isle has a static DIALGA** (author's pick, replacing the earlier MESPRIT proposal). It waits at the top of the Falls chamber, the Waterfall return trip after badge 8 (see the route above). DIALGA exists in this tree (`SPECIES_DIALGA`, family enabled by `P_FAMILY_DIALGA`, Gen 4).
 
-- **Level (PROPOSED): 60**, matching MIZZLE's ace, so it is a fair post-gym-8 fight and a stiff one. One static battle, a `setwildbattle` script plus a flag, so it cannot be missed after a faint only if the script re-offers it (decide when built).
+- **Level (PROPOSED): 60**, matching MIZZLE's ace, so it is a fair post-gym-8 fight and a stiff one. A `setwildbattle` script. **Re-offered until caught (author, 2026-10-01):** if the player faints, runs or defeats it, DIALGA is still there next visit. The flag `FLAG_MIRRORISLE_DIALGA` is set only on a catch.
 - **Theme.** A mirror of the still lake, and time standing still. The shrine puzzle (mirrors, a clock face on the floor) wakes it. The reflection joke fits the deadpan tone: the shrine keeper has 'been waiting to be told it is late'.
 - **Gate.** Surf (badge 5) to reach the isle, Waterfall (badge 8) to reach the Falls top. Not required for the main story.
 - The Origin forme is not planned (it needs an item and form support that is not set up).
@@ -134,7 +134,7 @@ Levels start 3 below SUZURAN's ace (55 minus 3 = 52) at the high end and sit a l
 - `FLAG_MIRRORISLE_PUZZLE_SOLVED`: the shrine mirror puzzle.
 - `VAR_MIRRORISLE_MIRRORS` (three bearings, temp var).
 - `FLAG_MIRRORISLE_TM_LIGHT_SCREEN`, `FLAG_MIRRORISLE_RARE_CANDY`, `FLAG_MIRRORISLE_MIRROR_HERB`, `FLAG_MIRRORISLE_ELIXIR`: one-shots.
-- `FLAG_MIRRORISLE_DIALGA` (not claimed): the static battle done.
+- `FLAG_MIRRORISLE_DIALGA` (not claimed): set only when Dialga is caught.
 - Hidden items: two flags in the reserved 0x264 block.
 
 ### Build order and effort

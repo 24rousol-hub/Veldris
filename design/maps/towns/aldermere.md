@@ -61,7 +61,7 @@ In plain words (north to south):
 
 **Aldermere, the ancient city, holds a static MEW** (author's pick). It is the post-game's secret: inside the Inner Sanctum, behind the four solved Glyph Chambers (`FLAG_ALDERMERE_SANCTUM_OPEN`), floating over the sanctum's last statue. MEW exists in this tree (`SPECIES_MEW`, Gen 1).
 
-- **Level (PROPOSED): 70**, in line with the Aldermere cave table (66 to 73). One static battle, `setwildbattle` plus a flag; MEW is shy, so it may flee (the battle can be re-triggered by leaving and re-entering until caught or defeated, decide when built).
+- **Level (PROPOSED): 70**, in line with the Aldermere cave table (66 to 73). `setwildbattle` plus a flag. **Re-offered until caught (author, 2026-10-01):** if MEW flees, faints or the player runs, it is there again on the next visit; the flag is set only on a catch.
 - Fits the lore: a drowned city whose founders left no record. The researchers have a joke file called 'The Cat Problem' (a Pokémon, not an animal: say 'the pink one').
 - The Inner Sanctum chest (Rare Candy, TM Dig) stays; MEW is the main prize.
 
