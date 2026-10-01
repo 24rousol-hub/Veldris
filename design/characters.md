@@ -93,3 +93,5 @@ Every trainer constant used by the hack is recorded here when it is added.
 | Constant | Who | Where | Status |
 |---|---|---|---|
 | `TRAINER_CRESTFALL_GRETA` | Greta, gym 1 leader | Crestfall gym (TBD) | PROPOSED, not yet added |
+
+**Nickname 'Beau' (author, 2026-10-01):** the Goldsworth cousins call Troglodyte 'Beau' (from Beauregard). Used in the Briarwick house lines ([dialogue/briarwick.inc](dialogue/briarwick.inc)). Fennick still says BEAUREGARD, the staff say TROGLODYTE.
