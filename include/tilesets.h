@@ -12,7 +12,6 @@ extern const struct Tileset gTileset_BuildingFrlg;
 extern const struct Tileset gTileset_BrendansMaysHouse;
 extern const struct Tileset gTileset_GenericBuilding1;
 extern const struct Tileset gTileset_Gen4Interior;
-extern const struct Tileset gTileset_BrickCafe;
 extern const struct Tileset gTileset_GatePlatinum;
 extern const struct Tileset gTileset_LittleOffice;
 extern const struct Tileset gTileset_ZeldaHouse;

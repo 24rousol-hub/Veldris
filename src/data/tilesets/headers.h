@@ -1585,14 +1585,3 @@ const struct Tileset gTileset_GatePlatinum =
     .metatileAttributes = gMetatileAttributes_GatePlatinum,
     .callback = NULL,
 };
-
-const struct Tileset gTileset_BrickCafe =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_BrickCafe,
-    .palettes = gTilesetPalettes_BrickCafe,
-    .metatiles = gMetatiles_BrickCafe,
-    .metatileAttributes = gMetatileAttributes_BrickCafe,
-    .callback = NULL,
-};
