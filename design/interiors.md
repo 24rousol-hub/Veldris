@@ -1,12 +1,14 @@
-# Hollowbrook interiors (player house and Prof. Fennick's lab)
+# Hollowbrook maps (town, player house, Prof. Fennick's lab, neighbour's house)
 
 Built 2026-10-01 in a separate Claude thread (branch `gen4-interior-home`), at the author's direction, on the Gen 4 Interior Secondary tileset (credits in `CREDITS.md`). The author reviewed every render. **From here on they are normal maps: edit them in Porymap.**
 
 | Map | Size | What is in it |
 |---|---|---|
-| `Hollowbrook_PlayersHouse_1F` | 13 x 9 | Kitchen (counter, stove, fridge, stools, trash can), bookshelf, TV with the flower table and two walkable cushions in front, up-staircase in the top-right corner (bottom step `160` is an east arrow warp to 2F), exit mat (2,8). Exit warp still points at `MAP_LITTLEROOT_TOWN` as a placeholder until Hollowbrook exists |
+| `Hollowbrook_PlayersHouse_1F` | 13 x 9 | Kitchen (counter, stove, fridge, stools, trash can), bookshelf, TV with the flower table and two walkable cushions in front, up-staircase in the top-right corner (bottom step `160` is an east arrow warp to 2F), exit mat (2,8). Exit warps to Hollowbrook |
 | `Hollowbrook_PlayersHouse_2F` | 13 x 8 | Bed, PC desk (PC, notebook, stool), TV, stairwell going down (tile `183`, entered walking west from (11,2)), rug, plants. PC: sit on the stool (4,3) and face the desk; it flickers on and opens the bedroom PC (engine edits in `engine-edits.md`). Notebook: from (5,3), the adventure rules text |
-| `Hollowbrook_ProfFennickLab` | 14 x 12 | Bookshelves and Fennick's PC desk on the back wall, dome research machine (left), instrument cabinet (right), the 4-wide starter table (balls on (5..8,5), the front row is a counter so the player talks across it), two aide desks with stools, plants by the door. The four-starter scene lives in its `scripts.inc` (see `scripts/README.md`). Exits point at Littleroot as a placeholder |
+| `Hollowbrook` | 32 x 28 | Town exterior on the LeoB ORAS General + Petalburg tilesets, placed per [porymap-walkthrough.md](porymap-walkthrough.md) 6.1: lab top-left (door (13,10)), Goldsworth house top-right (door (22,12), locked: a sign on the door tile, no warp), player's house (door (9,20)) and neighbour's house (door (17,21)) below, pond on the right running off the edge, pale paths, pines all round, exit to Route 1 on the east edge at y9-10 (no connection yet). Signs: town (15,16), lab (8,10), Goldsworth (18,12), player house (11,20). Bench spot for the grandfather: (22,13). Warps: 0 player house, 1 lab, 2 neighbour. Buildings are raw copies of Littleroot's and Oldale's |
+| `Hollowbrook_NeighboursHouse` | 11 x 8 | One-floor family house from `Elm's House.png`: stove and fridge on the kitchen floor, window, bookshelf, TV with the flower table and cushions in front, plant, exit mat (2,7) |
+| `Hollowbrook_ProfFennickLab` | 14 x 12 | Bookshelves and Fennick's PC desk on the back wall, dome research machine (left), instrument cabinet (right), the 4-wide starter table (balls on (5..8,5), the front row is a counter so the player talks across it), two aide desks with stools, plants by the door. The four-starter scene lives in its `scripts.inc` (see `scripts/README.md`). Exits warp to Hollowbrook |
 
 ## Tileset notes
 
@@ -15,3 +17,5 @@ Built 2026-10-01 in a separate Claude thread (branch `gen4-interior-home`), at t
 - Stale behaviours from the artist's attributes were removed (an armchair slot read as a picture-book shelf, table legs as a vase, a stair tile as a picture-book shelf, a fridge corner as an arrow warp). Bookshelf behaviour added to 437/438/441/442, counter to the starter table front (328-330).
 - Tile identities worth knowing: 414 is a **trash can**, not a chair; 168-172, 288-295 and 368-371 are **stair railings**, not shelves; the PC desk is 406/407 over 30/415; the dome machine is 326/327, 334/335, 342/343.
 - The 1F staircase uses wall `6` above its left column instead of `144` (144 has half a window cut off at its edge).
+
+- Hollowbrook is in `gMapGroup_TownsAndRoutes` (`MAP_HOLLOWBROOK`); the interiors are in `gMapGroup_IndoorVeldris` with `MAPSEC_HOLLOWBROOK`. Not done yet: the new-game start point, the Route 1 connection, the fly flag, the town NPCs and the grandfather/Troglodyte scripts (all in `design/scripts/hollowbrook_scripts.inc`).

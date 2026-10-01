@@ -9356,6 +9356,28 @@
       "border_filepath": "data/layouts/Hollowbrook_ProfFennickLab/border.bin",
       "blockdata_filepath": "data/layouts/Hollowbrook_ProfFennickLab/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HOLLOWBROOK_NEIGHBOURS_HOUSE",
+      "name": "Hollowbrook_NeighboursHouse_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/Hollowbrook_NeighboursHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Hollowbrook_NeighboursHouse/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HOLLOWBROOK",
+      "name": "Hollowbrook_Layout",
+      "width": 32,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Hollowbrook/border.bin",
+      "blockdata_filepath": "data/layouts/Hollowbrook/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "id": "MAP_HOLLOWBROOK_PLAYERS_HOUSE_1F",
-  "name": "Hollowbrook_PlayersHouse_1F",
-  "layout": "LAYOUT_HOLLOWBROOK_PLAYERS_HOUSE_1F",
+  "id": "MAP_HOLLOWBROOK_NEIGHBOURS_HOUSE",
+  "name": "Hollowbrook_NeighboursHouse",
+  "layout": "LAYOUT_HOLLOWBROOK_NEIGHBOURS_HOUSE",
   "music": "MUS_LITTLEROOT",
   "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_HOLLOWBROOK",
@@ -18,17 +18,10 @@
   "warp_events": [
     {
       "x": 2,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_HOLLOWBROOK",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 11,
-      "y": 2,
-      "elevation": 0,
-      "dest_map": "MAP_HOLLOWBROOK_PLAYERS_HOUSE_2F",
-      "dest_warp_id": "0"
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [],

@@ -134,7 +134,8 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125"
+    "Underwater_Route125",
+    "Hollowbrook"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -1165,6 +1166,7 @@
   "gMapGroup_IndoorVeldris": [
     "Hollowbrook_PlayersHouse_1F",
     "Hollowbrook_PlayersHouse_2F",
-    "Hollowbrook_ProfFennickLab"
+    "Hollowbrook_ProfFennickLab",
+    "Hollowbrook_NeighboursHouse"
   ]
 }
