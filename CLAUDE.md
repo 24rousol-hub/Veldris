@@ -37,7 +37,7 @@ All checked against this tree.
 - **The town map picture can use at most 256 distinct 8x8 tiles**, at most about 37 more map sections fit (43 over the vanilla 209, six used), and Fly needs the Feather Badge in this build. All hard limits are in `design/engine-limits.md`; the town map wiring is in `design/region-map.md`.
 
 - **Assets and sprites policy (author, 2026-10-01).** Sources that copy official Pokémon art are fine, but every one still gets a `CREDITS.md` row. Pokémon sprites stay as shipped (expansion's Gen 4/5-style art at 64x64; GBA-style art exists only for species 1-386 through `P_GBA_STYLE_SPECIES_GFX`, currently FALSE); no sprite import is planned. Catalogue of every source: `design/sprite-catalog.md`. Troglodyte uses the DP **Rich Boy** picture; the Goldsworth cousins get similar but not identical pictures (recolours or neighbouring DP classes).
-- **Houses use shared one-floor layouts, never one custom layout per house** (six drawn up in `design/maps/interiors/house-layouts.md`). Everything looks Gen 4 inside (Gen 4 Interior secondary); exteriors are LeoB ORAS.
+- **Houses use shared one-floor layouts, never one custom layout per house** (six drawn up in `design/maps/interiors/house-layouts.md`; **at least 5 distinct single-floor interiors, a hard minimum from the author**). Everything looks Gen 4 inside (Gen 4 Interior secondary); exteriors are LeoB ORAS.
 - **Badges are drawn by `design/tools/draw_badges.py`** (14x14 art in 16 px slots, one shared palette; the trainer card spaces them with `BADGE_PITCH` in `src/trainer_card.c`). Re-run the script after editing it, from the repo root.
 
 ## Adding things
