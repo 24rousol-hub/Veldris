@@ -14,6 +14,10 @@
 - **Art.** Slots 0-7 are Kaixer's coloured badges from the author's asset repo fork (`User Interface/Kaixer/Trainer Card Badges`). Slot 8 is a plain gold placeholder disc I drew. **Badge art is to be outsourced**, so the sheet is the one file to swap. Credit rows are in `CREDITS.md`.
 - Edits to upstream files are logged in [engine-edits.md](engine-edits.md).
 
+## Badge art redrawn (2026-10-01, author: 'you can draw the badges and I will tweak from there')
+
+`graphics/trainer_card/badges.png` is now all new art, drawn for this hack by `design/tools/draw_badges.py` (re-run it from the repo root to regenerate; or edit the PNG, keeping its palette). New shared 16-colour palette (index 0 background). Slots 0-8 follow the gym order, slot 15 is the empty socket: 0 Standard (silver ring, blue centre; Normal), 1 Bug (green hexagon, yellow centre; Briarwick), 2 Ghost (purple wisp with eyes), 3 Steel (grey cog), 4 Ice (white snowflake on blue disc), 5 Flying (feather; the Feather Badge), 6 Poison (green drop, purple bubbles), 7 Fairy (pink heart, white star), 8 Water (blue wave disc). Checked as an enlarged render and the ROM builds; **not yet seen on the trainer card in an emulator**. Names for badges 2 to 9 are still undecided (PROPOSED: Briar, Gloom, Forge, Hoar, Feather, Hemlock, Primrose, Beacon). The Kaixer art and the gold placeholder described below are gone; their CREDITS rows are marked replaced.
+
 ## Known limits and things not done
 
 - **One palette for all badges.** The card has no free BG palette bank (0-4 card and stars, 5-10 mon icons, 11-14 stickers, 15 text), so all badges share bank 3, one 15-colour palette. A per-badge palette is not possible without freeing a bank. Any new art has to use the sheet's palette (or replace it for all badges together).

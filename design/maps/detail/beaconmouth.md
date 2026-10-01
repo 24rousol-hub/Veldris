@@ -2,6 +2,8 @@
 
 Status: **PROPOSED** (the leader MIZZLE and his team are BUILT in [../../trainer-roster.md](../../trainer-roster.md); everything else here is a suggestion until the author approves it). Written 2026-10-01 from [../interiors/README.md](../interiors/README.md), [../interiors/catalogue.md](../interiors/catalogue.md), [../README.md](../README.md), [../../interiors.md](../../interiors.md), [../index.md](../index.md), the card [../towns/beaconmouth.md](../towns/beaconmouth.md), [../../gyms.md](../../gyms.md), [../../troglodyte-arc.md](../../troglodyte-arc.md), [../../goldsworth.md](../../goldsworth.md), roads R25 and R26 ([../routes-south.md](../routes-south.md)), and by looking at the Project Palladium renders `Olivine City.png` (44 x 41, the town), `KantoGyms3YearsLatercorrected.png` (the Water gym panel), `Olivine City Gym.png` and the Team Aqua tileset examples named below. Templates **G4-A, G4-B, G4-C** are in [ebbsworth.md](ebbsworth.md) section 6.0; the **shared Goldsworth House layout** (13 x 11) is in [kingsquay.md](kingsquay.md) section 6.10. Neighbours: [driftsands.md](driftsands.md) (R25), [aldermere.md](aldermere.md) (R26), [kingsquay.md](kingsquay.md) (ferry, Tallow & Crane).
 
+**New minor names and details introduced in this file are all PROPOSED:** the wheel names Brass, Red and Blue, the logbook wording, the gym floor names (Pump Room, Gallery, Lamp Room are the card's), the Cove ranger's post, the plaza and causeway coordinates.
+
 Conventions: **(x, y) from the top-left tile (0,0)**; footprints `(x0,y0)-(x1,y1)` inclusive; a 4-wide building's door is the bottom-row tile `(x0+1, y1)`; interior exit mats are two tiles wide; maps stay `layout_version` `emerald`, `REGION_HOENN`.
 
 ---
@@ -42,7 +44,7 @@ Palette note for the numbers: sand ground everywhere; fences are the pale picket
 
 1. **South gate and the causeway bridge (x 5-8, y 29-40).** R25 arrives at the bottom edge (x 5-8, y 40). A 4-wide stone **causeway bridge** crosses the harbour mouth (water below it is surfable; use the same bridge pieces as Ebbsworth's). Two stone gate pillars at (5,38) and (8,38), the town sign at (9,28). A stream from the cliffs (R25's stream) runs under the bridge into the harbour.
 2. **The beach shelf and the main street (y 26-28).** A sandy street runs east from the bridge head along the harbour: (5,26) to (25,27), edged with beach grass.
-3. **Lower town (x 6-25, y 20-27).** The **Pokémon Center** (13,22)-(16,25), door (14,25), faces the street; the **Diver's Shed** (6,22)-(9,25), door (7,25), on the west; the **market square** (x 18-24, y 20-24) with a well at (21,22) and four fish stalls at (18,20), (22,20), (18,23), (22,23).
+3. **Lower town (x 6-25, y 20-27).** The **Pokémon Center** (13,22)-(16,25), door (14,25), faces the street; the **Diver's Shed** (6,22)-(9,25), door (7,25), on the west; the **market square** (x 18-24, y 20-24) with a well at (21,22) and four market stalls at (18,20), (22,20), (18,23), (22,23).
 4. **Middle town (x 13-24, y 15-19).** The **Lamplighters' Lodge** (13,16)-(16,19), door (14,19); the **Mart** (20,15)-(23,18), door (21,18).
 5. **Upper town (x 25-34, y 11-14).** Two blue-roofed houses side by side: the **Fishing family's house** (25,11)-(28,14), door (26,14); the **Artist's house** (30,11)-(33,14), door (31,14).
 6. **The Goldsworth House (8,9)-(15,13)**, door (11,13), top-left, the grandest roof in town, behind a picket fence (y 14, x 6-17) with a gate at (11,14) and a nameplate sign at (7,14). Pines west and north.
@@ -326,7 +328,7 @@ y8   .  . . . . D D . . . .  .
 
 ### 6.5 Goldsworth House (shared layout)
 
-13 x 11, defined in [kingsquay.md](kingsquay.md) section 6.10: mats (5,10),(6,10), Butler (6,3), vase at (6,5),(7,5). **Cousin A = Prescott** (wine snob) at (3,6) `FACE_RIGHT`; **Cousin B = Kip** (pet owner) at (10,6) `FACE_LEFT` with his PERSIAN **'Duchess'** (ambient object `SPECIES(PERSIAN)`, 'Do not pet her') at (9,6). Before and after switch on `FLAG_BEACONMOUTH_SCHEME9_DONE` (text `Goldsworth_Text_PrescottBefore/After`, `KipBefore/After`, in `dialogue/goldsworth.inc`). Outside the door a sign (`Goldsworth_Text_HouseSign`) at (7,14). Goldsworths may swear mildly; nobody else. Warps: mats (5,10),(6,10) to `Beaconmouth` warp 4 (door (11,13)).
+13 x 11, defined in [kingsquay.md](kingsquay.md) section 6.10: mats (5,10),(6,10), Butler (6,3), vase at (6,5),(7,5). **Cousin A = Prescott** (wine snob) at (3,6) `FACE_RIGHT`; **Cousin B = Kip** (owner of a PERSIAN) at (10,6) `FACE_LEFT` with his PERSIAN **'Duchess'** (ambient object `SPECIES(PERSIAN)`, 'Do not pet her') at (9,6). Before and after switch on `FLAG_BEACONMOUTH_SCHEME9_DONE` (text `Goldsworth_Text_PrescottBefore/After`, `KipBefore/After`, in `dialogue/goldsworth.inc`). Outside the door a sign (`Goldsworth_Text_HouseSign`) at (7,14). Goldsworths may swear mildly; nobody else. Warps: mats (5,10),(6,10) to `Beaconmouth` warp 4 (door (11,13)).
 
 ### 6.6 Diver's Shed (G4-B, 10 x 8)
 
@@ -338,7 +340,7 @@ Local history, the maintenance chief, the **Waterfall hint** ('The back cove is 
 
 ### 6.8 Fishing family's house (G4-A) and Artist's house (G4-B)
 
-- **Fishing family (11 x 8).** A grandmother at (5,6) `FACE_UP` who knows every fish by name; a father at (8,3) `FACE_UP` who wants his boat back; a boy at (9,5) wandering who wants a Water-type. Warps: mats (2,7),(3,7) to `Beaconmouth` warp 7.
+- **Fishing family (11 x 8).** A grandmother at (5,6) `FACE_UP` who knows every Water-type by name; a father at (8,3) `FACE_UP` who wants his boat back; a boy at (9,5) wandering who wants a Water-type. Warps: mats (2,7),(3,7) to `Beaconmouth` warp 7.
 - **Artist (10 x 8).** An **easel** (bg_event (5,3)) and a wall of **crooked lighthouse paintings** (bg_events (2,1), (4,1), (6,1), each saying the lighthouse looks 'slightly different each time'); the **Artist** at (4,4) `FACE_UP`. Warps: mats (3,7),(4,7) to `Beaconmouth` warp 8.
 
 ### 6.9 The two coves
@@ -409,7 +411,7 @@ Escape warp: `setescapewarp MAP_BEACONMOUTH, 14, 26` (the Center door's outside 
 |---|---|---|---|
 | Lamplighter apprentice | (29,26) | `FACE_DOWN` | On the causeway, polishing the same lens forever |
 | Dockhand | (15,30) | `FACE_DOWN` | On the pier; the ferry sells tickets to Aldermere after the League |
-| Fish stall vendor | (19,21) | `FACE_DOWN` | Fish stall, sells nothing; Net Ball x3 are an item ball at his stall (20,22) |
+| Market stall vendor | (19,21) | `FACE_DOWN` | Market stall (berries and snacks), no shop script; Net Ball x3 are an item ball at his stall (20,22) |
 | Cove ranger | (49,22) | `FACE_DOWN` | Rear cove (PP Max) |
 | Ferry captain (post-game) | (3,31) | `FACE_RIGHT` | Pier at the roped mouth; opens R26 at game clear |
 | Wingull on bollard | (16,29) | `LOOK_AROUND` | Ambient |
@@ -434,7 +436,7 @@ Bg events: town sign (9,28), gate sign (4,38), nameplate (7,14), lighthouse stat
 | Pearl x2, Big Pearl | Underwater cove | **Dive** (badge 9) |
 | Max Elixir (hidden) | Behind the Mart, (21,14) | None |
 | Heart Scale (hidden) | Pier post, (15,30) | None |
-| Net Ball x3 | Fish stall item ball (20,22) | None |
+| Net Ball x3 | Market stall item ball (20,22) | None |
 | Nugget (hidden) | Pier barrel, (16,29) | After the League |
 
 ---
@@ -476,4 +478,5 @@ Bg events: town sign (9,28), gate sign (4,38), nameplate (7,14), lighthouse stat
 5. **The 15 x 21, 15 x 21, 15 x 19 gym plans** are mine; the card said about 17 x 26 per floor. I shrank them to the Palladium panel's size and the engine's gym-size rule. Does the author want bigger?
 6. **Wheel order.** 1F: Brass, Red, Blue. 2F: Blue, Red. Is a 5-turn memory puzzle with a one-line hint enough, or should 2F have more gaps?
 7. **Troglodyte present at the causeway** (card question 5): staged with him, as the card does.
-8. **Scheme 9 text says 'she signs'** in troglodyte-arc.md; I wrote 'he' (MIZZLE is a man, per the arc file's own note).
+8. **Shared Goldsworth layout and cousin allocation.** The house uses the 13 x 11 layout from kingsquay.md; Briarwick's file defines a 13 x 10 one, and Prescott and Kip are claimed by other cards too (see kingsquay.md open question 3).
+9. **Scheme 9 text says 'she signs'** in troglodyte-arc.md; I wrote 'he' (MIZZLE is a man, per the arc file's own note).

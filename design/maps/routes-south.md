@@ -1,5 +1,8 @@
 # Road cards, south group: R22 to R31 (PROPOSED, started 2026-10-01)
 
+> **Open question (author, 2026-10-01): the Palladium route renders named in this file are NOT decided.** The author doubts that reusing Palladium route images will give a quality hack, so every 'source render' for a road below is a **mood and shape reference only** until the author decides how each road gets built (traced, redrawn or designed fresh). Lengths, edges, trainers, items and encounters stay as written.
+
+
 Status: **PROPOSED.** Ten road cards written from the author's sketch and the README table ([README.md](README.md)). Nothing is built. Routes are numbered in walking order; the sketch's paired numbers are one road drawn with an arrow each way (README). Settlement cards: [towns/ebbsworth.md](towns/ebbsworth.md), [kingsquay.md](towns/kingsquay.md), [driftsands.md](towns/driftsands.md), [beaconmouth.md](towns/beaconmouth.md), [aldermere.md](towns/aldermere.md), [vesperhaven.md](towns/vesperhaven.md). Landmarks: [landmarks-south.md](landmarks-south.md).
 
 ## How to read these cards

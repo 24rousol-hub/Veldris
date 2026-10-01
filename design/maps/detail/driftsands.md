@@ -2,6 +2,8 @@
 
 Status: **PROPOSED.** Written 2026-10-01 from [../interiors/README.md](../interiors/README.md), [../interiors/catalogue.md](../interiors/catalogue.md), [../README.md](../README.md), [../../interiors.md](../../interiors.md), [../index.md](../index.md), the card [../towns/driftsands.md](../towns/driftsands.md), roads R24 and R25 ([../routes-south.md](../routes-south.md)), and the Palladium renders `Route 38.png` (the gatehouse end), `Route 40.png` (sand edge mood). House templates **G4-A, G4-B, G4-C** are in [ebbsworth.md](ebbsworth.md) section 6.0. Neighbours: [kingsquay.md](kingsquay.md), [beaconmouth.md](beaconmouth.md). Road detail: [routes-south-detail.md](routes-south-detail.md).
 
+**New minor names and details introduced in this file are all PROPOSED:** West Gate, the trainee lifeguard, the rematch Swimmer's team.
+
 Conventions: **(x, y) from the top-left tile (0,0)**; footprints are `(x0,y0)-(x1,y1)` inclusive; a 4-wide building's door is the bottom-row tile `(x0+1, y1)` (checked on vanilla Dewford: Pokémon Center door (2,10) on footprint x1-4); mats are two tiles wide.
 
 ---

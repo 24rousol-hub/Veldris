@@ -41,6 +41,8 @@ Final map picture: [../art/region_map_final.png](../art/region_map_final.png). C
 - All nine badges are needed for the League.
 - R18 is under construction, not a toll road.
 - Gildhaven traced from the Goldenrod render, **mirrored**.
+- **Gildhaven gym keeps its 'Crosswind' wind-belt puzzle** (author, 2026-10-01), even though it needs two drawn arrow tiles and an untested belt end.
+- **Palladium route renders are open questions** (author, 2026-10-01): reusing them for roads may not give a quality hack, so every road's 'source render' is a reference only until the author decides. Town and building renders are unaffected.
 
 ## Still open (the rest of the original list)
 

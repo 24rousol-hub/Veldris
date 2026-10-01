@@ -11,7 +11,7 @@ Status: **PROPOSED.** Written 2026-10-01 for the author to build from. Card this
 
 ## 1. Description
 
-**From R10 (the west).** The pass opens onto a **lane of cobbles under a rock face**: stacked quarry stone beside the road, two squat grey houses with slate roofs, a wind that never lets up. Above the lane the town rises in **two more terraces**, each a lighter grey than the last, with a red Pokémon Center roof halfway up and a **weather vane spinning on the top terrace**. Colour: grey stone, lichen green, brown thatch, the red of the Center roof. Sound: wind only (a faint hum of the vane). Music: `MUS_FALLARBOR` for the town (a dry, windblown tune), `MUS_POKE_CENTER` / `MUS_POKE_MART` as vanilla, `MUS_RUSTBORO` in the Weather Station (the tune the vanilla institute uses).
+**From R10 (the west).** The pass opens onto a **lane of cobbles under a rock face**: stacked quarry stone beside the road, two squat grey houses with slate roofs, a wind that never lets up. Above the lane the town rises in **two more terraces**, each a lighter grey than the last, with a red Pokémon Center roof halfway up and a **weather vane spinning on the top terrace**. Colour: grey stone, lichen green, brown thatch, the red of the Center roof. Sound: wind only (a faint hum of the vane). **Time of day:** a clear cold morning, long shadows down the terraces. Music: `MUS_FALLARBOR` for the town (a dry, windblown tune), `MUS_POKE_CENTER` / `MUS_POKE_MART` as vanilla, `MUS_RUSTBORO` in the Weather Station (the tune the vanilla institute uses).
 
 **From R11 (the east).** The player comes through a **notch in the ridge wall** onto the lane's east end. A one-way **ledge** drops away on the right (south-east) into the road they just walked; ahead, the lane runs west under the houses. A bench with a view faces back through the notch.
 
@@ -87,7 +87,7 @@ Numbered walk:
 
 | Edge | Neighbour | Offset | Lines up |
 |---|---|---|---|
-| West | `VeldrisRoute10` (64 x 23) east edge | +12 | R10's east road (rows 9-11) meets the lane (rows 21-23) |
+| West | `VeldrisRoute10` (64 x 23) east edge | +9 | R10's carved east exit (rows 12-14) meets the lane (rows 21-23) |
 | East | `VeldrisRoute11` (67 x 25) west edge | +8 | R11's west road (rows 13-15) meets the lane; R11 rows 17-18 meet the ledge strip (rows 25-26) |
 | North, South | none | | cliff |
 

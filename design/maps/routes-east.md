@@ -1,5 +1,8 @@
 # Routes, the east (R13 to R17)
 
+> **Open question (author, 2026-10-01): the Palladium route renders named in this file are NOT decided.** The author doubts that reusing Palladium route images will give a quality hack, so every 'source render' for a road below is a **mood and shape reference only** until the author decides how each road gets built (traced, redrawn or designed fresh). Lengths, edges, trainers, items and encounters stay as written.
+
+
 Status: **PROPOSED.** Road cards for the east group, in the order of the table in [README.md](README.md) ('Route numbering'), which is my reading of the sketch and **needs the author's confirmation**. Settlements: [towns/hemlock-reach.md](towns/hemlock-reach.md), [towns/primrose-vale.md](towns/primrose-vale.md), [towns/brinecombe.md](towns/brinecombe.md), and Waymeet (centre group, not written here). Landmark: [landmarks-east.md](landmarks-east.md).
 
 **Summary**

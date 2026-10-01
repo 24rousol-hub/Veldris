@@ -141,7 +141,7 @@ Object count outdoors: 6 trainers + 4 people + 3 visible items (POTION, PARALYZE
 
 | Map | Tile | Destination |
 |---|---|---|
-| `Mothwood` | (13, 61), the south-west gate (door on the south face; the render shows the entrance on the west, so rotate it, see Open question 3) | `Mothwood_Gate` warp 1 |
+| `Mothwood` | (13, 61), the south-west gate (door on the south face; the render shows the entrance on the west, so rotate it, see Open question 3) | `Mothwood_Gate` warp 2 (the right door pair) |
 | `Mothwood` | (7, 10), the Warden's Lodge | a script door: a `coord_event` trigger on (7, 11) that warps to `Mothwood_WardensLodge` only when `FLAG_MOTHWOOD_SHRINE_VISITED` is set, otherwise a sign says 'CLOSED. COME BACK WITH SOMETHING TO SHOW' |
 | `Mothwood_Gate` | (1, 5) and (2, 5), the left door pair | R9's north gatehouse (the road side, defined in the R9 card) |
 | `Mothwood_Gate` | (12, 5) and (13, 5), the right pair | `Mothwood` warp 0, lands at (13, 62) |

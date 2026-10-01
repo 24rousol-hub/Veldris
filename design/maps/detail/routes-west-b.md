@@ -1,5 +1,8 @@
 # Detailed road design: west group B (R4, R5, R6, R7)
 
+> **Open question (author, 2026-10-01): the Palladium route renders named in this file are NOT decided.** The author doubts that reusing Palladium route images will give a quality hack, so every 'source render' for a road below is a **mood and shape reference only** until the author decides how each road gets built (traced, redrawn or designed fresh). Lengths, edges, trainers, items and encounters stay as written.
+
+
 Status: **PROPOSED** (written 2026-10-01). Nothing here is built. This is the brief the author builds from in Porymap, and the brief Claude uses for the events, trainers and dialogue afterwards. It adds detail to the existing cards in [../routes-west.md](../routes-west.md) and does not change them: species, levels, trainer lists, items and flags stay as the cards have them. Where I had to choose, the choice is marked **PROPOSED** (or **FIX** when an existing card contradicts the render). Rules and rates: [../README.md](../README.md), [../interiors/README.md](../interiors/README.md). Towns: [gloomsby.md](gloomsby.md), [smeltham.md](smeltham.md), [hoarfell.md](hoarfell.md). Landmark at the end of R7: [landmarks-west-detail.md](landmarks-west-detail.md).
 
 How to read coordinates: every `(x, y)` is a tile on the **Palladium render as it is drawn** (x from the left, y from the top, 0-based). Tile size is `(px - 1) / 17` for these gridded images, which I checked by pixel size: Route 36 is 52 x 22, Route 43 is 30 x 54, Route 42 is 64 x 23, Route 46 is 22 x 36. I read every position by eye from the image, so it can be **1 or 2 tiles off**. Use them as 'about here'. The renders are used **unmirrored** for all four roads (see the edge table: this keeps every road's gatehouse and open end where the picture has them).
@@ -23,12 +26,12 @@ The road cards say 'west end meets Briarwick's west edge', which cannot be an ed
 
 | Join | Town side | Road side | Kind |
 |---|---|---|---|
-| Briarwick to R4 | Briarwick **west** edge (gravel path, top-left of town) | R4 **east** edge, sand band at y 10 to 12 | edge connection, offset: Briarwick's gravel row minus 10 |
+| Briarwick to R4 | Briarwick **west** edge (its paved strip at y 10 to 12, see [briarwick.md](briarwick.md)) | R4 **east** edge, sand band at y 10 to 12 | edge connection, **offset 0** (both are y 10 to 12) |
 | R4 to Gloomsby | Gloomsby **west** gatehouse | R4 **west** gatehouse (the render's own, x 0 to 5, y 6 to 10) | one gate interior, two doors |
 | Gloomsby to R5 | Gloomsby **east** gatehouse | R5 **south** gatehouse (the render's own, x 12 to 17, y 51 to 53) | one gate interior, two doors |
-| R5 to Smeltham | Smeltham **south** edge (3-wide gap cut through the bottom cliff, x 10 to 12) | R5 **north** edge, lane at x 12 to 15, y 0 | edge connection, offset: Smeltham's x minus R5's x for the same lane tile |
-| Smeltham to R6 | Smeltham **east** edge (lane at y 13 to 15 of the render, the widened map shifts it, see [smeltham.md](smeltham.md)) | R6 **west** edge, sand at y 8 to 15 | edge connection (the render's west gatehouse is dropped) |
-| R6 to Hoarfell | Hoarfell **west** edge (a 3-wide gap the author cuts in the rock wall at y 30 to 32, see [hoarfell.md](hoarfell.md)) | R6 **east** edge, sand at y 7 to 10 | edge connection |
+| R5 to Smeltham | Smeltham **south** edge (a 4-wide gap cut through the bottom cliff, x 10 to 13, see [smeltham.md](smeltham.md)) | R5 **north** edge, lane at x 12 to 15, y 0 | edge connection: Smeltham x 10 to 13 meets R5 x 12 to 15 (offset -2) |
+| Smeltham to R6 | Smeltham **east** edge (the yard lane at y 17 to 19, see [smeltham.md](smeltham.md)) | R6 **west** edge, sand at y 11 to 13 | edge connection, offset 6 (the render's west gatehouse is dropped) |
+| R6 to Hoarfell | Hoarfell **west** edge (a 3-high gap the author cuts in the rock wall at y 31 to 33, see [hoarfell.md](hoarfell.md)) | R6 **east** edge, sand at y 7 to 9 | edge connection, offset 24 |
 | R6 to R7 | R6 cave door at (14, 8) | R7 south end, sand path at (10, 33) | one warp pair (a door), no edge |
 
 **FIX against the cards:** (1) R4's Gloomsby end is the **west** end, so the card's 'fog in the east third' becomes the **west** third and the card's 'west' items (Briarwick end) are on the map's **east** side. The translation is written into R4 below. (2) R5's Gloomsby end is the **south** end (the card said the Smeltham end is south and suggested mirroring). Walking from Gloomsby you go **north** up R5, which also keeps the smoke on the far side, at Smeltham. If the author would rather mirror, flip every y below (`y' = 53 - y`) and swap the town ends.
@@ -43,7 +46,7 @@ All gate interiors are described in [gloomsby.md](gloomsby.md) (the shared inter
 
 ### Description and walk-through
 
-You leave Briarwick by the gravel path on its west side and step onto a wide, damp meadow road. The road looks tidy at first (a sand band running west between two thick walls of pines), then it dips into a green hollow where the grass is wetter, the colours go grey-green and the **fog** rolls in. By the middle of the road you can hear nothing but your own steps and a far-off hooting. The one real set piece is a **film van** parked on the lower road with cables snaking out of its door (the Scheme 3 foreshadow, played straight for a laugh). The road ends at a grey gatehouse with a lit window: the **west gate**, and beyond it Gloomsby.
+You leave Briarwick by the gravel path on its west side and step onto a wide, damp meadow road. The road looks tidy at first (a sand band running west between two thick walls of pines), then it dips into a green hollow where the grass is wetter, the colours go grey-green and the **fog** rolls in. By the middle of the road you can hear nothing but your own steps and a far-off HOOTHOOT. The one real set piece is a **film van** parked on the lower road with cables snaking out of its door (the Scheme 3 foreshadow, played straight for a laugh). The road ends at a grey gatehouse with a lit window: the **west gate**, and beyond it Gloomsby.
 
 Mood: quiet, polite, a little spooky and a little silly (a girl selling 'authentic ghost stories for a coin' on a road where the fog does the work for free). Time of day: late afternoon, never full sun (use the header weather, not a palette change).
 
@@ -110,16 +113,16 @@ Visible items use up objects, so most are hidden or `bg_event`.
 ### Interiors on this road
 
 - **Marshkeeper's Lodge** (`Route4_MarshkeepersLodge`): 11 x 8, tileset `gTileset_Building` plus **Gen 4 Interior Secondary** (house style, rule 1), the Hollowbrook neighbour's-house kit. Exit mat (2, 7). Kitchen block at the top left (copy blocks x 0 to 3, y 1 to 2), bookshelf at (7, 1) to (8, 2), a **pair of tall lamps** against the right wall (use the plant blocks at (10, 4) to (10, 6)), a low table with cushions (the TV table kit at x 5 to 8, y 4 to 6 repainted as a table with no TV). The Marshkeeper stands at (5, 3) facing south. Warps: 1 (the mat). Palladium: `Elm's House.png` for the proportions. A reading nook (cushion at (9, 6)) is the 'fog lore' spot: a `bg_event` bookshelf.
-- **West gate** shared with Gloomsby: see [gloomsby.md](gloomsby.md). On R4 the outside half is the render's gatehouse. Warp from R4: tile (3, 10) goes to `Gloomsby_WestGate` warp 1.
+- **West gate** shared with Gloomsby: see [gloomsby.md](gloomsby.md). On R4 the outside half is the render's gatehouse. Warp from R4: tile (3, 10) goes to `Gloomsby_WestGate` warp 2 (the right door pair).
 
 ### Warp table (R4)
 
 | Map | Tile | Destination |
 |---|---|---|
-| `Route4` | (3, 10), the gate door | `Gloomsby_WestGate` warp 1 |
+| `Route4` | (3, 10), the gate door | `Gloomsby_WestGate` warp 2 (the right door pair) |
 | `Route4` | (37, 20), the lodge door | `Route4_MarshkeepersLodge` warp 0 |
 | `Route4_MarshkeepersLodge` | (2, 7), exit mat | `Route4` warp 1, lands at (37, 21) |
-| `Gloomsby_WestGate` | its east door, see [gloomsby.md](gloomsby.md) | `Route4` warp 0, lands at (3, 11) |
+| `Gloomsby_WestGate` | the right door pair (12 and 13, 5), see [gloomsby.md](gloomsby.md) | `Route4` warp 0, lands at (3, 11) |
 
 ### Visual identity and connections
 
@@ -127,7 +130,7 @@ Visible items use up objects, so most are hidden or `bg_event`.
 - **Weather:** `WEATHER_FOG_HORIZONTAL` for the whole road (one header setting, simplest). The two-column option (a column of `COORD_EVENT_WEATHER_FOG_HORIZONTAL` weather events at x = 30) only changes weather when you step on it, so entering from the gate would load without fog: do not use it.
 - **Colours:** grey-green meadow, pale sand, dark pines, red flower row as the one warm accent.
 - **Silhouettes:** the gate's roof at the west end, the film van and its cables in the lower middle, the pine stand at x 12 to 13.
-- **Connections:** east edge to Briarwick's west edge (offset = Briarwick's path row minus 10); no other edges. Border: tree blocks.
+- **Connections:** east edge to Briarwick's west edge (y 10 to 12 on both maps, offset 0); no other edges. Border: tree blocks.
 
 ### Flags (not claimed)
 
@@ -220,7 +223,7 @@ Signs: (17, 49) south, (18, 41) mid-south, (17, 4) north.
 
 | Map | Tile | Destination |
 |---|---|---|
-| `Route5` | (14, 53), the south gate door | `Gloomsby_EastGate` warp 1 |
+| `Route5` | (14, 53), the south gate door | `Gloomsby_EastGate` warp 2 (the right door pair) |
 | `Route5` | (20, 39), the toll gate south door | `Route5_TollGate` warp 0 |
 | `Route5` | (20, 34), the toll gate north door | `Route5_TollGate` warp 1 |
 | `Route5_TollGate` | (13, 5) | `Route5` warp 1, lands at (20, 40) |
@@ -342,7 +345,7 @@ SWINUB 28 to 29, SNORUNT 28 to 29, BOLDORE 30, BRONZOR 29 to 30, CUBCHOO 29 to 3
 - **Colours:** brown rock, tan sand, two blue lakes, white dusting in the east.
 - **Music:** `MUS_ROUTE120`.
 - **Silhouettes:** the lorry at the west, two lakes like blue plates, the high ridge ramp.
-- **Connections:** west edge to Smeltham's east edge (offset = Smeltham's lane row minus 8); east edge (y 7 to 10) to Hoarfell's west edge (offset = Hoarfell's gap row minus 7). The junction door is a warp.
+- **Connections:** west edge (sand at y 11 to 13 of the render's y 8 to 15 band) to Smeltham's east edge at y 17 to 19 (offset 6); east edge (sand at y 7 to 9) to Hoarfell's west edge at y 31 to 33 (offset 24). The junction door is a warp.
 
 ### Flags (not claimed)
 
