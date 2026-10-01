@@ -11,6 +11,7 @@
 | [towns-and-routes.md](towns-and-routes.md) | The 18 towns and 33 routes, map names, build status | A map is added, renamed or changes status |
 | [porymap-first-map.md](porymap-first-map.md) | A beginner's guide to building Hollowbrook in Porymap: setup, the git loop, a smoke test, pitfalls and a time estimate | You learn something new about Porymap or the workflow |
 | [wendlebury.md](wendlebury.md) | Town 3 plan: role, position, buildings, NPCs; dialogue in `dialogue/wendlebury.inc` | The map or the town plan changes |
+| [dialogue/briarwick.inc](dialogue/briarwick.inc), [dialogue/route3.inc](dialogue/route3.inc) | Dialogue drafts for Briarwick (Scheme 2 tent, gym 2 and HACHIMEL, the first Goldsworth house, Apiary, houses) and Route 3 | The maps or the cards change |
 | [setup-budget.md](setup-budget.md) | Map sections, flags and trainer budgets for everything past Hollowbrook and Route 1, and the checks done | The cards or counts change |
 | [region-sketch.md](region-sketch.md) | The author's hand-drawn region sketch, my reading, section budget, suggested terrain | The sketch or the map changes |
 | [region-names.md](region-names.md) | PROPOSED names, themes, gyms and map sources (Palladium and vanilla) for every settlement and landmark | The author picks or changes names |

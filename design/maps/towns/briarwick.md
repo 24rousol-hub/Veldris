@@ -1,6 +1,6 @@
 # BRIARWICK (city, place 4)
 
-Status: **PROPOSED.** Name approved 2026-10-01 ([../../region-names.md](../../region-names.md)); everything else is a brief for the author's Porymap work. Gym details: [../../gyms.md](../../gyms.md), [../../leader-names.md](../../leader-names.md), [../../trainer-roster.md](../../trainer-roster.md). Scheme 2: [../../troglodyte-arc.md](../../troglodyte-arc.md). Goldsworth houses: [../../goldsworth.md](../../goldsworth.md). Roads: [../routes-west.md](../routes-west.md). Landmark: Mothwood in [../landmarks-west.md](../landmarks-west.md).
+Status: **PROPOSED.** Name approved 2026-10-01 ([../../region-names.md](../../region-names.md)); everything else is a brief for the author's Porymap work. Dialogue draft: [../../dialogue/briarwick.inc](../../dialogue/briarwick.inc) (2026-10-01, checked, not wired). Gym details: [../../gyms.md](../../gyms.md), [../../leader-names.md](../../leader-names.md), [../../trainer-roster.md](../../trainer-roster.md). Scheme 2: [../../troglodyte-arc.md](../../troglodyte-arc.md). Goldsworth houses: [../../goldsworth.md](../../goldsworth.md). Roads: [../routes-west.md](../routes-west.md). Landmark: Mothwood in [../landmarks-west.md](../landmarks-west.md).
 
 ## Role in the story
 

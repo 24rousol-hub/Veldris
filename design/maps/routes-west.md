@@ -26,6 +26,8 @@ Map size checks: all under (w + 15) x (h + 14) <= 10240. The largest is R6 stitc
 
 ## R3: Crestfall to Briarwick (land, sketch 3)
 
+Dialogue draft: [../dialogue/route3.inc](../dialogue/route3.inc) (2026-10-01, checked, not wired).
+
 **A short card, because the road is blocked at first.**
 
 **Length and shape.** 46 x 22. A wooded lane running west to east: a gravel track along the top, a tall-grass patch in the lower left, a pond in the upper middle, and a small rocky mound in the upper right corner. The south tree line has one dirt gap (an item clearing). **Source:** Palladium `Route 31.png` (46 x 22, grid), the approved pairing in [../map-plan.md](../map-plan.md). Vanilla fallback `Route104`.
