@@ -1,12 +1,12 @@
-# Crestfall (town 3, gym 1) - city plan
+# Crestfall (town 2, gym 1) - town plan
 
-Status: **PROPOSED** except the name and Greta (approved earlier) and that Crestfall is a **city** (author, 2026-09-30). Everything else below is a suggestion. Map plan: [map-plan.md](map-plan.md) (reference `Azalea Town.png`, about 48 x 32, vanilla base `PetalburgCity`). Dialogue: [dialogue/crestfall.inc](dialogue/crestfall.inc) and [dialogue/crestfall_extra.inc](dialogue/crestfall_extra.inc).
+Status: **PROPOSED** except the name and Greta (approved earlier) and that Crestfall is a **town** (author, 2026-10-01, replacing the earlier 'city'; the sketch also draws it purple). Everything else below is a suggestion. Map plan: [map-plan.md](map-plan.md) (reference `Azalea Town.png`, about 48 x 32, vanilla base `PetalburgCity`). Dialogue: [dialogue/crestfall.inc](dialogue/crestfall.inc) and [dialogue/crestfall_extra.inc](dialogue/crestfall_extra.inc).
 
 ## Role
-Normal type farm city and the first gym. It is a city, so it has a **Goldsworth house** (NPC only). The skyscraper is **not** here unless the author says so. Greta is the leader (`TRAINER_CRESTFALL_GRETA`, STANDARD BADGE). Scheme 1 plays out here.
+Normal type farm town and the first gym, one road from Hollowbrook. It is a town, so it has **no Goldsworth house** (changed 2026-10-01): the NPC-only cousin set below moves to the first city (sketch city 4). The Center and Mart here are the player's first. The skyscraper is **not** here unless the author says so. Greta is the leader (`TRAINER_CRESTFALL_GRETA`, STANDARD BADGE). Scheme 1 plays out here.
 
 ## Where it sits
-South: Route 2 from Wendlebury. North or east: Route 3 onward to town 4, blocked for now. Farmland and the gym's hay maze fill the north and west sides, the market square and houses the south and middle. PROPOSED.
+West: Route 1 from Hollowbrook. East or north-east: Route 2 to Wendlebury. North: Route 3 onward to city 4, blocked for now. Farmland and the gym's hay maze fill the north and west sides, the market square and houses the south and middle. PROPOSED.
 
 ## Buildings
 | Building | Layout | Notes |
@@ -14,7 +14,7 @@ South: Route 2 from Wendlebury. North or east: Route 3 onward to town 4, blocked
 | Pokémon Center 1F and 2F | `LAYOUT_POKEMON_CENTER_1F` and `_2F` | Shared, no painting. Nurse, visitor (in `crestfall.inc`) |
 | Mart | `LAYOUT_MART` | Shared. Clerk (in `crestfall.inc`) plus shopkeeper (extra) |
 | Gym | custom, base `Azalea Town Gym.png` (see map-plan) | Greta, two trainers, hay maze, guide statue |
-| Goldsworth house | shared house layout (see map-plan) | NPC only, build last with the other Goldsworth houses |
+| ~~Goldsworth house~~ | removed 2026-10-01 | A town gets none. Its draft lines (`GoldCousin*` and the rest in `crestfall_extra.inc`) are reused for the first city |
 | House A (retired couple) | `LAYOUT_HOUSE1` | Ordinary residents |
 | House B (stuck trainer) | `LAYOUT_HOUSE2` | Ordinary resident |
 | Market square | exterior objects only | Three stalls, a fountain, signs |
@@ -40,7 +40,7 @@ Map names follow [towns-and-routes.md](towns-and-routes.md): `Crestfall`, `Crest
 Goldsworth house: the boaster cousin (BARNABY, name PROPOSED) brags about the family, per author. Residents swear mildly (PG-13) and are rude to the player, not cruel to townsfolk. No battle, no flag needed beyond the before/after-gym check.
 
 ## Where Scheme 1 beats happen
-1. **Setup** (before the gym): consultant outside in town; locals and the old farmer grumble; Route 2 traveller in Wendlebury hints first.
+1. **Setup** (before the gym): consultant outside in town; locals and the old farmer grumble; the two surveyors on Route 1 hint first.
 2. **Reveal**: consultant boss and junior at the gym door, with the junior lost in the hay maze.
 3. **Collapse**: Greta's MILTANK eat the paperwork, at the gym door (coord_event trigger, per CLAUDE.md).
 4. **Troglodyte arrives and battles** (his second fight), then Greta invites the player in.
@@ -50,6 +50,6 @@ Goldsworth house: the boaster cousin (BARNABY, name PROPOSED) brags about the fa
 One flag or var for the Scheme 1 stage is needed, and one for the gym-beaten state (`FLAG_BADGE01_GET` already exists for the After text). Claim them in [flags.md](flags.md) when the map is built.
 
 ## Open questions
-- Flying: [towns-and-routes.md](towns-and-routes.md) says only towns are fly destinations, but Crestfall is a city and a listed fly destination. Decide.
-- Does the skyscraper go in a later city? Not here unless the author says.
+- Flying: Crestfall is a town, so this is settled: it is a fly destination.
+- The skyscraper is in Central City (sketch), not here.
 - Greta's farm link (see [characters.md](characters.md)).

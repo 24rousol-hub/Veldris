@@ -1,4 +1,4 @@
-@ Wendlebury dialogue DRAFT (town 2, the market crossroads). No gym.
+@ Wendlebury dialogue DRAFT (town 3, the market crossroads, reached from Crestfall by Route 2). No gym.
 @ Status: PROPOSED, not wired into any map (the map is not built yet).
 @ Check widths: python3 design/tools/dialogue_check.py design/dialogue/wendlebury.inc
 @ Pokemon only: no real animals. Nobody here swears.
@@ -47,14 +47,14 @@ Wendlebury_Text_Gossip::
 	.string "other half hasn't noticed yet.$"
 
 Wendlebury_Text_TravellerNorth::
-	.string "Heading to CRESTFALL? I passed\n"
-	.string "men in suits on ROUTE 2.\p"
-	.string "They were carrying clipboards.\n"
-	.string "Nobody that tidy means well.$"
+	.string "Coming up from CRESTFALL? Then\n"
+	.string "you've met the hay maze.\p"
+	.string "Everyone gets lost in it once.\n"
+	.string "It's practically a greeting.$"
 
 Wendlebury_Text_TravellerNorthAfter::
-	.string "CRESTFALL's still standing?\n"
-	.string "Good. The tomatoes are worth it.$"
+	.string "CRESTFALL's tomatoes got here\n"
+	.string "before you did. They're worth it.$"
 
 Wendlebury_Text_BarricadeMan::
 	.string "Road's closed. Official reasons.\n"

@@ -1,12 +1,12 @@
-@ Route 1 dialogue DRAFT (Hollowbrook to Wendlebury). Farm country, gentle, Normal types.
+@ Route 1 dialogue DRAFT (Hollowbrook to Crestfall). Farm country, gentle, Normal types.
 @ Status: PROPOSED, not wired into any map (the map is not built yet).
 @ Check widths: python3 design/tools/dialogue_check.py design/dialogue/route1.inc
 @ Pokemon only: no real animals. Nobody here swears (only the Goldsworths can).
 
-@ Signs (west end is Hollowbrook, east end is Wendlebury).
+@ Signs (west end is Hollowbrook, east end is Crestfall).
 VeldrisRoute1_Text_SignWest::
 	.string "ROUTE 1\n"
-	.string "WEST: HOLLOWBROOK\lEAST: WENDLEBURY$"
+	.string "WEST: HOLLOWBROOK\lEAST: CRESTFALL$"
 
 VeldrisRoute1_Text_SignEast::
 	.string "ROUTE 1\n"
@@ -52,7 +52,7 @@ VeldrisRoute1_Text_Trainer3After::
 
 @ Guide NPC: gives POTIONs once (a free item, flag needed, see route1.md).
 VeldrisRoute1_Text_GuideGive::
-	.string "Heading to WENDLEBURY? It's\n"
+	.string "Heading to CRESTFALL? It's\n"
 	.string "a long walk. Take these.\p"
 	.string "{PLAYER} received 3 POTIONs!$"
 
@@ -81,9 +81,9 @@ VeldrisRoute1_Text_BucketKid::
 
 @ Walker with a map, mid-route.
 VeldrisRoute1_Text_Walker::
-	.string "WENDLEBURY is a market town.\n"
-	.string "The trick is to ask the price\l"
-	.string "twice. It changes.$"
+	.string "CRESTFALL is a farm town. Never\n"
+	.string "walk straight through the hay.\p"
+	.string "The hay has opinions.$"
 
 @ A sleepy interactable Pokemon in the grass.
 VeldrisRoute1_Text_SentretLookout::
@@ -124,3 +124,30 @@ VeldrisRoute1_Text_Trainer3AfterBadge::
 	.string "The rich boy came back this way.\n"
 	.string "Looked tired. Stepped on my\l"
 	.string "beans again.$"
+
+@ ADDED 2026-10-01 (Route 1 now ends in Crestfall): Scheme 1 foreshadowing moved here from Route 2.
+@ Two surveyors in suits with clipboards, walking Route 1 toward Crestfall. Not trainers. They set up
+@ Crestfall_Text_ConsultantOutside in crestfall.inc.
+VeldrisRoute1_Text_SurveyorA::
+	.string "Do not step on the markers.\n"
+	.string "This road is under assessment.\p"
+	.string "Our client finds it\n"
+	.string "insufficiently profitable.$"
+
+VeldrisRoute1_Text_SurveyorAAfter::
+	.string "Forty paces from that post to\n"
+	.string "this one. Wasteful. Very wasteful.$"
+
+VeldrisRoute1_Text_SurveyorB::
+	.string "Are you a stakeholder?\n"
+	.string "No? Then please move along.\p"
+	.string "We have a gym to rationalise.\n"
+	.string "It's on the schedule.$"
+
+VeldrisRoute1_Text_SurveyorBAfter::
+	.string "I counted a hundred and four\n"
+	.string "bushes. It felt like a lot.$"
+
+VeldrisRoute1_Text_LocalWorried::
+	.string "Those suits keep measuring our\n"
+	.string "ditches. I like my ditches.$"

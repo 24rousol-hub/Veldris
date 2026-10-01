@@ -46,4 +46,4 @@ Water-only links (blue, no brown beside it): Wendlebury to the south-centre city
 
 ## Open questions
 
-See the chat reply of 2026-10-01 and `game-bible.md`. Nothing is changed in the other docs until the author answers.
+See the chat reply of 2026-10-01 and `game-bible.md`. **Update 2026-10-01:** the author confirmed Route 1 is Hollowbrook to Crestfall and chose to make **Crestfall a town**. Route 1, Route 2, Crestfall, Wendlebury, the map plan, the story outline and the dialogue were updated. Still open: the other questions in the chat reply (gyms per place, post-game city, landmarks, sections budget).

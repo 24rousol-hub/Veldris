@@ -2,7 +2,7 @@
 @ DRAFT, UNBUILT, not included in data/event_scripts.s.
 @ Status: PROPOSED. Hand-written scripts.inc style (NOT Poryscript).
 @
-@ Wendlebury (town 2): town exterior, Pokemon Center 1F and the Mart. Paste each
+@ Wendlebury (town 3): town exterior, Pokemon Center 1F and the Mart. Paste each
 @ SECTION into the matching map's scripts.inc once the maps exist in Porymap (close or
 @ reload Porymap first):
 @   1. Wendlebury                 -> data/maps/Wendlebury/scripts.inc

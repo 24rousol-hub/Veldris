@@ -31,8 +31,8 @@ The Johto start lines up with Veldris' first stretch: New Bark Town, Route 29, C
 | Wendlebury: Pokémon Center 1F and 2F | (Palladium `PokeMon Center Johto.PNG`, about 16 x 22, is an alternative) | | Shared layouts `LAYOUT_POKEMON_CENTER_1F` and `_2F`. No painting needed |
 | Wendlebury: Mart | | | Shared layout `LAYOUT_MART`. No painting needed |
 | **Route 2** | `Route 30.png` | 37 x 59 | `Route102` |
-| **Crestfall** (city, gym 1; author 2026-09-30) | `Azalea Town.png` | about 48 x 32 | `PetalburgCity` |
-| Crestfall: Goldsworth house (city, PROPOSED) | none | | Shared house layout, NPC-only. Build last, with the other Goldsworth houses |
+| **Crestfall** (town, gym 1; author 2026-10-01) | `Azalea Town.png` | about 48 x 32 | `PetalburgCity` |
+| ~~Crestfall: Goldsworth house~~ | | | Removed 2026-10-01 (Crestfall is a town) |
 | Crestfall: Greta's gym (Normal type; greenery is aesthetic only, use non-encounter grass) | `Azalea Town Gym.png` | 15 x 17 | `PetalburgCity_Gym` is Normal type in vanilla too, but it is 9 x 112 with 38 warps and 11 objects, so it is a poor base. Decide when Crestfall comes up |
 | **Route 3** (blocked at first) | `Route 31.png` | 46 x 22 | `Route104` |
 

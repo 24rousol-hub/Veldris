@@ -1,12 +1,12 @@
-# Wendlebury (town 2)
+# Wendlebury (town 3)
 
 Status: **PROPOSED** except the name (approved 2026-09-29). Map plan: [map-plan.md](map-plan.md) (base `OldaleTown`, reference `Cherrygrove City.png`, about 51 x 29). Dialogue: [dialogue/wendlebury.inc](dialogue/wendlebury.inc).
 
 ## Role
-The player's first real stop: Pokémon Center, Mart, and the crossroads. It is the first place that sells things, and the first place the player hears about Troglodyte's family as a public nuisance. It has no gym. It is a **town** (author, 2026-09-30), so it has no Goldsworth house. The next stop, Crestfall, is a city.
+A market crossroads off the main path, reached from Crestfall by Route 2 (changed 2026-10-01: Crestfall is now the first stop and Wendlebury the third place). Pokémon Center, Mart, and the crossroads. The player hears the gossip about the Goldsworths and about the Crestfall scheme here. It has no gym. It is a **town** (author, 2026-09-30), so it has no Goldsworth house. The next stop, Crestfall, is a city.
 
 ## Where it sits
-West of it: Hollowbrook, by Route 1 (enters on Wendlebury's west edge). North: Route 2 to Crestfall (leaves on the north edge). East edge: a blocked exit toward the later routes (R16 on the region plan), shut by a barricade until the author says otherwise. South edge: sea or trees.
+Route 2 from Crestfall (south or west edge, map shape undecided). The sketch also joins it to city 4 and, by water, to the south-centre city. East edge: a blocked exit toward the later routes (R16 on the region plan), shut by a barricade until the author says otherwise. South edge: sea or trees.
 
 ## Buildings (all interiors reuse vanilla layouts, no painting)
 | Building | Layout | Notes |
@@ -20,7 +20,7 @@ West of it: Hollowbrook, by Route 1 (enters on Wendlebury's west edge). North: R
 A small market crossroads. Traders pass through on the way to the gym. Things run on signs and on gossip. The joke: everyone has heard of the Goldsworths and nobody has met one.
 
 ## NPCs (text in [dialogue/wendlebury.inc](dialogue/wendlebury.inc))
-Sign, Center nurse (shared wording with Crestfall's), Mart clerk, a market trader, a kid, a gossip, a traveller who warns about the route north, a man on the barricade. The Route 2 traveller hints that a rich boy hired men in suits to Crestfall, which sets up Scheme 1.
+Sign, Center nurse (shared wording with Crestfall's), Mart clerk, a market trader, a kid, a gossip, a traveller who warns about the route north, a man on the barricade. The traveller now talks about Crestfall's hay maze (Scheme 1 is foreshadowed on Route 1 instead).
 
 ## Added 2026-10-01 (dialogue only)
 Two market sellers (berries, tea), a second Center visitor, a 2F counter clerk, a Mart shopper, House 1 (resident, SLAKOTH, shelf), House 2 (resident, child, TV), a Troglodyte sighting, and four return-visit lines after Crestfall's gym (`FLAG_BADGE01_GET`, no new flag). The gossip line calls back Scheme 1.
