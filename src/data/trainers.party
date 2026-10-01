@@ -9512,39 +9512,89 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Psychic
 - Future Sight
 
-=== TRAINER_BRENDAN_ROUTE_103_MUDKIP ===
-Name: BRENDAN
+=== TRAINER_TROGLODYTE_HOLLOWBROOK ===
+Name: TROGLODYTE
 Class: Rival
 Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
 AI: Basic Trainer
+Party Size: 2
+Pool Prune: Rival Starter
+
+SIR BISCUIT (Lillipup)
+Level: 1
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- Leer
 
 Treecko
 Level: 5
+Tags: Tag6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Pound
+- Leer
+- Leafage
 
-=== TRAINER_BRENDAN_ROUTE_110_MUDKIP ===
-Name: BRENDAN
+Torchic
+Level: 5
+Tags: Tag7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Scratch
+- Growl
+- Ember
+
+Mudkip
+Level: 5
+Tags: Tag8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- Growl
+- Water Gun
+
+=== TRAINER_TROGLODYTE_CRESTFALL ===
+Name: TROGLODYTE
 Class: Rival
 Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
 AI: Basic Trainer
+Party Size: 2
+Pool Prune: Rival Starter
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+SIR BISCUIT (Lillipup)
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- Leer
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Treecko
+Level: 8
+Tags: Tag6
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Pound
+- Leer
+- Leafage
+- Quick Attack
 
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Torchic
+Level: 8
+Tags: Tag7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Scratch
+- Growl
+- Ember
+- Quick Attack
+
+Mudkip
+Level: 8
+Tags: Tag8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- Growl
+- Water Gun
 
 === TRAINER_BRENDAN_ROUTE_119_MUDKIP ===
 Name: BRENDAN
@@ -16885,3 +16935,63 @@ Double Battle: No
 Kyogre
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_CRESTFALL_GYM_1 ===
+Name: DALE
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Zigzagoon
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- Sand Attack
+- Tail Whip
+- Covet
+
+=== TRAINER_CRESTFALL_GYM_2 ===
+Name: WREN
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Slakoth
+Level: 10
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Scratch
+- Yawn
+- Encore
+- Slack Off
+
+=== TRAINER_CRESTFALL_GRETA ===
+Name: GRETA
+Class: Leader
+Pic: Veldris Leader Normal
+Gender: Female
+Music: Female
+Items: Potion / Potion
+Double Battle: No
+AI: Basic Trainer
+
+Skitty
+Level: 10
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Fake Out
+- Tackle
+- Sing
+- Attract
+
+Miltank @ Oran Berry
+Level: 12
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- Growl
+- Rollout
+- Defense Curl

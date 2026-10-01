@@ -537,8 +537,10 @@
 #define TRAINER_EDWIN_4                     517
 #define TRAINER_EDWIN_5                     518
 #define TRAINER_WALLY_VR_1                  519
-#define TRAINER_BRENDAN_ROUTE_103_MUDKIP    520
-#define TRAINER_BRENDAN_ROUTE_110_MUDKIP    521
+#define TRAINER_TROGLODYTE_HOLLOWBROOK      520
+#define TRAINER_BRENDAN_ROUTE_103_MUDKIP    TRAINER_TROGLODYTE_HOLLOWBROOK
+#define TRAINER_TROGLODYTE_CRESTFALL        521
+#define TRAINER_BRENDAN_ROUTE_110_MUDKIP    TRAINER_TROGLODYTE_CRESTFALL
 #define TRAINER_BRENDAN_ROUTE_119_MUDKIP    522
 #define TRAINER_BRENDAN_ROUTE_103_TREECKO   523
 #define TRAINER_BRENDAN_ROUTE_110_TREECKO   524
@@ -877,7 +879,11 @@
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT_EMERALD     855
+#define TRAINER_CRESTFALL_GYM_1             855
+#define TRAINER_CRESTFALL_GYM_2             856
+#define TRAINER_CRESTFALL_GRETA             857
+
+#define TRAINERS_COUNT_EMERALD     858
 #define MAX_TRAINERS_COUNT_EMERALD 864
 
 #if IS_FRLG

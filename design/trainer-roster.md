@@ -28,3 +28,19 @@ Status: **BUILT 2026-10-01** (the ROM compiles; nothing has been fought in a gam
 - **Battle check (2026-10-01, mGBA, debug menu Trainers > Try Battle).** All 13 trainers were fought: intro text, class and name, picture and first send-out species and level were correct for each. CYNTHIA was played for several turns and used her curated moves (Payback seen). One bug found and fixed: MIZZLE's picture drew a light-blue box because the background was palette index 4, not 0. The indices were swapped in `veldris_leader_water.png` and the fix re-checked. Not checked: later team members, full fights, and the vanilla alias scripts.
 - The gym trainers (DALE, WREN) and Greta are still unbuilt blocks ([teams.md](teams.md)).
 - The movesets are in the file itself. Tune any set by editing its block.
+
+## Crestfall and Troglodyte blocks (BUILT 2026-10-01)
+
+| Constant | Id | Name | Pic and class | Team |
+|---|---|---|---|---|
+| `TRAINER_CRESTFALL_GYM_1` | 855 (new) | DALE | **placeholder** Youngster pic, Youngster | Zigzagoon 9 |
+| `TRAINER_CRESTFALL_GYM_2` | 856 (new) | WREN | **placeholder** Gentleman pic, Gentleman | Slakoth 10 |
+| `TRAINER_CRESTFALL_GRETA` | 857 (new) | GRETA | `Veldris Leader Normal` (kwenio ORAS lass, indexed), Leader | Skitty 10, Miltank 12 (Oran Berry) |
+| `TRAINER_TROGLODYTE_HOLLOWBROOK` | 520 (was Brendan Route 103 Mudkip) | TROGLODYTE | **placeholder** Brendan pic, Rival | SIR BISCUIT (Lillipup) 1, plus his starter 5 |
+| `TRAINER_TROGLODYTE_CRESTFALL` | 521 (was Brendan Route 110 Mudkip) | TROGLODYTE | same | SIR BISCUIT 7, plus his starter 8 (starters also know Quick Attack for Treecko and Torchic) |
+
+Teams are from [teams.md](teams.md). All have `IVs: 0` on every Pokémon. Troglodyte uses `Pool Prune: Rival Starter` with `Party Size: 2`.
+
+**Battle check (mGBA, same method as above):** all five show the right intro, name and first Pokémon. TROGLODYTE's second Pokémon was seen to be exactly one starter (Treecko, `VAR_TROG_STARTER` = 0) after SIR BISCUIT fainted, so the pool prune works. Not yet seen: the Torchic and Mudkip variants (set the var to 1 or 2), full fights, and the old Hoenn Route 103 and 110 scripts that now point at the renamed ids.
+
+**Caveats.** The Rival class shows 'PKMN TRAINER' in the intro, so a Veldris class name would need a small text edit. Greta's id means 6 brand-new ids are left (858 to 863). The other six Troglodyte fights should reuse vanilla ids, as these two do.

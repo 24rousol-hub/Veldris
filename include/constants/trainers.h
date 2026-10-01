@@ -178,6 +178,7 @@ enum __attribute__((packed)) TrainerPicID
     TRAINER_PIC_POKEMON_BREEDER_FRLG,
     TRAINER_PIC_PAINTER_FRLG,
     // Veldris: hack-owned trainer pictures (design/gym-leader-art.md)
+    TRAINER_PIC_VELDRIS_LEADER_NORMAL,
     TRAINER_PIC_VELDRIS_LEADER_BUG,
     TRAINER_PIC_VELDRIS_LEADER_GHOST,
     TRAINER_PIC_VELDRIS_LEADER_STEEL,

@@ -39,3 +39,4 @@ Before pulling upstream, read this list. Each row is a place a merge could confl
 |---|---|---|
 | `include/constants/flags.h`, `vars.h` | One-line renames of `FLAG_UNUSED_*` / `VAR_UNUSED_*` as flags and vars are claimed. See [flags.md](flags.md) | First non-badge flag or var claim |
 | `include/constants/opponents.h` | Trainer slot changes (only 9 free) | Open decision 6 in [game-bible.md](game-bible.md) |
+| `include/constants/opponents.h` (2026-10-01) | `TRAINER_CRESTFALL_GYM_1/2/GRETA` take ids 855 to 857 and `TRAINERS_COUNT_EMERALD` is 858 (6 spare ids left). Ids 520 and 521 renamed `TRAINER_TROGLODYTE_HOLLOWBROOK/CRESTFALL`, with the Brendan names kept as aliases. `include/constants/trainers.h` and `src/data/graphics/trainers.h`: `TRAINER_PIC_VELDRIS_LEADER_NORMAL` | Built, tested |
