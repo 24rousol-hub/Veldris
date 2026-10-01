@@ -89,6 +89,8 @@ Some of the 7 landmarks are **post-game only**, including the one next to Hollow
 
 ## Suggested terrain, gyms and landmarks (PROPOSED, 2026-10-01, for the author to react to)
 
+Picture: [art/region_sketch_labelled.png](art/region_sketch_labelled.png) (the author's sketch redrawn with labels).
+
 Follows the sketch's walking order and the gym order Normal, Bug, Ghost, Steel, Ice, Flying, Poison, Fairy, Water. Nothing here is canon.
 
 | Place (sketch) | Terrain | Gym | Nearby landmark idea |
