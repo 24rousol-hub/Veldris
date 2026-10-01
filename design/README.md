@@ -10,6 +10,7 @@
 | [towns-and-routes.md](towns-and-routes.md) | The 18 towns and 33 routes, map names, build status | A map is added, renamed or changes status |
 | [porymap-first-map.md](porymap-first-map.md) | A beginner's guide to building Hollowbrook in Porymap: setup, the git loop, a smoke test, pitfalls and a time estimate | You learn something new about Porymap or the workflow |
 | [wendlebury.md](wendlebury.md) | Town 3 plan: role, position, buildings, NPCs; dialogue in `dialogue/wendlebury.inc` | The map or the town plan changes |
+| [setup-budget.md](setup-budget.md) | Map sections, flags and trainer budgets for everything past Hollowbrook and Route 1, and the checks done | The cards or counts change |
 | [region-sketch.md](region-sketch.md) | The author's hand-drawn region sketch, my reading, section budget, suggested terrain | The sketch or the map changes |
 | [region-names.md](region-names.md) | PROPOSED names, themes, gyms and map sources (Palladium and vanilla) for every settlement and landmark | The author picks or changes names |
 | [scripts/README.md](scripts/README.md) | DRAFT, UNBUILT map scripts for Hollowbrook, the lab, Route 1 and Wendlebury, with the proposed new flags and vars. Not in `data/event_scripts.s` | The maps are built and the scripts move into their `scripts.inc`, or a scene changes |
