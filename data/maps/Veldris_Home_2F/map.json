@@ -1,7 +1,7 @@
 {
-  "id": "MAP_VELDRIS_HOME_1F",
-  "name": "Veldris_Home_1F",
-  "layout": "LAYOUT_VELDRIS_HOME_1F",
+  "id": "MAP_VELDRIS_HOME_2F",
+  "name": "Veldris_Home_2F",
+  "layout": "LAYOUT_VELDRIS_HOME_2F",
   "music": "MUS_LITTLEROOT",
   "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_NONE",
@@ -17,25 +17,18 @@
   "object_events": [],
   "warp_events": [
     {
-      "x": 2,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 10,
+      "x": 7,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_VELDRIS_HOME_2F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 11,
-      "y": 2,
-      "elevation": 0,
-      "dest_map": "MAP_VELDRIS_HOME_2F",
+      "dest_map": "MAP_VELDRIS_HOME_1F",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 8,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_VELDRIS_HOME_1F",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [],
