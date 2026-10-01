@@ -1,6 +1,6 @@
 # Gym leader art: candidate trainer pictures
 
-Status: **Picks made by the author on 2026-10-01 (see 'Chosen' below). Nothing is imported, nothing is in `CREDITS.md` yet.** Leaders match the pitches in [gyms.md](gyms.md) (gym order B). Greta (gym 1) is fixed: ORAS lass, platinum blonde ([characters.md](characters.md)).
+Status: **Picks made by the author on 2026-10-01 (see 'Chosen' below). IMPORTED the same day** as `graphics/trainers/front_pics/veldris_*.png` with `TRAINER_PIC_VELDRIS_*` constants, credited in `CREDITS.md`. The build passes. Not yet seen in a battle (no trainer uses them yet). Leaders match the pitches in [gyms.md](gyms.md) (gym order B). Greta (gym 1) is fixed: ORAS lass, platinum blonde ([characters.md](characters.md)).
 
 **Where it all comes from.** The `sprites` repo (a PokeAPI fork) holds only Pokémon art and item icons, no trainer pictures (its `badges` folder is 85 x 85 official art, not usable as is). Every candidate below is in `Team-Aquas-Asset-Repo/Trainer Front Sprites/`. All were checked: **64 x 64, indexed, 16 colours or fewer, so they drop straight into the engine**, except Scott (RGBA, needs indexing). The `Official Pokemon Assets/Trainer Spritesheets` folder (Gen 3 and HGSS sheets) has the official originals but needs cutting up.
 
@@ -41,4 +41,4 @@ Top pick first. The pictures are in a board sent to you in chat (not committed).
 
 **Not enough, if you want a different look.** There is no true beekeeper, chemist or lighthouse keeper in these sets, so each of those leaders needs one recolour or small redraw whichever you pick. Recolouring is fine for a hand-edited sprite but must keep one 16-colour palette (CLAUDE.md, trainer art).
 
-**Engine side (when a leader's art is picked).** A new trainer picture also needs the entries in `include/constants/trainers.h`, `src/battle_main.c` and `src/data/graphics/trainers.h` (see 'A new trainer' in `CLAUDE.md`, untested end to end), plus a `CREDITS.md` row. Overworld (walking) sprites are separate: see `Overworld Trainer Sprites` in [asset-inventory.md](asset-inventory.md).
+**Engine side (DONE 2026-10-01).** In a `trainers.party` block write `Pic: Veldris Leader Bug` (or `Veldris Leader Ghost`, `Steel`, `Ice`, `Flying`, `Poison`, `Fairy`, `Water`, `Veldris Elite Four Drayden`, `Veldris Champion Cynthia`). Old note: A new trainer picture also needs the entries in `include/constants/trainers.h`, `src/battle_main.c` and `src/data/graphics/trainers.h` (see 'A new trainer' in `CLAUDE.md`, untested end to end), plus a `CREDITS.md` row. Overworld (walking) sprites are separate: see `Overworld Trainer Sprites` in [asset-inventory.md](asset-inventory.md).

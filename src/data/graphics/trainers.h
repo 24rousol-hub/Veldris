@@ -583,6 +583,37 @@ const union AnimCmd *const sBackAnims_OldManPokedude[] = {
         .animation = anim,                                                                   \
     }}
 
+// Veldris: hack-owned trainer pictures (design/gym-leader-art.md, credited in CREDITS.md)
+const u32 gTrainerFrontPic_VeldrisLeaderBug[] = INCGFX_U32("graphics/trainers/front_pics/veldris_leader_bug.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisLeaderBug[] = INCGFX_U16("graphics/trainers/front_pics/veldris_leader_bug.png", ".gbapal");
+
+const u32 gTrainerFrontPic_VeldrisLeaderGhost[] = INCGFX_U32("graphics/trainers/front_pics/veldris_leader_ghost.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisLeaderGhost[] = INCGFX_U16("graphics/trainers/front_pics/veldris_leader_ghost.png", ".gbapal");
+
+const u32 gTrainerFrontPic_VeldrisLeaderSteel[] = INCGFX_U32("graphics/trainers/front_pics/veldris_leader_steel.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisLeaderSteel[] = INCGFX_U16("graphics/trainers/front_pics/veldris_leader_steel.png", ".gbapal");
+
+const u32 gTrainerFrontPic_VeldrisLeaderIce[] = INCGFX_U32("graphics/trainers/front_pics/veldris_leader_ice.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisLeaderIce[] = INCGFX_U16("graphics/trainers/front_pics/veldris_leader_ice.png", ".gbapal");
+
+const u32 gTrainerFrontPic_VeldrisLeaderFlying[] = INCGFX_U32("graphics/trainers/front_pics/veldris_leader_flying.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisLeaderFlying[] = INCGFX_U16("graphics/trainers/front_pics/veldris_leader_flying.png", ".gbapal");
+
+const u32 gTrainerFrontPic_VeldrisLeaderPoison[] = INCGFX_U32("graphics/trainers/front_pics/veldris_leader_poison.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisLeaderPoison[] = INCGFX_U16("graphics/trainers/front_pics/veldris_leader_poison.png", ".gbapal");
+
+const u32 gTrainerFrontPic_VeldrisLeaderFairy[] = INCGFX_U32("graphics/trainers/front_pics/veldris_leader_fairy.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisLeaderFairy[] = INCGFX_U16("graphics/trainers/front_pics/veldris_leader_fairy.png", ".gbapal");
+
+const u32 gTrainerFrontPic_VeldrisLeaderWater[] = INCGFX_U32("graphics/trainers/front_pics/veldris_leader_water.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisLeaderWater[] = INCGFX_U16("graphics/trainers/front_pics/veldris_leader_water.png", ".gbapal");
+
+const u32 gTrainerFrontPic_VeldrisEliteFourDrayden[] = INCGFX_U32("graphics/trainers/front_pics/veldris_elite_four_drayden.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisEliteFourDrayden[] = INCGFX_U16("graphics/trainers/front_pics/veldris_elite_four_drayden.png", ".gbapal");
+
+const u32 gTrainerFrontPic_VeldrisChampionCynthia[] = INCGFX_U32("graphics/trainers/front_pics/veldris_champion_cynthia.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisChampionCynthia[] = INCGFX_U16("graphics/trainers/front_pics/veldris_champion_cynthia.png", ".gbapal");
+
 const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
 {
     [TRAINER_PIC_NONE] =
@@ -1225,5 +1256,45 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_PAINTER_FRLG] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_PainterFrlg, gTrainerPalette_PainterFrlg),
+    },
+    [TRAINER_PIC_VELDRIS_LEADER_BUG] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisLeaderBug, gTrainerPalette_VeldrisLeaderBug),
+    },
+    [TRAINER_PIC_VELDRIS_LEADER_GHOST] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisLeaderGhost, gTrainerPalette_VeldrisLeaderGhost),
+    },
+    [TRAINER_PIC_VELDRIS_LEADER_STEEL] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisLeaderSteel, gTrainerPalette_VeldrisLeaderSteel),
+    },
+    [TRAINER_PIC_VELDRIS_LEADER_ICE] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisLeaderIce, gTrainerPalette_VeldrisLeaderIce),
+    },
+    [TRAINER_PIC_VELDRIS_LEADER_FLYING] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisLeaderFlying, gTrainerPalette_VeldrisLeaderFlying),
+    },
+    [TRAINER_PIC_VELDRIS_LEADER_POISON] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisLeaderPoison, gTrainerPalette_VeldrisLeaderPoison),
+    },
+    [TRAINER_PIC_VELDRIS_LEADER_FAIRY] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisLeaderFairy, gTrainerPalette_VeldrisLeaderFairy),
+    },
+    [TRAINER_PIC_VELDRIS_LEADER_WATER] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisLeaderWater, gTrainerPalette_VeldrisLeaderWater),
+    },
+    [TRAINER_PIC_VELDRIS_ELITE_FOUR_DRAYDEN] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisEliteFourDrayden, gTrainerPalette_VeldrisEliteFourDrayden),
+    },
+    [TRAINER_PIC_VELDRIS_CHAMPION_CYNTHIA] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisChampionCynthia, gTrainerPalette_VeldrisChampionCynthia),
     },
 };
