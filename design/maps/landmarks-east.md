@@ -97,9 +97,9 @@ Door positions in words: shrine door north-centre on the outdoor isle; shrine ha
 | MAX ELIXIR | Falls channel, mid-level | Waterfall (badge 8) |
 | **Rare encounter (PROPOSAL)** | Falls top ledge | Waterfall (badge 8) and the shrine puzzle |
 
-### The optional rare encounter (PROPOSAL only)
+### The rare encounter (author, 2026-10-01: Mirror Isle HAS a legendary encounter)
 
-Not canon until the author says so. The idea is a **single static, legendary-style Pokémon** that stands for 'mirror' and 'lake'. Options:
+The species is still a PROPOSAL (MESPRIT recommended). The author confirmed the encounter exists. The idea is a **single static, legendary Pokémon** that stands for 'mirror' and 'lake'. Options:
 
 | Option | Why | Notes |
 |---|---|---|
@@ -119,8 +119,8 @@ All three exist in this tree (checked in `include/constants/species.h` and `spec
 |---|---|---|---|
 | 1 | 20% | CHIMECHO | 49 to 50 |
 | 2 | 20% | GOLBAT | 49 to 50 |
-| 3 | 10% | LUNATONE | 50 |
-| 4 | 10% | SOLROCK | 50 |
+| 3 | 10% | DITTO | 49 to 50 |
+| 4 | 10% | DITTO | 50 to 51 |
 | 5 | 10% | SABLEYE | 49 to 50 |
 | 6 | 10% | MR_MIME | 50 to 51 |
 | 7 | 5% | CLAYDOL | 51 |
@@ -150,3 +150,7 @@ Levels start 3 below SUZURAN's ace (55 minus 3 = 52) at the high end and sit a l
 2. **Is Mirror Isle optional?** The sketch gives it two water roads (R16 and R17) that are also the player's way to Primrose Vale, so its island could be on the main path. I treat it as optional, entered from a landing.
 3. **New section id or borrowed one?** A borrowed Hoenn cave id saves one of the tight 37 free ids, but the name would say something else on the Pokénav.
 4. **Hermit and puzzle size.** Is a small mirror puzzle the right flavour, or too much script for a small island?
+
+## Ditto (author, 2026-10-01): Mirror Isle is the ONLY place to catch DITTO
+
+The cave table above carries DITTO in slots 3 and 4 (20 percent). **DITTO must appear in no other wild table, gift, trade or Safari-style table anywhere in the game.** The other cards were checked: none lists it. The Lunatone and Solrock slots were dropped to make room. If a Ditto is wanted for breeding earlier, it is a post-badge-8 reward by design (the isle needs Surf and the Waterfall return trip).

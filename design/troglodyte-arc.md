@@ -35,7 +35,9 @@ All Pokémon, no real animals. Scheme 1 (Crestfall: consultants, hay maze, MILTA
 | 6 | Flying (skyscraper city) | Troglodyte's parents arrive with a gift basket. | They have come to buy the badge for their boy. They cannot see why it is not for sale. | The Leader explains it kindly, twice. The parents tip her, sincerely, and leave confused. |
 | 7 | Poison (chemist Leader) | Inspectors in hazmat suits arrive with clipboards and a very official stamp. | A 'regulatory review' lists 47 violations, written before they arrived, meant to close the gym. | The Leader's WEEZING lets out one polite Smog. The suits are not rated for it. Only the clipboards leave in good order. |
 | 8 | Fairy (florist glade) | Surveyors stake orange flags between the flower beds. | It is to be 'Glade Heights,' luxury condominiums with a meadow view. | The Leader's FLORGES turns every stake into a sapling and the blueprints into a hedge. The developers buy a bouquet and leave. |
-| 9 | Water (lighthouse) | A lawyer hands the Leader a box of 400 permits and invoices. | It is every gym's invoice, billed to the last gym: the total of Schemes 1 to 8. | Troglodyte reads the total aloud. Nobody has a response. The Leader's LAPRAS carries the box out to sea, and she signs for it with a PSYDUCK stamp. |
+| 9 | Water (lighthouse) | A lawyer hands the Leader a box of 400 permits and invoices. | It is every gym's invoice, billed to the last gym: the total of Schemes 1 to 8. | Troglodyte reads the total aloud. Nobody has a response. The Leader's LAPRAS carries the box out to sea, and he signs for it with a PSYDUCK stamp. |
+
+**Cutscene-only Pokémon (author, 2026-10-01).** The Pokémon that win the schemes (Scheme 4 MAGNEZONE, Scheme 5 GLALIE, Scheme 8 FLORGES, Scheme 9 LAPRAS) are **cutscene-only**: they belong to the gym's staff or a local (a garden warden's FLORGES, a ferry LAPRAS) and never appear in the leader's battle team. So the built teams in [trainer-roster.md](trainer-roster.md) do not change. Scheme 9's leader MIZZLE is a man: where the table says 'she', read 'he'.
 
 Notes: Scheme 3's old water joke (meters, POLITOED rain, invoice of minus four hundred) is dropped. The 'minus four hundred' could return as the Scheme 9 total if the author likes it. The old Electric, Rock, Psychic and Dragon schemes are retired with their types.
 
@@ -49,18 +51,18 @@ Notes: Scheme 3's old water joke (meters, POLITOED rain, invoice of minus four h
 
 He trails the current leader's ace by a few levels. **No IVs, no EVs.** Each fight is **one trainer entry** using `Pool Prune: Rival Starter` (kept): `Party Size` is the fixed Pokémon plus one, and the three starter versions are tagged `Tag6` (1st on show), `Tag7` (2nd), `Tag8` (3rd) so exactly one survives. Each entry writes the right evolution stage for its level ([story-outline.md](story-outline.md), 'Starters and the lab scene'). Party size grows from 1 to 6 at fight 6.
 
-Starter lines use Emerald stand-ins until the real species are chosen (Treecko, Torchic, Mudkip evolve at 16 and 36). Fixed species are **PROPOSED stand-ins** for 'well-bred, poorly trained'. Evolution levels checked against the stand-ins: Lillipup 16 and 32, Meowth 28, Ralts 20 and 30, Ponyta 40, Gible 24 and 48.
+Starter lines use Emerald stand-ins until the real species are chosen (Treecko, Torchic, Mudkip evolve at 16 and 36). Fixed species are **PROPOSED stand-ins** for 'well-bred, poorly trained'. Evolution levels checked against the stand-ins: Lillipup 16 and 32, Ralts 20 and 30, Eevee (Water Stone, any level), Litleo 35, Larvitar 30 and Pupitar 55. **Fixed 2026-10-01 (author): Troglodyte no longer has Garchomp.** Cynthia's ace is Garchomp, so his later fights now build up to the `postgame.md` team (Stoutland, Gardevoir, Vaporeon, Tyranitar, Pyroar plus his starter).
 
 | # | Where | Behind ace | Party | Level range | Starter stage | Fixed team (PROPOSED) |
 |---|---|---|---|---|---|---|
 | 1 | Outside lab, Hollowbrook | n/a | 1 (+ optional Sir Biscuit, level 1) | 5 | Basic | none (starter only) |
 | 2 | Gym 1, Crestfall (Scheme 1) | ace 12 | 2 | 8 to 9 | Basic | Lillipup 'Sir Biscuit' (7 to 8) |
-| 3 | Gym 3, Ghost (Scheme 3) | ace 24 | 3 | 20 to 22 | Stage 2 (16) | Sir Biscuit as Herdier, Meowth |
-| 4 | Gym 5, Ice (Scheme 5) | ace 36 | 4 | 30 to 33 | Stage 2 | Herdier, Persian, Kirlia |
-| 5 | Gym 6, Flying (Scheme 6, parents watch) | ace 42 | 5 | 37 to 40 | Stage 3 (36) | Stoutland 'Sir Biscuit' (32 min), Persian, Gardevoir, Ponyta |
-| 6 | Gym 7, Poison (Scheme 7) | ace 48 | 6 | 43 to 46 | Stage 3 | Stoutland, Persian, Gardevoir, Rapidash, Gabite |
-| 7 | Victory Road | ace 60 | 6 | 55 to 57 | Stage 3 | same six, Gabite becomes Garchomp at 48+ (PROPOSED: he cannot control it) |
-| 8 | Finale, just before the Champion | E4 65 | 6 | 68 to 72 | Stage 3 | same six, Garchomp as ace |
+| 3 | Gym 3, Ghost (Scheme 3) | ace 25 | 3 | 20 to 22 | Stage 2 (16) | Sir Biscuit as Herdier, Eevee |
+| 4 | Gym 5, Ice (Scheme 5) | ace 37 | 4 | 30 to 33 | Stage 2 | Herdier, Vaporeon (he bought a Water Stone), Kirlia |
+| 5 | Gym 6, Flying (Scheme 6, parents watch) | ace 42 | 5 | 37 to 40 | Stage 3 (36) | Stoutland 'Sir Biscuit' (32 min), Vaporeon, Gardevoir, Pyroar |
+| 6 | Gym 7, Poison (Scheme 7) | ace 48 | 6 | 43 to 46 | Stage 3 | Stoutland, Vaporeon, Gardevoir, Pyroar, Pupitar |
+| 7 | Victory Road (R20) | ace 60 | 6 | 55 to 57 | Stage 3 | same six, Pupitar has become Tyranitar |
+| 8 | Finale, just before the Champion | E4 65 | 6 | 68 to 72 | Stage 3 | Stoutland 68, Gardevoir 69, Vaporeon 70, Tyranitar 70, Pyroar 70, starter 72 ([postgame.md](postgame.md)). **No Garchomp: that is Cynthia's ace** |
 
 Fight 8 is fixed as the finale before Cynthia (open decision 2 in [game-bible.md](game-bible.md) is settled on the Champion: not Troglodyte). Eight encounters. Fights fall at gyms 1, 3, 5, 6, 7 only, so he is not at every gym; the other gyms only get the scheme.
 

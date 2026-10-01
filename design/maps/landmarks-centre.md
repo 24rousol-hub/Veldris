@@ -79,7 +79,7 @@ Teams are from [../trainer-roster.md](../trainer-roster.md) (built) and [../post
 
 - **Place:** `EverGrandeCity_Hall4` reused as **The Last Corridor** (11 x 34), the long hall between DRAYDEN's room and the Champion's Hall. He waits at the **far end**, in front of the Champion's door. A `coord_event` trigger (CLAUDE.md) at the corridor's south entrance walks him out.
 - **Beats** ([../postgame.md](../postgame.md), labels in `dialogue/league.inc`, not wired): arrival ('He claims he bought a League pass, calls the player the help'), battle intro (money and breeding), defeat (denial, then a real admission: he never worked at it), after (he leaves, angry but quiet, promises to come back 'properly'). The arc's sample lines: 'Well fought. I mean it. Go and beat her. I'll write to Grandfather.' and 'I was a prat. You knew.' ([../troglodyte-arc.md](../troglodyte-arc.md), Humbled).
-- **Team (from [../postgame.md](../postgame.md)):** Stoutland 'Sir Biscuit' 68, Gardevoir 69, Vaporeon 70, Tyranitar 70, Pyroar 70, plus one starter final form at level 72 (stand-in Sceptile, Blaziken or Swampert). Party Size 6, `Pool Prune: Rival Starter`. No held items. AI Basic Trainer (or the lowest that makes him lose). **Conflict to resolve:** the arc table says fight 8 is 'same six, Garchomp as ace' (Persian, Rapidash, Garchomp) while [../postgame.md](../postgame.md) lists Vaporeon, Tyranitar, Pyroar and moves Milotic to the Champion. This card follows [../postgame.md](../postgame.md), the later document. See Open questions.
+- **Team (from [../postgame.md](../postgame.md)):** Stoutland 'Sir Biscuit' 68, Gardevoir 69, Vaporeon 70, Tyranitar 70, Pyroar 70, plus one starter final form at level 72 (stand-in Sceptile, Blaziken or Swampert). Party Size 6, `Pool Prune: Rival Starter`. No held items. AI Basic Trainer (or the lowest that makes him lose). **Resolved (author, 2026-10-01):** Cynthia's ace is Garchomp, so Troglodyte uses this team and has no Garchomp; the arc table was fixed to match.
 - He appears nowhere else in the League.
 
 ### The Champion and the Hall of Fame
@@ -157,7 +157,7 @@ Nine required maps in all: the exterior, the lobby, four rooms, the corridor, th
 
 ### Open questions
 
-1. **The final Troglodyte team.** [../troglodyte-arc.md](../troglodyte-arc.md) lists 'same six, Garchomp as ace' for fight 8, but [../postgame.md](../postgame.md) lists Stoutland, Gardevoir, Vaporeon, Tyranitar, Pyroar and a starter. Which is canon? This card follows postgame.md. Fight 7 (R20) uses the arc table's six (Persian, Rapidash, Garchomp), so the two fights then differ on purpose.
+1. ~~The final Troglodyte team.~~ Resolved (author, 2026-10-01): the postgame team; Garchomp stays Cynthia's.
 2. **Palladium rooms or vanilla rooms?** Vanilla is free; Palladium is more handsome and needs tile work.
 3. **Is The Pinnacle a fly point?** The card proposes yes (the League sends the player to the lobby when they lose, and the heal location already exists in vanilla). Rename `MAPSEC_EVER_GRANDE_CITY` or add a new section?
 4. **Badge count for the League:** all nine, or eight (the vanilla guard tests one flag)? R20's levels assume nine.

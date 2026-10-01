@@ -71,7 +71,7 @@ Level logic ([README.md](README.md)): gym aces are 12, 19, 25, 31, 37, 42, 48, 5
 | 7 | Fisherman | SEAKING 36, WHISCASH 37, QUAGSIRE 36 | by the first pond |
 | 8 | Picnicker | POLIWHIRL 35, GOLDUCK 36 | by the second pond |
 
-**NPCs (5).** Toll-hut attendant (a tired man in a closed hut, 'closed since forever'); a walker with a thermos (Hoarfell's cold joke); a weather watcher with a notebook (points at Cragdale's station); a sleeping Hiker on the ledge (blocks the path until woken, optional); a signpost reader. Signs: 'HOARFELL, snow city' (west), 'CRAGDALE, ridge town' (east), a mid-road sign 'Ponds: Surf to the islets'.
+**NPCs (5).** Hut attendant (a tired man in a closed hut, 'closed since forever'); a walker with a thermos (Hoarfell's cold joke); a weather watcher with a notebook (points at Cragdale's station); a sleeping Hiker on the ledge (blocks the path until woken, optional); a signpost reader. Signs: 'HOARFELL, snow city' (west), 'CRAGDALE, ridge town' (east), a mid-road sign 'Ponds: Surf to the islets'.
 
 **Items.** Visible: Hyper Potion (north track), Super Repel (sandy slope), Great Ball (ledge). Hidden: Ether (by the first pond), Full Heal (cliff foot). Pond islets (Surf, badge 5): PP Up on the first islet, Rare Candy on the second (a rare treat).
 
@@ -195,11 +195,11 @@ No water here (the pen is a fenced yard, decoration).
 
 ## R18: Hoarfell to Gildhaven (land, no sketch number, thin line)
 
-**Length and shape.** Palladium **Route 35.png** (477 x 545 px, **28 x 32 tiles**, grid). A tree-lined avenue: a wide fenced road with a long pond in the lower middle, a pair of grey gatehouses at the north and south ends, flower beds, tall grass behind the fences, forest on both sides. Mood: tidy, expensive, slightly too clean: the road is private. Size check: `(28+15)*(32+14) = 1978`, fine. Section `MAPSEC_ROUTE_128`. Alternative render if the author wants a shorter hop: Route 37 (28 x 23).
+**Length and shape.** Palladium **Route 35.png** (477 x 545 px, **28 x 32 tiles**, grid). A tree-lined avenue: a wide fenced road with a long pond in the lower middle, a pair of grey gatehouses at the north and south ends, flower beds, tall grass behind the fences, forest on both sides. Mood: tidy, expensive, slightly too clean: a road under construction. Size check: `(28+15)*(32+14) = 1978`, fine. Section `MAPSEC_ROUTE_128`. Alternative render if the author wants a shorter hop: Route 37 (28 x 23).
 
-**Edges.** **North edge** to Hoarfell's south edge, through the north gatehouse (a door warp pair, or a connection with the gatehouse as scenery). **South edge** to Gildhaven's north gate (the south gatehouse in the render is the town's North Gate). The sketch draws R18 as a thin line, which I read as **a secondary road: a private toll road**.
+**Edges.** **North edge** to Hoarfell's south edge, through the north gatehouse (a door warp pair, or a connection with the gatehouse as scenery). **South edge** to Gildhaven's north gate (the south gatehouse in the render is the town's North Gate). The sketch draws R18 as a thin line: a secondary road, **under construction** (author, 2026-10-01: not a toll road).
 
-**Gate (PROPOSED).** The north gatehouse is **closed to the public** when the player comes from Hoarfell: the guard says it is 'closed for resurfacing, courtesy of Goldsworth Estates'. It opens once the player holds the Feather Badge (`FLAG_BADGE06_GET`, which already exists). Walking the other way, from Gildhaven to Hoarfell, is always allowed (the Gildhaven end is open and the guard at the north end waves you out). So the road is a shortcut for later, not a wall on the main walk. Goldsworth beat: the toll booth, the sign 'GOLDSWORTH ESTATES: building a better you, for a fee' and one guard who says the toll was waived 'by someone who asked who'.
+**Gate (PROPOSED).** The north gatehouse is **closed for construction** when the player comes from Hoarfell: the guard says it is 'closed for resurfacing, courtesy of Goldsworth Estates'. The works finish (the road opens) once the player holds the Feather Badge (`FLAG_BADGE06_GET`, which already exists). Walking the other way, from Gildhaven to Hoarfell, is always allowed (the Gildhaven end is open and the guard at the north end waves you out). So the road is a shortcut for later, not a wall on the main walk. Goldsworth beat: the works sign 'GOLDSWORTH ESTATES: building a better you, eventually' and a foreman who says the contract was awarded 'to someone who asked who'.
 
 **Wild table, land (levels 36 to 41).**
 
@@ -237,15 +237,15 @@ No water here (the pen is a fenced yard, decoration).
 | 4 | Cooltrainer | STARAPTOR 39, ALTARIA 40 | south end, a Gildhaven preview |
 | 5 | Pokémon Ranger | DODRIO 38, CHATOT 38, PELIPPER 39 | near the south gate |
 
-**NPCs (5).** Two toll guards (north gate, south gate); a gardener (waters the flower beds, the same bed, again); a jogger who has been through the tower three times; a signpost board. Signs: 'GILDHAVEN, 1 mile of lawn' (south), 'HOARFELL' (north), 'PRIVATE ROAD, residents only'.
+**NPCs (5).** Two gate guards (north gate, south gate); a gardener (waters the flower beds, the same bed, again); a jogger who has been through the tower three times; a signpost board. Signs: 'GILDHAVEN, 1 mile of lawn' (south), 'HOARFELL' (north), 'ROAD WORKS, residents only'.
 
-**Items.** Visible: Super Potion, Revive. Hidden: Rare Candy (by the pond edge, a rarer reward for the toll road), Escape Rope. Pond islet (Surf): Pearl.
+**Items.** Visible: Super Potion, Revive. Hidden: Rare Candy (by the pond edge, a rarer reward for the long walk), Escape Rope. Pond islet (Surf): Pearl.
 
 **Flags (not claimed).** `FLAG_R18_GATE_OPEN` (optional: or test `FLAG_BADGE06_GET`), `FLAG_ITEM_R18_*` (2), `FLAG_HIDDEN_ITEM_R18_*` (2), `FLAG_ITEM_R18_ISLET`.
 
 **Build effort.** **Easy.** The render already is a straight road with two gatehouses, and the scenery is simple.
 
-**Open questions.** Is the thin line really 'private toll road'? An easier reading is a plain, ungated shortcut. And is the road meant to be walked before Gildhaven (the player at 5 badges) or after? The card allows both.
+**Open questions.** None: the author confirmed 'under construction, not a toll road' (2026-10-01). The player at 5 badges goes round by R10 to R12 and the water road R19; R18 opens later as a shortcut.
 
 ---
 
@@ -408,7 +408,7 @@ No water here (the pen is a fenced yard, decoration).
 | 15 | Expert | RHYPERIOR 60, STEELIX 60 | corridor |
 | 16 | Ruin Maniac | GOLEM 60, PROBOPASS 61, CLAYDOL 61 | the toughest trainer here |
 
-*Troglodyte, fight 7 (the Work phase).* In the **cave's final chamber, just before the stair that exits to The Pinnacle**. Arrives on a `coord_event` trigger. Party Size 6, `Pool Prune: Rival Starter`. Team ([../troglodyte-arc.md](../troglodyte-arc.md), 'same six, Gabite becomes Garchomp'): **Stoutland 'Sir Biscuit' 55, Persian 55, Gardevoir 56, Rapidash 56, Garchomp 57, plus one stage-3 starter at 57** (levels 55 to 57, 'behind ace 60'). His line: 'Fight me. Properly. Please.' (the arc table). He has stopped making jokes and stopped pet jokes; he is stiff.
+*Troglodyte, fight 7 (the Work phase).* In the **cave's final chamber, just before the stair that exits to The Pinnacle**. Arrives on a `coord_event` trigger. Party Size 6, `Pool Prune: Rival Starter`. Team ([../troglodyte-arc.md](../troglodyte-arc.md), fixed 2026-10-01, no Garchomp): **Stoutland 'Sir Biscuit' 55, Vaporeon 55, Gardevoir 56, Pyroar 56, Tyranitar 56, plus one stage-3 starter at 57** (levels 55 to 57, 'behind ace 60'). His line: 'Fight me. Properly. Please.' (the arc table). He has stopped making jokes and stopped pet jokes; he is stiff.
 
 **NPCs (6).** A gate guard at the Pinnacle Gate (nine badges), a cave guide (a Hiker with a spare torch, gives a Repel once and recommends Flash), two resting trainers on a bench (non-battlers, a Cooltrainer who has lost for the third time and a Black Belt who is stretching), a child pushing a small boulder up the slope ('this is Strength practice'), a sign painter touching up 'THE PINNACLE: 1 MILE'. Signs: 'GILDHAVEN' (north), 'THE PINNACLE, nine badges required' (south).
 
@@ -423,8 +423,8 @@ No water here (the pen is a fenced yard, decoration).
 **Open questions.**
 1. Is the cave **in** R20 (this card) or should the road be surface only (shorter, 22 x 91)? Without the cave the gauntlet has 7 trainers.
 2. Section for the cave floors: reuse `MAPSEC_ROUTE_130` or take a new id?
-3. **Troglodyte fight 7 species:** the arc table (Gabite becomes Garchomp at 48 plus, stand-ins) is used. Fight 8's team in [../postgame.md](../postgame.md) differs, see [landmarks-centre.md](landmarks-centre.md).
-4. The gate needs **all nine** badges. Vanilla's guards only test one flag. Is that wanted, or is eight enough?
+3. ~~Troglodyte fight 7 species.~~ Resolved (author, 2026-10-01): fights 7 and 8 share the postgame core, no Garchomp.
+4. ~~Badges for the gate.~~ **All nine** (author, 2026-10-01). Vanilla's guards only test one flag, so the gate script tests the ninth badge flag.
 
 ---
 
@@ -482,7 +482,7 @@ No water on this road.
 
 ## Open questions for the author (centre group)
 
-1. **R18 and the thin line.** Private toll road closed until the Feather Badge (this card), or a plain ungated shortcut?
+1. ~~R18 and the thin line.~~ Resolved (author, 2026-10-01): under construction, not a toll road.
 2. **R19 is water only** (no brown beside the blue line in the sketch). Confirmed? Waymeet's piers and Gildhaven's harbour both need Surf (badge 5).
 3. **R20 walking order.** The card assumes all nine badges before R20 ([../troglodyte-arc.md](../troglodyte-arc.md): fight 7 behind ace 60). If the Elite Four is open at eight badges, the cave levels (56 to 62) need lowering by about 4 and fight 7's team too.
 4. **Palladium Route 40, Route 43 and others** are unassigned by this group; other agents may want them. This group uses Routes 35, 39, 42, 44, 45, 46 and vanilla Route 129.

@@ -16,7 +16,7 @@ In the middle of the sketch, west of Waymeet and south of Hoarfell (red circle l
 
 | Edge | Road | Notes |
 |---|---|---|
-| North, centre | **R18** from Hoarfell (thin line in the sketch) | through a grey gatehouse, the render's north gate. Private toll road: see the R18 card |
+| North, centre | **R18** from Hoarfell (thin line in the sketch) | through a grey gatehouse, the render's north gate. Road under construction: see the R18 card |
 | East | **R19** water road from Waymeet (sketch 32) | harbour and quay on the east shore. The only edge that needs Surf |
 | South, centre | **R20** to The Pinnacle (sketch 33) | through the **Pinnacle Gate**, a gatehouse that checks for all 9 badges |
 | West | none | sea and sheer rock, scenery only |
@@ -118,7 +118,7 @@ Lean build (recommended): 1F, 2F-3F merged into one wide office floor, 4F merged
 | Pilot friend | Pilots' Club | Teases Tobin, warns R20 is only for nine-badge holders |
 | Retired navigator | House A | Old charts, tells the player where the Pinnacle is |
 | Move Deleter | his house | Forgets a move for you, free |
-| Gate guard, North Gate | North Gate | R18 toll road: closed to the public until the player has the Feather Badge, then waved through |
+| Gate guard, North Gate | North Gate | R18 road works: closed for construction until the player has the Feather Badge, then waved through |
 | Gate guard, Pinnacle Gate | Pinnacle Gate | Checks for all nine badges (see Gating) |
 | Townsfolk (3) | avenue, plaza | A glossy shopper who loves the tower, a commuter in a hurry, a jogger who has seen Troglodyte 'sulk past' |
 
@@ -166,7 +166,7 @@ Setup, reveal, collapse, in this order. The scene is a `coord_event` trigger on 
 1. **Setup (anywhere in town, before the gym).** Two staff in gold livery carry a basket the size of a sofa across the plaza towards the gym. Townsfolk comment. The basket is then set down **across the gym door** as an object that blocks it.
 2. **Reveal (trigger on the forecourt).** Mr. and Mrs. Goldsworth and Whitmore meet the player on the forecourt: the offer of the mailroom job, a remark that badges are 'a sort of club'. Tobin steps out of the gym. The parents explain they have come 'to buy the badge for our boy'. They cannot see why it is not for sale.
 3. **Collapse.** Tobin explains kindly, twice: it is not for sale, and why. They tip him sincerely (a folded note into his jacket) and wait on the bench 'for the receipt'. The basket is cleared from the door (it goes to the Pokémon Center, where the nurse eats the biscuits).
-4. **Troglodyte fight 5, with his parents watching.** Troglodyte arrives: 'I want you to lose where they can see it.' The parents stay on the bench. Team (arc table, PROPOSED): five Pokémon, levels 37 to 40, 'behind ace 42': **Stoutland 'Sir Biscuit' 37, Persian 37, Gardevoir 38, Ponyta 39, plus one stage-3 starter at 40** (the starter pool pruned by `VAR_TROG_STARTER`). After the fight his line: 'Nobody has ever said no to him kindly. I didn't like it.' Mrs. Goldsworth: 'Beau, darling, did you lose on purpose?' They leave. Tobin invites the player in.
+4. **Troglodyte fight 5, with his parents watching.** Troglodyte arrives: 'I want you to lose where they can see it.' The parents stay on the bench. Team (arc table, PROPOSED): five Pokémon, levels 37 to 40, 'behind ace 42': **Stoutland 'Sir Biscuit' 37, Vaporeon 38, Gardevoir 38, Pyroar 39, plus one stage-3 starter at 40** (the starter pool pruned by `VAR_TROG_STARTER`). After the fight his line: 'Nobody has ever said no to him kindly. I didn't like it.' Mrs. Goldsworth: 'Beau, darling, did you lose on purpose?' They leave. Tobin invites the player in.
 5. **Gym battle,** badge, HM, TM. After it the town switches to its 'After' text and Mrs. Goldsworth in the tower can give the gift (**Scene 2**: they cannot work out who to fire, ask what ordinary people want; Mr. Goldsworth wishes his father would pick up the phone).
 
 ## Gating
@@ -202,9 +202,9 @@ Names and meanings only. Claim in [../../flags.md](../../flags.md) when built.
 
 1. **Skyscraper exterior art:** new tiles (Radio Tower, Battle Tower) or a very large office block in an existing tileset? Affects the whole city's look.
 2. **Mirror the render?** Traced flipped, the harbour is on the east, matching R19. Confirm or keep the render's orientation and move R19's connection.
-3. **Gate rule on R18:** the sketch draws R18 as a thin line. The card makes it a private toll road closed from the Hoarfell side until the Feather Badge. Is that what the thin line means?
+3. ~~Gate rule on R18.~~ Resolved (author, 2026-10-01): under construction, not a toll road.
 4. **Lean or full tower** (4 maps or 7)?
 5. **Elevator:** needs a small script change if the floor list differs from vanilla's five. Wanted?
-6. **Troglodyte fight 5 species** follow the arc table (Stoutland, Persian, Gardevoir, Ponyta). Still PROPOSED.
+6. **Troglodyte fight 5 species** follow the arc table (Stoutland, Vaporeon, Gardevoir, Pyroar), fixed 2026-10-01. Still PROPOSED.
 7. **Amulet Coin as the Scene 2 gift:** OK, or would the author prefer something else?
 8. Palladium's Gildhaven source is an image of Goldenrod's gym fronts and dept store: the 'Dept Store' becoming 'Emporium' is a name change only.

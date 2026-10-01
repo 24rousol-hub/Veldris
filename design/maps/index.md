@@ -30,7 +30,23 @@ Final map picture: [../art/region_map_final.png](../art/region_map_final.png). C
 - **Landmarks:** [landmarks-west.md](landmarks-west.md) (Mothwood, Slagwell Mine, Hoarfell Ice cave), [landmarks-centre.md](landmarks-centre.md) (The Pinnacle), [landmarks-east.md](landmarks-east.md) (Mirror Isle), [landmarks-south.md](landmarks-south.md) (Silverstrand, Echo Hollow, Argent Peak).
 - Hollowbrook, Crestfall, Wendlebury and R1, R2 keep their older docs (see README).
 
-## Open questions for the author (collected from the four writers and my review)
+## Decisions (author, 2026-10-01)
+
+- Route numbering R1 to R31 is confirmed, paired sketch numbers are one road each.
+- Primrose Vale is a Surf-only pocket on purpose.
+- Scheme Pokémon (MAGNEZONE, GLALIE, FLORGES, LAPRAS) are cutscene-only NPC Pokémon; Scheme 8 gets an NPC garden warden with the FLORGES.
+- Mirror Isle has a legendary encounter (species still PROPOSED, MESPRIT) and is the only place to catch DITTO.
+- Goldsworth house split approved (Briarwick, Hoarfell, Hemlock Reach, Primrose Vale, Kingsquay, Beaconmouth).
+- Troglodyte's later fights use the postgame core; **no Garchomp** (it is Cynthia's ace). Fixed in `troglodyte-arc.md`.
+- All nine badges are needed for the League.
+- R18 is under construction, not a toll road.
+- Gildhaven traced from the Goldenrod render, **mirrored**.
+
+## Still open (the rest of the original list)
+
+Items 8 to 13 below remain open. Items 1 to 7 and the mirrored-render part of 10 are decided above.
+
+## Original open questions (collected from the four writers and my review)
 
 1. **Route numbering.** Are the paired sketch numbers (7/8, 14/17, 15/16, 18/19, 21/30, 22/29, 23/28, 24/27, 25/26) one road each? This gives 31 roads in the README table, not 33.
 2. **Schemes against the built teams.** Scheme 4 needs a MAGNEZONE (HAGANE's team has none), Scheme 5 a GLALIE (WAKASAGI has none), Scheme 8 a FLORGES (SUZURAN has none), and Scheme 9 has MIZZLE's LAPRAS carry the box out to sea but MIZZLE is a man with no LAPRAS. The cards use a cutscene-only Pokémon in each case. Approve that, rewrite the schemes, or change the teams?

@@ -107,7 +107,7 @@ Troglodyte: he is not an NPC here before the fight. The fight is scripted at the
   3. *Collapse:* a real **HAUNTER** joins in, better. The sheets leave first. The HAUNTER takes the sheets.
   4. A **`coord_event` trigger** on the walkable tile outside the gym door starts it; the HAUNTER is a temporary object event with a battle-free cry and `applymovement`.
   5. **Troglodyte fight 3** follows at the gym door, before SANZUFORD lets the player in. He arrives in a good coat, annoyed at the fog.
-- **Troglodyte fight 3 (PROPOSED, from the schedule):** party of 3, levels 20 to 22: starter at **stage 2** (Treecko line to Grovyle, Torchic to Combusken, Mudkip to Marshtomp, whichever the player did not pick; uses the existing `Pool Prune: Rival Starter`), **Sir Biscuit as HERDIER**, **MEOWTH**. Lines: 'Go on. Lose politely.' and 'Nobody at home will believe this.' Placeholder battle id; reuse a vanilla trainer id per CLAUDE.md. No IVs.
+- **Troglodyte fight 3 (PROPOSED, from the schedule):** party of 3, levels 20 to 22: starter at **stage 2** (Treecko line to Grovyle, Torchic to Combusken, Mudkip to Marshtomp, whichever the player did not pick; uses the existing `Pool Prune: Rival Starter`), **Sir Biscuit as HERDIER**, **EEVEE**. Lines: 'Go on. Lose politely.' and 'Nobody at home will believe this.' Placeholder battle id; reuse a vanilla trainer id per CLAUDE.md. No IVs.
 
 ## Flags (not claimed)
 

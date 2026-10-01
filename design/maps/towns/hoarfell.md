@@ -117,7 +117,7 @@ Note on Surf: it is given here, so every earlier pond (R4, R5, R6, R8) becomes f
   2. *Reveal:* he has 'bought the angling rights' and will close the lake to anyone without a membership.
   3. *Collapse:* the drill rig **freezes in place**, then the dock. The crew stands on a floating slab until the Leader's **GLALIE** thaws them, and sells them soup at cost. A `coord_event` trigger on the shore path starts it; the slab and rig are objects.
   4. Note: WAKASAGI's team has no GLALIE (SNORUNT is the closest; Open question 2).
-- **Troglodyte fight 4 (PROPOSED, from the schedule):** party of 4, levels 30 to 33. Starter at stage 2, **Sir Biscuit as HERDIER**, **PERSIAN**, **KIRLIA**. Sneer line: 'Five towns of peasants cheering for you. It's frankly rude.' It happens on the shore, after the crew is thawed and before the player enters the gym. Reuse a vanilla trainer id; no IVs.
+- **Troglodyte fight 4 (PROPOSED, from the schedule):** party of 4, levels 30 to 33. Starter at stage 2, **Sir Biscuit as HERDIER**, **VAPOREON**, **KIRLIA**. Sneer line: 'Five towns of peasants cheering for you. It's frankly rude.' It happens on the shore, after the crew is thawed and before the player enters the gym. Reuse a vanilla trainer id; no IVs.
 
 ## Flags (not claimed)
 

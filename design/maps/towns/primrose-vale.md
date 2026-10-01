@@ -155,8 +155,8 @@ None inside the city. The west shore uses the **R17** surf and fishing tables ([
 
 ## Open questions
 
-1. **Scheme 8 names FLORGES, SUZURAN's team has none.** Is the Florges a garden-warden NPC Pokémon (my proposal), or should her team change?
-2. **Primrose Vale is Surf-only.** There is no land road from the rest of the region. Is that intended, or should R15 also connect elsewhere?
+1. ~~Scheme 8 names FLORGES.~~ Resolved (author, 2026-10-01): an NPC **garden warden** owns the FLORGES (cutscene only). SUZURAN's team does not change.
+2. ~~**Primrose Vale is Surf-only.**~~ **Confirmed intentional (author, 2026-10-01).** Original question: There is no land road from the rest of the region. Is that intended, or should R15 also connect elsewhere?
 3. **Waterfall use is on Mirror Isle**, a return trip. Confirm that is where HM Waterfall pays off first ([../landmarks-east.md](../landmarks-east.md)).
 4. **Palladium licence caveat** from [../../map-plan.md](../../map-plan.md) still applies to the National Park trace.
 5. **Troglodyte sighting** on the pier: keep or cut?

@@ -138,7 +138,7 @@ The Goldsworth house NPCs are listed under Items and secrets / Goldsworth house 
   1. **Setup:** two hazmat inspectors with clipboards and a stamp ring the gym's vat-yard on the Upper Ledge. Locals mutter on the terraces. (Foreshadowed on R13, see [../routes-east.md](../routes-east.md): a dropped pass on the road.)
   2. **Reveal:** the lead inspector pins a 'regulatory review' to the gym door: **47 violations**, one is 'Existing'. The date at the top is **before** they arrived. A local points out the stamp is not dry.
   3. **Collapse:** **ASEBY's WEEZING** lets out one polite Smog (coord_event trigger at the door, CLAUDE.md: tile walkable, elevation 3). The suits are not rated for it. Only the clipboards leave in good order.
-  4. **Troglodyte** (fight 6) arrives for his own gym challenge, and the player battles him on the ledge. He is quieter ('No jokes this time. No dog.'). Party: Stoutland, Persian, Gardevoir, Rapidash, Gabite, and his starter's third stage, levels 43 to 46, uses `TRAINER_TROGLODYTE_*` id reused from vanilla (to be mapped).
+  4. **Troglodyte** (fight 6) arrives for his own gym challenge, and the player battles him on the ledge. He is quieter ('No jokes this time. No dog.'). Party: Stoutland, Vaporeon, Gardevoir, Pyroar, Pupitar, and his starter's third stage, levels 43 to 46, uses `TRAINER_TROGLODYTE_*` id reused from vanilla (to be mapped).
   5. ASEBY invites the player in; gym, badge, TM. After, NPCs switch to their 'After' lines.
 
 ## Wild Pokémon
