@@ -18,7 +18,7 @@ Status: **Type order, level cap and town/city mix DECIDED by the author on 2026-
 
 ## Rules
 
-- **Teams:** leaders 2 Pokemon early, rising to 5 at gym 8 and 6 at gym 9. Gym trainers sit about 3 to 4 levels below their leader's lowest Pokemon. Species are Gen 1 to 9 entries that exist in this tree (the evolved forms are used where the level warrants). Checked by name and evolution level, not yet against learnsets.
+- **Teams:** leaders 2 Pokemon early, rising to 5 at gym 8 and 6 at gym 9. Gym trainers sit about 3 to 4 levels below their leader's lowest Pokemon. Species are Gen 1 to 9 entries that exist in this tree (the evolved forms are used where the level warrants). Checked 2026-10-01 against this tree's evolution levels and level-up learnsets (`design/tools/teamcheck.py`): every species exists, none is under- or over-evolved for its level, and each knows at least 4 level-up moves by then. Teams mix all nine generations.
 - **Trainer ids:** about 4 to 5 of the 9 brand-new ids are free (game-bible decision 6), so **every trainer here, leaders included, is meant to reuse a vanilla Hoenn entry** (CLAUDE.md, 'A new trainer', reuse route, untested).
 - **Gym grass or water** is decoration only, never wild encounters.
 - **Gym maps** must respect 15 live objects per map (engine-limits row 8).
@@ -38,7 +38,7 @@ Badge 1 is a silver ring with a blue core. Every badge keeps **the same silver r
 | 4 | Gym 4 | Strength | none |
 | 5 | Gym 5 | Surf | none |
 | 6 | Gym 6 | Fly (**needs the Feather Badge in this build**, it is the 6th badge) | none |
-| 7 | Gym 7 | none (TM only) | Dive moved off badge 7 |
+| 7 | Gym 7 | none (TM only) | Dive moved off badge 7 (**done 2026-10-01**, `src/field_move.c`) |
 | 8 | Gym 8 | Waterfall | none |
 | 9 | Gym 9 | Dive | was badge 7 |
 
@@ -91,56 +91,56 @@ Normal, Bug, Ghost, Steel, Ice, Flying, Poison, Fairy, Water. The Water gym come
 - **Gimmick:** hedge walls and a garden of tall decorative grass (not encounter grass) with web tiles that force a detour. Needs hedge and web tile art.
 - **Badge:** HUSK BADGE. Silver ring, lime green core, small wing or leaf.
 - **TM:** Thief (there is no Bug TM in this ROM's 50 TM list).
-- **Team (2, levels 17 to 19):** Kricketune 17, Ledian 19.
+- **Team (2, levels 17 to 19):** Kricketune 17, Vivillon 19.
 
 ### Gym 3: Ghost (T5, city), Flash
 - **Leader pitch:** a teenage mortician's apprentice, dry and unbothered, who thinks the dead are the better audience.
 - **Gimmick:** a dark gym with pools of light (Flash shows more of the floor, it is also the badge's move). Some doors are fakes that loop the player back.
 - **Badge:** WISP BADGE. Silver ring, violet core, small flame-like wisp. (Named to avoid Hollowbrook.)
 - **TM:** Shadow Ball.
-- **Team (3, levels 23 to 25):** Shuppet 23, Misdreavus 24, Haunter 25.
+- **Team (3, levels 23 to 25):** Shuppet 23, Litwick 24, Mimikyu 25.
 
 ### Gym 4: Steel (T6), Strength
 - **Leader pitch:** a middle-aged foundry foreman, exhausted and very patient. His workers are always at lunch.
 - **Gimmick:** conveyor belts and crusher presses carry the player around the floor on a timing puzzle. Needs belt tiles, which may not exist yet.
 - **Badge:** RIVET BADGE. Silver ring, dark slate core, small bolt or gear.
 - **TM:** Iron Tail.
-- **Team (3, levels 29 to 31):** Bronzor 29, Magneton 30, Mawile 31.
+- **Team (3, levels 29 to 31):** Bronzor 29, Pawniard 30, Tinkatuff 31.
 
 ### Gym 5: Ice (T7), Surf
 - **Leader pitch:** an old fisherman, very relaxed, who leaves the ice fishing hole for the battle and has a thermos.
 - **Gimmick:** a frozen lake floor with cracked patches. The floor is slippery, and the thermos is the hint: wait by the heater tile for the ice to reset.
 - **Badge:** FROST BADGE. Silver ring, pale cyan core, small snowflake. (Surf fits: the lake thaws out.)
 - **TM:** Ice Beam.
-- **Team (4, levels 35 to 37):** Sneasel 35, Delibird 35, Piloswine 36, Lapras 37.
+- **Team (4, levels 35 to 37):** Sneasel 35, Vanillish 36, Lapras 37, Avalugg 37.
 
 ### Gym 6: Flying (T8, skyscraper city), Fly
 - **Leader pitch:** a young pilot in a leather jacket, dry and a little vain, who calls the battle a flight plan and never raises his voice.
 - **Gimmick:** wind-tunnel floors: arrow tiles push the player along a route over a pit-like sky bridge. Arrow tiles already exist in vanilla (Mossdeep and Sootopolis style), but check.
 - **Badge:** FEATHER BADGE. Silver ring, white or sky core, small feather. The author wants Fly to need the Feather Badge in this build (src/field_move.c), so it is the natural name.
 - **TM:** Aerial Ace.
-- **Team (4, levels 40 to 42):** Swellow 40, Pelipper 41, Fearow 41, Tropius 42.
+- **Team (4, levels 40 to 42):** Swellow 40, Unfezant 41, Talonflame 41, Corviknight 42.
 
 ### Gym 7: Poison (T10), no HM
 - **Leader pitch:** a middle-aged chemist who reads the ingredients on everything and treats battles as quality control.
 - **Gimmick:** vats with coloured gas pipes. Switches shut off the gas pipes in the right order to clear a path (fixed order, hinted on the wall).
 - **Badge:** VIAL BADGE. Silver ring, magenta core, small droplet.
 - **TM:** Sludge Bomb.
-- **Team (5, levels 46 to 48):** Weezing 46, Swalot 47, Seviper 47, Crobat 47, Muk 48.
+- **Team (5, levels 46 to 48):** Weezing 46, Crobat 47, Drapion 47, Garbodor 47, Toxapex 48.
 
 ### Gym 8: Fairy (T11, city), Waterfall
 - **Leader pitch:** a young florist who is much tougher than she looks and pretends not to notice that everyone underestimates her.
 - **Gimmick:** a glade of flower beds. The player follows a petal trail and blooming flowers reveal the hidden door. A cute fake-out: the trainers are all enormous.
 - **Badge:** CHARM BADGE. Silver ring, pink core, small flower.
 - **TM:** Calm Mind (there is no Fairy TM in the 50 TM list).
-- **Team (5, levels 52 to 55):** Azumarill 52, Granbull 52, Ribombee 53, Dedenne 53, Gardevoir 55.
+- **Team (5, levels 52 to 55):** Azumarill 52, Dachsbun 52, Ribombee 53, Hatterene 54, Gardevoir 55.
 
 ### Gym 9: Water (T12), Dive
 - **Leader pitch:** an old lighthouse keeper, deadpan and unhurried, the last gym leader before the coast and proud of it.
 - **Gimmick:** the gym is a flooded lighthouse. The player climbs up by pumping the water level down floor by floor with valves.
 - **Badge:** TIDE BADGE. Silver ring, teal core, small wave.
 - **TM:** Water Pulse.
-- **Team (6, levels 58 to 60):** Lanturn 58, Wailord 58, Gyarados 59, Swampert 59, Kingdra 59, Milotic 60 (ace).
+- **Team (6, levels 58 to 60):** Gyarados 58, Seismitoad 58, Araquanid 59, Barraskewda 59, Lanturn 59, Milotic 60 (ace).
 
 ---
 
@@ -152,7 +152,7 @@ Normal, Bug, Ghost, Steel, Ice, Flying, Poison, Fairy, Water. The Water gym come
 4. Which non-gym places are cities (T9, T13 and others), and so how many Goldsworth houses in total (game-bible decision 12).
 5. Is the order T7, T8 before T10 to T12 right, or should the north chain come first?
 6. Tune levels in play: with no IVs or EVs fights run a little easier than vanilla.
-7. Edit `src/caps.c` badge 9 row from 50 to 60 (author go-ahead needed, not done here).
+7. `src/caps.c` level caps now follow the gym aces (12, 19, 25, 31, 37, 42, 48, 55, 60) and the Champion at 75. **Done 2026-10-01.** The cap is still switched off in `include/config/caps.h`, so it only matters if you turn it on.
 
 ---
 

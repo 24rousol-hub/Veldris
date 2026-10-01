@@ -16,12 +16,12 @@ The order is by difficulty, ending in Dragon. Gym type order is now set (author)
 
 | # | Name | Type | Personality pitch | Size | Levels | Team |
 |---|---|---|---|---|---|---|
-| 1 | OSSIAN | Dark | Cheerful undertaker. Cheerful about death, polite about it. Keeps a crow on the hearse. | 5 | 65 to 66 | Mightyena 65, Houndoom 65, Honchkrow 65, Krookodile 66, Absol 66 |
-| 2 | HYACINTH | Psychic | Icy manners, secretly keeps snow globes. Deadpan, always seems to know what you will do. | 5 | 66 to 68 | Espeon 66, Xatu 66, Slowbro 67, Reuniclus 67, Alakazam 68 |
-| 3 | DUNMORE | Fighting | Huge, gentle, bad at puns, naps between rounds. | 5 | 68 to 70 | Breloom 68, Hariyama 68, Heracross 69, Machamp 69, Conkeldurr 70 |
-| 4 | MAREN | Dragon | Oldest member, kind and quietly terrifying. Keeps dragons like pets. | 6 | 69 to 71 | Altaria 69, Flygon 69, Kingdra 70, Haxorus 70, Salamence 71, Dragonite 71 |
+| 1 | OSSIAN | Dark | Cheerful undertaker. Cheerful about death, polite about it. Keeps a crow on the hearse. | 5 | 65 to 66 | Houndoom 65, Honchkrow 65, Pangoro 65, Krookodile 66, Absol 66 |
+| 2 | HYACINTH | Psychic | Icy manners, secretly keeps snow globes. Deadpan, always seems to know what you will do. | 5 | 66 to 68 | Espeon 66, Meowstic 66, Reuniclus 67, Farigiraf 67, Alakazam 68 |
+| 3 | DUNMORE | Fighting | Huge, gentle, bad at puns, naps between rounds. | 5 | 68 to 70 | Breloom 68, Hawlucha 68, Heracross 69, Annihilape 69, Conkeldurr 70 |
+| 4 | MAREN | Dragon | Oldest member, kind and quietly terrifying. Keeps dragons like pets. | 6 | 69 to 71 | Goodra 69, Kommo-o 69, Dragapult 70, Baxcalibur 70, Salamence 71, Dragonite 71 |
 
-Lucario moved out of DUNMORE's team because it belongs to the Champion. Gardevoir stays Troglodyte's, so HYACINTH avoids it.
+Teams mix species from all nine generations (checked against the evolution levels and level-up learnsets in this tree, 2026-10-01). Lucario moved out of DUNMORE's team because it belongs to the Champion. Gardevoir stays Troglodyte's, so HYACINTH avoids it.
 
 **Option B (not chosen as default, PROPOSED, shorter sketch):** Fire (a lazy chef), Electric (a stage magician), Psychic (a shy librarian), Steel (a retired smith). Steel would now clash with gym 4. Levels would need rescaling to 65 to 71.
 
@@ -44,7 +44,7 @@ Greta as Champion (old Option B) and Troglodyte as Champion (old Option C) were 
 
 Place: a corridor outside the Champion's chamber, after MAREN.
 
-Team (Pool Prune: Rival Starter as in [teams.md](teams.md)): fixed Pokémon Stoutland 68 (SIR BISCUIT, now grown), Gardevoir 69, Vaporeon 70, Tyranitar 70, Arcanine 70, plus one starter final form, tagged per starter, at level 72 (stand-in Sceptile, Blaziken or Swampert). Party Size 6, the five fixed plus one survivor of the prune. Milotic moved to the Champion. No IVs or EVs. Well-bred, poorly trained: no held items, AI Basic Trainer (or the lowest that makes him lose).
+Team (Pool Prune: Rival Starter as in [teams.md](teams.md)): fixed Pokémon Stoutland 68 (SIR BISCUIT, now grown), Gardevoir 69, Vaporeon 70, Tyranitar 70, Pyroar 70, plus one starter final form, tagged per starter, at level 72 (stand-in Sceptile, Blaziken or Swampert). Party Size 6, the five fixed plus one survivor of the prune. Milotic moved to the Champion. No IVs or EVs. Well-bred, poorly trained: no held items, AI Basic Trainer (or the lowest that makes him lose).
 
 | Beat | Arc A: contemptuous then humbled |
 |---|---|
