@@ -789,9 +789,12 @@
 #define TRAINER_CRISTIN_1                   767
 #define TRAINER_MAY_RUSTBORO_TREECKO        768
 #define TRAINER_MAY_RUSTBORO_TORCHIC        769
-#define TRAINER_ROXANNE_2                   770
-#define TRAINER_ROXANNE_3                   771
-#define TRAINER_ROXANNE_4                   772
+#define TRAINER_CRESTFALL_GRETA            770
+#define TRAINER_ROXANNE_2                  TRAINER_CRESTFALL_GRETA
+#define TRAINER_CRESTFALL_GYM_1            771
+#define TRAINER_ROXANNE_3                  TRAINER_CRESTFALL_GYM_1
+#define TRAINER_CRESTFALL_GYM_2            772
+#define TRAINER_ROXANNE_4                  TRAINER_CRESTFALL_GYM_2
 #define TRAINER_ROXANNE_5                   773
 #define TRAINER_BRAWLY_2                    774
 #define TRAINER_BRAWLY_3                    775
@@ -879,11 +882,7 @@
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINER_CRESTFALL_GYM_1             855
-#define TRAINER_CRESTFALL_GYM_2             856
-#define TRAINER_CRESTFALL_GRETA             857
-
-#define TRAINERS_COUNT_EMERALD     858
+#define TRAINERS_COUNT_EMERALD     855
 #define MAX_TRAINERS_COUNT_EMERALD 864
 
 #if IS_FRLG

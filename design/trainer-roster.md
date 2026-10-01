@@ -33,9 +33,9 @@ Status: **BUILT 2026-10-01** (the ROM compiles; nothing has been fought in a gam
 
 | Constant | Id | Name | Pic and class | Team |
 |---|---|---|---|---|
-| `TRAINER_CRESTFALL_GYM_1` | 855 (new) | DALE | **placeholder** Youngster pic, Youngster | Zigzagoon 9 |
-| `TRAINER_CRESTFALL_GYM_2` | 856 (new) | WREN | **placeholder** Gentleman pic, Gentleman | Slakoth 10 |
-| `TRAINER_CRESTFALL_GRETA` | 857 (new) | GRETA | `Veldris Leader Normal` (kwenio ORAS lass, indexed), Leader | Skitty 10, Miltank 12 (Oran Berry) |
+| `TRAINER_CRESTFALL_GYM_1` | 771 (was Roxanne 3) | DALE | **placeholder** Youngster pic, Youngster | Zigzagoon 9 |
+| `TRAINER_CRESTFALL_GYM_2` | 772 (was Roxanne 4) | WREN | **placeholder** Gentleman pic, Gentleman | Slakoth 10 |
+| `TRAINER_CRESTFALL_GRETA` | 770 (was Roxanne 2) | GRETA | `Veldris Leader Normal` (kwenio ORAS lass, indexed), Leader | Skitty 10, Miltank 12 (Oran Berry) |
 | `TRAINER_TROGLODYTE_HOLLOWBROOK` | 520 (was Brendan Route 103 Mudkip) | TROGLODYTE | **placeholder** Brendan pic, Rival | SIR BISCUIT (Lillipup) 1, plus his starter 5 |
 | `TRAINER_TROGLODYTE_CRESTFALL` | 521 (was Brendan Route 110 Mudkip) | TROGLODYTE | same | SIR BISCUIT 7, plus his starter 8 (starters also know Quick Attack for Treecko and Torchic) |
 
@@ -43,4 +43,4 @@ Teams are from [teams.md](teams.md). All have `IVs: 0` on every Pokémon. Troglo
 
 **Battle check (mGBA, same method as above):** all five show the right intro, name and first Pokémon. TROGLODYTE's second Pokémon was seen to be exactly one starter (Treecko, `VAR_TROG_STARTER` = 0) after SIR BISCUIT fainted, so the pool prune works. Not yet seen: the Torchic and Mudkip variants (set the var to 1 or 2), full fights, and the old Hoenn Route 103 and 110 scripts that now point at the renamed ids.
 
-**Caveats.** The Rival class shows 'PKMN TRAINER' in the intro, so a Veldris class name would need a small text edit. Greta's id means 6 brand-new ids are left (858 to 863). The other six Troglodyte fights should reuse vanilla ids, as these two do.
+**Caveats.** The Rival class shows 'PKMN TRAINER' in the intro, so a Veldris class name would need a small text edit. **Author rule (2026-10-01): always reuse vanilla ids.** Greta, DALE and WREN were first built on new ids 855 to 857 and moved to reused ids 770 to 772 the same day, so all 9 brand-new ids (855 to 863) are free again and `TRAINERS_COUNT_EMERALD` is back at 855. The other six Troglodyte fights should reuse vanilla ids too.
