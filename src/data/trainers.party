@@ -9511,7 +9511,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 === TRAINER_TROGLODYTE_HOLLOWBROOK ===
 Name: TROGLODYTE
 Class: Rival
-Pic: Brendan
+Pic: Veldris Troglodyte
 Gender: Male
 Music: Male
 Double Battle: No
@@ -9552,7 +9552,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_TROGLODYTE_CRESTFALL ===
 Name: TROGLODYTE
 Class: Rival
-Pic: Brendan
+Pic: Veldris Troglodyte
 Gender: Male
 Music: Male
 Double Battle: No

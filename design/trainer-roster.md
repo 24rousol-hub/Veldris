@@ -36,7 +36,7 @@ Status: **BUILT 2026-10-01** (the ROM compiles; nothing has been fought in a gam
 | `TRAINER_CRESTFALL_GYM_1` | 771 (was Roxanne 3) | DALE | **placeholder** Youngster pic, Youngster | Zigzagoon 9 |
 | `TRAINER_CRESTFALL_GYM_2` | 772 (was Roxanne 4) | WREN | **placeholder** Gentleman pic, Gentleman | Slakoth 10 |
 | `TRAINER_CRESTFALL_GRETA` | 770 (was Roxanne 2) | GRETA | `Veldris Leader Normal` (kwenio ORAS lass, indexed), Leader | Skitty 10, Miltank 12 (Oran Berry) |
-| `TRAINER_TROGLODYTE_HOLLOWBROOK` | 520 (was Brendan Route 103 Mudkip) | TROGLODYTE | **placeholder** Brendan pic, Rival | SIR BISCUIT (Lillipup) 1, plus his starter 5 |
+| `TRAINER_TROGLODYTE_HOLLOWBROOK` | 520 (was Brendan Route 103 Mudkip) | TROGLODYTE | Veldris Troglodyte pic (DP Rich Boy, 2026-10-01), Rival | SIR BISCUIT (Lillipup) 1, plus his starter 5 |
 | `TRAINER_TROGLODYTE_CRESTFALL` | 521 (was Brendan Route 110 Mudkip) | TROGLODYTE | same | SIR BISCUIT 7, plus his starter 8 (starters also know Quick Attack for Treecko and Torchic) |
 
 Teams are from [teams.md](teams.md). All have `IVs: 0` on every Pokémon. Troglodyte uses `Pool Prune: Rival Starter` with `Party Size: 2`.

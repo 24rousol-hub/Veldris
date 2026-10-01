@@ -36,6 +36,10 @@ All checked against this tree.
 - **Connected maps must share a primary tileset.** Crossing a map connection swaps only the secondary (`LoadMapFromCameraTransition`). **Exteriors use LeoB ORAS** (`gTileset_General` plus a LeoB town secondary; author 2026-10-01, after briefly trying Gen 4 outdoor tiles the same day). Interiors stay on the Gen 4 Interior secondary.
 - **The town map picture can use at most 256 distinct 8x8 tiles**, at most about 37 more map sections fit (43 over the vanilla 209, six used), and Fly needs the Feather Badge in this build. All hard limits are in `design/engine-limits.md`; the town map wiring is in `design/region-map.md`.
 
+- **Assets and sprites policy (author, 2026-10-01).** Sources that copy official Pokémon art are fine, but every one still gets a `CREDITS.md` row. Pokémon sprites stay as shipped (expansion's Gen 4/5-style art at 64x64; GBA-style art exists only for species 1-386 through `P_GBA_STYLE_SPECIES_GFX`, currently FALSE); no sprite import is planned. Catalogue of every source: `design/sprite-catalog.md`. Troglodyte uses the DP **Rich Boy** picture; the Goldsworth cousins get similar but not identical pictures (recolours or neighbouring DP classes).
+- **Houses use shared one-floor layouts, never one custom layout per house** (six drawn up in `design/maps/interiors/house-layouts.md`). Everything looks Gen 4 inside (Gen 4 Interior secondary); exteriors are LeoB ORAS.
+- **Badges are drawn by `design/tools/draw_badges.py`** (14x14 art in 16 px slots, one shared palette; the trainer card spaces them with `BADGE_PITCH` in `src/trainer_card.c`). Re-run the script after editing it, from the repo root.
+
 ## Adding things
 
 **A new map.** Porymap does all four steps when the author saves a new or duplicated map for the first time (checked in Porymap's source: `saveMap` writes steps 1 and 4, `saveGlobalData` writes 2 and 3).
@@ -56,7 +60,7 @@ Keep the map's `region` at `REGION_HOENN` (the default) and `layout_version` at 
 2. `include/constants/opponents.h`: add `#define TRAINER_X 855` (next free id) and raise `TRAINERS_COUNT_EMERALD` by one, staying at or below `MAX_TRAINERS_COUNT_EMERALD` (864). The defeated flag is `0x500 + id`.
 3. In the map script: `trainerbattle_single TRAINER_X, Intro, Defeat` (gym leaders: copy the pattern in `data/maps/RustboroCity_Gym/scripts.inc`), and an object event in `map.json` with a `trainer_type`.
 **Reusing a vanilla id instead (BUILT 2026-10-01 for 13 trainers, see `design/trainer-roster.md`; rename the party header and the `#define`, keep the old name as an alias. **Every Pokémon needs `IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe`: a missing `IVs:` line means 31**) (no new id, no `TRAINERS_COUNT_EMERALD` change; tested in battle):** pick an unused vanilla trainer, rewrite its block in `src/data/trainers.party` (party, pic, class, name), and add `#define TRAINER_CRESTFALL_GRETA TRAINER_<OLD_NAME>` in `include/constants/opponents.h` so scripts can use the new name while the old Hoenn scripts keep compiling. Its defeated flag is the old id's flag. Do this for trainers beyond the spare 9.
-4. A brand-new trainer pic or class needs more edits (`include/constants/trainers.h`, `src/battle_main.c`, `src/data/graphics/trainers.h`). Veldris pictures (14 built) are seen in battle and render correctly (index 0 must be the background colour).
+4. A brand-new trainer pic or class needs more edits (`include/constants/trainers.h`, `src/battle_main.c`, `src/data/graphics/trainers.h`). Veldris pictures (15 built, the 15th is Troglodyte's, `veldris_troglodyte.png`) are seen in battle and render correctly (index 0 must be the background colour).
 
 ## Build
 

@@ -42,6 +42,8 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 - **Teams (author: levels and counts; me: species and moves):** full blocks in [teams.md](teams.md). Gym trainer 1 (DALE, generic name): ZIGZAGOON level 9. Gym trainer 2 (WREN, generic name): SLAKOTH level 10. Greta: SKITTY level 10 and MILTANK level 12. All Normal types, all in this ROM. Not added to `src/data/trainers.party` yet (no map exists, and the trainer takes one of the 9 spare ids).
 - **Reward (PROPOSED):** the **STANDARD BADGE** (author's name: it is the standard you must meet to start the gym challenge), TM CRUNCH (author-approved 2026-09-30), and CUT as badge 1's HM (vanilla gives it to badge 1 as well).
 
+**Troglodyte's picture (author, 2026-10-01): the DP Rich Boy** (`graphics/trainers/front_pics/veldris_troglodyte.png`, credited). The cousins get similar but not identical pictures: PROPOSED recolours of Rich Boy or neighbouring DP classes (Gentleman, Socialite, Barry) from the same spilledpizza folder; not built yet.
+
 ## The Goldsworths (Troglodyte's family)
 
 **Author notes (2026-09-29), in the author's words:**
