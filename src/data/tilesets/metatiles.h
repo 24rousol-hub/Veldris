@@ -411,9 +411,3 @@ const u16 gMetatileAttributes_HallOfFame[] = INCBIN_U16("data/tilesets/secondary
 
 const u16 gMetatiles_Gen4Interior[] = INCBIN_U16("data/tilesets/secondary/gen4_interior/metatiles.bin");
 const u16 gMetatileAttributes_Gen4Interior[] = INCBIN_U16("data/tilesets/secondary/gen4_interior/metatile_attributes.bin");
-
-const u16 gMetatiles_Gen4Outdoor[] = INCBIN_U16("data/tilesets/primary/gen4_outdoor/metatiles.bin");
-const u16 gMetatileAttributes_Gen4Outdoor[] = INCBIN_U16("data/tilesets/primary/gen4_outdoor/metatile_attributes.bin");
-
-const u16 gMetatiles_Gen4Hollowbrook[] = INCBIN_U16("data/tilesets/secondary/gen4_hollowbrook/metatiles.bin");
-const u16 gMetatileAttributes_Gen4Hollowbrook[] = INCBIN_U16("data/tilesets/secondary/gen4_hollowbrook/metatile_attributes.bin");

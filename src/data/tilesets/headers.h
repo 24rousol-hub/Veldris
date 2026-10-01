@@ -1552,25 +1552,3 @@ const struct Tileset gTileset_Gen4Interior =
     .metatileAttributes = gMetatileAttributes_Gen4Interior,
     .callback = NULL,
 };
-
-const struct Tileset gTileset_Gen4Outdoor =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .tiles = gTilesetTiles_Gen4Outdoor,
-    .palettes = gTilesetPalettes_Gen4Outdoor,
-    .metatiles = gMetatiles_Gen4Outdoor,
-    .metatileAttributes = gMetatileAttributes_Gen4Outdoor,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_Gen4Hollowbrook =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_Gen4Hollowbrook,
-    .palettes = gTilesetPalettes_Gen4Hollowbrook,
-    .metatiles = gMetatiles_Gen4Hollowbrook,
-    .metatileAttributes = gMetatileAttributes_Gen4Hollowbrook,
-    .callback = NULL,
-};
