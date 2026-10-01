@@ -3,7 +3,7 @@
 Status: **PROPOSED** except the name and Greta (approved earlier) and that Crestfall is a **town** (author, 2026-10-01, replacing the earlier 'city'; the sketch also draws it purple). Everything else below is a suggestion. Map plan: [map-plan.md](map-plan.md) (reference `Azalea Town.png`, about 48 x 32, vanilla base `PetalburgCity`). Dialogue: [dialogue/crestfall.inc](dialogue/crestfall.inc) and [dialogue/crestfall_extra.inc](dialogue/crestfall_extra.inc).
 
 ## Role
-Normal type farm town and the first gym, one road from Hollowbrook. It is a town, so it has **no Goldsworth house** (changed 2026-10-01): the NPC-only cousin set below moves to the first city (sketch city 4). The Center and Mart here are the player's first. The skyscraper is **not** here unless the author says so. Greta is the leader (`TRAINER_CRESTFALL_GRETA`, STANDARD BADGE). Scheme 1 plays out here.
+Normal type farm town and the first gym, one road from Hollowbrook. It is a town, so it has **no Goldsworth house** (changed 2026-10-01): the NPC-only cousin set below moves to **Briarwick** (approved 2026-10-01). The Center and Mart here are the player's first. The skyscraper is **not** here unless the author says so. Greta is the leader (`TRAINER_CRESTFALL_GRETA`, STANDARD BADGE). Scheme 1 plays out here.
 
 ## Where it sits
 West: Route 1 from Hollowbrook. East or north-east: Route 2 to Wendlebury. North: Route 3 onward to city 4, blocked for now. Farmland and the gym's hay maze fill the north and west sides, the market square and houses the south and middle. PROPOSED.

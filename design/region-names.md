@@ -1,6 +1,6 @@
 # Place names, themes and map sources (PROPOSED, 2026-10-01)
 
-Status: **PROPOSED.** Only HOLLOWBROOK, WENDLEBURY and CRESTFALL are approved. Everything else is a suggestion for the author to pick from. Picture with the first picks: [art/region_names_proposed.png](art/region_names_proposed.png). Layout: [region-sketch.md](region-sketch.md). Names are at most 16 characters and use no double quote. None clashes with a Hoenn, Kanto or Sevii section name (checked by eye, not by script).
+Status: **APPROVED by the author on 2026-10-01: all the first-pick names below** ("all of the names look great"). The 'other options' columns are dropped. The Palladium and vanilla map sources, themes and gym pairings are still PROPOSED. Picture with the first picks: [art/region_names_proposed.png](art/region_names_proposed.png). Layout: [region-sketch.md](region-sketch.md). Names are at most 16 characters and use no double quote. None clashes with a Hoenn, Kanto or Sevii section name (checked by eye, not by script).
 
 **Naming style.** Dry English-countryside compounds, like the three approved names (hollow + brook, crest + fall). Place names are plain words, so they fit the deadpan tone.
 
@@ -50,6 +50,6 @@ Bug gym at Briarwick: the second Azalea gym image (`azaleagym20yp`). Ghost at Gl
 
 ## Open
 
-- Which names to keep, and any swaps.
+- ~~Which names to keep.~~ All first picks approved (2026-10-01).
 - The Palladium licence caveat in `map-plan.md` still stands: the credit and the dead source URL.
-- Whether the first Goldsworth house sits in Briarwick.
+- ~~Whether the first Goldsworth house sits in Briarwick.~~ Yes (author, 2026-10-01): the Goldsworth house is in **Briarwick**, the first city.

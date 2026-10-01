@@ -98,7 +98,7 @@ Follows the sketch's walking order and the gym order Normal, Bug, Ghost, Steel, 
 | Hollowbrook (1) | quiet farm village, south-west corner | none | SW landmark (post-game): an old orchard or cabin where Gatsby met Cynthia |
 | Crestfall (2, town) | farmland, hay maze | 1 Normal | none |
 | Wendlebury (3, town) | market crossroads | none | none (water link south is Surf) |
-| City 4 | forest edge city, first Goldsworth house | 2 Bug | the NE landmark: a deep forest maze or hollow log cave |
+| City 4 (BRIARWICK) | forest edge city, first Goldsworth house | 2 Bug | the NE landmark: a deep forest maze or hollow log cave |
 | Town 5 | foggy marsh and old graveyard | 3 Ghost | none |
 | Town 6 | mining and foundry town | 4 Steel | the spur between routes 6 and 9: the foundry mine (cave) |
 | City 7 | snowy mountain city | 5 Ice (gives Surf, which opens the water links) | a frozen cave system on its mountain, optional |

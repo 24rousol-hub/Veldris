@@ -51,3 +51,7 @@ Only settlements (towns and cities, not routes) are fly destinations (see [regio
 ## Update this file when
 
 A map is created in Porymap, renamed, or changes status; when a route or town gets its real name; when a map section is added.
+
+## Names approved 2026-10-01
+
+The numbered placeholders now have approved names for the places on the author's sketch: see [region-names.md](region-names.md). The sketch's walking numbers (1 Hollowbrook, 2 Crestfall, 3 Wendlebury, 4 Briarwick, 5 Gloomsby, 6 Smeltham, 7 Hoarfell) replace the old T/R numbering in [region-map.md](region-map.md), which still describes the earlier layout.
