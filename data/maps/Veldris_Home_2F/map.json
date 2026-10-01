@@ -22,13 +22,6 @@
       "elevation": 0,
       "dest_map": "MAP_VELDRIS_HOME_1F",
       "dest_warp_id": "1"
-    },
-    {
-      "x": 8,
-      "y": 2,
-      "elevation": 0,
-      "dest_map": "MAP_VELDRIS_HOME_1F",
-      "dest_warp_id": "2"
     }
   ],
   "coord_events": [],

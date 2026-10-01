@@ -9327,7 +9327,7 @@
     {
       "id": "LAYOUT_VELDRIS_HOME_1F",
       "name": "Veldris_Home_1F_Layout",
-      "width": 12,
+      "width": 13,
       "height": 9,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Gen4Interior",
