@@ -17,7 +17,7 @@
   "object_events": [],
   "warp_events": [
     {
-      "x": 7,
+      "x": 8,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_VELDRIS_HOME_1F",
