@@ -30,4 +30,6 @@ The drafts in `design/scripts/hollowbrook_scripts.inc` are now built into each m
 - **Neighbour's house:** mother, father, a wandering girl and a Skitty, plus the bookshelf.
 - **Fly point and respawn:** `HEAL_LOCATION_HOLLOWBROOK` lands on (9,21) outside the player's door; whiting out sends the player home to Mom (engine edit in `engine-edits.md`). Town `OnTransition` sets `FLAG_VISITED_HOLLOWBROOK` and the respawn. Tested in mGBA with the debug menu's Fly to map.
 
-Not done yet: the new-game start point (still the Littleroot truck), the Route 1 connection, Hollowbrook on the region map picture (the grid cell is set, the art is still Hoenn), and the Goldsworth house interior.
+- **New game:** starts in the bedroom at the foot of the bed (2,4), no truck. Going downstairs fires Mom's wake-up (engine edits in `engine-edits.md`).
+
+Not done yet: the Route 1 connection, Hollowbrook on the region map picture (the grid cell is set, the art is still Hoenn), and the Goldsworth house interior.
