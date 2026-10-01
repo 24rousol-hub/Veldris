@@ -15,7 +15,7 @@
 | [troglodyte-arc.md](troglodyte-arc.md) | PROPOSED arc options, schemes 2 to 9 and his fight schedule; samples in `dialogue/troglodyte_arc_samples.inc` | The story path is decided |
 | [gyms.md](gyms.md) | PROPOSED options for gyms 2 to 9 (types, leaders, badges, HMs, TMs, teams) | The author picks a type order |
 | [goldsworth.md](goldsworth.md) | Goldsworth houses and parents, PROPOSED; lines in `dialogue/goldsworth.inc` | The family plan changes |
-| [postgame.md](postgame.md) | PROPOSED Elite Four, Champion options, finale and post-game; lines in `dialogue/league.inc` | Open decision 2 (Champion) is made |
+| [postgame.md](postgame.md) | Elite Four, Champion (aged Cynthia, author-chosen), finale and post-game; lines in `dialogue/league.inc` | The League plan changes |
 | [dialogue/crestfall_extra.inc](dialogue/crestfall_extra.inc) | PROPOSED draft for the rest of Crestfall's NPCs: market, farmhands, gym statue, houses, kids, shopkeeper and the Goldsworth house. Width-checked, not wired | An NPC changes, or the map exists |
 | [dialogue/hollowbrook_houses.inc](dialogue/hollowbrook_houses.inc) | PROPOSED draft for Hollowbrook's neighbour house and the player-house extras, with starter variants. Width-checked, not wired | An NPC changes, or the maps exist |
 | [route1.md](route1.md) | Route 1 draft: wild Pokémon, three trainers, NPCs and items; dialogue in `dialogue/route1.inc` | The map or the route plan changes |

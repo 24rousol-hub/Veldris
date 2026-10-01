@@ -15,7 +15,7 @@ Every gym gets one Goldsworth scheme. Keep the beats the same so the joke builds
 
 ## The path is not decided (author, 2026-09-29)
 
-The author has not decided which path the story takes. What is fixed: the Goldsworths are one of the obstacles, and Troglodyte starts contemptuous and may become oblivious and confused after certain story points that are not decided ([characters.md](characters.md)). Anything below Act I is a guess.
+The author has not decided which path the story takes. **Update (author, 2026-10-01): Troglodyte follows Arc A (contemptuous, then humbled), and the Champion is an aged Cynthia. See [troglodyte-arc.md](troglodyte-arc.md) and [postgame.md](postgame.md).** What is fixed: the Goldsworths are one of the obstacles, and Troglodyte starts contemptuous and may become oblivious and confused after certain story points that are not decided ([characters.md](characters.md)). Anything below Act I is a guess.
 
 ## Goldsworth presence (author notes 2026-09-29; details PROPOSED)
 
