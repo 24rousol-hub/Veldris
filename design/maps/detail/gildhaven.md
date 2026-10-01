@@ -33,7 +33,7 @@ Mirror the render left to right before tracing (the sea is on the render's west,
 4. **Gym forecourt (north-west).** The gym is the brown-roofed hall at **cols 21-28, rows 8-12, door (25,12)** with a ball sign above the door. In front of it, **rows 13-16, cols 21-29**, is a cobbled forecourt bounded on the south by the cross-street fence at row 17. A bench at (22,14), a flower tub at (28,13), a windsock-style banner object at (21,13). **Scheme 6 plays here** (section 5). The flower beds (red) fill **cols 8-17, rows 5-9** west of the gym, with a yellow-roofed house at cols 16-20, rows 7-10 (decor, no door).
 5. **Pilots' Club and the north-east terrace.** A row of four yellow-roofed buildings at **cols 33-47, rows 8-12**. The first (cols 33-37) is the **Pilots' Club**, door **(35,12)**. The third (cols 41-46) is the **Estates Sales Office**, door **(42,11)**. The second and fourth are decor.
 6. **Casino and tower base (east).** The yellow-domed Casino at **cols 39-45, rows 16-20**, door **(43,20)**. East of it the **Goldsworth Tower**: body **cols 48-52, rows 8-24**, dark annex at cols 46-47, rows 15-20, wider base at rows 20-24 (cols 46-52), **lobby door (49,23)** (double door, warps on (49,23) and (50,23)). A round plaza and a statue plinth (the statue is of nobody: a deadpan joke, object at (47,25)) sit in front of the base.
-7. **Harbour and quay (east edge).** Two paved quays: the **north quay** at **cols 50-55, rows 25-27** with a railing along row 27, and the **south quay** at **cols 52-54, rows 34-41** with a railing at col 54-55. The sea runs along cols 55-58 and widens south. **Surf starts at the quay ends** (54,26) and (54,38). A **rock islet** sits at (56,33), holding a Star Piece. R19's connection is on the whole east edge, rows 26-45 (offset in section 6).
+7. **Harbour and quay (east edge).** Two paved quays: the **north quay** at **cols 50-55, rows 25-27** with a railing along row 27, and the **south quay** at **cols 52-54, rows 34-41** with a railing at col 54-55. The sea runs along cols 55-58 and widens south. **Surf starts at the quay ends** (54,26) and (54,38). A **rock islet** sits at (56,33), holding a Star Piece. R19's connection is on the whole east edge, rows 26-45 (offset in section 3).
 8. **Market quarter (centre-south).** West of the avenue the **Emporium** at **cols 22-28, rows 26-39** (roof rows 26-28, deck rows 29-32, glass front rows 33-38). **Main door (23,38)**, a second ground-floor door at (27,38) (decor or a staff entrance to the same 1F). East of the avenue the **Pokémon Center** (red roof, **cols 33-37, rows 35-38, door (35,38)**). The **Hotel** (white arched hall) at **cols 33-40, rows 26-30, door (37,30)**, with two pillars at (36,30) and (38,30). The glass **pavilion** (render's bike shop) at **cols 18-21, rows 36-41**: a closed shop, shutters down, decor.
 9. **Residential streets.** Yellow-roofed houses fill the south-west (cols 7-17, rows 25-50), the south-east (cols 38-54, rows 28-50) and the north-west. Most are decor (windows, no door). **Enterable:** the Navigator's house **door (13,15)**, the Window cleaner's flat **door (14,29)**, the Move Deleter's house **door (49,36)**, the Cafe **door (40,41)**.
 10. **Pinnacle Gate (south).** Two flanking huts at cols 28-29 and 33-34, rows 47-50, with the road opening **cols 30-32** between them and a guard line at (31,48). Connection to R20's north edge. Gate rule: nine badges, counted with `GetBadgeCount()` (CLAUDE.md badge rule), the guard blocks until the count is 9.
@@ -83,16 +83,16 @@ Warp ids are suggestions in Porymap order. Exit warps from every interior point 
 
 | Edge | Neighbour | Offset | Lines up |
 |---|---|---|---|
-| North | `VeldrisRoute18` (28 x 32) south edge | +17 | R18's road (cols 12-16) meets the avenue gap (cols 29-33) |
+| North | `VeldrisRoute18` (28 x 32) south edge | +17 | R18's opening (cols 13-15) meets the gate opening (cols 30-32) |
 | East | `VeldrisRoute19` (80 x 40) west edge | +12 | Gildhaven rows 26-39 meet R19 rows 14-27 (open water, Surf) |
-| South | `VeldrisRoute20` (22 x 91) north edge | +21 | R20's sand mouth (cols 8-13) meets the avenue (cols 29-33) |
+| South | `VeldrisRoute20` (22 x 91) north edge | +21 | R20's corridor (cols 8-13) meets the gate opening (cols 30-32, R20 cols 9-11) |
 | West | none | | rock wall |
 
 Check the offsets in Porymap when both maps exist and nudge by a tile.
 
 ## 4. Buildings and interiors
 
-Map list (27 maps lean-to-full): `Gildhaven`, `_PokemonCenter_1F`, `_PokemonCenter_2F`, `_Emporium_1F` to `_5F`, `_Emporium_Elevator`, `_Emporium_Roof`, `_Gym`, `_GoldsworthTower_1F` to `_6F`, `_GoldsworthTower_Roof`, `_Hotel_1F`, `_Hotel_2F`, `_PilotsClub`, `_Casino`, `_SalesOffice`, `_NavigatorsHouse`, `_CleanersFlat`, `_MoveDeletersHouse`, `_Cafe`. That is **28 maps**. Do not name anything `Gildhaven_GoldsworthHouse`: the town has no house (the tower is it).
+Map list: `Gildhaven`, `_PokemonCenter_1F`, `_PokemonCenter_2F`, `_Emporium_1F` to `_5F`, `_Emporium_Elevator`, `_Emporium_Roof`, `_Gym`, `_GoldsworthTower_1F` to `_6F`, `_GoldsworthTower_Roof`, `_Hotel_1F`, `_Hotel_2F`, `_PilotsClub`, `_Casino`, `_SalesOffice`, `_NavigatorsHouse`, `_CleanersFlat`, `_MoveDeletersHouse`, `_Cafe`. That is **27 maps** (the lean tower is 24). Do not name anything `Gildhaven_GoldsworthHouse`: the town has no house (the tower is it).
 
 All interiors use `MAPSEC_GILDHAVEN` (new section, PROPOSED; one of the free ids, [../../engine-limits.md](../../engine-limits.md)).
 
@@ -152,8 +152,8 @@ Legend: `#` wall, `~` void (impassable), `.` strip floor, `>` east wind tile, `<
  y 5  |#.........3...#|   strip S3, trainer 3 (10,5)
  y 6  |#.............#|   S3 lower row
  y 7  |#>>>>>>>>>>>>e#|   belt B3: east, ends at (13,7)
- y 8  |#.....2.......#|   strip S2, trainer 2 (6,8)
- y 9  |#.............#|   S2 lower row
+ y 8  |#.............#|   strip S2
+ y 9  |#.....2.......#|   S2 lower row, trainer 2 (6,9)
  y10  |#w<<<<<<<<<<<<#|   belt B2: west, ends at (1,10)
  y11  |#.............#|   strip S1
  y12  |#......1......#|   S1 lower row, trainer 1 (7,12)
@@ -173,10 +173,10 @@ Rows are 15 wide. The belt rows have 12 wind tiles and one normal end tile, so e
 | # | Class | Team | Tile and facing | Sight |
 |---|---|---|---|---|
 | 1 | Cooltrainer | Pelipper 36, Altaria 37 | (7,12) facing north | 2 (sees (7,11) and the belt tile (7,10)) |
-| 2 | Pokémon Ranger | Dodrio 36, Fearow 38 | (6,8) facing south | 2 (sees (6,9) and (6,10)) |
+| 2 | Pokémon Ranger | Dodrio 36, Fearow 38 | (6,9) facing north | 2 (sees (6,8) and the belt tile (6,7)) |
 | 3 | Cooltrainer | Noctowl 37, Staraptor 38 | (10,5) facing south | 2 (sees (10,6) and (10,7)) |
 
-Why each one is **unavoidable but fair**: after belt B1 the player arrives at (13,12) and must cross column 7 on S1 or ride B2 through (7,10), both inside trainer 1's sight. After B2 the player arrives at (1,9) and must cross column 6 on S2 (trainer 2 stands in row 8, so row 9 is the only way and it is in sight). After B3 the player arrives at (13,6) and must walk west past column 10 on S3 (trainer 3 blocks row 5, row 6 is in sight). Each trainer is a separate fight; no healing in the gym (the Center is one street away).
+Why each one is **unavoidable but fair**: after belt B1 the player arrives at (13,12) and must cross column 7 on S1 or ride B2 through (7,10), both inside trainer 1's sight. After B2 the player arrives at (1,9) and must cross column 6 on S2 (trainer 2 stands in row 9, so row 8 is the only way and it is in sight; riding B3 from the west of column 6 passes (6,7), also in sight). After B3 the player arrives at (13,6) and must walk west past column 10 on S3 (trainer 3 blocks row 5, row 6 is in sight). Each trainer is a separate fight; no healing in the gym (the Center is one street away).
 
 **Return trip (leaving after the fight).** Step south onto B3 from S3 at any column: it carries you east to (13,7), then south to (13,8) on S2. Repeat for B2 (carried west to (1,10), south to (1,11)) and B1 (east to (13,13), south to (13,14)). The trainers do not fight again. Allow `Escape Rope` out of the gym map (`allow_escaping` true on the gym map) so a trapped player is never stuck.
 
@@ -227,7 +227,7 @@ Legend: `#` wall, `.` floor, `=` reception counter, `g` security gate (a turnsti
 
 #### 4.4.2 2F Mailroom and Legal (19 x 11, Little Office)
 
-Pigeonhole wall (white counters with files, the tileset's counter-and-bookcase pieces) along the top: cols 1-8 mailroom, cols 10-17 legal. Mailroom half **west**: a long sorting counter at **(3..7,4)**, stacks of parcels as items on the floor, the **mailroom clerk at (5,5)** facing up. Legal half **east**: two glass desks (the tileset's L-shaped glass desks at **(11,5)** and **(14,5)**), the **legal clerk at (12,6)** with a file labelled 'Schemes, in progress' (a sign on the shelf at (13,2), the reading of which is a one-line joke: 'Hay maze, tent, sheets, stickers, holes, basket... in progress'). A **fax/printer** at (17,3) (a sign: 'It has been printing the same Gym Acquisition invoice for six years'). **Stairs** down (2,1), up (16,1). **NPCs (4):** mailroom clerk (5,5), legal clerk (12,6), a courier asleep on a parcel (8,8) (facing down, a sleeping NPC), an intern (15,8) wandering. The **mailroom job joke** lands here (Mr. Goldsworth's Scene 1 offer): a **spare desk with a name plate 'NEW STARTER'** at (9,8) that the clerk gestures at.
+Sorting-rack wall (white counters with files, the tileset's counter-and-bookcase pieces) along the top: cols 1-8 mailroom, cols 10-17 legal. Mailroom half **west**: a long sorting counter at **(3..7,4)**, stacks of parcels as items on the floor, the **mailroom clerk at (5,5)** facing up. Legal half **east**: two glass desks (the tileset's L-shaped glass desks at **(11,5)** and **(14,5)**), the **legal clerk at (12,6)** with a file labelled 'Schemes, in progress' (a sign on the shelf at (13,2), the reading of which is a one-line joke: 'Hay maze, tent, sheets, stickers, holes, basket... in progress'). A **fax/printer** at (17,3) (a sign: 'It has been printing the same Gym Acquisition invoice for six years'). **Stairs** down (2,1), up (16,1). **NPCs (4):** mailroom clerk (5,5), legal clerk (12,6), a courier asleep on a parcel (8,8) (facing down, a sleeping NPC), an intern (15,8) wandering. The **mailroom job joke** lands here (Mr. Goldsworth's Scene 1 offer): a **spare desk with a name plate 'NEW STARTER'** at (9,8) that the clerk gestures at.
 
 #### 4.4.3 3F Accounts and Acquisitions (19 x 11, Little Office)
 

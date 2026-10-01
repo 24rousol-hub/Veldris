@@ -205,9 +205,9 @@ Vanilla Hoenn layouts in `data/layouts/layouts.json` (Emerald build, FRLG-only m
 | **Alternative Pokecenter Secondary** (Rahtak) | A second Pokémon Center look | Optional re-skin of Centers (keep the vanilla layout positions for the nurse script) |
 | **Dojo Interior / Exterior Secondary** | Wooden dojo, mats, weapon racks | A training hall, DUNMORE's room, Mirror Isle shrine hall |
 | **Gate Platinum Secondary** (blloop) | The real route-gate interior look (checked by the west writer) |
-| **Gatehouse Secondary / Alt** | Actually a **counter lobby**, not a gate (correction, 2026-10-01) | R3, R9, R20 gates, Gildhaven's north gate, the Pinnacle Gate (the Palladium route images have gatehouses) |
+| **Gatehouse Secondary / Alt** | Actually a **counter lobby** (a bike-shop counter room), not a gate (corrections, 2026-10-01) | R3, R9, R20 gates, Gildhaven's north gate, the Pinnacle Gate (the Palladium route images have gatehouses) |
 | **Legend of Zelda House Secondary** | Stone and timber rustic homes | A forest or mountain hut (Mothwood, Argent Peak, Slagwell) |
-| **Small town with lab Secondary** | Town with a lab and train-station tiles | Waymeet's station, a lab or museum |
+| **Small town with lab Secondary** | A farm and lab **exterior** (not a station set: correction by the centre writer, 2026-10-01) | Not used |
 | **Shady Forest, Hidden Grotto Primary FRLG, Gen 4 Cave Secondary, Caves Alt Primary/Secondary, Beach Cave Secondary, Volcano, Sewer, Underwater, Autumn Ruins, Pyramid, Desert Village** | Forest, caves, beach caves, ruins | Mothwood, Slagwell Mine, Echo Hollow, Mirror Isle caves, Aldermere's drowned streets, Argent Peak |
 | **LeoB ORAS** | Modern outdoor tileset (already used for Hollowbrook's exterior) | Town exteriors |
 | `Other Tilesets/` (Ewraz, Voluptuas, Droid779, Roger Wrightshoe, Sacred Phoenix, Crystal ports) | Rough sheets that need indexing and palette work | Backup, not first choice |

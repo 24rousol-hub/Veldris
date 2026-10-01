@@ -286,7 +286,7 @@ Objects: 5 trainers, guards (2), foreman, gardener, jogger, truck, 2 visible ite
 
 ### Description and walk-through
 
-**Opening view from Waymeet (east).** The player surfs off the pier into **open, calm water**: a rocky reef to the north-east, a rail viaduct (scenery) overhead near the pier, reed banks, gulls (Wingull) on the pilings. **Opening view from Gildhaven (west).** The tower is behind the player; ahead, an empty blue sea with a few rock islets and sandbanks and the far shore of Waymeet's canal.
+**Opening view from Waymeet (east).** The player surfs off the pier into **open, calm water**: a rocky reef to the north-east, a rail viaduct (scenery) overhead near the pier, reed banks, Wingull on the pilings. **Opening view from Gildhaven (west).** The tower is behind the player; ahead, an empty blue sea with a few rock islets and sandbanks and the far shore of Waymeet's canal.
 
 **Shape and pacing.** A wide, sheltered channel, **80 x 40, a mostly open sea with a few reefs** (the vanilla Route 129 layout gives rocky reefs at **cols 4-22, rows 8-13** (a long north-west reef), **cols 46-62, rows 0-13** (a big rock mass at the north-east), and **cols 18-36, rows 24-34** (a south-central reef)). The player surfs west-east along **rows 14-22**, between the reefs. Pacing: a swimmer or sailor every ~10 tiles, with **sandbanks as rest points**. The sandbanks and islets are **painted by the author** (the vanilla map has none).
 
