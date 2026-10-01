@@ -1,6 +1,6 @@
 # Leader name options (DRAFT)
 
-Status: **PROPOSED. Nothing here is canon until the author picks.** Art is chosen ([gym-leader-art.md](gym-leader-art.md)), pitches are in [gyms.md](gyms.md). Names follow the hack's style: short, a little rural-English (Hollowbrook, Wendlebury, Greta), often a plant, bird or trade. Kept clear of the existing names DALE and WREN (Crestfall gym trainers), Greta, Fennick, Troglodyte, the Goldsworths and the Elite Four members. The chosen sprites are recognisable official characters, so these names give each Veldris leader their own identity.
+Status: **The author approved the round-2 recommended names on 2026-10-01: HACHIMEL, SANZUFORD, HAGANE, WAKASAGI, TOBIN, ASEBY, SUZURAN, MIZZLE** (see [trainer-roster.md](trainer-roster.md)). Everything below is the option history. Art is chosen ([gym-leader-art.md](gym-leader-art.md)), pitches are in [gyms.md](gyms.md). Names follow the hack's style: short, a little rural-English (Hollowbrook, Wendlebury, Greta), often a plant, bird or trade. Kept clear of the existing names DALE and WREN (Crestfall gym trainers), Greta, Fennick, Troglodyte, the Goldsworths and the Elite Four members. The chosen sprites are recognisable official characters, so these names give each Veldris leader their own identity.
 
 | Gym | Pitch | Sprite | Option 1 (recommended) | Option 2 | Option 3 |
 |---|---|---|---|---|---|

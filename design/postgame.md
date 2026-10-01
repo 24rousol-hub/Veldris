@@ -7,7 +7,7 @@ Fixed by the author: Elite Four of 4 members; the Champion is an aged Cynthia (2
 ## Rules for every League team
 
 - Level scale (author, 2026-10-01): the Elite Four starts at level 65 and the League ends at 75 with the Champion. Elite Four sizes 5, 5, 5, 6. Troglodyte's final fight is just before the Champion: 6 Pokémon, about levels 68 to 72. Champion 6 Pokémon, levels 73 to 75.
-- No `IVs:` or `EVs:` lines (author). Species are all in this tree (checked against `include/constants/species.h`). Moves are not chosen here: pick from `gen_9.h` learnsets when the blocks go into `src/data/trainers.party`.
+- No EVs, and every Pokémon gets an explicit `IVs: 0 ...` line (author; a missing `IVs:` line means 31, see [teams.md](teams.md)). Species are all in this tree (checked against `include/constants/species.h`). Moves are not chosen here: pick from `gen_9.h` learnsets when the blocks go into `src/data/trainers.party`.
 - Trainer ids: the four members, the Champion and the final Troglodyte fight are 6 ids. Only 9 brand-new ids fit and gyms use them, so these should **reuse vanilla Hoenn entries** (CLAUDE.md, 'A new trainer'). The vanilla Sidney, Phoebe, Glacia, Drake and Wallace entries are the natural ones.
 
 ## Elite Four, Option A (default, PROPOSED; types adjusted 2026-10-01)
