@@ -87,7 +87,7 @@ Numbered walk:
 
 | Edge | Neighbour | Offset | Lines up |
 |---|---|---|---|
-| West | `VeldrisRoute10` (64 x 23) east edge | +12 | R10's east road (rows 9-11) meets the lane (rows 21-23) |
+| West | `VeldrisRoute10` (64 x 23) east edge | +9 | R10's carved east exit (rows 12-14) meets the lane (rows 21-23) |
 | East | `VeldrisRoute11` (67 x 25) west edge | +8 | R11's west road (rows 13-15) meets the lane; R11 rows 17-18 meet the ledge strip (rows 25-26) |
 | North, South | none | | cliff |
 

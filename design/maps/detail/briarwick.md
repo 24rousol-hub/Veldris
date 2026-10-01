@@ -20,7 +20,7 @@ Coordinates are `(x, y)` in tiles from the top-left. They are **read off the ren
 
 **The one gaudy thing.** The Goldsworth house, a rounded, orange-and-white pod dropped on a pale sand patch at the far south-west beside a rock outcrop, as if lowered by crane. It is the only building here that does not belong.
 
-**Sound.** `MUS_FORTREE` (the treetop town track suits the forest city). Pokémon cries: KRICKETOT, a COMBEE hum from the Apiary, VIVILLON. No real animals; she keeps COMBEE and hives, never 'bees'.
+**Sound.** `MUS_FORTREE` (the treetop town track suits the forest city). Pokémon cries: KRICKETOT, a COMBEE hum from the Apiary, VIVILLON. No real animals: she keeps COMBEE and hives.
 
 **The one memorable view.** From the middle of the main street at (28, 22), look north up the paved path (x 26 to 29, y 8 to 19) between the two ponds to the Apiary's door at (27, 7), with the tower filling the top of the screen. Keep the path straight and the trees along it low so the line of sight reads.
 

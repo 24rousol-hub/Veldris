@@ -11,7 +11,7 @@ Status: **PROPOSED.** The brief for the detailed design pass: turn each place an
 5. **Elite Four, Champion, Hall of Fame:** the Palladium E4 rooms, painted with the vanilla Ever Grande tilesets, colour-matched per member.
 6. **Caves and forests:** Palladium images plus the vanilla cave tilesets (Granite, Meteor Falls, Shoal, Seafloor) or the Team Aqua cave sets for the special ones.
 7. **Keep the door rule.** Every interior door is one warp pair on a door mat at the bottom, the exit warp lands outside the door, buildings are entered from the south, unless a card says otherwise.
-8. **Size rules.** A house is 9 to 13 wide and 8 to 11 tall, a shop 10 to 14 by 8 to 10, a lab 14 x 12, a gym 13 to 15 by 17 to 23. Max map size `(w + 15) * (h + 14) <= 10240`. Max 15 live objects per map.
+8. **Size rules.** A house is 9 to 13 wide and 8 to 11 tall, a shop 10 to 14 by 8 to 10, a lab 14 x 12, a gym 13 to 15 by 17 to 23. Max map size `(w + 15) * (h + 14) <= 10240`. Object limit: the engine keeps at most about 16 objects alive near the camera (`TrySpawnObjectEvents`, 64 templates per map), so tall roads can hold more than 15 in total; keep any one screen to 15 or fewer.
 9. **Everything borrowed is credited** in `CREDITS.md` in the same commit that imports it.
 
 ## What the detailed documents must contain

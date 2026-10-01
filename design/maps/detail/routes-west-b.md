@@ -110,16 +110,16 @@ Visible items use up objects, so most are hidden or `bg_event`.
 ### Interiors on this road
 
 - **Marshkeeper's Lodge** (`Route4_MarshkeepersLodge`): 11 x 8, tileset `gTileset_Building` plus **Gen 4 Interior Secondary** (house style, rule 1), the Hollowbrook neighbour's-house kit. Exit mat (2, 7). Kitchen block at the top left (copy blocks x 0 to 3, y 1 to 2), bookshelf at (7, 1) to (8, 2), a **pair of tall lamps** against the right wall (use the plant blocks at (10, 4) to (10, 6)), a low table with cushions (the TV table kit at x 5 to 8, y 4 to 6 repainted as a table with no TV). The Marshkeeper stands at (5, 3) facing south. Warps: 1 (the mat). Palladium: `Elm's House.png` for the proportions. A reading nook (cushion at (9, 6)) is the 'fog lore' spot: a `bg_event` bookshelf.
-- **West gate** shared with Gloomsby: see [gloomsby.md](gloomsby.md). On R4 the outside half is the render's gatehouse. Warp from R4: tile (3, 10) goes to `Gloomsby_WestGate` warp 1.
+- **West gate** shared with Gloomsby: see [gloomsby.md](gloomsby.md). On R4 the outside half is the render's gatehouse. Warp from R4: tile (3, 10) goes to `Gloomsby_WestGate` warp 2 (the right door pair).
 
 ### Warp table (R4)
 
 | Map | Tile | Destination |
 |---|---|---|
-| `Route4` | (3, 10), the gate door | `Gloomsby_WestGate` warp 1 |
+| `Route4` | (3, 10), the gate door | `Gloomsby_WestGate` warp 2 (the right door pair) |
 | `Route4` | (37, 20), the lodge door | `Route4_MarshkeepersLodge` warp 0 |
 | `Route4_MarshkeepersLodge` | (2, 7), exit mat | `Route4` warp 1, lands at (37, 21) |
-| `Gloomsby_WestGate` | its east door, see [gloomsby.md](gloomsby.md) | `Route4` warp 0, lands at (3, 11) |
+| `Gloomsby_WestGate` | the right door pair (12 and 13, 5), see [gloomsby.md](gloomsby.md) | `Route4` warp 0, lands at (3, 11) |
 
 ### Visual identity and connections
 
@@ -220,7 +220,7 @@ Signs: (17, 49) south, (18, 41) mid-south, (17, 4) north.
 
 | Map | Tile | Destination |
 |---|---|---|
-| `Route5` | (14, 53), the south gate door | `Gloomsby_EastGate` warp 1 |
+| `Route5` | (14, 53), the south gate door | `Gloomsby_EastGate` warp 2 (the right door pair) |
 | `Route5` | (20, 39), the toll gate south door | `Route5_TollGate` warp 0 |
 | `Route5` | (20, 34), the toll gate north door | `Route5_TollGate` warp 1 |
 | `Route5_TollGate` | (13, 5) | `Route5` warp 1, lands at (20, 40) |
