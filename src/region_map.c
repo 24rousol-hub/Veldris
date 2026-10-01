@@ -28,6 +28,7 @@
 #include "constants/heal_locations.h"
 #include "constants/rgb.h"
 #include "constants/weather.h"
+#include "data/veldris_fly_towns.h"
 
 /*
  *  This file handles region maps generally, and the map used when selecting a fly destination.
@@ -535,6 +536,7 @@ static const u8 sMapHealLocations[][3] =
     [MAPSEC_RIXY_CHAMBER] = {MAP_GROUP(MAP_PALLET_TOWN), MAP_NUM(MAP_PALLET_TOWN), HEAL_LOCATION_NONE},
     [MAPSEC_VIAPOIS_CHAMBER] = {MAP_GROUP(MAP_PALLET_TOWN), MAP_NUM(MAP_PALLET_TOWN), HEAL_LOCATION_NONE},
     [MAPSEC_EMBER_SPA] = {MAP_GROUP(MAP_PALLET_TOWN), MAP_NUM(MAP_PALLET_TOWN), HEAL_LOCATION_NONE},
+    VELDRIS_HEAL_LOCATION_ROWS
 };
 
 static const u8 *const sEverGrandeCityNames[] =
@@ -1502,6 +1504,7 @@ static u8 GetMapsecType(mapsec_u16_t mapSecId)
         return FlagGet(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_ROUTE_10_POKECENTER:
         return FlagGet(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    VELDRIS_MAPSEC_TYPE_CASES
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -2319,6 +2322,7 @@ static const struct FlyLocation sFlyLocations[] =
         .mapsec = MAPSEC_ROUTE_10_POKECENTER,
         .flag = FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F,
     },
+    VELDRIS_FLY_LOCATION_ROWS
 };
 
 

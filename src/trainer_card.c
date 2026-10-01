@@ -1,4 +1,5 @@
 #include "global.h"
+#include "veldris_badges.h"
 #include "scanline_effect.h"
 #include "palette.h"
 #include "task.h"
@@ -83,7 +84,7 @@ struct TrainerCardData
     u16 frontTilemap[600];
     u16 backTilemap[600];
     u16 bgTilemap[600];
-    u8 badgeTiles[0x80 * NUM_BADGES];
+    u8 badgeTiles[0x80 * NUM_BADGE_ICON_SLOTS]; // Veldris: two sheet rows, see DrawStarsAndBadgesOnCard
     u8 stickerTiles[0x200];
     u8 cardTiles[0x2300];
     u16 cardTilemapBuffer[0x1000];
@@ -827,7 +828,6 @@ void CopyTrainerCardData(struct TrainerCard *dst, struct TrainerCard *src, u8 ga
 static void SetDataFromTrainerCard(void)
 {
     u8 i;
-    u32 badgeFlag;
 
     sData->hasPokedex = FALSE;
     sData->hasHofResult = FALSE;
@@ -852,9 +852,9 @@ static void SetDataFromTrainerCard(void)
     if (sData->trainerCard.battleTowerWins || sData->trainerCard.battleTowerStraightWins)
         sData->hasBattleTowerWins++;
 
-    for (i = 0, badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++, i++)
+    for (i = 0; i < NUM_BADGES; i++)
     {
-        if (FlagGet(badgeFlag))
+        if (FlagGet(gBadgeFlags[i]))
             sData->badgeCount[i]++;
     }
 }
@@ -1436,7 +1436,10 @@ static u8 SetCardBgsAndPals(void)
     switch (sData->bgPalLoadState)
     {
     case 0:
-        LoadBgTiles(3, sData->badgeTiles, ARRAY_COUNT(sData->badgeTiles), 0);
+        // Veldris: sheet row 1 (badges 1-8) goes at BG3 tile 192, sheet row 2 (badges 9-16) at tile 352,
+        // clear of the mon icons (224-319) and the FRLG stickers (320-351).
+        LoadBgTiles(3, sData->badgeTiles, ARRAY_COUNT(sData->badgeTiles) / 2, 0);
+        LoadBgTiles(3, sData->badgeTiles + ARRAY_COUNT(sData->badgeTiles) / 2, ARRAY_COUNT(sData->badgeTiles) / 2, 160);
         break;
     case 1:
         LoadBgTiles(0, sData->cardTiles, 0x1800, 0);
@@ -1520,12 +1523,33 @@ static void DrawStarsAndBadgesOnCard(void)
     FillBgTilemapBufferRect(3, 143, 15, yOffsets[sData->isHoenn], sData->trainerCard.stars, 1, 4);
     if (!sData->isLink)
     {
-        x = 4;
         y = IS_FRLG ? 16 : 15;
-        for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
+        if (sData->cardType == CARD_TYPE_FRLG)
         {
-            if (sData->badgeCount[i])
+            // Unchanged vanilla layout: 8 numbered slots, 3 tiles apart
+            x = 4;
+            for (i = 0; i < 8; i++, tileNum += 2, x += 3)
             {
+                if (sData->badgeCount[i])
+                {
+                    FillBgTilemapBufferRect(3, tileNum, x, y, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 1, x + 1, y, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 16, x, y + 1, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 17, x + 1, y + 1, 1, 1, palNum);
+                }
+            }
+        }
+        else
+        {
+            // Veldris: the numbered slots are gone from front.bin. Badges sit edge to edge (2 tiles each),
+            // centred in the strip, whose interior is tiles 3-27. Fits up to 12 badges.
+            // Badges not yet earned show an empty socket (icon slot BADGE_ICON_SLOT_EMPTY).
+            x = 3 + (25 - 2 * NUM_BADGES) / 2;
+            for (i = 0; i < NUM_BADGES; i++, x += 2)
+            {
+                u8 slot = sData->badgeCount[i] ? gVeldrisBadges[i].iconSlot : BADGE_ICON_SLOT_EMPTY;
+
+                tileNum = (slot < BADGE_ICON_SLOTS_PER_SHEET_ROW ? 192 : 352) + (slot % BADGE_ICON_SLOTS_PER_SHEET_ROW) * 2;
                 FillBgTilemapBufferRect(3, tileNum, x, y, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 1, x + 1, y, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 16, x, y + 1, 1, 1, palNum);

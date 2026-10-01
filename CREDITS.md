@@ -1,3 +1,58 @@
+# Pokémon: Piss Off Troglodyte - Credits
+
+A personal-use fan project. It is built on pokeemerald-expansion and is not affiliated with or endorsed by Nintendo, Creatures Inc., GAME FREAK inc. or The Pokémon Company. Pokémon and its characters are their trademarks. No ROM is distributed from this repository.
+
+**Rule:** every asset that comes from outside this repository gets a row in the table below, **in the same commit that adds it.** Assets from other people's work need their creator named, the source, and the permission or licence under which we use them. Do not use maps from other ROM hacks without the original author's permission.
+
+## Base
+
+| Project | Authors | Link | Notes |
+|---|---|---|---|
+| pokeemerald-expansion | RH Hideout and contributors (full list further down this file) | https://github.com/rh-hideout/pokeemerald-expansion | The engine this hack is built on |
+| pokeemerald | pret and contributors | https://github.com/pret/pokeemerald | The decompilation that expansion builds on |
+
+## Asset credits
+
+| Asset (path in this repo) | What it is | Creator(s) | Source (repo and path) | Licence or permission | Added in |
+|---|---|---|---|---|---|
+| `graphics/trainer_card/badges.png` (slots 0-7; slot 0 re-coloured for this hack to silver with a blue centre, same palette) | Coloured trainer card badge sprites, 16x16 each | Kaixer (colour edits of the standard Emerald badge shapes, so they derive from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `User Interface/Kaixer/Trainer Card Badges/badges.png` | Asset repo norm: free to use and edit, creator credit required. Author asked for it to be used | 2026-09-29 |
+| `design/art/greta_front_draft.png` (Greta's draft picture) | ORAS-style lass trainer picture, hair recoloured platinum blonde for this hack | kwenio (ORAS-style art, so it derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/kwenio/oras_lass.png` | Asset repo norm: free to use and edit, creator credit required | 2026-09-30 |
+| `graphics/trainers/front_pics/veldris_leader_bug.png` | Gym 2 (Bug) leader picture, unchanged | iriv24 (a Gardenia redraw, so it derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/iriv24/gardenia.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_leader_ghost.png` | Gym 3 (Ghost) leader picture, unchanged | Kasen (an Acerola redraw, derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/Kasen/acerola.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_leader_steel.png` | Gym 4 (Steel) leader picture, unchanged | iriv24 (a Byron redraw, derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/iriv24/byron.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_leader_normal.png` | Greta (gym 1, Normal) picture: ORAS-style lass, hair kept platinum blonde, indexed to 16 colours, background made transparent | kwenio (ORAS-style art, so it derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/kwenio/oras_lass.png` | Asset repo norm: free to use and edit, creator credit required | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_elite_four_ossian.png` | Elite Four 1 OSSIAN (Dark) picture, unchanged | Galaxeeh (a Giovanni sprite, derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/Galaxeeh/leader_giovanni.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_elite_four_hyacinth.png` | Elite Four 2 HYACINTH (Psychic) picture, unchanged | Black Fragrant (from Pokémon FireGold; a Karen sprite, derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/Black Fragrant/karen.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_elite_four_dunmore.png` | Elite Four 3 DUNMORE (Fighting) picture, unchanged | Black Fragrant (from Pokémon FireGold; a Chuck sprite, derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/Black Fragrant/chuck.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_leader_ice.png` | Gym 5 (Ice) leader picture, unchanged | Black Fragrant (from Pokémon FireGold; a Pryce sprite, derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/Black Fragrant/pryce.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_leader_flying.png` | Gym 6 (Flying) leader picture, unchanged | Black Fragrant (from Pokémon FireGold; a Falkner sprite, derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/Black Fragrant/falkner.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_leader_poison.png` | Gym 7 (Poison) leader picture, unchanged | ryuujiryu (RSE-style Psychic M sprite; the creator asks for credit) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/ryuujiryu/PsychicM.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_leader_fairy.png` | Gym 8 (Fairy) leader picture, unchanged | Kasen (a Mina redraw, derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/Kasen/mina.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_leader_water.png` | Gym 9 (Water) leader picture, converted from RGBA to a 16-colour indexed PNG for this hack | Pillowsledder (a Scott sprite, derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/Pillowsledder/scott.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_elite_four_drayden.png` | Elite Four member picture, unchanged | Kasen (a Drayden redraw, derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/Kasen/drayden.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainers/front_pics/veldris_champion_cynthia.png` | Champion picture; hair recoloured to white-grey for this hack (palette change only) | iriv24 (a Cynthia redraw, derives from GAME FREAK art) | 24rousol-hub/Team-Aquas-Asset-Repo, `Trainer Front Sprites/iriv24/cynthia.png` | The creator's README asks for credit and states no licence. Official-derived art, personal use, public-repo risk accepted by the author (2026-10-01) | 2026-10-01 |
+| `graphics/trainer_card/badges.png` (slot 8) | Placeholder 9th badge (plain gold disc) | Drawn for this hack with the Kaixer palette | n/a | Replace with real art | 2026-09-29 |
+| `graphics/trainer_card/badges.png` (slot 15) | Grey empty socket, shown for a badge not yet earned | Drawn for this hack with the Kaixer palette | n/a | Replace with real art if wanted | 2026-09-29 |
+
+## Tools used (not distributed)
+
+| Tool | Authors | Link |
+|---|---|---|
+| Porymap | huderlem and contributors | https://github.com/huderlem/porymap |
+
+## Asset sources we draw from
+
+These are where assets are found. A row above is still needed for every individual asset used.
+
+- **Project Palladium** (a cancelled Gold/Silver remake), via `Maps/Project Palladium` in the Team Aqua repo. The author chose to trace its map layouts in Porymap as references. Its README says: "The project team release all of their assets to the public for free use" and "Please credit the entire team for used assets." **Credit the Project Palladium team, naming the files used, in the same commit as the first traced map.** The layouts are Game Freak's Johto designs redrawn by that team. See `design/map-plan.md`.
+
+- [Team-Aquas-Asset-Repo](https://github.com/TeamAquasHideout/Team-Aquas-Asset-Repo), maintained by Pawkkie and the Team Aqua's Hideout community. (The README in the author's copy links `github.com/Pawkkie/Team-Aquas-Asset-Repo`, while the Team Aqua's Hideout organisation hosts it at the link above, which was read successfully on 2026-09-29.) Free to use and edit by default unless a folder README says otherwise. Creator credit is required, and each folder's README names the creators.
+- [PokeAPI sprites](https://github.com/PokeAPI/sprites), with contributors as listed in that repository. The repository is CC0 1.0, but its licence file states that all image contents are Copyright The Pokémon Company, so the images stay personal-use fan material.
+
+---
+
+<!-- Everything below this line is upstream pokeemerald-expansion's own CREDITS.md. Leave it untouched so upstream updates merge cleanly. -->
+
 ## Credits ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/en/reference/emoji-key/)):

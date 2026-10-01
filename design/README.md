@@ -1,0 +1,55 @@
+# design/ - the Veldris game bible
+
+**Read the relevant files here before building any content. Update them in the same change (same commit) that adds or alters content.**
+
+| File | What it holds | Update it when |
+|---|---|---|
+| [game-bible.md](game-bible.md) | Title, pitch, tone, pillars, scope, progression, **open decisions** | Scope, tone or a decision changes |
+| [story-outline.md](story-outline.md) | Act-by-act beats and the Goldsworth sabotage schemes | You add or change a story beat, scheme or cutscene |
+| [characters.md](characters.md) | Cast, voices, trainer constants, teams | A character or trainer is added or changed |
+| [towns-and-routes.md](towns-and-routes.md) | The 18 towns and 33 routes, map names, build status | A map is added, renamed or changes status |
+| [porymap-first-map.md](porymap-first-map.md) | A beginner's guide to building Hollowbrook in Porymap: setup, the git loop, a smoke test, pitfalls and a time estimate | You learn something new about Porymap or the workflow |
+| [wendlebury.md](wendlebury.md) | Town 2 plan: role, position, buildings, NPCs; dialogue in `dialogue/wendlebury.inc` | The map or the town plan changes |
+| [scripts/README.md](scripts/README.md) | DRAFT, UNBUILT map scripts for Hollowbrook, the lab, Route 1 and Wendlebury, with the proposed new flags and vars. Not in `data/event_scripts.s` | The maps are built and the scripts move into their `scripts.inc`, or a scene changes |
+| [crestfall.md](crestfall.md) | Town 3 plan (a city, gym 1): buildings, layout reuse, NPC list, where Scheme 1 beats happen. PROPOSED | The map or the city plan changes |
+| [troglodyte-arc.md](troglodyte-arc.md) | PROPOSED arc options, schemes 2 to 9 and his fight schedule; samples in `dialogue/troglodyte_arc_samples.inc` | The story path is decided |
+| [gyms.md](gyms.md) | PROPOSED options for gyms 2 to 9 (types, leaders, badges, HMs, TMs, teams) | The author picks a type order |
+| [goldsworth.md](goldsworth.md) | Goldsworth houses and parents, PROPOSED; lines in `dialogue/goldsworth.inc` | The family plan changes |
+| [postgame.md](postgame.md) | Elite Four, Champion (aged Cynthia, author-chosen), finale and post-game; lines in `dialogue/league.inc` | The League plan changes |
+| [dialogue/crestfall_extra.inc](dialogue/crestfall_extra.inc) | PROPOSED draft for the rest of Crestfall's NPCs: market, farmhands, gym statue, houses, kids, shopkeeper and the Goldsworth house. Width-checked, not wired | An NPC changes, or the map exists |
+| [dialogue/hollowbrook_houses.inc](dialogue/hollowbrook_houses.inc) | PROPOSED draft for Hollowbrook's neighbour house and the player-house extras, with starter variants. Width-checked, not wired | An NPC changes, or the maps exist |
+| [route1.md](route1.md) | Route 1 draft: wild Pokémon, three trainers, NPCs and items; dialogue in `dialogue/route1.inc` | The map or the route plan changes |
+| [route2.md](route2.md) | Route 2 draft: wild Pokémon, four trainers, NPCs, items and the Scheme 1 surveyors; dialogue in `dialogue/route2.inc` | The map or the route plan changes |
+| [porymap-walkthrough.md](porymap-walkthrough.md) | Click-by-click Porymap guide for Hollowbrook, the lab and Route 1, with where everything goes; preview picture in `art/first_maps_preview.png` | Porymap behaviour or the map plan changes |
+| [gym-leader-art.md](gym-leader-art.md) | Candidate trainer pictures (3 to 5 per leader), sources, licence warning | A leader or art source is picked |
+| [trainer-roster.md](trainer-roster.md) | The 13 built leader, Elite Four and Champion trainer blocks: ids, pictures, teams | A block changes |
+| [leader-names.md](leader-names.md) | DRAFT name options (3 per leader) for gyms 2 to 9 | The author picks names |
+| [map-plan.md](map-plan.md) | Where each map comes from (Palladium references and vanilla bases) and who does what | A map is planned, traced or swapped for another source |
+| [region-map.md](region-map.md) | How maps, the town map and fly destinations are wired, plus the Veldris layout proposal | You touch the region map or fly destinations |
+| [teams.md](teams.md) | PROPOSED trainer teams with level-legal moves (Crestfall gym first) | A team, level or trainer changes |
+| [dialogue/hollowbrook.inc](dialogue/hollowbrook.inc) | PROPOSED draft of all Hollowbrook dialogue: mother, townsfolk, hens, the grandfather, the lab aides, Fennick, and the Troglodyte encounter. Width-checked, not wired into any map | The scene or an NPC changes, or the maps exist and the text moves into `scripts.inc` |
+| [dialogue/crestfall.inc](dialogue/crestfall.inc) | PROPOSED draft of Crestfall: Scheme 1 (the consultants), the Troglodyte battle beats, Greta's gym dialogue and two optional gym trainers. Width-checked, not wired | Greta, the scheme or the gym trainers change, or the map exists |
+| [dialogue-style.md](dialogue-style.md) | Voice rules, text format, charmap limits | A new text rule is found |
+| [flags.md](flags.md) | Every flag and var the hack uses, plus the spare pool | **Any** flag or var is used, added or freed |
+| [badges.md](badges.md) | Survey of hacks with more than 8 badges, and the IMPLEMENTED 9-badge table | Badge decisions or the badge plan change |
+| [engine-limits.md](engine-limits.md) | Hard engine limits (badges, trainers, sections, tiles, space) and config switches | A limit is re-measured or an edit moves one |
+| [engine-edits.md](engine-edits.md) | Every edit to upstream (non-hack) files | You edit anything outside hack content |
+| [asset-inventory.md](asset-inventory.md) | What is usable in the asset repos, and what has been imported | An asset is imported |
+
+Tool: [tools/dialogue_check.py](tools/dialogue_check.py) checks that dialogue fits the text box (see [dialogue-style.md](dialogue-style.md)).
+
+## Status words
+
+Everything an assistant suggests starts as **PROPOSED**. It only becomes canon when the author says so.
+
+- **PROPOSED** - suggested, not yet approved. Safe to rename or drop.
+- **APPROVED** - the author said yes. Build against it.
+- **BUILT** - it exists in the game and builds.
+
+## Order of work for any content change
+
+1. Read the relevant design files.
+2. Make the change (scripts, events, warps, trainers, dialogue; maps are the author's, in Porymap).
+3. Update design files, `flags.md` and `CREDITS.md` in the same change.
+4. Run `make -j4`. It must pass.
+5. Commit, push.
