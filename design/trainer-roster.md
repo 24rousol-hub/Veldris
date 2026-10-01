@@ -44,3 +44,15 @@ Teams are from [teams.md](teams.md). All have `IVs: 0` on every Pokémon. Troglo
 **Battle check (mGBA, same method as above):** all five show the right intro, name and first Pokémon. TROGLODYTE's second Pokémon was seen to be exactly one starter (Treecko, `VAR_TROG_STARTER` = 0) after SIR BISCUIT fainted, so the pool prune works. Not yet seen: the Torchic and Mudkip variants (set the var to 1 or 2), full fights, and the old Hoenn Route 103 and 110 scripts that now point at the renamed ids.
 
 **Caveats.** The Rival class shows 'PKMN TRAINER' in the intro, so a Veldris class name would need a small text edit. Greta's id means 6 brand-new ids are left (858 to 863). The other six Troglodyte fights should reuse vanilla ids, as these two do.
+
+## Route 1 trainers (BUILT 2026-10-01)
+
+Three vanilla Route 102 entries reused (no new ids). Names are PROPOSED.
+
+| Alias | Reused id | Name | Pic and class | Team |
+|---|---|---|---|---|
+| `TRAINER_VELDRIS_ROUTE1_YOUNGSTER` | `TRAINER_ALLEN` (333) | TOBY | Youngster | Lillipup 3 |
+| `TRAINER_VELDRIS_ROUTE1_LASS` | `TRAINER_TIANA` (603) | MAISIE | Lass | Zigzagoon 3, Skitty 3 |
+| `TRAINER_VELDRIS_ROUTE1_FARMER` | `TRAINER_RICK` (615) | AMOS | **placeholder** Hiker pic and class (no farmer class yet; the DP rancher sprites in the asset repo are an option) | Zigzagoon 4, Skitty 4 |
+
+All IVs 0. **Checked in mGBA:** TOBY spots the player, walks over, says his intro, battles with Lillipup 3, pays out and says his after line. MAISIE and AMOS not fought yet.

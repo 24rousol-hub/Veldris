@@ -36,6 +36,8 @@ Vars: persistent vars are 0x4000-0x40FF (256 in total). `VAR_TEMP_0` to `VAR_TEM
 | `FLAG_HOLLOWBROOK_GRANDPA_TALKED1`, `_TALKED2` | 0x493, 0x494 | One-shot | First and second bench talks with the grandfather done | Grandfather's script | Never | 2026-10-01 |
 | `FLAG_HOLLOWBROOK_MOM_GOT_MON_TOLD` | 0x495 | One-shot | Mom's 'you have a POKéMON now' speech done | Mom's script in the player's house 1F | Never | 2026-10-01 |
 | `FLAG_VISITED_HOLLOWBROOK` | 0x020 | Fly | Hollowbrook is a fly destination | Town `OnTransition` | Never | 2026-10-01 |
+| `FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS` | 0x496 | One-shot | Route 1 guide's 3 POTIONs given | Guide's script | Never | 2026-10-01 |
+| `FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_POTION`, `_REPEL` | 0x265, 0x266 | Hidden item | Route 1 hidden POTION (27,13) and REPEL (44,17) picked up | The hidden item event | Never | 2026-10-01 |
 | `VAR_HOLLOWBROOK_STATE` | 0x40F8 | Var | 0 new game, 1 mom woke player, 2 Troglodyte has his ball (player choosing, exit blocked), 3 player chose, 4 Troglodyte beaten outside | Lab scene (2, 3); mom and the town scripts later (1, 4) | Never | 2026-10-01 |
 
 ## Spare pool: permanent flags
@@ -60,10 +62,10 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 | 0x0E9 | 1 | General purpose |
 | 0x1DA | 1 | General purpose |
 | 0x1DE-0x1E3 | 6 | General purpose |
-| **0x264-0x2BB** | 88 | **Hidden items (reserved).** Hidden-item flags must be 0x1F4 or higher (the assembler macro in `asm/macros/map.inc` rejects lower ones) and 0x264 is where the existing hidden-item range grows. Config comments in `include/config/battle.h` and `pokemon.h` use 0x264 as their example toggle flag, so skip 0x264 or use it for a config switch |
+| **0x264, 0x267-0x2BB** | 86 | **Hidden items (reserved; 0x265-0x266 are Route 1's).** Hidden-item flags must be 0x1F4 or higher (the assembler macro in `asm/macros/map.inc` rejects lower ones) and 0x264 is where the existing hidden-item range grows. Config comments in `include/config/battle.h` and `pokemon.h` use 0x264 as their example toggle flag, so skip 0x264 or use it for a config switch |
 | 0x2D9 | 1 | General purpose |
 | 0x468, 0x470, 0x472, 0x479 | 1 each | General purpose |
-| **0x496-0x4EF** | 90 | **Per-map one-shots** (talked-to flags, single pickups) for towns and routes. Goldsworth houses are NPC-only and need none unless an NPC in one has a once-only line (at most one per house, and there are only about 7 houses) |
+| **0x497-0x4EF** | 89 | **Per-map one-shots** (talked-to flags, single pickups) for towns and routes. Goldsworth houses are NPC-only and need none unless an NPC in one has a once-only line (at most one per house, and there are only about 7 houses) |
 | 0x4F9-0x4FA, 0x4FF | 2 + 1 | General purpose |
 | 0x863 | 1 | General purpose |
 | 0x881-0x887 | 7 | General purpose |
@@ -81,7 +83,7 @@ Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x4
 
 **Claimed 2026-09-30:** `VAR_TROG_STARTER` (0x40F7, was `VAR_UNUSED_0x40F7`): Troglodyte's random starter, 0, 1 or 2 for the 1st, 2nd or 3rd starter on show. Set once by the lab scene (`random 3`) and read by the pool prune in `src/trainer_pools.c`.
 
-**Planned, not claimed yet:** one object-hide flag for the grandfather's bench (Hollowbrook), driven by the lab scene, `FLAG_BADGE01_GET` and `FLAG_SYS_GAME_CLEAR`; a flag for Troglodyte's attitude, contemptuous or oblivious, once the story points that change it are decided (from the story-beat block above). Route 1 needs one flag for the guide's POTION gift and two hidden-item flags (from `FLAG_HIDDEN_ITEMS_START` upward, see below). **Already claimed:** `VAR_TROG_STARTER` (0, 1 or 2), set by the lab scene and read by every Troglodyte battle (see its row above). **Claimed 2026-10-01 for the lab scene:** `VAR_HOLLOWBROOK_STATE` (0x40F8) and five hide flags 0x8E5-0x8E9 (table above). **Claimed 2026-10-01 for the town:** the grandfather and Troglodyte hide flags (0x8EA, 0x8EB), three per-map one-shots (0x493-0x495) and `FLAG_VISITED_HOLLOWBROOK` (0x020). Claim the rest and add rows here when the scripts are written.
+**Planned, not claimed yet:** one object-hide flag for the grandfather's bench (Hollowbrook), driven by the lab scene, `FLAG_BADGE01_GET` and `FLAG_SYS_GAME_CLEAR`; a flag for Troglodyte's attitude, contemptuous or oblivious, once the story points that change it are decided (from the story-beat block above). Route 1's guide flag (0x496) and two hidden-item flags (0x265, 0x266) were claimed 2026-10-01 (rows above). **Already claimed:** `VAR_TROG_STARTER` (0, 1 or 2), set by the lab scene and read by every Troglodyte battle (see its row above). **Claimed 2026-10-01 for the lab scene:** `VAR_HOLLOWBROOK_STATE` (0x40F8) and five hide flags 0x8E5-0x8E9 (table above). **Claimed 2026-10-01 for the town:** the grandfather and Troglodyte hide flags (0x8EA, 0x8EB), three per-map one-shots (0x493-0x495) and `FLAG_VISITED_HOLLOWBROOK` (0x020). Claim the rest and add rows here when the scripts are written.
 
 **Only 22 spare persistent vars.** Use a var only for a state that has more than two values (a story chapter counter, a puzzle stage). Use a flag for anything yes/no. If we run short, the remaining Hoenn vars can be freed by removing the Hoenn maps that use them, but that is a decision for the author.
 

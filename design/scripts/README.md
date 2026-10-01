@@ -8,7 +8,7 @@ Checked: all four files plus the dialogue drafts assemble with the real macros (
 |---|---|---|
 | `hollowbrook_scripts.inc` | `Hollowbrook`, `Hollowbrook_PlayersHouse_1F`, `Hollowbrook_GoldsworthHouse` | **BUILT 2026-10-01** (except the Goldsworth house and the post-game name reveal) into the town, player's house and neighbour's house `scripts.inc` files, which are now the source of truth. Signs, NPCs, Pokemon, mom, grandfather, locked door, Troglodyte's first battle (started from `ON_FRAME_TABLE`, see [../interiors.md](../interiors.md)) |
 | `hollowbrook_lab_scripts.inc` | `Hollowbrook_ProfFennickLab` | **BUILT 2026-10-01** into `data/maps/Hollowbrook_ProfFennickLab/scripts.inc` with real coordinates (that file is now the source of truth; this draft is kept for history). Scene tested in mGBA: Troglodyte's random pick, ball 4 reveal, choice across the counter, leftover balls. `Hollowbrook_EventScript_BufferTrogSpecies` now lives in the lab file, so leave it out when the town file is built |
-| `route1_scripts.inc` | `VeldrisRoute1` | signs, three trainers, guide POTION gift, sighting NPC |
+| `route1_scripts.inc` | `VeldrisRoute1` | **BUILT 2026-10-01** into `data/maps/VeldrisRoute1/scripts.inc` (now the source of truth). Flag renamed to `FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS` |
 | `wendlebury_scripts.inc` | `Wendlebury`, `Wendlebury_PokemonCenter_1F`, `Wendlebury_Mart` | town NPCs, nurse (vanilla heal script), mart clerk with item list |
 
 ## Proposed new flags and vars (all PROPOSED names, none claimed)

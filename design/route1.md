@@ -1,6 +1,6 @@
 # Route 1 (VeldrisRoute1): Hollowbrook to Wendlebury
 
-Status: **PROPOSED**. Everything here is a draft until the author approves it. Map: 60 x 25, traced from `Route 29.png`, west end Hollowbrook (connection on Hollowbrook's right edge, author 2026-09-30), east end Wendlebury. Dialogue: [dialogue/route1.inc](dialogue/route1.inc).
+Status: **BUILT 2026-10-01** (map, events, trainers, wild Pokémon, Hollowbrook connection). Map: 60 x 25, Palladium's `Route 29.png` **mirrored left-right** (author 2026-10-01) in the Gen 4 tiles, its Route 46 gatehouse replaced by forest. West edge joins Hollowbrook's east exit (connection offset -2 from Hollowbrook, +2 back); the east edge (sand path, rows 9-12) waits for Wendlebury. Dialogue: [dialogue/route1.inc](dialogue/route1.inc).
 
 ## Feel
 Farm country, gentle, a first walk. All Normal and other common early Pokémon. No real animals.
@@ -44,3 +44,17 @@ West edge to Hollowbrook's east gap (offset so they line up). East edge to Wendl
 
 ## Events to place (me, after the author pushes the map)
 Three trainers, the guide, two hidden items, two signs, and the connections. No triggers needed.
+
+## As built (2026-10-01)
+
+| What | Where |
+|---|---|
+| West sign / east sign | (10,11) / (50,11) |
+| Guide (3 POTIONs once, `FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS`) | (12,12), faces west |
+| Youngster TOBY, sight 4 | (24,13), faces west |
+| Lass MAISIE, sight 3 | (38,15), faces west |
+| Farmer AMOS (Hiker stand-in), sight 4 | (46,14), faces west |
+| Troglodyte-sighting farmer (wanders) | (32,9) |
+| Hidden POTION / REPEL | (27,13) / (44,17) |
+
+Wild table as above, rate 20. Ledges are blocked tiles with the jump-south behaviour (as vanilla); the brown vertical edges are walls. **Checked in mGBA:** walking across from Hollowbrook (no seam), the guide's gift and repeat line, a wild Lillipup 2 in the grass, TOBY's full battle, a ledge jump. Not checked: MAISIE, AMOS, the sighting text, the hidden items.

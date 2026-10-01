@@ -895,4 +895,10 @@
 #endif
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
 
+
+// Veldris Route 1 trainers reuse vanilla Route 102 entries (design/trainer-roster.md)
+#define TRAINER_VELDRIS_ROUTE1_YOUNGSTER TRAINER_ALLEN
+#define TRAINER_VELDRIS_ROUTE1_LASS      TRAINER_TIANA
+#define TRAINER_VELDRIS_ROUTE1_FARMER    TRAINER_RICK
+
 #endif  // GUARD_CONSTANTS_OPPONENTS_H
