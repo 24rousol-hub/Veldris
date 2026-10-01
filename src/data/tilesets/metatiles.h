@@ -411,6 +411,3 @@ const u16 gMetatileAttributes_HallOfFame[] = INCBIN_U16("data/tilesets/secondary
 
 const u16 gMetatiles_Gen4Interior[] = INCBIN_U16("data/tilesets/secondary/gen4_interior/metatiles.bin");
 const u16 gMetatileAttributes_Gen4Interior[] = INCBIN_U16("data/tilesets/secondary/gen4_interior/metatile_attributes.bin");
-
-const u16 gMetatiles_ZeldaHouse[] = INCBIN_U16("data/tilesets/secondary/zelda_house/metatiles.bin");
-const u16 gMetatileAttributes_ZeldaHouse[] = INCBIN_U16("data/tilesets/secondary/zelda_house/metatile_attributes.bin");

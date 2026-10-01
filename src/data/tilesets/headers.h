@@ -1552,14 +1552,3 @@ const struct Tileset gTileset_Gen4Interior =
     .metatileAttributes = gMetatileAttributes_Gen4Interior,
     .callback = NULL,
 };
-
-const struct Tileset gTileset_ZeldaHouse =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_ZeldaHouse,
-    .palettes = gTilesetPalettes_ZeldaHouse,
-    .metatiles = gMetatiles_ZeldaHouse,
-    .metatileAttributes = gMetatileAttributes_ZeldaHouse,
-    .callback = NULL,
-};
