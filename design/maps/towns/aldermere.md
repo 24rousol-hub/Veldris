@@ -57,6 +57,14 @@ In plain words (north to south):
 | Old Town Hall | custom, 22 x 29 (`ruinsofalphinside39cd.png`) | The Drowned Hall, reachable only from underwater |
 | Chapel (sunken) | `LAYOUT_HOUSE1` | A one-room hold of Relics |
 
+## The legendary: MEW (author, 2026-10-01)
+
+**Aldermere, the ancient city, holds a static MEW** (author's pick). It is the post-game's secret: inside the Inner Sanctum, behind the four solved Glyph Chambers (`FLAG_ALDERMERE_SANCTUM_OPEN`), floating over the sanctum's last statue. MEW exists in this tree (`SPECIES_MEW`, Gen 1).
+
+- **Level (PROPOSED): 70**, in line with the Aldermere cave table (66 to 73). One static battle, `setwildbattle` plus a flag; MEW is shy, so it may flee (the battle can be re-triggered by leaving and re-entering until caught or defeated, decide when built).
+- Fits the lore: a drowned city whose founders left no record. The researchers have a joke file called 'The Cat Problem' (a Pokémon, not an animal: say 'the pink one').
+- The Inner Sanctum chest (Rare Candy, TM Dig) stays; MEW is the main prize.
+
 ## The puzzle (Glyph Chambers)
 
 Four small chambers, each 9 x 10. Each has a **tablet** on the back wall showing four glyphs in a fixed order (a wave, an eye, a key, a circle). Four **glyph plates** sit on the floor in a row. The player steps on them in the tablet's order; a wrong plate resets all four with a soft scrape. When all four chambers are solved, the Inner Sanctum door in the plateau wall opens. Each chamber's order is different (PROPOSED, so they are not guessable). No sliding puzzles are required (the Palladium tablets slide; here they are static to save scripting).

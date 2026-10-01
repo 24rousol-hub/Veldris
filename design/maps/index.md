@@ -35,7 +35,7 @@ Final map picture: [../art/region_map_final.png](../art/region_map_final.png). C
 - Route numbering R1 to R31 is confirmed, paired sketch numbers are one road each.
 - Primrose Vale is a Surf-only pocket on purpose.
 - Scheme Pokémon (MAGNEZONE, GLALIE, FLORGES, LAPRAS) are cutscene-only NPC Pokémon; Scheme 8 gets an NPC garden warden with the FLORGES.
-- Mirror Isle has a legendary encounter (species still PROPOSED, MESPRIT) and is the only place to catch DITTO.
+- Mirror Isle has a static **DIALGA** (level 60 PROPOSED) and is the only place to catch DITTO. Aldermere (the ancient city) has a static **MEW** (level 70 PROPOSED). R18 reopens at the Feather Badge (confirmed).
 - Goldsworth house split approved (Briarwick, Hoarfell, Hemlock Reach, Primrose Vale, Kingsquay, Beaconmouth).
 - Troglodyte's later fights use the postgame core; **no Garchomp** (it is Cynthia's ace). Fixed in `troglodyte-arc.md`.
 - All nine badges are needed for the League.

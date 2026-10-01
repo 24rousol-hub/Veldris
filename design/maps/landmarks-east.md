@@ -97,17 +97,14 @@ Door positions in words: shrine door north-centre on the outdoor isle; shrine ha
 | MAX ELIXIR | Falls channel, mid-level | Waterfall (badge 8) |
 | **Rare encounter (PROPOSAL)** | Falls top ledge | Waterfall (badge 8) and the shrine puzzle |
 
-### The rare encounter (author, 2026-10-01: Mirror Isle HAS a legendary encounter)
+### The legendary: DIALGA (author, 2026-10-01)
 
-The species is still a PROPOSAL (MESPRIT recommended). The author confirmed the encounter exists. The idea is a **single static, legendary Pokémon** that stands for 'mirror' and 'lake'. Options:
+**Mirror Isle has a static DIALGA** (author's pick, replacing the earlier MESPRIT proposal). It waits at the top of the Falls chamber, the Waterfall return trip after badge 8 (see the route above). DIALGA exists in this tree (`SPECIES_DIALGA`, family enabled by `P_FAMILY_DIALGA`, Gen 4).
 
-| Option | Why | Notes |
-|---|---|---|
-| **MESPRIT** (recommended) | A lake guardian, calm, fits a still mere, and its own name is about reflection | Level **55**, matching SUZURAN's ace, a step below MIZZLE's 60. One static battle, not roaming, flag on catch or faint. |
-| CRESSELIA | Dreams and light on water | Level 55. More dramatic, harder to justify beside a Fairy city. |
-| MANAPHY | A water Pokémon of the open sea | Better if the author wants something non-legendary-adjacent. |
-
-All three exist in this tree (checked in `include/constants/species.h` and `species_info`). Alternative if no legendary: a **cache of hidden items and a 5% encounter** in the cave table (see below). The static encounter would be a `setwildbattle` script with a flag.
+- **Level (PROPOSED): 60**, matching MIZZLE's ace, so it is a fair post-gym-8 fight and a stiff one. One static battle, a `setwildbattle` script plus a flag, so it cannot be missed after a faint only if the script re-offers it (decide when built).
+- **Theme.** A mirror of the still lake, and time standing still. The shrine puzzle (mirrors, a clock face on the floor) wakes it. The reflection joke fits the deadpan tone: the shrine keeper has 'been waiting to be told it is late'.
+- **Gate.** Surf (badge 5) to reach the isle, Waterfall (badge 8) to reach the Falls top. Not required for the main story.
+- The Origin forme is not planned (it needs an item and form support that is not set up).
 
 ### Wild Pokémon
 
@@ -137,7 +134,7 @@ Levels start 3 below SUZURAN's ace (55 minus 3 = 52) at the high end and sit a l
 - `FLAG_MIRRORISLE_PUZZLE_SOLVED`: the shrine mirror puzzle.
 - `VAR_MIRRORISLE_MIRRORS` (three bearings, temp var).
 - `FLAG_MIRRORISLE_TM_LIGHT_SCREEN`, `FLAG_MIRRORISLE_RARE_CANDY`, `FLAG_MIRRORISLE_MIRROR_HERB`, `FLAG_MIRRORISLE_ELIXIR`: one-shots.
-- `FLAG_MIRRORISLE_RARE_ENCOUNTER` (only if the proposal is accepted): the static battle done.
+- `FLAG_MIRRORISLE_DIALGA` (not claimed): the static battle done.
 - Hidden items: two flags in the reserved 0x264 block.
 
 ### Build order and effort
@@ -146,7 +143,7 @@ Levels start 3 below SUZURAN's ace (55 minus 3 = 52) at the high end and sit a l
 
 ### Open questions
 
-1. **Keep the legendary-style encounter, and which?** (Recommended MESPRIT.) Or leave the Falls top as an item cache only.
+1. ~~Keep the legendary encounter, and which?~~ Resolved (author, 2026-10-01): **DIALGA**, level 60 PROPOSED.
 2. **Is Mirror Isle optional?** The sketch gives it two water roads (R16 and R17) that are also the player's way to Primrose Vale, so its island could be on the main path. I treat it as optional, entered from a landing.
 3. **New section id or borrowed one?** A borrowed Hoenn cave id saves one of the tight 37 free ids, but the name would say something else on the Pokénav.
 4. **Hermit and puzzle size.** Is a small mirror puzzle the right flavour, or too much script for a small island?
