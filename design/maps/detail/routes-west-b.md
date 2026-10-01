@@ -26,12 +26,12 @@ The road cards say 'west end meets Briarwick's west edge', which cannot be an ed
 
 | Join | Town side | Road side | Kind |
 |---|---|---|---|
-| Briarwick to R4 | Briarwick **west** edge (gravel path, top-left of town) | R4 **east** edge, sand band at y 10 to 12 | edge connection, offset: Briarwick's gravel row minus 10 |
+| Briarwick to R4 | Briarwick **west** edge (its paved strip at y 10 to 12, see [briarwick.md](briarwick.md)) | R4 **east** edge, sand band at y 10 to 12 | edge connection, **offset 0** (both are y 10 to 12) |
 | R4 to Gloomsby | Gloomsby **west** gatehouse | R4 **west** gatehouse (the render's own, x 0 to 5, y 6 to 10) | one gate interior, two doors |
 | Gloomsby to R5 | Gloomsby **east** gatehouse | R5 **south** gatehouse (the render's own, x 12 to 17, y 51 to 53) | one gate interior, two doors |
-| R5 to Smeltham | Smeltham **south** edge (3-wide gap cut through the bottom cliff, x 10 to 12) | R5 **north** edge, lane at x 12 to 15, y 0 | edge connection, offset: Smeltham's x minus R5's x for the same lane tile |
-| Smeltham to R6 | Smeltham **east** edge (lane at y 13 to 15 of the render, the widened map shifts it, see [smeltham.md](smeltham.md)) | R6 **west** edge, sand at y 8 to 15 | edge connection (the render's west gatehouse is dropped) |
-| R6 to Hoarfell | Hoarfell **west** edge (a 3-wide gap the author cuts in the rock wall at y 30 to 32, see [hoarfell.md](hoarfell.md)) | R6 **east** edge, sand at y 7 to 10 | edge connection |
+| R5 to Smeltham | Smeltham **south** edge (a 4-wide gap cut through the bottom cliff, x 10 to 13, see [smeltham.md](smeltham.md)) | R5 **north** edge, lane at x 12 to 15, y 0 | edge connection: Smeltham x 10 to 13 meets R5 x 12 to 15 (offset -2) |
+| Smeltham to R6 | Smeltham **east** edge (the yard lane at y 17 to 19, see [smeltham.md](smeltham.md)) | R6 **west** edge, sand at y 11 to 13 | edge connection, offset 6 (the render's west gatehouse is dropped) |
+| R6 to Hoarfell | Hoarfell **west** edge (a 3-high gap the author cuts in the rock wall at y 31 to 33, see [hoarfell.md](hoarfell.md)) | R6 **east** edge, sand at y 7 to 9 | edge connection, offset 24 |
 | R6 to R7 | R6 cave door at (14, 8) | R7 south end, sand path at (10, 33) | one warp pair (a door), no edge |
 
 **FIX against the cards:** (1) R4's Gloomsby end is the **west** end, so the card's 'fog in the east third' becomes the **west** third and the card's 'west' items (Briarwick end) are on the map's **east** side. The translation is written into R4 below. (2) R5's Gloomsby end is the **south** end (the card said the Smeltham end is south and suggested mirroring). Walking from Gloomsby you go **north** up R5, which also keeps the smoke on the far side, at Smeltham. If the author would rather mirror, flip every y below (`y' = 53 - y`) and swap the town ends.
@@ -46,7 +46,7 @@ All gate interiors are described in [gloomsby.md](gloomsby.md) (the shared inter
 
 ### Description and walk-through
 
-You leave Briarwick by the gravel path on its west side and step onto a wide, damp meadow road. The road looks tidy at first (a sand band running west between two thick walls of pines), then it dips into a green hollow where the grass is wetter, the colours go grey-green and the **fog** rolls in. By the middle of the road you can hear nothing but your own steps and a far-off hooting. The one real set piece is a **film van** parked on the lower road with cables snaking out of its door (the Scheme 3 foreshadow, played straight for a laugh). The road ends at a grey gatehouse with a lit window: the **west gate**, and beyond it Gloomsby.
+You leave Briarwick by the gravel path on its west side and step onto a wide, damp meadow road. The road looks tidy at first (a sand band running west between two thick walls of pines), then it dips into a green hollow where the grass is wetter, the colours go grey-green and the **fog** rolls in. By the middle of the road you can hear nothing but your own steps and a far-off HOOTHOOT. The one real set piece is a **film van** parked on the lower road with cables snaking out of its door (the Scheme 3 foreshadow, played straight for a laugh). The road ends at a grey gatehouse with a lit window: the **west gate**, and beyond it Gloomsby.
 
 Mood: quiet, polite, a little spooky and a little silly (a girl selling 'authentic ghost stories for a coin' on a road where the fog does the work for free). Time of day: late afternoon, never full sun (use the header weather, not a palette change).
 
@@ -130,7 +130,7 @@ Visible items use up objects, so most are hidden or `bg_event`.
 - **Weather:** `WEATHER_FOG_HORIZONTAL` for the whole road (one header setting, simplest). The two-column option (a column of `COORD_EVENT_WEATHER_FOG_HORIZONTAL` weather events at x = 30) only changes weather when you step on it, so entering from the gate would load without fog: do not use it.
 - **Colours:** grey-green meadow, pale sand, dark pines, red flower row as the one warm accent.
 - **Silhouettes:** the gate's roof at the west end, the film van and its cables in the lower middle, the pine stand at x 12 to 13.
-- **Connections:** east edge to Briarwick's west edge (offset = Briarwick's path row minus 10); no other edges. Border: tree blocks.
+- **Connections:** east edge to Briarwick's west edge (y 10 to 12 on both maps, offset 0); no other edges. Border: tree blocks.
 
 ### Flags (not claimed)
 
@@ -345,7 +345,7 @@ SWINUB 28 to 29, SNORUNT 28 to 29, BOLDORE 30, BRONZOR 29 to 30, CUBCHOO 29 to 3
 - **Colours:** brown rock, tan sand, two blue lakes, white dusting in the east.
 - **Music:** `MUS_ROUTE120`.
 - **Silhouettes:** the lorry at the west, two lakes like blue plates, the high ridge ramp.
-- **Connections:** west edge to Smeltham's east edge (offset = Smeltham's lane row minus 8); east edge (y 7 to 10) to Hoarfell's west edge (offset = Hoarfell's gap row minus 7). The junction door is a warp.
+- **Connections:** west edge (sand at y 11 to 13 of the render's y 8 to 15 band) to Smeltham's east edge at y 17 to 19 (offset 6); east edge (sand at y 7 to 9) to Hoarfell's west edge at y 31 to 33 (offset 24). The junction door is a warp.
 
 ### Flags (not claimed)
 
