@@ -9345,6 +9345,17 @@
       "border_filepath": "data/layouts/Veldris_Home_2F/border.bin",
       "blockdata_filepath": "data/layouts/Veldris_Home_2F/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VELDRIS_LAB",
+      "name": "Veldris_Lab_Layout",
+      "width": 13,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/Veldris_Lab/border.bin",
+      "blockdata_filepath": "data/layouts/Veldris_Lab/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }
