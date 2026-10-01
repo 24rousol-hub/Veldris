@@ -23,7 +23,7 @@ South-west of Vesperhaven, on the sea at the bottom of the map.
 
 ### Source and size
 - **Palladium:** none. The nearest mood is the sand strip of `Route 40.png` (20 x 34, sea route with a beach).
-- **Vanilla base: Route 109** (`Route109_Layout`, 40 x 63, a beach road with the Seashore House). Trim to **about 44 x 30**: `(44 + 15) * (30 + 14) = 2596`.
+- **Vanilla base: Route 125** (`Route125_Layout`, 80 x 40, an island-beach sea route). Trim to **about 44 x 30**: `(44 + 15) * (30 + 14) = 2596`. (Route 109 is R23's base.)
 - **Section id:** `MAPSEC_SILVERSTRAND` (name `SILVERSTRAND`, 12 chars).
 - **Maps:** the beach, the Surf Shack (one house layout `LAYOUT_HOUSE1`), and an underwater cove (a copy of a vanilla `Underwater_Route*` map) for Dive items.
 
@@ -215,7 +215,7 @@ Four Palladium Mt Silver images (the files exist in the asset repo; sizes measur
 | Upper cave (2F) | `mtsilver27oa.png` (409 x 494, gridded) | **24 x 29** | Cave with three waterfalls (Waterfall to climb), a pond |
 | Summit corridor | `mtsilberredplaceuhhhyeah6jn.png` (188 x 496) | about **12 x 31** | A long summit path, a bench and a rock ring at the end |
 
-- **Vanilla alternative:** `MeteorFalls_1F_1R` (30 x 42) and `MtPyre_Exterior` (38 x 51) for the base camp and cave; `Route 45.png` (22 x 91) is R31.
+- **Vanilla alternative:** `MeteorFalls_1F_1R` (30 x 42) and `MtPyre_Exterior` (38 x 51) for the base camp and cave; R31's road is vanilla `Route115`, see [routes-south.md](routes-south.md).
 - **Section id:** `MAPSEC_ARGENT_PEAK` (name `ARGENT PEAK`, 11 chars). All four maps share it.
 - **Heal location:** the camp's Pokémon Center is a normal `LAYOUT_POKEMON_CENTER_1F` and `_2F`. A blackout from inside Argent Peak must have a respawn: add `HEAL_LOCATION_ARGENT_PEAK` (write `respawn_map` before `respawn_npc`), or let it share Hollowbrook's. It is not a Fly spot.
 

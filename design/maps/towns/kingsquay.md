@@ -17,7 +17,7 @@ South-east of Ebbsworth, west of Driftsands. A city on the sea.
 | Road | Edge of Kingsquay | How |
 |---|---|---|
 | R23 from Ebbsworth | **North edge** (land path, a gatehouse, north-west corner) and **north-west coast** (water, a slipway) | The land path comes down a hill into the north gate. The water road lands at a slipway beside the harbour wall |
-| R24 to Driftsands | **East edge**, a gatehouse | Palladium Route 36's west gatehouse, see R24 |
+| R24 to Driftsands | **East edge**, a gatehouse | A fenced lane (Palladium Route 38), see R24 |
 | Ferry | **South pier** | Warp to the ferry deck (Lilycove-style) |
 
 ## Source and size

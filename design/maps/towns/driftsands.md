@@ -16,7 +16,7 @@ South of Beaconmouth, east of Kingsquay.
 
 | Road | Edge of Driftsands | How |
 |---|---|---|
-| R24 from Kingsquay | **West edge** | A sandy road from Palladium Route 36's south-east gatehouse, narrowing into a boardwalk |
+| R24 from Kingsquay | **West edge** | The fenced lane of R24 (Palladium Route 38) ends at a gate and narrows into a boardwalk |
 | R25 to Beaconmouth | **North edge**, towards the north-east | A headland path, a cliff stair at the start |
 
 ## Source and size
