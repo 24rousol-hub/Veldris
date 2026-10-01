@@ -6,7 +6,7 @@ Checked: all four files plus the dialogue drafts assemble with the real macros (
 
 | File | Goes into | Covers |
 |---|---|---|
-| `hollowbrook_scripts.inc` | `Hollowbrook`, `Hollowbrook_PlayersHouse_1F`, `Hollowbrook_GoldsworthHouse` | signs, NPCs, Pokemon, mom, grandfather timeline, locked door, Troglodyte's first battle outside the lab with SIR BISCUIT |
+| `hollowbrook_scripts.inc` | `Hollowbrook`, `Hollowbrook_PlayersHouse_1F`, `Hollowbrook_GoldsworthHouse` | **BUILT 2026-10-01** (except the Goldsworth house and the post-game name reveal) into the town, player's house and neighbour's house `scripts.inc` files, which are now the source of truth. Signs, NPCs, Pokemon, mom, grandfather, locked door, Troglodyte's first battle (started from `ON_FRAME_TABLE`, see [../interiors.md](../interiors.md)) |
 | `hollowbrook_lab_scripts.inc` | `Hollowbrook_ProfFennickLab` | **BUILT 2026-10-01** into `data/maps/Hollowbrook_ProfFennickLab/scripts.inc` with real coordinates (that file is now the source of truth; this draft is kept for history). Scene tested in mGBA: Troglodyte's random pick, ball 4 reveal, choice across the counter, leftover balls. `Hollowbrook_EventScript_BufferTrogSpecies` now lives in the lab file, so leave it out when the town file is built |
 | `route1_scripts.inc` | `VeldrisRoute1` | signs, three trainers, guide POTION gift, sighting NPC |
 | `wendlebury_scripts.inc` | `Wendlebury`, `Wendlebury_PokemonCenter_1F`, `Wendlebury_Mart` | town NPCs, nurse (vanilla heal script), mart clerk with item list |
@@ -27,17 +27,17 @@ Already claimed and used: `VAR_TROG_STARTER` (0x40F7). Vanilla used: `VAR_STARTE
 
 | Name | Meaning | Suggested block |
 |---|---|---|
-| `FLAG_HIDE_HOLLOWBROOK_GRANDPA` | bench grandfather hidden (set/cleared by timeline) | story 0x8E5+ |
-| `FLAG_HIDE_HOLLOWBROOK_TROG` | Troglodyte outside the lab hidden (derived from state on each map load) | story 0x8E5+ |
+| `FLAG_HIDE_HOLLOWBROOK_GRANDPA` | bench grandfather hidden (set/cleared by timeline) | **CLAIMED** 0x8EA |
+| `FLAG_HIDE_HOLLOWBROOK_TROG` | Troglodyte outside the lab hidden (derived from state on each map load) | **CLAIMED** 0x8EB |
 | `FLAG_HIDE_HOLLOWBROOK_LAB_TROG` | Troglodyte inside the lab hidden, set when he leaves | **CLAIMED** 0x8E5 |
 | `FLAG_HIDE_HOLLOWBROOK_LAB_BALL_1` to `_4` (4 flags) | the four Poke Ball objects hidden | **CLAIMED** 0x8E6-0x8E9 |
-| `FLAG_HOLLOWBROOK_GRANDPA_TALKED1` | first bench talk done | per-map 0x493-0x4EF |
-| `FLAG_HOLLOWBROOK_GRANDPA_TALKED2` | second topic done | per-map |
+| `FLAG_HOLLOWBROOK_GRANDPA_TALKED1` | first bench talk done | **CLAIMED** 0x493 |
+| `FLAG_HOLLOWBROOK_GRANDPA_TALKED2` | second topic done | **CLAIMED** 0x494 |
 | `FLAG_HOLLOWBROOK_GRANDPA_NAME_TOLD` | post-game name reveal done | per-map |
-| `FLAG_HOLLOWBROOK_MOM_GOT_MON_TOLD` | mom's 'you have a POKeMON' speech done | per-map |
+| `FLAG_HOLLOWBROOK_MOM_GOT_MON_TOLD` | mom's 'you have a POKeMON' speech done | **CLAIMED** 0x495 |
 | `FLAG_ROUTE1_GUIDE_POTIONS` | guide's 3 POTIONs given | per-map |
 | `FLAG_HIDDEN_ITEM_ROUTE1_POTION`, `FLAG_HIDDEN_ITEM_ROUTE1_REPEL` | hidden items | hidden-item range 0x264-0x2BB (not 0x264 itself) |
-| `FLAG_VISITED_HOLLOWBROOK`, `FLAG_VISITED_WENDLEBURY` | fly flags, already planned (0x020-0x031) | fly block |
+| `FLAG_VISITED_HOLLOWBROOK`, `FLAG_VISITED_WENDLEBURY` | fly flags; Hollowbrook **CLAIMED** 0x020, Wendlebury planned | fly block |
 
 Count: 3 hide flags (grandpa, Trog, lab Trog) + 4 balls + 4 one-shots (talked1, talked2, name told, mom) + 1 guide + 2 hidden items = 14 new, plus the 2 fly flags = 16.
 

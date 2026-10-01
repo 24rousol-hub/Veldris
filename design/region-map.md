@@ -166,7 +166,7 @@ No new functions and no change to control flow. `field_region_map.c` and `pokena
 
 | # | Section id | Name shown | x | y | w | h | Cells | Status |
 |---|---|---|---|---|---|---|---|---|
-| T1 | `MAPSEC_HOLLOWBROOK` | HOLLOWBROOK | 3 | 12 | 1 | 1 | 1 | **build first** |
+| T1 | `MAPSEC_HOLLOWBROOK` | HOLLOWBROOK | 3 | 12 | 1 | 1 | 1 | **BUILT 2026-10-01** (fly row, flag 0x020, heal location; picture art not yet) |
 | T2 | `MAPSEC_WENDLEBURY` | WENDLEBURY | 8 | 11 | 1 | 1 | 1 | **build first** |
 | T3 | `MAPSEC_CRESTFALL` | CRESTFALL | 5 | 7 | 1 | 1 | 1 | **build first** |
 | T4 | `MAPSEC_VELDRIS_TOWN_04` | TOWN 04 | 2 | 4 | 1 | 1 | 1 | planned |

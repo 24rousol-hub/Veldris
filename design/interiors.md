@@ -18,4 +18,16 @@ Built 2026-10-01 in a separate Claude thread (branch `gen4-interior-home`), at t
 - Tile identities worth knowing: 414 is a **trash can**, not a chair; 168-172, 288-295 and 368-371 are **stair railings**, not shelves; the PC desk is 406/407 over 30/415; the dome machine is 326/327, 334/335, 342/343.
 - The 1F staircase uses wall `6` above its left column instead of `144` (144 has half a window cut off at its edge).
 
-- Hollowbrook is in `gMapGroup_TownsAndRoutes` (`MAP_HOLLOWBROOK`); the interiors are in `gMapGroup_IndoorVeldris` with `MAPSEC_HOLLOWBROOK`. Not done yet: the new-game start point, the Route 1 connection, the fly flag, the town NPCs and the grandfather/Troglodyte scripts (all in `design/scripts/hollowbrook_scripts.inc`).
+- Hollowbrook is in `gMapGroup_TownsAndRoutes` (`MAP_HOLLOWBROOK`); the interiors are in `gMapGroup_IndoorVeldris` with `MAPSEC_HOLLOWBROOK`.
+
+## Characters and scripts (built 2026-10-01)
+
+The drafts in `design/scripts/hollowbrook_scripts.inc` are now built into each map's `scripts.inc` (those files are the source of truth). Text comes from `design/dialogue/hollowbrook.inc` and `hollowbrook_houses.inc`.
+
+- **Town:** farmer (5,12), wandering kid (20,16), woman hanging laundry (20,20), a wandering Zigzagoon, a Skitty, a Slakoth by the pond, the grandfather on the bench (22,13, appears after the lab scene, two talk topics), and Troglodyte outside the lab (13,13). Signs and the locked Goldsworth door read their texts.
+- **Troglodyte's first battle** starts from `MAP_SCRIPT_ON_FRAME_TABLE` when `VAR_HOLLOWBROOK_STATE` is 3, not from a `coord_event`: stepping out of a door is an automatic move and does not fire coord triggers. Win or lose, he walks off and the state becomes 4. Known quirk: after a whiteout before beating him, the battle fires the next time the player enters the town, wherever they enter.
+- **Player's house 1F:** Mom (first object, `local_id` 1, which the whiteout heal script needs), the house Zigzagoon, the wake-up trigger, TV, fridge and bookshelf. Mom's 'you have a POKéMON' speech runs once.
+- **Neighbour's house:** mother, father, a wandering girl and a Skitty, plus the bookshelf.
+- **Fly point and respawn:** `HEAL_LOCATION_HOLLOWBROOK` lands on (9,21) outside the player's door; whiting out sends the player home to Mom (engine edit in `engine-edits.md`). Town `OnTransition` sets `FLAG_VISITED_HOLLOWBROOK` and the respawn. Tested in mGBA with the debug menu's Fly to map.
+
+Not done yet: the new-game start point (still the Littleroot truck), the Route 1 connection, Hollowbrook on the region map picture (the grid cell is set, the art is still Hoenn), and the Goldsworth house interior.

@@ -134,7 +134,8 @@ Hollowbrook_ProfFennickLab_EventScript_TrogGone::
 	playse SE_PIN
 	delay 30
 	msgbox Hollowbrook_Text_LabApology3, MSGBOX_DEFAULT
-	@ TODO: clearflag FLAG_HIDE_HOLLOWBROOK_GRANDPA once the town and that flag exist.
+	@ The grandfather appears on his bench outside from now on.
+	clearflag FLAG_HIDE_HOLLOWBROOK_GRANDPA
 	releaseall
 	end
 
