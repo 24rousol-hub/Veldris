@@ -54,3 +54,5 @@ All in `Team-Aquas-Asset-Repo/Trainer Front Sprites/`, all 64 x 64 and ready to 
 | DUNMORE (Fighting) | Huge, gentle, naps between rounds | 1. `Black Fragrant/chuck` (big, bare-chested) 2. `iriv24/wake` (masked wrestler) 3. `Pawkkie/hiker_hgss` (huge, soft, 'gentle') 4. `Kalarie/anthony` (brawler) 5. `Kasen/leader_clay` |
 
 Notes: HYACINTH's gender is not fixed in the pitch; #1 to #2 are women, #3 and #5 are men. Karen's own character is a Dark leader, so only the picture is borrowed.
+
+**Chosen (author, 2026-10-01): candidate #1 for all three** (OSSIAN `Galaxeeh/leader_giovanni`, HYACINTH `Black Fragrant/karen`, DUNMORE `Black Fragrant/chuck`). IMPORTED and seen in battle. Credited in `CREDITS.md`.

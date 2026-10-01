@@ -14,14 +14,14 @@ Status: **BUILT 2026-10-01** (the ROM compiles; nothing has been fought in a gam
 | `TRAINER_ASEBY` | ASEBY | Winona | Poison, gym 7 | Veldris Leader Poison | Weezing 46, Crobat 47, Drapion 47, Garbodor 47, Toxapex 48 |
 | `TRAINER_SUZURAN` | SUZURAN | Tate and Liza (now a single battle) | Fairy, gym 8 | Veldris Leader Fairy | Azumarill 52, Dachsbun 52, Ribombee 53, Hatterene 54, Gardevoir 55 |
 | `TRAINER_MIZZLE` | MIZZLE | Juan | Water, gym 9 | Veldris Leader Water | Gyarados 58, Seismitoad 58, Araquanid 59, Barraskewda 59, Lanturn 59, Milotic 60 |
-| `TRAINER_OSSIAN` | OSSIAN | Sidney | Elite Four, Dark | **placeholder** (Sidney's vanilla pic) | Houndoom 65, Honchkrow 65, Pangoro 65, Krookodile 66, Absol 66 |
-| `TRAINER_HYACINTH` | HYACINTH | Phoebe | Elite Four, Psychic | **placeholder** (Phoebe's vanilla pic) | Espeon 66, Meowstic 66, Reuniclus 67, Farigiraf 67, Alakazam 68 |
-| `TRAINER_DUNMORE` | DUNMORE | Drake | Elite Four, Fighting | **placeholder** (Drake's vanilla pic) | Breloom 68, Hawlucha 68, Heracross 69, Annihilape 69, Conkeldurr 70 |
+| `TRAINER_OSSIAN` | OSSIAN | Sidney | Elite Four, Dark | Veldris Elite Four Ossian (Galaxeeh Giovanni sprite) | Houndoom 65, Honchkrow 65, Pangoro 65, Krookodile 66, Absol 66 |
+| `TRAINER_HYACINTH` | HYACINTH | Phoebe | Elite Four, Psychic | Veldris Elite Four Hyacinth (Black Fragrant Karen sprite) | Espeon 66, Meowstic 66, Reuniclus 67, Farigiraf 67, Alakazam 68 |
+| `TRAINER_DUNMORE` | DUNMORE | Drake | Elite Four, Fighting | Veldris Elite Four Dunmore (Black Fragrant Chuck sprite) | Breloom 68, Hawlucha 68, Heracross 69, Annihilape 69, Conkeldurr 70 |
 | `TRAINER_DRAYDEN` | DRAYDEN | Glacia | Elite Four, Dragon | Veldris Elite Four Drayden | Goodra 69, Kommo-o 69, Dragapult 70, Baxcalibur 70, Salamence 71, Dragonite 71 |
 | `TRAINER_CYNTHIA` | CYNTHIA | Wallace | Champion | Veldris Champion Cynthia | Spiritomb 73, Roserade 73, Togekiss 74, Lucario 74, Milotic 74, Garchomp 75 |
 
 **Notes and caveats.**
-- The three placeholder Elite Four pictures need art: ask for candidates when you want them.
+- Elite Four pictures chosen by the author (2026-10-01, candidate #1 each) and battle-checked: all render with clean transparency.
 - The ids are in vanilla order (Sidney, Phoebe, Glacia, Drake), so the id order is OSSIAN, HYACINTH, DRAYDEN, DUNMORE. The League script sets the actual fight order (DRAYDEN last), so nothing depends on the id order.
 - The Hoenn rematch blocks (Roxanne 2 to 5 and so on) still hold the old Hoenn teams and are never reached in Veldris. Their data stays untouched.
 - Gender and Music are placeholders chosen to fit each sprite (SANZUFORD uses the 'Girl' music).

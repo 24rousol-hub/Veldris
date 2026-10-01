@@ -611,6 +611,15 @@ const u16 gTrainerPalette_VeldrisLeaderFairy[] = INCGFX_U16("graphics/trainers/f
 const u32 gTrainerFrontPic_VeldrisLeaderWater[] = INCGFX_U32("graphics/trainers/front_pics/veldris_leader_water.png", ".4bpp.smol");
 const u16 gTrainerPalette_VeldrisLeaderWater[] = INCGFX_U16("graphics/trainers/front_pics/veldris_leader_water.png", ".gbapal");
 
+const u32 gTrainerFrontPic_VeldrisEliteFourOssian[] = INCGFX_U32("graphics/trainers/front_pics/veldris_elite_four_ossian.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisEliteFourOssian[] = INCGFX_U16("graphics/trainers/front_pics/veldris_elite_four_ossian.png", ".gbapal");
+
+const u32 gTrainerFrontPic_VeldrisEliteFourHyacinth[] = INCGFX_U32("graphics/trainers/front_pics/veldris_elite_four_hyacinth.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisEliteFourHyacinth[] = INCGFX_U16("graphics/trainers/front_pics/veldris_elite_four_hyacinth.png", ".gbapal");
+
+const u32 gTrainerFrontPic_VeldrisEliteFourDunmore[] = INCGFX_U32("graphics/trainers/front_pics/veldris_elite_four_dunmore.png", ".4bpp.smol");
+const u16 gTrainerPalette_VeldrisEliteFourDunmore[] = INCGFX_U16("graphics/trainers/front_pics/veldris_elite_four_dunmore.png", ".gbapal");
+
 const u32 gTrainerFrontPic_VeldrisEliteFourDrayden[] = INCGFX_U32("graphics/trainers/front_pics/veldris_elite_four_drayden.png", ".4bpp.smol");
 const u16 gTrainerPalette_VeldrisEliteFourDrayden[] = INCGFX_U16("graphics/trainers/front_pics/veldris_elite_four_drayden.png", ".gbapal");
 
@@ -1295,6 +1304,18 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_VELDRIS_LEADER_WATER] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisLeaderWater, gTrainerPalette_VeldrisLeaderWater),
+    },
+    [TRAINER_PIC_VELDRIS_ELITE_FOUR_OSSIAN] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisEliteFourOssian, gTrainerPalette_VeldrisEliteFourOssian),
+    },
+    [TRAINER_PIC_VELDRIS_ELITE_FOUR_HYACINTH] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisEliteFourHyacinth, gTrainerPalette_VeldrisEliteFourHyacinth),
+    },
+    [TRAINER_PIC_VELDRIS_ELITE_FOUR_DUNMORE] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_VeldrisEliteFourDunmore, gTrainerPalette_VeldrisEliteFourDunmore),
     },
     [TRAINER_PIC_VELDRIS_ELITE_FOUR_DRAYDEN] =
     {

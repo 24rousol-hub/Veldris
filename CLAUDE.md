@@ -54,7 +54,7 @@ Keep the map's `region` at `REGION_HOENN` (the default) and `layout_version` at 
 2. `include/constants/opponents.h`: add `#define TRAINER_X 858` (next free id) and raise `TRAINERS_COUNT_EMERALD` by one, staying at or below `MAX_TRAINERS_COUNT_EMERALD` (864). The defeated flag is `0x500 + id`.
 3. In the map script: `trainerbattle_single TRAINER_X, Intro, Defeat` (gym leaders: copy the pattern in `data/maps/RustboroCity_Gym/scripts.inc`), and an object event in `map.json` with a `trainer_type`.
 **Reusing a vanilla id instead (BUILT 2026-10-01 for 13 trainers, see `design/trainer-roster.md`; rename the party header and the `#define`, keep the old name as an alias. **Every Pokémon needs `IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe`: a missing `IVs:` line means 31**) (no new id, no `TRAINERS_COUNT_EMERALD` change; tested in battle):** pick an unused vanilla trainer, rewrite its block in `src/data/trainers.party` (party, pic, class, name), and add `#define TRAINER_CRESTFALL_GRETA TRAINER_<OLD_NAME>` in `include/constants/opponents.h` so scripts can use the new name while the old Hoenn scripts keep compiling. Its defeated flag is the old id's flag. Do this for trainers beyond the spare 9.
-4. A brand-new trainer pic or class needs more edits (`include/constants/trainers.h`, `src/battle_main.c`, `src/data/graphics/trainers.h`). Front pictures verified 2026-10-01 (10 Veldris pics built, `trainerproc` accepts them); battle display not yet seen.
+4. A brand-new trainer pic or class needs more edits (`include/constants/trainers.h`, `src/battle_main.c`, `src/data/graphics/trainers.h`). Veldris pictures (14 built) are seen in battle and render correctly (index 0 must be the background colour).
 
 ## Build
 

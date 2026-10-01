@@ -4589,7 +4589,7 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 === TRAINER_OSSIAN ===
 Name: OSSIAN
 Class: Elite Four
-Pic: Elite Four Sidney
+Pic: Veldris Elite Four Ossian
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
@@ -4640,7 +4640,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_HYACINTH ===
 Name: HYACINTH
 Class: Elite Four
-Pic: Elite Four Phoebe
+Pic: Veldris Elite Four Hyacinth
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore
@@ -4750,7 +4750,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_DUNMORE ===
 Name: DUNMORE
 Class: Elite Four
-Pic: Elite Four Drake
+Pic: Veldris Elite Four Dunmore
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
