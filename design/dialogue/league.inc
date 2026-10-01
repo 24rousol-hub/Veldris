@@ -1,7 +1,7 @@
 @ League and post-game dialogue DRAFT. Status: PROPOSED, not wired into any map (no League map exists yet).
 @ Lines starting with @ are comments. Check widths with:
 @   python3 design/tools/dialogue_check.py design/dialogue/league.inc
-@ Companion plan: design/postgame.md. Every name here (OSSIAN, HYACINTH, DUNMORE, MAREN, CYNTHIA) is a PROPOSED
+@ Companion plan: design/postgame.md. Every name here (OSSIAN, HYACINTH, DUNMORE, DRAYDEN, CYNTHIA) is a PROPOSED
 @ placeholder, not canon. Labels: League_Text_ and PostGame_Text_. Grandfather's own after-League lines already exist
 @ in hollowbrook.inc (Hollowbrook_Text_GrandpaLeague1, GrandpaLeague2, GrandpaLeagueName, GrandpaLeagueIdle): not repeated.
 @ Rules used: single curly quotes, TROGLODYTE written literally, only Goldsworths swear, Pokemon only.
@@ -54,21 +54,21 @@ League_Text_DunmoreDefeat::
 	.string "ow. Lovely stuff, {PLAYER}.$"
 
 League_Text_DunmoreAfter::
-	.string "MAREN's the last of us. She's\n"
-	.string "kind, but she does not hold back.$"
+	.string "DRAYDEN's the last of us. He's\n"
+	.string "kind, but he does not hold back.$"
 
-@ --- 4. MAREN, Dragon: the oldest member, quietly terrifying ---
-League_Text_MarenIntro::
+@ --- 4. DRAYDEN, Dragon: the oldest member, a kind old man and quietly terrifying (author-chosen, 2026-10-01; sprite Kasen/drayden) ---
+League_Text_DraydenIntro::
 	.string "So you're the one everybody is\n"
 	.string "talking about. Sit, child. No?\p"
 	.string "Then we'll do it the loud way.\n"
-	.string "I am MAREN. I keep dragons.$"
+	.string "I am DRAYDEN. I keep dragons.$"
 
-League_Text_MarenDefeat::
+League_Text_DraydenDefeat::
 	.string "Well. They do so hate losing.\n"
 	.string "I've not seen it in years.$"
 
-League_Text_MarenAfter::
+League_Text_DraydenAfter::
 	.string "Go on. The last door is open.\n"
 	.string "Oh, and a boy is waiting for you.$"
 

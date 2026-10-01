@@ -1,10 +1,29 @@
 # Gym leader art: candidate trainer pictures
 
-Status: **PROPOSED, candidates only. Nothing is imported, nothing is in `CREDITS.md` yet.** Leaders match the pitches in [gyms.md](gyms.md) (gym order B). Greta (gym 1) is fixed: ORAS lass, platinum blonde ([characters.md](characters.md)).
+Status: **Picks made by the author on 2026-10-01 (see 'Chosen' below). Nothing is imported, nothing is in `CREDITS.md` yet.** Leaders match the pitches in [gyms.md](gyms.md) (gym order B). Greta (gym 1) is fixed: ORAS lass, platinum blonde ([characters.md](characters.md)).
 
 **Where it all comes from.** The `sprites` repo (a PokeAPI fork) holds only Pokémon art and item icons, no trainer pictures (its `badges` folder is 85 x 85 official art, not usable as is). Every candidate below is in `Team-Aquas-Asset-Repo/Trainer Front Sprites/`. All were checked: **64 x 64, indexed, 16 colours or fewer, so they drop straight into the engine**, except Scott (RGBA, needs indexing). The `Official Pokemon Assets/Trainer Spritesheets` folder (Gen 3 and HGSS sheets) has the official originals but needs cutting up.
 
 **Licence warning (read before importing).** Almost all of these are redraws or recolours of official Game Freak art, or ripped from fan hacks (Black Fragrant's set is from *Pokémon FireGold*). The READMEs say 'please credit', and none gives a licence. This repo is public. Import only what you are comfortable publishing, add a `CREDITS.md` row per file in the same commit, and label them `official-derived`. The ones with no recognisable Nintendo character (for example Pawkkie's and Nico's) are the safest.
+
+## Chosen (author, 2026-10-01)
+
+| Slot | Chosen sprite | Notes |
+|---|---|---|
+| Gym 2 Bug | `iriv24/gardenia` (candidate 4) | Credit iriv24. Author notes: a bit rough, touch-ups may help. The pitch (veiled beekeeper) is a recolour or small addition away |
+| Gym 3 Ghost | `Kasen/acerola` (1) | Credit Kasen |
+| Gym 4 Steel | `iriv24/byron` (1) | Credit iriv24 |
+| Gym 5 Ice | `Black Fragrant/pryce` (1) | Credit Black Fragrant (from Pokémon FireGold) |
+| Gym 6 Flying | `Black Fragrant/falkner` (1) | Credit Black Fragrant |
+| Gym 7 Poison | `ryuujiryu/PsychicM` (1) | Credit ryuujiryu. A young lab-coat sprite for a 'middle-aged chemist': the pitch can drop the age |
+| Gym 8 Fairy | `Kasen/mina` (1) | Credit Kasen |
+| Gym 9 Water | `Pillowsledder/scott` (2) | Credit Pillowsledder. **RGBA, needs indexing to 16 colours** before import. Scott is an official character (Battle Frontier) |
+| Elite Four 4 (Dragon) | `Kasen/drayden` | Replaces MAREN: the member is now DRAYDEN ([postgame.md](postgame.md)) |
+| Champion | `iriv24/cynthia` | Aged Cynthia: recolour the hair to white or grey |
+
+Leader names are still open (only the art is chosen). Several of these are recognisable official characters (Pryce, Falkner, Byron, Gardenia, Acerola, Mina, Scott, Drayden, Cynthia), so decide whether the Veldris leaders keep other names or wink at them.
+
+## All candidates
 
 Top pick first. The pictures are in a board sent to you in chat (not committed).
 
