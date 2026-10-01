@@ -22,21 +22,21 @@ The tree still carries FRLG's map folders and constants. They are not built into
 |---|---|---|---|---|---|
 | 1 | Hollowbrook | Start town, Prof. Fennick's lab | APPROVED (name) | `MAPSEC_HOLLOWBROOK` | No |
 | 3 | Wendlebury | Third place, a market town off the main path | APPROVED (name) | `MAPSEC_WENDLEBURY` | No |
-| 3 | **Crestfall** | Gym 1: Greta (Normal, young and rising fast) | APPROVED (name, from the author's trainer constant) | `MAPSEC_CRESTFALL` | No |
+| 3 | **Crestfall** | Gym 1: Greta (Normal, young and rising fast) | APPROVED (name, from the author's trainer constant). Exterior BUILT 2026-10-01 ([crestfall.md](crestfall.md)) | `MAPSEC_CRESTFALL` | No (needs the Center) |
 | 4 to 18 | TBD | Gyms 2 to 9, Elite Four approach, League, post-game | Not started | | |
 
 ## Routes
 
 | # | Name | Connects | Status | Map section | Built? |
 |---|---|---|---|---|---|
-| 1 | VeldrisRoute1 | Hollowbrook and Crestfall | BUILT 2026-10-01 ([route1.md](route1.md)) | `MAPSEC_VELDRIS_ROUTE_1` | Yes (Crestfall end waits for Crestfall) |
+| 1 | VeldrisRoute1 | Hollowbrook and Crestfall | BUILT 2026-10-01 ([route1.md](route1.md)) | `MAPSEC_VELDRIS_ROUTE_1` | Yes (both ends connected) |
 | 2 | VeldrisRoute2 | Crestfall and Wendlebury | PROPOSED | `MAPSEC_VELDRIS_ROUTE_2` | No |
 | 3 | VeldrisRoute3 | Crestfall onwards to town 4. Blocked for now (gate or barricade) so the first three towns stand alone | PROPOSED | `MAPSEC_VELDRIS_ROUTE_3` | No |
 | 4 to 33 | TBD | | Not started | | |
 
 ## Cities and towns (author, 2026-09-29; the split is open)
 
-The author says a **city** and a **town** are different, and that there may be **7 cities** with the rest towns. **7 is an example, not final.** Which of the 18 places are cities, and what a city has that a town does not, are open (decision 12 in [game-bible.md](game-bible.md)). Until then this file's 'towns' means any of the 18 settlements, the same as the author's scope of '18 towns', and no row above has a city or town type yet. **Set so far (author, 2026-09-30):** Hollowbrook and Wendlebury are towns, and Crestfall, the next stop, is a city.
+The author says a **city** and a **town** are different, and that there may be **7 cities** with the rest towns. **7 is an example, not final.** Which of the 18 places are cities, and what a city has that a town does not, are open (decision 12 in [game-bible.md](game-bible.md)). Until then this file's 'towns' means any of the 18 settlements, the same as the author's scope of '18 towns', and no row above has a city or town type yet. **Set so far (author, 2026-09-30):** Hollowbrook and Wendlebury are towns, and Crestfall was a city. **Changed 2026-10-01:** Crestfall is a town. After Crestfall the story goes east to Wendlebury; Route 3 north to Briarwick stays blocked for now.
 
 ## Goldsworth houses and the skyscraper (author notes 2026-09-29; details PROPOSED)
 

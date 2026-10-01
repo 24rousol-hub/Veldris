@@ -1,5 +1,7 @@
 # CRESTFALL: detailed town design (PROPOSED, 2026-10-01)
 
+**Superseded for the street plan (2026-10-01):** the author approved a different layout (B 'village green', 40 x 32), now built. Coordinates and the street walk below do not match the map; use [../../crestfall.md](../../crestfall.md) 'As built'. The NPC, mood and Scheme 1 notes still apply.
+
 Status: **PROPOSED.** The build brief for the author's Porymap work. Facts come from [../../crestfall.md](../../crestfall.md) (role, buildings, Scheme 1 beats), [../../dialogue/crestfall.inc](../../dialogue/crestfall.inc) and [crestfall_extra.inc](../../dialogue/crestfall_extra.inc) (NPCs), [../../trainer-roster.md](../../trainer-roster.md) (Greta, DALE, WREN), [../../gyms.md](../../gyms.md) and the rules in [../interiors/README.md](../interiors/README.md). Roads: [routes-west-a.md](routes-west-a.md) (R1 meets the west edge, R2 the east edge, R3 the north edge). New minor names are marked PROPOSED. Nothing here is built.
 
 Quick facts: **town**, gym 1 Normal, GRETA (`TRAINER_CRESTFALL_GRETA`, Skitty 10, Miltank 12), STANDARD BADGE, gives Cut and TM Crunch. No Goldsworth house (that moved to Briarwick). Fly point and heal location: yes. Scheme 1 (consultants, hay maze, the MILTANK eat the paperwork, Troglodyte's second fight) plays out at the gym door.

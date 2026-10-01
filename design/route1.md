@@ -42,7 +42,7 @@ All three reuse vanilla Hoenn trainer entries (no new trainer id, UNTESTED, see 
 - **Troglodyte sighting** (optional): a farmer says a rich boy came through. Can be cut.
 
 ## Connections
-West edge to Hollowbrook's east gap (offset so they line up). East edge to Crestfall.
+West edge to Hollowbrook's east gap (offset so they line up). East edge to Crestfall: `right` offset -5 (Crestfall has `left` +5), built 2026-10-01. The east path was trimmed to two rows (10-11) to meet Crestfall's road (rows 15-16).
 
 ## Events to place (me, after the author pushes the map)
 Three trainers, the guide, two hidden items, two signs, and the connections. No triggers needed.

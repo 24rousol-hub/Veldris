@@ -2,14 +2,14 @@
 
 Status: **Type order, level cap and town/city mix DECIDED by the author on 2026-10-01 (see Decided). Everything else below (names, leaders, gimmicks, badges, TMs, exact teams, which towns are cities beyond Crestfall) is still PROPOSED until approved (CLAUDE.md rule 9).**
 
-**Fixed (author):** Gym 1 is Crestfall (T3), a city, Normal type, Greta (young, sassy, kind), STANDARD BADGE, silver outside and blue inside, Greta 10 and 12. Details in [characters.md](characters.md) and [teams.md](teams.md).
+**Fixed (author):** Gym 1 is Crestfall (T3), a town (changed from city by the author, 2026-10-01), Normal type, Greta (young, sassy, kind), STANDARD BADGE, silver outside and blue inside, Greta 10 and 12. Details in [characters.md](characters.md) and [teams.md](teams.md).
 
 ## Decided (author, 2026-10-01)
 
 1. **Type order is Option B:** Normal (Greta, fixed), Bug, Ghost, Steel, Ice, Flying, Poison, Fairy, Water. **Gym 6 is Flying and gives Fly (Feather Badge).** Option A is kept only as a short appendix.
 2. **Total gym level cap is 60.** Gym 1 stays at 12. The curve runs from about 17 to 19 at gym 2 up to 58 to 60 at gym 9, and **the gym 9 ace is 60**. Teams and trainers below are rescaled to it (the exact numbers are PROPOSED).
 3. **The Elite Four starts at level 65**, so gym 9 at 60 leads straight into it. Details live in [postgame.md](postgame.md).
-4. **Gym towns are a mix of towns and cities.** Crestfall (T3) is a city (author-fixed). The other city picks below are PROPOSED.
+4. **Gym towns are a mix of towns and cities.** Crestfall (T3) is a town (author, 2026-10-01; it was a city before). The other city picks below are PROPOSED.
 5. **No IVs or EVs, Pokemon only.**
 
 **Level cap note:** `src/caps.c` has a badge 9 row, currently the placeholder 50. It should become **60** to match. **Not edited here** (caps.h is not touched by this change).
@@ -52,7 +52,7 @@ Cells from [region-map.md](region-map.md). The map forks at T6. **Suggested orde
 
 | Gym | Slot | Kind | Section id | Reached by | Notes |
 |---|---|---|---|---|---|
-| 1 | T3 Crestfall | city (fixed) | `MAPSEC_CRESTFALL` | R2 | Goldsworth house. Greta |
+| 1 | T3 Crestfall | town (author, 2026-10-01) | `MAPSEC_CRESTFALL` | R2 | No Goldsworth house (moved to Briarwick). Greta |
 | 2 | T4 | town | `MAPSEC_VELDRIS_TOWN_04` | R3 | Side path R26 |
 | 3 | T5 | city | `MAPSEC_VELDRIS_TOWN_05` | R4 | Goldsworth house. Side path R27 |
 | 4 | T6 | town | `MAPSEC_VELDRIS_TOWN_06` | R5 | The fork: R6 to T7, R11 to T10, side path R28 |

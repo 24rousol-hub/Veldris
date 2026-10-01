@@ -18,7 +18,7 @@
 | [region-sketch.md](region-sketch.md) | The author's hand-drawn region sketch, my reading, section budget, suggested terrain | The sketch or the map changes |
 | [region-names.md](region-names.md) | PROPOSED names, themes, gyms and map sources (Palladium and vanilla) for every settlement and landmark | The author picks or changes names |
 | [scripts/README.md](scripts/README.md) | DRAFT, UNBUILT map scripts for Hollowbrook, the lab, Route 1 and Wendlebury, with the proposed new flags and vars. Not in `data/event_scripts.s` | The maps are built and the scripts move into their `scripts.inc`, or a scene changes |
-| [crestfall.md](crestfall.md) | Town 3 plan (a city, gym 1): buildings, layout reuse, NPC list, where Scheme 1 beats happen. PROPOSED | The map or the city plan changes |
+| [crestfall.md](crestfall.md) | Town plan (a town, gym 1): buildings, NPC list, Scheme 1 beats, and the exterior as built (layout B). Map BUILT, the rest PROPOSED | The map or the city plan changes |
 | [troglodyte-arc.md](troglodyte-arc.md) | PROPOSED arc options, schemes 2 to 9 and his fight schedule; samples in `dialogue/troglodyte_arc_samples.inc` | The story path is decided |
 | [gyms.md](gyms.md) | PROPOSED options for gyms 2 to 9 (types, leaders, badges, HMs, TMs, teams) | The author picks a type order |
 | [goldsworth.md](goldsworth.md) | Goldsworth houses and parents, PROPOSED; lines in `dialogue/goldsworth.inc` | The family plan changes |
@@ -44,6 +44,7 @@
 | [asset-inventory.md](asset-inventory.md) | What is usable in the asset repos, and what has been imported | An asset is imported |
 
 Tool: [tools/dialogue_check.py](tools/dialogue_check.py) checks that dialogue fits the text box (see [dialogue-style.md](dialogue-style.md)).
+Map builders for the LeoB exteriors (Route 1, Crestfall): [tools/leob/](tools/leob/README.md).
 
 ## Status words
 
