@@ -10,18 +10,18 @@ Tall-grass tiles only. Levels 3 to 5 (raised 2026-10-01: the gym is now one rout
 
 | Slot | Rate | Species | Levels |
 |---|---|---|---|
-| 1 | 20% | ZIGZAGOON | 2 to 3 |
-| 2 | 20% | LILLIPUP | 2 to 3 |
-| 3 | 10% | BIDOOF | 2 to 3 |
-| 4 | 10% | SENTRET | 2 to 3 |
-| 5 | 10% | ZIGZAGOON | 3 |
-| 6 | 10% | LILLIPUP | 3 |
-| 7 | 5% | BIDOOF | 3 to 4 |
-| 8 | 5% | SENTRET | 3 to 4 |
-| 9 | 4% | SKITTY | 3 to 4 |
-| 10 | 4% | SKITTY | 4 |
-| 11 | 1% | SLAKOTH | 4 |
-| 12 | 1% | MILTANK | 4 |
+| 1 | 20% | ZIGZAGOON | 3 to 4 |
+| 2 | 20% | LILLIPUP | 3 to 4 |
+| 3 | 10% | BIDOOF | 3 to 4 |
+| 4 | 10% | SENTRET | 3 to 4 |
+| 5 | 10% | ZIGZAGOON | 4 |
+| 6 | 10% | LILLIPUP | 4 |
+| 7 | 5% | BIDOOF | 4 to 5 |
+| 8 | 5% | SENTRET | 4 to 5 |
+| 9 | 4% | SKITTY | 4 to 5 |
+| 10 | 4% | SKITTY | 5 |
+| 11 | 1% | SLAKOTH | 5 |
+| 12 | 1% | MILTANK | 5 |
 
 Rates add to 100%. I have not checked that every species is enabled in this build. SLAKOTH and MILTANK appear in the Crestfall gym, so they stay at 1% here. Porymap writes these to `wild_encounters.json` through its Wild Pokémon tab.
 
@@ -30,9 +30,9 @@ All three reuse vanilla Hoenn trainer entries (no new trainer id, UNTESTED, see 
 
 | Trainer | Team | Notes |
 |---|---|---|
-| Youngster | LILLIPUP L3 | Easy first fight |
-| Lass | ZIGZAGOON L3, SKITTY L3 | Two-Pokémon fight |
-| Farmer | ZIGZAGOON L4, SKITTY L4 | The toughest on the road |
+| Youngster | LILLIPUP L4 | Easy first fight |
+| Lass | ZIGZAGOON L4, SKITTY L4 | Two-Pokémon fight |
+| Farmer | ZIGZAGOON L5, SKITTY L5 | The toughest on the road |
 
 ## NPCs and items
 - **Guide:** near the west end, gives 3 POTIONs once. Needs one flag (planned, unclaimed).
