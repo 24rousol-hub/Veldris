@@ -55,7 +55,9 @@ A sand square with a pond on a grass-and-flower island in the middle, the path l
 | Signs: town / gym / Route 3 / Route 2 / field | (1, 17) / (22, 10) / (26, 2) / (38, 17) / (19, 22) |
 | Benches / fence | (15-17, 22) and (22-24, 22) / (14-23, 25) |
 
-Sign scripts are in `data/maps/Crestfall/scripts.inc` (town and field text from the drafts, gym sign 'Leader: GRETA', Route 2 'EAST: WENDLEBURY', Route 3 'NORTH: BRIARWICK'). **Not yet built:** door warps (the interiors do not exist yet), NPCs, Scheme 1, the fly point and heal location (they need the Center), and the Route 3 block. **Checked in mGBA:** the town renders, the gym sign reads correctly, and walking west crosses into Route 1 cleanly. The town roads are sand and Route 1's path is pale grass path, so the path colour changes at the town edge.
+Sign scripts are in `data/maps/Crestfall/scripts.inc` (town and field text from the drafts, gym sign 'Leader: GRETA', Route 2 'EAST: WENDLEBURY', Route 3 'NORTH: BRIARWICK'). **Not yet built:** door warps (the interiors do not exist yet), NPCs, Scheme 1, the fly point and heal location (they need the Center), and the Route 3 block. **Checked in mGBA:** the town renders, the gym sign reads correctly, and walking west crosses into Route 1 cleanly. The town roads are sand and Route 1's path is pale grass path: the grass path runs in to x 1 and blends into the sand at x 2-3 (custom blend tiles, author asked 2026-10-01).
+
+**Path blend tiles** (Petalburg secondary, made by `design/tools/leob/path_blend.py`, seen in game). East-west road, grass path west and sand east, two tiles wide (A then B): top edge 656/657, middle 658/659, bottom edge 660/661. Mirrored (sand west): 662/663, 664/665, 666/667. North-south road, grass path north and sand south, two tiles tall (upper, lower): west edge 668/669, middle 670/671, east edge 672/673. Flipped (sand north): 674/675, 676/677, 678/679. In Porymap they sit at the end of the Petalburg metatiles.
 
 ## Where Scheme 1 beats happen
 1. **Setup** (before the gym): consultant outside in town; locals and the old farmer grumble; the two surveyors on Route 1 hint first.

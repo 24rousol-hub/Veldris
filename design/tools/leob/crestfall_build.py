@@ -27,6 +27,9 @@ def layout():
     t.fence(14, 25, 23)
     t.flowers([(14, 10), (25, 10), (12, 17), (27, 17)])
     t.open(0, 17, 2, 18); t.open(37, 17, 39, 18)
+    # Route 1's grass path runs in to x 1, then blends into the town's sand (path_blend.py tiles in Petalburg)
+    for x in (0, 1): t.put(x, 15, 465); t.put(x, 16, 481)
+    t.put(2, 15, 656); t.put(3, 15, 657); t.put(2, 16, 660); t.put(3, 16, 661)
     SIGNS = {"town": (1, 17), "gym": (22, 10), "route3": (26, 2), "route2": (38, 17), "farm": (19, 22)}
     for x, y in SIGNS.values(): t.sign(x, y)
     return t, SIGNS
