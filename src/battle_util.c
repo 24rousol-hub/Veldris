@@ -5642,7 +5642,7 @@ enum Obedience GetAttackerObedienceForAction(void)
         return OBEYS;
     if (B_OBEDIENCE_MECHANICS < GEN_8 && !IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))
         return OBEYS;
-    if (FlagGet(FLAG_BADGE08_GET)) // Rain Badge, ignore obedience altogether
+    if (FlagGet(FLAG_BADGE09_GET)) // Veldris: 9th badge, ignore obedience altogether
         return OBEYS;
 
     obedienceLevel = 10;
@@ -5661,6 +5661,8 @@ enum Obedience GetAttackerObedienceForAction(void)
         obedienceLevel = 70;
     if (FlagGet(FLAG_BADGE07_GET)) // Mind Badge
         obedienceLevel = 80;
+    if (FlagGet(FLAG_BADGE08_GET)) // Veldris: 8th badge (was "ignore all" in vanilla)
+        obedienceLevel = 90;
 
     if (B_OBEDIENCE_MECHANICS >= GEN_8
      && !IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))

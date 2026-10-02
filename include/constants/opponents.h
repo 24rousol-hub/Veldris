@@ -265,18 +265,30 @@
 #define TRAINER_WALTER_3                    258
 #define TRAINER_WALTER_4                    259
 #define TRAINER_WALTER_5                    260
-#define TRAINER_SIDNEY                      261
-#define TRAINER_PHOEBE                      262
-#define TRAINER_GLACIA                      263
-#define TRAINER_DRAKE                       264
-#define TRAINER_ROXANNE_1                   265
-#define TRAINER_BRAWLY_1                    266
-#define TRAINER_WATTSON_1                   267
-#define TRAINER_FLANNERY_1                  268
-#define TRAINER_NORMAN_1                    269
-#define TRAINER_WINONA_1                    270
-#define TRAINER_TATE_AND_LIZA_1             271
-#define TRAINER_JUAN_1                      272
+#define TRAINER_OSSIAN                      261
+#define TRAINER_SIDNEY                      TRAINER_OSSIAN
+#define TRAINER_HYACINTH                    262
+#define TRAINER_PHOEBE                      TRAINER_HYACINTH
+#define TRAINER_DRAYDEN                     263
+#define TRAINER_GLACIA                      TRAINER_DRAYDEN
+#define TRAINER_DUNMORE                     264
+#define TRAINER_DRAKE                       TRAINER_DUNMORE
+#define TRAINER_HACHIMEL                    265
+#define TRAINER_ROXANNE_1                   TRAINER_HACHIMEL
+#define TRAINER_SANZUFORD                   266
+#define TRAINER_BRAWLY_1                    TRAINER_SANZUFORD
+#define TRAINER_HAGANE                      267
+#define TRAINER_WATTSON_1                   TRAINER_HAGANE
+#define TRAINER_WAKASAGI                    268
+#define TRAINER_FLANNERY_1                  TRAINER_WAKASAGI
+#define TRAINER_TOBIN                       269
+#define TRAINER_NORMAN_1                    TRAINER_TOBIN
+#define TRAINER_ASEBY                       270
+#define TRAINER_WINONA_1                    TRAINER_ASEBY
+#define TRAINER_SUZURAN                     271
+#define TRAINER_TATE_AND_LIZA_1             TRAINER_SUZURAN
+#define TRAINER_MIZZLE                      272
+#define TRAINER_JUAN_1                      TRAINER_MIZZLE
 #define TRAINER_JERRY_1                     273
 #define TRAINER_TED                         274
 #define TRAINER_PAUL                        275
@@ -339,7 +351,8 @@
 #define TRAINER_EDDIE                       332
 #define TRAINER_ALLEN                       333
 #define TRAINER_TIMMY                       334
-#define TRAINER_WALLACE                     335
+#define TRAINER_CYNTHIA                     335
+#define TRAINER_WALLACE                     TRAINER_CYNTHIA
 #define TRAINER_ANDREW                      336
 #define TRAINER_IVAN                        337
 #define TRAINER_CLAUDE                      338
@@ -524,8 +537,10 @@
 #define TRAINER_EDWIN_4                     517
 #define TRAINER_EDWIN_5                     518
 #define TRAINER_WALLY_VR_1                  519
-#define TRAINER_BRENDAN_ROUTE_103_MUDKIP    520
-#define TRAINER_BRENDAN_ROUTE_110_MUDKIP    521
+#define TRAINER_TROGLODYTE_HOLLOWBROOK      520
+#define TRAINER_BRENDAN_ROUTE_103_MUDKIP    TRAINER_TROGLODYTE_HOLLOWBROOK
+#define TRAINER_TROGLODYTE_CRESTFALL        521
+#define TRAINER_BRENDAN_ROUTE_110_MUDKIP    TRAINER_TROGLODYTE_CRESTFALL
 #define TRAINER_BRENDAN_ROUTE_119_MUDKIP    522
 #define TRAINER_BRENDAN_ROUTE_103_TREECKO   523
 #define TRAINER_BRENDAN_ROUTE_110_TREECKO   524
@@ -774,9 +789,12 @@
 #define TRAINER_CRISTIN_1                   767
 #define TRAINER_MAY_RUSTBORO_TREECKO        768
 #define TRAINER_MAY_RUSTBORO_TORCHIC        769
-#define TRAINER_ROXANNE_2                   770
-#define TRAINER_ROXANNE_3                   771
-#define TRAINER_ROXANNE_4                   772
+#define TRAINER_CRESTFALL_GRETA            770
+#define TRAINER_ROXANNE_2                  TRAINER_CRESTFALL_GRETA
+#define TRAINER_CRESTFALL_GYM_1            771
+#define TRAINER_ROXANNE_3                  TRAINER_CRESTFALL_GYM_1
+#define TRAINER_CRESTFALL_GYM_2            772
+#define TRAINER_ROXANNE_4                  TRAINER_CRESTFALL_GYM_2
 #define TRAINER_ROXANNE_5                   773
 #define TRAINER_BRAWLY_2                    774
 #define TRAINER_BRAWLY_3                    775
@@ -875,5 +893,11 @@
 #define MAX_TRAINERS_COUNT                  MAX_TRAINERS_COUNT_EMERALD
 #endif
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
+
+
+// Veldris Route 1 trainers reuse vanilla Route 102 entries (design/trainer-roster.md)
+#define TRAINER_VELDRIS_ROUTE1_YOUNGSTER TRAINER_ALLEN
+#define TRAINER_VELDRIS_ROUTE1_LASS      TRAINER_TIANA
+#define TRAINER_VELDRIS_ROUTE1_FARMER    TRAINER_RICK
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

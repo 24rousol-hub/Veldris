@@ -1,4 +1,5 @@
 #include "global.h"
+#include "veldris_badges.h"
 #include "rtc.h"
 #include "overworld.h"
 #include "random.h"
@@ -1686,11 +1687,7 @@ void TryPutTodaysRivalTrainerOnAir(void)
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
         show->rivalTrainer.kind = TVSHOW_TODAYS_RIVAL_TRAINER;
         show->rivalTrainer.active = FALSE; // NOTE: Show is not active until passed via Record Mix.
-        for (i = FLAG_BADGE01_GET, nBadges = 0; i < FLAG_BADGE01_GET + NUM_BADGES; i++)
-        {
-            if (FlagGet(i))
-                nBadges++;
-        }
+        nBadges = GetBadgeCount();
         show->rivalTrainer.badgeCount = nBadges;
         if (IsNationalPokedexEnabled())
             show->rivalTrainer.dexCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);

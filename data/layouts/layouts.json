@@ -9323,6 +9323,83 @@
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_HOLLOWBROOK_PLAYERS_HOUSE_1F",
+      "name": "Hollowbrook_PlayersHouse_1F_Layout",
+      "width": 13,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/Hollowbrook_PlayersHouse_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Hollowbrook_PlayersHouse_1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HOLLOWBROOK_PLAYERS_HOUSE_2F",
+      "name": "Hollowbrook_PlayersHouse_2F_Layout",
+      "width": 13,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/Hollowbrook_PlayersHouse_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Hollowbrook_PlayersHouse_2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HOLLOWBROOK_PROF_FENNICK_LAB",
+      "name": "Hollowbrook_ProfFennickLab_Layout",
+      "width": 14,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/Hollowbrook_ProfFennickLab/border.bin",
+      "blockdata_filepath": "data/layouts/Hollowbrook_ProfFennickLab/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HOLLOWBROOK_NEIGHBOURS_HOUSE",
+      "name": "Hollowbrook_NeighboursHouse_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/Hollowbrook_NeighboursHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Hollowbrook_NeighboursHouse/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HOLLOWBROOK",
+      "name": "Hollowbrook_Layout",
+      "width": 32,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Hollowbrook/border.bin",
+      "blockdata_filepath": "data/layouts/Hollowbrook/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VELDRIS_ROUTE1",
+      "name": "VeldrisRoute1_Layout",
+      "width": 60,
+      "height": 25,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/VeldrisRoute1/border.bin",
+      "blockdata_filepath": "data/layouts/VeldrisRoute1/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_CRESTFALL",
+      "name": "Crestfall_Layout",
+      "width": 40,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Crestfall/border.bin",
+      "blockdata_filepath": "data/layouts/Crestfall/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }
