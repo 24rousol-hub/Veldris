@@ -6,7 +6,7 @@
 
 ## Pitch
 
-The player has one reason to become Champion: to humiliate Troglodyte. His real name is Beauregard Goldsworth IV. He is a sheltered, mediocre rival whose rich parents keep staging elaborate schemes to sabotage the gyms in his way. Every scheme fails. The League is just what happens to be at the end of the road. **The real danger (author, 2026-10-04)** is two villain teams in a reluctant alliance against the rich, Team Commons and the Drowned Crown ([factions.md](factions.md)); the player handles them as a necessary nuisance.
+The player has one reason to become Champion: to humiliate Troglodyte. His real name is Beauregard Goldsworth IV. He is a sheltered, mediocre rival whose rich parents keep staging elaborate schemes to sabotage the gyms in his way. Every scheme fails. The League is just what happens to be at the end of the road. **The real danger (author, 2026-10-04)** is two villain teams in a reluctant alliance against the rich, the Commons and the Drowned Crown ([factions.md](factions.md)); the player handles them as a necessary nuisance.
 
 **Author note (2026-09-29):** the Goldsworths are rich frat guys who are assholes. Every city has a Goldsworth house (and so does Hollowbrook, the grandfather's home town, the one town exception), and one city has their skyscraper business, where Troglodyte's parents are. The parents are oblivious rather than contemptuous, unlike the rest of the family. His grandfather, a kind old man who had to step down as family head, lives in Hollowbrook's house. The Goldsworths may swear, mildly. Details and what is still open: [characters.md](characters.md), [story-outline.md](story-outline.md).
 
@@ -33,7 +33,7 @@ The player has one reason to become Champion: to humiliate Troglodyte. His real 
 1. Intro (C-driven, `data/text/birch_speech.inc`), Prof. Fennick, starter.
 2. First 3 towns and 3 routes, ending at gym 1 (Greta, Normal). Built first so all three can be flown between.
 3. Gyms 2 to 9 in order, each with its own Goldsworth scheme. Every city has a Goldsworth house (and Hollowbrook, as the one town exception), and one city has their skyscraper (PROPOSED details in [story-outline.md](story-outline.md)).
-   **Alongside (author, 2026-10-04):** the villain teams, Team Commons on land and the Drowned Crown at sea ([factions.md](factions.md)). Commons block Route 3 until Wendlebury; the alliance breaks between badges 5 and 7; the player and Troglodyte beat the Commons leader together.
+   **Alongside (author, 2026-10-04):** the villain teams, the Commons on land and the Drowned Crown at sea ([factions.md](factions.md)). Commons block Route 3 until Wendlebury; the alliance breaks between badges 5 and 7; the player and Troglodyte beat the Commons leader together.
 4. **Climax (author):** after badge 9 the Elite Four and Cynthia leave to calm the region and the Drowned Crown wakes Kyogre on R19 into Gildhaven, the capital.
 5. Elite Four, then the Champion.
 6. Post-game (Aldermere: the Crown's refuge, Dialga's anchor, Kyogre at a random daily hour).
@@ -67,7 +67,7 @@ These need the author's call. None blocks the first 3 towns.
 
 | Date | Decision | Who |
 |---|---|---|
-| 2026-10-04 | Villains: Team Commons (land routes) and THE DROWNED CROWN (sea routes, the climax after badge 9), a reluctant alliance against the rich. The player cares about Veldris but sees this as a necessary nuisance. See [factions.md](factions.md). | Author |
+| 2026-10-04 | Villains: The Commons (land routes) and THE DROWNED CROWN (sea routes, the climax after badge 9), a reluctant alliance against the rich. The player cares about Veldris but sees this as a necessary nuisance. See [factions.md](factions.md). | Author |
 | 2026-09-29 | Town names Hollowbrook and Wendlebury approved. Vanilla GBA town-map look approved for the region map. | Author |
 | 2026-09-29 | Badges: research public hacks with more than 8 badges, and consider a custom badge case with our own art. Plan first, no engine edits yet. | Author |
 | 2026-09-29 | Fly towns: the author left it to the assistant ("whatever is best for the future"). Chosen: approach A-prime, see [region-map.md](region-map.md). | Assistant, on the author's instruction |

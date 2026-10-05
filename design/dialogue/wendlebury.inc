@@ -2,7 +2,7 @@
 @ Status: PROPOSED, not wired into any map (the map is not built yet).
 @ Check widths: python3 design/tools/dialogue_check.py design/dialogue/wendlebury.inc
 @ Pokemon only: no real animals. Nobody here swears.
-@ Villain teams (author, 2026-10-04): one house resident is secretly the Team Commons leader (design/factions.md).
+@ Villain teams (author, 2026-10-04): one house resident is secretly the Commons leader (design/factions.md).
 @ Their lines are not drafted yet; which house is open. Ask the author before writing them (a key story point).
 
 Wendlebury_Text_TownSign::

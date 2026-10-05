@@ -37,7 +37,7 @@ Dialogue draft: [../dialogue/route3.inc](../dialogue/route3.inc) (2026-10-01, ch
 
 **Edges.** The render's **west end is a grey gatehouse** (Violet's gate in Johto): this becomes **Briarwick's east gatehouse** (a warp pair, one gate interior with a guard). The **east end** connects to **Crestfall's north edge** (the road turns south at the right; mirror or bend while tracing). No other exits.
 
-**Superseded (author, 2026-10-04):** Team Commons blocks Route 3, and it opens after the Wendlebury beat, not at badge 1. See [../factions.md](../factions.md). The road-works idea below is kept only as a possible disguise.
+**Superseded (author, 2026-10-04):** the Commons blocks Route 3, and it opens after the Wendlebury beat, not at badge 1. See [../factions.md](../factions.md). The road-works idea below is kept only as a possible disguise.
 
 **Gate (story).** **Closed until badge 1** (`FLAG_BADGE01_GET`, existing, no new flag needed). Proposal: a **road works barrier** at the Crestfall end: orange barriers, a lorry, three workers in hard hats, a sign reading 'ROAD CLOSED. RESURFACING BY GOLDSWORTH ROADWAYS'. When the player has the badge, the map script on load removes the barrier objects and the workers (the consultants' crew left after Scheme 1, see [../crestfall.md](../crestfall.md)). Alternative (author's call): a Cut tree. Both open on the same moment because Crestfall's gym gives Cut. Before badge 1, a guard says the road is shut and points to Wendlebury and R8 as the long way round.
 

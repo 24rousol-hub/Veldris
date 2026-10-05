@@ -90,7 +90,7 @@ Two aides in Fennick's lab, drafted in [dialogue/hollowbrook.inc](dialogue/hollo
 
 ## The villain teams (author, 2026-10-04)
 
-Team Commons (land routes, met personally; its leader is first met unrecognised in a Wendlebury house) and THE DROWNED CROWN (sea routes, volatile, led by the believed last descendant of Aldermere's sea kings and queens). Leaders' names, looks and teams are not decided. Full notes: [factions.md](factions.md).
+The Commons (land routes, met personally; its leader is first met unrecognised in a Wendlebury house) and THE DROWNED CROWN (sea routes, volatile, led by the believed last descendant of Aldermere's sea kings and queens). Leaders' names, looks and teams are not decided. Full notes: [factions.md](factions.md).
 
 ## Trainer constants
 

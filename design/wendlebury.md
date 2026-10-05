@@ -27,7 +27,7 @@ Two market sellers (berries, tea), a second Center visitor, a 2F counter clerk, 
 
 ## Villain teams (author, 2026-10-04)
 
-- **The Team Commons leader lives in a house here**, met as an ordinary local; who they are is a surprise revealed later (author). PROPOSED: after the talk the Commons grunts blocking Route 3 leave, which is why Route 3 opens after Wendlebury.
+- **The Commons leader lives in a house here**, met as an ordinary local; who they are is a surprise revealed later (author). PROPOSED: after the talk the Commons grunts blocking Route 3 leave, which is why Route 3 opens after Wendlebury.
 - Story order (author): Crestfall, then Wendlebury, then Route 3 to Briarwick. See [factions.md](factions.md).
 
 ## To place after the map is pushed

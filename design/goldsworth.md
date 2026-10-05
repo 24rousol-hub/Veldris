@@ -2,7 +2,7 @@
 
 Dialogue: [dialogue/goldsworth.inc](dialogue/goldsworth.inc), width-checked, not wired. Every name below is PROPOSED. Fixed by the author: a house in every city, Hollowbrook as the one town with a house, the skyscraper in one city with Troglodyte's parents, mild swearing for Goldsworths only, and the grandfather's post-game reveal. See [characters.md](characters.md) and [story-outline.md](story-outline.md).
 
-> **Villain teams (author, 2026-10-04):** the growing anti-rich mood (Team Commons and the Drowned Crown) has driven the other wealthy families out of Veldris; **only the Goldsworths stayed, and not even the whole family** (author). PROPOSED: some city houses are therefore empty or boarded up. The family is **not to blame** for the Crown's old grudge (its fame starts with Gatsby), but the Crown sees it as the biggest obstacle: in-region influence and ties to outside powers. The Commons leader comes to see the family is not evil after losing to the player and Troglodyte. See [factions.md](factions.md).
+> **Villain teams (author, 2026-10-04):** the growing anti-rich mood (the Commons and the Drowned Crown) has driven the other wealthy families out of Veldris; **only the Goldsworths stayed, and not even the whole family** (author). PROPOSED: some city houses are therefore empty or boarded up. The family is **not to blame** for the Crown's old grudge (its fame starts with Gatsby), but the Crown sees it as the biggest obstacle: in-region influence and ties to outside powers. The Commons leader comes to see the family is not evil after losing to the player and Troglodyte. See [factions.md](factions.md).
 
 ## 1. Hollowbrook_GoldsworthHouse (post-game only)
 

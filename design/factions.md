@@ -1,4 +1,4 @@
-# The villain teams: Team Commons and the Drowned Crown
+# The villain teams: the Commons and the Drowned Crown
 
 Status: the points marked **(author, 2026-10-04)** come from the author. Everything else is **PROPOSED** (CLAUDE.md rule 9). Pitch and research that led here: the 2026-10-04 chat (ideas 1 'the cover story' and 3 'the drowned crown', merged by the author).
 
@@ -8,9 +8,10 @@ Two groups, one **reluctant partnership** held together by hating the rich. The 
 
 The growing anti-rich discourse explains why **only the Goldsworths have stayed in Veldris**, and not even the whole family: the other wealthy families have left.
 
-| | Team Commons | The Drowned Crown |
+| | The Commons | The Drowned Crown |
 |---|---|---|
-| Name | 'Team Commons' (working name the author used) | **THE DROWNED CROWN** (name approved by the author) |
+| Name | **THE COMMONS** (author, 2026-10-04; not 'Team Commons') | **THE DROWNED CROWN** (name approved by the author) |
+| Leader | **TEDDY** (author, 2026-10-04). Sprite not chosen (DP-style options shown 2026-10-04) | Not decided (believed last descendant of Aldermere's rulers) |
 | How you meet them | More personally (author) | Mostly at a distance until late (PROPOSED) |
 | What they block | **Land routes** (author) | **Sea routes** (author) |
 | Temper | Political, wants the public on its side (PROPOSED) | **The more volatile group: they don't care about casualties** (author) |
@@ -28,7 +29,7 @@ The growing anti-rich discourse explains why **only the Goldsworths have stayed 
 - **The Goldsworths are not to blame** for whatever happened to the old crown: the family only rose to fame with the grandfather (Gatsby). But the Crown sees them as **the biggest obstacle**: huge influence inside Veldris, surely ties to powers outside it, and the potential to bring in outside help.
 - The Goldsworth headquarters is **protected by the Elite Four and Cynthia because it is close to them** (the skyscraper is in Gildhaven, whose south gate is the Pinnacle Gate, see [maps/detail/gildhaven.md](maps/detail/gildhaven.md)). PROPOSED consequence: when the Elite Four and Cynthia leave to calm the region, the tower is left unguarded, and that is when the Crown strikes.
 
-## Team Commons and the alliance (author, 2026-10-04)
+## The Commons and the alliance (author, 2026-10-04)
 
 - The player runs into the Commons **more personally**, and they **typically block land routes**.
 - **The alliance breaks.** The player **temporarily teams up with the Commons, somewhere between badges 5 and 7**.
@@ -60,8 +61,8 @@ The growing anti-rich discourse explains why **only the Goldsworths have stayed 
 1. ~~The Legends: Arceus link~~ **Resolved (author, 2026-10-04):** same world and timeline as Legends: Arceus but unrelated to its events. The Aldermere kings belong to the creation-myth age; the Hisui era (200 to 300 years before Diamond and Pearl) is when Dialga was pulled away and the seal weakened.
 2. ~~Aldermere~~ **Resolved (author, 2026-10-04):** Aldermere **stays post-game**. The last of the Crown's people have gone back there for refuge. With their leader fallen they are far more docile, and they have **a Battle Tower or something else significant** to offer (which one is open; a Battle Tower there would reuse the expansion's Battle Frontier tower, cost not checked yet). **The climax (author, 2026-10-04):** the Crown **wakes Kyogre on one of the sea routes connecting to the capital** and pushes on the seal from there, since Kyogre's influence reaches it. After the climax the survivors fall back to Aldermere, and the player first sees the anchor itself in the post-game. **The capital is Gildhaven** (author confirmed, 2026-10-04) (the central city, the Goldsworth tower, beside the Pinnacle Gate), and its only sea route is **R19, Waymeet to Gildhaven** ([maps/routes-centre.md](maps/routes-centre.md)). That puts Kyogre right at the unguarded tower's harbour while the Elite Four and Cynthia are away. R19 is a gym-6 route (levels 38 to 42), so the climax is a scripted return visit after badge 9, with its own higher levels.
 3. **The legendaries.** Kyogre for the Crown (author, decided). Dialga's anchor is in sunken Aldermere (author). Open: is Dialga itself ever met, and where? Does Mirror Isle, already a legendary encounter, link to Giratina's reverse world (a 'mirror' of ours)? PROPOSED idea only. **Mystery Dungeon idea (author raised, 2026-10-04):** in Explorers of Time/Darkness/Sky, **Time Gears** at five sites keep time flowing and feed **Temporal Tower**, Dialga's domain; removing one freezes time there. Mystery Dungeon is a spin-off with its own Pokémon-only world, so it is borrowed as **inspiration, not canon**. PROPOSED use: a Veldris relic in the same spirit (Dialga's anchor), which the Crown could break to free Kyogre's flood. Coincidence worth using: a DITTO guards one Time Gear, and Mirror Isle is Veldris's only DITTO source.
-4. **Leaders.** Names, looks and teams for the Commons leader and the Crown's leader. The Commons leader is met in a Wendlebury house without the player knowing (author).
-5. **Team Commons' name:** keep it, or pick a final one?
+4. **Leaders.** The Commons leader is **TEDDY** (author); his sprite and team, and the Crown leader's name, look and team, are open. Teddy is met in a Wendlebury house without the player knowing (author).
+5. ~~Name~~ **Resolved (author, 2026-10-04):** THE COMMONS, led by **TEDDY**.
 6. **The badge 5 to 7 beat:** which town, and the order of the team-up and the leader fight.
 7. ~~Kyogre after the climax~~ **Resolved (author, 2026-10-04):** the player **can encounter Kyogre, but only at the right hour: a random hour of the day**. **Where: post-game Aldermere, near Dialga's anchor** (author). **The player gets a hint** to today's hour (author). PROPOSED form: one of the Crown's remaining people in Aldermere 'feels the tide turn' and names the hour each day ('The water stirs around 4 today.'). Build note (checked, not built): `gettime` gives the hour to a script; the daily random hour can be rolled once a day the way the Lottery Corner rolls its number (`src/clock.c` daily update), a one-line engine hook plus one saved var, logged in engine-edits.md when built.
 8. **The Goldsworths' outside ties:** does outside help ever arrive, or is it only what the Crown fears?

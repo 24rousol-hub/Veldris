@@ -2,7 +2,7 @@
 
 Status: **PROPOSED.** The build brief for the author's Porymap work. Facts come from [../../wendlebury.md](../../wendlebury.md) (role, buildings, flavour), [../../dialogue/wendlebury.inc](../../dialogue/wendlebury.inc) (every NPC and sign), [../interiors/README.md](../interiors/README.md) (house style) and [../interiors/catalogue.md](../interiors/catalogue.md). Roads: [routes-west-a.md](routes-west-a.md) (R2 arrives at the south edge, R8 at the north edge). The name is approved; everything else here is a suggestion. New minor names are marked PROPOSED. Nothing is built.
 
-> **Villain teams (author, 2026-10-04):** one house holds the **Team Commons leader**, met as an ordinary local and revealed later (author). Pick which house when the town is built; PROPOSED: talking to them is the beat that clears Route 3. See [../../factions.md](../../factions.md).
+> **Villain teams (author, 2026-10-04):** one house holds the **The Commons leader**, met as an ordinary local and revealed later (author). Pick which house when the town is built; PROPOSED: talking to them is the beat that clears Route 3. See [../../factions.md](../../factions.md).
 
 Quick facts: **town**, no gym, no Goldsworth house, the third place. Pokémon Center, Mart, the market square and the sea. Gossip about the Goldsworths and about Crestfall's scheme. A blocked road to the west (the barricade) and, after the League, the water route R27 to Vesperhaven from its beach. Fly point and heal location: yes.
 
