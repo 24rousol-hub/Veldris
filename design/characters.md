@@ -5,7 +5,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 ## Player
 
 - Silent protagonist. Name is chosen at the start. **(PROPOSED)** Dialogue choices are allowed to be petty.
-- Sole motivation: humiliate Troglodyte. **(author)**
+- Sole motivation: humiliate Troglodyte. **(author)** **Clarified (author, 2026-10-04):** the player cares about Veldris, but feels its bigger trouble should not be their problem: a nuisance, but a necessary one.
 
 ## Troglodyte (Beauregard Goldsworth IV)  **(author: concept)**
 
@@ -87,6 +87,10 @@ Two aides in Fennick's lab, drafted in [dialogue/hollowbrook.inc](dialogue/hollo
 - **Assholes by obliviousness, not by contempt (author).** They live in luxury and do not understand the lower classes. Unlike the rest of the family they do not dislike ordinary people. They just have no idea how those people live.
 - Voice (PROPOSED): well-meaning and patronising, sure that money solves things, baffled when it does not. Their schemes come from not understanding what a gym or a town actually is. The humour lands on the obliviousness, not on cruelty.
 - Names TBD.
+
+## The villain teams (author, 2026-10-04)
+
+Team Commons (land routes, met personally; its leader is first met unrecognised in a Wendlebury house) and THE DROWNED CROWN (sea routes, volatile, led by the believed last descendant of Aldermere's sea kings and queens). Leaders' names, looks and teams are not decided. Full notes: [factions.md](factions.md).
 
 ## Trainer constants
 

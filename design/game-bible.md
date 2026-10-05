@@ -6,7 +6,7 @@
 
 ## Pitch
 
-The player has one reason to become Champion: to humiliate Troglodyte. His real name is Beauregard Goldsworth IV. He is a sheltered, mediocre rival whose rich parents keep staging elaborate schemes to sabotage the gyms in his way. Every scheme fails. The League is just what happens to be at the end of the road.
+The player has one reason to become Champion: to humiliate Troglodyte. His real name is Beauregard Goldsworth IV. He is a sheltered, mediocre rival whose rich parents keep staging elaborate schemes to sabotage the gyms in his way. Every scheme fails. The League is just what happens to be at the end of the road. **The real danger (author, 2026-10-04)** is two villain teams in a reluctant alliance against the rich, Team Commons and the Drowned Crown ([factions.md](factions.md)); the player handles them as a necessary nuisance.
 
 **Author note (2026-09-29):** the Goldsworths are rich frat guys who are assholes. Every city has a Goldsworth house (and so does Hollowbrook, the grandfather's home town, the one town exception), and one city has their skyscraper business, where Troglodyte's parents are. The parents are oblivious rather than contemptuous, unlike the rest of the family. His grandfather, a kind old man who had to step down as family head, lives in Hollowbrook's house. The Goldsworths may swear, mildly. Details and what is still open: [characters.md](characters.md), [story-outline.md](story-outline.md).
 
@@ -33,8 +33,10 @@ The player has one reason to become Champion: to humiliate Troglodyte. His real 
 1. Intro (C-driven, `data/text/birch_speech.inc`), Prof. Fennick, starter.
 2. First 3 towns and 3 routes, ending at gym 1 (Greta, Normal). Built first so all three can be flown between.
 3. Gyms 2 to 9 in order, each with its own Goldsworth scheme. Every city has a Goldsworth house (and Hollowbrook, as the one town exception), and one city has their skyscraper (PROPOSED details in [story-outline.md](story-outline.md)).
-4. Elite Four, then the Champion.
-5. Post-game.
+   **Alongside (author, 2026-10-04):** the villain teams, Team Commons on land and the Drowned Crown at sea ([factions.md](factions.md)). Commons block Route 3 until Wendlebury; the alliance breaks between badges 5 and 7; the player and Troglodyte beat the Commons leader together.
+4. **Climax (author):** after badge 9 the Elite Four and Cynthia leave to calm the region and the Drowned Crown wakes Kyogre on R19 into Gildhaven, the capital.
+5. Elite Four, then the Champion.
+6. Post-game (Aldermere: the Crown's refuge, Dialga's anchor, Kyogre at a random daily hour).
 
 ## Who does what
 

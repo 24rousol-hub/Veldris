@@ -2,6 +2,8 @@
 
 Status: **PROPOSED.** Name approved 2026-10-01 ([../../region-names.md](../../region-names.md)). The sketch calls it 'Lost City' with the roads 25 and 26 (my R26). Template and rules: [../README.md](../README.md). Road: R26 in [../routes-south.md](../routes-south.md). Post-game list: [../../postgame.md](../../postgame.md). Gate: Dive comes from [beaconmouth.md](beaconmouth.md).
 
+> **Villain teams (author, 2026-10-04):** Aldermere is the **ancestral seat of the Drowned Crown**: its kings and queens ruled the waters from here before time was recorded. **Dialga's anchor** lies in the sunken city, a moment frozen in time that holds back the flood so it cannot sink the whole region. Post-game, the **Crown's last people take refuge here**, docile now their leader has fallen, and offer **a Battle Tower or something else significant**. **Kyogre** can be met near the anchor at a random hour each day; one of them hints at the hour. **This changes parts of this file** (the 'ruins built by nobody's ancestors' tone, the Winston kiosk gag may stay or go). Not yet reconciled: rework this file when Aldermere is designed in detail. See [../../factions.md](../../factions.md).
+
 ## Role in the story
 
 - **Post-game, dead end.** The player cannot reach Aldermere before the League: the ferry quay at Beaconmouth is roped off, and the city's sunken half needs **Dive (badge 9)**. R26 is the only road in or out.

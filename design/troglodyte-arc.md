@@ -10,6 +10,7 @@ Sample lines: [dialogue/troglodyte_arc_samples.inc](dialogue/troglodyte_arc_samp
 2. **Gym order (Option B):** gym 1 Normal, then 2 Bug, 3 Ghost, 4 Steel, 5 Ice, 6 Flying, 7 Poison, 8 Fairy, 9 Water. Gym 6 is in the skyscraper city where Troglodyte's parents live.
 3. **Level curve:** gym 1 leader ace 12, gym 9 leader ace 60, Elite Four starts at 65, Champion (an aged Cynthia, not Troglodyte) at 75. Troglodyte's last fight is just before the Champion, at about 68 to 72.
 4. Fight 8 is the finale before Cynthia.
+5. **Villain teams (author, 2026-10-04):** somewhere after the badge 5 to 7 team-up with Team Commons, **the player and Troglodyte fight the Commons leader together** (a double battle with Troglodyte as partner). A natural humbling point for Arc A. Not yet placed in the fight schedule below. See [factions.md](factions.md).
 
 ## Arc A
 

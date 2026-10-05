@@ -254,6 +254,8 @@ No water here (the pen is a fenced yard, decoration).
 
 ## R19: Waymeet to Gildhaven (water, sketch 32)
 
+> **Villain teams (author, 2026-10-04):** **the story climax happens here** after badge 9: the Drowned Crown wakes Kyogre on this road into Gildhaven. It is a scripted return visit with its own higher levels; the gym-6 levels below are for the first crossing. See [../factions.md](../factions.md).
+
 **Length and shape.** Vanilla **Route 129** (`Route129_Layout`, **80 x 40**, tileset `gTileset_General` + `gTileset_Mossdeep`). No Palladium water road fits a long east-west run (Route 40 is vertical, 20 x 34). A long, sheltered stretch of open water between two shores: reed islets, a rail viaduct crossing overhead near Waymeet, a few rocky skerries, a lighthouse-less coast, sandbanks with a single grass tuft each. Mood: calm, wide, a place to take a break from the cliffs. Size check: `(80+15)*(40+14) = 5130`, fine. Section `MAPSEC_ROUTE_129`.
 
 **Edges.** **East edge** connects to Waymeet's west pier. **West edge** connects to Gildhaven's east harbour. The sketch arrow runs towards Gildhaven. Both ends are open water; the player starts on land and surfs in. No side exits. The viaduct is scenery.

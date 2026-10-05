@@ -28,7 +28,7 @@ Status: **APPROVED by the author on 2026-10-01: all the first-pick names below**
 | City south-east | KINGSQUAY | HARBOURGATE, LANTERNPORT | big harbour city, no gym | none | Olivine City or Cianwood | Lilycove |
 | Town far SE | DRIFTSANDS | SUNMOUTH, PEBBLEBAY | beach town | none | none | Dewford |
 | City far SE | BEACONMOUTH | LAMPREACH, WATCHHAVEN | lighthouse city | 9 Water | Olivine City (lighthouse) | Sootopolis |
-| Lost City | ALDERMERE | DROWNHALL, SUNKENHAM | drowned ruins (post-game, dead end) | none | Ruins of Alph (all the chambers) | none |
+| Lost City | ALDERMERE | DROWNHALL, SUNKENHAM | drowned ruins (post-game, dead end); seat of the Drowned Crown and Dialga's anchor ([factions.md](factions.md)) | none | Ruins of Alph (all the chambers) | none |
 | South City | VESPERHAVEN | LASTHYTHE, EVENMOOR | hidden coast (post-game only) | none | none | Sootopolis |
 
 ## Landmarks (7)

@@ -25,6 +25,8 @@ Teams mix species from all nine generations (checked against the evolution level
 
 **Option B (not chosen as default, PROPOSED, shorter sketch):** Fire (a lazy chef), Electric (a stage magician), Psychic (a shy librarian), Steel (a retired smith). Steel would now clash with gym 4. Levels would need rescaling to 65 to 71.
 
+> **Villain teams (author, 2026-10-04):** right after badge 9 and before the League, **the Elite Four and Cynthia leave to calm the region** and the Drowned Crown wakes **Kyogre on R19, the sea road into Gildhaven**. The League is fought after that. Post-game: the Crown's last people take refuge in **Aldermere**, now docile, offering a Battle Tower or something else significant; **Kyogre** can be met near **Dialga's anchor** there at a random hour each day, with a hint. See [factions.md](factions.md).
+
 ## The Champion: an aged CYNTHIA (author, 2026-10-01)
 
 Troglodyte is **not** the Champion. He is the last trainer the player fights before the Champion's chamber, in the League corridor.

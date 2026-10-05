@@ -25,5 +25,10 @@ Sign, Center nurse (shared wording with Crestfall's), Mart clerk, a market trade
 ## Added 2026-10-01 (dialogue only)
 Two market sellers (berries, tea), a second Center visitor, a 2F counter clerk, a Mart shopper, House 1 (resident, SLAKOTH, shelf), House 2 (resident, child, TV), a Troglodyte sighting, and four return-visit lines after Crestfall's gym (`FLAG_BADGE01_GET`, no new flag). The gossip line calls back Scheme 1.
 
+## Villain teams (author, 2026-10-04)
+
+- **The Team Commons leader lives in a house here**, met as an ordinary local; who they are is a surprise revealed later (author). PROPOSED: after the talk the Commons grunts blocking Route 3 leave, which is why Route 3 opens after Wendlebury.
+- Story order (author): Crestfall, then Wendlebury, then Route 3 to Briarwick. See [factions.md](factions.md).
+
 ## To place after the map is pushed
 Warps for each door, signs, the NPCs above, the heal location (two traps: `respawn_map` before `respawn_npc`, see CLAUDE.md), and the Route 1 and Route 2 connections. No triggers, no new flags.

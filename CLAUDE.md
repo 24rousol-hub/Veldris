@@ -1,6 +1,6 @@
 # CLAUDE.md - Pokémon: Piss Off Troglodyte (Veldris)
 
-A personal-use GBA ROM hack built on pokeemerald-expansion. Custom region **Veldris**: 18 towns, 33 routes, 9 gyms, an Elite Four and a post-game. The player's only motivation is humiliating Troglodyte (Beauregard Goldsworth IV), a sheltered, mediocre rival whose rich parents keep staging gym sabotage schemes that fail. **This repository is PUBLIC.**
+A personal-use GBA ROM hack built on pokeemerald-expansion. Custom region **Veldris**: 18 towns, 33 routes, 9 gyms, an Elite Four and a post-game. The player's motivation is humiliating Troglodyte (Beauregard Goldsworth IV), a sheltered, mediocre rival whose rich parents keep staging gym sabotage schemes that fail. The real danger is two villain teams, **Team Commons** (land) and **the Drowned Crown** (sea), which the player deals with as a necessary nuisance (`design/factions.md`). **This repository is PUBLIC.**
 
 ## Hard rules
 
@@ -13,6 +13,7 @@ A personal-use GBA ROM hack built on pokeemerald-expansion. Custom region **Veld
 7. **Credit every asset.** Reuse existing maps and tilesets instead of drawing from scratch. Sources: the author's repos `24rousol-hub/Team-Aquas-Asset-Repo` and `24rousol-hub/sprites`, plus other free community resources. Every asset from there gets a row in `CREDITS.md` in the same commit. **Do not use maps from other hacks without the author's permission.**
 8. **Ask before doing anything big:** engine changes across several files, new systems, mass renames, importing large asset packs, anything hard to undo or visible outside the repo. Keep explanations short and plain.
 9. Proposals are **PROPOSED** until the author approves them. Do not treat a suggested name, scheme or layout as canon.
+10. **Ask the author at key story points (author, 2026-10-04).** Before building or writing dialogue for a route, town or scene that carries an important story beat, stop and ask for the author's input first (a short AskUserQuestion with options is fine). Key beats include anything with Team Commons or the Drowned Crown, Troglodyte's fights and turning points, the Goldsworth schemes, gym leaders' story lines, the legendaries (Dialga, Kyogre, Giratina), Gatsby and Cynthia, and the climax and post-game. Ordinary trainers, signs and filler NPCs do not need this. The story so far is in `design/story-outline.md` and `design/factions.md`.
 
 ## Engine rules learned the hard way
 
@@ -93,6 +94,7 @@ The ROM boots headless in mGBA, which is how the intro and trainer card were che
 | What | Where |
 |---|---|
 | Game bible, story, characters, towns and routes, flags, style guide | `design/` |
+| Villain teams (Team Commons, the Drowned Crown), the climax and the legendary lore | `design/factions.md` |
 | Asset credits | `CREDITS.md` (hack section at the top) |
 | Maps | `data/maps/<Map>/` (`map.json`, `scripts.inc`) |
 | Trainers | `src/data/trainers.party`, `include/constants/opponents.h` |
