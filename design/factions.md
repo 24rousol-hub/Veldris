@@ -19,7 +19,9 @@ The growing anti-rich discourse explains why **only the Goldsworths have stayed 
 ## The Drowned Crown (author, 2026-10-04)
 
 - The leader is **believed to be the last descendant of the kings and queens who ruled the waters from Aldermere before time was recorded**. 'Believed' leaves room for a twist (PROPOSED: the claim may be false, or true and irrelevant).
-- **Maybe** that age is the same timeline as the mainline Legends game (Legends: Arceus). Open, see question 1.
+- **Same world and timeline as Legends: Arceus, but unrelated to its events** (author, 2026-10-04). The author likes a tie to the creation trio: **Dialga is in Veldris**, and Giratina was in ancient Sinnoh. Idea (author, open): Dialga was steadying Veldris, and with it the rest of the world, so that Giratina's release did not affect the whole world.
+- **Lore check (2026-10-04, Bulbapedia):** Arceus made Dialga, Palkia and Giratina and banished Giratina to the Distortion World in the creation myth, **before recorded history**. The Hisui era of Legends: Arceus is **at most about 300 years before Diamond and Pearl**, and it is recorded (the Galaxy Team keeps records); there Giratina and Volo tear the rift over Mount Coronet, and the Red Chain pulls Dialga and Palkia to Hisui. So the Aldermere kings, who ruled 'before time was recorded', fit the **creation-myth age**, not the Hisui era. PROPOSED fit with no clash: when Giratina was banished, Dialga came to rest in Veldris and held time steady there; the same steadiness is why only Aldermere drowned and not the whole region (see Kyogre below). Optional echo: about 300 years ago the Red Chain pulled Dialga away to Hisui for a while, and Veldris has old records of the sea rising in those weeks.
+- **The Crown's legendary: KYOGRE** (author's pick, 2026-10-04, to explore further). Lore check: Kyogre is the 'maker of oceans' that widened the seas with rain and tidal waves, and Primal Kyogre can raise sea levels drastically; it is woken by the Blue Orb. The lore never says it drowned one region, so Aldermere's drowning is ours to write. Alternatives, if wanted: LUGIA (its wingbeats cause storms that last 40 days), MANAPHY (the anime's drowned Sea Temple Samiya and its People of the Water are a close match to the Aldermere idea).
 - They are the **story climax: right after the last badge (9) and before the League**, because **the Elite Four and Cynthia have left to try to calm the region**.
 - **The Goldsworths are not to blame** for whatever happened to the old crown: the family only rose to fame with the grandfather (Gatsby). But the Crown sees them as **the biggest obstacle**: huge influence inside Veldris, surely ties to powers outside it, and the potential to bring in outside help.
 - The Goldsworth headquarters is **protected by the Elite Four and Cynthia because it is close to them** (the skyscraper is in Gildhaven, whose south gate is the Pinnacle Gate, see [maps/detail/gildhaven.md](maps/detail/gildhaven.md)). PROPOSED consequence: when the Elite Four and Cynthia leave to calm the region, the tower is left unguarded, and that is when the Crown strikes.
@@ -35,6 +37,7 @@ The growing anti-rich discourse explains why **only the Goldsworths have stayed 
 
 | When | Where | What happens |
 |---|---|---|
+| Wendlebury, a house | **The Commons leader, met in a house, unrecognised** (author, 2026-10-04). Who they are is a surprise revealed later. PROPOSED: they talk like a tired local who is fed up with the Goldsworths, and after the talk the grunts on Route 3 quietly leave. Only later does the player realise why this 'local' could call them off |
 | After badge 1 | **Route 3** (land) | Commons members block the road north from Crestfall. Replaces the 'Goldsworth Roadways' road-works idea in [maps/routes-west.md](maps/routes-west.md) (the author wants the big bad to block it, 2026-10-04). They point the player to Wendlebury |
 | Wendlebury | town | The first proper Commons beat. Once it is done, Route 3 opens (story order: Crestfall, then Wendlebury, author 2026-10-01) |
 | Early to mid game | land routes | Commons blocks and rallies; the Crown only as rumours, a boat on the horizon |
@@ -53,9 +56,9 @@ The growing anti-rich discourse explains why **only the Goldsworths have stayed 
 ## Open questions
 
 1. **The Legends: Arceus link.** Same ancient age as Hisui, or Veldris's own unrecorded age?
-2. **Aldermere** is a post-game dead end in [region-names.md](region-names.md). Does the Crown climax happen there (moving it into the main story), or somewhere else, with Aldermere kept as the post-game epilogue?
-3. **The Crown's legendary.** Which sea legendary do they wake, and does it link to the Mirror Isle shrine?
-4. **Leaders.** Names, looks and teams for the Commons leader and the Crown's leader. Is the Commons leader the same person met 'personally' early on?
+2. ~~Aldermere~~ **Resolved (author, 2026-10-04):** Aldermere **stays post-game**. The last of the Crown's people have gone back there for refuge. With their leader fallen they are far more docile, and they have **a Battle Tower or something else significant** to offer (which one is open; a Battle Tower there would reuse the expansion's Battle Frontier tower, cost not checked yet). Where the climax itself happens is still open.
+3. **The legendaries.** Kyogre for the Crown (author's pick, to explore). Where does Dialga sit (a shrine, the post-game, Argent Peak)? Does Mirror Isle, already a legendary encounter, link to Giratina's reverse world (a 'mirror' of ours)? PROPOSED idea only.
+4. **Leaders.** Names, looks and teams for the Commons leader and the Crown's leader. The Commons leader is met in a Wendlebury house without the player knowing (author).
 5. **Team Commons' name:** keep it, or pick a final one?
 6. **The badge 5 to 7 beat:** which town, and the order of the team-up and the leader fight.
 7. **The Goldsworths' outside ties:** does outside help ever arrive, or is it only what the Crown fears?
