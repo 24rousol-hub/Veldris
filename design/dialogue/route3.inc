@@ -1,5 +1,6 @@
 @ Route 3 dialogue DRAFT (Crestfall to Briarwick). Status: PROPOSED, not wired. Brief: design/maps/routes-west.md, R3.
 @ Check widths: python3 design/tools/dialogue_check.py design/dialogue/route3.inc
+@ SUPERSEDED (author, 2026-10-04): Team Commons blocks this road until the Wendlebury beat (design/factions.md). Foreman lines need a rewrite.
 @ A short wooded lane. The Crestfall end is closed by road works (GOLDSWORTH ROADWAYS) until FLAG_BADGE01_GET.
 @ Pokemon only (no real animals), nobody here swears. TROGLODYTE written literally.
 

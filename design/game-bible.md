@@ -65,6 +65,7 @@ These need the author's call. None blocks the first 3 towns.
 
 | Date | Decision | Who |
 |---|---|---|
+| 2026-10-04 | Villains: Team Commons (land routes) and THE DROWNED CROWN (sea routes, the climax after badge 9), a reluctant alliance against the rich. The player cares about Veldris but sees this as a necessary nuisance. See [factions.md](factions.md). | Author |
 | 2026-09-29 | Town names Hollowbrook and Wendlebury approved. Vanilla GBA town-map look approved for the region map. | Author |
 | 2026-09-29 | Badges: research public hacks with more than 8 badges, and consider a custom badge case with our own art. Plan first, no engine edits yet. | Author |
 | 2026-09-29 | Fly towns: the author left it to the assistant ("whatever is best for the future"). Chosen: approach A-prime, see [region-map.md](region-map.md). | Assistant, on the author's instruction |

@@ -6,7 +6,7 @@ Status: **PROPOSED** except the name and Greta (approved earlier) and that Crest
 Normal type farm town and the first gym, one road from Hollowbrook. It is a town, so it has **no Goldsworth house** (changed 2026-10-01): the NPC-only cousin set below moves to **Briarwick** (approved 2026-10-01). The Center and Mart here are the player's first. The skyscraper is **not** here unless the author says so. Greta is the leader (`TRAINER_CRESTFALL_GRETA`, STANDARD BADGE). Scheme 1 plays out here.
 
 ## Where it sits
-West: Route 1 from Hollowbrook. East: Route 2 to Wendlebury, **the next stop in the story** (author, 2026-10-01). North: Route 3 to Briarwick, **blocked for now**; how and when it opens is a story question still to settle. Layout as built below.
+West: Route 1 from Hollowbrook. East: Route 2 to Wendlebury, **the next stop in the story** (author, 2026-10-01). North: Route 3 to Briarwick, **blocked by Team Commons** until the Wendlebury beat (author, 2026-10-04; details in [factions.md](factions.md)). Layout as built below.
 
 ## Buildings
 | Building | Layout | Notes |
