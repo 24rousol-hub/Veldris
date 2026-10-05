@@ -11,7 +11,8 @@ The growing anti-rich discourse explains why **only the Goldsworths have stayed 
 | | The Commons | The Drowned Crown |
 |---|---|---|
 | Name | **THE COMMONS** (author, 2026-10-04; not 'Team Commons') | **THE DROWNED CROWN** (name approved by the author) |
-| Leader | **TEDDY** (author, 2026-10-04). Sprite not chosen (DP-style options shown 2026-10-04) | Not decided (believed last descendant of Aldermere's rulers) |
+| Leader | **TEDDY** (author, 2026-10-04). Sprite: DP **Pokéfan M** (spilledpizza) with the shirt recoloured **forest green** (author), battle picture and overworld. Not imported yet | Not decided (believed last descendant of Aldermere's rulers) |
+| Grunts | **Almost all construction workers** (author): DP **Worker** (spilledpizza) with a group marking. PROPOSED marking: a **green band on the hard hat**, matching Teddy's green (options shown 2026-10-04). The few non-workers can wear the same green band as an armband or bandana. Not imported yet | Not decided |
 | How you meet them | More personally (author) | Mostly at a distance until late (PROPOSED) |
 | What they block | **Land routes** (author) | **Sea routes** (author) |
 | Temper | Political, wants the public on its side (PROPOSED) | **The more volatile group: they don't care about casualties** (author) |
