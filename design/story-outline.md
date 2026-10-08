@@ -72,9 +72,9 @@ The draft dialogue for this scene, and for the rest of Hollowbrook, is in [dialo
 - **`VAR_STARTER_MON` and `GetStarterPokemon`** hold three species (`sStarterMon[3]`), and `credits.c`, `field_specials.c` and `battle_setup.c` read them. Check what needs them once the species are chosen. If the player can end up with the fourth species, the table may need a fourth entry (a one-line engine edit).
 - **The lab map has to support it.** It needs a table with room for four ball objects. `Elm's Lab.png` has a table (green, three tiles wide), so paint it at least four wide, with a free tile in front of each ball spot. The balls are events, and I place them. See [map-plan.md](map-plan.md).
 
-### Scheme 1 (opening beat by the author, 2026-10-08; rest being chosen)
+### Scheme 1: the private booking (author, 2026-10-08)
 
-**Fixed (author):** at the gym door, Troglodyte's attendant pushes the player aside because 'the golden boy goes first'; Troglodyte thinks nothing of it, since it is how he was raised. The gym puzzle is the fence pens (crestfall.md).
+**Fixed (author):** at the gym door, Troglodyte's attendant pushes the player aside because 'the golden boy goes first'; Troglodyte thinks nothing of it, since it is how he was raised. The parents booked the gym for a private session with a photographer for 'the future Champion's first badge'; Greta beats him in two turns, the photo of his loss goes on the town noticeboard, and he battles the player to 'prove it was a fluke'. The gym puzzle is the fence pens. Details: [crestfall.md](crestfall.md).
 
 Earlier PROPOSED example (may be replaced):
 
