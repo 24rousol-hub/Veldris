@@ -2,6 +2,8 @@
 
 > **Mothwood moved (author, 2026-10-08):** the maze now **branches off R8** (Wendlebury to Briarwick), not off Briarwick by R9, which is dropped. R8 opens after badge 2, so Mothwood does too. Its entrance gate needs re-placing on R8 when the maze is designed.
 
+> **Mothwood's story event (author, 2026-10-08).** A **ranger closes Route 8**: 'odd happenings in Mothwood, closed until further notice'. Briarwick's gym leader noticed it first, so badge 2 gets the player in. **Required**, like HGSS's Lake of Rage (how progress is held until it is solved is not decided: e.g. the road to gym 3 stays shut, or the leader asks for help). **Inside (option A, author):** time is stopping in the forest; the shrine holds a **Time Gear-like piece of Dialga's seal**, and **the Drowned Crown** have come inland to steal it (the player's first real look at them). **Mythicals:** **Celebi** in the post-game at the shrine (author), and an earlier encounter during the event, **Shaymin** (author's leaning; PROPOSED framing: Shaymin is caught frozen in time in a flower clearing and freed when the gear is saved). See [../factions.md](../factions.md).
+
 
 Status: **PROPOSED.** Names approved 2026-10-01 for Mothwood and Slagwell Mine ([../region-names.md](../region-names.md)); the Ice cave is unnamed in the sketch ("Inside Hoarfell"). Conventions, templates and the level curve: [README.md](README.md). Roads: [routes-west.md](routes-west.md). Towns: [towns/briarwick.md](towns/briarwick.md), [towns/smeltham.md](towns/smeltham.md), [towns/hoarfell.md](towns/hoarfell.md).
 
@@ -12,7 +14,7 @@ Sizes: Palladium images with a 1 px grid are `(px - 1) / 17`, others `px / 16`. 
 ## MOTHWOOD (forest maze, off Briarwick)
 
 ### Role
-An optional forest maze north-east of Briarwick, reached by R9. A Bug-type playground: bug trainers, the gym's themed grass, a shrine, a lot of items behind early HMs. It is a **return** destination: the first visit (after badge 1, with Cut) opens the maze, later visits (Strength, Surf, Waterfall) open the rest. It is nowhere on the main path, so it can be built last.
+**No longer optional (author, 2026-10-08), see the note at the top.** An optional forest maze north-east of Briarwick, reached by R9. A Bug-type playground: bug trainers, the gym's themed grass, a shrine, a lot of items behind early HMs. It is a **return** destination: the first visit (after badge 1, with Cut) opens the maze, later visits (Strength, Surf, Waterfall) open the rest. It is nowhere on the main path, so it can be built last.
 
 ### Where it sits and how it is entered
 - **South-west gatehouse** (a grey building at the bottom-left of the render) is the entrance from R9. The player walks in from the south.
