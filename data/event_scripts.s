@@ -1743,6 +1743,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/battle_frontier.inc"
 	.include "data/scripts/apricorn_tree.inc"
 	.include "data/scripts/wild_encounter.inc"
+	.include "data/scripts/veldris_journal.inc"
 	.include "data/maps/VeldrisRoute1/scripts.inc"
 	.include "data/maps/Crestfall/scripts.inc"
 	.include "data/maps/Crestfall_PokemonCenter_1F/scripts.inc"

@@ -40,6 +40,7 @@ Vars: persistent vars are 0x4000-0x40FF (256 in total). `VAR_TEMP_0` to `VAR_TEM
 | `FLAG_RECEIVED_HM_CUT` (vanilla, reused) | 0x089 | Item | Greta gave HM CUT | `Crestfall_Gym` | Never | 2026-10-08 |
 | `FLAG_VISITED_CRESTFALL` | 0x021 | Fly | Crestfall is a fly destination | Town `OnTransition` | Never | 2026-10-08 |
 | `FLAG_SYS_RUN_BY_DEFAULT` | 0x881 | System | Set = the player runs unless B is held (clear = vanilla, B runs). L toggles it once the Running Shoes (`FLAG_SYS_B_DASH`) are owned. See [running-shoes.md](running-shoes.md) | L press in the overworld (`src/veldris_run.c`) | L press again, debug menu | 2026-10-08 |
+| `FLAG_SYS_EXP_SHARE_ON` | 0x882 | System | Set = the Exp. Share key item is switched on (whole party gains Exp). Read by `IsGen6ExpShareEnabled` via `I_EXP_SHARE_FLAG`. See [exp-share.md](exp-share.md) | Using the Exp. Share item (`src/item_use.c`) | Using it again, debug menu | 2026-10-08 |
 | `FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS` | 0x496 | One-shot | Route 1 guide's 3 POTIONs given | Guide's script | Never | 2026-10-01 |
 | `FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_POTION`, `_REPEL` | 0x265, 0x266 | Hidden item | Route 1 hidden POTION (27,13) and REPEL (44,17) picked up | The hidden item event | Never | 2026-10-01 |
 | `VAR_HOLLOWBROOK_STATE` | 0x40F8 | Var | 0 new game, 1 mom woke player, 2 Troglodyte has his ball (player choosing, exit blocked), 3 player chose, 4 Troglodyte beaten outside | Lab scene (2, 3); mom and the town scripts later (1, 4) | Never | 2026-10-01 |
@@ -72,7 +73,7 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 | **0x497-0x4EF** | 89 | **Per-map one-shots** (talked-to flags, single pickups) for towns and routes. Goldsworth houses are NPC-only and need none unless an NPC in one has a once-only line (at most one per house, and there are only about 7 houses) |
 | 0x4F9-0x4FA, 0x4FF | 2 + 1 | General purpose |
 | 0x863 | 1 | General purpose |
-| 0x882-0x887 | 6 | General purpose (0x881 is now `FLAG_SYS_RUN_BY_DEFAULT`) |
+| 0x883-0x887 | 5 | General purpose (0x881 is now `FLAG_SYS_RUN_BY_DEFAULT`, 0x882 `FLAG_SYS_EXP_SHARE_ON`) |
 | 0x88F | 1 | General purpose (0x88E is now `FLAG_BADGE09_GET`) |
 | 0x8E3 | 1 | General purpose |
 | **0x8EC-0x91E** | 51 | **Story beats and cutscenes:** gyms, Elite Four, post-game. Spill into the general flags if needed |
@@ -88,6 +89,8 @@ Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x4
 **Claimed 2026-09-30:** `VAR_TROG_STARTER` (0x40F7, was `VAR_UNUSED_0x40F7`): Troglodyte's random starter, 0, 1 or 2 for the 1st, 2nd or 3rd starter on show. Set once by the lab scene (`random 3`) and read by the pool prune in `src/trainer_pools.c`.
 
 **Planned, not claimed yet (villain teams, [factions.md](factions.md)):** a Route 3 block flag or story var (Commons grunts gone after the Wendlebury beat), a hide flag for the Commons leader in Wendlebury, a story var for the factions' progress, and one saved var for Kyogre's daily hour in Aldermere. **Also planned:** one object-hide flag for the grandfather's bench (Hollowbrook), driven by the lab scene, `FLAG_BADGE01_GET` and `FLAG_SYS_GAME_CLEAR`; a flag for Troglodyte's attitude, contemptuous or oblivious, once the story points that change it are decided (from the story-beat block above). Route 1's guide flag (0x496) and two hidden-item flags (0x265, 0x266) were claimed 2026-10-01 (rows above). **Already claimed:** `VAR_TROG_STARTER` (0, 1 or 2), set by the lab scene and read by every Troglodyte battle (see its row above). **Claimed 2026-10-01 for the lab scene:** `VAR_HOLLOWBROOK_STATE` (0x40F8) and five hide flags 0x8E5-0x8E9 (table above). **Claimed 2026-10-01 for the town:** the grandfather and Troglodyte hide flags (0x8EA, 0x8EB), three per-map one-shots (0x493-0x495) and `FLAG_VISITED_HOLLOWBROOK` (0x020). Claim the rest and add rows here when the scripts are written.
+
+**The Journal ([journal.md](journal.md)) claims no flag or var.** It reads the badge flags, the TROGLODYTE trainer flags (0x708, 0x709), `FLAG_SYS_GAME_CLEAR` and `VAR_HOLLOWBROOK_STATE`, and uses the volatile `VAR_0x8004`/`VAR_0x8005` as hand-off.
 
 **Only 22 spare persistent vars.** Use a var only for a state that has more than two values (a story chapter counter, a puzzle stage). Use a flag for anything yes/no. If we run short, the remaining Hoenn vars can be freed by removing the Hoenn maps that use them, but that is a decision for the author.
 

@@ -69,6 +69,8 @@ Fight 8 is fixed as the finale before Cynthia (open decision 2 in [game-bible.md
 
 **Trainer ids:** eight fights cost 8 ids if new. Reuse vanilla entries (for example the `TRAINER_BRENDAN_*` set) via `#define` per [CLAUDE.md](../CLAUDE.md); nothing here claims ids. Blocks for fights 1 and 2 in [teams.md](teams.md) still show level 8 for fight 2 and Sir Biscuit at 7: both fit the new range (8 to 9, 7 to 8) and are untouched.
 
+**Journal tally.** Every built TROGLODYTE fight also needs one `X(TRAINER_TROGLODYTE_<PLACE>)` row in `VELDRIS_TROGLODYTE_FIGHTS` (`include/veldris_journal.h`) or the Journal ('has lost to you N times') silently skips it, and must be scripted with `trainerbattle_single` or `trainerbattle_no_intro`, not `trainerbattle_earlyrival` (that sets the defeated flag on a loss too). See [journal.md](journal.md).
+
 ## What he says at each beat (Arc A)
 
 Full lines, each under 208 px, in the `.inc` file. Labels are unchanged from the earlier draft.

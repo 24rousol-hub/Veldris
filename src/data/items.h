@@ -14403,18 +14403,18 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_AuroraTicket,
     },
 
-    [ITEM_OLD_SEA_MAP] =
+    [ITEM_OLD_SEA_MAP] = // Veldris: this slot is the Journal (alias ITEM_JOURNAL)
     {
-        .name = ITEM_NAME("Old Sea Map"),
+        .name = ITEM_NAME("Journal"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "A faded sea chart\n"
-            "that shows the way\n"
-            "to a certain island."),
+            "Tracks your badges,\n"
+            "the next stop and\n"
+            "your rival's losses."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Journal,
         .iconPic = gItemIcon_OldSeaMap,
         .iconPalette = gItemIconPalette_OldSeaMap,
     },

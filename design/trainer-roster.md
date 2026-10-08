@@ -31,6 +31,8 @@ Status: **BUILT 2026-10-01** (the ROM compiles; nothing has been fought in a gam
 
 ## Crestfall and Troglodyte blocks (BUILT 2026-10-01)
 
+When a new TROGLODYTE block is added, also add its row to `VELDRIS_TROGLODYTE_FIGHTS` in `include/veldris_journal.h` ([journal.md](journal.md)).
+
 | Constant | Id | Name | Pic and class | Team |
 |---|---|---|---|---|
 | `TRAINER_CRESTFALL_GYM_1` | 771 (was Roxanne 3) | DALE | **placeholder** Youngster pic, Youngster | Zigzagoon 9 |

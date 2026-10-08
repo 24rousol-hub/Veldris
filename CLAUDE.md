@@ -25,6 +25,7 @@ All checked against this tree.
 - **Use `coord_event` triggers for cutscenes, not `MAP_SCRIPT_ON_TRANSITION`.** In `map.json`:
   `{ "type": "trigger", "x": 10, "y": 1, "elevation": 3, "var": "VAR_...", "var_value": "0", "script": "Map_EventScript_Name" }`
   The tile must be walkable and its elevation must match (normally 3). `MAP_SCRIPT_ON_FRAME_TABLE` is also fine for cutscenes. `MAP_SCRIPT_ON_TRANSITION` is still the right place for instant setup such as `setflag FLAG_VISITED_<TOWN>`.
+- **An NPC that walks up to the player and talks** (no battle) is a `TRAINER_TYPE_NORMAL` object with a sight range whose script does not start with `trainerbattle`; keep a `goto_if_set` guard first and nothing visible in its done branch. Not built or run yet, recipe and traps in `design/npc-walkup.md`.
 - **Name Greta's trainer `TRAINER_CRESTFALL_GRETA`.** `TRAINER_GRETA` already exists (`include/constants/opponents.h`, `src/data/trainers.party`).
 - **The intro is C-driven.** Edit `data/text/birch_speech.inc` for intro dialogue (used by `src/main_menu.c`, included from `data/event_scripts.s`). The 'This is what we call a POKéMON' line is in `src/strings.c` instead, and the Birch art is in `graphics/birch_speech/`. Birch's name is hard-coded in the `.inc` text, so renaming him to Fennick is a text edit. `ENABLE_QUICKSTART` lets you skip the intro while testing.
 - **Write map scripts as `scripts.inc`, not Poryscript.** The build has no Poryscript rules.
@@ -102,6 +103,7 @@ The ROM boots headless in mGBA, which is how the intro and trainer card were che
 | Flags and vars | `include/constants/flags.h`, `vars.h` |
 | Intro dialogue | `data/text/birch_speech.inc` |
 | Mid-battle trainer lines | `src/data/veldris_trainer_slides.h`, `design/trainer-slides.md` |
+| Journal key item | `data/scripts/veldris_journal.inc`, `src/veldris_journal.c`, `include/veldris_journal.h`, `design/journal.md`. **Every built TROGLODYTE fight needs one row in `VELDRIS_TROGLODYTE_FIGHTS`** and must not use `trainerbattle_earlyrival` |
 | Config switches | `include/config/*.h` (summary in `design/engine-limits.md`) |
 
 ## Checklist for any content change

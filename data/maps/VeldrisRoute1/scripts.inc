@@ -53,10 +53,11 @@ VeldrisRoute1_EventScript_Guide::
 	goto_if_eq VAR_RESULT, FALSE, VeldrisRoute1_EventScript_GuideBagFull
 	giveitem_msg VeldrisRoute1_Text_GuideGive, ITEM_POTION, 3
 	setflag FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS
-	release
-	end
+	goto VeldrisRoute1_EventScript_GuideJournal
 
 VeldrisRoute1_EventScript_GuideAfter::
+	checkitem ITEM_JOURNAL
+	goto_if_eq VAR_RESULT, FALSE, VeldrisRoute1_EventScript_GuideJournal
 	goto_if_set FLAG_BADGE01_GET, VeldrisRoute1_EventScript_GuideAfterBadge
 	msgbox VeldrisRoute1_Text_GuideAfter, MSGBOX_DEFAULT
 	release
@@ -69,6 +70,16 @@ VeldrisRoute1_EventScript_GuideAfterBadge::
 
 VeldrisRoute1_EventScript_GuideBagFull::
 	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
+	release
+	end
+
+@ The Journal (design/journal.md): given once after the Potions, and again here if the bag was full or the save predates it.
+VeldrisRoute1_EventScript_GuideJournal::
+	checkitem ITEM_JOURNAL
+	goto_if_eq VAR_RESULT, TRUE, VeldrisRoute1_EventScript_GuideJournalDone
+	msgbox VeldrisRoute1_Text_GuideJournal, MSGBOX_DEFAULT
+	call Veldris_EventScript_GiveJournal
+VeldrisRoute1_EventScript_GuideJournalDone::
 	release
 	end
 
@@ -180,6 +191,12 @@ VeldrisRoute1_Text_GuideGive:
 	.string "Heading to CRESTFALL? It's\n"
 	.string "a long walk. Take these.\p"
 	.string "{PLAYER} received 3 POTIONs!$"
+
+VeldrisRoute1_Text_GuideJournal:
+	.string "And take this. Every walker on\n"
+	.string "this road ends up wanting one.\p"
+	.string "It keeps your badges and what\n"
+	.string "comes next. Put it on SELECT.$"
 
 VeldrisRoute1_Text_GuideAfter:
 	.string "Tall grass hides wild POKéMON.\n"

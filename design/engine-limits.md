@@ -57,6 +57,8 @@ Logged in [engine-edits.md](engine-edits.md). All are one-line reversions in `in
 | `B_FAST_INTRO_NO_SLIDE` (`battle.h`) | FALSE | TRUE | The battle intro slide is skipped |
 | `B_WAIT_TIME_MULTIPLIER` (`battle.h`) | 16 (vanilla) | 10 | Battle text pauses are about 40% shorter. Raise towards 16 if text feels rushed; 8 is faster again |
 | `P_CAN_FORGET_HIDDEN_MOVE` (`pokemon.h`), `B_CATCH_SWAP_CHECK_HMS` (`battle.h`) | FALSE, TRUE | TRUE, FALSE | HM moves can be forgotten and boxed freely; part of the field-move change in [field-moves.md](field-moves.md) |
+| `I_EXP_SHARE_ITEM`, `I_EXP_SHARE_FLAG` (`item.h`) | `GEN_5`, 0 | `GEN_6`, `FLAG_SYS_EXP_SHARE_ON` (0x882) | Exp. Share is a key item that toggles Exp for the whole party. No one gives it yet. See [exp-share.md](exp-share.md) |
+| `OW_TIME_OF_DAY_ENCOUNTERS` (`overworld.h`) | FALSE | TRUE | Wild tables may be split by time (`_Morning`, `_Day`, `_Evening`, `_Night` base labels). A table with no suffix is the Morning table and is also the fallback for every empty time, so **nothing changes until a suffixed table is added**. The clock is the cartridge or emulator RTC (`OW_USE_FAKE_RTC` is FALSE). See [time-of-day.md](time-of-day.md) |
 
 ## Update this file when
 
