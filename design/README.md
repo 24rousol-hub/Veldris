@@ -42,6 +42,7 @@
 | [flags.md](flags.md) | Every flag and var the hack uses, plus the spare pool | **Any** flag or var is used, added or freed |
 | [trainer-slides.md](trainer-slides.md) | Mid-battle trainer lines (BUILT mechanism, no lines yet): where rows live, triggers, traps, text rules, PROPOSED options | A slide row is added, or the author approves wording |
 | [field-moves.md](field-moves.md) | BUILT: field moves (Cut, Surf, Flash, Sweet Scent, ...) work when a party Pokémon can learn them, no move slot needed. Rule, code, test results | The move set, the rule or the party menu behaviour changes |
+| [running-shoes.md](running-shoes.md) | BUILT: Running Shoes given by Mom, and the L-button run-by-default toggle. Flags, code, options not taken | The gift, the toggle or its default changes |
 | [badges.md](badges.md) | Survey of hacks with more than 8 badges, and the IMPLEMENTED 9-badge table | Badge decisions or the badge plan change |
 | [engine-limits.md](engine-limits.md) | Hard engine limits (badges, trainers, sections, tiles, space) and config switches | A limit is re-measured or an edit moves one |
 | [engine-edits.md](engine-edits.md) | Every edit to upstream (non-hack) files | You edit anything outside hack content |

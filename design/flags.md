@@ -39,6 +39,7 @@ Vars: persistent vars are 0x4000-0x40FF (256 in total). `VAR_TEMP_0` to `VAR_TEM
 | `FLAG_RECEIVED_TM_CRUNCH` (alias of vanilla `FLAG_RECEIVED_TM_ROCK_TOMB`) | 0x0A5 | Item | Greta gave TM CRUNCH | `Crestfall_Gym` | Never | 2026-10-08 |
 | `FLAG_RECEIVED_HM_CUT` (vanilla, reused) | 0x089 | Item | Greta gave HM CUT | `Crestfall_Gym` | Never | 2026-10-08 |
 | `FLAG_VISITED_CRESTFALL` | 0x021 | Fly | Crestfall is a fly destination | Town `OnTransition` | Never | 2026-10-08 |
+| `FLAG_SYS_RUN_BY_DEFAULT` | 0x881 | System | Set = the player runs unless B is held (clear = vanilla, B runs). L toggles it once the Running Shoes (`FLAG_SYS_B_DASH`) are owned. See [running-shoes.md](running-shoes.md) | L press in the overworld (`src/veldris_run.c`) | L press again, debug menu | 2026-10-08 |
 | `FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS` | 0x496 | One-shot | Route 1 guide's 3 POTIONs given | Guide's script | Never | 2026-10-01 |
 | `FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_POTION`, `_REPEL` | 0x265, 0x266 | Hidden item | Route 1 hidden POTION (27,13) and REPEL (44,17) picked up | The hidden item event | Never | 2026-10-01 |
 | `VAR_HOLLOWBROOK_STATE` | 0x40F8 | Var | 0 new game, 1 mom woke player, 2 Troglodyte has his ball (player choosing, exit blocked), 3 player chose, 4 Troglodyte beaten outside | Lab scene (2, 3); mom and the town scripts later (1, 4) | Never | 2026-10-01 |
@@ -71,7 +72,7 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 | **0x497-0x4EF** | 89 | **Per-map one-shots** (talked-to flags, single pickups) for towns and routes. Goldsworth houses are NPC-only and need none unless an NPC in one has a once-only line (at most one per house, and there are only about 7 houses) |
 | 0x4F9-0x4FA, 0x4FF | 2 + 1 | General purpose |
 | 0x863 | 1 | General purpose |
-| 0x881-0x887 | 7 | General purpose |
+| 0x882-0x887 | 6 | General purpose (0x881 is now `FLAG_SYS_RUN_BY_DEFAULT`) |
 | 0x88F | 1 | General purpose (0x88E is now `FLAG_BADGE09_GET`) |
 | 0x8E3 | 1 | General purpose |
 | **0x8EC-0x91E** | 51 | **Story beats and cutscenes:** gyms, Elite Four, post-game. Spill into the general flags if needed |
