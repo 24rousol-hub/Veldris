@@ -72,6 +72,11 @@ Gym leader aces: gym 1 **12** (Crestfall), 2 **19** (Briarwick), 3 **25** (Gloom
 - HMs by badge: Cut 1, Rock Smash 2, Flash 3, Strength 4, Surf 5, Fly 6, Waterfall 8, Dive 9 ([../gyms.md](../gyms.md)). Surf at badge 5 opens the water roads.
 - Dialogue tone: [../dialogue-style.md](../dialogue-style.md). Cards give **NPC roles and one-line topics**, not finished text.
 
+## Items on routes and in shops (author, 2026-10-08)
+
+- **How many:** a small, ordinary route gets **1 to 2 items**; longer routes get **more** (scale with length and the number of side paths). Visible and hidden items both count.
+- **Evolution items and the Linking Cord** (there is no trading in Veldris, see [../engine-edits.md](../engine-edits.md)): spread them across **Marts and random spots on maps**. The Linking Cord evolves Kadabra, Machoke, Graveler, Haunter, Boldore, Gurdurr, Phantump and Pumpkaboo; the held items (Metal Coat, King's Rock, Dragon Scale, Upgrade, Dubious Disc, Protector, Electirizer, Magmarizer, Reaper Cloth, Deep Sea Tooth and Scale, Prism Scale, Sachet, Whipped Dream) are used from the bag. Place each where its Pokémon can first be caught or later, and record the spot in the place's or road's card.
+
 ## Settlement card template
 
 ```
