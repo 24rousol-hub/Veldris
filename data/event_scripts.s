@@ -1749,3 +1749,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Crestfall_Mart/scripts.inc"
 	.include "data/maps/Crestfall_HouseA/scripts.inc"
 	.include "data/maps/Crestfall_HouseB/scripts.inc"
+	.include "data/maps/Crestfall_Gym/scripts.inc"

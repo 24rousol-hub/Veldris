@@ -1119,7 +1119,7 @@ const u16 gTilesetPalettes_LavaridgeGym[][16] =
     INCGFX_U16("data/tilesets/secondary/lavaridge_gym/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_PetalburgGym[] = INCGFX_U32("data/tilesets/secondary/petalburg_gym/tiles.png", ".4bpp.fastSmol", "-num_tiles 148 -Wnum_tiles");
+const u32 gTilesetTiles_PetalburgGym[] = INCGFX_U32("data/tilesets/secondary/petalburg_gym/tiles.png", ".4bpp.fastSmol", "-num_tiles 158 -Wnum_tiles");
 
 const u16 gTilesetPalettes_PetalburgGym[][16] =
 {

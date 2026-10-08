@@ -76,6 +76,21 @@ Sign scripts are in `data/maps/Crestfall/scripts.inc` (town and field text from 
 - **Greta has no farm link:** she just happens to be posted here.
 - **Opening beat of Scheme 1:** when the player tries to go in, **Troglodyte's attendant pushes the player out of the way: 'the golden boy goes first.'** Troglodyte is used to this and thinks nothing of it; it is how he was raised. **Scheme 1 is 'the private booking' (author, 2026-10-08):** the parents booked the whole gym for a private session, with a photographer ready for 'the future Champion's first badge' photoshoot. Greta refuses to go easy and beats Troglodyte in two turns; the photo of his loss ends up on the town noticeboard (the humiliation beat). He storms out and battles the player to 'prove it was a fluke' (his fight 2). PROPOSED beats in the formula: **setup** a 'CLOSED: PRIVATE SESSION' sign and the photographer setting up; **reveal** the attendant's shove at the door; **collapse** Greta's two-turn win; **Troglodyte battles** the player outside; **humiliation** the noticeboard photo (it can stay up for the rest of the game). **Superseded:** the consultant draft below, the hay maze, the Route 1 surveyors' foreshadowing and House A wife's 'men in suits' lines all belong to the old scheme and need rewriting.
 
+## The gym, as built (2026-10-08)
+
+`Crestfall_Gym` (`LAYOUT_CRESTFALL_GYM`, 15 x 23), vanilla Petalburg Gym tiles (the vanilla Normal-type gym), door (20,9) in Crestfall (warp 4). Author's choices: the 'green-B' layout, a railed aisle up the middle whose **two centre gates open once Greta is beaten** (a shortcut for return visits), and a pen each side with a gym trainer by its gap. **One trainer required:** the player picks a side and beats that trainer; the other is optional. Beating Greta marks both as beaten, so an unbeaten one just chats afterwards.
+
+| What | Where |
+|---|---|
+| Greta (`TRAINER_CRESTFALL_GRETA`, overworld LASS) | (7,4) on the blue mat |
+| WREN (`TRAINER_CRESTFALL_GYM_2`), left pen, sight 3, faces right | (1,12) |
+| DALE (`TRAINER_CRESTFALL_GYM_1`), right pen, sight 3, faces left | (13,14) |
+| Pen gaps | (4,13) left, (10,15) right |
+| Centre gates (shut, opened by `setmetatile` on load once `FLAG_BADGE01_GET` is set) | (6-8,11) and (6-8,16) |
+| Statues (signs) / exit mat | (3,21), (11,21) / (7-8,22) |
+
+Rewards: STANDARD BADGE (`FLAG_BADGE01_GET`), **HM CUT** (`FLAG_RECEIVED_HM_CUT`, the vanilla flag reused) and **TM CRUNCH** (new **TM51**, flag `FLAG_RECEIVED_TM_CRUNCH` = the unused vanilla Rock Tomb flag). The aisle walls are new north-south railing tiles (metatiles 736-740 in the Petalburg Gym tileset, drawn the way vanilla draws Route 117's fence), built by `design/tools/gym/gym_rails.py`; the map by `design/tools/gym/crestfall_gym.py`. Greta's lines are the earlier drafts (PROPOSED); DALE's and WREN's were reworded because the hay maze is gone. **Checked in mGBA:** entering, the new railings, the shut centre gates. **Not yet checked:** the battles, the badge and gifts, the gates opening. **Not built:** Scheme 1 (the dialogue draft is waiting for the author's review).
+
 ## Where Scheme 1 beats happen
 1. **Setup** (before the gym): consultant outside in town; locals and the old farmer grumble; the two surveyors on Route 1 hint first.
 2. **Reveal**: consultant boss and junior at the gym door, with the junior lost in the hay maze.

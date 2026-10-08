@@ -193,6 +193,7 @@
 #define FLAG_SMART_PAINTING_MADE             0xA3
 #define FLAG_TOUGH_PAINTING_MADE             0xA4
 #define FLAG_RECEIVED_TM_ROCK_TOMB           0xA5
+#define FLAG_RECEIVED_TM_CRUNCH              FLAG_RECEIVED_TM_ROCK_TOMB // Veldris: Greta's TM (Rustboro's gym is unused)
 #define FLAG_RECEIVED_TM_BULK_UP             0xA6
 #define FLAG_RECEIVED_TM_SHOCK_WAVE          0xA7
 #define FLAG_RECEIVED_TM_OVERHEAT            0xA8

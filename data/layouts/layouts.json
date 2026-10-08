@@ -9433,6 +9433,17 @@
       "border_filepath": "data/layouts/VeldrisPokemonCenter_1F/border.bin",
       "blockdata_filepath": "data/layouts/VeldrisPokemonCenter_1F/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_CRESTFALL_GYM",
+      "name": "Crestfall_Gym_Layout",
+      "width": 15,
+      "height": 23,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PetalburgGym",
+      "border_filepath": "data/layouts/Crestfall_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/Crestfall_Gym/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

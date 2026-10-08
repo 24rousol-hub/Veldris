@@ -36,6 +36,8 @@ Vars: persistent vars are 0x4000-0x40FF (256 in total). `VAR_TEMP_0` to `VAR_TEM
 | `FLAG_HOLLOWBROOK_GRANDPA_TALKED1`, `_TALKED2` | 0x493, 0x494 | One-shot | First and second bench talks with the grandfather done | Grandfather's script | Never | 2026-10-01 |
 | `FLAG_HOLLOWBROOK_MOM_GOT_MON_TOLD` | 0x495 | One-shot | Mom's 'you have a POKéMON now' speech done | Mom's script in the player's house 1F | Never | 2026-10-01 |
 | `FLAG_VISITED_HOLLOWBROOK` | 0x020 | Fly | Hollowbrook is a fly destination | Town `OnTransition` | Never | 2026-10-01 |
+| `FLAG_RECEIVED_TM_CRUNCH` (alias of vanilla `FLAG_RECEIVED_TM_ROCK_TOMB`) | 0x0A5 | Item | Greta gave TM CRUNCH | `Crestfall_Gym` | Never | 2026-10-08 |
+| `FLAG_RECEIVED_HM_CUT` (vanilla, reused) | 0x089 | Item | Greta gave HM CUT | `Crestfall_Gym` | Never | 2026-10-08 |
 | `FLAG_VISITED_CRESTFALL` | 0x021 | Fly | Crestfall is a fly destination | Town `OnTransition` | Never | 2026-10-08 |
 | `FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS` | 0x496 | One-shot | Route 1 guide's 3 POTIONs given | Guide's script | Never | 2026-10-01 |
 | `FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_POTION`, `_REPEL` | 0x265, 0x266 | Hidden item | Route 1 hidden POTION (27,13) and REPEL (44,17) picked up | The hidden item event | Never | 2026-10-01 |
