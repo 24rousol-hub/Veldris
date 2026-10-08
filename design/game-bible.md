@@ -67,6 +67,7 @@ These need the author's call. None blocks the first 3 towns.
 
 | Date | Decision | Who |
 |---|---|---|
+| 2026-10-08 | No trading: Centers have no 2F, and trade evolutions work without trading (evolution items used from the bag, the Linking Cord, Karrablast and Shelmet level up with each other in the party). The Linking Cord and the evolution items still need places in the world. | Author |
 | 2026-10-08 | Mothwood is a required story event after badge 2 (ranger closure, the Drowned Crown stealing a Time Gear-like seal piece); Shedinja during it, Celebi post-game; Shaymin kept for Primrose Vale; shiny Shedinja's halo darkened. | Author |
 | 2026-10-08 | Route 8 blocked until badge 2; Mothwood branches off Route 8; Route 9 dropped. Route 3 block is Commons fake road works; Teddy's Wendlebury scene is a lost Pokémon plus a chat at the inn. | Author |
 | 2026-10-04 | Villains: The Commons (land routes) and THE DROWNED CROWN (sea routes, the climax after badge 9), a reluctant alliance against the rich. The player cares about Veldris but sees this as a necessary nuisance. See [factions.md](factions.md). | Author |
