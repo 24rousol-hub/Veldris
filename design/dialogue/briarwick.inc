@@ -256,7 +256,7 @@ Briarwick_Text_R3HikerAfter::
 	.string "The road's open! I stood up.\n"
 	.string "My legs have forgotten how.$"
 
-@ R9 north-east gatehouse (Mothwood).
+@ R9 north-east gatehouse (Mothwood). DROPPED (author, 2026-10-08): no R9; reuse the line on R8's Mothwood gate.
 Briarwick_Text_R9Guard::
 	.string "MOTHWOOD has no map.\n"
 	.string "Bring snacks and a friend.\p"

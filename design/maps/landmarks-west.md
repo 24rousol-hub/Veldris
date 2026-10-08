@@ -1,5 +1,8 @@
 # Landmarks, west group: Mothwood, Slagwell Mine, Hoarfell Ice cave
 
+> **Mothwood moved (author, 2026-10-08):** the maze now **branches off R8** (Wendlebury to Briarwick), not off Briarwick by R9, which is dropped. R8 opens after badge 2, so Mothwood does too. Its entrance gate needs re-placing on R8 when the maze is designed.
+
+
 Status: **PROPOSED.** Names approved 2026-10-01 for Mothwood and Slagwell Mine ([../region-names.md](../region-names.md)); the Ice cave is unnamed in the sketch ("Inside Hoarfell"). Conventions, templates and the level curve: [README.md](README.md). Roads: [routes-west.md](routes-west.md). Towns: [towns/briarwick.md](towns/briarwick.md), [towns/smeltham.md](towns/smeltham.md), [towns/hoarfell.md](towns/hoarfell.md).
 
 Sizes: Palladium images with a 1 px grid are `(px - 1) / 17`, others `px / 16`. Section ids are not decided (suggested names only). All three are **optional** for the story. Credit Project Palladium team in `CREDITS.md` with the first map traced. Trainers reuse vanilla ids (CLAUDE.md), no IVs, Pokémon only. Rates for land: 20/20/10/10/10/10/5/5/4/4/1/1. Water and rod slot counts follow vanilla: Surf and Rock Smash 5 slots (60/30/5/4/1), Old Rod 2 (70/30), Good Rod 3 (60/20/20), Super Rod 5 (40/40/15/4/1).

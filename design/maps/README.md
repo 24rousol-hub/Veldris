@@ -25,7 +25,7 @@ The sketch's black numbers appear in pairs on one corridor (7 and 8, 14 and 17, 
 | R6 | Smeltham, Hoarfell | land | 6 and 9 |
 | R7 | spur off R6 to Slagwell Mine | land | 7 and 8 |
 | R8 | Briarwick, Wendlebury | land | none |
-| R9 | spur off Briarwick to Mothwood | land | none |
+| R9 | ~~spur off Briarwick to Mothwood~~ **dropped (author, 2026-10-08)**: Mothwood branches off R8 | - | - |
 | R10 | Hoarfell, Cragdale | land | 10 |
 | R11 | Cragdale, Lingmoor | land | 11 |
 | R12 | Lingmoor, Waymeet | land | 12 |

@@ -1,5 +1,8 @@
 # Detailed landmark design: Mothwood, Slagwell Mine, Hoarfell Ice cave
 
+> **Mothwood moved (author, 2026-10-08):** the maze now **branches off R8** (Wendlebury to Briarwick), not off Briarwick by R9, which is dropped. R8 opens after badge 2, so Mothwood does too. Its entrance gate needs re-placing on R8 when the maze is designed.
+
+
 Status: **PROPOSED** (written 2026-10-01). Nothing here is built. It adds floor-by-floor detail to the cards in [../landmarks-west.md](../landmarks-west.md); it does not change a species, level, item or flag from them. New minor names are marked PROPOSED. Roads that lead here: [routes-west-b.md](routes-west-b.md) (R7 to the mine), the R9 card in [../routes-west.md](../routes-west.md) (Mothwood). Towns: [smeltham.md](smeltham.md), [hoarfell.md](hoarfell.md), Briarwick in [../towns/briarwick.md](../towns/briarwick.md). Conventions: [../README.md](../README.md), [../interiors/README.md](../interiors/README.md).
 
 All three are **optional** for the story, so they can be built last. Credit the Project Palladium team in `CREDITS.md` with the first map traced.

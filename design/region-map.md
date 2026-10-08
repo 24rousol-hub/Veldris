@@ -192,7 +192,7 @@ No new functions and no change to control flow. `field_region_map.c` and `pokena
 | R6 | `MAPSEC_VELDRIS_ROUTE_6` | ROUTE 6 | 11 | 5 | 2 | 3 | 4 | planned |
 | R7 | `MAPSEC_VELDRIS_ROUTE_7` | ROUTE 7 | 12 | 8 | 3 | 4 | 6 | planned |
 | R8 | `MAPSEC_VELDRIS_ROUTE_8` | ROUTE 8 | 15 | 11 | 4 | 2 | 5 | planned |
-| R9 | `MAPSEC_VELDRIS_ROUTE_9` | ROUTE 9 | 19 | 12 | 4 | 1 | 4 | planned |
+| R9 | `MAPSEC_VELDRIS_ROUTE_9` | ROUTE 9 | 19 | 12 | 4 | 1 | 4 | **dropped (author, 2026-10-08)**, section free for reuse |
 | R10 | `MAPSEC_VELDRIS_ROUTE_10` | ROUTE 10 | 23 | 10 | 3 | 2 | 4 | planned |
 | R11 | `MAPSEC_VELDRIS_ROUTE_11` | ROUTE 11 | 12 | 2 | 4 | 2 | 5 | planned |
 | R12 | `MAPSEC_VELDRIS_ROUTE_12` | ROUTE 12 | 16 | 3 | 3 | 2 | 4 | planned |

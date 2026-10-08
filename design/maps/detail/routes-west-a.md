@@ -237,6 +237,9 @@ Wooded meadow lane: sand, a small pond, tall rocky mound, round trees, a grey ga
 
 ## R8: Briarwick to Wendlebury (land with a lake, 28 x 94)
 
+> **Changed (author, 2026-10-08):** R8 is **blocked until the player has badge 2 (Briarwick's gym)**, so Teddy's favour on Route 3 is the only way to Briarwick. **Mothwood now branches off R8** partway along (it used to hang off Briarwick by R9). How R8 is blocked is not decided yet. See [../../factions.md](../../factions.md).
+
+
 ### Description and walk-through
 
 **Opening view from the north (leaving Briarwick).** A grass lane opens onto a quiet pale valley: low rocky shelves on both sides, a sand path threading down, a small pond and a stone doorway off to the west. Somewhere below you can see the glint of a lake.
@@ -322,6 +325,9 @@ Lakeside valley: pale stone, red-brown cliffs, blue lake, sand path, warm light.
 ---
 
 ## R9: Briarwick to Mothwood (land, 28 x 32)
+
+> **Dropped (author, 2026-10-08):** R9 is removed. Mothwood is reached only from R8 now; the number R9 is free. The text below is kept for reference only.
+
 
 ### Description and walk-through
 

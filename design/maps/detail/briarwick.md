@@ -2,6 +2,8 @@
 
 Status: **PROPOSED.** The build brief for the author's Porymap work. Facts come from [../towns/briarwick.md](../towns/briarwick.md) (role, roads, NPCs, items, Scheme 2), [../../dialogue/briarwick.inc](../../dialogue/briarwick.inc) (every NPC and sign), [../../gyms.md](../../gyms.md), [../../trainer-roster.md](../../trainer-roster.md), [../../goldsworth.md](../../goldsworth.md), [../../troglodyte-arc.md](../../troglodyte-arc.md) and [../interiors/README.md](../interiors/README.md). Roads: [routes-west-a.md](routes-west-a.md) (R3, R8, R9) and, outside this group, R4. The name is approved; everything else is a suggestion. New minor names are marked PROPOSED. Nothing is built.
 
+> **Changed (author, 2026-10-08):** **no R9 and no R9 gatehouse** (Mothwood now branches off R8). **R8 (south edge) stays blocked until the player beats this gym** (badge 2). The player arrives by R3 only.
+
 Quick facts: **city**, place 4. Gym 2 Bug, **HACHIMEL** (`TRAINER_HACHIMEL`, Kricketune 17, Vivillon 19), HUSK BADGE, gives HM Rock Smash and TM Thief. The **first Goldsworth house** (NPC only, no battle). **Scheme 2** (the 'fumigation' tent) plays out at the gym door. The Apiary. Fly point and heal location: yes. No Troglodyte fight (an optional sighting only).
 
 Coordinates are `(x, y)` in tiles from the top-left. They are **read off the render and right to about one tile**; confirm each with Porymap's status bar. Map size: the render is `violetcity0ai.png`, 783 x 681 px with a 1 px grid, so `(px - 1) / 17` = **46 x 40**. The east gatehouse is cropped by the render's right edge, so **make the map 50 x 40** (add four columns of pines on the right so the gate building stands whole at x 44 to 49). Size check: (50 + 15) x (40 + 14) = 3,510 of 10,240.

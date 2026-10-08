@@ -35,6 +35,7 @@ The author has not decided which path the story takes. **Update (author, 2026-10
 | Route 1, first trainers | Route 1 | Gentle, farm-country. Now ends in Crestfall; the Scheme 1 surveyors walk it | PROPOSED |
 | **Scheme 1 at Crestfall** | Crestfall | See below | PROPOSED |
 | Gym 1: Greta (Normal), STANDARD BADGE | Crestfall | `TRAINER_CRESTFALL_GRETA`, 2 gym trainers | author fixed leader, type, badge name and trainer count |
+| Route 8 gated | Route 8 (Wendlebury to Briarwick) | Blocked until badge 2 (author, 2026-10-08); Mothwood branches off it; R9 dropped | Author |
 | Route 3 gated | Route 3 | **Blocked by the Commons** (the author wants the big bad here, 2026-10-04). The player goes to Wendlebury first; Route 3 opens after the Wendlebury beat. See [factions.md](factions.md) | Block by the villains: author. Details PROPOSED |
 
 ### The grandfather's whereabouts in Hollowbrook (author, 2026-09-29; scripting is PROPOSED)

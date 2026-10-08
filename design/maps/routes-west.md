@@ -280,11 +280,14 @@ Rock Smash rocks: DWEBBLE 29 to 33 (60), GEODUDE 29 to 33 (30), ROGGENROLA 30 (5
 
 ## R8: Briarwick to Wendlebury (land, no sketch number)
 
+> **Changed (author, 2026-10-08):** R8 is **blocked until the player has badge 2 (Briarwick's gym)**, so Teddy's favour on Route 3 is the only way to Briarwick. **Mothwood now branches off R8** partway along (it used to hang off Briarwick by R9). How R8 is blocked is not decided yet. See [../factions.md](../factions.md).
+
+
 **Length and shape.** 28 x 94, a long lakeside road: a lake along the east side, a pier with a fisherman's cottage on the left, a wooden bridge, a small **roadside rest house** with a red roof half way (an NPC house, not a Pokémon Center), pale stone cliffs at the far end. A relaxed road with a view. **Source:** Palladium `Route 32.png` (28 x 94, grid), the longest render. **Shorter alternative:** `Route 39.png` (24 x 40, ranch and fields) if the author wants a lighter build.
 
 **Edges.** **North end** connects to **Briarwick's south edge**. **South end** connects to **Wendlebury**: the existing card ([../wendlebury.md](../wendlebury.md)) puts R2 on the south or west edge and a barricade on the east, so I use **Wendlebury's west edge**. The render's top-left small building is Briarwick's south gatehouse (keep it as a pass-through, or drop it).
 
-**Gate.** None. Open after badge 1 like R3 (the player can walk to Briarwick either way). The lake needs **Surf** for the water slots.
+**Gate.** ~~None. Open after badge 1 like R3.~~ **Blocked until badge 2 (author, 2026-10-08).** The lake needs **Surf** for the water slots.
 
 **Wild (levels 12 to 16; Crestfall ace 12, Briarwick ace 19, nudged up because it is a longer road).**
 
@@ -331,6 +334,9 @@ Lake: Surf WOOPER 12 to 16 (60), MARILL 12 to 16 (30), PSYDUCK 14 to 16 (5), SLO
 ---
 
 ## R9: Briarwick to Mothwood (land, no sketch number)
+
+> **Dropped (author, 2026-10-08):** R9 is removed. Mothwood is reached only from R8 now; the number R9 is free. The text below is kept for reference only.
+
 
 **Length and shape.** 28 x 32, a fenced, parkland lane running north from Briarwick to the forest gate: a long central sand path between fence lines, a narrow pool in the lower middle, rows of flowers, grass patches on both sides, and tree walls. A well-kept road, the mood of an avenue. **Source:** Palladium `Route 35.png` (28 x 32, grid), which has a gatehouse at each end.
 

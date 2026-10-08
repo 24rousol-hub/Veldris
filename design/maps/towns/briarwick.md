@@ -2,6 +2,8 @@
 
 Status: **PROPOSED.** Name approved 2026-10-01 ([../../region-names.md](../../region-names.md)); everything else is a brief for the author's Porymap work. Dialogue draft: [../../dialogue/briarwick.inc](../../dialogue/briarwick.inc) (2026-10-01, checked, not wired). Gym details: [../../gyms.md](../../gyms.md), [../../leader-names.md](../../leader-names.md), [../../trainer-roster.md](../../trainer-roster.md). Scheme 2: [../../troglodyte-arc.md](../../troglodyte-arc.md). Goldsworth houses: [../../goldsworth.md](../../goldsworth.md). Roads: [../routes-west.md](../routes-west.md). Landmark: Mothwood in [../landmarks-west.md](../landmarks-west.md).
 
+> **Changed (author, 2026-10-08):** **no R9 and no R9 gatehouse** (Mothwood now branches off R8). **R8 (south edge) stays blocked until the player beats this gym** (badge 2). The player arrives by R3 only.
+
 ## Role in the story
 
 - First **city** the player reaches after Crestfall, and the second gym (Bug, HACHIMEL, HUSK BADGE, gives HM Rock Smash and TM Thief).
