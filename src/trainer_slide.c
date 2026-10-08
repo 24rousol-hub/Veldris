@@ -61,6 +61,7 @@ static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINER_PARTNER(PARTNER_
 {
     [DIFFICULTY_NORMAL] =
     {
+#include "data/veldris_trainer_slides.h"
     },
 };
 

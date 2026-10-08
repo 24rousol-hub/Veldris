@@ -39,6 +39,7 @@ All checked against this tree.
 
 - **Assets and sprites policy (author, 2026-10-01).** Sources that copy official Pokémon art are fine, but every one still gets a `CREDITS.md` row. Pokémon sprites stay as shipped (expansion's Gen 4/5-style art at 64x64; GBA-style art exists only for species 1-386 through `P_GBA_STYLE_SPECIES_GFX`, currently FALSE); no sprite import is planned. Catalogue of every source: `design/sprite-catalog.md`. Troglodyte uses the DP **Rich Boy** picture; the Goldsworth cousins get similar but not identical pictures (recolours or neighbouring DP classes).
 - **Houses use shared one-floor layouts, never one custom layout per house** (six drawn up in `design/maps/interiors/house-layouts.md`; **at least 5 distinct single-floor interiors, a hard minimum from the author**). Everything looks Gen 4 inside (Gen 4 Interior secondary); exteriors are LeoB ORAS.
+- **Trainer slides (mid-battle lines)** live in `src/data/veldris_trainer_slides.h`, with one include in `src/trainer_slide.c`. Key = trainer id (list each id once; an alias is the same id). Rows use `VELDRIS_SLIDE(NAME, "text")`, no `\n`, `{B_PLAYER_NAME}` not `{PLAYER}`. Check with `python3 design/tools/dialogue_check.py src/data/veldris_trainer_slides.h`. Troglodyte's party order is random unless pinned with `Tags: Lead / Ace`. No lines are wired until the author approves wording (`design/trainer-slides.md`).
 - **Badges are drawn by `design/tools/draw_badges.py`** (14x14 art in 16 px slots, one shared palette; the trainer card spaces them with `BADGE_PITCH` in `src/trainer_card.c`). Re-run the script after editing it, from the repo root.
 
 ## Adding things
@@ -100,6 +101,7 @@ The ROM boots headless in mGBA, which is how the intro and trainer card were che
 | Trainers | `src/data/trainers.party`, `include/constants/opponents.h` |
 | Flags and vars | `include/constants/flags.h`, `vars.h` |
 | Intro dialogue | `data/text/birch_speech.inc` |
+| Mid-battle trainer lines | `src/data/veldris_trainer_slides.h`, `design/trainer-slides.md` |
 | Config switches | `include/config/*.h` (summary in `design/engine-limits.md`) |
 
 ## Checklist for any content change

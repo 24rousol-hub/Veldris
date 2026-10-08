@@ -17,6 +17,10 @@ It treats {PLAYER} as 7 wide letters and {STR_VAR_n} (unknown length) as a warni
 It also flags: characters missing from the charmap, an escaped double quote (a build error),
 {RIVAL} (expands to MAY or BRENDAN), and a label whose text has no `$` terminator.
 Standard library only. Exit code 1 if anything is over the limit or otherwise wrong.
+
+A .h or .c file is treated as battle text (trainer slide rows, 208 px, 2 lines) and handed to
+design/tools/slide_check.py, for example:
+    python3 design/tools/dialogue_check.py src/data/veldris_trainer_slides.h
 """
 import argparse
 import re
@@ -34,6 +38,8 @@ def load_charmap():
         m = re.match(r"^'(\\?.)'\s*=\s*([0-9A-Fa-f]{2})\s*(?:@.*)?$", line)
         if m:
             ch = m.group(1)
+            if ch.startswith("\\") and ch[1] in "nlp":
+                continue   # '\n' '\l' '\p' are escape codes (charmap.txt), not the letters n, l, p
             cm[ch[1:] if ch.startswith("\\") else ch] = int(m.group(2), 16)
     return cm
 
@@ -126,6 +132,11 @@ def main():
     args = ap.parse_args()
     bad = 0
     for f in args.files:
+        if f.suffix in (".h", ".c"):      # battle text: trainer slide rows in C (design/tools/slide_check.py)
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            import slide_check
+            bad += slide_check.check_file(str(f))
+            continue
         problems, warnings, widest = check(f, args.limit, args.warn)
         for where, msg in problems:
             print(f"ERROR   {where}: {msg}")

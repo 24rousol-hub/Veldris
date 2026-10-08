@@ -47,7 +47,7 @@ Control codes:
 
 **Measured from the source (2026-09-29), not a guess:**
 
-- The ordinary overworld text box and the intro box are both **27 tiles wide, which is 216 px, and 2 lines tall** (`sStandardTextBox_WindowTemplates` in `src/menu.c`, `sNewGameBirchSpeechTextWindows` in `src/main_menu.c`). Battle text, shops and menus use other windows and are not covered here.
+- The ordinary overworld text box and the intro box are both **27 tiles wide, which is 216 px, and 2 lines tall** (`sStandardTextBox_WindowTemplates` in `src/menu.c`, `sNewGameBirchSpeechTextWindows` in `src/main_menu.c`). Battle text uses another window (below); shops and menus use others and are not covered here.
 - `FONT_NORMAL` adds no letter spacing, so a line's width is just the sum of its glyph widths (`gFontNormalLatinGlyphWidths` in `src/fonts.c`). Letters differ in width, so "characters per line" is only a guide (about 34 for ordinary text).
 - **Keep every line at 208 px or less.** The hard limit is 216 px. Vanilla's own widest intro line is 184 px.
 - A page shows two lines. A third line scrolls in with `\l`. `\p` starts a new page.
@@ -66,3 +66,9 @@ To judge tone and fit without an emulator, screens can be rendered in the game's
 ## Naming text labels
 
 `<Map>_Text_<Speaker><Purpose>`, for example `Crestfall_Text_GretaGreeting`. Keep labels unique across the project.
+
+## Battle text (trainer slides)
+
+- The battle box is 26 tiles = **208 px**, 2 lines per page. The game wraps battle text itself (`BreakStringAutomatic`), so write one plain run of text with no `\n`. A line holds about 200 px of words (8 px is kept for the scroll arrow). More than 2 lines scrolls with an arrow.
+- End every slide with `{PAUSE_UNTIL_PRESS}` (the `VELDRIS_SLIDE` macro does it for you). Player name: `{B_PLAYER_NAME}`, never `{PLAYER}` (that prints a battle buffer).
+- Check with `python3 design/tools/dialogue_check.py src/data/veldris_trainer_slides.h`. Details: [trainer-slides.md](trainer-slides.md).
