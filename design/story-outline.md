@@ -36,7 +36,7 @@ The author has not decided which path the story takes. **Update (author, 2026-10
 | **Scheme 1 at Crestfall** | Crestfall | See below | PROPOSED |
 | Gym 1: Greta (Normal), STANDARD BADGE | Crestfall | `TRAINER_CRESTFALL_GRETA`, 2 gym trainers | author fixed leader, type, badge name and trainer count |
 | Route 8 gated | Route 8 (Wendlebury to Briarwick) | A ranger closes it over odd happenings in Mothwood; opens after badge 2 (author, 2026-10-08); Mothwood branches off it; R9 dropped | Author |
-| Mothwood event | Mothwood | Required (author). The Drowned Crown steal a Time Gear-like piece of Dialga's seal; time stops in the forest; Shaymin encounter (leaning), Celebi post-game. See [factions.md](factions.md) | Author, details PROPOSED |
+| Mothwood event | Mothwood | Required (author). The Drowned Crown steal a Time Gear-like piece of Dialga's seal; time stops in the forest; Shedinja encounter during the event, Celebi post-game; Shaymin kept for Primrose Vale. See [factions.md](factions.md) | Author, details PROPOSED |
 | Route 3 gated | Route 3 | **Blocked by the Commons** (the author wants the big bad here, 2026-10-04). The player goes to Wendlebury first; Route 3 opens after the Wendlebury beat. See [factions.md](factions.md) | Block by the villains: author. Details PROPOSED |
 
 ### The grandfather's whereabouts in Hollowbrook (author, 2026-09-29; scripting is PROPOSED)

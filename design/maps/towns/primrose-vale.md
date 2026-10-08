@@ -2,6 +2,8 @@
 
 Status: **PROPOSED.** Name approved 2026-10-01 ([../../region-names.md](../../region-names.md)). Everything else is a suggestion for the author. Template and rules: [../README.md](../README.md). Gym and leader: [../../gyms.md](../../gyms.md), [../../leader-names.md](../../leader-names.md), [../../trainer-roster.md](../../trainer-roster.md). Scheme 8: [../../troglodyte-arc.md](../../troglodyte-arc.md). Goldsworth houses: [../../goldsworth.md](../../goldsworth.md). Roads: [../routes-east.md](../routes-east.md). Landmark: [../landmarks-east.md](../landmarks-east.md). Neighbours: [hemlock-reach.md](hemlock-reach.md), [brinecombe.md](brinecombe.md).
 
+> **Shaymin (author, 2026-10-08):** the mythical SHAYMIN is kept for Primrose Vale (the gardens suit it better than Mothwood). How and where it is met is not decided.
+
 ## Role in the story
 
 The garden city of florists, the eighth gym, and the last stop before the sea road to Beaconmouth. Everything here is clipped, scented and laid out in rings. It is where Goldsworth plans reach for the one thing money usually cannot flatten: a meadow.
