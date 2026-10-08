@@ -8,66 +8,32 @@ Debug_ShowFieldMessageStringVar4::
 	special ShowFieldMessageStringVar4
 	goto Debug_MessageEnd
 
+@ Veldris cheat start (Utilities > Cheat start): the state after the Hollowbrook lab scene and Troglodyte's
+@ first fight, with the Pokedex, Running Shoes and a party. See design/debug-presets.md. The vanilla Hoenn
+@ version this replaced is in git history.
 Debug_CheatStart::
 	setflag FLAG_SYS_POKEMON_GET
-	setflag FLAG_RESCUED_BIRCH
-	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
 	setflag FLAG_ADVENTURE_STARTED
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
-	setvar VAR_BIRCH_LAB_STATE, 2
-	setvar VAR_ROUTE101_STATE, 3
+	setflag FLAG_SYS_POKEDEX_GET
+	special SetUnlockedPokedexFlags
+	setflag FLAG_SYS_NATIONAL_DEX
+	special EnableNationalPokedex
+	setflag FLAG_SYS_B_DASH
+	setflag FLAG_HIDE_HOLLOWBROOK_LAB_TROG
+	setflag FLAG_HIDE_HOLLOWBROOK_LAB_BALL_1
+	setflag FLAG_HIDE_HOLLOWBROOK_LAB_BALL_2
+	setflag FLAG_HIDE_HOLLOWBROOK_LAB_BALL_3
+	setflag FLAG_HIDE_HOLLOWBROOK_LAB_BALL_4
+	clearflag FLAG_HIDE_HOLLOWBROOK_GRANDPA
+	setflag FLAG_HIDE_HOLLOWBROOK_TROG
+	setflag FLAG_VISITED_HOLLOWBROOK
+	setvar VAR_HOLLOWBROOK_STATE, 4
+	setvar VAR_TROG_STARTER, 0
 	givemon SPECIES_TREECKO, 20, ITEM_NONE
 	givemon SPECIES_TORCHIC, 20, ITEM_NONE
 	givemon SPECIES_MUDKIP, 20, ITEM_NONE
 	givemon SPECIES_WAILMER, 20, ITEM_NONE, move1 = MOVE_SURF, move2 = MOVE_WATERFALL, move3 = MOVE_DIVE, move4 = MOVE_STRENGTH
 	givemon SPECIES_TROPIUS, 20, ITEM_NONE, move1 = MOVE_FLY, move2 = MOVE_CUT, move3 = MOVE_ROCK_SMASH, move4 = MOVE_FLASH
-	setflag FLAG_SYS_POKEDEX_GET
-	special SetUnlockedPokedexFlags
-	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
-	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 2
-	setflag FLAG_SYS_NATIONAL_DEX
-	special EnableNationalPokedex
-	setflag FLAG_RECEIVED_RUNNING_SHOES
-	setflag FLAG_SYS_B_DASH
-	setvar VAR_LITTLEROOT_TOWN_STATE, 4 @ 4: Received Running Shoes
-	setvar VAR_LITTLEROOT_INTRO_STATE, 7 @ 7: Told to go meet rival
-	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 2 @ 2: Met Rival's Mom (and is corresponding gender)
-	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 2 @ 2: Met Rival's Mom (and is corresponding gender)
-	setvar VAR_LITTLEROOT_RIVAL_STATE, 4 @ 4: Received Pokedex
-	setflag FLAG_RECEIVED_BIKE
-	additem ITEM_ACRO_BIKE
-	setvar VAR_BRINEY_HOUSE_STATE, 1
-	setvar VAR_ROUTE116_STATE, 2
-	setflag FLAG_HIDE_ROUTE_116_MR_BRINEY
-	setflag FLAG_BADGE01_GET
-	setflag FLAG_BADGE02_GET
-	setflag FLAG_BADGE03_GET
-	setflag FLAG_BADGE04_GET
-	setflag FLAG_BADGE05_GET
-	setflag FLAG_BADGE06_GET
-	setflag FLAG_BADGE07_GET
-	setflag FLAG_BADGE08_GET
-	setflag FLAG_VISITED_LITTLEROOT_TOWN
-	setflag FLAG_VISITED_OLDALE_TOWN
-	setflag FLAG_VISITED_DEWFORD_TOWN
-	setflag FLAG_VISITED_LAVARIDGE_TOWN
-	setflag FLAG_VISITED_FALLARBOR_TOWN
-	setflag FLAG_VISITED_VERDANTURF_TOWN
-	setflag FLAG_VISITED_PACIFIDLOG_TOWN
-	setflag FLAG_VISITED_PETALBURG_CITY
-	setflag FLAG_VISITED_SLATEPORT_CITY
-	setflag FLAG_VISITED_MAUVILLE_CITY
-	setflag FLAG_VISITED_RUSTBORO_CITY
-	setflag FLAG_VISITED_FORTREE_CITY
-	setflag FLAG_VISITED_LILYCOVE_CITY
-	setflag FLAG_VISITED_MOSSDEEP_CITY
-	setflag FLAG_VISITED_SOOTOPOLIS_CITY
-	setflag FLAG_VISITED_EVER_GRANDE_CITY
-	setflag FLAG_LANDMARK_POKEMON_LEAGUE
-	setflag FLAG_LANDMARK_BATTLE_FRONTIER
-	clearflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
-	clearflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
 	release
 	end
 
@@ -205,35 +171,75 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
+@ Script 1: key items (Journal, Exp. Share, Running Shoes). No messages.
+	additem ITEM_JOURNAL
+	additem ITEM_EXP_SHARE
+	setflag FLAG_SYS_B_DASH
 	release
 	end
 
 Debug_EventScript_Script_2::
+@ Script 2: badges 1 to 3, and the two built towns on the Fly map.
+	setflag FLAG_BADGE01_GET
+	setflag FLAG_BADGE02_GET
+	setflag FLAG_BADGE03_GET
+	setflag FLAG_VISITED_HOLLOWBROOK
+	setflag FLAG_VISITED_CRESTFALL
 	release
 	end
 
 Debug_EventScript_Script_3::
+@ Script 3: all nine badges (the table in src/veldris_badges.c).
+	setflag FLAG_BADGE01_GET
+	setflag FLAG_BADGE02_GET
+	setflag FLAG_BADGE03_GET
+	setflag FLAG_BADGE04_GET
+	setflag FLAG_BADGE05_GET
+	setflag FLAG_BADGE06_GET
+	setflag FLAG_BADGE07_GET
+	setflag FLAG_BADGE08_GET
+	setflag FLAG_BADGE09_GET
 	release
 	end
 
 Debug_EventScript_Script_4::
+@ Script 4: clear all nine badges.
+	clearflag FLAG_BADGE01_GET
+	clearflag FLAG_BADGE02_GET
+	clearflag FLAG_BADGE03_GET
+	clearflag FLAG_BADGE04_GET
+	clearflag FLAG_BADGE05_GET
+	clearflag FLAG_BADGE06_GET
+	clearflag FLAG_BADGE07_GET
+	clearflag FLAG_BADGE08_GET
+	clearflag FLAG_BADGE09_GET
 	release
 	end
 
 Debug_EventScript_Script_5::
-	release
+@ Script 5: warp to Hollowbrook (the fly-point tile).
+	warp MAP_HOLLOWBROOK, 9, 21
+	waitstate
 	end
 
 Debug_EventScript_Script_6::
-	release
+@ Script 6: warp to Route 1 beside the guide (he is at 12,12).
+	warp MAP_VELDRIS_ROUTE1, 12, 13
+	waitstate
 	end
 
 Debug_EventScript_Script_7::
-	release
+@ Script 7: warp to Crestfall (outside the Pokemon Center).
+	warp MAP_CRESTFALL, 9, 15
+	waitstate
 	end
 
 Debug_EventScript_Script_8::
-	release
+@ Script 8: mark both Troglodyte fights as won (the Journal tally) and warp into the Crestfall gym.
+	setflag TRAINER_FLAGS_START + TRAINER_TROGLODYTE_HOLLOWBROOK
+	setflag TRAINER_FLAGS_START + TRAINER_TROGLODYTE_CRESTFALL
+	warp MAP_CRESTFALL_GYM, 0
+	waitstate
 	end
 
 Debug_CheckSaveBlock::
