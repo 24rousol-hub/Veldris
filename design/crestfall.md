@@ -55,6 +55,17 @@ A sand square with a pond on a grass-and-flower island in the middle, the path l
 | Signs: town / gym / Route 3 / Route 2 / field | (1, 17) / (22, 10) / (26, 2) / (38, 17) / (19, 22) |
 | Benches / fence | (15-17, 22) and (22-24, 22) / (14-23, 25) |
 
+**Interiors (built 2026-10-08, author asked for the maps):**
+
+| Map | Layout | Who is inside | Door |
+|---|---|---|---|
+| `Crestfall_PokemonCenter_1F` / `_2F` | vanilla `LAYOUT_POKEMON_CENTER_1F` / `_2F` | Nurse (`LOCALID_CRESTFALL_NURSE`), a hiker visitor ('I stayed for the tomatoes'); 2F the three link attendants | Crestfall warp 1, (9,14) |
+| `Crestfall_Mart` | vanilla `LAYOUT_MART` | Clerk ('Hay is not for sale'), stock POKé BALL, POTION, ANTIDOTE, PARALYZE HEAL, AWAKENING; shopkeeper with a before/after-badge line | warp 2, (31,14) |
+| `Crestfall_HouseA` | H1 cottage | The retired husband (old man) and his SKITTY by the stove. **The wife is not placed yet:** her lines are about the Scheme 1 consultants, which are not approved | warp 0, (3,14) |
+| `Crestfall_HouseB` | H5 bedroom house | The stuck young trainer (before/after badge) | warp 3, (36,14) |
+
+**Fly point:** `FLAG_VISITED_CRESTFALL` (set on entering the town), `HEAL_LOCATION_CRESTFALL` lands on (9,15) outside the Center, whiteout returns to the nurse. **Checked in mGBA:** entering and leaving every door, the nurse heal, the Mart menu. **Not checked:** Fly itself, the town-map picture (still Hoenn art). **The gym is not built** (Greta's story beat and Scheme 1 need the author first).
+
 Sign scripts are in `data/maps/Crestfall/scripts.inc` (town and field text from the drafts, gym sign 'Leader: GRETA', Route 2 'EAST: WENDLEBURY', Route 3 'NORTH: BRIARWICK'). **Not yet built:** door warps (the interiors do not exist yet), NPCs, Scheme 1, the fly point and heal location (they need the Center), and the Route 3 block. **Checked in mGBA:** the town renders, the gym sign reads correctly, and walking west crosses into Route 1 cleanly. The town roads are sand and Route 1's path is pale grass path: the grass path runs in to x 1 and blends into the sand at x 2-3 (custom blend tiles, author asked 2026-10-01).
 
 **Path blend tiles** (Petalburg secondary, made by `design/tools/leob/path_blend.py`, seen in game). East-west road, grass path west and sand east, two tiles wide (A then B): top edge 656/657, middle 658/659, bottom edge 660/661. Mirrored (sand west): 662/663, 664/665, 666/667. North-south road, grass path north and sand south, two tiles tall (upper, lower): west edge 668/669, middle 670/671, east edge 672/673. Flipped (sand north): 674/675, 676/677, 678/679. In Porymap they sit at the end of the Petalburg metatiles.

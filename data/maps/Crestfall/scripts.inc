@@ -1,5 +1,10 @@
 Crestfall_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Crestfall_OnTransition
 	.byte 0
+
+Crestfall_OnTransition:
+	setflag FLAG_VISITED_CRESTFALL
+	end
 
 Crestfall_EventScript_TownSign::
 	msgbox Crestfall_Text_TownSign, MSGBOX_SIGN

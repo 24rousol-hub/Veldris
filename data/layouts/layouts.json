@@ -9400,6 +9400,28 @@
       "border_filepath": "data/layouts/Crestfall/border.bin",
       "blockdata_filepath": "data/layouts/Crestfall/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VELDRIS_HOUSE_COTTAGE",
+      "name": "VeldrisHouse_Cottage_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/VeldrisHouse_Cottage/border.bin",
+      "blockdata_filepath": "data/layouts/VeldrisHouse_Cottage/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VELDRIS_HOUSE_BEDROOM",
+      "name": "VeldrisHouse_Bedroom_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/VeldrisHouse_Bedroom/border.bin",
+      "blockdata_filepath": "data/layouts/VeldrisHouse_Bedroom/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

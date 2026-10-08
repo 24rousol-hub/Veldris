@@ -21,7 +21,36 @@
     }
   ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 3,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_CRESTFALL_HOUSE_A",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_CRESTFALL_POKEMON_CENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_CRESTFALL_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 36,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_CRESTFALL_HOUSE_B",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {

@@ -75,6 +75,15 @@ y8 # # # # # # D # # # # # #   door (6,8)
 ```
 The roomiest, one floor, symmetrical and a little too grand. It replaces the 13 x 11 Goldsworth plan proposed in `../detail/kingsquay.md` 6.10 (the 11-high version is not needed). Every Goldsworth house uses it; cousins differ by object placement (see [../detail/index.md](../detail/index.md), the Goldsworth resolution).
 
+## Built (2026-10-08, author asked for the Crestfall maps)
+
+| Plan | Layout id | Size | As built | Used by |
+|---|---|---|---|---|
+| H1 Cottage | `LAYOUT_VELDRIS_HOUSE_COTTAGE` | 9 x 8 | Stove and fridge on a tiled kitchen floor (left), bookshelf, TV, flower table with a cushion each side facing the TV, plant, door mat (2,7). **No window** (the back wall has room for kitchen, fridge, shelf and TV only) | `Crestfall_HouseA` |
+| H5 Bedroom house | `LAYOUT_VELDRIS_HOUSE_BEDROOM` | 11 x 8 | Bed top-left, TV with the flower table and cushions, kitchen (stove, fridge) on a tiled floor on the **right**, plant, door mat **(8,7)** on the kitchen tiles (the mat tiles have tile-floor edges, so a door needs tiled floor around it). No bookshelf or window | `Crestfall_HouseB` |
+
+Both use only pieces from the built Hollowbrook interiors (same ids, collision and elevation). Built by `design/tools/interiors/houses.py`; edit in Porymap from now on. Renders were checked by the author.
+
 ## Which town uses which (PROPOSED rule)
 
 Rotate H1 to H5 so no two adjacent buildings in a town, and no two neighbouring towns, show the same plan. Suggested start: Briarwick H2 + H4, Crestfall H1 + H5, Gloomsby H5, Smeltham H4 + H1, Hoarfell H1, Gildhaven H4 + H2, Hemlock Reach H2, Primrose Vale H5, Brinecombe H1 + H2, Ebbsworth H4, Kingsquay H5 + H3, Driftsands H1, Beaconmouth H4, Wendlebury H5 + H2. Goldsworth houses: H6 only. Final pick is the author's per card.

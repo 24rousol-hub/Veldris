@@ -1745,3 +1745,8 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/wild_encounter.inc"
 	.include "data/maps/VeldrisRoute1/scripts.inc"
 	.include "data/maps/Crestfall/scripts.inc"
+	.include "data/maps/Crestfall_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Crestfall_PokemonCenter_2F/scripts.inc"
+	.include "data/maps/Crestfall_Mart/scripts.inc"
+	.include "data/maps/Crestfall_HouseA/scripts.inc"
+	.include "data/maps/Crestfall_HouseB/scripts.inc"
