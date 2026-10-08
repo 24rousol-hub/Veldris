@@ -70,6 +70,12 @@ Sign scripts are in `data/maps/Crestfall/scripts.inc` (town and field text from 
 
 **Path blend tiles** (Petalburg secondary, made by `design/tools/leob/path_blend.py`, seen in game). East-west road, grass path west and sand east, two tiles wide (A then B): top edge 656/657, middle 658/659, bottom edge 660/661. Mirrored (sand west): 662/663, 664/665, 666/667. North-south road, grass path north and sand south, two tiles tall (upper, lower): west edge 668/669, middle 670/671, east edge 672/673. Flipped (sand north): 674/675, 676/677, 678/679. In Porymap they sit at the end of the Petalburg metatiles.
 
+## Gym and Scheme 1 decisions (author, 2026-10-08)
+
+- **Gym puzzle: C, the fence pens.** Livestock-style fenced pens with gates; beating each gym trainer (DALE, then WREN) swings a gate open, and the path zigzags to Greta. Silver outside, blue inside, greenery decorative only (author, earlier).
+- **Greta has no farm link:** she just happens to be posted here.
+- **Opening beat of Scheme 1:** when the player tries to go in, **Troglodyte's attendant pushes the player out of the way: 'the golden boy goes first.'** Troglodyte is used to this and thinks nothing of it; it is how he was raised. The rest of the scheme is being chosen (options offered 2026-10-08); the consultant draft below is no longer assumed.
+
 ## Where Scheme 1 beats happen
 1. **Setup** (before the gym): consultant outside in town; locals and the old farmer grumble; the two surveyors on Route 1 hint first.
 2. **Reveal**: consultant boss and junior at the gym door, with the junior lost in the hay maze.

@@ -32,7 +32,7 @@ Only the facts marked **(author)** come from the author. Everything else is **PR
 ## Greta  **(author: first gym leader, Normal type)**
 
 - Gym 1, in Crestfall. Normal type.
-- **Update (author, 2026-09-29): Greta is young, moving up quickly in the gym hierarchy, and a tad sassy but nice.** This replaces the earlier 'retired farmer'. Open: whether she keeps a farm link (the draft assumes she grew up on the Crestfall gym's farm) or the farm setting is dropped.
+- **Update (author, 2026-09-29): Greta is young, moving up quickly in the gym hierarchy, and a tad sassy but nice.** This replaces the earlier 'retired farmer'. **No farm link (author, 2026-10-08):** she just happens to be posted in Crestfall; she did not grow up on its farms.
 - Trainer constant: **`TRAINER_CRESTFALL_GRETA`** (`TRAINER_GRETA` is already taken). **(author)**
 - Voice (PROPOSED, revised 2026-09-29): confident, a bit sassy, kind underneath. Sees through the Goldsworths at once.
 - **Gym dialogue drafted 2026-09-29:** [dialogue/crestfall.inc](dialogue/crestfall.inc) (PROPOSED).
