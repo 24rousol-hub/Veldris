@@ -1,4 +1,5 @@
 #include "global.h"
+#include "veldris_field_moves.h"
 #include "malloc.h"
 #include "battle.h"
 #include "battle_anim.h"
@@ -2970,6 +2971,11 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         }
     }
 
+    // Veldris: field moves a party Pokemon can learn need no move slot (design/field-moves.md).
+    // Keep room for Switch, Item/Mail and Cancel (actions[] holds 8).
+    sPartyMenuInternal->numActions = AppendCompatFieldMoveActions(sPartyMenuInternal->actions,
+        sPartyMenuInternal->numActions, ARRAY_COUNT(sPartyMenuInternal->actions) - 3, MENU_FIELD_MOVES);
+
     if (!InBattlePike())
     {
         if (GetMonData(&mons[1], MON_DATA_SPECIES) != SPECIES_NONE)
@@ -4089,6 +4095,7 @@ static void CursorCb_FieldMove(u8 taskId)
 {
     u8 fieldMove = sPartyMenuInternal->actions[Menu_GetCursorPos()] - MENU_FIELD_MOVES;
     const struct MapHeader *mapHeader;
+    u8 selectedSlot = gPartyMenu.slotId; // Veldris: who was picked in the menu
 
     PlaySE(SE_SELECT);
     if (gFieldMoveInfo[fieldMove].fieldMoveFunc == NULL)
@@ -4102,6 +4109,9 @@ static void CursorCb_FieldMove(u8 taskId)
         gTasks[taskId].func = Task_CancelAfterAorBPress;
         return;
     }
+
+    // Veldris: a Pokemon that only CAN learn the move is not the user; the knower (else the first learner) is
+    gPartyMenu.slotId = GetFieldMoveUserSlot(fieldMove, selectedSlot);
 
     if (!IsFieldMoveUnlocked(fieldMove))
     {
@@ -4143,6 +4153,7 @@ static void CursorCb_FieldMove(u8 taskId)
     // Cant use Field Move
     else
     {
+        gPartyMenu.slotId = selectedSlot; // Veldris
         switch (fieldMove)
         {
         case FIELD_MOVE_SURF:

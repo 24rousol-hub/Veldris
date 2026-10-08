@@ -56,6 +56,7 @@ Logged in [engine-edits.md](engine-edits.md). All are one-line reversions in `in
 | `P_PRE_EVO_MOVES`, `P_ENABLE_ALL_LEVEL_UP_MOVES` (`summary_screen.h`) | FALSE | TRUE | The summary-screen move relearner offers every level-up move and the pre-evolution moves, regardless of level. Compile-time, not story-gated. Egg, tutor and TM relearners are still off (`P_ENABLE_MOVE_RELEARNERS`, `P_FLAG_EGG_MOVES`, `P_FLAG_TUTOR_MOVES`, `P_TM_MOVES_RELEARNER`) |
 | `B_FAST_INTRO_NO_SLIDE` (`battle.h`) | FALSE | TRUE | The battle intro slide is skipped |
 | `B_WAIT_TIME_MULTIPLIER` (`battle.h`) | 16 (vanilla) | 10 | Battle text pauses are about 40% shorter. Raise towards 16 if text feels rushed; 8 is faster again |
+| `P_CAN_FORGET_HIDDEN_MOVE` (`pokemon.h`), `B_CATCH_SWAP_CHECK_HMS` (`battle.h`) | FALSE, TRUE | TRUE, FALSE | HM moves can be forgotten and boxed freely; part of the field-move change in [field-moves.md](field-moves.md) |
 
 ## Update this file when
 
