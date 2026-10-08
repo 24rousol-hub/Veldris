@@ -56,3 +56,21 @@ Three vanilla Route 102 entries reused (no new ids). Names are PROPOSED.
 | `TRAINER_VELDRIS_ROUTE1_FARMER` | `TRAINER_RICK` (615) | AMOS | **placeholder** Hiker pic and class (no farmer class yet; the DP rancher sprites in the asset repo are an option) | Zigzagoon 5, Skitty 5 |
 
 All IVs 0. **Checked in mGBA:** TOBY spots the player, walks over, says his intro, battles with Lillipup 3 (before the 2026-10-01 level raise), pays out and says his after line. MAISIE and AMOS not fought yet.
+
+## Gym battlefield conditions (BUILT 2026-10-08, PROPOSED defaults)
+
+The author liked the idea of weather and terrain at the start of a gym fight (2026-10-08). Each leader block in `src/data/trainers.party` has one `Starting Status:` line, which sets a condition on the first turn with an on-screen message. Chosen to be fun but fair: temporary versions (about 5 turns) so the effect opens the fight without running it, and nothing that harms only the player except one light hazard. **The exact picks are PROPOSED**, easy to change.
+
+| Gym | Leader | Line in the block | What the player sees | Why this one |
+|---|---|---|---|---|
+| 1 Normal | GRETA | none | n/a | First gym stays plain |
+| 2 Bug | HACHIMEL | `Starting Status: Grassy Terrain Temporary` | meadow terrain, grounded Pokémon heal a little each turn | Apiary and meadow theme; helps both sides |
+| 3 Ghost | SANZUFORD | `Starting Status: Trick Room Temporary` | the dimensions twist, slower Pokémon move first | Spooky and symmetrical; the alternative is `Weather Fog Temporary` but fog cuts every move's accuracy to 60 percent, which feels bad |
+| 4 Steel | HAGANE | `Starting Status: Electric Terrain Temporary` | sparks on the floor, no sleep for grounded Pokémon | Forge theme without chip damage (sandstorm would hurt only the player, since his whole team is Steel) |
+| 5 Ice | WAKASAGI | `Starting Status: Weather Snow Temporary` | it starts to snow; Ice types get a Defense boost | Tested in mGBA, message and snow animation seen |
+| 6 Flying | TOBIN | `Starting Status: Tailwind Opponent Temporary` | his side's speed doubles for the first turns | Wind theme; the alternative is no status, since this one is a head start for him |
+| 7 Poison | ASEBY | `Starting Status: Toxic Spikes Player L1` | toxic spikes on the player's side | Tested in mGBA, message seen; only bites when the player switches in a grounded Pokémon |
+| 8 Fairy | SUZURAN | `Starting Status: Misty Terrain Temporary` | mist, no new status conditions on grounded Pokémon | Fits the Fairy gym; helps both sides |
+| 9 Water | MIZZLE | `Starting Status: Weather Rain Temporary` | it starts to rain, Water moves hit harder and Fire moves weaker | Water gym; temporary because his whole team is Water and permanent rain would be harsh |
+
+**To change or remove one:** edit or delete its `Starting Status:` line in `src/data/trainers.party`. Values are the camelCase names in `include/constants/battle.h` (`STARTING_STATUS_DEFINITIONS`) written as words, for example `Weather Rain` or `Weather Rain Temporary`, and several can be joined with `/`. Drop `Temporary` for a status that lasts the whole fight. Not checked in mGBA: Grassy, Trick Room, Electric, Tailwind, Misty and Rain.
