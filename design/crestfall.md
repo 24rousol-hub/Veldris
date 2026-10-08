@@ -59,7 +59,7 @@ A sand square with a pond on a grass-and-flower island in the middle, the path l
 
 | Map | Layout | Who is inside | Door |
 |---|---|---|---|
-| `Crestfall_PokemonCenter_1F` / `_2F` | vanilla `LAYOUT_POKEMON_CENTER_1F` / `_2F` | Nurse (`LOCALID_CRESTFALL_NURSE`), a hiker visitor ('I stayed for the tomatoes'); 2F the three link attendants | Crestfall warp 1, (9,14) |
+| `Crestfall_PokemonCenter_1F` | `LAYOUT_VELDRIS_POKEMON_CENTER_1F` (vanilla Center with the escalator painted out, see below) | Nurse (`LOCALID_CRESTFALL_NURSE`), a hiker visitor ('I stayed for the tomatoes'). **No 2F** (author, 2026-10-08) | Crestfall warp 1, (9,14) |
 | `Crestfall_Mart` | vanilla `LAYOUT_MART` | Clerk ('Hay is not for sale'), stock POKé BALL, POTION, ANTIDOTE, PARALYZE HEAL, AWAKENING; shopkeeper with a before/after-badge line | warp 2, (31,14) |
 | `Crestfall_HouseA` | H1 cottage | The retired husband (old man) and his SKITTY by the stove. **The wife is not placed yet:** her lines are about the Scheme 1 consultants, which are not approved | warp 0, (3,14) |
 | `Crestfall_HouseB` | H5 bedroom house | The stuck young trainer (before/after badge) | warp 3, (36,14) |

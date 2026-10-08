@@ -9,3 +9,5 @@ These write map blocks, so per `CLAUDE.md` rule 2 run them only when the author 
 | `install_crestfall_interiors.py` | One-off: Crestfall Center 1F/2F, Mart, House A/B, door warps, fly flag, heal location, fly row, region grid cell |
 
 Run from this folder. Paths point at `/home/claude/veldris`.
+
+Note (2026-10-08): the author later dropped the Center 2F. `Crestfall_PokemonCenter_2F` was removed and the 1F now uses `LAYOUT_VELDRIS_POKEMON_CENTER_1F` (no escalator); the installer above still shows the first version.

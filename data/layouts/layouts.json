@@ -9422,6 +9422,17 @@
       "border_filepath": "data/layouts/VeldrisHouse_Bedroom/border.bin",
       "blockdata_filepath": "data/layouts/VeldrisHouse_Bedroom/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VELDRIS_POKEMON_CENTER_1F",
+      "name": "VeldrisPokemonCenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/VeldrisPokemonCenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/VeldrisPokemonCenter_1F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }
