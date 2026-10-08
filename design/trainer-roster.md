@@ -45,6 +45,8 @@ Teams are from [teams.md](teams.md). All have `IVs: 0` on every Pokémon. Troglo
 
 **Caveats.** The Rival class shows 'PKMN TRAINER' in the intro, so a Veldris class name would need a small text edit. **Author rule (2026-10-01): always reuse vanilla ids.** Greta, DALE and WREN were first built on new ids 855 to 857 and moved to reused ids 770 to 772 the same day, so all 9 brand-new ids (855 to 863) are free again and `TRAINERS_COUNT_EMERALD` is back at 855. The other six Troglodyte fights should reuse vanilla ids too.
 
+**Poshness update (BUILT 2026-10-08, author liked it).** Both built Troglodyte blocks now have `Ball: Luxury` under every Pokémon (his Pokémon come out of black-and-gold Luxury Balls with a green sparkle burst, seen in mGBA) and `Music: Rich` instead of `Music: Male` (the rich-kid spotted-you jingle, `mus_encounter_rich`, a real song in the ROM; the `// MUS_TEST` comment in `songs.h` is upstream noise). The shared `Rival` class entry is untouched (39 blocks use it, most never reached in Veldris). **The Goldsworth cousins and Troglodyte's other fights should copy the same two lines when their blocks are built.** Not run in game: the jingle itself (it plays when he spots you in the overworld; the debug battle skips that), so the author may want to hear it once (a clip was sent to the author in chat on 2026-10-08).
+
 ## Route 1 trainers (BUILT 2026-10-01)
 
 Three vanilla Route 102 entries reused (no new ids). Names are PROPOSED.
