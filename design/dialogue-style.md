@@ -59,7 +59,7 @@ Control codes:
 python3 design/tools/dialogue_check.py data/maps/<Map>/scripts.inc
 ```
 
-It uses the game's own widths, and it also flags characters missing from the charmap, an escaped double quote, `{RIVAL}` and a missing `$`. It exits 1 on any error. Warnings (a line close to the limit, or one that only overflows if a `{STR_VAR}` is long) do not fail it.
+It uses the game's own widths (including the width-changing codes such as `{FONT_NARROW}` and `{SHIFT_RIGHT n}`), and it also flags characters missing from the charmap, an escaped double quote, `{RIVAL}`, a missing `$`, and a third line that uses `\n` instead of `\l`. It exits 1 on any error. The tracked pre-commit hook runs it on the lines each commit adds ([debug-presets.md](debug-presets.md)). Warnings (a line close to the limit, or one that only overflows if a `{STR_VAR}` is long) do not fail it.
 
 To judge tone and fit without an emulator, screens can be rendered in the game's font from `graphics/fonts/latin_normal.png` (needs Pillow). That renderer is a throwaway, not a committed tool.
 

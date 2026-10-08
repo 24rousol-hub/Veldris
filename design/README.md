@@ -46,7 +46,7 @@
 | [journal.md](journal.md) | BUILT: the Journal key item (badges, next-goal hint, TROGLODYTE loss tally). Item slot, giver, how to add a fight, hint rows, open questions | A TROGLODYTE fight is added, the gym order changes, or the giver changes |
 | [exp-share.md](exp-share.md) | BUILT (config): Gen 6 Exp. Share key item and its flag. Giver undecided | The giver is decided, or the Exp. Share setup changes |
 | [time-of-day.md](time-of-day.md) | BUILT (config): time-of-day wild encounters, TIME_DAY fallback, hours, label rules, how to add a Night table, `design/tools/wild_lint.py` | A table is split by time, or the clock source changes |
-| [debug-presets.md](debug-presets.md) | BUILT: the tracked pre-commit hook (ROM guard, dialogue and wild-table checks), the Veldris cheat start and the eight debug Script presets | A debug preset or a hook check changes |
+| [debug-presets.md](debug-presets.md) | BUILT: the text checker and the tracked pre-commit hook (ROM guard, staged-lines text check, wild-table lint), the rewind debug presets (new game, lab scene, Troglodyte fight, Crestfall gym) and the Veldris cheat start | A debug preset or a hook check changes |
 | [npc-walkup.md](npc-walkup.md) | DOCUMENTED, not built: an NPC that spots the player, walks up and talks (trainer-approach machinery, no battle). Recipe and traps | The first walk-up NPC is built or tested |
 | [furniture-lines.md](furniture-lines.md) | EXPLAINED, not built: cabinets, dressers, paintings and TVs that speak when the player presses A. What exists, what it takes | The author asks for it |
 | [badges.md](badges.md) | Survey of hacks with more than 8 badges, and the IMPLEMENTED 9-badge table | Badge decisions or the badge plan change |
