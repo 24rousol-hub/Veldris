@@ -85,9 +85,9 @@ Reminder: the spare flags for ordinary game state are numerous but they are not 
 
 ## Spare pool: permanent vars
 
-23 vars are named `VAR_UNUSED_*`. **22 are safe to claim.** Excluded: `VAR_UNUSED_0x8014`, which is a volatile special var (0x8000 block, never saved). Also note `VAR_UNUSED_0x404E`: the config comment in `include/config/battle.h` names it as an example toggle. Claim it for a config switch, or skip it.
+20 vars are named `VAR_UNUSED_*` (after the claims below). **19 are safe to claim.** Excluded: `VAR_UNUSED_0x8014`, which is a volatile special var (0x8000 block, never saved). Also note `VAR_UNUSED_0x404E`: the config comment in `include/config/battle.h` names it as an example toggle. Claim it for a config switch, or skip it.
 
-Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x40A8, 0x40B8, 0x40BB, 0x40DB, 0x40DC, 0x40E5, and 0x40F7 to 0x40FF (9 in a row). Two of them, **0x4083 and 0x408B, are also used as FRLG map-script variables** (through `vars_frlg.h` aliases). FRLG maps are not built into this Emerald ROM, so they are safe here, but skip them if FRLG maps are ever enabled. That leaves 20 with no alias at all.
+Claimable vars (19): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x40A8, 0x40B8, 0x40BB, 0x40DB, 0x40DC, 0x40E5, and 0x40FA to 0x40FF (6 in a row). Two of them, **0x4083 and 0x408B, are also used as FRLG map-script variables** (through `vars_frlg.h` aliases). FRLG maps are not built into this Emerald ROM, so they are safe here, but skip them if FRLG maps are ever enabled. That leaves 17 with no alias at all.
 
 **Claimed 2026-10-08:** `VAR_CRESTFALL_STATE` (0x40F9, was `VAR_UNUSED_0x40F9`), see the table above.
 
@@ -97,7 +97,7 @@ Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x4
 
 **The Journal ([journal.md](journal.md)) claims no flag or var.** It reads the badge flags, the TROGLODYTE trainer flags (0x708, 0x709), `FLAG_SYS_GAME_CLEAR` and `VAR_HOLLOWBROOK_STATE`, and uses the volatile `VAR_0x8004`/`VAR_0x8005` as hand-off.
 
-**Only 22 spare persistent vars.** Use a var only for a state that has more than two values (a story chapter counter, a puzzle stage). Use a flag for anything yes/no. If we run short, the remaining Hoenn vars can be freed by removing the Hoenn maps that use them, but that is a decision for the author.
+**Only 19 spare persistent vars.** Use a var only for a state that has more than two values (a story chapter counter, a puzzle stage). Use a flag for anything yes/no. If we run short, the remaining Hoenn vars can be freed by removing the Hoenn maps that use them, but that is a decision for the author.
 
 ## Range and comment traps
 

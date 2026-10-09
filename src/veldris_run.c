@@ -5,7 +5,7 @@
 #include "constants/songs.h"
 
 // Veldris walk/run default toggle (hack-owned). FLAG_SYS_RUN_BY_DEFAULT set: the player runs unless B is held.
-// Clear (the new-game default): vanilla, B runs. Called from FieldGetPlayerInput when L is pressed and the
+// Set is the new-game default (VeldrisNewGameDefaults, author 2026-10-09); clear is vanilla, B runs. Called from FieldGetPlayerInput when L is pressed and the
 // field controls are not locked.
 void VeldrisTryToggleRunDefault(void)
 {

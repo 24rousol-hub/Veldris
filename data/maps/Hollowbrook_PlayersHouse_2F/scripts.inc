@@ -35,6 +35,8 @@ Hollowbrook_PlayersHouse_2F_Text_Notebook:
 @ screen sets (a new game also sets it, see src/veldris_new_game.c). No new flag or var. See design/time-of-day.md.
 Hollowbrook_PlayersHouse_2F_EventScript_WallClock::
 	lockall
+	checkplayergender @ the clock screens pick the blue or pink face from VAR_0x8004 (MALE = 0, FEMALE = 1), as the vanilla wrappers do
+	copyvar VAR_0x8004, VAR_RESULT
 	goto_if_unset FLAG_SYS_CLOCK_SET, Hollowbrook_PlayersHouse_2F_EventScript_ClockStopped
 	msgbox Hollowbrook_PlayersHouse_2F_Text_ClockChangeAsk, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, Hollowbrook_PlayersHouse_2F_EventScript_ClockSet

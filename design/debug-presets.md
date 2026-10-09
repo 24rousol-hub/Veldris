@@ -44,11 +44,11 @@ Bodies live in the hack-owned `data/scripts/veldris_debug.inc`. In `data/scripts
 
 Rules for maintainers: a preset only sets flags, vars, trainer flags, items and the party (no code). **When you claim a new Veldris flag or var, add it to `Veldris_Debug_ResetStory` in the same commit**; `python3 design/tools/check_debug_reset.py` lists any name in the 'In use by the hack' table of `flags.md` that the file never mentions. Preset 8 and the test teams are test dummies, not canon.
 
-Known limits: the Crestfall gym gates re-close only when the gym map loads, so running preset 6 while standing inside the gym leaves the old gate state until you leave and re-enter (preset 5 warps into the gym, so it is fine). Crestfall 'done' also counts Troglodyte's second fight as won although it is not scripted yet, so the Journal tally reads 2; delete that one line when the scene exists.
+Known limits: the Crestfall gym gates re-close only when the gym map loads, so running preset 6 while standing inside the gym leaves the old gate state until you leave and re-enter (preset 5 warps into the gym, so it is fine). Crestfall 'done' sets `VAR_CRESTFALL_STATE` to 1 and counts Troglodyte's second fight (the Scheme 1 scene) as won, so the Journal tally reads 2.
 
-## Not adopted yet (needs the author)
+## SessionStart hook (adopted 2026-10-09, author: yes)
 
-A `.claude/hooks/session-start.sh` plus `.claude/settings.json` that would turn the tracked hook on by itself in every fresh web session (and could install the GBA toolchain). Written and tested in scratch but not added: it changes how every Claude session starts here.
+`.claude/hooks/session-start.sh`, registered in `.claude/settings.json`, turns the tracked pre-commit hook on in every fresh web session (`git config core.hooksPath .githooks`, web only, idempotent) and warns if `python3` is missing. It deliberately does **not** install the GBA toolchain: that is a commented-out block in the script, because it would add about a minute to every session start and needs the author's OK.
 
 ## Other debug-menu aids worth knowing
 

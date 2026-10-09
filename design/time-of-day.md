@@ -46,7 +46,7 @@ The script is `Hollowbrook_PlayersHouse_2F_EventScript_WallClock` (`data/maps/Ho
 
 ## Night tables: open-air routes only (author, 2026-10-09)
 
-Only **open-air routes** get a `_Night` table, and never a special location. 'Open-air' means a road map of type `MAP_TYPE_ROUTE` under the sky (the same map types that get the night tint). The lead picks the species per route as each route is built. `_Morning` and `_Evening` stay unused (they use Day). `python3 design/tools/wild_lint.py` warns when a time table sits on a map that is not `MAP_TYPE_ROUTE`.
+Only **open-air routes** get a `_Night` table, and never a special location. 'Open-air' means a road map of type `MAP_TYPE_ROUTE` under the sky. (The night tint also covers towns, cities and sea routes, `MapHasNaturalLight` in `src/overworld.c`, but only `MAP_TYPE_ROUTE` maps get a Night table.) The lead picks the species per route as each route is built. `_Morning` and `_Evening` stay unused (they use Day). `python3 design/tools/wild_lint.py` warns when a time table sits on a map that is not `MAP_TYPE_ROUTE`.
 
 Never a time table: towns and cities, interiors, caves and mines, forests and mazes (Mothwood), the Pinnacle and the Victory Road cave floors, shrines and ruins (Mirror Isle, Aldermere), underwater maps, Altering Cave, Battle Frontier groups. Sea routes have no grass and stay out unless the author asks (the engine supports a Night water table).
 
@@ -68,7 +68,7 @@ Never a time table: towns and cities, interiors, caves and mines, forests and ma
 | R31 Hollowbrook-Argent Peak (post-game) | mountain trail | yes (Argent Peak itself: never) |
 | R14, R16, R17, R19, R22, R26-R29 | sea | no |
 
-(R9 was dropped on 2026-10-08. Route list from `design/towns-and-routes.md`; kinds are my reading of it, author to confirm.)
+(R9 was dropped on 2026-10-08. Route list from the route numbering in `design/towns-and-routes.md` and `design/region-names.md`; the kinds are my reading, author to confirm.)
 
 ## Route 1 Night table (BUILT, species PROPOSED)
 
@@ -141,5 +141,8 @@ Resolved 2026-10-09: fake clock (not the real one), the player can set it at hom
 | Build passes with `OW_USE_FAKE_RTC` TRUE, the furniture lookup and the Route 1 Night table | Pass |
 | New game via the title-screen quickstart: A on the wall-clock spot (3,1) in the 2F room says 'The wall clock keeps its own time. Reset it?' (so `FLAG_SYS_CLOCK_SET` is already set), NO shows the clock face, and it reads about 10:00 AM | Pass |
 | Debug Utilities > Time Functions > Set time of day > Night: the field gets the night tint | Pass |
-| Route 1 tall grass at Night gives the new table (Hoothoot, Rattata, Spinarak, Murkrow) | Not seen yet (walking to the grass in the emulator was slow) |
-| Setting the clock through the set screen (YES branch), and the stopped-clock text | Not run |
+| Review fix: the clock face follows the player's gender (a May player first saw the blue boy's face, now pink) | Pass |
+| Wall clock YES branch: the vanilla set-clock screen, 'Is this the correct time?', YES, then 'The wall clock is ticking.' | Pass |
+| Generated `src/data/wild_encounters.h`: Route 1's `[TIME_NIGHT]` slot points at `gVeldrisRoute1_Night_LandMonsInfo` (12 slots, rate 20, the species above) | Pass (read from the build, 2026-10-09) |
+| Route 1 tall grass at Night actually gives the new table in the emulator | Not seen (walking to the grass pen in the emulator was slow); the 2026-10-08 test already showed a Night roll uses the Night slot when it exists |
+| The stopped-clock text (flag clear) | Not run (a new game sets the flag) |

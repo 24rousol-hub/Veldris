@@ -42,6 +42,7 @@ Veldris_Debug_AllBadges::
 @ Shoes, the Pokedex or the Exp. Share (Preset 1 does those).
 Veldris_Debug_ResetStory::
 	setvar VAR_HOLLOWBROOK_STATE, 0
+	setvar VAR_CRESTFALL_STATE, 0 @ Crestfall Scheme 1 (the scene at the gym door); FLAG_TEMP_11 there is set on every map load, no reset needed
 	setvar VAR_TROG_STARTER, 0
 	setvar VAR_STARTER_MON, 0
 	clearflag FLAG_HIDE_HOLLOWBROOK_LAB_TROG
@@ -105,23 +106,38 @@ Veldris_Debug_StateRoam::
 
 @ What GRETA's script leaves behind (Crestfall_Gym_EventScript_GretaDefeated and GiveCut/GiveCrunch).
 Veldris_Debug_StateCrestfall::
+	setvar VAR_CRESTFALL_STATE, 1 @ the Scheme 1 scene is over (its fight is the one counted as won below)
 	setflag FLAG_BADGE01_GET
 	setflag FLAG_RECEIVED_HM_CUT
 	setflag FLAG_RECEIVED_TM_CRUNCH
 	settrainerflag TRAINER_CRESTFALL_GRETA
 	settrainerflag TRAINER_CRESTFALL_GYM_1
 	settrainerflag TRAINER_CRESTFALL_GYM_2
-	@ His second fight is not scripted yet; counted as won so the Journal tally reads 2. Drop this line when the scene exists.
+	@ His second fight is the Scheme 1 scene in Crestfall; counted as won so the Journal tally reads 2.
 	settrainerflag TRAINER_TROGLODYTE_CRESTFALL
 	setflag FLAG_VISITED_CRESTFALL
 	additem ITEM_HM_CUT
 	additem ITEM_TM_CRUNCH
 	return
 
-@ Things the real game hands out later (Journal: Route 1 guide; Exp. Share: giver undecided) plus a few consumables.
-Veldris_Debug_Stock::
+@ Restocks the Journal (the real game gives it through the Route 1 guide) and the Exp. Share (in the bag from new game, so this
+@ only restores it) plus a few consumables. Key items never double up (checkitem first).
+Veldris_Debug_GiveJournalOnce::
+	checkitem ITEM_JOURNAL
+	goto_if_eq VAR_RESULT, TRUE, Veldris_Debug_GiveOnceDone
 	additem ITEM_JOURNAL
+	return
+
+Veldris_Debug_GiveExpShareOnce::
+	checkitem ITEM_EXP_SHARE
+	goto_if_eq VAR_RESULT, TRUE, Veldris_Debug_GiveOnceDone
 	additem ITEM_EXP_SHARE
+Veldris_Debug_GiveOnceDone::
+	return
+
+Veldris_Debug_Stock::
+	call Veldris_Debug_GiveJournalOnce
+	call Veldris_Debug_GiveExpShareOnce
 	additem ITEM_POKE_BALL, 20
 	additem ITEM_POTION, 10
 	additem ITEM_REPEL, 5
@@ -151,8 +167,9 @@ Veldris_Debug_Preset1::
 	setflag FLAG_SYS_RUN_BY_DEFAULT
 	clearflag FLAG_SYS_POKEDEX_GET
 	setflag FLAG_SYS_EXP_SHARE_ON
+	setflag FLAG_SYS_CLOCK_SET @ a real new game sets it (src/veldris_new_game.c); the wall clock in the room can re-set the time
 	removeitem ITEM_JOURNAL
-	additem ITEM_EXP_SHARE
+	call Veldris_Debug_GiveExpShareOnce
 	callnative ZeroPlayerPartyMons
 	warp MAP_HOLLOWBROOK_PLAYERS_HOUSE_2F, 2, 4
 	waitstate

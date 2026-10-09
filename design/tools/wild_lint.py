@@ -2,11 +2,12 @@
 import json, re, sys
 from pathlib import Path
 TIMES = ('Morning', 'Day', 'Evening', 'Night')
-path = sys.argv[1] if len(sys.argv) > 1 else 'src/data/wild_encounters.json'
+path = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parents[2] / 'src/data/wild_encounters.json')
 data = json.load(open(path)); bad = 0
-# Author rule (2026-10-09): time tables only on open-air routes. Warn for any other map type. Run from the repo root.
+# Author rule (2026-10-09): time tables only on open-air routes. Warn for any other map type.
 MAP_TYPES = {}
-for mj in Path('data/maps').glob('*/map.json'):
+ROOT = Path(__file__).resolve().parents[2]
+for mj in (ROOT / 'data/maps').glob('*/map.json'):
     try:
         m = json.load(open(mj)); MAP_TYPES[m['id']] = m.get('map_type')
     except (OSError, ValueError, KeyError):
