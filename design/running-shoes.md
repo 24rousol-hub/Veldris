@@ -45,6 +45,8 @@ If Mom's walk looks wrong in the game (it was written from the map's coordinates
 | Walk 0.55 s without B: about 2.5 tiles; with B held: about 4.7 tiles (vanilla run unchanged) | Pass |
 | L pressed once: runs without B, **walks while B is held** | Pass |
 | L pressed again: back to vanilla (B runs) | Pass |
+| New game (2026-10-09, headless mGBA): after Mom's scene, walking 0.55 s **without B** covers about 4.3 tiles (run); **with B held** about 2.25 tiles (walk). Run-by-default works from the first step after the shoes | Pass |
+| New box text: 'These shoes run all the time. Hold the B Button to walk.' / 'Press the L Button to stop running all the time. Press it again to start.' (the second page scrolls with `\l`) | Pass |
 | The two toggle sounds (`SE_PC_LOGIN`, `SE_PC_OFF`) | Not listened to; both constants exist and the build links |
 | Talk path (`MomWakeUp` without the walk) | Not run; it calls the same gift script |
 | L=A button mode | Not run; the guard is one `if` |

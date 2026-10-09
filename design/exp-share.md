@@ -17,6 +17,7 @@ The flag is saved. **New games start with it set (on) and the item in the Key It
 | Check | Result |
 |---|---|
 | Item goes to the **Key Items** pocket with the Gen 6 description | Pass |
+| New game (2026-10-09, headless mGBA, via title-screen quickstart): the Exp. Share is already in the Key Items pocket, and using it says 'has been turned **off**', so the flag starts set | Pass |
 | Using it from the bag shows 'The Exp. Share has been turned on / off' and toggles | Pass (messages seen; Exp actually shared in a battle not checked) |
 
 ## Getting the item
