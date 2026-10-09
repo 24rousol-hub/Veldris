@@ -57,4 +57,7 @@ Nobody found a report of a pokeemerald-expansion ROM on the Miyoo Mini Plus eith
 
 | Check | Result |
 |---|---|
-| `make release` builds the whole tree | pending (see the log below when it finishes) |
+| `make release` builds the whole tree (2026-10-09, about 20 minutes with the link-time optimisation on 2 cores) | Pass, 0 errors; 7 warnings, all upstream link-time notes (for example `faraway_island.c` declares `GetMewMoveDirection` with two different types), none in hack code |
+| Release ROM size | 25.68 MiB used (the optimised code is bigger, the debug strings are gone), so 6.3 MiB free; still padded to 32 MiB; the Flash save marker is at the same offset, 0x20E8 |
+| RAM | EWRAM 226,414 bytes, IWRAM 28,312 bytes: the same as the dev build, nothing to worry about |
+| Debug menu and quickstart in the release ROM | Compiled out by `DISABLED_ON_RELEASE`; not played on a device yet |

@@ -43,7 +43,8 @@ const struct FieldMoveUnlock gFieldMoveUnlocks[FIELD_MOVE_UNLOCK_COUNT] =
     },
 };
 
-#define FLAG_TO_BADGE(flag) flag - FLAG_BADGE01_GET
+// Index into gBadgeFlags[]. Badges 1-8 are contiguous from FLAG_BADGE01_GET, badge 9 sits elsewhere (include/veldris_badges.h).
+#define FLAG_TO_BADGE(flag) (((flag) == FLAG_BADGE09_GET) ? 8 : (flag) - FLAG_BADGE01_GET)
 
 const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
 {
