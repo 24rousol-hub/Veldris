@@ -1,11 +1,12 @@
 # Running Shoes and the L-button run toggle
 
-Status: BUILT 2026-10-08 at the author's request (running shoes given by the player's mother, plus an L-button toggle). The Mom wording is **PROPOSED** (author has not read it yet).
+Status: BUILT 2026-10-08 at the author's request (running shoes given by the player's mother, plus an L-button toggle). **2026-10-09 (author): run-by-default is ON, and the shoes stay in Mom's first scene ('sooner is better').** The Mom wording is **PROPOSED** (author has not read it yet).
 
 ## What the player gets
 
-- **Running Shoes from Mom** in the player's house 1F, the first time she talks to the player (`Hollowbrook_PlayersHouse_1F`). Hold **B** to run, as in vanilla.
-- **L toggles run-by-default.** Press L in the overworld: the player now runs all the time, and **holding B walks instead** (inverted). Press L again to go back to vanilla. Two short sounds tell the player which way it went (`SE_PC_LOGIN` = on, `SE_PC_OFF` = off).
+- **Running Shoes from Mom** in the player's house 1F, the first time she talks to the player (`Hollowbrook_PlayersHouse_1F`).
+- **The player runs all the time from then on, and holding B walks instead** (inverted). That is the default: a new game starts with `FLAG_SYS_RUN_BY_DEFAULT` set.
+- **L toggles it.** Press L in the overworld to go back to vanilla (B runs); press it again to run all the time. Two short sounds tell the player which way it went (`SE_PC_LOGIN` = on, `SE_PC_OFF` = off).
 - The toggle does nothing before the shoes are given, and nothing in the **L=A** button mode (there L is the A button, `src/main.c`).
 - Biking, Surfing and underwater are untouched: the run check only runs on foot, and `IsRunningDisallowed` still blocks running on tiles that forbid it.
 
@@ -31,8 +32,8 @@ If Mom's walk looks wrong in the game (it was written from the map's coordinates
 
 ## What is not done (PROPOSED options)
 
-- **Shoes before the lab?** Today Mom gives them in the first scene, so the player has them for the whole game from minute one. Alternative: give them later (Route 1 end, after the first gym). Author's call.
-- **Default on or off?** New games start with run-by-default **off** (vanilla). One line in `ScrCmd`/the gift script (`setflag FLAG_SYS_RUN_BY_DEFAULT`) would start it on.
+- ~~Shoes before the lab?~~ **Decided 2026-10-09: yes, keep Mom's first scene ('sooner is better').**
+- ~~Default on or off?~~ **Decided 2026-10-09: on.** Two places set it: `VeldrisNewGameDefaults()` (`src/veldris_new_game.c`, called from `NewGameInitData`) and `setflag FLAG_SYS_RUN_BY_DEFAULT` in Mom's gift script, so the box text is always true. The shoes flag still gates running, so nothing runs before Mom's scene.
 - **Options-menu entry** instead of or beside the L toggle: would be a bigger edit (`src/option_menu.c`), not done.
 
 ## Tests (mGBA, headless, 2026-10-08)
@@ -55,3 +56,4 @@ If Mom's walk looks wrong in the game (it was written from the map's coordinates
 | Date | Change |
 |---|---|
 | 2026-10-08 | Built: Mom's gift, `FLAG_SYS_RUN_BY_DEFAULT`, L toggle |
+| 2026-10-09 | Run-by-default on at new game (`src/veldris_new_game.c`) and in the gift script; box text rewritten (B walks, L flips it); debug preset 1 'New game' matches |

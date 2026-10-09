@@ -1,5 +1,7 @@
 # Trainer slides: mid-battle trainer lines
 
+**Scope (author, 2026-10-09): mid-battle lines are for key battles only: gym leaders, the bosses of the Commons and the Drowned Crown, the Elite Four and Cynthia.** Ordinary trainers get none, and neither do the Troglodyte fights (his words go in the scenes around the fight). Nothing is written or wired until the author approves the wording.
+
 **Status: the mechanism is BUILT (2026-10-08, author approved the idea). No lines are wired yet.** Troglodyte's fights and the gym leaders' story lines are key beats (CLAUDE.md rules 9 and 10), so every line below stays PROPOSED until the author picks. Open questions are at the bottom.
 
 A trainer slide is a short line a trainer says during a fight: their picture slides in from the right, the line shows in the battle text box, the picture slides out. It costs no flags, vars, art or ROM space (the empty tables were already in the ROM; only the string bytes are new).
@@ -49,6 +51,8 @@ None yet.
 ## PROPOSED options (NOT approved, for the author to pick from)
 
 ALL TEXT BELOW IS PROPOSED (not canon). It is draft material for the author's pick, to live in design/trainer-slides.md until approved, not in the build. Each line gets {PAUSE_UNTIL_PRESS} from the VELDRIS_SLIDE macro. Every line was measured with the ported game line-breaker (208 px box, 2 lines); all fit one page (widest line 195 px). Shape in brackets = pixels per displayed line.
+
+**Out of scope since 2026-10-09:** the two Troglodyte drafts below (fights 1 and 2) stay only as reference, because the author wants mid-battle lines for key battles only (gym leaders, Commons and Crown bosses, Elite Four, Cynthia). Open questions 1, 2 and 4 are moot unless that changes.
 
 === TROGLODYTE FIGHT 1, Hollowbrook (TRAINER_TROGLODYTE_HOLLOWBROOK, id 520) ===
 Written to work whichever mon leads. BEFORE_FIRST_TURN is left empty on purpose: the field text already introduces him (Hollowbrook_Text_TrogOutside1, TrogPetIntro). Triggers: DEFENDER_TAKES_FIRST_DOWN (his first mon faints), SELF_LAST_SWITCHIN (his last mon comes out), SELF_LAST_LOW_HP (last stand).

@@ -148,11 +148,11 @@ Veldris_Debug_GiveTeam::
 Veldris_Debug_Preset1::
 	call Veldris_Debug_ResetStory
 	clearflag FLAG_SYS_B_DASH
-	clearflag FLAG_SYS_RUN_BY_DEFAULT
+	setflag FLAG_SYS_RUN_BY_DEFAULT
 	clearflag FLAG_SYS_POKEDEX_GET
-	clearflag FLAG_SYS_EXP_SHARE_ON
+	setflag FLAG_SYS_EXP_SHARE_ON
 	removeitem ITEM_JOURNAL
-	removeitem ITEM_EXP_SHARE
+	additem ITEM_EXP_SHARE
 	callnative ZeroPlayerPartyMons
 	warp MAP_HOLLOWBROOK_PLAYERS_HOUSE_2F, 2, 4
 	waitstate

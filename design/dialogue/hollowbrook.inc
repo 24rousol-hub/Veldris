@@ -34,13 +34,11 @@ Hollowbrook_Text_PlayerPutOnShoes::
 	.string "They squeak a little.$"
 
 Hollowbrook_Text_MomShoesBox::
-	.string "The box says: ‘Hold the B Button\n"
-	.string "to run extra-fast.’\p"
+	.string "The box says: ‘These shoes run all\n"
+	.string "the time. Hold the B Button to walk.’\p"
 	.string "On the back: ‘Press the L Button\n"
-	.string "to run all the time. Press it\l"
-	.string "again to stop.’\p"
-	.string "And: ‘While running all the time,\n"
-	.string "hold the B Button to walk.’$"
+	.string "to stop running all the time. Press\l"
+	.string "it again to start.’$"
 
 Hollowbrook_Text_MomShoesSendOff::
 	.string "That's a lot of buttons for one\n"

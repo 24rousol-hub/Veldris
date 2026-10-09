@@ -15,7 +15,7 @@ Status: BUILT 2026-10-08, upgraded the same day (author liked 'tracked dialogue-
 
 Options: `--staged` (only strings on lines the staged diff adds, what the hook uses), `--all`, `--box`. Opt one string out with `nocheck` in a comment (`@ nocheck` in `.inc`, `// nocheck` in C). A plain run on an upstream file (for example `items.h`) checks only lines changed since HEAD.
 
-The tracked **`.githooks/pre-commit`** runs on every commit once you set `git config core.hooksPath .githooks` (git does not store this setting, so do it once per clone; a fresh web session needs it again):
+The tracked **`.githooks/pre-commit`** runs on every commit once you set `git config core.hooksPath .githooks` (git does not store this setting, so do it once per clone; a fresh web session gets it automatically from the SessionStart hook `.claude/hooks/session-start.sh`, registered in `.claude/settings.json`, author-approved 2026-10-09: it runs the one `git config` line only in the web environment and does not install the GBA toolchain):
 
 | Check | Staged files |
 |---|---|
@@ -31,7 +31,7 @@ Bodies live in the hack-owned `data/scripts/veldris_debug.inc`. In `data/scripts
 
 | Slot | Name in the menu | Does |
 |---|---|---|
-| 1 | New game (bedroom) | Whole story back to new game, no Pokémon, no shoes, no Journal; warps to the 2F room. Walk down for Mom's scene |
+| 1 | New game (bedroom) | Whole story back to new game, no Pokémon, no shoes, no Journal; Exp. Share in the bag and on and run-by-default on, as in a real new game; warps to the 2F room. Walk down for Mom's scene |
 | 2 | Lab scene (Trog 1) | State 1 (Mom's scene done, shoes given), no Pokémon; warps into the lab at (6,11). Press Up once for the lab scene |
 | 3 | Trog fight 1 (door) | Starter chosen (Mudkip L5); arrives on the lab door tile, which fires Troglodyte's first fight |
 | 4 | After Trog fight | Free roam, state 4, Mudkip L8, key items and a few consumables, in front of the player's house |
