@@ -34,6 +34,7 @@
 #include "start_menu.h"
 #include "trainer_see.h"
 #include "trainer_hill.h"
+#include "veldris_furniture.h"
 #include "veldris_run.h"
 #include "vs_seeker.h"
 #include "wild_encounter.h"
@@ -483,6 +484,7 @@ static const u8 *GetInteractedBackgroundEventScript(struct MapPosition *position
 static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 metatileBehavior, enum Direction direction)
 {
     s8 elevation;
+    const u8 *furnitureScript;
 
     if (MetatileBehavior_IsPlayerFacingTVScreen(metatileBehavior, direction) == TRUE)
     {
@@ -529,6 +531,9 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_Questionnaire;
     if (MetatileBehavior_IsTrainerHillTimer(metatileBehavior) == TRUE)
         return EventScript_TrainerHillTimer;
+    furnitureScript = VeldrisGetFurnitureScript(metatileBehavior); // Veldris: talking furniture works on Emerald-format maps
+    if (furnitureScript != NULL)
+        return furnitureScript;
     if (IS_FRLG)
     {
         if (MetatileBehavior_IsFood(metatileBehavior) == TRUE)

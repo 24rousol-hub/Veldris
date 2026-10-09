@@ -146,6 +146,75 @@
           }
         },
         {
+          "map": "MAP_VELDRIS_ROUTE1",
+          "base_label": "gVeldrisRoute1_Night",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 3,
+                "max_level": 4,
+                "species": "SPECIES_ZIGZAGOON"
+              },
+              {
+                "min_level": 3,
+                "max_level": 4,
+                "species": "SPECIES_HOOTHOOT"
+              },
+              {
+                "min_level": 3,
+                "max_level": 4,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 3,
+                "max_level": 4,
+                "species": "SPECIES_HOOTHOOT"
+              },
+              {
+                "min_level": 4,
+                "max_level": 4,
+                "species": "SPECIES_ZIGZAGOON"
+              },
+              {
+                "min_level": 4,
+                "max_level": 4,
+                "species": "SPECIES_HOOTHOOT"
+              },
+              {
+                "min_level": 4,
+                "max_level": 5,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 4,
+                "max_level": 5,
+                "species": "SPECIES_SPINARAK"
+              },
+              {
+                "min_level": 4,
+                "max_level": 5,
+                "species": "SPECIES_SKITTY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SKITTY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SLAKOTH"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_MURKROW"
+              }
+            ]
+          }
+        },
+        {
           "map": "MAP_ROUTE101",
           "base_label": "gRoute101",
           "land_mons": {

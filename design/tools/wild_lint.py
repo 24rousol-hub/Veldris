@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 import json, re, sys
+from pathlib import Path
 TIMES = ('Morning', 'Day', 'Evening', 'Night')
 path = sys.argv[1] if len(sys.argv) > 1 else 'src/data/wild_encounters.json'
 data = json.load(open(path)); bad = 0
+# Author rule (2026-10-09): time tables only on open-air routes. Warn for any other map type. Run from the repo root.
+MAP_TYPES = {}
+for mj in Path('data/maps').glob('*/map.json'):
+    try:
+        m = json.load(open(mj)); MAP_TYPES[m['id']] = m.get('map_type')
+    except (OSError, ValueError, KeyError):
+        pass
 def err(m):
     global bad; bad += 1; print('ERROR:', m)
 for group in data['wild_encounter_groups']:
@@ -12,6 +20,8 @@ for group in data['wild_encounter_groups']:
         label = e['base_label']
         m = re.fullmatch(r'(.+)_(Morning|Day|Evening|Night)', label)
         stem, suffix = (m.group(1), m.group(2)) if m else (label, None)
+        if suffix and MAP_TYPES.get(e.get('map'), 'MAP_TYPE_ROUTE') != 'MAP_TYPE_ROUTE':
+            print(f'WARN: {label}: a {suffix} table on a {MAP_TYPES[e["map"]]} map; time tables are for open-air routes only (design/time-of-day.md)')
         for t in TIMES:
             if t in stem: err(f'{label}: contains {t} outside the suffix; generator picks the wrong slot')
         for field, n in slots.items():
