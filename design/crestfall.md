@@ -89,9 +89,30 @@ Sign scripts are in `data/maps/Crestfall/scripts.inc` (town and field text from 
 | Centre gates (shut, opened by `setmetatile` on load once `FLAG_BADGE01_GET` is set) | (6-8,11) and (6-8,16) |
 | Statues (signs) / exit mat | (3,21), (11,21) / (7-8,22) |
 
-Rewards: STANDARD BADGE (`FLAG_BADGE01_GET`), **HM CUT** (`FLAG_RECEIVED_HM_CUT`, the vanilla flag reused) and **TM CRUNCH** (new **TM51**, flag `FLAG_RECEIVED_TM_CRUNCH` = the unused vanilla Rock Tomb flag). The aisle walls are new north-south railing tiles (metatiles 736-740 in the Petalburg Gym tileset, drawn the way vanilla draws Route 117's fence), built by `design/tools/gym/gym_rails.py`; the map by `design/tools/gym/crestfall_gym.py`. Greta's lines are the earlier drafts (PROPOSED); DALE's and WREN's were reworded because the hay maze is gone. **Checked in mGBA:** entering, the new railings, the shut centre gates. **Not yet checked:** the battles, the badge and gifts, the gates opening. **Not built:** Scheme 1 (the dialogue draft is waiting for the author's review).
+Rewards: STANDARD BADGE (`FLAG_BADGE01_GET`), **HM CUT** (`FLAG_RECEIVED_HM_CUT`, the vanilla flag reused) and **TM CRUNCH** (new **TM51**, flag `FLAG_RECEIVED_TM_CRUNCH` = the unused vanilla Rock Tomb flag). The aisle walls are new north-south railing tiles (metatiles 736-740 in the Petalburg Gym tileset, drawn the way vanilla draws Route 117's fence), built by `design/tools/gym/gym_rails.py`; the map by `design/tools/gym/crestfall_gym.py`. Greta's lines are the earlier drafts (PROPOSED); DALE's and WREN's were reworded because the hay maze is gone. **Checked in mGBA:** entering, the new railings, the shut centre gates. **Not yet checked:** the battles, the badge and gifts, the gates opening. **Scheme 1** is built (below).
 
-## Where Scheme 1 beats happen
+## Scheme 1, as built (2026-10-08)
+
+Dialogue approved by the author 2026-10-08 ([dialogue/crestfall_scheme1.inc](dialogue/crestfall_scheme1.inc)). **Played through in mGBA end to end**, including Troglodyte's battle.
+
+| Piece | How |
+|---|---|
+| Stage | `VAR_CRESTFALL_STATE`: 0 booked, 1 done |
+| Trigger | `coord_event` on (20,10), the only tile in front of the gym door, while the var is 0. The gym cannot be entered before the scene |
+| Photographer (`OBJ_EVENT_GFX_CAMERAMAN`) | (23,11) before; (17,12) by the noticeboard after (moved in `OnTransition`) |
+| Local, a grandmother (`OBJ_EVENT_GFX_OLD_WOMAN`) | (26,13), before and after lines |
+| Hollis (`OBJ_EVENT_GFX_GENTLEMAN`), Troglodyte (`RICH_BOY`), Greta outside (`LASS`, `LOCALID_CRESTFALL_GRETA_OUTSIDE`) | Hidden by `FLAG_TEMP_11`, spawned by the scene |
+| Gym sign (22,10) | The CLOSED sign while the var is 0, then 'Leader: GRETA / Normal is reliable.' (the old Miltank and hay line is gone: Greta has no farm link) |
+| Noticeboard | bg event at **(16,13)**, before and after text. **That tile is still plain flower grass: the author should paint a sign there in Porymap** |
+| Trog fight 2 | `TRAINER_TROGLODYTE_CRESTFALL` (already built), `trainerbattle_no_intro`. Losing whites out with the var still 0, so the scene replays |
+
+Scene order: Hollis walks up and asks the player to step aside, the player steps right, Troglodyte walks up and goes in with the photographer, Hollis's aside, fade, the photographer, Greta and Troglodyte come out, the battle, Hollis and Troglodyte leave west, the photographer pins the photo, Greta invites the player and goes in. In the gym, Greta's after-badge line is the Goldsworth one on the visit she is beaten and 'Back already? Flattering.' on later visits (`VAR_TEMP_1`).
+
+**Gotcha found in testing:** two maps cannot share a `local_id` name. `LOCALID_CRESTFALL_GRETA` already belonged to the gym, so the town's copy silently became the photographer's id. The outdoor one is `LOCALID_CRESTFALL_GRETA_OUTSIDE`.
+
+Still to rewrite (old scheme): the Route 1 surveyors, House A wife's lines, the Wendlebury traveller's hay-maze line.
+
+## Where Scheme 1 beats happen (old consultant plan, superseded)
 1. **Setup** (before the gym): consultant outside in town; locals and the old farmer grumble; the two surveyors on Route 1 hint first.
 2. **Reveal**: consultant boss and junior at the gym door, with the junior lost in the hay maze.
 3. **Collapse**: Greta's MILTANK eat the paperwork, at the gym door (coord_event trigger, per CLAUDE.md).

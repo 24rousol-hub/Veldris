@@ -33,7 +33,7 @@ The author has not decided which path the story takes. **Update (author, 2026-10
 | Intro and Prof. Fennick | Start town | Intro is C-driven. Text drafted in `data/text/birch_speech.inc` (built, fits the text box). Portrait art still shows Birch | BUILT (text). Tone approved by the author; portrait art still to do |
 | Player learns Troglodyte got a head start | Start town | Sets the motive. The scene above shows it, and the grandfather in Hollowbrook's Goldsworth house could fill in the rest | PROPOSED |
 | Route 1, first trainers | Route 1 | Gentle, farm-country. Now ends in Crestfall; the Scheme 1 surveyors walk it | PROPOSED |
-| **Scheme 1 at Crestfall** | Crestfall | See below | PROPOSED |
+| **Scheme 1 at Crestfall** | Crestfall | See below | BUILT (dialogue approved 2026-10-08) |
 | Gym 1: Greta (Normal), STANDARD BADGE | Crestfall | `TRAINER_CRESTFALL_GRETA`, 2 gym trainers | author fixed leader, type, badge name and trainer count |
 | Route 8 gated | Route 8 (Wendlebury to Briarwick) | A ranger closes it over odd happenings in Mothwood; opens after badge 2 (author, 2026-10-08); Mothwood branches off it; R9 dropped | Author |
 | Mothwood event | Mothwood | Required (author). The Drowned Crown steal a Time Gear-like piece of Dialga's seal; time stops in the forest; Shedinja encounter during the event, Celebi post-game; Shaymin kept for Primrose Vale. See [factions.md](factions.md) | Author, details PROPOSED |

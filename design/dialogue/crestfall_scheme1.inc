@@ -1,4 +1,4 @@
-@ Crestfall Scheme 1, 'the private booking' (author, 2026-10-08). DRAFT for the author's review, not wired.
+@ Crestfall Scheme 1, 'the private booking' (author, 2026-10-08). APPROVED by the author 2026-10-08 and wired into data/maps/Crestfall/scripts.inc (Greta's two lines in Crestfall_Gym). One change on wiring: GretaInvite ends 'They only open for winners.'
 @ Author fixed: Troglodyte's attendant pushes the player aside at the gym door ('the golden boy goes first');
 @ Troglodyte thinks nothing of it, it is how he was raised. The attendant is a kind, posh old man who served
 @ Troglodyte's father before him. The parents booked the gym for a private session with a photographer for

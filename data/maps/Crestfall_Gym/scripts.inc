@@ -24,7 +24,14 @@ Crestfall_Gym_EventScript_Greta::
 	trainerbattle_single TRAINER_CRESTFALL_GRETA, Crestfall_Gym_Text_GretaIntro, Crestfall_Gym_Text_GretaDefeat, Crestfall_Gym_EventScript_GretaDefeated, NO_MUSIC
 	goto_if_unset FLAG_RECEIVED_HM_CUT, Crestfall_Gym_EventScript_GiveCut
 	goto_if_unset FLAG_RECEIVED_TM_CRUNCH, Crestfall_Gym_EventScript_GiveCrunch
+	goto_if_eq VAR_TEMP_1, 0, Crestfall_Gym_EventScript_GretaReturnVisit
 	msgbox Crestfall_Gym_Text_GretaAfterBadge, MSGBOX_DEFAULT
+	release
+	end
+
+@ VAR_TEMP_1 is 1 only on the visit she was beaten (it resets on every map load), so later visits get the idle line.
+Crestfall_Gym_EventScript_GretaReturnVisit::
+	msgbox Crestfall_Gym_Text_GretaIdleAfter, MSGBOX_DEFAULT
 	release
 	end
 
@@ -34,6 +41,7 @@ Crestfall_Gym_EventScript_GretaDefeated::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox Crestfall_Gym_Text_GretaBadgeInfo, MSGBOX_DEFAULT
 	setflag FLAG_BADGE01_GET
+	setvar VAR_TEMP_1, 1
 	settrainerflag TRAINER_CRESTFALL_GYM_1
 	settrainerflag TRAINER_CRESTFALL_GYM_2
 	call Crestfall_Gym_EventScript_OpenGates
@@ -121,6 +129,12 @@ Crestfall_Gym_Text_GretaAfterBadge:
 	.string "He's just never been told ‘no.’\n"
 	.string "So you'd be doing the region a\l"
 	.string "favour, every time you beat him.$"
+
+@ Scheme 1 dialogue (author approved 2026-10-08), from design/dialogue/crestfall_scheme1.inc.
+Crestfall_Gym_Text_GretaIdleAfter:
+	.string "Back already? Flattering.\p"
+	.string "If a man with a camera asks,\n"
+	.string "I'm booked. For everyone.$"
 
 Crestfall_Gym_Text_DaleIntro:
 	.string "Pick a side, pick a fight!\n"

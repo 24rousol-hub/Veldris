@@ -41,6 +41,8 @@ Vars: persistent vars are 0x4000-0x40FF (256 in total). `VAR_TEMP_0` to `VAR_TEM
 | `FLAG_VISITED_CRESTFALL` | 0x021 | Fly | Crestfall is a fly destination | Town `OnTransition` | Never | 2026-10-08 |
 | `FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS` | 0x496 | One-shot | Route 1 guide's 3 POTIONs given | Guide's script | Never | 2026-10-01 |
 | `FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_POTION`, `_REPEL` | 0x265, 0x266 | Hidden item | Route 1 hidden POTION (27,13) and REPEL (44,17) picked up | The hidden item event | Never | 2026-10-01 |
+| `VAR_CRESTFALL_STATE` | 0x40F9 | Var | Scheme 1: 0 gym booked (scene waits at the gym door), 1 scene done (photographer by the noticeboard, normal gym sign) | Crestfall Scheme 1 scene | Never | 2026-10-08 |
+| `FLAG_TEMP_11` (temp, Crestfall only) | 0x11 | Temp | Hides Hollis, Troglodyte and the outdoor Greta in Crestfall; set on every load, the scene spawns them with `addobject` | Crestfall `OnTransition` | Cleared on every map load | 2026-10-08 |
 | `VAR_HOLLOWBROOK_STATE` | 0x40F8 | Var | 0 new game, 1 mom woke player, 2 Troglodyte has his ball (player choosing, exit blocked), 3 player chose, 4 Troglodyte beaten outside | Lab scene (2, 3); mom and the town scripts later (1, 4) | Never | 2026-10-01 |
 
 ## Spare pool: permanent flags
@@ -83,6 +85,8 @@ Reminder: the spare flags for ordinary game state are numerous but they are not 
 23 vars are named `VAR_UNUSED_*`. **22 are safe to claim.** Excluded: `VAR_UNUSED_0x8014`, which is a volatile special var (0x8000 block, never saved). Also note `VAR_UNUSED_0x404E`: the config comment in `include/config/battle.h` names it as an example toggle. Claim it for a config switch, or skip it.
 
 Claimable vars (22): 0x404E, 0x4083, 0x408B, 0x4091, 0x409B, 0x409D, 0x40A1, 0x40A8, 0x40B8, 0x40BB, 0x40DB, 0x40DC, 0x40E5, and 0x40F7 to 0x40FF (9 in a row). Two of them, **0x4083 and 0x408B, are also used as FRLG map-script variables** (through `vars_frlg.h` aliases). FRLG maps are not built into this Emerald ROM, so they are safe here, but skip them if FRLG maps are ever enabled. That leaves 20 with no alias at all.
+
+**Claimed 2026-10-08:** `VAR_CRESTFALL_STATE` (0x40F9, was `VAR_UNUSED_0x40F9`), see the table above.
 
 **Claimed 2026-09-30:** `VAR_TROG_STARTER` (0x40F7, was `VAR_UNUSED_0x40F7`): Troglodyte's random starter, 0, 1 or 2 for the 1st, 2nd or 3rd starter on show. Set once by the lab scene (`random 3`) and read by the pool prune in `src/trainer_pools.c`.
 

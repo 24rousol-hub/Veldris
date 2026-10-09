@@ -27,6 +27,8 @@ All checked against this tree.
   The tile must be walkable and its elevation must match (normally 3). `MAP_SCRIPT_ON_FRAME_TABLE` is also fine for cutscenes. `MAP_SCRIPT_ON_TRANSITION` is still the right place for instant setup such as `setflag FLAG_VISITED_<TOWN>`.
 - **Name Greta's trainer `TRAINER_CRESTFALL_GRETA`.** `TRAINER_GRETA` already exists (`include/constants/opponents.h`, `src/data/trainers.party`).
 - **The intro is C-driven.** Edit `data/text/birch_speech.inc` for intro dialogue (used by `src/main_menu.c`, included from `data/event_scripts.s`). The 'This is what we call a POKéMON' line is in `src/strings.c` instead, and the Birch art is in `graphics/birch_speech/`. Birch's name is hard-coded in the `.inc` text, so renaming him to Fennick is a text edit. `ENABLE_QUICKSTART` lets you skip the intro while testing.
+- **`local_id` names must be unique across all maps** (they all land in one header, `include/constants/map_event_ids.h`). A clash builds without error and the later value wins, so a script moves the wrong person (seen 2026-10-08 with Greta in Crestfall and its gym). Suffix outdoor copies, e.g. `LOCALID_CRESTFALL_GRETA_OUTSIDE`.
+- **FRLG overworld sprites (`OBJ_EVENT_GFX_*_FRLG`) are not compiled into this Emerald build.** Using one builds fine but crashes (the game resets) when the object spawns.
 - **Write map scripts as `scripts.inc`, not Poryscript.** The build has no Poryscript rules.
 - **`{RIVAL}` expands to MAY or BRENDAN** (`src/string_util.c`). Write TROGLODYTE literally.
 - **Dialogue must fit the text box: 216 px wide, 2 lines** (measured). Run `python3 design/tools/dialogue_check.py <file>` before committing any text. Details in `design/dialogue-style.md`.

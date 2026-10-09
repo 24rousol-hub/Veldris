@@ -69,3 +69,4 @@ Before pulling upstream, read this list. Each row is a place a merge could confl
 | `data/tilesets/secondary/petalburg_gym/*`, `src/data/tilesets/graphics.h` (2026-10-08) | 5 north-south railing metatiles appended to the Petalburg Gym tileset (ids 736-740, 10 new tiles in palette 6, `-num_tiles` 148 to 158), drawn from the gym railing's own colours; author approved. Made by `design/tools/gym/gym_rails.py` | Built, seen in game |
 | `include/constants/tms_hms.h` (2026-10-08) | `F(CRUNCH)` added after OVERHEAT, so **TM51 is TM CRUNCH** (Greta's reward, author-approved earlier). Teachable learnsets regenerate in the build | Built |
 | `include/constants/flags.h` (2026-10-08) | `FLAG_RECEIVED_TM_CRUNCH` defined as an alias of the unused `FLAG_RECEIVED_TM_ROCK_TOMB` (0xA5) | Built |
+| `include/constants/vars.h` (2026-10-08) | `VAR_UNUSED_0x40F9` renamed `VAR_CRESTFALL_STATE` (Scheme 1 stage) | Built, tested in game |
