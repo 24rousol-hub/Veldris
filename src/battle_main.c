@@ -5101,6 +5101,7 @@ static void HandleEndTurn_BattleWon(void)
             PlayBGM(MUS_VICTORY_AQUA_MAGMA);
             break;
         case TRAINER_CLASS_LEADER:
+        case TRAINER_CLASS_RIVAL: // Veldris: only TROGLODYTE uses this class
             PlayBGM(MUS_VICTORY_GYM_LEADER);
             break;
         default:

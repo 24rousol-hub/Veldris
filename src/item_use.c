@@ -1,5 +1,6 @@
 #include "global.h"
 #include "item_use.h"
+#include "veldris_journal.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_stat_change.h"
@@ -744,6 +745,18 @@ static void Task_AccessPokemonBoxLink(u8 taskId)
 {
     ScriptContext_SetupScript(EventScript_AccessPokemonBoxLink);
     DestroyTask(taskId);
+}
+
+static void Task_OpenJournal(u8 taskId)
+{
+    ScriptContext_SetupScript(Veldris_EventScript_Journal);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_Journal(u8 taskId)
+{
+    sItemUseOnFieldCB = Task_OpenJournal;
+    SetUpItemUseOnFieldCallback(taskId);
 }
 
 void ItemUseOutOfBattle_CoinCase(u8 taskId)

@@ -185,6 +185,7 @@ Hollowbrook_EventScript_TrogOutsideTrigger::
 	lockall
 	applymovement LOCALID_HOLLOWBROOK_TROG, Common_Movement_FacePlayer
 	waitmovement 0
+	playbgm MUS_ENCOUNTER_RICH, FALSE
 	applymovement LOCALID_HOLLOWBROOK_TROG, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement LOCALID_HOLLOWBROOK_TROG, Common_Movement_Delay48

@@ -4807,6 +4807,7 @@ Music: Female
 Items: Potion / Potion
 Double Battle: No
 AI: Basic Trainer
+Starting Status: Grassy Terrain Temporary
 
 Kricketune
 Level: 17
@@ -4833,6 +4834,7 @@ Music: Girl
 Items: Super Potion / Super Potion
 Double Battle: No
 AI: Basic Trainer
+Starting Status: Trick Room Temporary
 
 Shuppet
 Level: 23
@@ -4867,6 +4869,7 @@ Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
 AI: Basic Trainer
+Starting Status: Electric Terrain Temporary
 
 Bronzor
 Level: 29
@@ -4901,6 +4904,7 @@ Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Basic Trainer
+Starting Status: Weather Snow Temporary
 
 Sneasel
 Level: 35
@@ -4943,6 +4947,7 @@ Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Basic Trainer
+Starting Status: Tailwind Opponent Temporary
 
 Swellow
 Level: 40
@@ -4985,6 +4990,7 @@ Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Basic Trainer
+Starting Status: Toxic Spikes Player L1
 
 Weezing
 Level: 46
@@ -5035,6 +5041,7 @@ Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Basic Trainer
+Starting Status: Misty Terrain Temporary
 
 Azumarill
 Level: 52
@@ -5085,6 +5092,7 @@ Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Basic Trainer
+Starting Status: Weather Rain Temporary
 
 Gyarados
 Level: 58
@@ -9513,7 +9521,8 @@ Name: TROGLODYTE
 Class: Rival
 Pic: Veldris Troglodyte
 Gender: Male
-Music: Male
+Music: Rich
+Mugshot: Gold
 Double Battle: No
 AI: Basic Trainer
 Party Size: 2
@@ -9521,12 +9530,14 @@ Pool Prune: Rival Starter
 
 SIR BISCUIT (Lillipup)
 Level: 1
+Ball: Luxury
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Leer
 
 Treecko
 Level: 5
+Ball: Luxury
 Tags: Tag6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Pound
@@ -9535,6 +9546,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Torchic
 Level: 5
+Ball: Luxury
 Tags: Tag7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Scratch
@@ -9543,6 +9555,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Mudkip
 Level: 5
+Ball: Luxury
 Tags: Tag8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
@@ -9554,7 +9567,8 @@ Name: TROGLODYTE
 Class: Rival
 Pic: Veldris Troglodyte
 Gender: Male
-Music: Male
+Music: Rich
+Mugshot: Gold
 Double Battle: No
 AI: Basic Trainer
 Party Size: 2
@@ -9562,12 +9576,14 @@ Pool Prune: Rival Starter
 
 SIR BISCUIT (Lillipup)
 Level: 7
+Ball: Luxury
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Leer
 
 Treecko
 Level: 8
+Ball: Luxury
 Tags: Tag6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Pound
@@ -9577,6 +9593,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Torchic
 Level: 8
+Ball: Luxury
 Tags: Tag7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Scratch
@@ -9586,6 +9603,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Mudkip
 Level: 8
+Ball: Luxury
 Tags: Tag8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle

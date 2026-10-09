@@ -20,6 +20,32 @@ Hollowbrook_Text_MomWakeUp::
 	.string "And take a clean handkerchief.\n"
 	.string "You never know.$"
 
+@ Running Shoes gift (BUILT in the map script, PROPOSED wording). Given right after the wake-up line.
+Hollowbrook_Text_MomRunningShoes::
+	.string "Oh, and one more thing, {PLAYER}.\n"
+	.string "I got you a little something.\p"
+	.string "RUNNING SHOES. The shop said\n"
+	.string "they're ‘terribly quick’.\p"
+	.string "I said you'd be the judge.\n"
+	.string "Go on. Put them on.$"
+
+Hollowbrook_Text_PlayerPutOnShoes::
+	.string "{PLAYER} put on the RUNNING SHOES.\n"
+	.string "They squeak a little.$"
+
+Hollowbrook_Text_MomShoesBox::
+	.string "The box says: ‘These shoes run all\n"
+	.string "the time. Hold the B Button to walk.’\p"
+	.string "On the back: ‘Press the L Button\n"
+	.string "to stop running all the time. Press\l"
+	.string "it again to start.’$"
+
+Hollowbrook_Text_MomShoesSendOff::
+	.string "That's a lot of buttons for one\n"
+	.string "pair of shoes. I read it twice.\p"
+	.string "Now off you go. FENNICK is\n"
+	.string "waiting, and you're ready.$"
+
 @ Idle, before the lab scene.
 Hollowbrook_Text_MomIdleBefore::
 	.string "Off to the lab, {PLAYER}.\n"

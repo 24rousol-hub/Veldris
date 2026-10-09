@@ -1,0 +1,45 @@
+#!/bin/sh
+# Veldris pre-commit guard (tracked). Turn it on once per clone:  git config core.hooksPath .githooks
+# 1. This repo is PUBLIC: never commit a ROM, a save file or a savestate.
+# 2. Staged text must fit its box: design/tools/dialogue_check.py --staged (only the strings on lines this commit adds,
+#    in any .inc/.c/.h file the tool has a rule for; vanilla text that already overflows does not block you).
+# 3. wild_encounters.json, if staged, must pass design/tools/wild_lint.py.
+# Skip checks 2 and 3 only with a good reason:  git commit --no-verify  (never for check 1).
+
+root=$(git rev-parse --show-toplevel) || exit 1
+cd "$root" || exit 1
+
+staged=$(git diff --cached --name-only --diff-filter=ACMR)
+
+bad=$(printf '%s\n' "$staged" \
+  | grep -Ei '\.(gba|sav|srm|sgm|ss[0-9])$' \
+  | grep -Ev '^data/mb_(berry_fix|colosseum|ereader)\.gba$')
+if [ -n "$bad" ]; then
+  echo "BLOCKED: ROM, save or savestate files are staged:" >&2
+  echo "$bad" >&2
+  echo "Unstage them with: git reset HEAD -- <file>" >&2
+  exit 1
+fi
+
+if ! command -v python3 >/dev/null 2>&1; then
+  echo "pre-commit: python3 not found, text checks skipped" >&2
+  exit 0
+fi
+
+text=$(printf '%s\n' "$staged" | grep -E '\.(inc|c|h)$')
+if [ -n "$text" ]; then
+  # shellcheck disable=SC2086  # tracked paths in this repo contain no spaces
+  python3 -B design/tools/dialogue_check.py --staged $text || {
+    echo "BLOCKED: some text does not fit its text box (errors above). Fix it, add 'nocheck' to that string, or --no-verify." >&2
+    exit 1
+  }
+fi
+
+if printf '%s\n' "$staged" | grep -qx 'src/data/wild_encounters.json'; then
+  python3 -B design/tools/wild_lint.py >/dev/null || {
+    echo "BLOCKED: wild_lint.py found a problem. Run: python3 design/tools/wild_lint.py" >&2
+    exit 1
+  }
+fi
+
+exit 0

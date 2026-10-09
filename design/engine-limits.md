@@ -45,6 +45,21 @@ All in `include/config/`. Prefer these to editing code.
 | `map_preview_screen.h` | `MPS_ENABLE_MAP_PREVIEWS` (`IS_FRLG`, so off here) | FRLG-style splash when entering an area |
 | `text.h` | `TEXT_SPEED_INSTANT`, `AUTO_SCROLL_TEXT` | Speeds up testing dialogue |
 
+## Config switches turned ON for Veldris (author, 2026-10-08)
+
+Logged in [engine-edits.md](engine-edits.md). All are one-line reversions in `include/config/`.
+
+| Switch | Was | Now | Effect and how to undo |
+|---|---|---|---|
+| `I_REUSABLE_TMS` (`item.h`) | FALSE | TRUE | TMs are never consumed and cannot be sold or tossed. No Veldris mart sells TMs, so nothing else changes. Set FALSE to restore single-use TMs |
+| `P_SHOW_DYNAMIC_TYPES` (`pokemon.h`) | FALSE | TRUE | The move box and summary screen show the real type of Hidden Power, Weather Ball and similar moves |
+| `P_PRE_EVO_MOVES`, `P_ENABLE_ALL_LEVEL_UP_MOVES` (`summary_screen.h`) | FALSE | TRUE | The summary-screen move relearner offers every level-up move and the pre-evolution moves, regardless of level. Compile-time, not story-gated. Egg, tutor and TM relearners are still off (`P_ENABLE_MOVE_RELEARNERS`, `P_FLAG_EGG_MOVES`, `P_FLAG_TUTOR_MOVES`, `P_TM_MOVES_RELEARNER`) |
+| `B_FAST_INTRO_NO_SLIDE` (`battle.h`) | FALSE | TRUE | The battle intro slide is skipped |
+| `B_WAIT_TIME_MULTIPLIER` (`battle.h`) | 16 (vanilla) | 10 | Battle text pauses are about 40% shorter. Raise towards 16 if text feels rushed; 8 is faster again |
+| `P_CAN_FORGET_HIDDEN_MOVE` (`pokemon.h`), `B_CATCH_SWAP_CHECK_HMS` (`battle.h`) | FALSE, TRUE | TRUE, FALSE | HM moves can be forgotten and boxed freely; part of the field-move change in [field-moves.md](field-moves.md) |
+| `I_EXP_SHARE_ITEM`, `I_EXP_SHARE_FLAG` (`item.h`) | `GEN_5`, 0 | `GEN_6`, `FLAG_SYS_EXP_SHARE_ON` (0x882) | Exp. Share is a key item that toggles Exp for the whole party. A new game starts with it in the bag and switched on. See [exp-share.md](exp-share.md) |
+| `OW_TIME_OF_DAY_ENCOUNTERS`, `OW_TIME_OF_DAY_FALLBACK` (`overworld.h`) | FALSE, TIME_MORNING | TRUE, TIME_DAY | Wild tables may be split by time (`_Morning`, `_Day`, `_Evening`, `_Night` base labels). A table with no suffix is the **Day** table and the fallback for every empty time, so **nothing changes until a suffixed table is added**. One engine edit (`src/pokedex_area_screen.c`) keeps the Pokédex Area page working. The clock is the cartridge or emulator RTC. See [time-of-day.md](time-of-day.md); run `design/tools/wild_lint.py` after editing `wild_encounters.json` |
+
 ## Update this file when
 
 A limit is measured again, a switch is used, or an engine edit removes or moves a limit (log the edit in [engine-edits.md](engine-edits.md) too).

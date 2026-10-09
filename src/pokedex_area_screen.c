@@ -285,11 +285,31 @@ static bool8 DrawAreaGlow(void)
     return TRUE;
 }
 
+// Veldris: same per-field fallback as GetTimeOfDayForEncounters (wild_encounter.c), so a map whose only
+// table sits in the fallback slot still lists its Pokemon at every time of day. See design/time-of-day.md.
+static void GetDexEncounterTypes(struct WildEncounterTypes *out, const struct WildPokemonHeader *header, u32 timeOfDay)
+{
+    const struct WildEncounterTypes *fallback = &header->encounterTypes[OW_TIME_OF_DAY_FALLBACK];
+
+    *out = header->encounterTypes[timeOfDay];
+    if (!OW_TIME_OF_DAY_ENCOUNTERS || OW_TIME_OF_DAY_DISABLE_FALLBACK)
+        return;
+    if (out->landMonsInfo == NULL)
+        out->landMonsInfo = fallback->landMonsInfo;
+    if (out->waterMonsInfo == NULL)
+        out->waterMonsInfo = fallback->waterMonsInfo;
+    if (out->rockSmashMonsInfo == NULL)
+        out->rockSmashMonsInfo = fallback->rockSmashMonsInfo;
+    if (out->fishingMonsInfo == NULL)
+        out->fishingMonsInfo = fallback->fishingMonsInfo;
+}
+
 static void FindMapsWithMon(enum Species species)
 {
     enum RegionMapType currentRegionMapType;
     u16 i;
     struct Roamer *roamer;
+    struct WildEncounterTypes types;
 
     sPokedexAreaScreen->alteringCaveCounter = 0;
     sPokedexAreaScreen->alteringCaveId = VarGet(VAR_ALTERING_CAVE_WILD_SET);
@@ -340,7 +360,8 @@ static void FindMapsWithMon(enum Species species)
         if (GetRegionMapType(headerSectionId) != currentRegionMapType)
             continue;
 
-        if (MapHasSpecies(&gWildMonHeaders[i].encounterTypes[gAreaTimeOfDay], headerSectionId, species))
+        GetDexEncounterTypes(&types, &gWildMonHeaders[i], gAreaTimeOfDay);
+        if (MapHasSpecies(&types, headerSectionId, species))
         {
             switch (gWildMonHeaders[i].mapGroup)
             {

@@ -1,4 +1,5 @@
 #include "global.h"
+#include "veldris_field_moves.h"
 #include "main.h"
 #include "bike.h"
 #include "event_data.h"
@@ -908,7 +909,7 @@ static void PlayerNotOnBikeMoving(enum Direction direction, u16 heldKeys)
     }
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER)
-     && (heldKeys & B_BUTTON)
+     && (((heldKeys & B_BUTTON) != 0) != FlagGet(FLAG_SYS_RUN_BY_DEFAULT)) // Veldris: B runs, or walks when run-by-default is on
      && FlagGet(FLAG_SYS_B_DASH)
      && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0
      && !FollowerNPCComingThroughDoor()
@@ -1615,18 +1616,9 @@ enum Gender GetPlayerAvatarGenderByGraphicsId(u16 gfxId)
 
 bool8 PartyHasMonWithSurf(void)
 {
-    u8 i;
-
+    // Veldris: a Pokemon that knows Surf or can learn it (design/field-moves.md)
     if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
-    {
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES) == SPECIES_NONE)
-                break;
-            if (MonKnowsMove(&gParties[B_TRAINER_PLAYER][i], MOVE_SURF))
-                return TRUE;
-        }
-    }
+        return FindMonForFieldMove(FIELD_MOVE_SURF) != PARTY_SIZE;
     return FALSE;
 }
 

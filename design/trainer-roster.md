@@ -31,6 +31,8 @@ Status: **BUILT 2026-10-01** (the ROM compiles; nothing has been fought in a gam
 
 ## Crestfall and Troglodyte blocks (BUILT 2026-10-01)
 
+When a new TROGLODYTE block is added, also add its row to `VELDRIS_TROGLODYTE_FIGHTS` in `include/veldris_journal.h` ([journal.md](journal.md)).
+
 | Constant | Id | Name | Pic and class | Team |
 |---|---|---|---|---|
 | `TRAINER_CRESTFALL_GYM_1` | 771 (was Roxanne 3) | DALE | **placeholder** Youngster pic, Youngster | Zigzagoon 9 |
@@ -45,6 +47,10 @@ Teams are from [teams.md](teams.md). All have `IVs: 0` on every Pokémon. Troglo
 
 **Caveats.** The Rival class shows 'PKMN TRAINER' in the intro, so a Veldris class name would need a small text edit. **Author rule (2026-10-01): always reuse vanilla ids.** Greta, DALE and WREN were first built on new ids 855 to 857 and moved to reused ids 770 to 772 the same day, so all 9 brand-new ids (855 to 863) are free again and `TRAINERS_COUNT_EMERALD` is back at 855. The other six Troglodyte fights should reuse vanilla ids too.
 
+**Poshness update (BUILT 2026-10-08, author liked it).** Both built Troglodyte blocks now have `Ball: Luxury` under every Pokémon (his Pokémon come out of black-and-gold Luxury Balls with a green sparkle burst, seen in mGBA) and `Music: Rich` instead of `Music: Male` (the rich-kid spotted-you jingle, `mus_encounter_rich`, a real song in the ROM; the `// MUS_TEST` comment in `songs.h` is upstream noise). The shared `Rival` class entry is untouched (39 blocks use it, most never reached in Veldris). **The Goldsworth cousins and Troglodyte's other fights should copy the same two lines when their blocks are built.** Not run in game: the jingle itself (it plays when he spots you in the overworld; the debug battle skips that), so the author may want to hear it once (a clip was sent to the author in chat on 2026-10-08).
+
+**Banner and sting (BUILT 2026-10-09, author: 'i like the Rich jingle, vs fanfare for trog').** Troglodyte's blocks also carry `Mugshot: Gold` (his own gold vs-screen banner: new colour `MUGSHOT_COLOR_GOLD`, palette `graphics/battle_transitions/gold_bg.pal`, a recolour of the yellow banner, hack-made so no credits row) and beating a Class `Rival` trainer plays the gym-leader victory tune (`MUS_VICTORY_GYM_LEADER`) instead of the ordinary trainer one. **Copy `Music: Rich`, `Mugshot: Gold` and `Ball: Luxury` onto every Troglodyte and Goldsworth-cousin block.** In the Hollowbrook scene (`Hollowbrook_EventScript_TrogOutsideTrigger`) a `playbgm MUS_ENCOUNTER_RICH, FALSE` plays the Rich jingle as he shouts, because `trainerbattle_no_intro` skips the overworld spotted-you jingle. Debug menu Trainers > Try Battle uses the wild transition and never shows the banner; to see it set `VAR_HOLLOWBROOK_STATE` to 3 (flag/var debug) and walk into the lab doorway scene in Hollowbrook. Engine edits are logged in [engine-edits.md](engine-edits.md). Alternative victory sting if wanted: `MUS_VICTORY_LEAGUE` (the Elite Four tune, 35 seconds, a little long). The tune is one word in `src/battle_main.c`.
+
 ## Route 1 trainers (BUILT 2026-10-01)
 
 Three vanilla Route 102 entries reused (no new ids). Names are PROPOSED.
@@ -56,3 +62,21 @@ Three vanilla Route 102 entries reused (no new ids). Names are PROPOSED.
 | `TRAINER_VELDRIS_ROUTE1_FARMER` | `TRAINER_RICK` (615) | AMOS | **placeholder** Hiker pic and class (no farmer class yet; the DP rancher sprites in the asset repo are an option) | Zigzagoon 5, Skitty 5 |
 
 All IVs 0. **Checked in mGBA:** TOBY spots the player, walks over, says his intro, battles with Lillipup 3 (before the 2026-10-01 level raise), pays out and says his after line. MAISIE and AMOS not fought yet.
+
+## Gym battlefield conditions (BUILT 2026-10-08, PROPOSED defaults)
+
+The author liked the idea of weather and terrain at the start of a gym fight (2026-10-08). Each leader block in `src/data/trainers.party` has one `Starting Status:` line, which sets a condition on the first turn with an on-screen message. Chosen to be fun but fair: temporary versions (about 5 turns) so the effect opens the fight without running it, and nothing that harms only the player except one light hazard. **The exact picks are PROPOSED**, easy to change.
+
+| Gym | Leader | Line in the block | What the player sees | Why this one |
+|---|---|---|---|---|
+| 1 Normal | GRETA | none | n/a | First gym stays plain |
+| 2 Bug | HACHIMEL | `Starting Status: Grassy Terrain Temporary` | meadow terrain, grounded Pokémon heal a little each turn | Apiary and meadow theme; helps both sides |
+| 3 Ghost | SANZUFORD | `Starting Status: Trick Room Temporary` | the dimensions twist, slower Pokémon move first | Spooky and symmetrical; the alternative is `Weather Fog Temporary` but fog cuts every move's accuracy to 60 percent, which feels bad |
+| 4 Steel | HAGANE | `Starting Status: Electric Terrain Temporary` | sparks on the floor, no sleep for grounded Pokémon | Forge theme without chip damage (sandstorm would hurt only the player, since his whole team is Steel) |
+| 5 Ice | WAKASAGI | `Starting Status: Weather Snow Temporary` | it starts to snow; Ice types get a Defense boost | Tested in mGBA, message and snow animation seen |
+| 6 Flying | TOBIN | `Starting Status: Tailwind Opponent Temporary` | his side's speed doubles for the first turns | Wind theme; the alternative is no status, since this one is a head start for him |
+| 7 Poison | ASEBY | `Starting Status: Toxic Spikes Player L1` | toxic spikes on the player's side | Tested in mGBA, message seen; only bites when the player switches in a grounded Pokémon |
+| 8 Fairy | SUZURAN | `Starting Status: Misty Terrain Temporary` | mist, no new status conditions on grounded Pokémon | Fits the Fairy gym; helps both sides |
+| 9 Water | MIZZLE | `Starting Status: Weather Rain Temporary` | it starts to rain, Water moves hit harder and Fire moves weaker | Water gym; temporary because his whole team is Water and permanent rain would be harsh |
+
+**To change or remove one:** edit or delete its `Starting Status:` line in `src/data/trainers.party`. Values are the camelCase names in `include/constants/battle.h` (`STARTING_STATUS_DEFINITIONS`) written as words, for example `Weather Rain` or `Weather Rain Temporary`, and several can be joined with `/`. Drop `Temporary` for a status that lasts the whole fight. Not checked in mGBA: Grassy, Trick Room, Electric, Tailwind, Misty and Rain.

@@ -4,7 +4,7 @@ A personal-use GBA ROM hack built on pokeemerald-expansion. Custom region **Veld
 
 ## Hard rules
 
-1. **Never commit a ROM, a `.gba` file, a save file or build output.** `.gitignore` blocks them and a local pre-commit hook double-checks. The only `.gba` files in the repo are the three upstream multiboot helpers in `data/mb_*.gba`. Before every commit run `git diff --cached --name-only | grep -Ei '\.(gba|sav|srm|sgm)$'`. Deliver a built ROM to the author by copying it out of the repo (scratchpad) and sending it as a file. Never `git add` it.
+1. **Never commit a ROM, a `.gba` file, a save file or build output.** `.gitignore` blocks them and the tracked pre-commit hook `.githooks/pre-commit` double-checks (run `git config core.hooksPath .githooks` once per clone; web sessions do it for you through `.claude/hooks/session-start.sh`, author-approved 2026-10-09, which deliberately does not install the toolchain; it also checks dialogue and wild-encounter files, see `design/debug-presets.md`). The only `.gba` files in the repo are the three upstream multiboot helpers in `data/mb_*.gba`. Before every commit run `git diff --cached --name-only | grep -Ei '\.(gba|sav|srm|sgm)$'`. Deliver a built ROM to the author by copying it out of the repo (scratchpad) and sending it as a file. Never `git add` it.
 2. **Do not write a script that generates map files** unless the author asks for a map to be built (author, 2026-10-01: the Hollowbrook interiors and town were built this way, reviewed render by render, see `design/interiors.md`). Otherwise maps are fragile and the author builds and edits them in Porymap. Claude handles scripts, events, warps, trainers and dialogue. Do not hand-edit map block data (`map.bin`, `border.bin`) or tileset files. Editing event lists in `map.json` (warps, coord events, object events) is fine, but tell the author to close or reload Porymap first so it does not overwrite the change.
 3. **Read `design/` before building content, and update it in the same change.** See `design/README.md` for what lives where.
 4. **Track every flag and var** in `design/flags.md`. Reuse unused ones from the spare pool and never overwrite one that is in use.
@@ -25,6 +25,7 @@ All checked against this tree.
 - **Use `coord_event` triggers for cutscenes, not `MAP_SCRIPT_ON_TRANSITION`.** In `map.json`:
   `{ "type": "trigger", "x": 10, "y": 1, "elevation": 3, "var": "VAR_...", "var_value": "0", "script": "Map_EventScript_Name" }`
   The tile must be walkable and its elevation must match (normally 3). `MAP_SCRIPT_ON_FRAME_TABLE` is also fine for cutscenes. `MAP_SCRIPT_ON_TRANSITION` is still the right place for instant setup such as `setflag FLAG_VISITED_<TOWN>`.
+- **An NPC that walks up to the player and talks** (no battle) is a `TRAINER_TYPE_NORMAL` object with a sight range whose script does not start with `trainerbattle`; keep a `goto_if_set` guard first and nothing visible in its done branch. Not built or run yet, recipe and traps in `design/npc-walkup.md`.
 - **Name Greta's trainer `TRAINER_CRESTFALL_GRETA`.** `TRAINER_GRETA` already exists (`include/constants/opponents.h`, `src/data/trainers.party`).
 - **The intro is C-driven.** Edit `data/text/birch_speech.inc` for intro dialogue (used by `src/main_menu.c`, included from `data/event_scripts.s`). The 'This is what we call a POKéMON' line is in `src/strings.c` instead, and the Birch art is in `graphics/birch_speech/`. Birch's name is hard-coded in the `.inc` text, so renaming him to Fennick is a text edit. `ENABLE_QUICKSTART` lets you skip the intro while testing.
 - **`local_id` names must be unique across all maps** (they all land in one header, `include/constants/map_event_ids.h`). A clash builds without error and the later value wins, so a script moves the wrong person (seen 2026-10-08 with Greta in Crestfall and its gym). Suffix outdoor copies, e.g. `LOCALID_CRESTFALL_GRETA_OUTSIDE`.
@@ -41,6 +42,7 @@ All checked against this tree.
 
 - **Assets and sprites policy (author, 2026-10-01).** Sources that copy official Pokémon art are fine, but every one still gets a `CREDITS.md` row. Pokémon sprites stay as shipped (expansion's Gen 4/5-style art at 64x64; GBA-style art exists only for species 1-386 through `P_GBA_STYLE_SPECIES_GFX`, currently FALSE); no sprite import is planned. Catalogue of every source: `design/sprite-catalog.md`. Troglodyte uses the DP **Rich Boy** picture; the Goldsworth cousins get similar but not identical pictures (recolours or neighbouring DP classes).
 - **Houses use shared one-floor layouts, never one custom layout per house** (six drawn up in `design/maps/interiors/house-layouts.md`; **at least 5 distinct single-floor interiors, a hard minimum from the author**). Everything looks Gen 4 inside (Gen 4 Interior secondary); exteriors are LeoB ORAS.
+- **Trainer slides (mid-battle lines)** live in `src/data/veldris_trainer_slides.h`, with one include in `src/trainer_slide.c`. Key = trainer id (list each id once; an alias is the same id). Rows use `VELDRIS_SLIDE(NAME, "text")`, no `\n`, `{B_PLAYER_NAME}` not `{PLAYER}`. Check with `python3 design/tools/dialogue_check.py src/data/veldris_trainer_slides.h`. **Scope (author, 2026-10-09): lines only for key battles** (gym leaders, Commons and Crown bosses, the Elite Four, Cynthia); none for ordinary trainers or Troglodyte. Troglodyte's party order is random unless pinned with `Tags: Lead / Ace`. No lines are wired until the author approves wording (`design/trainer-slides.md`).
 - **Badges are drawn by `design/tools/draw_badges.py`** (14x14 art in 16 px slots, one shared palette; the trainer card spaces them with `BADGE_PITCH` in `src/trainer_card.c`). Re-run the script after editing it, from the repo root.
 
 ## Adding things
@@ -102,6 +104,8 @@ The ROM boots headless in mGBA, which is how the intro and trainer card were che
 | Trainers | `src/data/trainers.party`, `include/constants/opponents.h` |
 | Flags and vars | `include/constants/flags.h`, `vars.h` |
 | Intro dialogue | `data/text/birch_speech.inc` |
+| Mid-battle trainer lines | `src/data/veldris_trainer_slides.h`, `design/trainer-slides.md` |
+| Journal key item | `data/scripts/veldris_journal.inc`, `src/veldris_journal.c`, `include/veldris_journal.h`, `design/journal.md`. **Every built TROGLODYTE fight needs one row in `VELDRIS_TROGLODYTE_FIGHTS`** and must not use `trainerbattle_earlyrival` |
 | Config switches | `include/config/*.h` (summary in `design/engine-limits.md`) |
 
 ## Checklist for any content change

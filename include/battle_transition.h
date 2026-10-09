@@ -18,6 +18,7 @@ enum MugshotColor
     MUGSHOT_COLOR_PINK,
     MUGSHOT_COLOR_BLUE,
     MUGSHOT_COLOR_YELLOW,
+    MUGSHOT_COLOR_GOLD, // Veldris: Troglodyte's banner
     MUGSHOT_COLOR_COUNT
 };
 

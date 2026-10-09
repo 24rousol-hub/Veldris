@@ -32,6 +32,7 @@ Hollowbrook_PlayersHouse_1F_EventScript_MomWakeUpTrigger::
 	applymovement LOCALID_HOLLOWBROOK_MOM, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox Hollowbrook_Text_MomWakeUp, MSGBOX_DEFAULT
+	call_if_unset FLAG_SYS_B_DASH, Hollowbrook_PlayersHouse_1F_EventScript_MomBringsShoes
 	setvar VAR_HOLLOWBROOK_STATE, 1
 	releaseall
 	end
@@ -54,9 +55,57 @@ Hollowbrook_PlayersHouse_1F_EventScript_MomAfterBadge::
 
 Hollowbrook_PlayersHouse_1F_EventScript_MomWakeUp::
 	msgbox Hollowbrook_Text_MomWakeUp, MSGBOX_DEFAULT
+	call_if_unset FLAG_SYS_B_DASH, Hollowbrook_PlayersHouse_1F_EventScript_MomGiveRunningShoes
 	setvar VAR_HOLLOWBROOK_STATE, 1
 	release
 	end
+
+@ Running Shoes (design/running-shoes.md). Guarded by FLAG_SYS_B_DASH at both call sites, so it is never given twice
+@ and a debug-menu shoes toggle is respected. No other flag: FLAG_SYS_B_DASH is what the engine reads.
+Hollowbrook_PlayersHouse_1F_EventScript_MomGiveRunningShoes::
+	msgbox Hollowbrook_Text_MomRunningShoes, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message Hollowbrook_Text_PlayerPutOnShoes
+	waitfanfare
+	waitmessage @ the fanfare can end before the text does, and a message() while text is printing is dropped
+	waitbuttonpress
+	setflag FLAG_SYS_B_DASH
+	setflag FLAG_SYS_RUN_BY_DEFAULT @ run all the time; B walks, L flips it (new games start with it on)
+	msgbox Hollowbrook_Text_MomShoesBox, MSGBOX_DEFAULT
+	msgbox Hollowbrook_Text_MomShoesSendOff, MSGBOX_DEFAULT
+	closemessage
+	return
+
+@ Trigger path only: the player is at (10,2) and Mom is at (5,4). She walks to (10,3), hands them over, walks back and
+@ faces right again. If it looks wrong in game, delete this label and the two movements and point the trigger's call at
+@ MomGiveRunningShoes instead: the gift still works from a distance.
+Hollowbrook_PlayersHouse_1F_EventScript_MomBringsShoes::
+	closemessage
+	applymovement LOCALID_HOLLOWBROOK_MOM, Hollowbrook_PlayersHouse_1F_Movement_MomToPlayer
+	waitmovement 0
+	call Hollowbrook_PlayersHouse_1F_EventScript_MomGiveRunningShoes
+	applymovement LOCALID_HOLLOWBROOK_MOM, Hollowbrook_PlayersHouse_1F_Movement_MomBackToKitchen
+	waitmovement 0
+	return
+
+Hollowbrook_PlayersHouse_1F_Movement_MomToPlayer:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+Hollowbrook_PlayersHouse_1F_Movement_MomBackToKitchen:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_right
+	step_end
 
 Hollowbrook_PlayersHouse_1F_EventScript_MomIdleBefore::
 	msgbox Hollowbrook_Text_MomIdleBefore, MSGBOX_DEFAULT
@@ -144,6 +193,31 @@ Hollowbrook_Text_MomWakeUp::
 	.string "stomping around town all morning.\p"
 	.string "And take a clean handkerchief.\n"
 	.string "You never know.$"
+
+Hollowbrook_Text_MomRunningShoes::
+	.string "Oh, and one more thing, {PLAYER}.\n"
+	.string "I got you a little something.\p"
+	.string "RUNNING SHOES. The shop said\n"
+	.string "they're ‘terribly quick’.\p"
+	.string "I said you'd be the judge.\n"
+	.string "Go on. Put them on.$"
+
+Hollowbrook_Text_PlayerPutOnShoes::
+	.string "{PLAYER} put on the RUNNING SHOES.\n"
+	.string "They squeak a little.$"
+
+Hollowbrook_Text_MomShoesBox::
+	.string "The box says: ‘These shoes run all\n"
+	.string "the time. Hold the B Button to walk.’\p"
+	.string "On the back: ‘Press the L Button\n"
+	.string "to stop running all the time. Press\l"
+	.string "it again to start.’$"
+
+Hollowbrook_Text_MomShoesSendOff::
+	.string "That's a lot of buttons for one\n"
+	.string "pair of shoes. I read it twice.\p"
+	.string "Now off you go. FENNICK is\n"
+	.string "waiting, and you're ready.$"
 
 Hollowbrook_Text_MomIdleBefore::
 	.string "Off to the lab, {PLAYER}.\n"
