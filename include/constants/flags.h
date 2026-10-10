@@ -1390,9 +1390,9 @@
 
 #define FLAG_SYS_RUN_BY_DEFAULT                     (SYSTEM_FLAGS + 0x21) // Veldris: set = run unless B is held (clear = vanilla, B runs). L toggles it. Was FLAG_UNUSED_0x881. See design/running-shoes.md
 #define FLAG_SYS_EXP_SHARE_ON                       (SYSTEM_FLAGS + 0x22) // Veldris: set = the Exp. Share key item is switched on (whole party gains Exp). Was FLAG_UNUSED_0x882. See design/exp-share.md
-#define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
+#define FLAG_VELDRIS_OUTFIT_RS                      (SYSTEM_FLAGS + 0x23) // Veldris: Ruby/Sapphire outfit unlocked
 #define FLAG_UNUSED_0x884                           (SYSTEM_FLAGS + 0x24) // Unused Flag
-#define FLAG_UNUSED_0x885                           (SYSTEM_FLAGS + 0x25) // Unused Flag
+#define FLAG_VELDRIS_OUTFIT_DP                      (SYSTEM_FLAGS + 0x25) // Veldris: Diamond/Pearl outfit unlocked
 #define FLAG_UNUSED_0x886                           (SYSTEM_FLAGS + 0x26) // Unused Flag
 #define FLAG_UNUSED_0x887                           (SYSTEM_FLAGS + 0x27) // Unused Flag
 

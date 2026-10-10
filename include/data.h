@@ -7,6 +7,7 @@
 #include "constants/pokeball.h"
 #include "difficulty.h"
 #include "debug.h"
+#include "veldris_look.h" // Veldris: player customization
 
 #define MAX_TRAINER_ITEMS 4
 
@@ -391,7 +392,7 @@ static inline const u32 *GetTrainerFrontPicData(enum TrainerPicID trainerPic)
 
 static inline const u16 *GetTrainerFrontPicPalette(enum TrainerPicID trainerPic)
 {
-    return gTrainerPicInfo[SanitizeFrontTrainerPic(trainerPic)].frontPic->paletteData;
+    return VeldrisLook_TrainerPalette(trainerPic, gTrainerPicInfo[SanitizeFrontTrainerPic(trainerPic)].frontPic->paletteData); // Veldris
 }
 
 static inline const struct Coords16 GetTrainerFrontPicMugshotCoords(enum TrainerPicID trainerPic)
@@ -421,7 +422,7 @@ static inline const union AnimCmd *const *GetTrainerBackPicAnims(enum TrainerPic
 
 static inline const u16 *GetTrainerBackPicPalette(enum TrainerPicID trainerPic)
 {
-    return gTrainerPicInfo[SanitizeBackTrainerPic(trainerPic)].backPic->paletteData;
+    return VeldrisLook_TrainerPalette(trainerPic, gTrainerPicInfo[SanitizeBackTrainerPic(trainerPic)].backPic->paletteData); // Veldris
 }
 
 #endif // GUARD_DATA_H

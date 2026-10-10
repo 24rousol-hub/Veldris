@@ -76,6 +76,9 @@ Veldris_Debug_ResetStory::
 	cleartrainerflag TRAINER_VELDRIS_ROUTE1_FARMER
 	removeitem ITEM_HM_CUT
 	removeitem ITEM_TM_CRUNCH
+	setvar VAR_VELDRIS_LOOK, 0 @ player customization back to the Emerald outfit, original colours
+	clearflag FLAG_VELDRIS_OUTFIT_RS
+	clearflag FLAG_VELDRIS_OUTFIT_DP
 	return
 
 @ The state the lab scene leaves: the player took ball 3 (Mudkip, VAR_STARTER_MON 2), Troglodyte took ball 1 (Treecko,
@@ -136,7 +139,14 @@ Veldris_Debug_GiveExpShareOnce::
 Veldris_Debug_GiveOnceDone::
 	return
 
+Veldris_Debug_GiveCostumeBoxOnce::
+	checkitem ITEM_COSTUME_BOX
+	goto_if_eq VAR_RESULT, TRUE, Veldris_Debug_GiveOnceDone
+	additem ITEM_COSTUME_BOX
+	return
+
 Veldris_Debug_Stock::
+	call Veldris_Debug_GiveCostumeBoxOnce
 	call Veldris_Debug_GiveJournalOnce
 	call Veldris_Debug_GiveExpShareOnce
 	additem ITEM_POKE_BALL, 20
@@ -170,6 +180,7 @@ Veldris_Debug_Preset1::
 	setflag FLAG_SYS_EXP_SHARE_ON
 	setflag FLAG_SYS_CLOCK_SET @ a real new game sets it (src/veldris_new_game.c); the wall clock in the room can re-set the time
 	removeitem ITEM_JOURNAL
+	removeitem ITEM_COSTUME_BOX @ Mom gives it with the shoes
 	call Veldris_Debug_GiveExpShareOnce
 	callnative ZeroPlayerPartyMons
 	warp MAP_HOLLOWBROOK_PLAYERS_HOUSE_2F, 2, 4

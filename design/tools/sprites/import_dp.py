@@ -122,10 +122,19 @@ for f in sorted((SRC / "trainers/front_pics").glob("DP_*.png")):
     padded_copy(f, FP_OUT / f"{name}.png")
     fp_rows.append((upper(f.stem), camel(f.stem), name))
 replace_block("include/constants/trainers.h", r"^    TRAINER_PIC_COUNT,", ("PICS", [f"    TRAINER_PIC_DP_{U},\n" for U, *_ in fp_rows]))
-replace_block("src/data/graphics/trainers.h", r"^const struct TrainerPicInfo gTrainerPicInfo\[TRAINER_PIC_COUNT\] =",
-              ("PICDATA", [f'const u32 gTrainerFrontPic_DP_{C}[] = INCGFX_U32("graphics/trainers/front_pics/dp/{n}.png", ".4bpp.smol");\n'
-                           f'const u16 gTrainerPalette_DP_{C}[] = INCGFX_U16("graphics/trainers/front_pics/dp/{n}.png", ".gbapal");\n' for U, C, n in fp_rows]))
-replace_block("src/data/graphics/trainers.h", r"^};\s*\Z" , ("TABLE", [f"    [TRAINER_PIC_DP_{U}] =\n    {{\n        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_DP_{C}, gTrainerPalette_DP_{C}),\n    }},\n" for U, C, n in fp_rows]))
+BACK = {"LUCAS": "lucas", "DAWN": "dawn"}   # player outfit back pictures (design/player-customization.md)
+picdata = [f'const u32 gTrainerFrontPic_DP_{C}[] = INCGFX_U32("graphics/trainers/front_pics/dp/{n}.png", ".4bpp.smol");\n'
+           f'const u16 gTrainerPalette_DP_{C}[] = INCGFX_U16("graphics/trainers/front_pics/dp/{n}.png", ".gbapal");\n' for U, C, n in fp_rows]
+picdata += [f'const u8 gTrainerBackPic_DP_{b.capitalize()}[] = INCGFX_U8("graphics/trainers/back_pics/dp/{b}.png", ".4bpp");\n'
+            f'const u16 gTrainerBackPicPalette_DP_{b.capitalize()}[] = INCGFX_U16("graphics/trainers/back_pics/dp/{b}.png", ".gbapal");\n' for b in BACK.values()]
+replace_block("src/data/graphics/trainers.h", r"^const struct TrainerPicInfo gTrainerPicInfo\[TRAINER_PIC_COUNT\] =", ("PICDATA", picdata))
+def entry(U, C):
+    e = f"    [TRAINER_PIC_DP_{U}] =\n    {{\n        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_DP_{C}, gTrainerPalette_DP_{C}),\n"
+    if U in BACK:
+        b = BACK[U].capitalize()
+        e += f"        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_DP_{b}, gTrainerBackPicPalette_DP_{b}, sBackAnims_Hoenn),\n"
+    return e + "    },\n"
+replace_block("src/data/graphics/trainers.h", r"^};\s*\Z", ("TABLE", [entry(U, C) for U, C, n in fp_rows]))
 
 # list for the docs
 lines = ["# DP sprites imported by design/tools/sprites/import_dp.py\n\n## Overworlds (map.json graphics_id)\n\n"]

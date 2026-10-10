@@ -202,6 +202,7 @@ gStdScripts_End::
 	.include "data/maps/Crestfall_HouseB/scripts.inc"
 	.include "data/maps/Crestfall_Gym/scripts.inc"
 	.include "data/scripts/veldris_journal.inc"
+	.include "data/scripts/veldris_look.inc"
 	.include "data/scripts/veldris_debug.inc"
 	.include "data/scripts/veldris_furniture.inc"
 	.include "data/maps/LittlerootTown_BrendansHouse_1F/scripts.inc"

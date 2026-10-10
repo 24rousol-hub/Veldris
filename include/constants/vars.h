@@ -269,7 +269,7 @@
 #define VAR_TROG_STARTER                                 0x40F7 // Veldris: Troglodyte's random starter (0, 1 or 2 = the 1st, 2nd or 3rd on show). See design/flags.md
 #define VAR_HOLLOWBROOK_STATE                            0x40F8
 #define VAR_CRESTFALL_STATE                              0x40F9 // Veldris: Scheme 1 (0 booking, 1 done)
-#define VAR_UNUSED_0x40FA                                0x40FA // Unused Var
+#define VAR_VELDRIS_LOOK                                 0x40FA // Veldris: player customization (design/player-customization.md)
 #define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
 #define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
 #define VAR_UNUSED_0x40FD                                0x40FD // Unused Var

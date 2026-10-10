@@ -111,6 +111,8 @@ The ROM boots headless in mGBA, which is how the intro and trainer card were che
 | Flags and vars | `include/constants/flags.h`, `vars.h` |
 | Intro dialogue | `data/text/birch_speech.inc` |
 | Mid-battle trainer lines | `src/data/veldris_trainer_slides.h`, `design/trainer-slides.md` |
+| Player customization (Costume Box) | `src/veldris_look.c`, `include/veldris_look.h`, `data/scripts/veldris_look.inc`, `design/player-customization.md`. Colour tables from `design/tools/sprites/player_look.py`, outfit sprites from `player_outfits.py` |
+| DP sprites (70 overworlds `OBJ_EVENT_GFX_DP_*`, 94 pictures `Pic: DP ...`) | `design/dp-sprite-list.md`, `design/tools/sprites/import_dp.py`. Each DP overworld has its own palette: keep about 6 different DP people on screen at once |
 | Journal key item | `data/scripts/veldris_journal.inc`, `src/veldris_journal.c`, `include/veldris_journal.h`, `design/journal.md`. **Every built TROGLODYTE fight needs one row in `VELDRIS_TROGLODYTE_FIGHTS`** and must not use `trainerbattle_earlyrival` |
 | Config switches | `include/config/*.h` (summary in `design/engine-limits.md`) |
 

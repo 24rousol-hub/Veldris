@@ -4,6 +4,8 @@
 
 | File | What it holds | Update it when |
 |---|---|---|
+| [player-customization.md](player-customization.md) | Unbound-style customization: Costume Box, colours, outfits, how it is wired | Outfits, colours or the picker change |
+| [dp-sprite-list.md](dp-sprite-list.md) | Every imported DP overworld and battle picture name (generated) | Re-run `import_dp.py` |
 | [game-bible.md](game-bible.md) | Title, pitch, tone, pillars, scope, progression, **open decisions** | Scope, tone or a decision changes |
 | [story-outline.md](story-outline.md) | Act-by-act beats and the Goldsworth sabotage schemes | You add or change a story beat, scheme or cutscene |
 | [characters.md](characters.md) | Cast, voices, trainer constants, teams | A character or trainer is added or changed |

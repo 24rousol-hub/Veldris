@@ -72,6 +72,7 @@ Hollowbrook_PlayersHouse_1F_EventScript_MomGiveRunningShoes::
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_SYS_RUN_BY_DEFAULT @ run all the time; B walks, L flips it (new games start with it on)
 	msgbox Hollowbrook_Text_MomShoesBox, MSGBOX_DEFAULT
+	call Veldris_EventScript_GiveCostumeBox @ the Costume Box and the look picker (design/player-customization.md)
 	msgbox Hollowbrook_Text_MomShoesSendOff, MSGBOX_DEFAULT
 	closemessage
 	return

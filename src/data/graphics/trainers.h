@@ -818,6 +818,10 @@ const u32 gTrainerFrontPic_DP_YoungCouple[] = INCGFX_U32("graphics/trainers/fron
 const u16 gTrainerPalette_DP_YoungCouple[] = INCGFX_U16("graphics/trainers/front_pics/dp/young_couple.png", ".gbapal");
 const u32 gTrainerFrontPic_DP_Youngster[] = INCGFX_U32("graphics/trainers/front_pics/dp/youngster.png", ".4bpp.smol");
 const u16 gTrainerPalette_DP_Youngster[] = INCGFX_U16("graphics/trainers/front_pics/dp/youngster.png", ".gbapal");
+const u8 gTrainerBackPic_DP_Lucas[] = INCGFX_U8("graphics/trainers/back_pics/dp/lucas.png", ".4bpp");
+const u16 gTrainerBackPicPalette_DP_Lucas[] = INCGFX_U16("graphics/trainers/back_pics/dp/lucas.png", ".gbapal");
+const u8 gTrainerBackPic_DP_Dawn[] = INCGFX_U8("graphics/trainers/back_pics/dp/dawn.png", ".4bpp");
+const u16 gTrainerBackPicPalette_DP_Dawn[] = INCGFX_U16("graphics/trainers/back_pics/dp/dawn.png", ".gbapal");
 // VELDRIS-DP PICDATA END
 const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
 {
@@ -1642,6 +1646,7 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_DP_DAWN] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_DP_Dawn, gTrainerPalette_DP_Dawn),
+        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_DP_Dawn, gTrainerBackPicPalette_DP_Dawn, sBackAnims_Hoenn),
     },
     [TRAINER_PIC_DP_DRAGON_TAMER] =
     {
@@ -1710,6 +1715,7 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_DP_LUCAS] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_DP_Lucas, gTrainerPalette_DP_Lucas),
+        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_DP_Lucas, gTrainerBackPicPalette_DP_Lucas, sBackAnims_Hoenn),
     },
     [TRAINER_PIC_DP_LUCIAN] =
     {

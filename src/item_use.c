@@ -1,6 +1,7 @@
 #include "global.h"
 #include "item_use.h"
 #include "veldris_journal.h"
+#include "veldris_look.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_stat_change.h"
@@ -756,6 +757,19 @@ static void Task_OpenJournal(u8 taskId)
 void ItemUseOutOfBattle_Journal(u8 taskId)
 {
     sItemUseOnFieldCB = Task_OpenJournal;
+    SetUpItemUseOnFieldCallback(taskId);
+}
+
+// Veldris: the Costume Box opens the look picker (data/scripts/veldris_look.inc, design/player-customization.md)
+static void Task_OpenCostumeBox(u8 taskId)
+{
+    ScriptContext_SetupScript(Veldris_EventScript_CostumeBox);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_CostumeBox(u8 taskId)
+{
+    sItemUseOnFieldCB = Task_OpenCostumeBox;
     SetUpItemUseOnFieldCallback(taskId);
 }
 

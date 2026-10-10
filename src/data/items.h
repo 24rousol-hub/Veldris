@@ -14387,20 +14387,20 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_MysticTicket,
     },
 
-    [ITEM_AURORA_TICKET] =
+    [ITEM_AURORA_TICKET] = // Veldris: this slot is the Costume Box (alias ITEM_COSTUME_BOX)
     {
-        .name = ITEM_NAME("Aurora Ticket"),
+        .name = ITEM_NAME("Costume Box"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "A ticket required\n"
-            "to board the ship\n"
-            "to Birth Island."),
+            "Change your outfit\n"
+            "and its colours.\n"
+            "Works on foot."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .iconPic = gItemIcon_AuroraTicket,
-        .iconPalette = gItemIconPalette_AuroraTicket,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_CostumeBox,
+        .iconPic = gItemIcon_PokeblockCase,
+        .iconPalette = gItemIconPalette_PokeblockCase,
     },
 
     [ITEM_OLD_SEA_MAP] = // Veldris: this slot is the Journal (alias ITEM_JOURNAL)

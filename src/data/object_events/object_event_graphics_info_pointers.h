@@ -473,6 +473,20 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DP_YoungCou
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DP_YoungCoupleM;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DP_Youngster;
 // VELDRIS-DP EXTERNS END
+// VELDRIS-LOOK EXTERNS BEGIN (design/tools/sprites/player_outfits.py)
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMMachBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFMachBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFFieldMove;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFWatering;
+// VELDRIS-LOOK EXTERNS END
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
@@ -935,6 +949,20 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DP_YOUNG_COUPLE_M] = &gObjectEventGraphicsInfo_DP_YoungCoupleM,
     [OBJ_EVENT_GFX_DP_YOUNGSTER] = &gObjectEventGraphicsInfo_DP_Youngster,
 // VELDRIS-DP POINTERS END
+// VELDRIS-LOOK POINTERS BEGIN (design/tools/sprites/player_outfits.py)
+    [OBJ_EVENT_GFX_VELDRIS_RS_M_NORMAL] = &gObjectEventGraphicsInfo_VeldrisRSMNormal,
+    [OBJ_EVENT_GFX_VELDRIS_RS_F_NORMAL] = &gObjectEventGraphicsInfo_VeldrisRSFNormal,
+    [OBJ_EVENT_GFX_VELDRIS_DP_M_NORMAL] = &gObjectEventGraphicsInfo_VeldrisDPMNormal,
+    [OBJ_EVENT_GFX_VELDRIS_DP_M_MACH_BIKE] = &gObjectEventGraphicsInfo_VeldrisDPMMachBike,
+    [OBJ_EVENT_GFX_VELDRIS_DP_M_SURFING] = &gObjectEventGraphicsInfo_VeldrisDPMSurfing,
+    [OBJ_EVENT_GFX_VELDRIS_DP_M_FISHING] = &gObjectEventGraphicsInfo_VeldrisDPMFishing,
+    [OBJ_EVENT_GFX_VELDRIS_DP_F_NORMAL] = &gObjectEventGraphicsInfo_VeldrisDPFNormal,
+    [OBJ_EVENT_GFX_VELDRIS_DP_F_MACH_BIKE] = &gObjectEventGraphicsInfo_VeldrisDPFMachBike,
+    [OBJ_EVENT_GFX_VELDRIS_DP_F_SURFING] = &gObjectEventGraphicsInfo_VeldrisDPFSurfing,
+    [OBJ_EVENT_GFX_VELDRIS_DP_F_FIELD_MOVE] = &gObjectEventGraphicsInfo_VeldrisDPFFieldMove,
+    [OBJ_EVENT_GFX_VELDRIS_DP_F_FISHING] = &gObjectEventGraphicsInfo_VeldrisDPFFishing,
+    [OBJ_EVENT_GFX_VELDRIS_DP_F_WATERING] = &gObjectEventGraphicsInfo_VeldrisDPFWatering,
+// VELDRIS-LOOK POINTERS END
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

@@ -36,6 +36,7 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/trainer_types.h"
+#include "veldris_look.h" // Veldris: player customization
 
 #define NUM_FORCED_MOVEMENTS 22
 #define NUM_ACRO_BIKE_COLLISIONS 5
@@ -1571,7 +1572,7 @@ u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u8 state, enum Gender gender)
 
 u16 GetPlayerAvatarGraphicsIdByStateIdAndGender(u8 state, enum Gender gender)
 {
-    return sPlayerAvatarGfxIds[state][gender];
+    return VeldrisLook_PlayerGfx(state, gender, sPlayerAvatarGfxIds[state][gender]); // Veldris: outfits
 }
 
 u16 GetFRLGAvatarGraphicsIdByGender(enum Gender gender)
@@ -1610,7 +1611,7 @@ enum Gender GetPlayerAvatarGenderByGraphicsId(u16 gfxId)
     case OBJ_EVENT_GFX_GREEN_VS_SEEKER_BIKE:
         return FEMALE;
     default:
-        return MALE;
+        return VeldrisLook_IsFemaleOutfitGfx(gfxId) ? FEMALE : MALE; // Veldris: outfits
     }
 }
 

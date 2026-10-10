@@ -890,6 +890,7 @@ enum __attribute__((packed)) Item
     ITEM_EON_TICKET = 728,
     ITEM_MYSTIC_TICKET = 729,
     ITEM_AURORA_TICKET = 730,
+    ITEM_COSTUME_BOX = ITEM_AURORA_TICKET, // Veldris: the Aurora Ticket slot is the Costume Box
     ITEM_OLD_SEA_MAP = 731,
     ITEM_JOURNAL = ITEM_OLD_SEA_MAP, // Veldris: the Old Sea Map slot is the Journal
     ITEM_LETTER = 732,

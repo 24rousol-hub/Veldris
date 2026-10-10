@@ -58,6 +58,7 @@
 #include "constants/trainer_types.h"
 #include "constants/union_room.h"
 #include "constants/weather.h"
+#include "veldris_look.h" // Veldris: player customization
 
 #define SPECIAL_LOCALIDS_START (min(LOCALID_CAMERA, \
                                 min(LOCALID_PLAYER, \
@@ -494,11 +495,18 @@ const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
 #include "data/object_events/object_event_subsprites.h"
 #include "data/object_events/object_event_graphics_info.h"
 #include "data/object_events/object_event_graphics_info_followers.h"
+// VELDRIS-LOOK INCLUDE BEGIN (design/tools/sprites/player_outfits.py)
+#include "data/object_events/veldris_outfit_object_events.h"
+// VELDRIS-LOOK INCLUDE END
 // VELDRIS-DP INCLUDE BEGIN (design/tools/sprites/import_dp.py)
 #include "data/object_events/veldris_dp_object_events.h"
 // VELDRIS-DP INCLUDE END
 
 static const struct SpritePalette sObjectEventSpritePalettes[] = {
+// VELDRIS-LOOK PALETTES BEGIN (design/tools/sprites/player_outfits.py)
+    {gObjectEventPal_VeldrisDPM, OBJ_EVENT_PAL_TAG_VELDRIS_DP_M},
+    {gObjectEventPal_VeldrisDPF, OBJ_EVENT_PAL_TAG_VELDRIS_DP_F},
+// VELDRIS-LOOK PALETTES END
 // VELDRIS-DP PALETTES BEGIN (design/tools/sprites/import_dp.py)
     {gObjectEventPal_DP_Aaron, OBJ_EVENT_PAL_TAG_DP_AARON},
     {gObjectEventPal_DP_AceTrainerF, OBJ_EVENT_PAL_TAG_DP_ACE_TRAINER_F},
@@ -3415,6 +3423,8 @@ static u8 LoadSpritePaletteIfTagExists(const struct SpritePalette *spritePalette
     if (paletteNum != 0xFF) // don't load twice; return
         return paletteNum;
     paletteNum = LoadSpritePalette(spritePalette);
+    if (paletteNum != 0xFF)
+        VeldrisLook_TintObjectPalette(spritePalette->tag, paletteNum); // Veldris: player customization
     if (paletteNum != 0xFF)
         UpdateSpritePaletteWithWeather(paletteNum, FALSE);
     return paletteNum;

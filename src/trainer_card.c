@@ -34,6 +34,7 @@
 #include "constants/rgb.h"
 #include "constants/trainers.h"
 #include "constants/union_room.h"
+#include "veldris_look.h" // Veldris: player customization
 
 enum {
     WIN_MSG,
@@ -1933,7 +1934,7 @@ static void CreateTrainerCardTrainerPic(void)
     }
     else
     {
-        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->cardType][sData->trainerCard.gender]),
+        CreateTrainerCardTrainerPicSprite(VeldrisLook_PlayerTrainerPic(sData->trainerCard.gender, FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->cardType][sData->trainerCard.gender])), // Veldris
                     TRUE,
                     sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
                     sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
