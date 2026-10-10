@@ -1,6 +1,8 @@
 #ifndef GUARD_VELDRIS_BADGES_H
 #define GUARD_VELDRIS_BADGES_H
 
+#include "global.h"
+
 // Veldris badge table (hack-owned file, not upstream). See design/badges.md.
 //
 // One row per badge, in display order on the trainer card:
@@ -22,6 +24,21 @@
     X(FLAG_BADGE07_GET, 6) \
     X(FLAG_BADGE08_GET, 7) \
     X(FLAG_BADGE09_GET, 8)
+
+// BADGE_INDEX_<flag name>: a badge's row number in the table above, resolved at compile time.
+// Use it wherever a flag must become an index (field moves, level caps).
+#define BADGE_INDEX_ROW(flag, slot) BADGE_INDEX_##flag,
+enum VeldrisBadgeIndex
+{
+    VELDRIS_BADGE_LIST(BADGE_INDEX_ROW)
+    BADGE_INDEX_COUNT
+};
+#undef BADGE_INDEX_ROW
+
+// Trainer card BG3 tile numbers of the two sheet rows. ROW1 equals the BG3 baseTile (src/trainer_card.c, 192).
+// ROW2 is clear of the mon icons (224-319) and the FRLG stickers (320-351).
+#define BADGE_TILES_ROW1_START         192
+#define BADGE_TILES_ROW2_START         352
 
 #define BADGE_ICON_SLOTS_PER_SHEET_ROW 8
 #define NUM_BADGE_ICON_SLOTS           16

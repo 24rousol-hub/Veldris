@@ -8,7 +8,7 @@
 4. Never hand-allocate a flag in the trainer block. Those come from the trainer ID.
 5. Claiming a flag = renaming its `FLAG_UNUSED_0x...` line in place in `include/constants/flags.h`, keeping the value. Do the same for vars in `vars.h`. Log each rename in [engine-edits.md](engine-edits.md). (Porymap fills its flag and var dropdowns from those two headers. A separate header would not show up there.)
 
-Measured on 2026-09-29 against this tree, Emerald build (`IS_FRLG` is 0). Values come from the preprocessor (`arm-none-eabi-gcc -E -dM`), not from reading numbers by hand.
+Measured on 2026-09-29 against this tree, Emerald build (`IS_FRLG` is 0); the spare-pool counts below were recounted on 2026-10-09. Values come from the preprocessor (`arm-none-eabi-gcc -E -dM`), not from reading numbers by hand.
 
 ## How the flag space is laid out
 
@@ -31,7 +31,7 @@ Vars: persistent vars are 0x4000-0x40FF (256 in total). `VAR_TEMP_0` to `VAR_TEM
 | `FLAG_HIDE_HOLLOWBROOK_LAB_TROG` | 0x8E5 | Hide | Troglodyte inside Fennick's lab hidden | Lab scene, when he leaves | Never | 2026-10-01 |
 | `FLAG_HIDE_HOLLOWBROOK_LAB_BALL_1` to `_3` | 0x8E6-0x8E8 | Hide | Starter balls 1-3 on the lab table hidden (taken by Troglodyte or the player) | Lab scene / ball scripts | Never | 2026-10-01 |
 | `FLAG_HIDE_HOLLOWBROOK_LAB_BALL_4` | 0x8E9 | Hide | The fourth (revealed) starter ball hidden | Lab `OnTransition` while `VAR_HOLLOWBROOK_STATE` < 2; ball 4 script when taken | Lab scene (reveal) | 2026-10-01 |
-| `FLAG_HIDE_HOLLOWBROOK_GRANDPA` | 0x8EA | Hide | Grandfather on the Hollowbrook bench hidden. Starts set (the bench is empty until the lab scene) | Town `OnTransition` while `VAR_HOLLOWBROOK_STATE` < 3 | Lab scene, after the fourth-ball reveal | 2026-10-01 |
+| `FLAG_HIDE_HOLLOWBROOK_GRANDPA` | 0x8EA | Hide | Grandfather on the Hollowbrook bench hidden. Starts set (the bench is empty until the lab scene) | Town `OnTransition` (`UpdateGrandpa`) while `VAR_HOLLOWBROOK_STATE` < 3, and once `FLAG_BADGE01_GET` or `FLAG_SYS_GAME_CLEAR` is set (he is inside his house then); debug `ResetStory` | Lab scene, after the fourth-ball reveal; town `OnTransition` at state >= 3 with no badge; debug presets | 2026-10-01 |
 | `FLAG_HIDE_HOLLOWBROOK_TROG` | 0x8EB | Hide | Troglodyte waiting outside the lab hidden | Town `OnTransition` unless `VAR_HOLLOWBROOK_STATE` is 3 | Town `OnTransition` when it is 3 | 2026-10-01 |
 | `FLAG_HOLLOWBROOK_GRANDPA_TALKED1`, `_TALKED2` | 0x493, 0x494 | One-shot | First and second bench talks with the grandfather done | Grandfather's script | Never | 2026-10-01 |
 | `FLAG_HOLLOWBROOK_MOM_GOT_MON_TOLD` | 0x495 | One-shot | Mom's 'you have a POKéMON now' speech done | Mom's script in the player's house 1F | Never | 2026-10-01 |
@@ -46,16 +46,21 @@ Vars: persistent vars are 0x4000-0x40FF (256 in total). `VAR_TEMP_0` to `VAR_TEM
 | `FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_POTION`, `_REPEL` | 0x265, 0x266 | Hidden item | Route 1 hidden POTION (27,13) and REPEL (44,17) picked up | The hidden item event | Never | 2026-10-01 |
 | `VAR_CRESTFALL_STATE` | 0x40F9 | Var | Scheme 1: 0 gym booked (scene waits at the gym door), 1 scene done (photographer by the noticeboard, normal gym sign) | Crestfall Scheme 1 scene | Never | 2026-10-08 |
 | `FLAG_TEMP_11` (temp, Crestfall only) | 0x11 | Temp | Hides Hollis, Troglodyte and the outdoor Greta in Crestfall; set on every load, the scene spawns them with `addobject` | Crestfall `OnTransition` | Cleared on every map load | 2026-10-08 |
-| `VAR_HOLLOWBROOK_STATE` | 0x40F8 | Var | 0 new game, 1 mom woke player, 2 Troglodyte has his ball (player choosing, exit blocked), 3 player chose, 4 Troglodyte beaten outside | Lab scene (2, 3); mom and the town scripts later (1, 4) | Never | 2026-10-01 |
+| `VAR_HOLLOWBROOK_STATE` | 0x40F8 | Var | 0 new game, 1 mom woke player, 2 Troglodyte has his ball (player choosing, lab exit blocked), 3 player chose, 4 Troglodyte beaten outside. **While it is 1 or 2 the player has no starter, so Hollowbrook's east exit is gated** (triggers at (30, 9..11), `Hollowbrook_EventScript_NoStarterGate`), and the lab's whole 4-tile doorway runs the Troglodyte scene (states 0 and 1) or the exit blocker (state 2). See [interiors.md](interiors.md) | Lab scene (2, 3); mom and the town scripts later (1, 4) | Never (debug menu resets it to 0) | 2026-10-01 |
+| `VAR_TROG_STARTER` | 0x40F7 | Var | Troglodyte's random starter: 0, 1 or 2 for the 1st, 2nd or 3rd starter on show. Read by `VeldrisRivalStarterPrune` (`src/veldris_trainer_pools.c`, called from `src/trainer_pools.c`) to drop the two starter versions that do not match; the starter versions are also tagged `Lead` (2026-10-09), so his starter comes out first and SIR BISCUIT second | Lab scene (`random 3`) | Never (debug menu resets it to 0) | 2026-09-30 |
+| `VAR_TEMP_1` (temp, `Crestfall_Gym` only) | 0x4001 | Temp var | 1 only on the visit Greta was beaten, to pick her idle line. Same slot as vanilla `VAR_TEMP_TRANSFERRED_SPECIES`, which the Hollowbrook lab uses: no clash, because both are per-map and reset on every map load | `Crestfall_Gym_EventScript_GretaDefeated` | Cleared on every map load | 2026-10-08 |
+| `FLAG_SYS_POKEMON_GET`, `FLAG_ADVENTURE_STARTED` (vanilla) | vanilla (`SYSTEM_FLAGS`) | System | Vanilla flags, no claim needed: the player has a first Pokémon / the adventure has begun | Lab `ChoiceDone` | Debug `ResetStory` | 2026-10-01 |
+| `VAR_STARTER_MON` (vanilla) | vanilla | Var | Which ball the player took: 0, 1 or 2 = the three on show, 3 = the fourth starter (`VELDRIS_FOURTH_STARTER`, [engine-edits.md](engine-edits.md)). Read by Mom, the neighbour and the Troglodyte text | Lab ball scripts | Debug `ResetStory` | 2026-10-01 |
+| `FLAG_SYS_B_DASH` (vanilla) | vanilla (`SYSTEM_FLAGS`) | System | Running Shoes owned. See [running-shoes.md](running-shoes.md) | Mom's shoes scene in the player's house 1F | Debug menu | 2026-10-08 |
 
 ## Spare pool: permanent flags
 
-372 flags are named `FLAG_UNUSED_*` (373 before `FLAG_UNUSED_0x88E` became `FLAG_BADGE09_GET`). **316 are safe to claim.** Excluded, with reasons:
+355 flags are named `FLAG_UNUSED_*` (354 numbered plus `FLAG_UNUSED_RS_LEGENDARY_BATTLE_DONE`; 373 originally, the rest were claimed since). **299 are safe to claim** (recounted 2026-10-09). **Recount:** `grep -cE '^#define FLAG_UNUSED_' include/constants/flags.h`, minus the 56 excluded below. Excluded, with reasons:
 
 - 52 sit in the daily range (0x920-0x95F). They reset every day. One of them, `FLAG_UNUSED_0x95F`, is also used by name: it defines `DAILY_FLAGS_END` in `flags.h`.
 - `FLAG_UNUSED_0x91F`, just below the daily range, is used by name: it defines `DAILY_FLAGS_START`.
 - `FLAG_UNUSED_RS_LEGENDARY_BATTLE_DONE` (0x71) is used by `data/maps/CaveOfOrigin_UnusedRubySapphireMap1/scripts.inc`.
-- That is 54 excluded. The 2 reserved below bring the total to 56, and 373 - 56 - 1 (badge 9) = 316.
+- That is 54 excluded. The 2 reserved below bring the total to 56, and 355 - 56 = 299.
 - `FLAG_UNUSED_0x1AA` and `FLAG_UNUSED_0x1AB` are **reserved as rematch headroom.** Trainer-registered flags run from 0x15C for `REMATCH_TABLE_ENTRIES` (78) entries, so 0x15C-0x1A9 are taken and the next two are the first to go if rematches are added. Beyond those two, the next flag (0x1AC) is `FLAG_DEFEATED_DEOXYS`.
 
 The flags in `include/constants/flags_frlg.h` with the same names are the FRLG variant. They are not compiled into the Emerald build, so they do not count as uses.
@@ -64,7 +69,7 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 
 | Range | Count | Proposed block (PROPOSED) |
 |---|---|---|
-| 0x020-0x04F | 48 | **Fly visited flags** for Veldris towns (18 needed: 0x020-0x031). The rest general purpose, first-fit |
+| 0x022-0x04F | 46 | **Fly visited flags** for Veldris towns (18 needed: 0x020-0x031; 0x020 and 0x021 are taken by Hollowbrook and Crestfall). The rest general purpose, first-fit |
 | 0x054-0x055 | 2 | General purpose |
 | 0x068 | 1 | General purpose |
 | 0x0E9 | 1 | General purpose |
@@ -81,7 +86,7 @@ Claimable ranges (each flag is named `FLAG_UNUSED_0x` plus its 3-digit hex value
 | 0x8E3 | 1 | General purpose |
 | **0x8EC-0x91E** | 51 | **Story beats and cutscenes:** gyms, Elite Four, post-game. Spill into the general flags if needed |
 
-Reminder: the spare flags for ordinary game state are numerous but they are not unlimited. 316 flags for 18 towns, 33 routes, 9 gyms, the League and the post-game is enough only if boolean state is packed sensibly. Use `VAR_TEMP_*` for anything local to one map visit.
+Reminder: the spare flags for ordinary game state are numerous but they are not unlimited. 299 flags for 18 towns, 33 routes, 9 gyms, the League and the post-game is enough only if boolean state is packed sensibly. Use `VAR_TEMP_*` for anything local to one map visit.
 
 ## Spare pool: permanent vars
 

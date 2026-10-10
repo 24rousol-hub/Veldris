@@ -134,7 +134,7 @@ y16  # # # # # # # M # # # # # # #
 
 | Who | Tile | Facing | Sight | Notes |
 |---|---|---|---|---|
-| GRETA | (7, 3) | down | none (talk) | `TRAINER_CRESTFALL_GRETA`. Copy the leader pattern in `data/maps/RustboroCity_Gym/scripts.inc`. Skitty 10, Miltank 12 (Oran Berry). Gives STANDARD BADGE, Cut, TM Crunch |
+| GRETA | (7, 3) | down | none (talk) | `TRAINER_CRESTFALL_GRETA`. Copy the leader pattern in `data/maps/RustboroCity_Gym/scripts.inc` (without its rematch branch, see CLAUDE.md). Skitty 10, Miltank 12 (Oran Berry). Gives STANDARD BADGE, Cut, TM Crunch |
 | DALE | (10, 10) | left | 3 | Youngster placeholder, Zigzagoon 9. Sees (7 to 9, 10) as soon as the player steps off the gap, so the first fight comes right away. `Trainer1*` |
 | WREN | (8, 6) | left | 3 | Gentleman placeholder, Slakoth 10. Sees (5 to 7, 6) when the player has turned east in lane C. `Trainer2*` |
 | Item ball | (2, 10) | - | - | PROPOSED: POTION at the dead end of lane A (reward for peeking) |

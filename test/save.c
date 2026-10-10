@@ -6,7 +6,7 @@
 // Please note that this simple check is not 100% foolproof, but should be able to catch most unintended shifts.
 #define T_SAVEBLOCK1_SIZE 15568
 #define T_SAVEBLOCK2_SIZE 3884
-#define T_SAVEBLOCK3_SIZE 4
+#define T_SAVEBLOCK3_SIZE (OW_USE_FAKE_RTC ? 16 : 4) // Veldris: the fake clock grows SaveBlock3 from 4 to 16 bytes (design/devices.md)
 #define T_POKEMONSTORAGE_SIZE 34144
 
 TEST("SaveBlock1 is backwards compatible")

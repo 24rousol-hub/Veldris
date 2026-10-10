@@ -177,7 +177,7 @@ Skyscraper_Text_MrMeet1::
 	.string "our boy keeps mentioning.$"
 
 Skyscraper_Text_MrMeet2::
-	.string "He says you're 'a nuisance.'\n"
+	.string "He says you're ‘a nuisance.’\n"
 	.string "I told him that's what hired\l"
 	.string "people are for.\p"
 	.string "Have you considered a job?\n"

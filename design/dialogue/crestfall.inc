@@ -37,7 +37,7 @@ Crestfall_Text_GymSign::
 Crestfall_Text_LocalWorried::
 	.string "Those suited folk have been\n"
 	.string "measuring the gym all morning.\p"
-	.string "They say it's 'inefficient.'\n"
+	.string "They say it's ‘inefficient.’\n"
 	.string "It's a barn, love.$"
 
 @ Reveal: the consultants at the gym door.

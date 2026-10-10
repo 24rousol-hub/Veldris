@@ -94,3 +94,6 @@ build/
 *.map
 *.sym
 *.o
+
+# Emulator test harness cache (generated next to the ELF, design/tools/emu/README.md)
+*.emu-layout.json

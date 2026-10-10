@@ -9538,7 +9538,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Treecko
 Level: 5
 Ball: Luxury
-Tags: Tag6
+Tags: Lead / Tag6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Pound
 - Leer
@@ -9547,7 +9547,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Torchic
 Level: 5
 Ball: Luxury
-Tags: Tag7
+Tags: Lead / Tag7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Scratch
 - Growl
@@ -9556,7 +9556,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Mudkip
 Level: 5
 Ball: Luxury
-Tags: Tag8
+Tags: Lead / Tag8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Growl
@@ -9584,7 +9584,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Treecko
 Level: 8
 Ball: Luxury
-Tags: Tag6
+Tags: Lead / Tag6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Pound
 - Leer
@@ -9594,7 +9594,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Torchic
 Level: 8
 Ball: Luxury
-Tags: Tag7
+Tags: Lead / Tag7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Scratch
 - Growl
@@ -9604,7 +9604,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Mudkip
 Level: 8
 Ball: Luxury
-Tags: Tag8
+Tags: Lead / Tag8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Growl

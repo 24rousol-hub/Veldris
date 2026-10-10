@@ -104,7 +104,7 @@ Crestfall_Text_SquareSign::
 Crestfall_Text_HouseAWifeBefore::
 	.string "Those men in suits knocked\n"
 	.string "on our door. Asked if we'd\l"
-	.string "considered 'relocating.'\p"
+	.string "considered ‘relocating.’\p"
 	.string "We've lived here forty years.\n"
 	.string "We've barely considered lunch.$"
 

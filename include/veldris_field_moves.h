@@ -15,10 +15,6 @@
 // the first non-egg Pokemon that can learn it. PARTY_SIZE if there is none.
 u32 FindMonForFieldMove(enum FieldMove fieldMove);
 
-// Dry run of the vanilla SetUpFieldMove_*: TRUE if the move is usable right here, right now.
-// Saves and restores gFieldCallback2 / gPostMenuFieldCallback.
-bool32 CanUseFieldMoveHere(enum FieldMove fieldMove);
-
 // Party menu: who really uses the move picked in the menu of selectedSlot.
 u32 GetFieldMoveUserSlot(enum FieldMove fieldMove, u32 selectedSlot);
 

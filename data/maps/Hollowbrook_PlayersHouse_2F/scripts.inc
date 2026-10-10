@@ -1,5 +1,16 @@
 Hollowbrook_PlayersHouse_2F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Hollowbrook_PlayersHouse_2F_OnTransition
 	.byte 0
+
+@ A new game starts in this room at state 0: the first respawn point is Hollowbrook. Set once, here, never on every entry to the
+@ town (that would pull a player back home after any visit, over a later Pokémon Center; found by the 2026-10-09 review).
+Hollowbrook_PlayersHouse_2F_OnTransition:
+	call_if_eq VAR_HOLLOWBROOK_STATE, 0, Hollowbrook_PlayersHouse_2F_EventScript_SetRespawn
+	end
+
+Hollowbrook_PlayersHouse_2F_EventScript_SetRespawn::
+	setrespawn HEAL_LOCATION_HOLLOWBROOK
+	return
 
 Hollowbrook_PlayersHouse_2F_EventScript_PC::
 	lockall

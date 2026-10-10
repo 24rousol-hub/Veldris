@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Check the wild tables in design/maps/*.md: every table has 12 rows (land) or a
-documented count, rates sum to 100, species exist in include/constants/species.h and are
-enabled, levels are sane. Usage: python3 design/tools/cardcheck.py"""
+documented count, rates sum to 100, species exist in include/constants/species.h (not whether they are
+enabled), levels are sane. Usage: python3 design/tools/cardcheck.py"""
 import re, glob, sys, os
 root = os.path.join(os.path.dirname(__file__), '..', '..')
 sp = open(os.path.join(root, 'include/constants/species.h')).read()
@@ -27,13 +27,12 @@ for f in files:
             print(f"ERROR {rel}:{start+1}: rates sum to {total}, not 100"); errors += 1
         for r in rows:
             name = r.group(3).strip().upper().replace(' ', '_').replace("'", '').replace('.', '')
-            if name == 'MR_MIME': name = 'MR_MIME'
             if name not in species:
                 print(f"ERROR {rel}:{start+1}: unknown species {r.group(3)}"); errors += 1
             lo = int(r.group(4)); hi = int(r.group(5) or lo)
             if hi < lo or hi > 100:
                 print(f"ERROR {rel}:{start+1}: bad levels {lo}-{hi}"); errors += 1
-        if len(rows) not in (12, 5, 2, 10, 3, 4, 6, 8) and len(rows) != 12:
+        if len(rows) not in (2, 3, 4, 5, 6, 8, 10, 12):
             print(f"WARN  {rel}:{start+1}: {len(rows)} rows (land tables have 12)"); warnings += 1
 # inline species lists (Surf, rods, trainer teams): NAME 53 to 56, NAME 54
 inl = re.compile(r"\b([A-Z][A-Z0-9_]{2,}|[A-Z][a-z]+(?:'[a-z]+)?)\s+(\d{1,3})(?: to (\d{1,3}))?\b")

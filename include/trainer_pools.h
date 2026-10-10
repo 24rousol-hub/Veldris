@@ -28,7 +28,7 @@ enum PoolPruneOptions {
     POOL_PRUNE_NONE,
     POOL_PRUNE_TEST,
     POOL_PRUNE_RANDOM_TAG,
-    POOL_PRUNE_RIVAL_STARTER, // Veldris: see RivalStarterPrune in src/trainer_pools.c
+    POOL_PRUNE_RIVAL_STARTER, // Veldris: see VeldrisRivalStarterPrune in src/veldris_trainer_pools.c
 };
 
 enum PoolTags {

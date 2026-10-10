@@ -27,7 +27,7 @@ A failure lists the strings and rules. Escape hatches: `nocheck` on the string, 
 
 ## Rewind presets (R+START > Scripts, and Utilities > Cheat start)
 
-Bodies live in the hack-owned `data/scripts/veldris_debug.inc`. In `data/scripts/debug.inc` each `Debug_EventScript_Script_N` and `Debug_CheatStart` is just `goto Veldris_Debug_...`, and `src/debug.c` carries the eight menu labels. **Presets 1 to 6 first reset the whole Veldris story** (every flag, var and trainer flag in [flags.md](flags.md), HM CUT, TM CRUNCH) **and replace or clear the party**, so they are for throw-away saves: using one on a save you care about loses progress.
+Bodies live in the hack-owned `data/scripts/veldris_debug.inc`. In `data/scripts/debug.inc` each `Debug_EventScript_Script_N` is just `goto Veldris_Debug_...`; `Debug_CheatStart` itself is defined in `veldris_debug.inc` (the vanilla Hoenn body stays in `debug.inc`, relabelled `Debug_CheatStartHoenn` and unused, so upstream edits to it merge cleanly); `src/debug.c` carries the eight menu labels. **Presets 1 to 6 first reset the whole Veldris story** (every flag, var and trainer flag in [flags.md](flags.md), HM CUT, TM CRUNCH) **and replace or clear the party**, so they are for throw-away saves: using one on a save you care about loses progress.
 
 | Slot | Name in the menu | Does |
 |---|---|---|
