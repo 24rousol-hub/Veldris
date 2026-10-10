@@ -576,7 +576,10 @@ class Emulator:
             text = g.message_text()
             if text and (not seen or seen[-1] != text):
                 seen.append(text)
-            if "Task_HandleYesNoInput" in g.task_names():
+            names = g.task_names()
+            if "Task_LookMenu" in names:  # the Costume Box picker (src/veldris_look.c) opens after Mom's gift: B leaves it
+                self.press("B", hold=0.1)
+            elif "Task_HandleYesNoInput" in names:
                 self.press(choose, hold=0.1)
             else:
                 self.press("A", hold=0.1)
@@ -631,5 +634,6 @@ class Emulator:
                 return
             if time.time() > end:
                 raise Timeout("still waiting after mashing %s for %.0f s. %s" % (button, timeout, g.summary()))
-            self.press(button, hold=0.1)
+            # The Costume Box picker (src/veldris_look.c) is a menu task, so a script-less wait would never end: B leaves it.
+            self.press("B" if "Task_LookMenu" in g.task_names() else button, hold=0.1)
             time.sleep(interval)

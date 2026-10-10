@@ -110,6 +110,7 @@ text, with warps, triggers, grass and NPCs), `objects`, `state`, `party`, `items
   exact walking drops to normal speed: about 0.3 s per tile (0.17 s with `run=True`). Everything else runs fast.
 - **It looks at memory, not at the picture.** It cannot see wrong colours, a cut-off sprite or text that does not fit
   (`dialogue_check.py` does the text). Failure screenshots are for you to look at.
+- **The Costume Box picker.** Mom's gift opens the player-look menu (`Task_LookMenu`, `src/veldris_look.c`). `read_dialogue` and `mash` press B to leave it; a new test that walks past the gift must do the same or it will wait forever for the overworld to be idle.
 - **It is mGBA, not Delta.** Your phone's emulator (VBA-M based) can differ in timing and drawing. This tests the
   game's logic, not how Delta shows it.
 - **Wild encounters are random.** The Route 1 test is a sample. A wrong table fails it at once (a Day-only species
