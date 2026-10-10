@@ -43,7 +43,7 @@ Which region map you get (Hoenn, Kanto, Sevii) comes from the section's number: 
 
 **Limits found:**
 
-- **Map sections are 8-bit and share their value space with `0xFD-0xFF`** (special met-location codes). 209 sections existed in vanilla, so **at most 43 more fit.** The first six Veldris sections were added on 2026-09-29, so 215 exist and **37 more fit**. Veldris wants 51 (18 towns and 33 routes) before any caves or landmarks. So 45 are still to add against 37 left, and at least 8 sections have to reuse the IDs of vanilla sections we no longer need (rename their record only), or vanilla content has to be stripped later. Not blocking the first 3 towns and 3 routes.
+- **Map sections are 8-bit and share their value space with `0xFD-0xFF`** (special met-location codes). 209 sections existed in vanilla, so **at most 43 more fit.** 35 Veldris sections are in (the first six on 2026-09-29, 29 more on 2026-10-01), so 244 exist and **8 more fit** (recounted 2026-10-10; recount = 252 minus the number of records in the JSON). Every settlement, road and landmark on the cards already has a section, and routes 4 to 21 reuse Hoenn route entries ([setup-budget.md](setup-budget.md)). Routes 32 and 33 (side paths) have no record yet, so they would take 2 of the 8 unless they reuse a vanilla id. Beyond that a section has to reuse the id of a vanilla section we no longer need (rename its record only), or vanilla content has to be stripped later.
 - **Popup themes.** `sMapSectionToThemeId` in `src/map_name_popup.c` sets each section's popup style. New sections default to theme 0 until a line is added.
 - **Name clashes.** FRLG already owns `MAPSEC_ROUTE_1` to `MAPSEC_ROUTE_25`. See [towns-and-routes.md](towns-and-routes.md). The FRLG maps themselves are not built into this Emerald ROM (`mapjson` skips every map not tagged `REGION_HOENN`), but their `MAP_*` and `MAPSEC_*` constants still exist as placeholders.
 - **Tile budget.** At most 256 distinct 8x8 tiles in the picture (see piece 4). The finished art has to reuse tiles heavily: repeating sea, grass and mountain tiles and a small set of coast and road pieces.
@@ -60,7 +60,7 @@ Checked by a dry run on 2026-09-29: a throwaway Hollowbrook section, flag, heal 
 
 Order matters. Steps 1 and 2 build on their own. Step 7 needs steps 3 and 6. Step 9 needs 1, 2, 3 and 7.
 
-1. **U** `src/data/region_map/region_map_sections.json`: append one record at the very END of the list. It must stay after `MAPSEC_TRAINER_HILL`, so the Kanto block is not disturbed (today the last record is `MAPSEC_VELDRIS_ROUTE_3`). Uppercase name, 16 characters at most. Porymap reads this JSON directly, so its Location dropdown offers the new `MAPSEC_*` without a build.
+1. **U** `src/data/region_map/region_map_sections.json`: append one record at the very END of the list. It must stay after `MAPSEC_TRAINER_HILL`, so the Kanto block is not disturbed (the last record in the file, currently `MAPSEC_VELDRIS_ROUTE_31`). Uppercase name, 16 characters at most. Porymap reads this JSON directly, so its Location dropdown offers the new `MAPSEC_*` without a build.
 2. **U** `include/constants/flags.h`: rename the spare `FLAG_UNUSED_0x0NN` to `FLAG_VISITED_<TOWN>` (keep the value; 0x020-0x031 are reserved for this). Add the row in [flags.md](flags.md).
 3. Author, Porymap: the town map. `region_map_section` is the new section, `show_map_name` true, `map_type` `MAP_TYPE_TOWN`, group 0 (`gMapGroup_TownsAndRoutes`), `region` and `layout_version` at the defaults. Every interior of the town uses the same `region_map_section` as the town.
 4. **U** `data/event_scripts.s`: Porymap appends the `.include "data/maps/<Name>/scripts.inc"` line itself on the first save of a new map. Check it is there exactly once. Add it by hand only for a map made without Porymap.
@@ -96,7 +96,7 @@ A town with two heal spots, or a subtitle name (like Ever Grande), needs `Filter
 
 ## A-prime: APPLIED 2026-09-29 (author: "Yes apply"), table still empty
 
-Applied by the other session with `src/data/veldris_fly_towns.h` and four added lines in `src/region_map.c`, logged in [engine-edits.md](engine-edits.md). The table is empty, so nothing changes in game yet.
+Applied by the other session with `src/data/veldris_fly_towns.h` and four added lines in `src/region_map.c`, logged in [engine-edits.md](engine-edits.md). The table was empty when applied; it now has two rows (Hollowbrook, Crestfall), and more are added with the checklist below.
 
 **Checked 2026-09-29:**
 - Two independent reviews found no defects in the hooks. With the table empty, each hooked path compiles and behaves as vanilla did (compiled with the Makefile's flags including `-Werror`, with and without LTO). One row compiled clean, and a dry-run town built and linked.
@@ -155,7 +155,7 @@ No new functions and no change to control flow. `field_region_map.c` and `pokena
 - 18 towns and 33 routes: **23 links between towns** (17 on land, 6 by sea) and **10 side paths** that dead-end (a lane into the hills, a cove). 155 of the 420 cells are used.
 - Checked by script: every route sits on the right terrain (land or sea), routes never overlap, every route touches its towns, every town is reachable from town 1, and no town has more than 4 routes (a town is one cell, so only its 4 neighbours can hold a route).
 - Numbers are placeholders. Only routes 1 to 3 are meaningful: town 1 to 2, town 2 to 3 (Crestfall), and town 3 onwards to town 4, which stays blocked at first.
-- **Section budget:** 51 sections against 43 spare IDs (209 vanilla, 215 now, 37 left). See "Limits found" above. The first 6 are in.
+- **Section budget:** 51 sections wanted against 43 spare IDs (209 vanilla, 244 now, 8 left; 2026-10-10). See "Limits found" above. All 35 new Veldris sections the cards need are in, and routes 4 to 21 reuse Hoenn route entries.
 - **Tile budget (measured):** the picture uses **148 distinct 8x8 tiles** in the map area against the limit of 256 (vanilla Hoenn uses 233), and 16 colours. It is built from a handful of repeating patterns (land, forest, mountain, farm, route, sea) plus the coast tiles, so it fits. Version 2's smooth coast and roads needed 324 and would not have. It is still a mockup: the real picture is painted with tiles in the Region Map Editor.
 - A winding route's rectangle is the bounding box of its cells, exactly as Hoenn does it (52 of Hoenn's 54 section rectangles equal the bounding box of their cells; Route 114 is a 4-cell bend inside a 2x3 box). The player marker is placed inside that box, so on a bent route it may not sit exactly on the road. Untested in game.
 - The labelled image leaves off the numbers of R22, R24, R27, R29 and R33, which are too short to fit a label. The tables below list every route.
@@ -319,7 +319,7 @@ The author meant making the individual tiles more pixel dense so more fits into 
 
 - **The picture and the cell grid are independent.** The picture is 8x8-pixel tiles and can carry any pixel detail: thinner roads, a finer coastline, small markers, shading. That costs no engine edit.
 - **The picture's real limit is 256 distinct tiles**, not pixels. Layout v3 uses 148, so about **108 are spare** for extra detail.
-- **Cells are not scarce.** The 28 x 15 grid uses 155 of 420 cells (37%). **Section IDs are the scarce resource** (43 spare over the vanilla 209, 37 left after the first six, 51 wanted), and denser art does not change that.
+- **Cells are not scarce.** The 28 x 15 grid uses 155 of 420 cells (37%). **Section IDs are the scarce resource** (43 spare over the vanilla 209, 8 left after 35 used; 2026-10-10), and denser art does not change that.
 - **A finer cell grid** (cells smaller than one 8x8 tile, to fit more distinct places) would be an **engine edit**. Counted by grep as a rough measure: `src/region_map.c` has 26 references to the grid constants and 21 places with 8-pixel arithmetic (cursor, player icon, fly icons); `src/pokedex_area_screen.c` has 9 more; `src/field_region_map.c` and `src/pokenav_region_map.c` one each. The layout array and every section rectangle are also in cell units. Not recommended now. Revisit only if the cells run out.
 - **Recommendation:** keep 28 x 15 and spend the spare tiles on detail. Whether the Region Map Editor supports any cell size other than one tile is still to be checked against its manual.
 

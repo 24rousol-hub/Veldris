@@ -50,7 +50,7 @@ See the chat reply of 2026-10-01 and `game-bible.md`. **Update 2026-10-01:** the
 
 ## Map section budget: no engine edit needed (APPLIED 2026-10-01 for routes 4 to 21)
 
-**Why an engine edit to add more names does not help.** A map section id is one byte, because a Pokémon's 'met at' place is stored in 8 bits (`mapsec_u8_t`, `include/gametypes.h`). Widening it would change the Pokémon data and the save. The ceiling is 253 ids (0xFD to 0xFF are special), and the tree uses 215, so 37 are free after the six Veldris ones.
+**Why an engine edit to add more names does not help.** A map section id is one byte, because a Pokémon's 'met at' place is stored in 8 bits (`mapsec_u8_t`, `include/gametypes.h`). Widening it would change the Pokémon data and the save. The ceiling is 253 ids (0xFD to 0xFF are special). When this was written the tree used 215, so 37 were free after the six Veldris ones; on 2026-10-10 it uses 244 (35 Veldris ones), so **8 are free** (recount: 252 minus the number of records in `region_map_sections.json`).
 
 **What was done (data only, no C change).** The 88 Hoenn sections (ids 0 to 87) are unreachable in Veldris, and a section's name and its x, y, width, height live only in `src/data/region_map/region_map_sections.json`. Veldris routes 4 to 21 now take over 18 Hoenn route entries by name and position. Only 18 of the 34 Hoenn route entries are clean: the other 16 (104, 106, 109, 110, 111, 112, 114, 115, 116, 119, 121, 122, 125, 132, 133, 134) carry always-on landmark rows in `src/landmark.c` (for example Route 104 would show PETALBURG WOODS on the Pokénav map), so they are not used.
 
@@ -75,11 +75,12 @@ See the chat reply of 2026-10-01 and `game-bible.md`. **Update 2026-10-01:** the
 | R19 | `MAPSEC_ROUTE_129` |
 | R20 | `MAPSEC_ROUTE_130` |
 | R21 | `MAPSEC_ROUTE_131` |
-| R22 to R33 | not yet: 12 new ids, added when those routes are built |
+| R22 to R31 | `MAPSEC_VELDRIS_ROUTE_22` to `_31` (added 2026-10-01) |
+| R32, R33 | not yet: 2 new ids, added when those routes are built |
 
 The positions (x, y, w, h) came from the **old** layout in [region-map.md](region-map.md) and must be redone from the author's sketch.
 
-**New ids still needed:** 12 routes (R22 to R33) + 17 settlements + up to 7 landmarks = 36 of the 37 free. That is tight. Post-game landmarks can borrow Hoenn cave and ruin entries (Granite Cave, Desert Ruins and so on) instead of new ids, which would free up to 7. Not decided.
+**New ids (plan of 2026-10-01: 12 routes R22 to R33 + 17 settlements + up to 7 landmarks = 36 of the 37 free).** Done since: R22 to R31 (10), the 17 settlements and 2 landmarks (`SILVERSTRAND`, `PINNACLE`), 29 in all; five landmarks borrow Hoenn cave and peak entries instead ([setup-budget.md](setup-budget.md)). Still open: R32 and R33 (2 ids), out of the 8 that are left.
 
 **Side effects.** Porymap's dropdown shows the old constant (`MAPSEC_ROUTE_101`) while the game shows `ROUTE 4`, so use the table above. The Hoenn maps in the ROM now carry Veldris names but are unreachable. Logged in [engine-edits.md](engine-edits.md).
 

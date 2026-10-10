@@ -173,7 +173,7 @@ Per-room scripts and text come from `League_Text_{Ossian,Hyacinth,Dunmore,Drayde
 ### Tile notes for the four rooms
 
 - The **vanilla `gTileset_EliteFour`** has only the grey-blue League floor and walls (palettes 6 to 11 are blue-grey colourways), so black, purple, yellow and green floors are **palette edits** in Porymap (a recolour of the floor and emblem palette slot per room). The side features need **new metatiles** that this set does not have: **black void** (any impassable all-black tile; the engine's empty tile works), **pool tiles** (a blue glass or ice floor, 2 metatiles), **lava** (an orange glowing floor, 2 metatiles) and **trees** (a pair of tree metatiles; copy from `gTileset_General` into a copy of the E4 tileset, since a map has only one secondary). **Cheapest first pass:** build all four rooms as vanilla rooms (13 x 14, zero new tiles, colours by palette), get the whole chain playable, then upgrade one Palladium room at a time. This follows the card's 'the vanilla set builds almost for free'.
-- **About the 70 per cent match** noted in [../map-plan.md](../map-plan.md): the arena, steps, emblem, path and vestibule are the same tiles in all four; only the four side-feature sets differ.
+- **About the 70 per cent match** noted in [../../map-plan.md](../../map-plan.md): the arena, steps, emblem, path and vestibule are the same tiles in all four; only the four side-feature sets differ.
 
 ## 6. The Last Corridor: `ThePinnacle_LastCorridor` (11 x 34, vanilla `EverGrandeCity_Hall4`)
 

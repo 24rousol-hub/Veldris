@@ -1,6 +1,7 @@
 @ ===========================================================================
-@ DRAFT, UNBUILT, not included in data/event_scripts.s.
-@ Status: PROPOSED. Hand-written scripts.inc style (NOT Poryscript).
+@ SUPERSEDED, built 2026-10-01 into data/maps/Hollowbrook_ProfFennickLab/scripts.inc (that is the source of truth; this draft
+@ is history and differs from it). Not included in data/event_scripts.s. See design/scripts/README.md.
+@ Status (when written): PROPOSED. Hand-written scripts.inc style (NOT Poryscript).
 @
 @ Hollowbrook_ProfFennickLab: Prof. Fennick's lab and the Troglodyte starter scene.
 @ Paste into data/maps/Hollowbrook_ProfFennickLab/scripts.inc once the map is built in

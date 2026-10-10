@@ -105,7 +105,7 @@ Rules, and what goes wrong:
 - Porymap rewrites the whole `wild_encounters.json` on save: close it before a hand or script edit and read the changed-files list before committing.
 - **Run `python3 design/tools/wild_lint.py`** before committing any change to the JSON. It checks the suffix rule, slot counts, duplicate times and an orphan time table.
 
-Cost: a land-only table is about 56 bytes of ROM and 1.4 to 1.9 KB of JSON; 6.27 MiB of ROM is free. Add `_Night` only where it matters; skip `_Evening` (one hour) and caves.
+Cost: a land-only table is about 56 bytes of ROM and 1.4 to 1.9 KB of JSON; about 6.2 MiB of ROM is free (2026-10-10, see [devices.md](devices.md)). Add `_Night` only where it matters; skip `_Evening` (one hour) and caves.
 
 ## Engine edit made for it
 

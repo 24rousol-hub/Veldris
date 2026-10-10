@@ -47,7 +47,7 @@ Pokémon Centers and Marts should come from the vanilla maps above, since each t
 ## Who does what
 
 1. **The author (Porymap):** trace the map, starting from the vanilla base where one exists, with the Palladium image beside it. Keep the map's `region` at `REGION_HOENN` and `layout_version` at `emerald`. Step-by-step guide: [porymap-first-map.md](porymap-first-map.md).
-2. **Claude:** the wiring. That is the region-map section (already added for the first six), warps, triggers, scripts, dialogue and trainers. Porymap itself appends the `.include` line to `data/event_scripts.s` on the first save of a new map; Claude checks it is there once. Claude also updates [towns-and-routes.md](towns-and-routes.md), [flags.md](flags.md) and `CREDITS.md`, and checks the build.
+2. **Claude:** the wiring. That is the region-map section (already added for every settlement and road on the cards, see [setup-budget.md](setup-budget.md)), warps, triggers, scripts, dialogue and trainers. Porymap itself appends the `.include` line to `data/event_scripts.s` on the first save of a new map; Claude checks it is there once. Claude also updates [towns-and-routes.md](towns-and-routes.md), [flags.md](flags.md) and `CREDITS.md`, and checks the build.
 3. See "Adding things" in `CLAUDE.md` for the four-step new-map checklist.
 
 ## Open items

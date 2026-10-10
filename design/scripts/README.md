@@ -1,8 +1,8 @@
-# design/scripts: draft map scripts (UNBUILT)
+# design/scripts: draft map scripts (Hollowbrook, lab and Route 1 BUILT; Wendlebury UNBUILT)
 
-**DRAFT, UNBUILT, not included in `data/event_scripts.s`.** Status: PROPOSED. Hand-written `scripts.inc` style (not Poryscript), ready to paste into the matching map's `scripts.inc` once the author builds the map in Porymap. The text labels come from `design/dialogue/*.inc` and get appended to the same `scripts.inc` (each label exactly once). Nothing here is claimed in `include/constants/flags.h` or `vars.h`.
+The Hollowbrook, lab and Route 1 files were built on 2026-10-01 into `data/maps/*/scripts.inc`, which are the source of truth. The matching `.inc` files here are history and differ from the build (coordinates, flag names, labels). They are kept because `design/tools/gen4_tiles/install_route1.py` reads `route1_scripts.inc`, and none of them is included in `data/event_scripts.s`, so their labels do not clash with the built ones. Only `wendlebury_scripts.inc` is still an unbuilt draft (status PROPOSED): hand-written `scripts.inc` style (not Poryscript), ready to paste into the matching map's `scripts.inc` once the author builds the map in Porymap, with its text labels from `design/dialogue/*.inc` (each label exactly once).
 
-Checked: all four files plus the dialogue drafts assemble with the real macros (preproc, cpp, `arm-none-eabi-as`) when the placeholder names are stubbed; only genuine externals stay undefined. No battle or cutscene has been run.
+Checked on 2026-09-30, before the build: the four drafts plus the dialogue drafts assembled with the real macros (preproc, cpp, `arm-none-eabi-as`) when the placeholder names were stubbed. The built versions have since been run in mGBA (Hollowbrook, the lab scene, Route 1 trainers; see [../interiors.md](../interiors.md) and [../trainer-roster.md](../trainer-roster.md)). `wendlebury_scripts.inc` has not been run. Flags and vars below are marked CLAIMED where `design/flags.md` holds them.
 
 | File | Goes into | Covers |
 |---|---|---|
@@ -11,7 +11,7 @@ Checked: all four files plus the dialogue drafts assemble with the real macros (
 | `route1_scripts.inc` | `VeldrisRoute1` | **BUILT 2026-10-01** into `data/maps/VeldrisRoute1/scripts.inc` (now the source of truth). Flag renamed to `FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS` |
 | `wendlebury_scripts.inc` | `Wendlebury`, `Wendlebury_PokemonCenter_1F`, `Wendlebury_Mart` | town NPCs, nurse (vanilla heal script), mart clerk with item list |
 
-## Proposed new flags and vars (all PROPOSED names, none claimed)
+## Flags and vars these drafts proposed (the ones marked CLAIMED are in `design/flags.md`)
 
 Claim by renaming a spare in place (see `design/flags.md`), keep the value, log it there and in `engine-edits.md`. Suggested homes are from the spare pool plan in `flags.md`.
 
@@ -53,7 +53,7 @@ Vanilla flags set or read: `FLAG_BADGE01_GET`, `FLAG_SYS_GAME_CLEAR`, `FLAG_SYS_
 4. **Initial hide flags** are derived in `OnTransition` from `VAR_HOLLOWBROOK_STATE` instead of editing `EventScript_ResetAllMapFlags`, so no engine edit is needed. Cost: a few extra lines per map load.
 5. **Goldsworth door** is a bg_event on a door tile with no warp, and it warps with `warpdoor` only after `FLAG_SYS_GAME_CLEAR`. Untested.
 6. **Lab trigger** needs two coord_events (state 0 and 1) so skipping mom does not skip the scene.
-7. **Troglodyte battle music** is not chosen (`teams.md`: Music TBD), so there is no `playbgm`.
+7. **Troglodyte battle music** (draft-time note, since built): his blocks use `Music: Rich`, and the built Hollowbrook scene has a `playbgm MUS_ENCOUNTER_RICH, FALSE` at the shout ([../trainer-roster.md](../trainer-roster.md)).
 8. **Wendlebury nurse wording** (`CenterNurse`, `CenterNurseDone`) is unused: vanilla's shared heal script prints its own texts.
 9. **No Pokedex handout** in the lab draft, so `FLAG_SYS_POKEDEX_GET` is not set anywhere.
 10. Two new lab texts (`LabExitBlocked`, `LabBallGone`) are at the bottom of `hollowbrook_lab_scripts.inc`; they fit the text box.

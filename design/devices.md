@@ -16,7 +16,7 @@ Status: **research and ROM checks done 2026-10-09; nothing has been run on eithe
 ### The ROM size limit (both devices)
 
 - **The 32 MiB cap is the Game Boy Advance itself** (the cartridge address space), not an emulator rule. Every GBA ROM, including this one, must fit in 32 MiB. The build always writes a 32 MiB file because the unused tail is padded with `FF`.
-- **Used today: 25.58 MiB. Free: 6.42 MiB** (measured on the 2026-10-09 build as the length of `pokeemerald.gba` without its trailing `FF` padding, 26,821,236 bytes; the unmodified engine uses about 25.5 MiB, so the whole hack so far costs about 0.08 MiB). The planned content (maps, scripts and dialogue for the other 16 towns and 32 routes) is text and small data, not new engine, so it should fit; watch it with `arm-none-eabi-size -A pokeemerald.elf` (script_data and .rodata).
+- **Used on 2026-10-10: 25.81 MiB. Free: 6.19 MiB** (measured on the dev build of that day as the length of `pokeemerald.gba` without its trailing `FF` padding, 27,060,492 bytes; it was 25.58 MiB on 2026-10-09, and the DP sprite import, 70 overworld sprites and 94 battle pictures, added about 0.23 MiB; the unmodified engine uses about 25.5 MiB, so the whole hack so far costs about 0.3 MiB). Re-measure after a build with `python3 -c "b=open('pokeemerald.gba','rb').read().rstrip(b'\xff'); print(len(b), len(b)/2**20)"`. The planned content (maps, scripts and dialogue for the other 16 towns and 32 routes) is text and small data, not new engine, so it should fit; watch it with `arm-none-eabi-size -A pokeemerald.elf` (script_data and .rodata).
 - RAM is the other real limit and the hack barely touches it: EWRAM +8 bytes, IWRAM +0 bytes over the unmodified engine (EWRAM about 35 KB free, IWRAM about 4 KB free, same as vanilla expansion).
 
 ### What the Miyoo's emulators do with it (reports, not tests)
@@ -58,6 +58,6 @@ Nobody found a report of a pokeemerald-expansion ROM on the Miyoo Mini Plus eith
 | Check | Result |
 |---|---|
 | `make release` builds the whole tree (2026-10-09, about 20 minutes with the link-time optimisation on 2 cores) | Pass, 0 errors; 7 warnings, all upstream link-time notes (for example `faraway_island.c` declares `GetMewMoveDirection` with two different types), none in hack code |
-| Release ROM size | 25.68 MiB used (the optimised code is bigger, the debug strings are gone), so 6.3 MiB free; still padded to 32 MiB; the Flash save marker is at the same offset, 0x20E8 |
+| Release ROM size | 25.68 MiB used on the 2026-10-09 build (the optimised code is bigger, the debug strings are gone), so 6.3 MiB free; still padded to 32 MiB; the Flash save marker is at the same offset, 0x20E8. Not re-measured since the DP sprite import, which grew the dev ROM by about 0.23 MiB, so expect about 25.9 MiB now; run `make release` and measure as above |
 | RAM | EWRAM 226,414 bytes, IWRAM 28,312 bytes: the same as the dev build, nothing to worry about |
 | Debug menu and quickstart in the release ROM | Compiled out by `DISABLED_ON_RELEASE`; not played on a device yet |

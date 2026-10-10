@@ -25,7 +25,7 @@ Tall-grass tiles only. Levels 3 to 5 (raised 2026-10-01: the gym is now one rout
 
 **Night (BUILT 2026-10-09, species PROPOSED).** From 20:00 to 06:00 on the fake clock Route 1 uses a second table, `gVeldrisRoute1_Night` in `src/data/wild_encounters.json`: same slots, rate 20 and levels, only some species change (slot 2 and 4 and 6 HOOTHOOT, slots 3 and 7 RATTATA, slot 8 SPINARAK, slot 12 MURKROW; ZIGZAGOON, SKITTY and SLAKOTH stay). Full table and the open-air rule: [time-of-day.md](time-of-day.md).
 
-Rates add to 100%. I have not checked that every species is enabled in this build. SLAKOTH and MILTANK appear in the Crestfall gym, so they stay at 1% here. Porymap writes these to `wild_encounters.json` through its Wild Pokémon tab.
+Rates add to 100%. Every species here is enabled (all nine `P_GEN_x_POKEMON` switches in `include/config/species_enabled.h` are TRUE and no family is switched off; checked 2026-10-10). SLAKOTH and MILTANK appear in the Crestfall gym, so they stay at 1% here. Porymap writes these to `wild_encounters.json` through its Wild Pokémon tab.
 
 ## Trainers (PROPOSED, three, all cheap to add)
 All three reuse vanilla Hoenn trainer entries (no new trainer id, UNTESTED, see `CLAUDE.md` 'A new trainer'). No IVs or EVs, as for every trainer. Moves left to the default level-up set.

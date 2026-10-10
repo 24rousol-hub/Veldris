@@ -332,7 +332,7 @@ Bg events: town sign (24,10) (the card's note: nothing here is on a signpost, so
 - **Cynthia's tea** is a short scripted scene on a once-only flag.
 - **Boatman and kettle** are optional.
 
-**Flags (not claimed, from the card):** `FLAG_VISITED_VESPERHAVEN`, `FLAG_VESPERHAVEN_GATES_OPEN`, `FLAG_REMATCH_GRETA` to `FLAG_REMATCH_MIZZLE` (nine), `FLAG_REMATCH_OSSIAN` to `_DRAYDEN` (four), `FLAG_REMATCH_CYNTHIA`, `FLAG_VESPERHAVEN_TEA_DONE`, `FLAG_VESPERHAVEN_LETTER_TAKEN`, `FLAG_VESPERHAVEN_LETTER_DELIVERED`, `FLAG_VESPERHAVEN_TROG_HIRED`, `FLAG_RECEIVED_ABILITY_CAPSULE_CYNTHIA`, `FLAG_HIDDEN_ITEM_VESPERHAVEN_MAX_ELIXIR`. That is 15 flags for rematches alone: check [../../flags.md](../../flags.md) (316 spare flags); consider **one flag per rematch row packed into a single var** or reusing the reused trainers' own flags.
+**Flags (not claimed, from the card):** `FLAG_VISITED_VESPERHAVEN`, `FLAG_VESPERHAVEN_GATES_OPEN`, `FLAG_REMATCH_GRETA` to `FLAG_REMATCH_MIZZLE` (nine), `FLAG_REMATCH_OSSIAN` to `_DRAYDEN` (four), `FLAG_REMATCH_CYNTHIA`, `FLAG_VESPERHAVEN_TEA_DONE`, `FLAG_VESPERHAVEN_LETTER_TAKEN`, `FLAG_VESPERHAVEN_LETTER_DELIVERED`, `FLAG_VESPERHAVEN_TROG_HIRED`, `FLAG_RECEIVED_ABILITY_CAPSULE_CYNTHIA`, `FLAG_HIDDEN_ITEM_VESPERHAVEN_MAX_ELIXIR`. That is 15 flags for rematches alone: check [../../flags.md](../../flags.md) (about 300 spare flags); consider **one flag per rematch row packed into a single var** or reusing the reused trainers' own flags.
 
 ---
 
@@ -356,7 +356,7 @@ Bg events: town sign (24,10) (the card's note: nothing here is on a signpost, so
 1. **Cynthia's tea and rematch here or in Hollowbrook** (card question 1): I built the cottage here; the reunion stays in Hollowbrook.
 2. **Brick Cafe for the Lounge** needs a triple-layer conversion. Fallback is the vanilla Contest lobby; which mood does the author want?
 3. **Door faces west.** Emerald doors always face south; I read the card as the garden path arriving from the west. OK?
-4. **15 rematch flags** is a lot of the 316 spare flags. Pack them in a var, or reuse the reused trainers' own flags (the script clears and re-sets them anyway)?
+4. **15 rematch flags** is a lot of the roughly 300 spare flags. Pack them in a var, or reuse the reused trainers' own flags (the script clears and re-sets them anyway)?
 5. **Gatsby at the Boathouse** (card question 5) duplicates the Hollowbrook kettle plan; keep or cut?
 6. **A Pokémon 'Slowbro' in House 2** is ambient decoration and could be dropped.
 7. **Weather `SHADE`** may look muddy over the LeoB colours; test it in Porymap before committing.

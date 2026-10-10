@@ -1,4 +1,4 @@
-@ Crestfall Scheme 1, 'the private booking' (author, 2026-10-08). APPROVED by the author 2026-10-08 and wired into data/maps/Crestfall/scripts.inc (Greta's two lines in Crestfall_Gym). One change on wiring: GretaInvite ends 'They only open for winners.'
+@ Crestfall Scheme 1, 'the private booking' (author, 2026-10-08). APPROVED by the author 2026-10-08 and wired into data/maps/Crestfall/scripts.inc (Greta's two lines in Crestfall_Gym). One change on wiring: GretaInvite ends 'They only open for winners.' (it was 'They swing both ways.'; the author has not signed off the new line, ask if it matters, a gym leader's line is a story point under CLAUDE.md rule 10)
 @ Author fixed: Troglodyte's attendant pushes the player aside at the gym door ('the golden boy goes first');
 @ Troglodyte thinks nothing of it, it is how he was raised. The attendant is a kind, posh old man who served
 @ Troglodyte's father before him. The parents booked the gym for a private session with a photographer for
@@ -150,7 +150,7 @@ Crestfall_Text_S1_GretaInvite::
 	.string "That's him sorted. For about\n"
 	.string "a week, I'd guess.\p"
 	.string "Come on in, {PLAYER}. Mind the\n"
-	.string "gates. They swing both ways.$"
+	.string "gates. They only open for winners.$"
 
 @ Replaces GretaIdleAfter (it joked about MILTANK eating paperwork).
 Crestfall_Text_S1_GretaIdleAfter::

@@ -9,8 +9,6 @@
 // design/flags.md, and the town's OnTransition does `setflag <flag>`. The full checklist is in
 // design/region-map.md. New section ids go at the very END of region_map_sections.json (they must
 // stay after MAPSEC_TRAINER_HILL), so they stay clear of the Kanto block.
-// Example row (do not enable until those exist):
-//     X(MAPSEC_HOLLOWBROOK, FLAG_VISITED_HOLLOWBROOK, MAP_HOLLOWBROOK, HEAL_LOCATION_HOLLOWBROOK)
 // Write the rows as continuation lines: every row ends with a backslash except the last one.
 #define VELDRIS_FLY_TOWNS(X) \
     X(MAPSEC_HOLLOWBROOK, FLAG_VISITED_HOLLOWBROOK, MAP_HOLLOWBROOK, HEAL_LOCATION_HOLLOWBROOK) \

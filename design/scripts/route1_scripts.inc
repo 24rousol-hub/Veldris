@@ -1,6 +1,7 @@
 @ ===========================================================================
-@ DRAFT, UNBUILT, not included in data/event_scripts.s.
-@ Status: PROPOSED. Hand-written scripts.inc style (NOT Poryscript).
+@ SUPERSEDED, built 2026-10-01 into data/maps/VeldrisRoute1/scripts.inc (that is the source of truth; this draft is history
+@ and differs from it). Not included in data/event_scripts.s. See design/scripts/README.md.
+@ Status (when written): PROPOSED. Hand-written scripts.inc style (NOT Poryscript).
 @
 @ VeldrisRoute1 (Hollowbrook to Crestfall; 2026-10-01: dialogue now has surveyors and extra NPCs the script draft does not place yet). Paste into
 @ data/maps/VeldrisRoute1/scripts.inc once the map is built in Porymap (close or

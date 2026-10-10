@@ -296,7 +296,7 @@ Claim them in [../../flags.md](../../flags.md) when built.
 - `VAR_HEMLOCK_GYM_VALVES` (0 to 4) and a temp var for the wrong-turn counter (`VAR_TEMP_*`).
 - `FLAG_HEMLOCK_ANTIDOTE_TAKEN`, `FLAG_HEMLOCK_TM_ROCK_TOMB`, `FLAG_HEMLOCK_ITEM_ETHER`, `FLAG_HEMLOCK_ITEM_NUGGET`, `FLAG_HEMLOCK_ITEM_PPUP`, `FLAG_HEMLOCK_ITEM_MAXELIXIR`, two hidden-item flags from 0x264.
 - `FLAG_BADGE07_GET` (exists).
-- That is about 9 flags and 2 vars, from the spare pool (316 flags, 22 vars). Use `VAR_TEMP_*` for the wrong-turn counter.
+- That is about 9 flags and 2 vars, from the spare pool (about 300 flags, 19 vars; exact count in [flags.md](../../flags.md)). Use `VAR_TEMP_*` for the wrong-turn counter.
 
 ## 11. Door and warp table, whole town
 

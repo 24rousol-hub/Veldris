@@ -20,9 +20,9 @@ The tree still carries FRLG's map folders and constants. They are not built into
 
 | # | Name | Role | Status | Map section | Built? |
 |---|---|---|---|---|---|
-| 1 | Hollowbrook | Start town, Prof. Fennick's lab | APPROVED (name) | `MAPSEC_HOLLOWBROOK` | No |
+| 1 | Hollowbrook | Start town, Prof. Fennick's lab | APPROVED (name) | `MAPSEC_HOLLOWBROOK` | Yes (exterior, lab, houses; flyable) |
+| 2 | **Crestfall** | Gym 1: Greta (Normal, young and rising fast) | APPROVED (name, from the author's trainer constant). Exterior BUILT 2026-10-01 ([crestfall.md](crestfall.md)) | `MAPSEC_CRESTFALL` | Yes (exterior, Center, Mart, two houses, gym; flyable) |
 | 3 | Wendlebury | Third place, a market town off the main path | APPROVED (name) | `MAPSEC_WENDLEBURY` | No |
-| 3 | **Crestfall** | Gym 1: Greta (Normal, young and rising fast) | APPROVED (name, from the author's trainer constant). Exterior BUILT 2026-10-01 ([crestfall.md](crestfall.md)) | `MAPSEC_CRESTFALL` | No (needs the Center) |
 | 4 to 18 | TBD | Gyms 2 to 9, Elite Four approach, League, post-game | Not started | | |
 
 ## Routes
@@ -46,7 +46,7 @@ The author says a **city** and a **town** are different, and that there may be *
 
 ## Fly destinations
 
-Only settlements (towns and cities, not routes) are fly destinations (see [region-map.md](region-map.md)). Initial set: Hollowbrook, Wendlebury, Crestfall.
+Only settlements (towns and cities, not routes) are fly destinations (see [region-map.md](region-map.md)). Initial set: Hollowbrook and Crestfall (both flyable, rows in `src/data/veldris_fly_towns.h`); Wendlebury once its map exists.
 
 ## Update this file when
 
