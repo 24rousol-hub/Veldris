@@ -14408,7 +14408,7 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("Journal"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "Tracks your badges,\n"
+            "Keeps your badges,\n"
             "the next stop and\n"
             "your rival's losses."),
         .importance = 1,

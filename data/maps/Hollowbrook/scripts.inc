@@ -16,7 +16,6 @@ Hollowbrook_OnFrame:
 
 Hollowbrook_OnTransition:
 	setflag FLAG_VISITED_HOLLOWBROOK
-	setrespawn HEAL_LOCATION_HOLLOWBROOK
 	call Hollowbrook_EventScript_UpdateGrandpa
 	call Hollowbrook_EventScript_UpdateTrog
 	end
@@ -306,7 +305,7 @@ Hollowbrook_Text_GrandpaAfter::
 
 Hollowbrook_Text_GrandpaAdvice::
 	.string "Don't take him to heart.\p"
-	.string "He has never been told 'no' by\n"
+	.string "He has never been told ‘no’ by\n"
 	.string "anyone who wasn't paid to.\p"
 	.string "It makes a person very small\n"
 	.string "inside. Be kind if you can.\p"
@@ -375,3 +374,23 @@ Hollowbrook_Text_SignTownAfterBadge::
 	.string "HOLLOWBROOK\n"
 	.string "‘Home of a badge holder.\l"
 	.string "Still mind the ZIGZAGOON.’$"
+
+@ East exit gate (author asked for no empty-party roaming; found by the 2026-10-09 review). Until the player has chosen a starter
+@ (VAR_HOLLOWBROOK_STATE 1 or 2) the three exit tiles (30, 9..11) nudge the player back. Same idea as vanilla Littleroot's
+@ NeedPokemonTrigger. PROPOSED wording.
+Hollowbrook_EventScript_NoStarterGate::
+	lockall
+	msgbox Hollowbrook_Text_NoStarterGate, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PLAYER, Hollowbrook_Movement_NoStarterGateBack
+	waitmovement 0
+	releaseall
+	end
+
+Hollowbrook_Movement_NoStarterGateBack:
+	walk_left
+	step_end
+
+Hollowbrook_Text_NoStarterGate:
+	.string "FENNICK is waiting for you at\n"
+	.string "the lab. The road can wait.$"

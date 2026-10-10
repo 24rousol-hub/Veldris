@@ -4,7 +4,9 @@
 @ (VELDRIS_FOURTH_STARTER in src/starter_choose.c) as the revealed fourth.
 @
 @ Layout: Fennick (7,4) behind the 4-wide table (5..8,5), counter row (5..8,6), balls on (5..8,5).
-@ Troglodyte starts at (4,7). Door mats (6,11)/(7,11); scene trigger and exit blocker on (6,10)/(7,10).
+@ Troglodyte starts at (4,7). Door mats (6,11)/(7,11) (south-arrow warps: the warp only fires on Down while standing on a mat).
+@ The doorway is 4 tiles wide (x 5..8, rows 10 and 11). Scene triggers: (6,10) and (7,10) in the middle, plus (5,10) and (8,10)
+@ at the sides, which step the player into the middle first. The state-2 exit blocker sits on the mats, so no route out skips it.
 @ VAR_HOLLOWBROOK_STATE: 0 new game, 1 mom woke player, 2 Trog has his ball (player choosing),
 @ 3 player chose (Trog waits outside), 4 Trog beaten outside.
 
@@ -144,6 +146,29 @@ Hollowbrook_ProfFennickLab_Movement_PlayerWalkIn:
 	walk_up
 	step_end
 
+@ Entering by a side tile of the doorway: step into the middle, then run the same scene.
+Hollowbrook_ProfFennickLab_EventScript_TrogSceneFromWest::
+	lockall
+	applymovement LOCALID_PLAYER, Hollowbrook_ProfFennickLab_Movement_StepRight
+	waitmovement 0
+	goto Hollowbrook_ProfFennickLab_EventScript_TrogScene
+	end
+
+Hollowbrook_ProfFennickLab_EventScript_TrogSceneFromEast::
+	lockall
+	applymovement LOCALID_PLAYER, Hollowbrook_ProfFennickLab_Movement_StepLeft
+	waitmovement 0
+	goto Hollowbrook_ProfFennickLab_EventScript_TrogScene
+	end
+
+Hollowbrook_ProfFennickLab_Movement_StepRight:
+	walk_right
+	step_end
+
+Hollowbrook_ProfFennickLab_Movement_StepLeft:
+	walk_left
+	step_end
+
 @ Troglodyte starts at (4,7), left of the table front. Ball k is at (4+k,5), behind the
 @ counter row, so he stands at (4+k,7) facing up.
 Hollowbrook_ProfFennickLab_Movement_TrogToBall1:
@@ -192,7 +217,7 @@ Hollowbrook_ProfFennickLab_Movement_TrogLeavesFromBall3:
 	walk_right
 	step_end
 
-@ While state is 2 the player may not leave without a starter.
+@ While state is 2 the player may not leave without a starter. The triggers are on the door mats (6,11)/(7,11), the only way out.
 Hollowbrook_ProfFennickLab_EventScript_ExitBlocker::
 	lockall
 	applymovement LOCALID_HOLLOWBROOK_LAB_FENNICK, Common_Movement_FacePlayer
@@ -284,7 +309,7 @@ Hollowbrook_ProfFennickLab_EventScript_BallGone::
 	release
 	end
 
-@ Only reachable if the scene is skipped somehow (debug warps).
+@ Only reachable if the scene is skipped somehow (debug warps); every route through the doorway runs the scene.
 Hollowbrook_ProfFennickLab_EventScript_BallNotYet::
 	msgbox Hollowbrook_Text_LabBallNotYet, MSGBOX_DEFAULT
 	release

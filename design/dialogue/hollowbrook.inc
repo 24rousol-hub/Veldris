@@ -192,7 +192,7 @@ Hollowbrook_Text_GrandpaAfter::
 @ Second topic.
 Hollowbrook_Text_GrandpaAdvice::
 	.string "Don't take him to heart.\p"
-	.string "He has never been told 'no' by\n"
+	.string "He has never been told ‘no’ by\n"
 	.string "anyone who wasn't paid to.\p"
 	.string "It makes a person very small\n"
 	.string "inside. Be kind if you can.\p"

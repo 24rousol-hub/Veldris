@@ -157,7 +157,62 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "1",
+      "script": "Hollowbrook_EventScript_NoStarterGate"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "1",
+      "script": "Hollowbrook_EventScript_NoStarterGate"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "1",
+      "script": "Hollowbrook_EventScript_NoStarterGate"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "2",
+      "script": "Hollowbrook_EventScript_NoStarterGate"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "2",
+      "script": "Hollowbrook_EventScript_NoStarterGate"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "2",
+      "script": "Hollowbrook_EventScript_NoStarterGate"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
