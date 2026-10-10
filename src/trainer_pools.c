@@ -5,11 +5,10 @@
 #include "pokemon.h"
 #include "random.h"
 #include "trainer_pools.h"
+#include "veldris_trainer_pools.h"
 #include "constants/battle.h"
 #include "constants/battle_ai.h"
 #include "constants/items.h"
-#include "constants/vars.h"
-#include "event_data.h"
 
 #include "data/battle_pool_rules.h"
 
@@ -351,28 +350,6 @@ static void RandomTagPrune(const struct Trainer *trainer, u8 *poolIndexArray, co
             poolIndexArray[i] = POOL_SLOT_DISABLED;
 }
 
-//  Veldris: Troglodyte's starter is random, so his pool lists his other Pokemon plus three starter versions
-//  tagged TAG6, TAG7 and TAG8 (the 1st, 2nd and 3rd starter on show). VAR_TROG_STARTER holds 0, 1 or 2.
-//  Drop the starter versions that do not match. Untagged members stay in the pool.
-static void RivalStarterPrune(const struct Trainer *trainer, u8 *poolIndexArray, const struct PoolRules *rules)
-{
-    u32 starterTags = MON_POOL_TAG_TAG6 | MON_POOL_TAG_TAG7 | MON_POOL_TAG_TAG8;
-    u32 keepTag = MON_POOL_TAG_TAG6;
-    u32 choice = VarGet(VAR_TROG_STARTER);
-
-    if (choice == 1)
-        keepTag = MON_POOL_TAG_TAG7;
-    else if (choice == 2)
-        keepTag = MON_POOL_TAG_TAG8;
-
-    for (u32 i = 0; i < trainer->poolSize; i++)
-    {
-        u32 tags = trainer->party[poolIndexArray[i]].tags;
-        if ((tags & starterTags) && !(tags & keepTag))
-            poolIndexArray[i] = POOL_SLOT_DISABLED;
-    }
-}
-
 static void PrunePool(const struct Trainer *trainer, u8 *poolIndexArray, const struct PoolRules *rules)
 {
     //  Use defined pruning functions go here
@@ -387,7 +364,7 @@ static void PrunePool(const struct Trainer *trainer, u8 *poolIndexArray, const s
         RandomTagPrune(trainer, poolIndexArray, rules);
         break;
     case POOL_PRUNE_RIVAL_STARTER:
-        RivalStarterPrune(trainer, poolIndexArray, rules);
+        VeldrisRivalStarterPrune(trainer, poolIndexArray, rules);
         break;
     default:
         break;

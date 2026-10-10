@@ -1,6 +1,6 @@
 @ Veldris debug presets (hack-owned, not upstream). See design/debug-presets.md.
 @ Reached from the debug menu (R+START): Scripts... slots 1 to 8 (Debug_EventScript_Script_N in debug.inc just goto the
-@ Veldris_Debug_PresetN labels here) and Utilities > Cheat start (Debug_CheatStart goes to Veldris_Debug_CheatStart).
+@ Veldris_Debug_PresetN labels here) and Utilities > Cheat start (Debug_CheatStart below; the vanilla body in debug.inc is now Debug_CheatStartHoenn, unused).
 @
 @ A preset only sets flags, vars, trainer flags, items and the party; no engine code. Every flag and var below is in
 @ design/flags.md (or is a vanilla system flag named in running-shoes.md, exp-share.md or badges.md). When you claim a new
@@ -42,7 +42,8 @@ Veldris_Debug_AllBadges::
 @ Shoes, the Pokedex or the Exp. Share (Preset 1 does those).
 Veldris_Debug_ResetStory::
 	setvar VAR_HOLLOWBROOK_STATE, 0
-	setvar VAR_CRESTFALL_STATE, 0 @ Crestfall Scheme 1 (the scene at the gym door); FLAG_TEMP_11 there is set on every map load, no reset needed
+	setrespawn HEAL_LOCATION_HOLLOWBROOK @ a real new game sets this in the player's 2F room
+	setvar VAR_CRESTFALL_STATE, 0 @ Crestfall Scheme 1 (the scene at the gym door); FLAG_TEMP_11 there and Crestfall_Gym's VAR_TEMP_1 are reset on every map load, no reset needed
 	setvar VAR_TROG_STARTER, 0
 	setvar VAR_STARTER_MON, 0
 	clearflag FLAG_HIDE_HOLLOWBROOK_LAB_TROG
@@ -331,7 +332,7 @@ Veldris_Debug_Preset8::
 @ Utilities > Cheat start: everything unlocked, for walking around the built maps and any new one.
 @ The C side (DebugAction_Util_CheatStart) has already set the clock up.
 @ ---------------------------------------------------------------------------------------------------------
-Veldris_Debug_CheatStart::
+Debug_CheatStart::
 	call Veldris_Debug_StateRoam
 	call Veldris_Debug_StateCrestfall
 	call Veldris_Debug_AllBadges

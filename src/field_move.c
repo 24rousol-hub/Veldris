@@ -5,6 +5,7 @@
 #include "fldeff_misc.h"
 #include "party_menu.h"
 #include "strings.h"
+#include "veldris_badges.h"
 #include "constants/field_move.h"
 #include "constants/moves.h"
 #include "constants/party_menu.h"
@@ -43,8 +44,8 @@ const struct FieldMoveUnlock gFieldMoveUnlocks[FIELD_MOVE_UNLOCK_COUNT] =
     },
 };
 
-// Index into gBadgeFlags[]. Badges 1-8 are contiguous from FLAG_BADGE01_GET, badge 9 sits elsewhere (include/veldris_badges.h).
-#define FLAG_TO_BADGE(flag) (((flag) == FLAG_BADGE09_GET) ? 8 : (flag) - FLAG_BADGE01_GET)
+// Row of a badge flag in gBadgeFlags[], looked up in the badge table so a non-contiguous flag (badge 9) cannot be mis-indexed.
+#define FLAG_TO_BADGE(flag) BADGE_INDEX_##flag
 
 const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
 {

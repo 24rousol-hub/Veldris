@@ -1,6 +1,7 @@
 #include "global.h"
 #include "event_data.h"
 #include "pokedex.h"
+#include "veldris_badges.h"
 #include "test/battle.h"
 
 ASSUMPTIONS
@@ -73,22 +74,23 @@ WILD_BATTLE_TEST("Capture: Missing badge malus apply correcly in gen 8")
     u32 playerLevel = 0;
     u32 numBadges = 0;
 
-    for (u32 j = 0; j < 8; j++)
+    // Veldris: NUM_BADGES is 9 and badge 9's flag is not contiguous, so go through gBadgeFlags[] (src/veldris_badges.c)
+    for (u32 j = 0; j < NUM_BADGES; j++)
     {
         PARAMETRIZE(expectedOdds = 50, playerLevel = 100, numBadges = j);
         PARAMETRIZE(expectedOdds = 5, playerLevel = 99, numBadges = j);
     }
-    PARAMETRIZE(expectedOdds = 50, playerLevel = 100, numBadges = 8);
-    PARAMETRIZE(expectedOdds = 50, playerLevel = 99, numBadges = 8);
-    PARAMETRIZE(expectedOdds = 50, playerLevel = 21, numBadges = 8);
+    PARAMETRIZE(expectedOdds = 50, playerLevel = 100, numBadges = NUM_BADGES);
+    PARAMETRIZE(expectedOdds = 50, playerLevel = 99, numBadges = NUM_BADGES);
+    PARAMETRIZE(expectedOdds = 50, playerLevel = 21, numBadges = NUM_BADGES);
 
     GIVEN {
-        for (u32 j = 0; j < 8; j++)
+        for (u32 j = 0; j < NUM_BADGES; j++)
         {
             if (j < numBadges)
-                FlagSet(FLAG_BADGE01_GET + j);
+                FlagSet(gBadgeFlags[j]);
             else
-                FlagClear(FLAG_BADGE01_GET + j);
+                FlagClear(gBadgeFlags[j]);
         }
         WITH_CONFIG(B_MISSING_BADGE_CATCH_MALUS, GEN_8);
         PLAYER(SPECIES_WOBBUFFET) {Level(playerLevel);}
@@ -109,10 +111,11 @@ WILD_BATTLE_TEST("Capture: Missing badge malus apply correcly in gen 9")
     u32 level = 0;
     u32 numBadges = 0;
 
-    PARAMETRIZE(expectedOdds = 250, level = 100, numBadges = 8);
-    PARAMETRIZE(expectedOdds = 200, level = 100, numBadges = 7);
-    PARAMETRIZE(expectedOdds = 160, level = 100, numBadges = 6);
-    PARAMETRIZE(expectedOdds = 128, level = 100, numBadges = 5);
+    // Veldris: sBadgeLevel[] (src/battle_script_commands.c) is below 100 for every badge, so each missing badge costs one 4/5
+    PARAMETRIZE(expectedOdds = 250, level = 100, numBadges = NUM_BADGES);
+    PARAMETRIZE(expectedOdds = 200, level = 100, numBadges = NUM_BADGES - 1);
+    PARAMETRIZE(expectedOdds = 160, level = 100, numBadges = NUM_BADGES - 2);
+    PARAMETRIZE(expectedOdds = 128, level = 100, numBadges = NUM_BADGES - 3);
     PARAMETRIZE(expectedOdds = 250, level = 40, numBadges = 4);
     PARAMETRIZE(expectedOdds = 250, level = 40, numBadges = 3);
     PARAMETRIZE(expectedOdds = 200, level = 40, numBadges = 2);
@@ -120,12 +123,12 @@ WILD_BATTLE_TEST("Capture: Missing badge malus apply correcly in gen 9")
     PARAMETRIZE(expectedOdds = 128, level = 40, numBadges = 0);
 
     GIVEN {
-        for (u32 j = 0; j < 8; j++)
+        for (u32 j = 0; j < NUM_BADGES; j++)
         {
             if (j < numBadges)
-                FlagSet(FLAG_BADGE01_GET + j);
+                FlagSet(gBadgeFlags[j]);
             else
-                FlagClear(FLAG_BADGE01_GET + j);
+                FlagClear(gBadgeFlags[j]);
         }
         WITH_CONFIG(B_MISSING_BADGE_CATCH_MALUS, GEN_9);
         PLAYER(SPECIES_WOBBUFFET);

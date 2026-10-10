@@ -66,12 +66,19 @@ u32 FindMonForFieldMove(enum FieldMove fieldMove)
     return firstLearner;
 }
 
-bool32 CanUseFieldMoveHere(enum FieldMove fieldMove)
+// Dry run of the vanilla SetUpFieldMove_*: TRUE if the move is usable right here, right now, by the Pokemon in userSlot.
+// Saves and restores gFieldCallback2 / gPostMenuFieldCallback. Some SetUp functions also leave scratch state
+// (gSpecialVar_Result, Cut's tile tables, the dive warp); all of it is rewritten when the move is really used.
+static bool32 CanUseFieldMoveHere(enum FieldMove fieldMove, u32 userSlot)
 {
     bool8 (*savedFieldCallback2)(void) = gFieldCallback2;
     void (*savedPostMenuCallback)(void) = gPostMenuFieldCallback;
-    bool32 usable = SetUpFieldMove(fieldMove);
+    s8 savedSlot = gPartyMenu.slotId;
+    bool32 usable;
 
+    gPartyMenu.slotId = userSlot; // SetUpFieldMove_Cut reads the user's Ability through GetCursorSelectionMonId()
+    usable = SetUpFieldMove(fieldMove);
+    gPartyMenu.slotId = savedSlot;
     gFieldCallback2 = savedFieldCallback2;
     gPostMenuFieldCallback = savedPostMenuCallback;
     return usable;
@@ -91,16 +98,19 @@ u32 AppendCompatFieldMoveActions(u8 *actions, u32 numActions, u32 maxActions, u3
 {
     for (u32 fieldMove = 0; fieldMove < FIELD_MOVES_COUNT && numActions < maxActions; fieldMove++)
     {
-        u32 i;
+        u32 i, user;
 
-        if (!IsCompatFieldMove(fieldMove) || !IsFieldMoveUnlocked(fieldMove) || FindMonForFieldMove(fieldMove) == PARTY_SIZE)
+        if (!IsCompatFieldMove(fieldMove) || !IsFieldMoveUnlocked(fieldMove))
             continue;
         for (i = 0; i < numActions; i++) // the picked Pokemon knows it: vanilla already listed it
         {
             if (actions[i] == actionBase + fieldMove)
                 break;
         }
-        if (i < numActions || !CanUseFieldMoveHere(fieldMove))
+        if (i < numActions)
+            continue;
+        user = FindMonForFieldMove(fieldMove);
+        if (user == PARTY_SIZE || !CanUseFieldMoveHere(fieldMove, user))
             continue;
         actions[numActions++] = actionBase + fieldMove;
     }

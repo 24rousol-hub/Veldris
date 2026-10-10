@@ -1436,10 +1436,10 @@ static u8 SetCardBgsAndPals(void)
     switch (sData->bgPalLoadState)
     {
     case 0:
-        // Veldris: sheet row 1 (badges 1-8) goes at BG3 tile 192, sheet row 2 (badges 9-16) at tile 352,
-        // clear of the mon icons (224-319) and the FRLG stickers (320-351).
+        // Veldris: sheet row 1 (badges 1-8) goes at BG3 tile BADGE_TILES_ROW1_START, sheet row 2 (badges 9-16) at
+        // BADGE_TILES_ROW2_START (include/veldris_badges.h).
         LoadBgTiles(3, sData->badgeTiles, ARRAY_COUNT(sData->badgeTiles) / 2, 0);
-        LoadBgTiles(3, sData->badgeTiles + ARRAY_COUNT(sData->badgeTiles) / 2, ARRAY_COUNT(sData->badgeTiles) / 2, 160);
+        LoadBgTiles(3, sData->badgeTiles + ARRAY_COUNT(sData->badgeTiles) / 2, ARRAY_COUNT(sData->badgeTiles) / 2, BADGE_TILES_ROW2_START - BADGE_TILES_ROW1_START);
         break;
     case 1:
         LoadBgTiles(0, sData->cardTiles, 0x1800, 0);
@@ -1512,6 +1512,10 @@ static void DrawCardFrontOrBack(u16 *ptr)
     CopyBgTilemapBufferToVram(0);
 }
 
+// Veldris: tile spacing of the badge row. Each badge is 2 tiles wide. With room to spare (up to 9 badges) one empty
+// tile separates neighbours (pitch 3), otherwise they sit edge to edge (pitch 2, fits up to 12).
+#define BADGE_PITCH ((3 * (NUM_BADGES - 1) + 2 <= 26) ? 3 : 2)
+
 static void DrawStarsAndBadgesOnCard(void)
 {
     static const u8 yOffsets[] = {7, 7};
@@ -1541,17 +1545,14 @@ static void DrawStarsAndBadgesOnCard(void)
         }
         else
         {
-            // Veldris: the numbered slots are gone from front.bin. Each badge is 2 tiles wide. With room to
-            // spare (up to 9 badges) one empty tile separates neighbours (pitch 3), otherwise they sit edge to
-            // edge (pitch 2, fits up to 12). The row is centred on the 30-tile screen.
+            // Veldris: the numbered slots are gone from front.bin. The row of badges is centred on the 30-tile screen.
             // Badges not yet earned show an empty socket (icon slot BADGE_ICON_SLOT_EMPTY).
-            #define BADGE_PITCH ((3 * (NUM_BADGES - 1) + 2 <= 26) ? 3 : 2)
             x = (30 - (BADGE_PITCH * (NUM_BADGES - 1) + 2)) / 2;
             for (i = 0; i < NUM_BADGES; i++, x += BADGE_PITCH)
             {
                 u8 slot = sData->badgeCount[i] ? gVeldrisBadges[i].iconSlot : BADGE_ICON_SLOT_EMPTY;
 
-                tileNum = (slot < BADGE_ICON_SLOTS_PER_SHEET_ROW ? 192 : 352) + (slot % BADGE_ICON_SLOTS_PER_SHEET_ROW) * 2;
+                tileNum = (slot < BADGE_ICON_SLOTS_PER_SHEET_ROW ? BADGE_TILES_ROW1_START : BADGE_TILES_ROW2_START) + (slot % BADGE_ICON_SLOTS_PER_SHEET_ROW) * 2;
                 FillBgTilemapBufferRect(3, tileNum, x, y, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 1, x + 1, y, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 16, x, y + 1, 1, 1, palNum);

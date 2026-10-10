@@ -1616,9 +1616,19 @@ enum Gender GetPlayerAvatarGenderByGraphicsId(u16 gfxId)
 
 bool8 PartyHasMonWithSurf(void)
 {
-    // Veldris: a Pokemon that knows Surf or can learn it (design/field-moves.md)
+    u8 i;
+
     if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
-        return FindMonForFieldMove(FIELD_MOVE_SURF) != PARTY_SIZE;
+    {
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES) == SPECIES_NONE)
+                break;
+            if (MonKnowsMove(&gParties[B_TRAINER_PLAYER][i], MOVE_SURF))
+                return TRUE;
+        }
+        return FindMonForFieldMove(FIELD_MOVE_SURF) != PARTY_SIZE; // Veldris: or a Pokemon that can learn Surf
+    }
     return FALSE;
 }
 

@@ -789,12 +789,12 @@
 #define TRAINER_CRISTIN_1                   767
 #define TRAINER_MAY_RUSTBORO_TREECKO        768
 #define TRAINER_MAY_RUSTBORO_TORCHIC        769
-#define TRAINER_CRESTFALL_GRETA            770
-#define TRAINER_ROXANNE_2                  TRAINER_CRESTFALL_GRETA
-#define TRAINER_CRESTFALL_GYM_1            771
-#define TRAINER_ROXANNE_3                  TRAINER_CRESTFALL_GYM_1
-#define TRAINER_CRESTFALL_GYM_2            772
-#define TRAINER_ROXANNE_4                  TRAINER_CRESTFALL_GYM_2
+#define TRAINER_CRESTFALL_GRETA             770
+#define TRAINER_ROXANNE_2                   TRAINER_CRESTFALL_GRETA
+#define TRAINER_CRESTFALL_GYM_1             771
+#define TRAINER_ROXANNE_3                   TRAINER_CRESTFALL_GYM_1
+#define TRAINER_CRESTFALL_GYM_2             772
+#define TRAINER_ROXANNE_4                   TRAINER_CRESTFALL_GYM_2
 #define TRAINER_ROXANNE_5                   773
 #define TRAINER_BRAWLY_2                    774
 #define TRAINER_BRAWLY_3                    775
@@ -893,7 +893,6 @@
 #define MAX_TRAINERS_COUNT                  MAX_TRAINERS_COUNT_EMERALD
 #endif
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
-
 
 // Veldris Route 1 trainers reuse vanilla Route 102 entries (design/trainer-roster.md)
 #define TRAINER_VELDRIS_ROUTE1_YOUNGSTER TRAINER_ALLEN
