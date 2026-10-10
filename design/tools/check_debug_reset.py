@@ -4,7 +4,7 @@
 Reads the 'In use by the hack' table of design/flags.md (expanding the table's short forms: `X_1` to `_3`, and
 `X_TALKED1`, `_TALKED2`) and lists every FLAG_/VAR_ name that data/scripts/veldris_debug.inc never mentions, so a new
 flag cannot be forgotten in Veldris_Debug_ResetStory. A mention anywhere in the file counts; it does not check that
-the flag is really cleared. Names that appear only in prose (for example VAR_TROG_STARTER) are not in the table.
+the flag is really cleared. A name that appears only in prose is never checked, so keep every flag and var in the table.
 
 Run from the repo root:  python3 design/tools/check_debug_reset.py      Exit code 1 if a name is missing.
 """

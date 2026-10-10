@@ -87,7 +87,7 @@ def pick(sp, lv):
     return [moves[m]['name'] if m in moves else m for m in chosen], None
 if __name__ == '__main__':
     for a in sys.argv[1:]:
-        if ' ' not in a:
+        if ' ' not in a or not a.rsplit(' ', 1)[1].isdigit():
             sys.exit('usage: pickmoves.py "Species LEVEL" ...')
         sp, lv = a.rsplit(' ', 1)
         mv, err = pick(sp, int(lv))

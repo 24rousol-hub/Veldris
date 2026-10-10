@@ -1,0 +1,3 @@
+# Hook scripts must keep LF line endings on every platform: a CRLF copy (Windows, core.autocrlf=true) is a sh syntax
+# error. Hack-owned file on purpose; the root .gitattributes is upstream's and stays untouched.
+* text eol=lf

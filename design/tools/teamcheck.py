@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Check the trainer teams in design/*.md rows against evolution levels and level-up learnsets (hack tool).
-Usage (from anywhere): python3 design/tools/teamcheck.py design/trainer-roster.md ...   (paths relative to the repo root)
+Usage (from anywhere): python3 design/tools/teamcheck.py design/trainer-roster.md ...   (paths relative to the repo root, or absolute)
 Exit code 1 if any team has a problem; the mixed-generation lines are informational only."""
 import re,glob,sys,json
 from pathlib import Path
@@ -29,7 +29,7 @@ files=sys.argv[1:]
 problems=0
 for f in files:
     print('==',f)
-    for ln,line in enumerate(open(R+f),1):
+    for ln,line in enumerate(open(Path(R)/f,encoding='utf-8'),1):
         if not re.search(r'Team|\| \d|^\| [A-Z]',line) : continue
         pairs=re.findall(r"([A-Z][A-Za-z'.\-]+)(?: ['A-Z]*)? (\d{1,3})\b",line)
         gens=[];bad=[]

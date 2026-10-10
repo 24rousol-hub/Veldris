@@ -31,7 +31,8 @@ A `box: NAME` directive is read only from comments, never from inside a string l
 --staged judges the STAGED blob (`git show :path`), not the working tree, and only the lines the index adds over HEAD.
 While a merge is being concluded (MERGE_HEAD exists) it also drops lines that are identical to the merged branch's, so
 taking upstream's text in a conflict does not block the commit; text you wrote by hand in the resolution is still judged.
-slide_check (veldris_trainer_slides.h) and wild_lint still read the working tree.
+The slides file goes through the same blob; wild_lint has its own --staged. trainer_lint, check_debug_reset and
+teamcheck read the working tree.
 """
 import argparse
 import fnmatch
@@ -140,12 +141,38 @@ def changed_lines(path, staged):
     return mine
 
 
+_blobs = {}
+
+
+def prefetch_staged(paths):
+    """Read the staged blob of every path with ONE `git cat-file --batch`, into _blobs. A commit that stages hundreds of
+    files (concluding an upstream merge) would otherwise start one git process per file."""
+    names = [n for n in (rel(p) for p in paths) if "\n" not in n]
+    try:
+        out = subprocess.run(["git", "cat-file", "--batch"], cwd=ROOT, check=True, capture_output=True,
+                             input="".join(f":{n}\n" for n in names).encode()).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return
+    pos = 0
+    for n in names:                               # one answer per request, in order: "<id> blob <size>" + data, or "... missing"
+        end = out.index(b"\n", pos)
+        head = out[pos:end].split()
+        pos = end + 1
+        if head[-1] != b"missing":
+            size = int(head[2])
+            if head[1] == b"blob":
+                _blobs[n] = out[pos:pos + size]
+            pos += size + 1
+
+
 def read_source(path, staged):
     """The text to check: in --staged mode the staged blob (what the commit will contain), else the file on disk."""
     if staged:
         try:
-            return subprocess.run(["git", "show", ":" + rel(path)], cwd=ROOT, capture_output=True,
-                                  check=True).stdout.decode("utf-8").replace("\r\n", "\n")
+            blob = _blobs.get(rel(path))
+            if blob is None:
+                blob = subprocess.run(["git", "show", ":" + rel(path)], cwd=ROOT, capture_output=True, check=True).stdout
+            return blob.decode("utf-8").replace("\r\n", "\n")
         except (OSError, subprocess.CalledProcessError, UnicodeDecodeError):
             pass                                  # untracked, unmerged or outside the repo: the file on disk
     return Path(path).read_text(encoding="utf-8")
@@ -258,9 +285,11 @@ def check_file(path, forced, limit, staged, everything):
     kind = forced or kind
     if kind == "slides":
         import slide_check
-        return slide_check.check_file(str(path))
+        return slide_check.check_file(str(path), read_source(path, staged))
     is_inc = path.suffix == ".inc"
     source = read_source(path, staged)   # --staged: the index blob, so the line numbers below match the text
+    if staged and kind is None and "box:" not in source:
+        return 0                         # a C file with no rule and no `box:` directive has nothing to check
     filtered = staged or (upstream and not everything and not forced)     # judge only the lines the diff touches
     added = None                         # computed on the first string that needs it: most files in a big commit have none
     problems, warnings, widest, n = [], [], (0, ""), 0
@@ -302,6 +331,8 @@ def main():
     args = ap.parse_args()
     if args.warn:
         BOXES["field"].slack = BOXES["intro"].slack = max(0, 216 - args.warn)
+    if args.staged:
+        prefetch_staged(args.files)
     bad = sum(check_file(f, args.box, args.limit, args.staged, args.all) for f in args.files)
     sys.exit(1 if bad else 0)
 

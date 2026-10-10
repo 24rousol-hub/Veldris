@@ -259,14 +259,15 @@ def slide_names():
     return [n for n in re.findall(r"TRAINER_SLIDE_([A-Z_]+)", body) if n not in ("NONE", "COUNT")]
 
 
-def parse_header(path):
-    """Yield (trainer_key, slide_name, text, line_no).
+def parse_header(path, source=None):
+    """Yield (trainer_key, slide_name, text, line_no). `source` is the file's text when the caller already has it
+    (dialogue_check --staged passes the staged blob); otherwise the file on disk is read.
 
     Token based, so one-line rows work. Understands both row forms:
       [TRAINER_SLIDE_X] = COMPOUND_STRING("a" "b")      (upstream style; text is used as written)
       VELDRIS_SLIDE(X, "a" "b")                          (hack macro; it appends {PAUSE_UNTIL_PRESS})
     """
-    raw = Path(path).read_text(encoding="utf-8")
+    raw = source if source is not None else Path(path).read_text(encoding="utf-8")
     text = re.sub(r"/\*.*?\*/", lambda m: " " * len(m.group(0)), raw, flags=re.S)
     text = re.sub(r"//[^\n]*", lambda m: " " * len(m.group(0)), text)
     lits = r'((?:\s*"(?:[^"\\]|\\.)*")+)\s*\)'
@@ -324,8 +325,8 @@ def analyse(text):
     return res
 
 
-def check_file(path):
-    """Print one line per slide string; return the number of errors."""
+def check_file(path, source=None):
+    """Print one line per slide string; return the number of errors. `source`: see parse_header."""
     bad = 0
     n = 0
     defs, val = load_ids()
@@ -334,7 +335,7 @@ def check_file(path):
     names = set(slide_names())
     seen_keys = {}
     block_of_id, slide_seen = {}, set()
-    for trainer, slide, text, ln, block in parse_header(path):
+    for trainer, slide, text, ln, block in parse_header(path, source):
         n += 1
         tid = None
         if trainer:
