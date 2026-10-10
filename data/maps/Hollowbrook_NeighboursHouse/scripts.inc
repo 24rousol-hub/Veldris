@@ -96,6 +96,12 @@ Hollowbrook_NeighboursHouse_EventScript_Bookshelf::
 	msgbox Hollowbrook_Text_NeighbourBookshelf, MSGBOX_SIGN
 	end
 
+@ The TV on the back wall (signs at (9,2) and (10,2), added 2026-10-09). One line, no flags. A sign, not a TV behaviour:
+@ the stock TV script is Hoenn-flavoured, see design/furniture-lines.md.
+Hollowbrook_NeighboursHouse_EventScript_TV::
+	msgbox Hollowbrook_Text_NeighbourTV, MSGBOX_SIGN
+	end
+
 Hollowbrook_Text_NeighbourBefore::
 	.string "Oh, hello, dear! Your mother\n"
 	.string "says you're off to the lab.\p"
@@ -154,6 +160,12 @@ Hollowbrook_Text_NeighbourBookshelf::
 	.string "A shelf full of cookbooks.\n"
 	.string "Every page is stained.\p"
 	.string "The stains are labelled.$"
+
+Hollowbrook_Text_NeighbourTV::
+	.string "A cooking show is on. The chef\n"
+	.string "says, ‘Add a pinch of salt.’\p"
+	.string "He is holding a bucket. Nobody\n"
+	.string "in the studio reacts.$"
 
 @ ---- After the first badge (added 2026-10-01, FLAG_BADGE01_GET) ----
 Hollowbrook_Text_NeighbourAfterBadge::

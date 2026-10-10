@@ -33,6 +33,11 @@ Hollowbrook_PlayersHouse_2F_EventScript_Notebook::
 	msgbox Hollowbrook_PlayersHouse_2F_Text_Notebook, MSGBOX_SIGN
 	end
 
+@ The TV on the back wall (signs at (7,2) and (8,2), added 2026-10-09). One line, no flags.
+Hollowbrook_PlayersHouse_2F_EventScript_TV::
+	msgbox Hollowbrook_Text_PlayerRoomTV, MSGBOX_SIGN
+	end
+
 Hollowbrook_PlayersHouse_2F_Text_Notebook:
 	.string "{PLAYER} flipped open the notebook.\p"
 	.string "ADVENTURE RULE NO. 1\n"
@@ -40,6 +45,12 @@ Hollowbrook_PlayersHouse_2F_Text_Notebook:
 	.string "ADVENTURE RULE NO. 2\n"
 	.string "Record your progress with SAVE.\p"
 	.string "The remaining pages are blank…$"
+
+Hollowbrook_Text_PlayerRoomTV::
+	.string "Your little TV only gets one\n"
+	.string "channel. It is the weather.\p"
+	.string "Today: the same as yesterday.\n"
+	.string "The host looks very proud.$"
 
 @ Wall clock on the back wall (bg_event at (3,1), the author paints the clock metatiles 0x221 over 0x229 at (3,0)/(3,1)):
 @ the player's own fake clock (author, 2026-10-09). The state is the vanilla system flag FLAG_SYS_CLOCK_SET, which the set

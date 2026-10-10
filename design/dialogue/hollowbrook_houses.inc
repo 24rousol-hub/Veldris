@@ -1,5 +1,6 @@
 @ Hollowbrook HOUSES dialogue DRAFT: the neighbour's house and the player's house extras.
-@ Status: PROPOSED, not wired into any map. Companion to hollowbrook.inc (no label here repeats one there).
+@ Status: WIRED 2026-10-01 into Hollowbrook_NeighboursHouse and Hollowbrook_PlayersHouse_1F; the map scripts.inc files are now the source of truth
+@ and the wording is still PROPOSED. Kept as the wording record. Companion to hollowbrook.inc (no label here repeats one there).
 @ Check widths: python3 design/tools/dialogue_check.py design/dialogue/hollowbrook_houses.inc
 @ Pokemon only, no real animals. Nobody here swears (only Goldsworths do). Single curly quotes for speech.
 @ 'Before' = before the lab scene. 'After' = after the player has a starter.
@@ -185,3 +186,19 @@ Hollowbrook_Text_PlayerTVAfterBadge::
 	.string "said to be very embarrassed.’\p"
 	.string "They cut to a clean coat\n"
 	.string "stomping out of a gym.$"
+
+@ ===================================================================
+@ ADDED 2026-10-09: TVs in the neighbour's house and the player's bedroom (sign events, no flags). The 1F TV is above.
+@ ===================================================================
+
+Hollowbrook_Text_NeighbourTV::
+	.string "A cooking show is on. The chef\n"
+	.string "says, ‘Add a pinch of salt.’\p"
+	.string "He is holding a bucket. Nobody\n"
+	.string "in the studio reacts.$"
+
+Hollowbrook_Text_PlayerRoomTV::
+	.string "Your little TV only gets one\n"
+	.string "channel. It is the weather.\p"
+	.string "Today: the same as yesterday.\n"
+	.string "The host looks very proud.$"

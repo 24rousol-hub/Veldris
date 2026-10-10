@@ -1,7 +1,9 @@
-@ Hollowbrook dialogue DRAFT. Status: PROPOSED, not wired into any map (no map exists yet).
+@ Hollowbrook dialogue DRAFT. Status: WIRED 2026-10-01 into the town, houses and lab (the map scripts.inc files are now the source of truth; wording still
+@ PROPOSED). Not wired: BenchOldMan (the bench holds the grandfather instead), TrogOutsideIntro (TrogPetIntro is used instead) and the four
+@ GrandpaLeague* lines (the Goldsworth house interior is not built). Kept as the wording record.
 @ Lines starting with @ are comments. Check widths with:
 @   python3 design/tools/dialogue_check.py design/dialogue/hollowbrook.inc
-@ When the maps exist, each label moves into the map's scripts.inc (see design/dialogue-style.md).
+@ Labels live in the maps' scripts.inc files now (see design/dialogue-style.md).
 @ Rules used: single curly quotes for speech, TROGLODYTE/BEAUREGARD written literally, only Goldsworths swear,
 @ species are not decided so the scene buffers names with {STR_VAR_1}/{STR_VAR_2} (bufferspeciesname).
 @ Fennick calls him BEAUREGARD (formal). The staff call him TROGLODYTE, which seeds the nickname.

@@ -61,7 +61,7 @@ Three vanilla Route 102 entries reused (no new ids). Names are PROPOSED.
 | `TRAINER_VELDRIS_ROUTE1_LASS` | `TRAINER_TIANA` (603) | MAISIE | Lass | Zigzagoon 4, Skitty 4 |
 | `TRAINER_VELDRIS_ROUTE1_FARMER` | `TRAINER_RICK` (615) | AMOS | **placeholder** Hiker pic and class (no farmer class yet; the DP rancher sprites in the asset repo are an option) | Zigzagoon 5, Skitty 5 |
 
-All IVs 0. **Checked in mGBA:** TOBY spots the player, walks over, says his intro, battles with Lillipup 3 (before the 2026-10-01 level raise), pays out and says his after line. MAISIE and AMOS not fought yet.
+All IVs 0. **Checked in mGBA:** TOBY spots the player, walks over, says his intro, battles with Lillipup 3 (before the 2026-10-01 level raise), pays out and says his after line. **MAISIE and AMOS fought 2026-10-09 (mGBA, debug warps):** both spot the player, walk up, say the intro, send out Zigzagoon then Skitty (levels 4 and 5), and give the defeat and after lines. Their Skitty uses Sing, so a test Mudkip spends turns asleep.
 
 ## Gym battlefield conditions (BUILT 2026-10-08, PROPOSED defaults)
 
