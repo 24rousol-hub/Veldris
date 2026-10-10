@@ -4,12 +4,12 @@
 
 ## What was built
 
-- **`include/veldris_badges.h` and `src/veldris_badges.c` (hack-owned).** One list, `VELDRIS_BADGE_LIST(X)`, with a row per badge: `X(flag, iconSlot)`. It generates both `gVeldrisBadges[]` and `gBadgeFlags[]`, and a compile-time check fails the build if the row count is not `NUM_BADGES`. Reorder rows to change the display order, or change `iconSlot` to pick different art. `GetBadgeCount()` counts earned badges.
-- **9 badges.** Badges 1-8 keep the vanilla flags. Badge 9 is `FLAG_BADGE09_GET` = 0x88E (spare system flag, outside the story-beat range that [flags.md](flags.md) reserves). Adding badge 10 to 12 is: claim a flag, add a row, add art (the card fits 12).
+- **`include/veldris_badges.h` and `src/veldris_badges.c` (hack-owned).** One list, `VELDRIS_BADGE_LIST(X)`, with a row per badge: `X(flag, iconSlot)`. It generates both `gVeldrisBadges[]` and `gBadgeFlags[]`, and a compile-time check fails the build if the row count is not `NUM_BADGES`. Rows are in display order on the trainer card: reorder them to change that order, or change `iconSlot` to pick different art. Reordering does not move any HM, because HM gating names a badge by its flag, not by its row (see the HM gating bullet below). `GetBadgeCount()` counts earned badges.
+- **9 badges.** Badges 1-8 keep the vanilla flags. Badge 9 is `FLAG_BADGE09_GET` = 0x88E (spare system flag, outside the story-beat range that [flags.md](flags.md) reserves). Badge 10 to 12 needs a flag, a row and art, plus the spots under 'Known limits' that assume 9 badges or fewer. The trainer card itself fits 12.
 - **Trainer card.** The 8 numbered slots baked into `front.bin` are gone. Badges are drawn edge to edge (2 tiles each) and centred in the strip, so the front page shows all 9 (up to 12). Badges not yet earned show an empty grey socket (icon slot 15, `BADGE_ICON_SLOT_EMPTY`), so the player can see all 9 places. Keep slot 15 for that socket art; badges use slots 0-14. The sheet `graphics/trainer_card/badges.png` is 128x32: row 1 = slots 0-7, row 2 = slots 8-15. Row 2 loads at BG3 tile 352, clear of the mon icons (224-319) and the FRLG stickers (320-351).
-- **Every "count the badges" loop** (main menu, save menu, TV, shop, catch malus, match call, debug menu, battle setup) now goes through `gBadgeFlags[]` or `GetBadgeCount()`, so a non-contiguous badge flag works.
-- **HM gating** (`src/field_move.c`) reads `gBadgeFlags[arg]`, so any HM can be tied to any badge in the table by editing that move's `arg`. No HM is bound to badge 9 yet.
-- **Level and EV caps** (`src/caps.c`) have a badge 9 row. The level 50 is a PROPOSED placeholder and the caps are off by default (`B_LEVEL_CAP_TYPE`).
+- **Every "count the badges" loop** (main menu, save menu, TV, shop, catch malus, match call, debug menu, battle setup) now goes through `gBadgeFlags[]` or `GetBadgeCount()`, so a non-contiguous badge flag works. The white-out money table `sWhiteOutBadgeMoney` is sized `NUM_BADGES + 1` because it is indexed by badge count (0 to 9).
+- **HM gating** (`src/field_move.c`) reads `gBadgeFlags[arg]`. Each move's `arg` is `FLAG_TO_BADGE(<badge flag>)`, which resolves that flag to its row in the table at compile time (`BADGE_INDEX_<flag>`, generated from `VELDRIS_BADGE_LIST` in `include/veldris_badges.h`). So any HM can be tied to any badge by changing the flag in that move's row, and never write a literal index. **Dive is bound to badge 9** (row 8; `FLAG_BADGE09_GET` is not contiguous with badges 1-8). The old `flag - FLAG_BADGE01_GET` arithmetic read past the table for badge 9; fixed 2026-10-09, see [engine-edits.md](engine-edits.md). The full HM list is in [field-moves.md](field-moves.md).
+- **Level and EV caps** (`src/caps.c`) have a badge 9 row. Caps follow the gym aces: 60 at badge 9 and 75 for the Champion ([gyms.md](gyms.md)). They are off by default (`B_LEVEL_CAP_TYPE`).
 - **Obedience** (`src/battle_util.c`): badge 9 now ignores obedience, badge 8 gives level 90.
 - **Art.** Slots 0-7 are Kaixer's coloured badges from the author's asset repo fork (`User Interface/Kaixer/Trainer Card Badges`). Slot 8 is a plain gold placeholder disc I drew. **Badge art is to be outsourced**, so the sheet is the one file to swap. Credit rows are in `CREDITS.md`.
 - Edits to upstream files are logged in [engine-edits.md](engine-edits.md).
@@ -29,7 +29,13 @@
 - **Checked in an emulator (2026-09-29):** the card layout, the `front.bin` edit and the row-2 tile load at BG tile 352 look right at 0, 1 and 9 badges. **Not checked:** 2 to 8 badges, badge 9 on its own, the back of the card, the girl's card, a long player name, save and load, and the FRLG-style link card.
 - **FRLG card type** (only from a link partner) keeps the vanilla 8-slot layout and does not show badge 9. `veldris_badges` is Emerald only and would not compile with `IS_FRLG`.
 - **Rematches and Route 23 style badge checks** still use `FLAG_BADGE05_GET` and the FRLG scripts; nothing in Veldris uses them yet.
-- No gym is built yet, so `FLAG_BADGE09_GET` is never set in play. Use the debug menu to test.
+- Only the Crestfall gym (badge 1) is built, so `FLAG_BADGE09_GET` is never set in play. Use the debug menu to test.
+- **Sites that assume 9 badges or fewer** (nothing is wrong with 9; check these in the same commit as a 10th badge, `grep -n 'NUM_BADGES\|BADGE09' src/*.c`):
+  - `src/menu.c` `BufferSaveMenuText` writes one character (`flagCount + CHAR_0`), so 10 shows a wrong glyph. It needs a two-digit buffer.
+  - `src/main_menu.c` `MainMenu_FormatSavegameBadges` formats with `ConvertIntToDecimalStringN(..., 1)`, so 10 prints '?'. Change the digit count to 2.
+  - `sWhiteOutBadgeMoney[NUM_BADGES + 1]` and `sBadgeLevel[]` in `src/battle_script_commands.c` need one more entry per added badge, or the new slot reads as 0 or runs past the array.
+  - `src/caps.c` level and EV cap tables have explicit rows (`FLAG_BADGE09_GET`), so each new badge needs a row in both.
+  - `BADGE_PITCH` in `src/trainer_card.c` already falls back to 2 tiles above 9 badges and needs no change.
 
 The rest of this file is the research and reasoning that led here.
 
@@ -83,7 +89,7 @@ From reading this tree (`grep` for `NUM_BADGES`, `gBadgeFlags`, `FLAG_BADGE0`):
 | `src/battle_script_commands.c:8085-8094` | Catch-rate malus, uses `sBadgeLevel[]` (expansion only) | Table size |
 | `src/caps.c:12-19` and `:89-96` | Level cap and EV cap tables keyed by `FLAG_BADGE01..08` and `FLAG_IS_CHAMPION` (expansion only) | Explicit flags |
 | `src/battle_util.c:5645-5662` | Obedience by badge | Explicit flags 01-08 |
-| `src/field_move.c:24-119` | HM gating: `FLAG_TO_BADGE(FLAG_BADGE0n_GET)` as an index from `FLAG_BADGE01_GET` | Index relative to badge 01 |
+| `src/field_move.c:24-119` | HM gating: `FLAG_TO_BADGE(FLAG_BADGE0n_GET)` as an index from `FLAG_BADGE01_GET` | Index relative to badge 01 (as found; since fixed for badge 9 on 2026-10-09 and now a table lookup, see 'What was built') |
 | `src/battle_util.c:6829-6840`, `src/battle_main.c:4409` | Badge stat boosts via `B_FLAG_BADGE_BOOST_*` (`include/config/battle.h`) | Config flags |
 | `src/pokenav_match_call_list.c:517`, `include/config/overworld.h:148` | Rematch unlock at a badge count | `FLAG_BADGE05_GET`, `OW_REMATCH_BADGE_COUNT` |
 

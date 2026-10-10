@@ -95,6 +95,9 @@ def encode(text):
                     problems.append(f"unknown constant {{{w}}}")
             i = j + 1
         else:
+            if c == "'" and (i == 0 or text[i - 1] == " " or text[i - 2:i] in ("\\n", "\\l", "\\p")) \
+                    and text[i + 1:i + 2].isalnum() and not re.match(r"(em|til|cause|round)\b", text[i + 1:]):
+                problems.append("ASCII ' at the start of a word shows the closing glyph; type \u2018 for an opening quote")
             if c in CHARS:
                 out += CHARS[c]
             else:
@@ -127,6 +130,9 @@ def layout(b, font=1):
                 problems.append(f"unknown control code FC {code:02X}")
                 n = 0
             a = b[i + 2:i + 2 + n]
+            if len(a) < n:                             # a code with an argument as the last thing in the string
+                problems.append(f"control code FC {code:02X} is missing its argument")
+                break
             if code == X_FONT:
                 font = a[0]
                 if font not in FONT_TABLE:

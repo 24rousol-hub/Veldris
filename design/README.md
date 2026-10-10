@@ -57,6 +57,7 @@
 
 Tool: [tools/dialogue_check.py](tools/dialogue_check.py) checks that dialogue fits the text box (see [dialogue-style.md](dialogue-style.md)).
 Map builders for the LeoB exteriors (Route 1, Crestfall): [tools/leob/](tools/leob/README.md).
+Robot player (plays the built ROM in a hidden mGBA and checks it, or takes a picture of a scenario): [tools/emu/](tools/emu/README.md). Trainer lint (alias targets, Journal rows, `IVs:` lines): `python3 design/tools/trainer_lint.py`.
 
 ## Status words
 

@@ -147,7 +147,7 @@ y16  # # # # # # M # # # # # #
 
 | Who | Tile | Facing | Sight | Notes |
 |---|---|---|---|---|
-| HACHIMEL | (6, 4) | down | none (talk) | `TRAINER_HACHIMEL`; copy the leader pattern of `RustboroCity_Gym/scripts.inc`; Kricketune 17, Vivillon 19 (ace). Apologises to every Pokémon. Gives HUSK BADGE, HM Rock Smash, TM Thief |
+| HACHIMEL | (6, 4) | down | none (talk) | `TRAINER_HACHIMEL`; copy the leader pattern of `RustboroCity_Gym/scripts.inc` (without its rematch branch, see CLAUDE.md); Kricketune 17, Vivillon 19 (ace). Apologises to every Pokémon. Gives HUSK BADGE, HM Rock Smash, TM Thief |
 | Bug Catcher | (2, 11) | right | 3 | Kricketot 13, Sewaddle 14. `Trainer1*`. 'Left at the hedge, then right at the web. The web moves, though' |
 | Aroma Lady | (10, 8) | left | 3 | Combee 14, Burmy 15. `Trainer2*` |
 | Statues (bg events) | (4, 14) and (8, 14) | - | - | `GymStatue` before the badge, `GymStatueWin` after (the player's name) |

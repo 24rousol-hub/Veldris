@@ -230,7 +230,7 @@ The Hex Maniac sees the player walk in along y 18 and fights first. The Psychic 
 
 - `OnTransition`: the `setflashlevel` ladder above, using `goto_if_defeated TRAINER_SANZUFORD` first (all lights on).
 - Fake doors: two `coord_event` triggers with no var (they always fire).
-- SANZUFORD: `trainerbattle` the leader pattern copied from `data/maps/RustboroCity_Gym/scripts.inc`; reward badge 3, HM Flash, TM Shadow Ball; `FLAG_BADGE03_GET`, `FLAG_RECEIVED_HM_FLASH` reused.
+- SANZUFORD: `trainerbattle` the leader pattern copied from `data/maps/RustboroCity_Gym/scripts.inc` (without its rematch branch, see CLAUDE.md); reward badge 3, HM Flash, TM Shadow Ball; `FLAG_BADGE03_GET`, `FLAG_RECEIVED_HM_FLASH` reused.
 
 ## 6. Scheme 3 and Troglodyte fight 3 (outdoor staging)
 

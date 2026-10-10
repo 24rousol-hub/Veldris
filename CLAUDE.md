@@ -91,6 +91,8 @@ The Makefile takes `arm-none-eabi-*` from `PATH`, so the system toolchain needs 
 
 The ROM boots headless in mGBA, which is how the intro and trainer card were checked on 2026-09-29. The container is ephemeral, so reinstall each time: `apt-get install -y mgba-sdl xvfb xdotool imagemagick` (binary `/usr/games/mgba`, not on `PATH`). Start `Xvfb :99 -screen 0 1280x960x24`, run `SDL_AUDIODRIVER=dummy DISPLAY=:99 /usr/games/mgba <copy of the rom>` on it, send keys with `xdotool` and screenshot with `import -window root`. **Hold every key**: a plain `xdotool key` drops presses (7 of 12 registered in a test), so use `xdotool keydown Down; sleep 0.15; xdotool keyup Down`. For R+START, keydown `s` and `Return`, wait 0.2 s, then release both. mGBA's keys are **X = A, Z = B**, Return = Start, Backspace = Select. This is a normal (non-release) build, so the **debug menu opens with R+START** (mGBA: the S key is R): Set Flag XYZ, Toggle All badges, Fly to map and more. Run a copy of the ROM from the scratchpad, never inside the repo.
 
+**Robot player (preferred, 2026-10-10).** `python3 design/tools/emu/run_tests.py` plays the built ROM in a hidden mGBA and checks flags, vars, scripts, gates, the fake clock and Route 1's Night table (about 2 minutes; `--slow` adds the Route 1 walk). `python3 design/tools/emu/scene.py preset:4 warp:MAP_X,x,y shot:a.png` plays a scenario and saves a picture, which replaces long hand-driven xdotool walks. Needs `make -j4` first. Details and limits in `design/tools/emu/README.md`; it tests mGBA, not Delta.
+
 ## Git
 
 - Develop on branch `claude/pokemon-pot-setup-evpysj` only. Commit after each working step, then push.

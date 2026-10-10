@@ -12,7 +12,7 @@ Status: **Type order, level cap and town/city mix DECIDED by the author on 2026-
 4. **Gym towns are a mix of towns and cities.** Crestfall (T3) is a town (author, 2026-10-01; it was a city before). The other city picks below are PROPOSED.
 5. **No IVs or EVs, Pokemon only.**
 
-**Level cap note:** `src/caps.c` has a badge 9 row, currently the placeholder 50. It should become **60** to match. **Not edited here** (caps.h is not touched by this change).
+**Level cap note:** done 2026-10-01, `src/caps.c` badge 9 row is **60** (the Champion row is 75; full table in open question 7 below). The cap is still switched off in `include/config/caps.h`.
 
 **Not decided here:** town names (placeholders), the Goldsworth scheme per gym ([story-outline.md](story-outline.md)), trainer classes and pictures, moves (species and levels only, moves go into [teams.md](teams.md) once approved).
 

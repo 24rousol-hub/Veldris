@@ -180,7 +180,7 @@ y 22  #######m#######   the exit mat at (7, 22)
 ### Scripts and flags for the gym
 
 - No `OnTransition` needed (the ice is a tile behaviour). The goal is just WAKASAGI's dialogue.
-- WAKASAGI: the leader pattern copied from `data/maps/RustboroCity_Gym/scripts.inc`; reward badge 5, **HM Surf**, TM Ice Beam; `FLAG_BADGE05_GET`, `FLAG_RECEIVED_HM_SURF` reused.
+- WAKASAGI: the leader pattern copied from `data/maps/RustboroCity_Gym/scripts.inc` (without its rematch branch, see CLAUDE.md); reward badge 5, **HM Surf**, TM Ice Beam; `FLAG_BADGE05_GET`, `FLAG_RECEIVED_HM_SURF` reused.
 - Optional: a `coord_event` at the entrance carpet (7, 18) that tells first-time players 'ICE! WALK ON IT AND YOU GLIDE'.
 
 ## 6. Scheme 5 and Troglodyte fight 4 (outdoor staging)

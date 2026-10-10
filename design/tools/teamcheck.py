@@ -1,11 +1,16 @@
+#!/usr/bin/env python3
+"""Check the trainer teams in design/*.md rows against evolution levels and level-up learnsets (hack tool).
+Usage (from anywhere): python3 design/tools/teamcheck.py design/trainer-roster.md ...   (paths relative to the repo root)
+Exit code 1 if any team has a problem; the mixed-generation lines are informational only."""
 import re,glob,sys,json
-R='/home/user/Veldris/'
+from pathlib import Path
+R=str(Path(__file__).resolve().parents[2])+'/'
 species={}   # name -> dict(gen, evos[(lvl,target)], pre)
 for g in range(1,10):
     t=open(R+f'src/data/pokemon/species_info/gen_{g}_families.h').read()
     for m in re.finditer(r'\[SPECIES_([A-Z0-9_]+)\] =\s*\{(.*?)\n    \},',t,re.S):
         n=m.group(1); body=m.group(2)
-        ev=re.search(r'\.evolutions = EVOLUTION\((.*?)\),\n',body,re.S)
+        ev=re.search(r'\.evolutions = EVOLUTION\((.*?)\),(?:\n|$)',body,re.S)   # .evolutions is the last field: no newline after it in the body
         evos=[]
         if ev:
             for e in re.finditer(r'\{(EVO_[A-Z_]+),\s*([^,]+),\s*SPECIES_([A-Z0-9_]+)',ev.group(1)):
@@ -21,6 +26,7 @@ for m in re.finditer(r's([A-Za-z0-9]+)LevelUpLearnset\[\] = \{(.*?)LEVEL_UP_END'
 def norm(w): return re.sub(r'[^A-Z0-9]','',w.upper())
 bynorm={norm(n):n for n in species}
 files=sys.argv[1:]
+problems=0
 for f in files:
     print('==',f)
     for ln,line in enumerate(open(R+f),1):
@@ -42,7 +48,7 @@ for f in files:
             else:
                 known=[m for lv,m in lm if lv<=l]
                 if len(set(known))<4: bad.append(f'{w} {l}: only {len(set(known))} level-up moves by then')
+        problems+=len(bad)
         if bad or len(set(gens))>=1 and len(gens)>=2:
             print(f'{f}:{ln} gens={sorted(set(gens))}'+('' if not bad else ' | '+'; '.join(bad)))
-if len(sys.argv)==1:
-    pass
+sys.exit(1 if problems else 0)

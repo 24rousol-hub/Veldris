@@ -183,7 +183,7 @@ y 19  ######m######   exit mat at (6, 19)
 
 - `OnTransition`: nothing special.
 - Press triggers: 9 `coord_event`s (no var), each `warpteleport` to (6, 18). They are at `X` gap cells: (1, 6), (8, 6), (11, 6), (5, 8), (8, 8), (1, 10), (11, 10), (5, 12), (11, 12).
-- HAGANE: the leader pattern copied from `data/maps/RustboroCity_Gym/scripts.inc`; reward badge 4, HM Strength, TM Iron Tail; `FLAG_BADGE04_GET`, `FLAG_RECEIVED_HM_STRENGTH` reused.
+- HAGANE: the leader pattern copied from `data/maps/RustboroCity_Gym/scripts.inc` (without its rematch branch, see CLAUDE.md); reward badge 4, HM Strength, TM Iron Tail; `FLAG_BADGE04_GET`, `FLAG_RECEIVED_HM_STRENGTH` reused.
 
 ## 6. Scheme 4 (outdoor staging)
 

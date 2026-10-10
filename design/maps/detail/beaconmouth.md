@@ -295,7 +295,7 @@ y18   # # # # # # # # # # # D D # #
 - **Arrival** from 2F: stairs mats (11,18),(12,18) (a ladder warp). **Entrance column** x 12 (y 14-17), then the catwalk runs **west along y 14**, **north along x 4**, **east along y 10**, **north along x 10** to a **gap at (10,6),(10,7)**, then the **platform** (x 6-10, y 3-5).
 - **Lever** (the 'final sluice', bg_event) on the wall at (13,15), stand (12,15). Pulling it (the wheel the player turned last, in the story) **lowers the pool and raises the platform's causeway**: (10,6) and (10,7) become catwalk. No wrong order here.
 - **Brass lamp** (a 2 x 2 decoration, glowing) on the back wall at (7,1)-(8,2), with the four porthole lamps along the wall (x 3, 6, 9, 12 at y 2) as in the Palladium panel.
-- **Mizzle** at (8,3) `FACE_DOWN` (leader, talked to; gym-leader script patterned on `data/maps/RustboroCity_Gym/scripts.inc`: intro, `trainerbattle_single`, badge, TM, HM Dive, after-text). The player reaches (8,4) to talk.
+- **Mizzle** at (8,3) `FACE_DOWN` (leader, talked to; gym-leader script patterned on `data/maps/RustboroCity_Gym/scripts.inc` (without its rematch branch, see CLAUDE.md): intro, `trainerbattle_single`, badge, TM, HM Dive, after-text). The player reaches (8,4) to talk.
 - **Guide** at (13,14) `FACE_LEFT` (a Lamplighter apprentice): 'Pull the lever, then mind your feet.' Talks once; heal not offered.
 - **Reward flow after the win:** set `FLAG_BADGE09_GET` (through the badge table, `gBadgeFlags[]`, CLAUDE.md), give TM Water Pulse (`FLAG_RECEIVED_TM_WATER_PULSE`) and HM Dive (`FLAG_RECEIVED_HM_DIVE`); the town's NPCs switch to 'After' lines (card); the pool level stays down.
 

@@ -235,10 +235,11 @@ STR_RE = re.compile(r'"((?:[^"\\]|\\.)*)"')
 
 
 def load_ids():
-    """Resolve TRAINER_* names to numbers from include/constants/opponents.h (+ PARTNER_* and the TRAINER_PARTNER() macro)."""
+    """Resolve TRAINER_* names to numbers from include/constants/opponents.h (+ PARTNER_*, MAX_TRAINERS_COUNT_EMERALD and
+    the TRAINER_PARTNER() macro), so the id limits below follow the engine constants instead of copies of their values."""
     defs = {}
     for f in ("opponents.h", "battle_partner.h"):
-        for m in re.finditer(r"^#define\s+((?:TRAINER|PARTNER)_\w+)\s+(\S+)", (ROOT / "include/constants" / f).read_text(encoding="utf-8"), re.M):
+        for m in re.finditer(r"^#define\s+((?:TRAINER|PARTNER)_\w+|MAX_TRAINERS_COUNT_EMERALD)\s+(\S+)", (ROOT / "include/constants" / f).read_text(encoding="utf-8"), re.M):
             defs[m.group(1)] = m.group(2)
     def val(tok, depth=0):
         if depth > 8:
@@ -254,7 +255,8 @@ def load_ids():
 def slide_names():
     txt = (ROOT / "include/constants/trainer_slide.h").read_text(encoding="utf-8")
     body = txt.split("enum TrainerSlideType")[1].split("};")[0]
-    return re.findall(r"TRAINER_SLIDE_([A-Z_]+)", body)
+    # NONE (index 0) is "no slide" and COUNT is the array size: neither is a slide a row may name
+    return [n for n in re.findall(r"TRAINER_SLIDE_([A-Z_]+)", body) if n not in ("NONE", "COUNT")]
 
 
 def parse_header(path):
@@ -327,6 +329,8 @@ def check_file(path):
     bad = 0
     n = 0
     defs, val = load_ids()
+    max_trainers = val("MAX_TRAINERS_COUNT_EMERALD")       # sTrainerSlides has MAX_TRAINERS_COUNT + PARTNER_COUNT rows
+    limit = max_trainers + val("PARTNER_COUNT")
     names = set(slide_names())
     seen_keys = {}
     block_of_id, slide_seen = {}, set()
@@ -335,11 +339,11 @@ def check_file(path):
         tid = None
         if trainer:
             m = re.match(r"TRAINER_PARTNER\((\w+)\)", trainer)
-            tid = (864 + val(m.group(1))) if m and val(m.group(1)) is not None else val(trainer)
+            tid = (max_trainers + val(m.group(1))) if m and val(m.group(1)) is not None else val(trainer)
             if tid is None:
                 print(f"ERROR {path}:{ln} trainer key {trainer} is not defined in opponents.h"); bad += 1
-            elif tid >= 866:
-                print(f"ERROR {path}:{ln} trainer id {tid} is outside sTrainerSlides (0..865)"); bad += 1
+            elif tid >= limit:
+                print(f"ERROR {path}:{ln} trainer id {tid} is outside sTrainerSlides (0..{limit - 1})"); bad += 1
             else:
                 first = block_of_id.setdefault(tid, (block, trainer, ln))
                 if first[0] != block:
