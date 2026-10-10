@@ -1,0 +1,131 @@
+diff --git a/include/veldris_skip.h b/include/veldris_skip.h
+new file mode 100644
+index 00000000..7114cfa2
+--- /dev/null
++++ b/include/veldris_skip.h
+@@ -0,0 +1,9 @@
++#ifndef GUARD_VELDRIS_SKIP_H
++#define GUARD_VELDRIS_SKIP_H
++
++// Veldris hold-to-skip text (hack-owned; PROPOSED, author's decision pending).
++// Hold the skip button (R): text prints at once, pages turn by themselves and battle text pauses are cut short.
++bool32 VeldrisSkipHeld(void);
++bool32 VeldrisSkipPagePulse(void);
++
++#endif // GUARD_VELDRIS_SKIP_H
+diff --git a/src/battle_script_commands.c b/src/battle_script_commands.c
+index 40f73f28..9039553e 100644
+--- a/src/battle_script_commands.c
++++ b/src/battle_script_commands.c
+@@ -1,5 +1,6 @@
+ #include "global.h"
+ #include "veldris_badges.h"
++#include "veldris_skip.h"
+ #include "battle.h"
+ #include "battle_hold_effects.h"
+ #include "battle_message.h"
+@@ -1513,7 +1514,7 @@ static void Cmd_waitmessage(void)
+         else
+         {
+             u16 toWait = cmd->time;
+-            if (gTestRunnerHeadless)
++            if (gTestRunnerHeadless || VeldrisSkipHeld())
+                 gPauseCounterBattle = toWait;
+             if (++gPauseCounterBattle >= toWait)
+             {
+@@ -2922,7 +2923,7 @@ static void Cmd_pause(void)
+     if (gBattleControllerExecFlags == 0)
+     {
+         u16 value = cmd->frames;
+-        if (gTestRunnerHeadless)
++        if (gTestRunnerHeadless || VeldrisSkipHeld())
+             gPauseCounterBattle = value;
+         if (++gPauseCounterBattle >= value)
+         {
+diff --git a/src/scrcmd.c b/src/scrcmd.c
+index c579c608..bb858d04 100644
+--- a/src/scrcmd.c
++++ b/src/scrcmd.c
+@@ -1,5 +1,6 @@
+ #include "global.h"
+ #include "veldris_field_moves.h"
++#include "veldris_skip.h"
+ #include "frontier_util.h"
+ #include "battle_setup.h"
+ #include "battle_util.h"
+@@ -1756,6 +1757,8 @@ static bool8 WaitForAorBPress(void)
+         return TRUE;
+     if (JOY_NEW(B_BUTTON))
+         return TRUE;
++    if (VeldrisSkipPagePulse())
++        return TRUE;
+     return FALSE;
+ }
+ 
+diff --git a/src/text.c b/src/text.c
+index 6f512609..376eadfe 100644
+--- a/src/text.c
++++ b/src/text.c
+@@ -14,6 +14,7 @@
+ #include "sprite.h"
+ #include "string_util.h"
+ #include "text.h"
++#include "veldris_skip.h"
+ #include "window.h"
+ #include "constants/songs.h"
+ #include "constants/speaker_names.h"
+@@ -329,7 +330,7 @@ u32 GetPlayerTextSpeed(void)
+     if (gSaveBlock2Ptr->optionsTextSpeed > OPTIONS_TEXT_SPEED_INSTANT)
+         gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
+ 
+-    if (FlagGet(FLAG_TEXT_SPEED_INSTANT) || TEXT_SPEED_INSTANT)
++    if (FlagGet(FLAG_TEXT_SPEED_INSTANT) || TEXT_SPEED_INSTANT || VeldrisSkipHeld())
+         return OPTIONS_TEXT_SPEED_INSTANT;
+ 
+     return gSaveBlock2Ptr->optionsTextSpeed;
+@@ -1257,6 +1258,10 @@ void SetResultWithButtonPress(bool32 *result)
+         *result = TRUE;
+         PlaySE(SE_SELECT);
+     }
++    else if (VeldrisSkipPagePulse())
++    {
++        *result = TRUE;
++    }
+ }
+ 
+ bool32 TextPrinterWaitWithDownArrow(struct TextPrinter *textPrinter)
+diff --git a/src/veldris_skip.c b/src/veldris_skip.c
+new file mode 100644
+index 00000000..def16923
+--- /dev/null
++++ b/src/veldris_skip.c
+@@ -0,0 +1,29 @@
++#include "global.h"
++#include "main.h"
++#include "veldris_skip.h"
++
++#define VELDRIS_SKIP_BUTTON      R_BUTTON
++#define VELDRIS_SKIP_PAGE_FRAMES 8 // a page stays up at least this long while skipping, so it is still seen
++
++// TRUE while the skip button is down.
++bool32 VeldrisSkipHeld(void)
++{
++    return JOY_HELD(VELDRIS_SKIP_BUTTON) != 0;
++}
++
++// TRUE once every VELDRIS_SKIP_PAGE_FRAMES calls while the skip button is held. The callers (the text printer's wait
++// for a button, the script command waitbuttonpress) run once per frame while they wait.
++bool32 VeldrisSkipPagePulse(void)
++{
++    static u8 sFrames;
++
++    if (!JOY_HELD(VELDRIS_SKIP_BUTTON))
++    {
++        sFrames = 0;
++        return FALSE;
++    }
++    if (++sFrames < VELDRIS_SKIP_PAGE_FRAMES)
++        return FALSE;
++    sFrames = 0;
++    return TRUE;
++}

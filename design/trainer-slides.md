@@ -1,6 +1,6 @@
 # Trainer slides: mid-battle trainer lines
 
-**Scope (author, 2026-10-09): mid-battle lines are for key battles only: gym leaders, the bosses of the Commons and the Drowned Crown, the Elite Four and Cynthia.** Ordinary trainers get none, and neither do the Troglodyte fights (his words go in the scenes around the fight). Nothing is written or wired until the author approves the wording.
+**Scope (author, 2026-10-09): mid-battle lines are for key battles only: gym leaders, the bosses of the Commons and the Drowned Crown, the Elite Four and Cynthia.** Ordinary trainers get none, and neither do the Troglodyte fights (his words go in the scenes around the fight). Nothing is written or wired until the author approves the wording. **Options drafted 2026-10-10 (PROPOSED, nothing wired): [trainer-slide-options/leaders.md](trainer-slide-options/leaders.md) (all nine gym leaders, three tones each) and [trainer-slide-options/league.md](trainer-slide-options/league.md) (Elite Four, Cynthia, the Commons and Crown bosses). Approve by letter in [decisions-pending.md](decisions-pending.md) (L1 and L2).**
 
 **Status: the mechanism is BUILT (2026-10-08, author approved the idea). No lines are wired yet.** Troglodyte's fights and the gym leaders' story lines are key beats (CLAUDE.md rules 9 and 10), so every line below stays PROPOSED until the author picks. Open questions are at the bottom.
 
