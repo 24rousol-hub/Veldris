@@ -5,6 +5,7 @@
 #include "fldeff_misc.h"
 #include "party_menu.h"
 #include "strings.h"
+#include "veldris_badges.h"
 #include "constants/field_move.h"
 #include "constants/moves.h"
 #include "constants/party_menu.h"
@@ -21,7 +22,7 @@ static bool32 IsAlwaysTrue(enum FieldMove fieldMove)
 
 static bool32 HasBadgeForFieldMove(enum FieldMove fieldMove)
 {
-    return FlagGet(gFieldMoveInfo[fieldMove].arg + FLAG_BADGE01_GET);
+    return FlagGet(gBadgeFlags[gFieldMoveInfo[fieldMove].arg]); // arg is a badge index into gBadgeFlags
 }
 
 const struct FieldMoveUnlock gFieldMoveUnlocks[FIELD_MOVE_UNLOCK_COUNT] =
@@ -43,7 +44,8 @@ const struct FieldMoveUnlock gFieldMoveUnlocks[FIELD_MOVE_UNLOCK_COUNT] =
     },
 };
 
-#define FLAG_TO_BADGE(flag) flag - FLAG_BADGE01_GET
+// Row of a badge flag in gBadgeFlags[], looked up in the badge table so a non-contiguous flag (badge 9) cannot be mis-indexed.
+#define FLAG_TO_BADGE(flag) BADGE_INDEX_##flag
 
 const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
 {
@@ -62,7 +64,7 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .unlockType = BADGE_UNLOCK,
         .moveID = MOVE_FLASH,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = IS_FRLG ? FLAG_TO_BADGE(FLAG_BADGE01_GET) : FLAG_TO_BADGE(FLAG_BADGE02_GET),
+        .arg = IS_FRLG ? FLAG_TO_BADGE(FLAG_BADGE01_GET) : FLAG_TO_BADGE(FLAG_BADGE03_GET), // Veldris: Flash from badge 3
     },
 
     [FIELD_MOVE_ROCK_SMASH] =
@@ -71,7 +73,7 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .unlockType = BADGE_UNLOCK,
         .moveID = MOVE_ROCK_SMASH,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = IS_FRLG ? FLAG_TO_BADGE(FLAG_BADGE06_GET) : FLAG_TO_BADGE(FLAG_BADGE03_GET),
+        .arg = IS_FRLG ? FLAG_TO_BADGE(FLAG_BADGE06_GET) : FLAG_TO_BADGE(FLAG_BADGE02_GET), // Veldris: Rock Smash from badge 2
     },
 
     [FIELD_MOVE_STRENGTH] =
@@ -107,7 +109,7 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .unlockType = BADGE_UNLOCK,
         .moveID = MOVE_DIVE,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = FLAG_TO_BADGE(FLAG_BADGE07_GET),
+        .arg = FLAG_TO_BADGE(FLAG_BADGE09_GET), // Veldris: Dive from badge 9
     },
 
     [FIELD_MOVE_WATERFALL] =

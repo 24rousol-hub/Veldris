@@ -66,3 +66,44 @@ tools/aif2pcm/aif2pcm
 *.smolTM
 __pycache__
 .map_version
+
+# ---------------------------------------------------------------------------
+# Veldris (Pokemon: Piss Off Troglodyte)  -  this repo is PUBLIC.
+# NEVER commit a ROM, a save file, or build output. Later lines win, so this
+# block sits at the end and leaves the upstream lines above untouched.
+# ---------------------------------------------------------------------------
+# ROMs (any name, any folder) and backups of them
+*.gba
+*.gba.*
+# The only .gba files allowed are the three multiboot helpers upstream already
+# tracks. Anything else dropped in data/ stays ignored.
+data/*.gba
+!data/mb_berry_fix.gba
+!data/mb_colosseum.gba
+!data/mb_ereader.gba
+# Save files and emulator save states
+*.sav
+*.srm
+*.sgm
+*.ss[0-9]
+*.state
+*.st[0-9]
+# Build output
+build/
+*.elf
+*.map
+*.sym
+*.o
+
+# Emulator test harness cache (generated next to the ELF, design/tools/emu/README.md)
+*.emu-layout.json
+
+# ROM-derived archives and patches (the commit hook blocks them by name too, CLAUDE.md rule 1)
+*.zip
+*.7z
+*.rar
+*.ips
+*.bps
+*.ups
+*.xdelta
+*.ppf

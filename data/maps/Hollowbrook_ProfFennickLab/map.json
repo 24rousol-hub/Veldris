@@ -1,0 +1,273 @@
+{
+  "id": "MAP_HOLLOWBROOK_PROF_FENNICK_LAB",
+  "name": "Hollowbrook_ProfFennickLab",
+  "layout": "LAYOUT_HOLLOWBROOK_PROF_FENNICK_LAB",
+  "music": "MUS_LITTLEROOT",
+  "region": "REGION_HOENN",
+  "region_map_section": "MAPSEC_HOLLOWBROOK",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "local_id": "LOCALID_HOLLOWBROOK_LAB_FENNICK",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
+      "x": 7,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_Fennick",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_HOLLOWBROOK_LAB_TROG",
+      "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
+      "x": 4,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_HOLLOWBROOK_LAB_TROG"
+    },
+    {
+      "local_id": "LOCALID_HOLLOWBROOK_LAB_AIDE_1",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "x": 3,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_AideNervous",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_HOLLOWBROOK_LAB_AIDE_2",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
+      "x": 10,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_AideDeadpan",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_HOLLOWBROOK_LAB_BALL_1",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 5,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_Ball1",
+      "flag": "FLAG_HIDE_HOLLOWBROOK_LAB_BALL_1"
+    },
+    {
+      "local_id": "LOCALID_HOLLOWBROOK_LAB_BALL_2",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 6,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_Ball2",
+      "flag": "FLAG_HIDE_HOLLOWBROOK_LAB_BALL_2"
+    },
+    {
+      "local_id": "LOCALID_HOLLOWBROOK_LAB_BALL_3",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 7,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_Ball3",
+      "flag": "FLAG_HIDE_HOLLOWBROOK_LAB_BALL_3"
+    },
+    {
+      "local_id": "LOCALID_HOLLOWBROOK_LAB_BALL_4",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 8,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_Ball4",
+      "flag": "FLAG_HIDE_HOLLOWBROOK_LAB_BALL_4"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_HOLLOWBROOK",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_HOLLOWBROOK",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "0",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_TrogScene"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "0",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_TrogScene"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "1",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_TrogScene"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "1",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_TrogScene"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "0",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_TrogSceneFromWest"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "1",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_TrogSceneFromWest"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "0",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_TrogSceneFromEast"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "1",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_TrogSceneFromEast"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "2",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_ExitBlocker"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_HOLLOWBROOK_STATE",
+      "var_value": "2",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_ExitBlocker"
+    }
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_Computer"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_Notes"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_Machine"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Hollowbrook_ProfFennickLab_EventScript_Machine"
+    }
+  ]
+}

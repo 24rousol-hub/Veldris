@@ -1,0 +1,4 @@
+#!/bin/sh
+# git runs pre-commit only for commits you make, not for a merge that finishes without conflicts. Run the ROM guard
+# (check 1 of pre-commit) for it, so a ROM that sits on another branch cannot walk in through a clean merge.
+VELDRIS_ROM_GUARD_ONLY=1 exec "$(dirname "$0")/pre-commit"

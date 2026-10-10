@@ -5,6 +5,7 @@
 #include "pokemon.h"
 #include "random.h"
 #include "trainer_pools.h"
+#include "veldris_trainer_pools.h"
 #include "constants/battle.h"
 #include "constants/battle_ai.h"
 #include "constants/items.h"
@@ -361,6 +362,9 @@ static void PrunePool(const struct Trainer *trainer, u8 *poolIndexArray, const s
         break;
     case POOL_PRUNE_RANDOM_TAG:
         RandomTagPrune(trainer, poolIndexArray, rules);
+        break;
+    case POOL_PRUNE_RIVAL_STARTER:
+        VeldrisRivalStarterPrune(trainer, poolIndexArray, rules);
         break;
     default:
         break;

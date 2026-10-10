@@ -1,0 +1,228 @@
+{
+  "id": "MAP_VELDRIS_ROUTE1",
+  "name": "VeldrisRoute1",
+  "layout": "LAYOUT_VELDRIS_ROUTE1",
+  "music": "MUS_ROUTE101",
+  "region": "REGION_HOENN",
+  "region_map_section": "MAPSEC_VELDRIS_ROUTE_1",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_HOLLOWBROOK",
+      "offset": 2,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_CRESTFALL",
+      "offset": -5,
+      "direction": "right"
+    }
+  ],
+  "object_events": [
+    {
+      "local_id": "LOCALID_VELDRIS_ROUTE1_GUIDE",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "x": 12,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VeldrisRoute1_EventScript_Guide",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VELDRIS_ROUTE1_YOUNGSTER",
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 24,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "VeldrisRoute1_EventScript_Youngster",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VELDRIS_ROUTE1_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 38,
+      "y": 15,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "VeldrisRoute1_EventScript_Lass",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VELDRIS_ROUTE1_FARMER",
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 46,
+      "y": 14,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "VeldrisRoute1_EventScript_Farmer",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VELDRIS_ROUTE1_SIGHTING",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "x": 32,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VeldrisRoute1_EventScript_Sighting",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VELDRIS_ROUTE1_BUCKET_KID",
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
+      "x": 7,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VeldrisRoute1_EventScript_BucketKid",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VELDRIS_ROUTE1_WALKER",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "x": 36,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VeldrisRoute1_EventScript_Walker",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VELDRIS_ROUTE1_SENTRET",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SENTRET)",
+      "x": 41,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VeldrisRoute1_EventScript_SentretLookout",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VELDRIS_ROUTE1_SURVEYOR_A",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
+      "x": 49,
+      "y": 14,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VeldrisRoute1_EventScript_SurveyorA",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VELDRIS_ROUTE1_SURVEYOR_B",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
+      "x": 54,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VeldrisRoute1_EventScript_SurveyorB",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VELDRIS_ROUTE1_LOCAL",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "x": 44,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VeldrisRoute1_EventScript_LocalWorried",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VeldrisRoute1_EventScript_SignWest"
+    },
+    {
+      "type": "sign",
+      "x": 50,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VeldrisRoute1_EventScript_SignEast"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VeldrisRoute1_EventScript_FieldSign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 27,
+      "y": 13,
+      "elevation": 3,
+      "item": "ITEM_POTION",
+      "flag": "FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_POTION"
+    },
+    {
+      "type": "hidden_item",
+      "x": 44,
+      "y": 17,
+      "elevation": 3,
+      "item": "ITEM_REPEL",
+      "flag": "FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_REPEL"
+    }
+  ]
+}

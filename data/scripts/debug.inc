@@ -8,7 +8,9 @@ Debug_ShowFieldMessageStringVar4::
 	special ShowFieldMessageStringVar4
 	goto Debug_MessageEnd
 
-Debug_CheatStart::
+@ Veldris: this vanilla Hoenn cheat start is unused. The menu entry (Utilities > Cheat start) runs Debug_CheatStart,
+@ which is defined in data/scripts/veldris_debug.inc (design/debug-presets.md).
+Debug_CheatStartHoenn::
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_RESCUED_BIRCH
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
@@ -205,35 +207,35 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
-	release
+	goto Veldris_Debug_Preset1
 	end
 
 Debug_EventScript_Script_2::
-	release
+	goto Veldris_Debug_Preset2
 	end
 
 Debug_EventScript_Script_3::
-	release
+	goto Veldris_Debug_Preset3
 	end
 
 Debug_EventScript_Script_4::
-	release
+	goto Veldris_Debug_Preset4
 	end
 
 Debug_EventScript_Script_5::
-	release
+	goto Veldris_Debug_Preset5
 	end
 
 Debug_EventScript_Script_6::
-	release
+	goto Veldris_Debug_Preset6
 	end
 
 Debug_EventScript_Script_7::
-	release
+	goto Veldris_Debug_Preset7
 	end
 
 Debug_EventScript_Script_8::
-	release
+	goto Veldris_Debug_Preset8
 	end
 
 Debug_CheckSaveBlock::

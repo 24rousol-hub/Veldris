@@ -1,0 +1,130 @@
+#!/bin/sh
+# Veldris pre-commit guard (tracked). Turn it on once per clone:  git config core.hooksPath .githooks
+# This repo is PUBLIC.
+#
+# 1. ROM guard (needs only git, grep and awk). Blocks a staged ROM, save, savestate, build output (build/, .elf, .map,
+#    .sym, .o), archive (a ROM hides in a .zip) or patch (.ips, .bps), matched by name, backups such as rom.gba.bak
+#    included, and ANY file over 8 MB whatever it is called (a ROM is 32 MiB, even zipped 17 MB; the biggest tracked
+#    file is 3.6 MB). Only the three upstream multiboot helpers data/mb_*.gba pass. Same list as CLAUDE.md rule 1.
+# 2. Lints, each run only when a file it reads is staged (needs python3), all reported together. An ERROR blocks, a
+#    WARN line is shown and does not.
+#      dialogue_check.py --staged  staged .inc/.c/.h: the strings on the lines this commit adds must fit their box
+#                                  (the staged blob is read; veldris_trainer_slides.h goes through slide_check.py)
+#      slide_check.py              the slides file, when opponents.h, battle_partner.h or trainer_slide.h is staged
+#      wild_lint.py --staged       src/data/wild_encounters.json
+#      trainer_lint.py             trainers.party, opponents.h, veldris_journal.h or any map scripts.inc
+#      check_debug_reset.py        design/flags.md or data/scripts/veldris_debug.inc
+#      localid_lint.py --staged    staged data/maps/*/map.json: a local_id a map adds must not be used by another map
+#      teamcheck.py                the trainer-team docs: design/{teams,trainer-roster,gyms,postgame,troglodyte-arc}.md
+# A merge without conflicts runs no pre-commit; .githooks/pre-merge-commit (git 2.24 or newer) runs check 1 for it.
+# Concluding a merge WITH conflicts: check 1 runs on everything the merge stages. dialogue_check judges only lines that
+# differ from BOTH parents, so taking upstream's text in a conflict does not block; the other lints check the whole
+# resulting file as always.
+# Escapes:  VELDRIS_SKIP_LINTS=1 git commit   skips check 2 and keeps check 1: use it when a lint is wrong
+#           git commit --no-verify            skips this WHOLE hook, the ROM guard too: first run the check in
+#                                             CLAUDE.md rule 1 by hand. Never use it to get past check 1.
+
+root=$(git rev-parse --show-toplevel) || exit 1
+cd "$root" || exit 1
+
+# -z and quotePath=false: names with accents, quotes or backslashes come out raw, not wrapped in "quotes" that would
+# hide the extension. --no-renames: a rename onto rom.gba is listed under its new name like any other add.
+staged=$(git -c core.quotePath=false diff --cached --name-only -z --no-renames --diff-filter=ACMR | tr '\0' '\n')
+
+# ---- 1. ROM guard ---------------------------------------------------------------------------------------------
+bad=$(printf '%s\n' "$staged" \
+  | grep -Ei '(\.(gba|sav|srm|sgm|sa[0-9]|ss[0-9]|st[0-9]|state|elf|map|sym|o|zip|7z|rar|gz|tgz|tar|xz|bz2|zst|ips|bps|ups|xdelta|ppf)(\.[^/]*)?$|(^|/)build/)' \
+  | grep -Ev '^data/mb_(berry_fix|colosseum|ereader)\.gba$')
+
+# Sizes in one batch: "<new blob id> <path>" for every staged file, then git prints "<size> <path>" for each.
+# A real size is at most 14 digits; a submodule entry prints "<commit id> missing", which that rules out.
+big=$(git diff --cached --raw --no-abbrev --no-renames --diff-filter=ACMR \
+  | awk -F'\t' '{ split($1, m, " "); print m[4] " " $2 }' \
+  | git cat-file --batch-check='%(objectsize) %(rest)' \
+  | awk '$1 ~ /^[0-9]+$/ && length($1) < 15 && $1 > 8000000 { n = $1; sub(/^[0-9]+ /, ""); print $0 " (" n " bytes)" }')
+
+if [ -n "$bad$big" ]; then
+  echo "BLOCKED: ROM, save, savestate, build output, archive, patch or oversized (over 8 MB) files are staged:" >&2
+  printf '%s\n' "$bad" "$big" | sed '/^$/d' >&2
+  echo "Unstage them with: git reset HEAD -- <file>" >&2
+  exit 1
+fi
+
+# ---- 2. lints -------------------------------------------------------------------------------------------------
+# pre-merge-commit (a merge that finishes without conflicts) wants only the ROM guard: git runs no pre-commit for such
+# a merge, and the text on both sides was checked when it was committed (or is upstream's, which must not block a pull).
+if [ -n "${VELDRIS_ROM_GUARD_ONLY:-}" ]; then
+  exit 0
+fi
+if [ -n "${VELDRIS_SKIP_LINTS:-}" ]; then
+  echo "pre-commit: VELDRIS_SKIP_LINTS is set, lints skipped (the ROM guard passed)" >&2
+  exit 0
+fi
+if ! command -v python3 >/dev/null 2>&1; then
+  echo "pre-commit: python3 not found, lints skipped (the ROM guard passed)" >&2
+  exit 0
+fi
+
+failed=0
+
+# has REGEX: is a staged file name matching it?
+has() { printf '%s\n' "$staged" | grep -Eq "$1"; }
+
+# lint WHAT COMMAND...: run quietly. On failure print everything it said and remember to block; on success print only
+# its WARN lines.
+lint() {
+  what=$1; shift
+  out=$("$@" 2>&1); rc=$?
+  if [ "$rc" -ne 0 ]; then
+    printf '%s\n' "$out" >&2
+    echo "BLOCKED: $what (details above)." >&2
+    failed=1
+  else
+    printf '%s\n' "$out" | grep -E '^ *(WARN|warning)' >&2
+  fi
+  return 0
+}
+
+# xargs -0: any number of staged files, names with spaces.
+text=$(printf '%s\n' "$staged" | grep -E '\.(inc|c|h)$')
+dialogue() { printf '%s\n' "$text" | tr '\n' '\0' | xargs -0 python3 -B design/tools/dialogue_check.py --staged; }
+if [ -n "$text" ]; then
+  lint "dialogue_check.py: staged text does not fit its box or is malformed (fix it, or put 'nocheck' in a comment on that string)" dialogue
+fi
+
+# (the slides file itself is already checked above when staged)
+if has '^include/constants/(opponents|battle_partner|trainer_slide)\.h$' && ! has '^src/data/veldris_trainer_slides\.h$'; then
+  lint "slide_check.py: veldris_trainer_slides.h no longer matches the trainer ids or slide names" \
+    python3 -B design/tools/slide_check.py src/data/veldris_trainer_slides.h
+fi
+
+if has '^src/data/wild_encounters\.json$'; then
+  lint "wild_lint.py found a problem in wild_encounters.json" python3 -B design/tools/wild_lint.py --staged
+fi
+
+if has '^(src/data/trainers\.party|include/constants/opponents\.h|include/veldris_journal\.h|data/maps/[^/]+/scripts\.inc)$'; then
+  lint "trainer_lint.py found a problem in the trainer data or scripts" python3 -B design/tools/trainer_lint.py
+fi
+
+if has '^(design/flags\.md|data/scripts/veldris_debug\.inc)$'; then
+  lint "a flag in design/flags.md is missing from data/scripts/veldris_debug.inc (check_debug_reset.py)" \
+    python3 -B design/tools/check_debug_reset.py
+fi
+
+maps=$(printf '%s\n' "$staged" | grep -E '^data/maps/[^/]+/map\.json$')
+if [ -n "$maps" ]; then
+  # shellcheck disable=SC2086  # map folders are identifiers, they contain no spaces
+  lint "localid_lint.py: a local_id is used by two maps" python3 -B design/tools/localid_lint.py --staged $maps
+fi
+
+teams=$(printf '%s\n' "$staged" | grep -E '^design/(teams|trainer-roster|gyms|postgame|troglodyte-arc)\.md$')
+if [ -n "$teams" ]; then
+  # shellcheck disable=SC2086  # fixed file names, no spaces
+  lint "teamcheck.py found a team the evolution levels or learnsets do not allow" python3 -B design/tools/teamcheck.py $teams
+fi
+
+if [ "$failed" -ne 0 ]; then
+  echo "Fix the above, or skip the lints (never the ROM guard):  VELDRIS_SKIP_LINTS=1 git commit" >&2
+  exit 1
+fi
+exit 0

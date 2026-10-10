@@ -34,6 +34,8 @@
 #include "start_menu.h"
 #include "trainer_see.h"
 #include "trainer_hill.h"
+#include "veldris_furniture.h"
+#include "veldris_run.h"
 #include "vs_seeker.h"
 #include "wild_encounter.h"
 #include "wild_encounter_ow.h"
@@ -107,6 +109,10 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     u8 tileTransitionState = gPlayerAvatar.tileTransitionState;
     u8 runningState = gPlayerAvatar.runningState;
     bool8 forcedMove = MetatileBehavior_IsForcedMovementTile(GetPlayerCurMetatileBehavior(runningState));
+
+    // Veldris: L toggles run-by-default. Read on any frame (not only at a tile centre) so a mid-step press is not lost.
+    if ((newKeys & L_BUTTON) && !ArePlayerFieldControlsLocked())
+        VeldrisTryToggleRunDefault();
 
     if ((tileTransitionState == T_TILE_CENTER && forcedMove == FALSE) || tileTransitionState == T_NOT_MOVING)
     {
@@ -478,6 +484,7 @@ static const u8 *GetInteractedBackgroundEventScript(struct MapPosition *position
 static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 metatileBehavior, enum Direction direction)
 {
     s8 elevation;
+    const u8 *furnitureScript;
 
     if (MetatileBehavior_IsPlayerFacingTVScreen(metatileBehavior, direction) == TRUE)
     {
@@ -524,6 +531,9 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_Questionnaire;
     if (MetatileBehavior_IsTrainerHillTimer(metatileBehavior) == TRUE)
         return EventScript_TrainerHillTimer;
+    furnitureScript = VeldrisGetFurnitureScript(metatileBehavior); // Veldris: talking furniture works on Emerald-format maps
+    if (furnitureScript != NULL)
+        return furnitureScript;
     if (IS_FRLG)
     {
         if (MetatileBehavior_IsFood(metatileBehavior) == TRUE)

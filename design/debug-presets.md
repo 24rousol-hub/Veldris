@@ -1,0 +1,64 @@
+# Debug presets and the tracked pre-commit hook
+
+Status: BUILT 2026-10-08, upgraded the same day (author liked 'tracked dialogue-check hook + debug presets'). Debug-only, no effect on a normal game.
+
+## Text checker and pre-commit hook
+
+`design/tools/dialogue_check.py` (rewritten 2026-10-08, uses `design/tools/textwidth.py`) measures with the game's own glyph widths and now also knows the width-changing codes (`{FONT_NARROW}`, `{CLEAR n}`, `{SKIP n}`, `{SHIFT_RIGHT n}`, `{PKMN}`, button icons) and the line count: **a field or intro page whose third line is separated by `\n` instead of `\l` is an error.** The old tool treated every `{CODE}` except `{PLAYER}` as 0 px and counted no lines. Widths and error counts are identical on all 29 Veldris text files (checked before the swap).
+
+| Box | Size | Where it applies |
+|---|---|---|
+| field, intro | 216 px x 2 lines | map scripts, `data/scripts/veldris_*.inc`, `data/text/birch_speech.inc`, `design/dialogue/*.inc` |
+| battle | 208 px x 2 lines, auto line break | `src/data/veldris_trainer_slides.h` (through `slide_check.py`) |
+| item description | 102 px x 3 lines (upstream's `test/text.c` limit) | `src/data/items.h` |
+| any other | `--box 120x1/narrow` or a `// box: NAME` comment on a C string | |
+
+Options: `--staged` (only strings on lines the staged diff adds, what the hook uses), `--all`, `--box`. Opt one string out with `nocheck` in a comment (`@ nocheck` in `.inc`, `// nocheck` in C). A plain run on an upstream file (for example `items.h`) checks only lines changed since HEAD.
+
+The tracked **`.githooks/pre-commit`** runs on every commit once you set `git config core.hooksPath .githooks` (git does not store this setting, so do it once per clone; a fresh web session gets it automatically from the SessionStart hook `.claude/hooks/session-start.sh`, registered in `.claude/settings.json`, author-approved 2026-10-09: it runs the one `git config` line only in the web environment and does not install the GBA toolchain):
+
+| Check | Staged files |
+|---|---|
+| **ROM guard** (never skip): ROM, save, savestate, build output (`build/`, `.elf .map .sym .o`), archive (`.zip .7z .gz` and so on, a ROM hides in one), patch (`.ips .bps .ups .xdelta .ppf`), each also with a trailing suffix such as `rom.gba.bak`, and **any staged file over 8 MB** whatever its name. Only the three `data/mb_*.gba` helpers pass. Same list as CLAUDE.md rule 1 | all |
+| `dialogue_check.py --staged` | every `.inc`, `.c`, `.h`. **Only the lines the commit adds are judged**, so vanilla text that already overflows does not block you; the staged blob is read, not the working file |
+| `slide_check.py` | the slides file, when `opponents.h`, `battle_partner.h` or `trainer_slide.h` is staged |
+| `wild_lint.py --staged` | `src/data/wild_encounters.json` (a time-of-day set without its plain Day table is an error) |
+| `trainer_lint.py` | `trainers.party`, `opponents.h`, `veldris_journal.h`, any map `scripts.inc` |
+| `check_debug_reset.py` | `design/flags.md` or `data/scripts/veldris_debug.inc` |
+| `localid_lint.py --staged` | staged `data/maps/*/map.json` (a `local_id` may not be used by another map) |
+| `teamcheck.py` | the trainer-team docs (`teams`, `trainer-roster`, `gyms`, `postgame`, `troglodyte-arc`) |
+
+A merge that finishes without conflicts runs no pre-commit, so `.githooks/pre-merge-commit` runs the ROM guard for it. A merge with conflicts runs everything, and `dialogue_check` judges only lines that differ from both parents, so taking upstream's text never blocks.
+
+A failure lists the strings and rules and says what to fix. Escapes: `nocheck` on a string; `VELDRIS_SKIP_LINTS=1 git commit` skips the lints and **keeps the ROM guard** (use it when a lint is wrong); `git commit --no-verify` skips the whole hook, the ROM guard too, so run the check in CLAUDE.md rule 1 by hand first and never use it to get past the guard. Lints need `python3`; without it they are skipped with a warning and the ROM guard still runs (it needs only git, grep and awk).
+
+## Rewind presets (R+START > Scripts, and Utilities > Cheat start)
+
+Bodies live in the hack-owned `data/scripts/veldris_debug.inc`. In `data/scripts/debug.inc` each `Debug_EventScript_Script_N` is just `goto Veldris_Debug_...`; `Debug_CheatStart` itself is defined in `veldris_debug.inc` (the vanilla Hoenn body stays in `debug.inc`, relabelled `Debug_CheatStartHoenn` and unused, so upstream edits to it merge cleanly); `src/debug.c` carries the eight menu labels. **Presets 1 to 6 first reset the whole Veldris story** (every flag, var and trainer flag in [flags.md](flags.md), HM CUT, TM CRUNCH) **and replace or clear the party**, so they are for throw-away saves: using one on a save you care about loses progress.
+
+| Slot | Name in the menu | Does |
+|---|---|---|
+| 1 | New game (bedroom) | Whole story back to new game, no Pokémon, no shoes, no Journal; Exp. Share in the bag and on and run-by-default on, as in a real new game; warps to the 2F room. Walk down for Mom's scene |
+| 2 | Lab scene (Trog 1) | State 1 (Mom's scene done, shoes given), no Pokémon; warps into the lab at (6,11). Press Up once for the lab scene |
+| 3 | Trog fight 1 (door) | Starter chosen (Mudkip L5); arrives on the lab door tile, which fires Troglodyte's first fight |
+| 4 | After Trog fight | Free roam, state 4, Mudkip L8, key items and a few consumables, in front of the player's house |
+| 5 | Crestfall: redo gym | Gym 1 untouched (no badge, Greta/Dale/Wren unbeaten), team L11, inside the gym door |
+| 6 | Crestfall done | Gym 1 as Greta leaves it (badge 1, HM CUT, TM CRUNCH), team L12, outside the Center |
+| 7 | Next badge + team | Gives the next badge in table order (1 also runs Greta's rewards) and replaces the party with six test mons at that gym's ace level. Press again for the next one |
+| 8 | All field moves | All nine badges and Swampert and Tropius added at L30. They can learn the field moves but know none, which tests the no-move-slot rule ([field-moves.md](field-moves.md)) |
+
+**Utilities > Cheat start** is now 'everything unlocked': state after the first fight and Greta's gym, all nine badges, Pokédex, key items, six test Pokémon at L50 that know no field move. It also starts the daily clock as before. (An earlier version of this file described a smaller cheat start with HM moves taught; that is replaced.)
+
+Rules for maintainers: a preset only sets flags, vars, trainer flags, items and the party (no code). **When you claim a new Veldris flag or var, add it to `Veldris_Debug_ResetStory` in the same commit**; `python3 design/tools/check_debug_reset.py` lists any name in the 'In use by the hack' table of `flags.md` that the file never mentions. Preset 8 and the test teams are test dummies, not canon.
+
+Known limits: the Crestfall gym gates re-close only when the gym map loads, so running preset 6 while standing inside the gym leaves the old gate state until you leave and re-enter (preset 5 warps into the gym, so it is fine). Crestfall 'done' sets `VAR_CRESTFALL_STATE` to 1 and counts Troglodyte's second fight (the Scheme 1 scene) as won, so the Journal tally reads 2.
+
+## SessionStart hook (adopted 2026-10-09, author: yes)
+
+`.claude/hooks/session-start.sh`, registered in `.claude/settings.json`, turns the tracked pre-commit hook on in every fresh web session (`git config core.hooksPath .githooks`, web only, idempotent) and warns if `python3` is missing. It deliberately does **not** install the GBA toolchain: that is a commented-out block in the script, because it would add about a minute to every session start and needs the author's OK.
+
+## Other debug-menu aids worth knowing
+
+- Utilities > Time Functions: 'Get time', 'Get time of day', 'Set wall clock' (see [time-of-day.md](time-of-day.md)).
+- Trainers > Try Battle starts any trainer id (the Mugshot does not play there; see [trainer-slides.md](trainer-slides.md)).
+- A copy of the ROM runs headless in mGBA (CLAUDE.md, 'Testing in an emulator'). Presets 1 to 3 were checked in mGBA after the rewrite (menu labels, the lab-scene trigger, Troglodyte's door fight).

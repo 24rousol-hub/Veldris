@@ -1,4 +1,5 @@
 #include "global.h"
+#include "veldris_field_moves.h"
 #include "main.h"
 #include "bike.h"
 #include "event_data.h"
@@ -35,6 +36,7 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/trainer_types.h"
+#include "veldris_look.h" // Veldris: player customization
 
 #define NUM_FORCED_MOVEMENTS 22
 #define NUM_ACRO_BIKE_COLLISIONS 5
@@ -908,7 +910,7 @@ static void PlayerNotOnBikeMoving(enum Direction direction, u16 heldKeys)
     }
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER)
-     && (heldKeys & B_BUTTON)
+     && (((heldKeys & B_BUTTON) != 0) != FlagGet(FLAG_SYS_RUN_BY_DEFAULT)) // Veldris: B runs, or walks when run-by-default is on
      && FlagGet(FLAG_SYS_B_DASH)
      && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0
      && !FollowerNPCComingThroughDoor()
@@ -1570,7 +1572,7 @@ u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u8 state, enum Gender gender)
 
 u16 GetPlayerAvatarGraphicsIdByStateIdAndGender(u8 state, enum Gender gender)
 {
-    return sPlayerAvatarGfxIds[state][gender];
+    return VeldrisLook_PlayerGfx(state, gender, sPlayerAvatarGfxIds[state][gender]); // Veldris: outfits
 }
 
 u16 GetFRLGAvatarGraphicsIdByGender(enum Gender gender)
@@ -1609,7 +1611,7 @@ enum Gender GetPlayerAvatarGenderByGraphicsId(u16 gfxId)
     case OBJ_EVENT_GFX_GREEN_VS_SEEKER_BIKE:
         return FEMALE;
     default:
-        return MALE;
+        return VeldrisLook_IsFemaleOutfitGfx(gfxId) ? FEMALE : MALE; // Veldris: outfits
     }
 }
 
@@ -1626,6 +1628,7 @@ bool8 PartyHasMonWithSurf(void)
             if (MonKnowsMove(&gParties[B_TRAINER_PLAYER][i], MOVE_SURF))
                 return TRUE;
         }
+        return FindMonForFieldMove(FIELD_MOVE_SURF) != PARTY_SIZE; // Veldris: or a Pokemon that can learn Surf
     }
     return FALSE;
 }

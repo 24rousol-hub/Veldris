@@ -74,7 +74,8 @@
     "gMapGroup_IndoorFiveIslandRoute_Frlg",
     "gMapGroup_IndoorTwoIslandRoute_Frlg",
     "gMapGroup_IndoorSixIslandRoute_Frlg",
-    "gMapGroup_IndoorSevenIslandRoute_Frlg"
+    "gMapGroup_IndoorSevenIslandRoute_Frlg",
+    "gMapGroup_IndoorVeldris"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -133,7 +134,10 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125"
+    "Underwater_Route125",
+    "Hollowbrook",
+    "VeldrisRoute1",
+    "Crestfall"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -1160,5 +1164,16 @@
   ],
   "gMapGroup_IndoorSevenIslandRoute_Frlg": [
     "SevenIsland_SevaultCanyon_House_Frlg"
+  ],
+  "gMapGroup_IndoorVeldris": [
+    "Hollowbrook_PlayersHouse_1F",
+    "Hollowbrook_PlayersHouse_2F",
+    "Hollowbrook_ProfFennickLab",
+    "Hollowbrook_NeighboursHouse",
+    "Crestfall_PokemonCenter_1F",
+    "Crestfall_Mart",
+    "Crestfall_HouseA",
+    "Crestfall_HouseB",
+    "Crestfall_Gym"
   ]
 }

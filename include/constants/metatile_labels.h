@@ -258,6 +258,10 @@
 #define METATILE_GameCorner_StairsBottom              0x29F
 #define METATILE_GameCorner_StairsTop                 0x29E
 
+// gTileset_Gen4Interior (secondary metatile ids start at 0x200)
+#define METATILE_Gen4Interior_PC_On   0x396
+#define METATILE_Gen4Interior_PC_Off  0x3A5
+
 // gTileset_General
 #define METATILE_General_BlueCaveIndent        0x1B0
 #define METATILE_General_BlueCaveOpen          0x1B1

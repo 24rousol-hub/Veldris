@@ -1,0 +1,80 @@
+# design/ - the Veldris game bible
+
+**Read the relevant files here before building any content. Update them in the same change (same commit) that adds or alters content.**
+
+| File | What it holds | Update it when |
+|---|---|---|
+| [player-customization.md](player-customization.md) | Unbound-style customization: Costume Box, colours, outfits, how it is wired | Outfits, colours or the picker change |
+| [dp-sprite-list.md](dp-sprite-list.md) | Every imported DP overworld and battle picture name (generated) | Re-run `import_dp.py` |
+| [game-bible.md](game-bible.md) | Title, pitch, tone, pillars, scope, progression, **open decisions** | Scope, tone or a decision changes |
+| [story-outline.md](story-outline.md) | Act-by-act beats and the Goldsworth sabotage schemes | You add or change a story beat, scheme or cutscene |
+| [characters.md](characters.md) | Cast, voices, trainer constants, teams | A character or trainer is added or changed |
+| [interiors.md](interiors.md) | The built Hollowbrook interiors (player house 1F/2F, Fennick's lab): contents, tileset notes, which tile is what | An interior or the Gen 4 interior tileset changes |
+| [towns-and-routes.md](towns-and-routes.md) | The 18 towns and 33 routes, map names, build status | A map is added, renamed or changes status |
+| [porymap-first-map.md](porymap-first-map.md) | A beginner's guide to building Hollowbrook in Porymap: setup, the git loop, a smoke test, pitfalls and a time estimate | You learn something new about Porymap or the workflow |
+| [wendlebury.md](wendlebury.md) | Town 3 plan: role, position, buildings, NPCs; dialogue in `dialogue/wendlebury.inc` | The map or the town plan changes |
+| [dialogue/briarwick.inc](dialogue/briarwick.inc), [dialogue/route3.inc](dialogue/route3.inc) | Dialogue drafts for Briarwick (Scheme 2 tent, gym 2 and HACHIMEL, the first Goldsworth house, Apiary, houses) and Route 3 | The maps or the cards change |
+| [dialogue/random_npcs.inc](dialogue/random_npcs.inc) | A pool of 295 filler lines for vague, random NPCs and trainers (townsfolk, elders, kids, shops, walkers, coast, caves, fields, battle tips, weather, Pokémon lovers, odd lines, and 3 intro/defeat/after sets for 16 trainer classes). Nothing story-centric | The author wants more or fewer lines |
+| [maps/detail/index.md](maps/detail/index.md) | The detailed design pass: every town, building interior, gym, road and landmark in builder-level detail, with decisions and open questions | The author decides the open questions |
+| [setup-budget.md](setup-budget.md) | Map sections, flags and trainer budgets for everything past Hollowbrook and Route 1, and the checks done | The cards or counts change |
+| [region-sketch.md](region-sketch.md) | The author's hand-drawn region sketch, my reading, section budget, suggested terrain | The sketch or the map changes |
+| [region-names.md](region-names.md) | PROPOSED names, themes, gyms and map sources (Palladium and vanilla) for every settlement and landmark | The author picks or changes names |
+| [scripts/README.md](scripts/README.md) | DRAFT, UNBUILT map scripts for Hollowbrook, the lab, Route 1 and Wendlebury, with the proposed new flags and vars. Not in `data/event_scripts.s` | The maps are built and the scripts move into their `scripts.inc`, or a scene changes |
+| [crestfall.md](crestfall.md) | Town plan (a town, gym 1): buildings, NPC list, Scheme 1 beats, and the exterior as built (layout B). Map BUILT, the rest PROPOSED | The map or the city plan changes |
+| [dialogue/crestfall_scheme1.inc](dialogue/crestfall_scheme1.inc) | Scheme 1 dialogue, the private booking (Hollis the attendant, the photographer, Greta, Troglodyte's fight 2, the noticeboard). **Approved 2026-10-08 and wired** into `data/maps/Crestfall/scripts.inc`; replaces the consultant lines in crestfall.inc | A line changes |
+| [factions.md](factions.md) | The villain teams: The Commons (land) and the Drowned Crown (sea), their alliance, where they appear, open questions. Core points from the author, details PROPOSED | The villain story changes |
+| [troglodyte-arc.md](troglodyte-arc.md) | PROPOSED arc options, schemes 2 to 9 and his fight schedule; samples in `dialogue/troglodyte_arc_samples.inc` | The story path is decided |
+| [gyms.md](gyms.md) | PROPOSED options for gyms 2 to 9 (types, leaders, badges, HMs, TMs, teams) | The author picks a type order |
+| [goldsworth.md](goldsworth.md) | Goldsworth houses and parents, PROPOSED; lines in `dialogue/goldsworth.inc` | The family plan changes |
+| [postgame.md](postgame.md) | Elite Four, Champion (aged Cynthia, author-chosen), finale and post-game; lines in `dialogue/league.inc` | The League plan changes |
+| [dialogue/crestfall_extra.inc](dialogue/crestfall_extra.inc) | PROPOSED draft for the rest of Crestfall's NPCs: market, farmhands, gym statue, houses, kids, shopkeeper and the Goldsworth house. Width-checked, not wired | An NPC changes, or the map exists |
+| [dialogue/hollowbrook_houses.inc](dialogue/hollowbrook_houses.inc) | Wording record for Hollowbrook's neighbour house and the player-house extras, with starter variants (WIRED 2026-10-01 into the map scripts, which are the source of truth; wording PROPOSED). Width-checked | An NPC changes |
+| [route1.md](route1.md) | Route 1 draft: wild Pokémon, three trainers, NPCs and items; dialogue in `dialogue/route1.inc` | The map or the route plan changes |
+| [route2.md](route2.md) | Route 2 draft: wild Pokémon, four trainers, NPCs, items and the Scheme 1 surveyors; dialogue in `dialogue/route2.inc` | The map or the route plan changes |
+| [porymap-walkthrough.md](porymap-walkthrough.md) | Click-by-click Porymap guide for Hollowbrook, the lab and Route 1, with where everything goes; preview picture in `art/first_maps_preview.png` | Porymap behaviour or the map plan changes |
+| [gym-leader-art.md](gym-leader-art.md) | Candidate trainer pictures (3 to 5 per leader), sources, licence warning | A leader or art source is picked |
+| [trainer-roster.md](trainer-roster.md) | The 13 built leader, Elite Four and Champion trainer blocks: ids, pictures, teams | A block changes |
+| [leader-names.md](leader-names.md) | DRAFT name options (3 per leader) for gyms 2 to 9 | The author picks names |
+| [map-plan.md](map-plan.md) | Where each map comes from (Palladium references and vanilla bases) and who does what | A map is planned, traced or swapped for another source |
+| [region-map.md](region-map.md) | How maps, the town map and fly destinations are wired, plus the Veldris layout proposal | You touch the region map or fly destinations |
+| [teams.md](teams.md) | PROPOSED trainer teams with level-legal moves (Crestfall gym first) | A team, level or trainer changes |
+| [dialogue/hollowbrook.inc](dialogue/hollowbrook.inc) | PROPOSED draft of all Hollowbrook dialogue: mother, townsfolk, hens, the grandfather, the lab aides, Fennick, and the Troglodyte encounter. Wording record: WIRED 2026-10-01 into the town, houses and lab (the map scripts are the source of truth; a few labels stay unwired, see the file header). Width-checked | The scene or an NPC changes |
+| [dialogue/crestfall.inc](dialogue/crestfall.inc) | PROPOSED draft of Crestfall: Scheme 1 (the consultants), the Troglodyte battle beats, Greta's gym dialogue and two optional gym trainers. Width-checked, not wired | Greta, the scheme or the gym trainers change, or the map exists |
+| [dialogue-style.md](dialogue-style.md) | Voice rules, text format, charmap limits | A new text rule is found |
+| [flags.md](flags.md) | Every flag and var the hack uses, plus the spare pool | **Any** flag or var is used, added or freed |
+| [trainer-slides.md](trainer-slides.md) | Mid-battle trainer lines (BUILT mechanism, no lines yet): where rows live, triggers, traps, text rules, PROPOSED options | A slide row is added, or the author approves wording |
+| [field-moves.md](field-moves.md) | BUILT: field moves (Cut, Surf, Flash, Sweet Scent, ...) work when a party Pokémon can learn them, no move slot needed. Rule, code, test results | The move set, the rule or the party menu behaviour changes |
+| [running-shoes.md](running-shoes.md) | BUILT: Running Shoes given by Mom, and the L-button run-by-default toggle. Flags, code, options not taken | The gift, the toggle or its default changes |
+| [journal.md](journal.md) | BUILT: the Journal key item (badges, next-goal hint, TROGLODYTE loss tally). Item slot, giver, how to add a fight, hint rows, open questions | A TROGLODYTE fight is added, the gym order changes, or the giver changes |
+| [exp-share.md](exp-share.md) | BUILT: Gen 6 Exp. Share key item and its flag; in the bag and switched on from the first frame of a new game (no giver) | The Exp. Share setup or the new-game defaults change |
+| [time-of-day.md](time-of-day.md) | BUILT: the fake clock the player sets at home, time-of-day wild encounters, TIME_DAY fallback, hours, the open-air-routes-only rule with the route list, the Route 1 Night table, label rules, `design/tools/wild_lint.py` | A table is split by time, a route gets a Night table, or the clock changes |
+| [decisions-pending.md](decisions-pending.md) | The one-page answer sheet: every open question (small calls, starters and cities, AI ladder, level caps, text skip, night lights, slide-line tones, Hoenn purge) with my pick, linking to the full briefs in [decisions/](decisions/) and the mid-battle line options in [trainer-slide-options/](trainer-slide-options/) | You are ready to answer, or a build step needs one of the answers |
+| [overnight-breakdown.md](overnight-breakdown.md) | Plain-language summary of the 2026-10-09/10 quality review and overnight work: what was fixed and how it was checked, what is new, what needs the author | You want to know what changed overnight |
+| [debug-presets.md](debug-presets.md) | BUILT: the text checker and the tracked pre-commit hook (ROM guard, staged-lines text check, wild-table lint), the rewind debug presets (new game, lab scene, Troglodyte fight, Crestfall gym) and the Veldris cheat start | A debug preset or a hook check changes |
+| [npc-walkup.md](npc-walkup.md) | BUILT in a scratch clone and TESTED 2026-10-10 (not in the game yet): an NPC that spots the player, shows '!', walks up and talks, no battle. Recipe (`cant_see_if_set`), three variants, 27-row test log, traps (step triggers in the sight line, spawn window, 15-NPC cap, trainer and walker on one tile) | The first walk-up NPC is built in the real game, or a trap changes |
+| [furniture-lines.md](furniture-lines.md) | BUILT 2026-10-09: cabinets, dressers, paintings, fridges and more speak when the player presses A. The 17 lines, the Porymap guide for setting behaviours, per-spot signs | Setting furniture behaviours in Porymap, or adding a furniture line |
+| [devices.md](devices.md) | Test and target devices: the phone (Delta, VBA-M based, save-state and rebuild rules, how builds are delivered) and the Miyoo Mini Plus (the 32 MiB ROM cap and how much is used, cores, `make release`, a device test checklist) | A device is tried, or ROM size gets tight |
+| [badges.md](badges.md) | Survey of hacks with more than 8 badges, and the IMPLEMENTED 9-badge table | Badge decisions or the badge plan change |
+| [engine-limits.md](engine-limits.md) | Hard engine limits (badges, trainers, sections, tiles, space) and config switches | A limit is re-measured or an edit moves one |
+| [engine-edits.md](engine-edits.md) | Every edit to upstream (non-hack) files | You edit anything outside hack content |
+| [asset-inventory.md](asset-inventory.md) | What is usable in the asset repos, and what has been imported | An asset is imported |
+
+Tool: [tools/dialogue_check.py](tools/dialogue_check.py) checks that dialogue fits the text box (see [dialogue-style.md](dialogue-style.md)).
+Map builders for the LeoB exteriors (Route 1, Crestfall): [tools/leob/](tools/leob/README.md).
+Robot player (plays the built ROM in a hidden mGBA and checks it, or takes a picture of a scenario): [tools/emu/](tools/emu/README.md). Trainer lint (alias targets, Journal rows, `IVs:` lines): `python3 design/tools/trainer_lint.py`. Walk-up NPC checker: `python3 design/tools/walkup_lint.py`. Other lints the commit hook runs: dialogue_check.py, slide_check.py, wild_lint.py, localid_lint.py, check_debug_reset.py, teamcheck.py.
+
+## Status words
+
+Everything an assistant suggests starts as **PROPOSED**. It only becomes canon when the author says so.
+
+- **PROPOSED** - suggested, not yet approved. Safe to rename or drop.
+- **APPROVED** - the author said yes. Build against it.
+- **BUILT** - it exists in the game and builds.
+
+## Order of work for any content change
+
+1. Read the relevant design files.
+2. Make the change (scripts, events, warps, trainers, dialogue; maps are the author's, in Porymap).
+3. Update design files, `flags.md` and `CREDITS.md` in the same change.
+4. Run `make -j4`. It must pass.
+5. Commit, push.

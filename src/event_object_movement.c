@@ -58,6 +58,7 @@
 #include "constants/trainer_types.h"
 #include "constants/union_room.h"
 #include "constants/weather.h"
+#include "veldris_look.h" // Veldris: player customization
 
 #define SPECIAL_LOCALIDS_START (min(LOCALID_CAMERA, \
                                 min(LOCALID_PLAYER, \
@@ -494,8 +495,90 @@ const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
 #include "data/object_events/object_event_subsprites.h"
 #include "data/object_events/object_event_graphics_info.h"
 #include "data/object_events/object_event_graphics_info_followers.h"
+// VELDRIS-LOOK INCLUDE BEGIN (design/tools/sprites/player_outfits.py)
+#include "data/object_events/veldris_outfit_object_events.h"
+// VELDRIS-LOOK INCLUDE END
+// VELDRIS-DP INCLUDE BEGIN (design/tools/sprites/import_dp.py)
+#include "data/object_events/veldris_dp_object_events.h"
+// VELDRIS-DP INCLUDE END
 
 static const struct SpritePalette sObjectEventSpritePalettes[] = {
+// VELDRIS-LOOK PALETTES BEGIN (design/tools/sprites/player_outfits.py)
+    {gObjectEventPal_VeldrisDPM, OBJ_EVENT_PAL_TAG_VELDRIS_DP_M},
+    {gObjectEventPal_VeldrisDPF, OBJ_EVENT_PAL_TAG_VELDRIS_DP_F},
+// VELDRIS-LOOK PALETTES END
+// VELDRIS-DP PALETTES BEGIN (design/tools/sprites/import_dp.py)
+    {gObjectEventPal_DP_Aaron, OBJ_EVENT_PAL_TAG_DP_AARON},
+    {gObjectEventPal_DP_AceTrainerF, OBJ_EVENT_PAL_TAG_DP_ACE_TRAINER_F},
+    {gObjectEventPal_DP_AceTrainerM, OBJ_EVENT_PAL_TAG_DP_ACE_TRAINER_M},
+    {gObjectEventPal_DP_AceTrainerSnowM, OBJ_EVENT_PAL_TAG_DP_ACE_TRAINER_SNOW_M},
+    {gObjectEventPal_DP_Barry, OBJ_EVENT_PAL_TAG_DP_BARRY},
+    {gObjectEventPal_DP_BattleGirl, OBJ_EVENT_PAL_TAG_DP_BATTLE_GIRL},
+    {gObjectEventPal_DP_Beauty, OBJ_EVENT_PAL_TAG_DP_BEAUTY},
+    {gObjectEventPal_DP_Bertha, OBJ_EVENT_PAL_TAG_DP_BERTHA},
+    {gObjectEventPal_DP_BlackBelt, OBJ_EVENT_PAL_TAG_DP_BLACK_BELT},
+    {gObjectEventPal_DP_BreederF, OBJ_EVENT_PAL_TAG_DP_BREEDER_F},
+    {gObjectEventPal_DP_BugCatcher, OBJ_EVENT_PAL_TAG_DP_BUG_CATCHER},
+    {gObjectEventPal_DP_Byron, OBJ_EVENT_PAL_TAG_DP_BYRON},
+    {gObjectEventPal_DP_Camper, OBJ_EVENT_PAL_TAG_DP_CAMPER},
+    {gObjectEventPal_DP_Charon, OBJ_EVENT_PAL_TAG_DP_CHARON},
+    {gObjectEventPal_DP_Cheryl, OBJ_EVENT_PAL_TAG_DP_CHERYL},
+    {gObjectEventPal_DP_Cowgirl, OBJ_EVENT_PAL_TAG_DP_COWGIRL},
+    {gObjectEventPal_DP_CrasherWake, OBJ_EVENT_PAL_TAG_DP_CRASHER_WAKE},
+    {gObjectEventPal_DP_Cynthia, OBJ_EVENT_PAL_TAG_DP_CYNTHIA},
+    {gObjectEventPal_DP_Cyrus, OBJ_EVENT_PAL_TAG_DP_CYRUS},
+    {gObjectEventPal_DP_DragonTamer, OBJ_EVENT_PAL_TAG_DP_DRAGON_TAMER},
+    {gObjectEventPal_DP_Fantina, OBJ_EVENT_PAL_TAG_DP_FANTINA},
+    {gObjectEventPal_DP_Fisherman, OBJ_EVENT_PAL_TAG_DP_FISHERMAN},
+    {gObjectEventPal_DP_GalacticGruntF, OBJ_EVENT_PAL_TAG_DP_GALACTIC_GRUNT_F},
+    {gObjectEventPal_DP_GalacticGruntM, OBJ_EVENT_PAL_TAG_DP_GALACTIC_GRUNT_M},
+    {gObjectEventPal_DP_Gentleman, OBJ_EVENT_PAL_TAG_DP_GENTLEMAN},
+    {gObjectEventPal_DP_Hiker, OBJ_EVENT_PAL_TAG_DP_HIKER},
+    {gObjectEventPal_DP_Jupiter, OBJ_EVENT_PAL_TAG_DP_JUPITER},
+    {gObjectEventPal_DP_Lady, OBJ_EVENT_PAL_TAG_DP_LADY},
+    {gObjectEventPal_DP_Looker, OBJ_EVENT_PAL_TAG_DP_LOOKER},
+    {gObjectEventPal_DP_Lucian, OBJ_EVENT_PAL_TAG_DP_LUCIAN},
+    {gObjectEventPal_DP_Marley, OBJ_EVENT_PAL_TAG_DP_MARLEY},
+    {gObjectEventPal_DP_Mars, OBJ_EVENT_PAL_TAG_DP_MARS},
+    {gObjectEventPal_DP_Maylene, OBJ_EVENT_PAL_TAG_DP_MAYLENE},
+    {gObjectEventPal_DP_Mira, OBJ_EVENT_PAL_TAG_DP_MIRA},
+    {gObjectEventPal_DP_Officer, OBJ_EVENT_PAL_TAG_DP_OFFICER},
+    {gObjectEventPal_DP_Painter, OBJ_EVENT_PAL_TAG_DP_PAINTER},
+    {gObjectEventPal_DP_Palmer, OBJ_EVENT_PAL_TAG_DP_PALMER},
+    {gObjectEventPal_DP_ParasolLady, OBJ_EVENT_PAL_TAG_DP_PARASOL_LADY},
+    {gObjectEventPal_DP_Picnicker, OBJ_EVENT_PAL_TAG_DP_PICNICKER},
+    {gObjectEventPal_DP_PokeKid, OBJ_EVENT_PAL_TAG_DP_POKE_KID},
+    {gObjectEventPal_DP_PokeRangerF, OBJ_EVENT_PAL_TAG_DP_POKE_RANGER_F},
+    {gObjectEventPal_DP_PokeRangerM, OBJ_EVENT_PAL_TAG_DP_POKE_RANGER_M},
+    {gObjectEventPal_DP_PokefanF, OBJ_EVENT_PAL_TAG_DP_POKEFAN_F},
+    {gObjectEventPal_DP_PokefanM, OBJ_EVENT_PAL_TAG_DP_POKEFAN_M},
+    {gObjectEventPal_DP_ProfRowan, OBJ_EVENT_PAL_TAG_DP_PROF_ROWAN},
+    {gObjectEventPal_DP_PsychicM, OBJ_EVENT_PAL_TAG_DP_PSYCHIC_M},
+    {gObjectEventPal_DP_Rancher, OBJ_EVENT_PAL_TAG_DP_RANCHER},
+    {gObjectEventPal_DP_RichBoy, OBJ_EVENT_PAL_TAG_DP_RICH_BOY},
+    {gObjectEventPal_DP_RichLady, OBJ_EVENT_PAL_TAG_DP_RICH_LADY},
+    {gObjectEventPal_DP_Rocker, OBJ_EVENT_PAL_TAG_DP_ROCKER},
+    {gObjectEventPal_DP_Roughneck, OBJ_EVENT_PAL_TAG_DP_ROUGHNECK},
+    {gObjectEventPal_DP_RuinManiac, OBJ_EVENT_PAL_TAG_DP_RUIN_MANIAC},
+    {gObjectEventPal_DP_Sailor, OBJ_EVENT_PAL_TAG_DP_SAILOR},
+    {gObjectEventPal_DP_Saturn, OBJ_EVENT_PAL_TAG_DP_SATURN},
+    {gObjectEventPal_DP_Scientist, OBJ_EVENT_PAL_TAG_DP_SCIENTIST},
+    {gObjectEventPal_DP_SkierF, OBJ_EVENT_PAL_TAG_DP_SKIER_F},
+    {gObjectEventPal_DP_SkierM, OBJ_EVENT_PAL_TAG_DP_SKIER_M},
+    {gObjectEventPal_DP_Socialite, OBJ_EVENT_PAL_TAG_DP_SOCIALITE},
+    {gObjectEventPal_DP_Supernerd, OBJ_EVENT_PAL_TAG_DP_SUPERNERD},
+    {gObjectEventPal_DP_SwimmerF, OBJ_EVENT_PAL_TAG_DP_SWIMMER_F},
+    {gObjectEventPal_DP_SwimmerF2, OBJ_EVENT_PAL_TAG_DP_SWIMMER_F2},
+    {gObjectEventPal_DP_SwimmerM, OBJ_EVENT_PAL_TAG_DP_SWIMMER_M},
+    {gObjectEventPal_DP_SwimmerM2, OBJ_EVENT_PAL_TAG_DP_SWIMMER_M2},
+    {gObjectEventPal_DP_Volkner, OBJ_EVENT_PAL_TAG_DP_VOLKNER},
+    {gObjectEventPal_DP_Waiter, OBJ_EVENT_PAL_TAG_DP_WAITER},
+    {gObjectEventPal_DP_Waitress, OBJ_EVENT_PAL_TAG_DP_WAITRESS},
+    {gObjectEventPal_DP_Worker, OBJ_EVENT_PAL_TAG_DP_WORKER},
+    {gObjectEventPal_DP_YoungCoupleF, OBJ_EVENT_PAL_TAG_DP_YOUNG_COUPLE_F},
+    {gObjectEventPal_DP_YoungCoupleM, OBJ_EVENT_PAL_TAG_DP_YOUNG_COUPLE_M},
+    {gObjectEventPal_DP_Youngster, OBJ_EVENT_PAL_TAG_DP_YOUNGSTER},
+// VELDRIS-DP PALETTES END
     {gObjectEventPal_Npc1,                  OBJ_EVENT_PAL_TAG_NPC_1},
     {gObjectEventPal_Npc2,                  OBJ_EVENT_PAL_TAG_NPC_2},
     {gObjectEventPal_Npc3,                  OBJ_EVENT_PAL_TAG_NPC_3},
@@ -3340,6 +3423,8 @@ static u8 LoadSpritePaletteIfTagExists(const struct SpritePalette *spritePalette
     if (paletteNum != 0xFF) // don't load twice; return
         return paletteNum;
     paletteNum = LoadSpritePalette(spritePalette);
+    if (paletteNum != 0xFF)
+        VeldrisLook_TintObjectPalette(spritePalette->tag, paletteNum); // Veldris: player customization
     if (paletteNum != 0xFF)
         UpdateSpritePaletteWithWeather(paletteNum, FALSE);
     return paletteNum;
