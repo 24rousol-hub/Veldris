@@ -189,3 +189,7 @@ Everything below is a candidate; paths relative to TAAR. 'Used' means already im
 6. The TAAR URL: `CREDITS.md` links `Pawkkie/Team-Aquas-Asset-Repo`, the author's copy is `24rousol-hub/Team-Aquas-Asset-Repo`. Which to cite?
 7. Other free resources I know for sure are limited: the Spriters Resource (rips, no licence), PokeCommunity threads linked in TAAR READMEs (permission per post), and the asset repo itself. No other source is claimed here; none was checked online.
 8. Not verified: palettes inside each sheet (some P files may carry more than 16 entries), frame counts of 288x32 or 864x32 sheets, and per-species Pokemon READMEs.
+
+## Imported (2026-10-10)
+
+The whole spilledpizza DP set is in the ROM (author's choice): 70 overworlds as `OBJ_EVENT_GFX_DP_*` and 94 battle pictures as `Pic: DP ...` in `trainers.party`. Full name list: [dp-sprite-list.md](dp-sprite-list.md). Tool: `design/tools/sprites/import_dp.py`. Lucas and Dawn player sheets and back pics are copied for the outfit system ([player-customization.md](player-customization.md)) but not registered as NPCs. **Each DP overworld has its own palette**, unlike vanilla NPCs which share four, so a screen with many different DP people can run out of sprite palettes (the GBA has 16, shared with the player, followers and effects). Keep it to about 6 different DP people in view at once; repeats of the same person cost nothing extra.
