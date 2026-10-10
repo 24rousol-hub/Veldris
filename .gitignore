@@ -97,3 +97,13 @@ build/
 
 # Emulator test harness cache (generated next to the ELF, design/tools/emu/README.md)
 *.emu-layout.json
+
+# ROM-derived archives and patches (the commit hook blocks them by name too, CLAUDE.md rule 1)
+*.zip
+*.7z
+*.rar
+*.ips
+*.bps
+*.ups
+*.xdelta
+*.ppf

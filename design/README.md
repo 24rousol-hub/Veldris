@@ -51,7 +51,7 @@
 | [decisions-pending.md](decisions-pending.md) | The one-page answer sheet: every open question (small calls, starters and cities, AI ladder, level caps, text skip, night lights, slide-line tones, Hoenn purge) with my pick, linking to the full briefs in [decisions/](decisions/) and the mid-battle line options in [trainer-slide-options/](trainer-slide-options/) | You are ready to answer, or a build step needs one of the answers |
 | [overnight-breakdown.md](overnight-breakdown.md) | Plain-language summary of the 2026-10-09/10 quality review and overnight work: what was fixed and how it was checked, what is new, what needs the author | You want to know what changed overnight |
 | [debug-presets.md](debug-presets.md) | BUILT: the text checker and the tracked pre-commit hook (ROM guard, staged-lines text check, wild-table lint), the rewind debug presets (new game, lab scene, Troglodyte fight, Crestfall gym) and the Veldris cheat start | A debug preset or a hook check changes |
-| [npc-walkup.md](npc-walkup.md) | DOCUMENTED, not built: an NPC that spots the player, walks up and talks (trainer-approach machinery, no battle). Recipe and traps | The first walk-up NPC is built or tested |
+| [npc-walkup.md](npc-walkup.md) | BUILT in a scratch clone and TESTED 2026-10-10 (not in the game yet): an NPC that spots the player, shows '!', walks up and talks, no battle. Recipe (`cant_see_if_set`), three variants, 27-row test log, traps (step triggers in the sight line, spawn window, 15-NPC cap, trainer and walker on one tile) | The first walk-up NPC is built in the real game, or a trap changes |
 | [furniture-lines.md](furniture-lines.md) | BUILT 2026-10-09: cabinets, dressers, paintings, fridges and more speak when the player presses A. The 17 lines, the Porymap guide for setting behaviours, per-spot signs | Setting furniture behaviours in Porymap, or adding a furniture line |
 | [devices.md](devices.md) | Test and target devices: the phone (Delta, VBA-M based, save-state and rebuild rules, how builds are delivered) and the Miyoo Mini Plus (the 32 MiB ROM cap and how much is used, cores, `make release`, a device test checklist) | A device is tried, or ROM size gets tight |
 | [badges.md](badges.md) | Survey of hacks with more than 8 badges, and the IMPLEMENTED 9-badge table | Badge decisions or the badge plan change |
@@ -61,7 +61,7 @@
 
 Tool: [tools/dialogue_check.py](tools/dialogue_check.py) checks that dialogue fits the text box (see [dialogue-style.md](dialogue-style.md)).
 Map builders for the LeoB exteriors (Route 1, Crestfall): [tools/leob/](tools/leob/README.md).
-Robot player (plays the built ROM in a hidden mGBA and checks it, or takes a picture of a scenario): [tools/emu/](tools/emu/README.md). Trainer lint (alias targets, Journal rows, `IVs:` lines): `python3 design/tools/trainer_lint.py`.
+Robot player (plays the built ROM in a hidden mGBA and checks it, or takes a picture of a scenario): [tools/emu/](tools/emu/README.md). Trainer lint (alias targets, Journal rows, `IVs:` lines): `python3 design/tools/trainer_lint.py`. Walk-up NPC checker: `python3 design/tools/walkup_lint.py`. Other lints the commit hook runs: dialogue_check.py, slide_check.py, wild_lint.py, localid_lint.py, check_debug_reset.py, teamcheck.py.
 
 ## Status words
 

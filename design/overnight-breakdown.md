@@ -1,6 +1,6 @@
 # Overnight breakdown (2026-10-09 to 2026-10-10)
 
-You asked for a big pile of work to review: first a quality review of everything built, then new things in order, and drafts instead of guesses where you are needed. This is the plain-language result. Everything is on branch `claude/pokemon-pot-setup-evpysj` (draft PR 1), the build passes, and the ROM is still 25.58 MiB of the 32 MiB limit (6.42 MiB free, same as before).
+You asked for a big pile of work to review: first a quality review of everything built, then new things in order, and drafts instead of guesses where you are needed. This is the plain-language result. Everything is on branch `claude/pokemon-pot-setup-evpysj` (draft PR 1), the build passes, and the ROM is 25.81 MiB of the 32 MiB limit (6.19 MiB free). It was 25.58 MiB before the other session imported 70 overworld sprites and 94 battle pictures; none of my changes added to it.
 
 ## 1. Review of what was already built
 
@@ -37,14 +37,17 @@ Left alone on purpose (after checking): swapping two flags to make badges contig
 | **Mid-battle line options** | 97 lines for the nine gym leaders and 24 options for the Elite Four, Cynthia, the Commons and Crown bosses, three tones each, all measured to fit. Tried in mGBA: five of the six triggers played in a real battle. **Nothing wired** (your rule) | `design/trainer-slide-options/` |
 | **Decision briefs** | About two dozen questions with pictures, patches and a one-letter answer each (AI ladder, default IVs, level caps, boss boosts, tag battles, text skip, move relearner, night lights, comforts, defaults, starters, cities) | `design/decisions-pending.md` first, then `design/decisions/` |
 | **Trainer lint** | Checks alias targets, Journal rows for Troglodyte fights and `IVs:` lines on every Veldris block | `design/tools/trainer_lint.py` |
+| **NPC walk-up recipe** (task 29) | Built and run in a scratch clone: 26 NPCs and about 30 scenarios in the robot. The recipe works; upstream's `cant_see_if_set` guard is the better default. New traps found (coord events in the sight line are skipped on the first step, an NPC only exists within a window around the player, 15 NPCs at most). Not in the real game yet, no engine edit needed | `design/npc-walkup.md`, `design/scripts/walkup_template.inc`, `design/tools/walkup_lint.py` |
+| **Commit hook** | The ROM guard now catches saves, savestates, build output, archives, patch files and any staged file over 8 MB (the old one was filename-only and could be bypassed); lints run only when their files are staged; `VELDRIS_SKIP_LINTS=1` skips lints but keeps the guard; a merge without conflicts is guarded too | `.githooks/` |
+| **Hoenn purge brief** | Measured in a scratch clone. Recommendation **LEAVE**: free ROM is 6.19 MiB and nothing the purge helps is near a limit. SKIP (tag Hoenn maps like FRLG) frees about 1.2 MiB and was run through the robot; DELETE fails with 63 build errors and breaks saves | `design/decisions/arch.md` |
 
 ## 3. What I need from you
 
 Open `design/decisions-pending.md`: one table, one code per question, my pick beside each. The ones with the most effect on the game: **S1** the four starters, **1** the AI ladder, **3** level caps, **U1** hold-R text skip, **L1 and L2** the tone of the leaders' and League's mid-battle lines. Also needed: **close or reload Porymap before pulling**, because `map.json` event lists changed in Hollowbrook, the lab, the player's house, the neighbour's house and Route 1.
 
-## 4. Still running when this was written
+## 4. Second pass (landed 2026-10-10)
 
-A second pass was started for the leftovers that hit the usage limit overnight: the NPC walk-up test (task 29, still unbuilt: the recipe in `design/npc-walkup.md` has not been run yet), the Hoenn purge brief (`design/decisions/arch.md` is a placeholder until it lands), the commit-hook hardening (the ROM guard is still filename-only, see review findings 29, 31, 33, 49), and the rest of the stale-doc fixes. The next report will say what landed.
+The leftovers that hit the usage limit overnight are done: the NPC walk-up test, the Hoenn purge brief, the commit-hook hardening and the remaining stale-doc fixes. Two things I found while integrating them and put to you in `decisions-pending.md`: Greta's wired gym-invite line differs from the draft you approved (W2), and the Rich jingle is heard twice in Hollowbrook (it restarts when the battle begins) but only once in Crestfall (Q3, corrected: Crestfall already plays it). Neither was heard in the robot (it has no audio), so Q3 is from reading the code.
 
 ## 5. Honest limits
 

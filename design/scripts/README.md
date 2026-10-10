@@ -10,6 +10,7 @@ Checked on 2026-09-30, before the build: the four drafts plus the dialogue draft
 | `hollowbrook_lab_scripts.inc` | `Hollowbrook_ProfFennickLab` | **BUILT 2026-10-01** into `data/maps/Hollowbrook_ProfFennickLab/scripts.inc` with real coordinates (that file is now the source of truth; this draft is kept for history). Scene tested in mGBA: Troglodyte's random pick, ball 4 reveal, choice across the counter, leftover balls. `Hollowbrook_EventScript_BufferTrogSpecies` now lives in the lab file, so leave it out when the town file is built |
 | `route1_scripts.inc` | `VeldrisRoute1` | **BUILT 2026-10-01** into `data/maps/VeldrisRoute1/scripts.inc` (now the source of truth). Flag renamed to `FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS` |
 | `wendlebury_scripts.inc` | `Wendlebury`, `Wendlebury_PokemonCenter_1F`, `Wendlebury_Mart` | town NPCs, nurse (vanilla heal script), mart clerk with item list |
+| `walkup_template.inc` | any map | **TESTED template**, not a map draft: three variants of the walk-up NPC (talks later, silent later, leaves for good) with the `map.json` object event in the header comment. Rename `Map_`, `Walker` and the flags. See [../npc-walkup.md](../npc-walkup.md) |
 
 ## Flags and vars these drafts proposed (the ones marked CLAIMED are in `design/flags.md`)
 

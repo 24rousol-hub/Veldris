@@ -10,7 +10,7 @@ Status: BUILT 2026-10-08, upgraded the same day (author liked 'tracked dialogue-
 |---|---|---|
 | field, intro | 216 px x 2 lines | map scripts, `data/scripts/veldris_*.inc`, `data/text/birch_speech.inc`, `design/dialogue/*.inc` |
 | battle | 208 px x 2 lines, auto line break | `src/data/veldris_trainer_slides.h` (through `slide_check.py`) |
-| item description | 109 px x 3 lines | `src/data/items.h` |
+| item description | 102 px x 3 lines (upstream's `test/text.c` limit) | `src/data/items.h` |
 | any other | `--box 120x1/narrow` or a `// box: NAME` comment on a C string | |
 
 Options: `--staged` (only strings on lines the staged diff adds, what the hook uses), `--all`, `--box`. Opt one string out with `nocheck` in a comment (`@ nocheck` in `.inc`, `// nocheck` in C). A plain run on an upstream file (for example `items.h`) checks only lines changed since HEAD.
@@ -19,11 +19,18 @@ The tracked **`.githooks/pre-commit`** runs on every commit once you set `git co
 
 | Check | Staged files |
 |---|---|
-| ROM / save / savestate guard (`.gba .sav .srm .sgm .ss0-9`, except the three `data/mb_*.gba` helpers). Never skip this one | all |
-| `dialogue_check.py --staged` | every `.inc`, `.c`, `.h`. **Only the lines the commit adds are judged**, so vanilla text that already overflows does not block you |
-| `design/tools/wild_lint.py` | `src/data/wild_encounters.json` |
+| **ROM guard** (never skip): ROM, save, savestate, build output (`build/`, `.elf .map .sym .o`), archive (`.zip .7z .gz` and so on, a ROM hides in one), patch (`.ips .bps .ups .xdelta .ppf`), each also with a trailing suffix such as `rom.gba.bak`, and **any staged file over 8 MB** whatever its name. Only the three `data/mb_*.gba` helpers pass. Same list as CLAUDE.md rule 1 | all |
+| `dialogue_check.py --staged` | every `.inc`, `.c`, `.h`. **Only the lines the commit adds are judged**, so vanilla text that already overflows does not block you; the staged blob is read, not the working file |
+| `slide_check.py` | the slides file, when `opponents.h`, `battle_partner.h` or `trainer_slide.h` is staged |
+| `wild_lint.py --staged` | `src/data/wild_encounters.json` (a time-of-day set without its plain Day table is an error) |
+| `trainer_lint.py` | `trainers.party`, `opponents.h`, `veldris_journal.h`, any map `scripts.inc` |
+| `check_debug_reset.py` | `design/flags.md` or `data/scripts/veldris_debug.inc` |
+| `localid_lint.py --staged` | staged `data/maps/*/map.json` (a `local_id` may not be used by another map) |
+| `teamcheck.py` | the trainer-team docs (`teams`, `trainer-roster`, `gyms`, `postgame`, `troglodyte-arc`) |
 
-A failure lists the strings and rules. Escape hatches: `nocheck` on the string, or `git commit --no-verify` (text and wild checks only). Needs `python3`; without it the text checks are skipped with a warning and the ROM guard still runs. A GitHub workflow was considered and dropped: Actions is off on this fork, and a workflow runs after the push so it could not stop a local commit.
+A merge that finishes without conflicts runs no pre-commit, so `.githooks/pre-merge-commit` runs the ROM guard for it. A merge with conflicts runs everything, and `dialogue_check` judges only lines that differ from both parents, so taking upstream's text never blocks.
+
+A failure lists the strings and rules and says what to fix. Escapes: `nocheck` on a string; `VELDRIS_SKIP_LINTS=1 git commit` skips the lints and **keeps the ROM guard** (use it when a lint is wrong); `git commit --no-verify` skips the whole hook, the ROM guard too, so run the check in CLAUDE.md rule 1 by hand first and never use it to get past the guard. Lints need `python3`; without it they are skipped with a warning and the ROM guard still runs (it needs only git, grep and awk).
 
 ## Rewind presets (R+START > Scripts, and Utilities > Cheat start)
 

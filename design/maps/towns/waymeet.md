@@ -24,7 +24,7 @@ Centre-right, a little south-east of Gildhaven and south-west of Hemlock Reach. 
 
 - **Palladium:** the Goldenrod train station renders: `trainstation2zi.png` (476 x 197 px, **29 x 12**, two halves: the waiting hall with and without a train) and `stacjajs7.png` (412 x 350 px, **25 x 21**, waiting room with a platform and a long white train). Both are 16 px tiles and no grid. Use them for the station interior only.
 - **Vanilla base:** `MauvilleCity` (40 x 20, hub of roads in Hoenn). It is too small. Plan **about 44 x 34** with a canal along the west and south sides so the water roads can leave from piers. Size check: `(44+15)*(34+14) = 2832`, fine.
-- Tilesets: `gTileset_General` plus `gTileset_Mauville` (and the `LilycoveCity` secondary if the piers need harbour tiles). Section `MAPSEC_WAYMEET` (new, PROPOSED, one of the 37 free ids). Fly destination: yes.
+- Tilesets: `gTileset_General` plus `gTileset_Mauville` (and the `LilycoveCity` secondary if the piers need harbour tiles). Section `MAPSEC_WAYMEET` (already added to `region_map_sections.json`). Fly destination: yes.
 - Credit Project Palladium for the station if traced ([../../map-plan.md](../../map-plan.md)).
 
 ## Layout

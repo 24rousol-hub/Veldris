@@ -23,7 +23,7 @@ North of centre, north-east of Hoarfell. The sketch draws a purple town at the t
 ## Source and size
 
 - **No Palladium render** ([../../region-names.md](../../region-names.md)). Vanilla base: `FallarborTown` (20 x 20). Plan **about 34 x 28** (the base is too small for a town on terraces). Size check: `(34+15)*(28+14) = 2058`, fine.
-- Tilesets: `gTileset_General` plus `gTileset_Fallarbor` (rock, ledges, ash-free grass). Section: `MAPSEC_CRAGDALE` (new, PROPOSED, one of the 37 free ids). Fly destination: yes (a town).
+- Tilesets: `gTileset_General` plus `gTileset_Fallarbor` (rock, ledges, ash-free grass). Section: `MAPSEC_CRAGDALE` (already added to `region_map_sections.json`). Fly destination: yes (a town).
 - Mood: weathered stone, terraces, wind. No ash (that is Fallarbor's own look). Palladium could be used as mood only: Mahogany Town (24 x 25) is already assigned to Smeltham, so it is not used here.
 
 ## Layout

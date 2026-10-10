@@ -145,7 +145,7 @@ Levels start 3 below SUZURAN's ace (55 minus 3 = 52) at the high end and sit a l
 
 1. ~~Keep the legendary encounter, and which?~~ Resolved (author, 2026-10-01): **DIALGA**, level 60 PROPOSED.
 2. **Is Mirror Isle optional?** The sketch gives it two water roads (R16 and R17) that are also the player's way to Primrose Vale, so its island could be on the main path. I treat it as optional, entered from a landing.
-3. **New section id or borrowed one?** A borrowed Hoenn cave id saves one of the tight 37 free ids, but the name would say something else on the Pokénav.
+3. **New section id or borrowed one?** A borrowed Hoenn cave id saves one of the 8 section ids still free (2026-10-10), but the name would say something else on the Pokénav.
 4. **Hermit and puzzle size.** Is a small mirror puzzle the right flavour, or too much script for a small island?
 
 ## Ditto (author, 2026-10-01): Mirror Isle is the ONLY place to catch DITTO

@@ -308,7 +308,7 @@ Flags (not claimed): `FLAG_VISITED_CRESTFALL`, `VAR_CRESTFALL_SCHEME_STATE` (0 s
 6. Place warps from section 7, then connections (R1, R2, R3 as the neighbouring maps are built).
 7. Tell Claude: the NPC objects, signs, coord events, Scheme 1, the gym trainers and Greta's script are wired afterwards (and the author must close or reload Porymap first).
 8. Update `design/flags.md`, `design/interiors.md` (house style), `CREDITS.md`. `make -j4`, then `python3 design/tools/dialogue_check.py` on any new text.
-9. Check no ROM or save is staged (`git diff --cached --name-only | grep -Ei '\.(gba|sav|srm|sgm)$'`).
+9. Check no ROM or save is staged (the command in CLAUDE.md rule 1, the same list the commit hook uses).
 
 ---
 

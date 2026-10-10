@@ -22,7 +22,7 @@ North-east of centre. The sketch draws a purple town on the loop, with a brown r
 ## Source and size
 
 - **No Palladium render.** Vanilla base: `VerdanturfTown` (20 x 20). Plan **about 34 x 28** (the base is too small). Size check: `(34+15)*(28+14) = 2058`, fine.
-- Tilesets: `gTileset_General` plus `gTileset_Mauville` or the Verdanturf set (long grass for heather, stone walls). Section: `MAPSEC_LINGMOOR` (new, PROPOSED, one of the 37 free ids). Fly destination: yes.
+- Tilesets: `gTileset_General` plus `gTileset_Mauville` or the Verdanturf set (long grass for heather, stone walls). Section: `MAPSEC_LINGMOOR` (already added to `region_map_sections.json`). Fly destination: yes.
 - Heather colour and stone walls are tile choices, not new art, as far as the author's tilesets allow.
 
 ## Layout
