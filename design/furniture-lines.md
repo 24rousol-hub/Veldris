@@ -91,7 +91,7 @@ Crestfall_HouseA_EventScript_Fridge::
 	end
 ```
 
-Interaction order is object event, then sign, then metatile behaviour. A sign facing only north would let the general line show from the side, so use 'any' on tiles that also carry a behaviour.
+Interaction order is object event, then sign, then metatile behaviour. A sign facing only north would let the general line show from the side, so use 'any' on tiles that also carry a behaviour. **Seen in game 2026-10-09:** the neighbour's bookshelf had a north-only sign, and from the window-alcove tile beside it the stock bookshelf line ('It's filled with all sorts of books.') replaced the cookbooks line. All furniture signs in the Hollowbrook houses (bookshelves, TVs, fridge) now face 'any'. In the player's house 1F the stove, sink and counter sit behind blocked floor ((1..3,3)), so a behaviour set on them can never be reached; the fridge is only reachable from (4,3).
 
 ## Limits
 

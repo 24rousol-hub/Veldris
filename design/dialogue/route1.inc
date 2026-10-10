@@ -1,5 +1,6 @@
 @ Route 1 dialogue DRAFT (Hollowbrook to Crestfall). Farm country, gentle, Normal types.
-@ Status: PROPOSED, not wired into any map (the map is not built yet).
+@ Status: WIRED 2026-10-01 into data/maps/VeldrisRoute1/scripts.inc (the map scripts are now the source of truth; wording still PROPOSED).
+@ Not wired: RestBench (the tiles have no bench). Kept as the wording record.
 @ Check widths: python3 design/tools/dialogue_check.py design/dialogue/route1.inc
 @ Pokemon only: no real animals. Nobody here swears (only the Goldsworths can).
 
@@ -151,3 +152,9 @@ VeldrisRoute1_Text_SurveyorBAfter::
 VeldrisRoute1_Text_LocalWorried::
 	.string "Those suits keep measuring our\n"
 	.string "ditches. I like my ditches.$"
+
+@ ADDED 2026-10-09: the sighting farmer's line for a save that reaches Route 1 before VAR_HOLLOWBROOK_STATE is 4 (debug warps only;
+@ it used to repeat the guide's tall-grass line, which put one line on two NPCs of the same map).
+VeldrisRoute1_Text_SightingIdle::
+	.string "Harvest is soon. I'm preparing\n"
+	.string "by worrying a lot.$"

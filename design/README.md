@@ -26,7 +26,7 @@
 | [goldsworth.md](goldsworth.md) | Goldsworth houses and parents, PROPOSED; lines in `dialogue/goldsworth.inc` | The family plan changes |
 | [postgame.md](postgame.md) | Elite Four, Champion (aged Cynthia, author-chosen), finale and post-game; lines in `dialogue/league.inc` | The League plan changes |
 | [dialogue/crestfall_extra.inc](dialogue/crestfall_extra.inc) | PROPOSED draft for the rest of Crestfall's NPCs: market, farmhands, gym statue, houses, kids, shopkeeper and the Goldsworth house. Width-checked, not wired | An NPC changes, or the map exists |
-| [dialogue/hollowbrook_houses.inc](dialogue/hollowbrook_houses.inc) | PROPOSED draft for Hollowbrook's neighbour house and the player-house extras, with starter variants. Width-checked, not wired | An NPC changes, or the maps exist |
+| [dialogue/hollowbrook_houses.inc](dialogue/hollowbrook_houses.inc) | Wording record for Hollowbrook's neighbour house and the player-house extras, with starter variants (WIRED 2026-10-01 into the map scripts, which are the source of truth; wording PROPOSED). Width-checked | An NPC changes |
 | [route1.md](route1.md) | Route 1 draft: wild Pokémon, three trainers, NPCs and items; dialogue in `dialogue/route1.inc` | The map or the route plan changes |
 | [route2.md](route2.md) | Route 2 draft: wild Pokémon, four trainers, NPCs, items and the Scheme 1 surveyors; dialogue in `dialogue/route2.inc` | The map or the route plan changes |
 | [porymap-walkthrough.md](porymap-walkthrough.md) | Click-by-click Porymap guide for Hollowbrook, the lab and Route 1, with where everything goes; preview picture in `art/first_maps_preview.png` | Porymap behaviour or the map plan changes |
@@ -36,7 +36,7 @@
 | [map-plan.md](map-plan.md) | Where each map comes from (Palladium references and vanilla bases) and who does what | A map is planned, traced or swapped for another source |
 | [region-map.md](region-map.md) | How maps, the town map and fly destinations are wired, plus the Veldris layout proposal | You touch the region map or fly destinations |
 | [teams.md](teams.md) | PROPOSED trainer teams with level-legal moves (Crestfall gym first) | A team, level or trainer changes |
-| [dialogue/hollowbrook.inc](dialogue/hollowbrook.inc) | PROPOSED draft of all Hollowbrook dialogue: mother, townsfolk, hens, the grandfather, the lab aides, Fennick, and the Troglodyte encounter. Width-checked, not wired into any map | The scene or an NPC changes, or the maps exist and the text moves into `scripts.inc` |
+| [dialogue/hollowbrook.inc](dialogue/hollowbrook.inc) | PROPOSED draft of all Hollowbrook dialogue: mother, townsfolk, hens, the grandfather, the lab aides, Fennick, and the Troglodyte encounter. Wording record: WIRED 2026-10-01 into the town, houses and lab (the map scripts are the source of truth; a few labels stay unwired, see the file header). Width-checked | The scene or an NPC changes |
 | [dialogue/crestfall.inc](dialogue/crestfall.inc) | PROPOSED draft of Crestfall: Scheme 1 (the consultants), the Troglodyte battle beats, Greta's gym dialogue and two optional gym trainers. Width-checked, not wired | Greta, the scheme or the gym trainers change, or the map exists |
 | [dialogue-style.md](dialogue-style.md) | Voice rules, text format, charmap limits | A new text rule is found |
 | [flags.md](flags.md) | Every flag and var the hack uses, plus the spare pool | **Any** flag or var is used, added or freed |

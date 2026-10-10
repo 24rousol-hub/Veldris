@@ -88,7 +88,7 @@ VeldrisRoute1_EventScript_Sighting::
 	lock
 	faceplayer
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 4, VeldrisRoute1_EventScript_SightingTalk
-	msgbox VeldrisRoute1_Text_GuideAfter, MSGBOX_DEFAULT
+	msgbox VeldrisRoute1_Text_SightingIdle, MSGBOX_DEFAULT
 	release
 	end
 
@@ -207,6 +207,10 @@ VeldrisRoute1_Text_TrogSighting:
 	.string "asked me where the ‘good road’ was.\p"
 	.string "I pointed at this one. He looked\n"
 	.string "disappointed.$"
+
+VeldrisRoute1_Text_SightingIdle:
+	.string "Harvest is soon. I'm preparing\n"
+	.string "by worrying a lot.$"
 
 VeldrisRoute1_Text_BucketKid:
 	.string "I'm collecting berries for my\n"
