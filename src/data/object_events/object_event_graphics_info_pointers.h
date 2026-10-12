@@ -475,13 +475,29 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DP_Youngste
 // VELDRIS-DP EXTERNS END
 // VELDRIS-LOOK EXTERNS BEGIN (design/tools/sprites/player_outfits.py)
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMMachBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMAcroBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMFieldMove;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMWatering;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFMachBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFAcroBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFFieldMove;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFWatering;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMMachBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMAcroBike;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMFieldMove;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMWatering;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFMachBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFAcroBike;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFSurfing;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFFieldMove;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFFishing;
@@ -951,13 +967,29 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 // VELDRIS-DP POINTERS END
 // VELDRIS-LOOK POINTERS BEGIN (design/tools/sprites/player_outfits.py)
     [OBJ_EVENT_GFX_VELDRIS_RS_M_NORMAL] = &gObjectEventGraphicsInfo_VeldrisRSMNormal,
+    [OBJ_EVENT_GFX_VELDRIS_RS_M_MACH_BIKE] = &gObjectEventGraphicsInfo_VeldrisRSMMachBike,
+    [OBJ_EVENT_GFX_VELDRIS_RS_M_ACRO_BIKE] = &gObjectEventGraphicsInfo_VeldrisRSMAcroBike,
+    [OBJ_EVENT_GFX_VELDRIS_RS_M_SURFING] = &gObjectEventGraphicsInfo_VeldrisRSMSurfing,
+    [OBJ_EVENT_GFX_VELDRIS_RS_M_FIELD_MOVE] = &gObjectEventGraphicsInfo_VeldrisRSMFieldMove,
+    [OBJ_EVENT_GFX_VELDRIS_RS_M_FISHING] = &gObjectEventGraphicsInfo_VeldrisRSMFishing,
+    [OBJ_EVENT_GFX_VELDRIS_RS_M_WATERING] = &gObjectEventGraphicsInfo_VeldrisRSMWatering,
     [OBJ_EVENT_GFX_VELDRIS_RS_F_NORMAL] = &gObjectEventGraphicsInfo_VeldrisRSFNormal,
+    [OBJ_EVENT_GFX_VELDRIS_RS_F_MACH_BIKE] = &gObjectEventGraphicsInfo_VeldrisRSFMachBike,
+    [OBJ_EVENT_GFX_VELDRIS_RS_F_ACRO_BIKE] = &gObjectEventGraphicsInfo_VeldrisRSFAcroBike,
+    [OBJ_EVENT_GFX_VELDRIS_RS_F_SURFING] = &gObjectEventGraphicsInfo_VeldrisRSFSurfing,
+    [OBJ_EVENT_GFX_VELDRIS_RS_F_FIELD_MOVE] = &gObjectEventGraphicsInfo_VeldrisRSFFieldMove,
+    [OBJ_EVENT_GFX_VELDRIS_RS_F_FISHING] = &gObjectEventGraphicsInfo_VeldrisRSFFishing,
+    [OBJ_EVENT_GFX_VELDRIS_RS_F_WATERING] = &gObjectEventGraphicsInfo_VeldrisRSFWatering,
     [OBJ_EVENT_GFX_VELDRIS_DP_M_NORMAL] = &gObjectEventGraphicsInfo_VeldrisDPMNormal,
     [OBJ_EVENT_GFX_VELDRIS_DP_M_MACH_BIKE] = &gObjectEventGraphicsInfo_VeldrisDPMMachBike,
+    [OBJ_EVENT_GFX_VELDRIS_DP_M_ACRO_BIKE] = &gObjectEventGraphicsInfo_VeldrisDPMAcroBike,
     [OBJ_EVENT_GFX_VELDRIS_DP_M_SURFING] = &gObjectEventGraphicsInfo_VeldrisDPMSurfing,
+    [OBJ_EVENT_GFX_VELDRIS_DP_M_FIELD_MOVE] = &gObjectEventGraphicsInfo_VeldrisDPMFieldMove,
     [OBJ_EVENT_GFX_VELDRIS_DP_M_FISHING] = &gObjectEventGraphicsInfo_VeldrisDPMFishing,
+    [OBJ_EVENT_GFX_VELDRIS_DP_M_WATERING] = &gObjectEventGraphicsInfo_VeldrisDPMWatering,
     [OBJ_EVENT_GFX_VELDRIS_DP_F_NORMAL] = &gObjectEventGraphicsInfo_VeldrisDPFNormal,
     [OBJ_EVENT_GFX_VELDRIS_DP_F_MACH_BIKE] = &gObjectEventGraphicsInfo_VeldrisDPFMachBike,
+    [OBJ_EVENT_GFX_VELDRIS_DP_F_ACRO_BIKE] = &gObjectEventGraphicsInfo_VeldrisDPFAcroBike,
     [OBJ_EVENT_GFX_VELDRIS_DP_F_SURFING] = &gObjectEventGraphicsInfo_VeldrisDPFSurfing,
     [OBJ_EVENT_GFX_VELDRIS_DP_F_FIELD_MOVE] = &gObjectEventGraphicsInfo_VeldrisDPFFieldMove,
     [OBJ_EVENT_GFX_VELDRIS_DP_F_FISHING] = &gObjectEventGraphicsInfo_VeldrisDPFFishing,

@@ -43,6 +43,116 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMNormal =
     .images = sPicTable_VeldrisRSMNormal,
 };
 
+const u16 gObjectEventPal_VeldrisRSMBorrowed[] = INCGFX_U16("graphics/object_events/palettes/veldris_rs_brendan_borrowed.pal", ".gbapal");
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMMachBike = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_M_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_BIKE_TIRE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_BrendanMachBike,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMAcroBike = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_M_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_BIKE_TIRE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_AcroBike,
+    .images = sPicTable_BrendanAcroBike,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMSurfing = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_M_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Surfing,
+    .images = sPicTable_BrendanSurfing,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMFieldMove = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_M_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_FieldMove,
+    .images = sPicTable_BrendanFieldMove,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMFishing = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_M_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Fishing,
+    .images = sPicTable_BrendanFishing,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSMWatering = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_M_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_BrendanWatering,
+};
+
 const u32 gObjectEventPic_VeldrisRSFWalking[] = INCGFX_U32("graphics/object_events/pics/people/ruby_sapphire_may/walking.png", ".4bpp", "-mwidth 2 -mheight 4");
 
 const u32 gObjectEventPic_VeldrisRSFRunning[] = INCGFX_U32("graphics/object_events/pics/people/ruby_sapphire_may/running.png", ".4bpp", "-mwidth 2 -mheight 4");
@@ -84,6 +194,116 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFNormal =
     .subspriteTables = sOamTables_16x32,
     .anims = sAnimTable_BrendanMayNormal,
     .images = sPicTable_VeldrisRSFNormal,
+};
+
+const u16 gObjectEventPal_VeldrisRSFBorrowed[] = INCGFX_U16("graphics/object_events/palettes/veldris_rs_may_borrowed.pal", ".gbapal");
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFMachBike = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_F_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_BIKE_TIRE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_MayMachBike,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFAcroBike = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_F_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_BIKE_TIRE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_AcroBike,
+    .images = sPicTable_MayAcroBike,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFSurfing = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_F_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Surfing,
+    .images = sPicTable_MaySurfing,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFFieldMove = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_F_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_FieldMove,
+    .images = sPicTable_MayFieldMove,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFFishing = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_F_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Fishing,
+    .images = sPicTable_MayFishing,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisRSFWatering = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_RS_F_BORROWED,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_MayWatering,
 };
 
 const u16 gObjectEventPal_VeldrisDPM[] = INCGFX_U16("graphics/object_events/pics/people/dp_player/lucas/walking.png", ".gbapal");
@@ -155,6 +375,30 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMMachBike
     .images = sPicTable_VeldrisDPMMachBike,
 };
 
+const u32 gObjectEventPic_VeldrisDPMAcroBike[] = INCGFX_U32("graphics/object_events/pics/people/dp_player/lucas/acro_bike.png", ".4bpp", "-mwidth 4 -mheight 4");
+
+static const struct SpriteFrameImage sPicTable_VeldrisDPMAcroBike[] = {
+    overworld_ascending_frames(gObjectEventPic_VeldrisDPMAcroBike, 4, 4),
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMAcroBike = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_DP_M,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_BIKE_TIRE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_AcroBike,
+    .images = sPicTable_VeldrisDPMAcroBike,
+};
+
 const u32 gObjectEventPic_VeldrisDPMSurfing[] = INCGFX_U32("graphics/object_events/pics/people/dp_player/lucas/surfing.png", ".4bpp", "-mwidth 4 -mheight 4");
 
 static const struct SpriteFrameImage sPicTable_VeldrisDPMSurfing[] = {
@@ -190,6 +434,30 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMSurfing 
     .images = sPicTable_VeldrisDPMSurfing,
 };
 
+const u32 gObjectEventPic_VeldrisDPMFieldMove[] = INCGFX_U32("graphics/object_events/pics/people/dp_player/lucas/field_move.png", ".4bpp", "-mwidth 4 -mheight 4");
+
+static const struct SpriteFrameImage sPicTable_VeldrisDPMFieldMove[] = {
+    overworld_ascending_frames(gObjectEventPic_VeldrisDPMFieldMove, 4, 4),
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMFieldMove = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_DP_M,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_FieldMove,
+    .images = sPicTable_VeldrisDPMFieldMove,
+};
+
 const u32 gObjectEventPic_VeldrisDPMFishing[] = INCGFX_U32("graphics/object_events/pics/people/dp_player/lucas/fishing.png", ".4bpp", "-mwidth 4 -mheight 4");
 
 static const struct SpriteFrameImage sPicTable_VeldrisDPMFishing[] = {
@@ -212,6 +480,38 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMFishing 
     .subspriteTables = sOamTables_32x32,
     .anims = sAnimTable_Fishing,
     .images = sPicTable_VeldrisDPMFishing,
+};
+
+const u32 gObjectEventPic_VeldrisDPMWatering[] = INCGFX_U32("graphics/object_events/pics/people/dp_player/lucas/watering.png", ".4bpp", "-mwidth 4 -mheight 4");
+
+static const struct SpriteFrameImage sPicTable_VeldrisDPMWatering[] = {
+    overworld_frame(gObjectEventPic_VeldrisDPMWatering, 4, 4, 0),
+    overworld_frame(gObjectEventPic_VeldrisDPMWatering, 4, 4, 2),
+    overworld_frame(gObjectEventPic_VeldrisDPMWatering, 4, 4, 4),
+    overworld_frame(gObjectEventPic_VeldrisDPMWatering, 4, 4, 1),
+    overworld_frame(gObjectEventPic_VeldrisDPMWatering, 4, 4, 1),
+    overworld_frame(gObjectEventPic_VeldrisDPMWatering, 4, 4, 3),
+    overworld_frame(gObjectEventPic_VeldrisDPMWatering, 4, 4, 3),
+    overworld_frame(gObjectEventPic_VeldrisDPMWatering, 4, 4, 5),
+    overworld_frame(gObjectEventPic_VeldrisDPMWatering, 4, 4, 5),
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPMWatering = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_DP_M,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_VeldrisDPMWatering,
 };
 
 const u16 gObjectEventPal_VeldrisDPF[] = INCGFX_U16("graphics/object_events/pics/people/dp_player/dawn/walking.png", ".gbapal");
@@ -281,6 +581,30 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFMachBike
     .subspriteTables = sOamTables_32x32,
     .anims = sAnimTable_Standard,
     .images = sPicTable_VeldrisDPFMachBike,
+};
+
+const u32 gObjectEventPic_VeldrisDPFAcroBike[] = INCGFX_U32("graphics/object_events/pics/people/dp_player/dawn/acro_bike.png", ".4bpp", "-mwidth 4 -mheight 4");
+
+static const struct SpriteFrameImage sPicTable_VeldrisDPFAcroBike[] = {
+    overworld_ascending_frames(gObjectEventPic_VeldrisDPFAcroBike, 4, 4),
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VeldrisDPFAcroBike = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_VELDRIS_DP_F,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_PLAYER,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_BIKE_TIRE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_AcroBike,
+    .images = sPicTable_VeldrisDPFAcroBike,
 };
 
 const u32 gObjectEventPic_VeldrisDPFSurfing[] = INCGFX_U32("graphics/object_events/pics/people/dp_player/dawn/surfing.png", ".4bpp", "-mwidth 4 -mheight 4");

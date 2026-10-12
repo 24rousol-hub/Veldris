@@ -504,6 +504,8 @@ const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
 
 static const struct SpritePalette sObjectEventSpritePalettes[] = {
 // VELDRIS-LOOK PALETTES BEGIN (design/tools/sprites/player_outfits.py)
+    {gObjectEventPal_VeldrisRSMBorrowed, OBJ_EVENT_PAL_TAG_VELDRIS_RS_M_BORROWED},
+    {gObjectEventPal_VeldrisRSFBorrowed, OBJ_EVENT_PAL_TAG_VELDRIS_RS_F_BORROWED},
     {gObjectEventPal_VeldrisDPM, OBJ_EVENT_PAL_TAG_VELDRIS_DP_M},
     {gObjectEventPal_VeldrisDPF, OBJ_EVENT_PAL_TAG_VELDRIS_DP_F},
 // VELDRIS-LOOK PALETTES END

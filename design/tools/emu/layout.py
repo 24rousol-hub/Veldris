@@ -34,14 +34,14 @@ FALLBACK_CFLAGS = ["-mthumb", "-mthumb-interwork", "-mabi=apcs-gnu", "-mtune=arm
 INCLUDES = ["global.h", "main.h", "task.h", "palette.h", "pokemon.h", "siirtc.h", "event_data.h", "load_save.h",
             "script.h"]
 OPTIONAL_INCLUDES = ["constants/script_commands.h", "constants/metatile_behaviors.h", "fieldmap.h",
-                     "constants/map_event_ids.h"]
+                     "constants/map_event_ids.h", "constants/event_objects.h"]
 
 # (struct, field, optional #if guard). The compiler gives the byte offset.
 FIELDS = [
     ("Coords16", ["x", "y"]),
     ("WarpData", ["mapGroup", "mapNum", "warpId", "x", "y"]),
     ("SaveBlock1", ["pos", "location", "continueGameWarp", "dynamicWarp", "lastHealLocation", "weather",
-                    "playerPartyCount", "playerParty", "money", "bag", "flags", "vars", "gameStats"]),
+                    "playerPartyCount", "playerParty", "money", "bag", "flags", "vars", "gameStats", "registeredItem"]),
     ("SaveBlock2", ["playerName", "playerGender", "playTimeHours", "playTimeMinutes", "playTimeSeconds",
                     "optionsButtonMode", "encryptionKey"]),
     ("SaveBlock3", ["fakeRTC"], "OW_USE_FAKE_RTC"),

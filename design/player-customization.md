@@ -1,6 +1,6 @@
 # Player customization (Unbound style)
 
-Status: **BUILT 2026-10-10** at the author's request ('full Unbound copy'). Colour names, unlock conditions and Mom's lines are **PROPOSED** until the author approves them.
+Status: **BUILT 2026-10-10** at the author's request ('full Unbound copy'). **The unlock points and Mom's three lines are APPROVED** (author, 2026-10-12). Colour names are PROPOSED.
 
 ## What Unbound does (research, 2026-10-10)
 
@@ -18,8 +18,8 @@ Status: **BUILT 2026-10-10** at the author's request ('full Unbound copy'). Colo
 |---|---|---|
 | Outfit | Emerald (start), Ruby/Sapphire, Diamond/Pearl (unlockable) | The whole sprite set and battle pictures |
 | Skin | 5 tones | Palette indices 1-3 |
-| Hair (Brendan: Hat) | 8 colours | May: indices 7-8 (her hair). Brendan: index 9 (his white cap; his hair is hidden under it) |
-| Top | 8 colours | Indices 12-13 (May's shirt, Brendan's shirt trim) |
+| Hair (Brendan: Clothes) | 8 colours | May: indices 7-8 (her hair). Brendan: indices 5-8, his navy clothes (his hair is under the cap, and the cap's white is shared with his eyes, so it cannot be recoloured alone) |
+| Top (Brendan: Trim) | 8 colours | Indices 12-13 (May's shirt, Brendan's shirt trim) |
 | Accent | 8 colours | Indices 10-11 (bandana and bag) |
 
 5 x 8 x 8 x 8 = 2,560 colour combinations on the Emerald outfit. Like Unbound, the **colours apply to the base (Emerald) outfit only**; the other outfits keep their own colours. Rows that do not apply are greyed.
@@ -28,15 +28,23 @@ Status: **BUILT 2026-10-10** at the author's request ('full Unbound copy'). Colo
 
 ## Outfits
 
-| Outfit | Overworld | Battle pictures | Unlock (PROPOSED) |
+| Outfit | Overworld | Battle pictures | Unlock (APPROVED 2026-10-12) |
 |---|---|---|---|
 | Emerald | vanilla Brendan/May | vanilla | Start |
-| Ruby/Sapphire | vanilla RS Brendan/May walking and running; bikes, surfing, fishing and the rest fall back to Emerald | vanilla RS front and back | 3 badges, or `FLAG_VELDRIS_OUTFIT_RS` |
-| Diamond/Pearl | Lucas/Dawn (DP set): walking, running, Mach Bike, surfing, fishing (Dawn also Cut/Rock Smash pose and watering); acro bike, underwater and anything missing fall back to Emerald | DP Lucas/Dawn front, DP back (spilledpizza) | 6 badges, or `FLAG_VELDRIS_OUTFIT_DP` |
+| Ruby/Sapphire | vanilla RS Brendan/May walking and running; every other pose borrows Emerald's sheet with an RS palette (see below) | vanilla RS front and back | 3 badges, or `FLAG_VELDRIS_OUTFIT_RS` |
+| Diamond/Pearl | Lucas/Dawn (DP set): walking, running, Mach Bike, surfing, fishing (Dawn also the Cut pose and watering); the missing sheets are built from their own art (see below) | DP Lucas/Dawn front, DP back (spilledpizza) | 6 badges, or `FLAG_VELDRIS_OUTFIT_DP` |
 
-The unlock points are placeholders: `IsOutfitUnlocked` in `src/veldris_look.c` checks the flag or the badge count, so the outfit simply appears in the list. A scene that hands each outfit over (like Unbound's) can set the flag instead; that is a story point, so the author decides.
+Unlocks: `IsOutfitUnlocked` in `src/veldris_look.c` checks the flag or the badge count, so the outfit simply appears in the list (author approved 2026-10-12). The flags stay for the debug menu or a later scene.
 
-**Checked in mGBA (2026-10-10):** Mom's scene gives the box and opens the picker; every row changes the battle picture and the walking preview live; Ruby and Diamond swap the whole set and grey out the colour rows; the map sprite keeps the look after the picker and after a warp (Dawn runs with her own running frames); the trainer card shows the recoloured picture; in battle the VS banner and the back picture are Dawn's. **Not checked:** the RS/DP outfits on a bike, surfing or fishing, the water reflection, and the Costume Box from the bag (the same script as Mom's, without the gift).
+**Gaps, tested and fixed (2026-10-12).** Before the fix the gaps were real: Ruby/Sapphire had only walking and running, so every other pose showed the Emerald sprite; Lucas lacked the acro bike, Cut pose and watering sheets, Dawn the acro bike. Fixes, all in `design/tools/sprites/player_outfits.py`:
+
+| Gap | Fix |
+|---|---|
+| RS: bikes, surf, Cut pose, fishing, watering | RS Brendan and May are Emerald's drawings with other colours, so these poses borrow Emerald's sheets. A **borrowed palette** per gender is built from the RS walking art: for each of the bandana, hat band and trim slots (10-13) it takes the RS colour found on the same pixels (May's bandana is green 10-11 in Emerald but red 12-13 in RS). Files `graphics/object_events/palettes/veldris_rs_*_borrowed.pal` |
+| DP: acro bike (both), Cut pose and watering (Lucas) | Built from the character's own art and saved next to the copied sheets: the acro bike from the Mach Bike frames (wheelies and hops show the plain riding pose of the same direction), the Cut pose and watering from the standing frames centred in 32x32 |
+| Underwater (Dive), every outfit | Left on Emerald's sprite on purpose: it is drawn as a dark shape in its own palette, so the outfit does not show |
+
+**Checked in mGBA.** 2026-10-10: Mom's scene gives the box and opens the picker; every row changes the battle picture and the walking preview live; Ruby and Diamond swap the whole set and grey out the colour rows; the map sprite keeps the look after the picker and after a warp; the trainer card shows the recoloured picture; in battle the VS banner and the back picture are Dawn's. 2026-10-12, by the robot test `design/tools/emu/tests/test_outfits.py` (`--slow`, about 2 minutes) for all three outfits as Brendan and as May: Mach Bike, Acro Bike, Old Rod, the Surf start pose (the same pose as Cut) and surfing each use the outfit's sprite, and the Costume Box from SELECT opens the picker. The water reflection shows for every outfit (Crestfall pond). **Not checked:** watering (berries are not in the game yet) and Dive.
 
 ## Save data
 
