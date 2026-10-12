@@ -99,14 +99,18 @@ def positions_and_scripts(emu):
 @testkit.test("harness: party and bag decoding (debug preset 4)")
 def party_decoding(emu):
     g = emu.game
-    g.debug_preset(4)  # Veldris_Debug_Preset4: Mudkip L8, stock of items, outside the house
+    g.debug_preset(4)  # Veldris_Debug_Preset4: Totodile L8 (the ball 3 starter), stock of items, outside the house
     party = g.party()
     check_eq(len(party), 1, "party size after preset 4")
     mon = party[0]
-    check_eq(mon["species_id"], g.L.const("SPECIES_MUDKIP"), "species (SPECIES_MUDKIP)")
+    check_eq(mon["species_id"], g.L.const("SPECIES_TOTODILE"), "species (SPECIES_TOTODILE)")
     check_eq(mon["level"], 8, "level")
-    check(mon["hp"] > 0 and mon["hp"] == mon["max_hp"], "Mudkip should be at full health: %s" % mon)
-    check(len(mon["moves"]) >= 1, "Mudkip should know a move")
+    check(mon["hp"] > 0 and mon["hp"] == mon["max_hp"], "Totodile should be at full health: %s" % mon)
+    check(len(mon["moves"]) >= 1, "Totodile should know a move")
+    # Scratch is Totodile's level 1 move in every learnset and a level 8 mon has at most four moves, so it is always there.
+    scratch = g.L.name_of("MOVE_", g.L.const("MOVE_SCRATCH"))
+    check(scratch in mon["moves"], "Totodile L8 should know Scratch, it knows %s" % mon["moves"])
+    check(not mon["is_egg"], "the starter must not be an egg")
     check_eq(g.map_name(), "MAP_HOLLOWBROOK", "map after preset 4")
     check_eq(g.var_get("VAR_HOLLOWBROOK_STATE"), 4, "story state after preset 4")
     check(g.bag_count("ITEM_POTION") >= 10, "preset 4 stocks 10 Potions, bag has %d" % g.bag_count("ITEM_POTION"))

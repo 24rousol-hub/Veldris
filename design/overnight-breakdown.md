@@ -43,7 +43,7 @@ Left alone on purpose (after checking): swapping two flags to make badges contig
 
 ## 3. What I need from you
 
-Open `design/decisions-pending.md`: one table, one code per question, my pick beside each. **Update 2026-10-12: the author answered 1 (AI ladder: a short 3-rung one, see [ai-ladder.md](ai-ladder.md)) and 3 (level caps: off).** The text below is the original note. The ones with the most effect on the game: **S1** the four starters, **1** the AI ladder, **3** level caps, **U1** hold-R text skip, **L1 and L2** the tone of the leaders' and League's mid-battle lines. Also needed: **close or reload Porymap before pulling**, because `map.json` event lists changed in Hollowbrook, the lab, the player's house, the neighbour's house and Route 1.
+Open `design/decisions-pending.md`: one table, one code per question, my pick beside each. **Update 2026-10-12: the author answered 1 (AI ladder: a short 3-rung one, see [ai-ladder.md](ai-ladder.md)) and 3 (level caps: off), and S1 (the starters: set A, Johto plus Togepi, built the same day).** The text below is the original note. The ones with the most effect on the game: **S1** the four starters, **1** the AI ladder, **3** level caps, **U1** hold-R text skip, **L1 and L2** the tone of the leaders' and League's mid-battle lines. Also needed: **close or reload Porymap before pulling**, because `map.json` event lists changed in Hollowbrook, the lab, the player's house, the neighbour's house and Route 1.
 
 ## 4. Second pass (landed 2026-10-10)
 

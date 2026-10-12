@@ -43,7 +43,9 @@ def watch(g, emu, seconds, press_a=False):
 def outfits(emu):
     g = emu.game
     g.debug_preset(4)
-    g.run_rom_script("Veldris_Debug_Preset8")      # all badges, Swampert (Surf) in the party; ends with a message
+    # All badges, plus the Swampert and Tropius test dummies (Swampert is the Surf learner; they are debug-menu dummies, not
+    # starters and not tied to the starter choice); the script ends with a message.
+    g.run_rom_script("Veldris_Debug_Preset8")
     for _ in range(30):
         time.sleep(0.5)
         if not g.script_running() and g.overworld_idle():

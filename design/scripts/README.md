@@ -48,8 +48,8 @@ Vanilla flags set or read: `FLAG_BADGE01_GET`, `FLAG_SYS_GAME_CLEAR`, `FLAG_SYS_
 
 ## Open questions and things I was unsure about
 
-1. **Fourth starter and `VAR_STARTER_MON`.** **FIXED 2026-09-30** (author approved): `sStarterMon` in `src/starter_choose.c` now has a fourth entry (`VELDRIS_FOURTH_STARTER`, stand-in PIKACHU) and the bounds check is `>= STARTER_MON_TABLE_SIZE`. Ball 4 can now store 3 in `VAR_STARTER_MON`. Logged in [engine-edits.md](../engine-edits.md).
-2. **Species are stand-ins** (Treecko, Torchic, Mudkip), and the fourth is `SPECIES_TBD4` in the scripts; use `VELDRIS_FOURTH_STARTER` (stand-in PIKACHU) until the author picks.
+1. **Fourth starter and `VAR_STARTER_MON`.** **FIXED 2026-09-30** (author approved): `sStarterMon` in `src/starter_choose.c` now has a fourth entry (`VELDRIS_FOURTH_STARTER`, PIKACHU as a stand-in then, **TOGEPI since 2026-10-12**) and the bounds check is `>= STARTER_MON_TABLE_SIZE`. Ball 4 can now store 3 in `VAR_STARTER_MON`. Logged in [engine-edits.md](../engine-edits.md).
+2. **Species: DECIDED (author, 2026-10-12).** The draft scripts here still show the stand-ins (Treecko, Torchic, Mudkip, and `SPECIES_TBD4` for the fourth). The built lab and house scripts use Chikorita, Cyndaquil, Totodile and Togepi (`VELDRIS_FOURTH_STARTER`); the built files are the source of truth.
 3. **All coordinates and movements are placeholders** (`TODO(coords)`): door tiles, Troglodyte's walk to the balls and out, the warp into the Goldsworth house. They depend on the built maps.
 4. **Initial hide flags** are derived in `OnTransition` from `VAR_HOLLOWBROOK_STATE` instead of editing `EventScript_ResetAllMapFlags`, so no engine edit is needed. Cost: a few extra lines per map load.
 5. **Goldsworth door** is a bg_event on a door tile with no warp, and it warps with `warpdoor` only after `FLAG_SYS_GAME_CLEAR`. Untested.

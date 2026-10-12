@@ -47,7 +47,7 @@ Greta as Champion (old Option B) and Troglodyte as Champion (old Option C) were 
 
 Place: a corridor outside the Champion's chamber, after DRAYDEN.
 
-Team (Pool Prune: Rival Starter as in [teams.md](teams.md)): fixed Pokémon Stoutland 68 (SIR BISCUIT, now grown), Gardevoir 69, Vaporeon 70, Tyranitar 70, Pyroar 70, plus one starter final form, tagged per starter, at level 72 (stand-in Sceptile, Blaziken or Swampert). Party Size 6, the five fixed plus one survivor of the prune. Milotic moved to the Champion. No IVs or EVs. Well-bred, poorly trained: no held items. AI (author, 2026-10-12): the Sharp rung, `Basic Trainer / Hp Aware / Try To 2hko`, never Ace Pokemon (his party order is random); see [ai-ladder.md](ai-ladder.md).
+Team (Pool Prune: Rival Starter as in [teams.md](teams.md)): fixed Pokémon Stoutland 68 (SIR BISCUIT, now grown), Gardevoir 69, Vaporeon 70, Tyranitar 70, Pyroar 70, plus one starter final form, tagged per starter, at level 72 (Meganium, Typhlosion or Feraligatr, the final forms of Chikorita, Cyndaquil and Totodile, chosen 2026-10-12; Emerald's Sceptile, Blaziken and Swampert were the stand-ins). Party Size 6, the five fixed plus one survivor of the prune. Milotic moved to the Champion. No IVs or EVs. Well-bred, poorly trained: no held items. AI (author, 2026-10-12): the Sharp rung, `Basic Trainer / Hp Aware / Try To 2hko`, never Ace Pokemon (his party order is random); see [ai-ladder.md](ai-ladder.md).
 
 | Beat | Arc A: contemptuous then humbled |
 |---|---|
@@ -60,7 +60,7 @@ Shared: `League_Text_TrogBattleIntro` and `TrogBiscuit`. Arc B (oblivious) was n
 
 ## Hall of Fame
 
-The standard flow: the Champion falls, the player walks in, the Hall of Fame records the team, the credits roll, and the save sets `FLAG_SYS_GAME_CLEAR` (used by the grandfather's after-League lines). Lines: `League_Text_HofAttendant`, and a call from Fennick (`League_Text_HofFennickCall`) once the player is back in Hollowbrook. Art and the Hall of Fame stage are vanilla, so this costs no engine edit. The credits currently read `VAR_STARTER_MON` (story-outline.md), so check the fourth starter there.
+The standard flow: the Champion falls, the player walks in, the Hall of Fame records the team, the credits roll, and the save sets `FLAG_SYS_GAME_CLEAR` (used by the grandfather's after-League lines). Lines: `League_Text_HofAttendant`, and a call from Fennick (`League_Text_HofFennickCall`) once the player is back in Hollowbrook. Art and the Hall of Fame stage are vanilla, so this costs no engine edit. The credits read `VAR_STARTER_MON` through `GetStarterPokemon` (`src/credits.c`), which has had a fourth entry since 2026-09-30 (Togepi since 2026-10-12), so a player who took the fourth starter is covered (checked by reading the code, not run in game).
 
 ## Post-game
 

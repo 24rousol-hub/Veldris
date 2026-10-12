@@ -108,7 +108,8 @@ Hollowbrook_EventScript_ShowTrog::
 	return
 
 @ Shared helper (also called by the lab): buffers Troglodyte's species into STR_VAR_2.
-@ Stand-in species (Treecko/Torchic/Mudkip) until the author picks the real starters;
+@ Stand-in species (Treecko/Torchic/Mudkip) in this history draft; the built lab file uses Chikorita/Cyndaquil/Totodile
+@ (author, 2026-10-12);
 @ keep the order the same as the lab's three balls (ball 1, 2, 3) and as Tag6/Tag7/Tag8
 @ in trainers.party.
 Hollowbrook_EventScript_BufferTrogSpecies::

@@ -6,7 +6,7 @@ Status: **PROPOSED.** Name approved 2026-10-01 ([../../region-names.md](../../re
 
 - Fifth gym (**Ice**, WAKASAGI, FROST BADGE, gives **HM Surf** and TM Ice Beam). Surf opens every blue line on the sketch (Wendlebury to Vesperhaven and the water roads in the east and south).
 - A **city**, so it gets a **Goldsworth house** (the author's rule is one per city, except the skyscraper city). Cousins here: PRESCOTT, BIFF and WINSTON from [../../goldsworth.md](../../goldsworth.md), none repeated from Briarwick.
-- **Scheme 5** (drilled holes and flags across the frozen lake, 'angling rights') and **Troglodyte fight 4** (level 30 to 33, four Pokémon, starter at stage 2).
+- **Scheme 5** (drilled holes and flags across the frozen lake, 'angling rights') and **Troglodyte fight 4** (level 30 to 33, four Pokémon, starter in the form its level gives).
 - It is also the **hub of the north**: three roads leave (R6 west back to Smeltham, R10 north-east to Cragdale, R18 south to Gildhaven).
 - The player arrives at about level 33 and leaves at about 36 to 38.
 
@@ -117,7 +117,7 @@ Note on Surf: it is given here, so every earlier pond (R4, R5, R6, R8) becomes f
   2. *Reveal:* he has 'bought the angling rights' and will close the lake to anyone without a membership.
   3. *Collapse:* the drill rig **freezes in place**, then the dock. The crew stands on a floating slab until the Leader's **GLALIE** thaws them, and sells them soup at cost. A `coord_event` trigger on the shore path starts it; the slab and rig are objects.
   4. Note: WAKASAGI's team has no GLALIE (SNORUNT is the closest; Open question 2).
-- **Troglodyte fight 4 (PROPOSED, from the schedule):** party of 4, levels 30 to 33. Starter at stage 2, **Sir Biscuit as HERDIER**, **VAPOREON**, **KIRLIA**. Sneer line: 'Five towns of peasants cheering for you. It's frankly rude.' It happens on the shore, after the crew is thawed and before the player enters the gym. Reuse a vanilla trainer id; no IVs.
+- **Troglodyte fight 4 (PROPOSED, from the schedule):** party of 4, levels 30 to 33. Starter in the form its level gives, **Sir Biscuit as HERDIER**, **VAPOREON**, **KIRLIA**. Sneer line: 'Five towns of peasants cheering for you. It's frankly rude.' It happens on the shore, after the crew is thawed and before the player enters the gym. Reuse a vanilla trainer id; no IVs.
 
 ## Flags (not claimed)
 

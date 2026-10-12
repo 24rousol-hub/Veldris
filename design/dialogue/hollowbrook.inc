@@ -5,7 +5,8 @@
 @   python3 design/tools/dialogue_check.py design/dialogue/hollowbrook.inc
 @ Labels live in the maps' scripts.inc files now (see design/dialogue-style.md).
 @ Rules used: single curly quotes for speech, TROGLODYTE/BEAUREGARD written literally, only Goldsworths swear,
-@ species are not decided so the scene buffers names with {STR_VAR_1}/{STR_VAR_2} (bufferspeciesname).
+@ the scene buffers species names with {STR_VAR_1}/{STR_VAR_2} (bufferspeciesname); the species were chosen on 2026-10-12
+@ (Chikorita, Cyndaquil, Totodile, and Togepi as the fourth) and the buffering stays.
 @ Fennick calls him BEAUREGARD (formal). The staff call him TROGLODYTE, which seeds the nickname.
 
 @ ===================================================================

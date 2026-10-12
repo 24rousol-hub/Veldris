@@ -50,8 +50,9 @@
 @   Troglodyte starts 1 tile below and left of ball 1; player enters from the door
 @   and walks 2 tiles up to the trigger row.
 @
-@ SPECIES are Emerald stand-ins (Treecko/Torchic/Mudkip) until the author picks real
-@ starters (story-outline.md). Ball order = Tag6/Tag7/Tag8 order in trainers.party.
+@ SPECIES in this history draft are the Emerald stand-ins (Treecko/Torchic/Mudkip). The author picked the real
+@ starters on 2026-10-12 (Chikorita/Cyndaquil/Totodile, Togepi as the fourth) and the BUILT lab file uses those.
+@ Ball order = Tag6/Tag7/Tag8 order in trainers.party.
 @ ===========================================================================
 
 Hollowbrook_ProfFennickLab_MapScripts::
@@ -266,8 +267,8 @@ Hollowbrook_ProfFennickLab_EventScript_Ball3::
 	goto Hollowbrook_ProfFennickLab_EventScript_BallGiven
 	end
 
-@ The fourth starter. SPECIES_TBD4 is a PLACEHOLDER: the author has not chosen it.
-@ Replace all four occurrences with the real species constant.
+@ The fourth starter. SPECIES_TBD4 is a PLACEHOLDER in this draft (chosen 2026-10-12: Togepi; the built file uses
+@ SPECIES_TOGEPI).
 Hollowbrook_ProfFennickLab_EventScript_Ball4::
 	lockall
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_ProfFennickLab_EventScript_BallGone

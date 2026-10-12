@@ -5,25 +5,25 @@ Hollowbrook_PlayersHouse_1F_MapScripts::
 	.byte 0
 
 @ Shared helper: {STR_VAR_1} = the player's starter (VAR_STARTER_MON 0-2 = the three on show, 3 = the fourth).
-@ Stand-in species until the author picks the real four.
+@ The four starters (author, 2026-10-12): Chikorita, Cyndaquil, Totodile, and Togepi as the fourth.
 Hollowbrook_EventScript_BufferPlayerStarter::
 	switch VAR_STARTER_MON
 	case 0, Hollowbrook_EventScript_BufferPlayerStarter1
 	case 1, Hollowbrook_EventScript_BufferPlayerStarter2
 	case 2, Hollowbrook_EventScript_BufferPlayerStarter3
-	bufferspeciesname STR_VAR_1, SPECIES_PIKACHU
+	bufferspeciesname STR_VAR_1, SPECIES_TOGEPI
 	return
 
 Hollowbrook_EventScript_BufferPlayerStarter1::
-	bufferspeciesname STR_VAR_1, SPECIES_TREECKO
+	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
 	return
 
 Hollowbrook_EventScript_BufferPlayerStarter2::
-	bufferspeciesname STR_VAR_1, SPECIES_TORCHIC
+	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
 	return
 
 Hollowbrook_EventScript_BufferPlayerStarter3::
-	bufferspeciesname STR_VAR_1, SPECIES_MUDKIP
+	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
 	return
 
 @ Trigger on the tile next to the stairs, only while state is 0 (fresh from the intro).

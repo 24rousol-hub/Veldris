@@ -504,7 +504,7 @@ class Layout:
         return {k: v for k, v in self.data["const"].items() if k.startswith(prefix)}
 
     def name_of(self, prefix, value):
-        """First constant (in header order) with this prefix and value: name_of('SPECIES_', 258) -> 'SPECIES_MUDKIP'.
+        """First constant (in header order) with this prefix and value: name_of('SPECIES_', 158) -> 'SPECIES_TOTODILE'.
 
         Several names can share a value (aliases); compare numbers, not names, when it matters.
         """

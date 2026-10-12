@@ -33,7 +33,7 @@ The field move is listed in **every** party member's menu, not just the learner'
 
 No new flags, vars, save fields, assets or text. A player who never picks a Pokémon that can learn a move simply gets the vanilla 'this tree looks like it can be CUT down' text.
 
-## Checked in mGBA (2026-10-08, party Caterpie, Treecko, Mudkip, Oddish; nobody knew a field move)
+## Checked in mGBA (2026-10-08, party Caterpie, Treecko, Mudkip, Oddish; nobody knew a field move; Treecko and Mudkip were the stand-in starters)
 
 | Check | Result |
 |---|---|

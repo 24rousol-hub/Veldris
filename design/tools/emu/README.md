@@ -15,10 +15,11 @@ Two ways to use it:
 ```
 make -j4                                   # the robot needs the built game: pokeemerald.gba and pokeemerald.elf
 apt-get install -y mgba-sdl xvfb xdotool imagemagick     # once per fresh container
-python3 design/tools/emu/run_tests.py              # the quick tests, about 75 seconds
-python3 design/tools/emu/run_tests.py --slow       # also the Route 1 night walk, about 2 more minutes (3 in all)
+python3 design/tools/emu/run_tests.py              # the quick tests: 23 passed, 2 skipped in 257 s on 2026-10-12 (the six starter tests are about 83 s of that)
+python3 design/tools/emu/run_tests.py --slow       # also the Route 1 night walk, about 2 more minutes
 python3 design/tools/emu/run_tests.py --list       # what exists
 python3 design/tools/emu/run_tests.py --only Mom   # one test, by part of its name
+python3 design/tools/emu/run_tests.py --only starters   # the six starter-scene tests
 python3 design/tools/emu/tests/test_new_game.py    # or run one file on its own
 ```
 
@@ -51,6 +52,9 @@ tree where `make` has never run. **That file is generated; add `*.emu-layout.jso
 | Hollowbrook east exit is gated until the player has a starter | at `VAR_HOLLOWBROOK_STATE` 1 stepping onto (30,10) starts the gate script and pushes the player back; at state 4 the same step does nothing |
 | Lab: both side tiles of the doorway row start the Troglodyte scene | stepping onto (5,10) and (8,10) at state 1 runs the scene (state becomes 2), so the 4-tile doorway cannot be used to skip it |
 | Lab: the exit is blocked at state 2 | stepping onto the mat (6,11) at state 2 runs the exit blocker and the player stays in the lab |
+| starters: the species table and the name helpers say Chikorita, Cyndaquil, Totodile, Togepi | reads the ROM table `sStarterMon` (the four species in ball order) and runs the two name helper scripts in the ROM for every value (`VAR_TROG_STARTER` 0 to 2, `VAR_STARTER_MON` 0 to 3), reading back the name each one printed |
+| starters: lab ball 1 / 2 / 3 / 4 gives Chikorita / Cyndaquil / Totodile / Togepi | four tests, one per ball. Sets the state the Troglodyte scene leaves (state 2, his ball gone, ball 4 revealed), stands in front of the ball across the counter, presses A, answers YES to 'Choose the X?' and NO to the nickname. The question names the species, the party is exactly that species at level 5 and not an egg, `VAR_STARTER_MON` is 0 to 3, state is 3, only that ball left the table |
+| starters: the lab scene end to end | the real scene from the doorway: Troglodyte takes a random one of balls 1 to 3 (`VAR_TROG_STARTER` 0 to 2, his ball is the one that is gone, the name he says is his species), ball 4 was hidden and Fennick reveals it, then the player takes a ball he did not take (`VAR_STARTER_MON` differs from `VAR_TROG_STARTER`) |
 | Respawn point: set once at the start, and walking into Hollowbrook does not overwrite a later one | the heal location is Hollowbrook on a new game and stays at a pretend Crestfall heal point after re-entering the town |
 | furniture lookup and its scripts are in the ROM | only that the symbols exist (the lookup cannot fire until you give tiles a furniture behaviour in Porymap). Starts no emulator |
 | Route 1 tall grass gives the Night table at night (`--slow`) | sets the clock to 22:00, walks in the grass, runs from 8 wild Pokemon: no species that is only in the Day table and at least one that is only in the Night table. The species come from `wild_encounters.json`, so changing the tables does not break it |
@@ -60,6 +64,16 @@ tree where `make` has never run. **That file is generated; add `*.emu-layout.jso
 
 With `EMU_DAY_CONTROL=1 ... --slow` the Route 1 test also repeats the walk at noon (Day-only species appear, no
 Night-only ones).
+
+**The starters (author's decision, 2026-10-12: "Johto + Togepi").** Ball 1 is Chikorita (`VAR_STARTER_MON` 0, Grass),
+ball 2 Cyndaquil (1, Fire), ball 3 Totodile (2, Water), and the fourth, which Prof. Fennick reveals as an apology, is
+Togepi (3), an ordinary level 5 Pokemon and not an egg. Debug presets 3 and 4 therefore give a Totodile (preset 3 L5,
+preset 4 L8; the player took ball 3 and Troglodyte took ball 1, Chikorita). `tests/test_starters.py` pins these four
+species by name in one list at the top (`STARTERS`); change that list and nothing else if the author ever picks others.
+Troglodyte's roll in the real scene is random, so that test follows whatever he rolled and the player takes the next ball
+round. It does **not** cover Troglodyte's own fights (the robot never plays them; for his three starter versions in
+`trainers.party` see `teamcheck.py`, `trainer_lint.py` and the unit tests in `test/veldris.c`), the nickname screen, or
+the lines in the player's house; see the docstring of the test file for the exact list.
 
 ## Look at the game without a test: `scene.py`
 
@@ -92,7 +106,7 @@ text, with warps, triggers, grass and NPCs), `objects`, `state`, `party`, `items
    After every press it checks that the game really saw the button.
 4. **Shortcuts that use the game's own code.** `game.warp(...)` and `game.debug_preset(4)` point the game's script
    engine at a few script bytes, or at the debug menu's preset scripts already in the ROM, so a test can skip to
-   Route 1 with Mudkip in the party in a fraction of a second.
+   Route 1 with Totodile in the party in a fraction of a second.
 
 ## Limits (honest list)
 
@@ -118,8 +132,9 @@ text, with warps, triggers, grass and NPCs), `objects`, `state`, `party`, `items
   at night is impossible with the right table). A right table fails only by bad luck, about 1 run in 2000 (no
   Night-only species in 8 night encounters).
 - **It follows the current build.** Variable names, maps and species must exist in this build, and the Mom tests name
-  Veldris story things, so they need updating when the story changes. It tests the dev ROM (`pokeemerald.gba`), not
-  the `make release` one (that has no debug scripts).
+  Veldris story things, so they need updating when the story changes. The starter tests name the four starter species
+  on purpose (see "The starters" above). It tests the dev ROM (`pokeemerald.gba`), not the `make release` one (that has
+  no debug scripts).
 - The first layout step asks `make -n` for the compile flags (it only prints, but `make` first rebuilds its own
   dependency files, which is what the 40 seconds on a never-built tree are). `EMU_NO_MAKE=1` skips that and uses a
   built-in copy of the flags (identical today, checked).
@@ -135,8 +150,10 @@ text, with warps, triggers, grass and NPCs), `objects`, `state`, `party`, `items
 | One memory read or write | under 1 ms, and the game does not slow down |
 | `warp` or `debug_preset` | 0.2 to 1 s |
 | Walking one tile at normal speed | 0.29 s (0.17 s with `run=True`) |
-| The quick tests (12) | 74 s |
-| Everything including the Route 1 night walk | about 190 s (the walk alone 100 s: about 9 steps and one battle per wild Pokemon) |
+| The quick tests (12, as of 2026-10-09; the suite has grown since, see the last row) | 74 s |
+| Everything including the Route 1 night walk (as of 2026-10-09) | about 190 s (the walk alone 100 s: about 9 steps and one battle per wild Pokemon) |
+| The six starter tests (`--only starters`) | measured 2026-10-12: 5 s (table and names), 10 to 11 s for each of the four ball tests, 35 s for the whole scene, about 83 s together |
+| The whole quick suite (23 tests, 2 skipped) | 257 s measured 2026-10-12; with `--slow`, the Route 1 night walk took 90 s and the outfits test 130 s (run as two separate invocations) |
 
 ## Adding a test
 
@@ -148,11 +165,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 import testkit
 from testkit import check, check_eq
 
-@testkit.test("Preset 4 leaves Mudkip and ten Potions")   # the name shown in the output
+@testkit.test("Preset 4 leaves Totodile and ten Potions")   # the name shown in the output
 def preset4(emu):                                         # `emu` starts as a fresh new game in the bedroom
     g = emu.game
     g.debug_preset(4)                                     # the debug menu's Scripts 4, run for you
-    check_eq(g.party()[0]["level"], 8, "Mudkip's level")
+    check_eq(g.party()[0]["level"], 8, "Totodile's level")
     check(g.bag_count("ITEM_POTION") >= 10, "preset 4 should stock Potions")
     g.warp("MAP_VELDRIS_ROUTE1", 13, 11)                  # teleport (map tiles, as Porymap shows them)
     ok, steps = emu.walk("UU")                            # walk tile by tile (U D L R); stops early if blocked
@@ -175,7 +192,7 @@ What `emu.game` can do (all of it reads the live game):
 | Ask | Methods |
 |---|---|
 | Flags and vars | `flag_get`, `flag_set`, `flag_clear`, `var_get`, `var_set` (names or numbers) |
-| Items and party | `bag()`, `bag_count(item)`, `bag_where(item)`, `party()`, `enemy_party()` (species, level, hp, moves) |
+| Items and party | `bag()`, `bag_count(item)`, `bag_where(item)`, `party()`, `enemy_party()` (species, level, hp, moves, is_egg) |
 | Where am I | `map_name()`, `map_id()`, `player_pos()`, `saved_pos()`, `player_facing()`, `read_map()`, `ascii_map()`, `find_tiles("MB_TALL_GRASS")`, `special_tiles()`, `objects()`, `object("LOCALID_...")`, `find_path((x, y))` |
 | Clock | `clock()`, `set_clock(hour, minute)` |
 | What is it doing | `state()`, `overworld_idle()`, `script_running()`, `battle_pending()`, `busy()`, `tasks()`, `callback2()`, `keys_held()`, `message_text()` (what the last message box said), `summary()`, `wait_until(fn, timeout, settle=3)` |

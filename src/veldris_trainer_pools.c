@@ -8,8 +8,9 @@
 // PrunePool (src/trainer_pools.c). See design/trainer-roster.md.
 
 //  Veldris: Troglodyte's starter is random, so his pool lists his other Pokemon plus three starter versions
-//  tagged TAG6, TAG7 and TAG8 (the 1st, 2nd and 3rd starter on show). VAR_TROG_STARTER holds 0, 1 or 2.
-//  Drop the starter versions that do not match. Untagged members stay in the pool.
+//  tagged TAG6, TAG7 and TAG8 (the 1st, 2nd and 3rd starter on show: Chikorita, Cyndaquil and Totodile since the author's
+//  choice of 2026-10-12, the order of GRASS/FIRE/WATER_STARTER in src/starter_choose.c; test/veldris.c checks the pairing).
+//  VAR_TROG_STARTER holds 0, 1 or 2. Drop the starter versions that do not match. Untagged members stay in the pool.
 void VeldrisRivalStarterPrune(const struct Trainer *trainer, u8 *poolIndexArray, const struct PoolRules *rules)
 {
     u32 starterTags = MON_POOL_TAG_TAG6 | MON_POOL_TAG_TAG7 | MON_POOL_TAG_TAG8;

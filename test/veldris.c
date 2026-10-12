@@ -3,9 +3,11 @@
 #include "battle_transition.h"
 #include "data.h"
 #include "trainer_pools.h"
+#include "veldris_trainer_pools.h"
 #include "event_data.h"
 #include "field_move.h"
 #include "pokemon.h"
+#include "starter_choose.h"
 #include "veldris_badges.h"
 #include "veldris_field_moves.h"
 #include "constants/abilities.h"
@@ -108,4 +110,96 @@ TEST("Veldris: AI ladder gives the 16 ladder trainers exactly their rung and no 
     EXPECT_AI_LADDER(TRAINER_DRAYDEN, VELDRIS_AI_SHARP | VELDRIS_AI_ACE);
     EXPECT_AI_LADDER(TRAINER_DUNMORE, VELDRIS_AI_SHARP | VELDRIS_AI_ACE);
     EXPECT_AI_LADDER(TRAINER_CYNTHIA, VELDRIS_AI_SHARP | VELDRIS_AI_ACE);
+}
+
+// The starters (author, 2026-10-12: Johto + Togepi). GetStarterPokemon() is what the lab's balls, IsStarterInParty and the
+// credits read, and ball k + 1 is VAR_STARTER_MON k. Troglodyte takes ball VAR_TROG_STARTER (0, 1 or 2) at random, and the pool
+// prune (src/veldris_trainer_pools.c) keeps the party-file tag Tag6, Tag7 or Tag8 for ball 0, 1 or 2, so each tag must hold
+// that ball's species: a swapped pair would silently make him take the wrong starter. Uses the embedded trainer data above.
+static u32 VeldrisTaggedSpecies(u32 trainer, u32 tag)
+{
+    const struct Trainer *data = &sVeldrisTrainers[DIFFICULTY_NORMAL][trainer];
+    u32 found = SPECIES_NONE;
+    u32 count = 0;
+    u32 i;
+
+    for (i = 0; i < data->poolSize; i++)
+    {
+        if (data->party[i].tags & tag)
+        {
+            found = data->party[i].species;
+            count++;
+        }
+    }
+    // Exactly one Pokemon may carry the tag, or the prune would keep none or two starters.
+    return count == 1 ? found : SPECIES_NONE;
+}
+
+TEST("Veldris: starters are Chikorita, Cyndaquil, Totodile and Togepi, and Troglodyte's Tag6 to Tag8 follow the ball order")
+{
+    EXPECT_EQ(GetStarterPokemon(0), SPECIES_CHIKORITA);
+    EXPECT_EQ(GetStarterPokemon(1), SPECIES_CYNDAQUIL);
+    EXPECT_EQ(GetStarterPokemon(2), SPECIES_TOTODILE);
+    EXPECT_EQ(GetStarterPokemon(3), SPECIES_TOGEPI);
+    // There is no fifth entry: out of range (a corrupt VAR_STARTER_MON) falls back to the first starter, it never reads past the table.
+    EXPECT_EQ(GetStarterPokemon(4), SPECIES_CHIKORITA);
+    EXPECT_NE(GetStarterPokemon(4), SPECIES_TOGEPI);
+    EXPECT_EQ(GetStarterPokemon(0xFFFF), SPECIES_CHIKORITA);
+
+    EXPECT_EQ(VeldrisTaggedSpecies(TRAINER_TROGLODYTE_HOLLOWBROOK, MON_POOL_TAG_TAG6), GetStarterPokemon(0));
+    EXPECT_EQ(VeldrisTaggedSpecies(TRAINER_TROGLODYTE_HOLLOWBROOK, MON_POOL_TAG_TAG7), GetStarterPokemon(1));
+    EXPECT_EQ(VeldrisTaggedSpecies(TRAINER_TROGLODYTE_HOLLOWBROOK, MON_POOL_TAG_TAG8), GetStarterPokemon(2));
+    EXPECT_EQ(VeldrisTaggedSpecies(TRAINER_TROGLODYTE_CRESTFALL, MON_POOL_TAG_TAG6), GetStarterPokemon(0));
+    EXPECT_EQ(VeldrisTaggedSpecies(TRAINER_TROGLODYTE_CRESTFALL, MON_POOL_TAG_TAG7), GetStarterPokemon(1));
+    EXPECT_EQ(VeldrisTaggedSpecies(TRAINER_TROGLODYTE_CRESTFALL, MON_POOL_TAG_TAG8), GetStarterPokemon(2));
+}
+
+// The pool prune itself (src/veldris_trainer_pools.c): for VAR_TROG_STARTER 0, 1, 2 exactly the matching starter version stays
+// in the pool, everything else (SIR BISCUIT) stays, and a corrupt value falls back to the first starter instead of keeping none.
+static void VeldrisCheckStarterPrune(u32 trainer, u32 choice, u32 expectedSpecies)
+{
+    const struct Trainer *data = &sVeldrisTrainers[DIFFICULTY_NORMAL][trainer];
+    u8 pool[8];
+    u32 starters = MON_POOL_TAG_TAG6 | MON_POOL_TAG_TAG7 | MON_POOL_TAG_TAG8;
+    u32 keptStarters = 0;
+    u32 keptOthers = 0;
+    u32 keptSpecies = SPECIES_NONE;
+    u32 i;
+
+    EXPECT(data->poolSize <= ARRAY_COUNT(pool));
+    for (i = 0; i < data->poolSize && i < ARRAY_COUNT(pool); i++)
+        pool[i] = i;
+    VarSet(VAR_TROG_STARTER, choice);
+    VeldrisRivalStarterPrune(data, pool, NULL);
+    for (i = 0; i < data->poolSize && i < ARRAY_COUNT(pool); i++)
+    {
+        if (pool[i] == POOL_SLOT_DISABLED)
+            continue;
+        if (data->party[pool[i]].tags & starters)
+        {
+            keptStarters++;
+            keptSpecies = data->party[pool[i]].species;
+        }
+        else
+        {
+            keptOthers++;
+        }
+    }
+    EXPECT_EQ(keptStarters, 1);
+    EXPECT_EQ(keptSpecies, expectedSpecies);
+    EXPECT_EQ(keptOthers, data->poolSize - 3);
+}
+
+TEST("Veldris: the rival starter prune keeps the starter that matches VAR_TROG_STARTER and every other Pokemon")
+{
+    u32 choice;
+
+    for (choice = 0; choice < 3; choice++)
+    {
+        VeldrisCheckStarterPrune(TRAINER_TROGLODYTE_HOLLOWBROOK, choice, GetStarterPokemon(choice));
+        VeldrisCheckStarterPrune(TRAINER_TROGLODYTE_CRESTFALL, choice, GetStarterPokemon(choice));
+    }
+    // Out of range: the first starter, never none.
+    VeldrisCheckStarterPrune(TRAINER_TROGLODYTE_HOLLOWBROOK, 7, GetStarterPokemon(0));
+    VeldrisCheckStarterPrune(TRAINER_TROGLODYTE_CRESTFALL, 7, GetStarterPokemon(0));
 }

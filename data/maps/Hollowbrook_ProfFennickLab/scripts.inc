@@ -1,7 +1,8 @@
 @ Hollowbrook_ProfFennickLab: Prof. Fennick's lab and the four-starter scene.
 @ Built from design/scripts/hollowbrook_lab_scripts.inc (coordinates filled in for this map).
-@ Species are stand-ins until the author picks: Treecko, Torchic, Mudkip on show, Pikachu
-@ (VELDRIS_FOURTH_STARTER in src/starter_choose.c) as the revealed fourth.
+@ The four starters (author, 2026-10-12: Johto + Togepi): Chikorita (ball 1, Grass), Cyndaquil (ball 2, Fire) and
+@ Totodile (ball 3, Water) on show, Togepi (VELDRIS_FOURTH_STARTER in src/starter_choose.c) as the revealed fourth.
+@ Troglodyte's party-file tags Tag6, Tag7 and Tag8 follow the ball order (checked by test/veldris.c).
 @
 @ Layout: Fennick (7,4) behind the 4-wide table (5..8,5), counter row (5..8,6), balls on (5..8,5).
 @ Troglodyte starts at (4,7). Door mats (6,11)/(7,11) (south-arrow warps: the warp only fires on Down while standing on a mat).
@@ -33,15 +34,15 @@ Hollowbrook_EventScript_BufferTrogSpecies::
 	return
 
 Hollowbrook_EventScript_BufferTrogSpecies1::
-	bufferspeciesname STR_VAR_2, SPECIES_TREECKO
+	bufferspeciesname STR_VAR_2, SPECIES_CHIKORITA
 	return
 
 Hollowbrook_EventScript_BufferTrogSpecies2::
-	bufferspeciesname STR_VAR_2, SPECIES_TORCHIC
+	bufferspeciesname STR_VAR_2, SPECIES_CYNDAQUIL
 	return
 
 Hollowbrook_EventScript_BufferTrogSpecies3::
-	bufferspeciesname STR_VAR_2, SPECIES_MUDKIP
+	bufferspeciesname STR_VAR_2, SPECIES_TOTODILE
 	return
 
 @ ===========================================================================
@@ -242,13 +243,13 @@ Hollowbrook_ProfFennickLab_EventScript_Ball1::
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_ProfFennickLab_EventScript_BallGone
 	goto_if_lt VAR_HOLLOWBROOK_STATE, 2, Hollowbrook_ProfFennickLab_EventScript_BallNotYet
 	setvar VAR_0x8008, 1
-	bufferspeciesname STR_VAR_1, SPECIES_TREECKO
-	showmonpic SPECIES_TREECKO, 10, 3
+	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
+	showmonpic SPECIES_CHIKORITA, 10, 3
 	msgbox Hollowbrook_Text_LabBallAsk, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Hollowbrook_ProfFennickLab_EventScript_BallDeclined
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TREECKO
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHIKORITA
 	setvar VAR_STARTER_MON, 0
-	givemon SPECIES_TREECKO, 5
+	givemon SPECIES_CHIKORITA, 5
 	goto Hollowbrook_ProfFennickLab_EventScript_BallGiven
 	end
 
@@ -257,13 +258,13 @@ Hollowbrook_ProfFennickLab_EventScript_Ball2::
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_ProfFennickLab_EventScript_BallGone
 	goto_if_lt VAR_HOLLOWBROOK_STATE, 2, Hollowbrook_ProfFennickLab_EventScript_BallNotYet
 	setvar VAR_0x8008, 2
-	bufferspeciesname STR_VAR_1, SPECIES_TORCHIC
-	showmonpic SPECIES_TORCHIC, 10, 3
+	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
+	showmonpic SPECIES_CYNDAQUIL, 10, 3
 	msgbox Hollowbrook_Text_LabBallAsk, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Hollowbrook_ProfFennickLab_EventScript_BallDeclined
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TORCHIC
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CYNDAQUIL
 	setvar VAR_STARTER_MON, 1
-	givemon SPECIES_TORCHIC, 5
+	givemon SPECIES_CYNDAQUIL, 5
 	goto Hollowbrook_ProfFennickLab_EventScript_BallGiven
 	end
 
@@ -272,29 +273,29 @@ Hollowbrook_ProfFennickLab_EventScript_Ball3::
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_ProfFennickLab_EventScript_BallGone
 	goto_if_lt VAR_HOLLOWBROOK_STATE, 2, Hollowbrook_ProfFennickLab_EventScript_BallNotYet
 	setvar VAR_0x8008, 3
-	bufferspeciesname STR_VAR_1, SPECIES_MUDKIP
-	showmonpic SPECIES_MUDKIP, 10, 3
+	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
+	showmonpic SPECIES_TOTODILE, 10, 3
 	msgbox Hollowbrook_Text_LabBallAsk, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Hollowbrook_ProfFennickLab_EventScript_BallDeclined
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MUDKIP
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TOTODILE
 	setvar VAR_STARTER_MON, 2
-	givemon SPECIES_MUDKIP, 5
+	givemon SPECIES_TOTODILE, 5
 	goto Hollowbrook_ProfFennickLab_EventScript_BallGiven
 	end
 
-@ The fourth starter (stand-in PIKACHU, same as VELDRIS_FOURTH_STARTER). VAR_STARTER_MON 3
+@ The fourth starter (TOGEPI, same as VELDRIS_FOURTH_STARTER; an ordinary level 5 Pokemon, not an egg). VAR_STARTER_MON 3
 @ is valid because sStarterMon has a fourth entry.
 Hollowbrook_ProfFennickLab_EventScript_Ball4::
 	lock
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_ProfFennickLab_EventScript_BallGone
 	setvar VAR_0x8008, 4
-	bufferspeciesname STR_VAR_1, SPECIES_PIKACHU
-	showmonpic SPECIES_PIKACHU, 10, 3
+	bufferspeciesname STR_VAR_1, SPECIES_TOGEPI
+	showmonpic SPECIES_TOGEPI, 10, 3
 	msgbox Hollowbrook_Text_LabBallAsk, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Hollowbrook_ProfFennickLab_EventScript_BallDeclined
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PIKACHU
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TOGEPI
 	setvar VAR_STARTER_MON, 3
-	givemon SPECIES_PIKACHU, 5
+	givemon SPECIES_TOGEPI, 5
 	goto Hollowbrook_ProfFennickLab_EventScript_BallGiven
 	end
 

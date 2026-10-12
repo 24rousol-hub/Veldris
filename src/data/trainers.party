@@ -9535,32 +9535,29 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Leer
 
-Treecko
+Chikorita
 Level: 5
 Ball: Luxury
 Tags: Lead / Tag6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Pound
-- Leer
-- Leafage
+- Tackle
+- Growl
 
-Torchic
+Cyndaquil
 Level: 5
 Ball: Luxury
 Tags: Lead / Tag7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Scratch
-- Growl
-- Ember
+- Tackle
+- Leer
 
-Mudkip
+Totodile
 Level: 5
 Ball: Luxury
 Tags: Lead / Tag8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
-- Growl
-- Water Gun
+- Scratch
+- Leer
 
 === TRAINER_TROGLODYTE_CRESTFALL ===
 Name: TROGLODYTE
@@ -9581,33 +9578,31 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Leer
 
-Treecko
+Chikorita
 Level: 8
 Ball: Luxury
 Tags: Lead / Tag6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Pound
-- Leer
-- Leafage
-- Quick Attack
+- Tackle
+- Growl
+- Razor Leaf
 
-Torchic
+Cyndaquil
 Level: 8
 Ball: Luxury
 Tags: Lead / Tag7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Scratch
-- Growl
-- Ember
-- Quick Attack
+- Tackle
+- Leer
+- Smokescreen
 
-Mudkip
+Totodile
 Level: 8
 Ball: Luxury
 Tags: Lead / Tag8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
-- Growl
+- Scratch
+- Leer
 - Water Gun
 
 === TRAINER_BRENDAN_ROUTE_119_MUDKIP ===

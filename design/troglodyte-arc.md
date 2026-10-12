@@ -56,18 +56,28 @@ The row above is the original proposal, in even steps of 6. **The built aces dif
 
 He trails the current leader's ace by a few levels. **No IVs, no EVs.** Each fight is **one trainer entry** using `Pool Prune: Rival Starter` (kept): `Party Size` is the fixed Pokémon plus one, and the three starter versions are tagged `Tag6` (1st on show), `Tag7` (2nd), `Tag8` (3rd) so exactly one survives. Each entry writes the right evolution stage for its level ([story-outline.md](story-outline.md), 'Starters and the lab scene'). Party size grows from 1 to 6 at fight 6.
 
-Starter lines use Emerald stand-ins until the real species are chosen (Treecko, Torchic, Mudkip evolve at 16 and 36). Fixed species are **PROPOSED stand-ins** for 'well-bred, poorly trained'. Evolution levels checked against the stand-ins: Lillipup 16 and 32, Ralts 20 and 30, Eevee (Water Stone, any level), Litleo 35, Larvitar 30 and Pupitar 55. **Fixed 2026-10-01 (author): Troglodyte no longer has Garchomp.** Cynthia's ace is Garchomp, so his later fights now build up to the `postgame.md` team (Stoutland, Gardevoir, Vaporeon, Tyranitar, Pyroar plus his starter).
+**Starter lines (author, 2026-10-12, set A): Chikorita, Cyndaquil, Totodile** (Emerald's Treecko, Torchic and Mudkip were stand-ins until then). Their evolution levels, read from the ROM data: Chikorita 16 and 32, Cyndaquil 14 and 36, Totodile 18 and 30 (table below the fights). The fourth starter, Togepi, is the player's alone. Fixed species are **PROPOSED stand-ins** for 'well-bred, poorly trained'. Evolution levels of the fixed species, checked against this ROM: Lillipup 16 and 32, Ralts 20 and 30, Eevee (Water Stone, any level), Litleo 35, Larvitar 30 and Pupitar 55. **Fixed 2026-10-01 (author): Troglodyte no longer has Garchomp.** Cynthia's ace is Garchomp, so his later fights now build up to the `postgame.md` team (Stoutland, Gardevoir, Vaporeon, Tyranitar, Pyroar plus his starter).
 
 | # | Where | Behind ace | Party | Level range | Starter stage | Fixed team (PROPOSED) |
 |---|---|---|---|---|---|---|
-| 1 | Outside lab, Hollowbrook | n/a | 1 (+ optional Sir Biscuit, level 1) | 5 | Basic | none (starter only) |
-| 2 | Gym 1, Crestfall (Scheme 1) | ace 12 | 2 | 8 to 9 | Basic | Lillipup 'Sir Biscuit' (7 to 8) |
-| 3 | Gym 3, Ghost (Scheme 3) | ace 25 | 3 | 20 to 22 | Stage 2 (16) | Sir Biscuit as Herdier, Eevee |
-| 4 | Gym 5, Ice (Scheme 5) | ace 37 | 4 | 30 to 33 | Stage 2 | Herdier, Vaporeon (he bought a Water Stone), Kirlia |
-| 5 | Gym 6, Flying (Scheme 6, parents watch) | ace 42 | 5 | 37 to 40 | Stage 3 (36) | Stoutland 'Sir Biscuit' (32 min), Vaporeon, Gardevoir, Pyroar |
+| 1 | Outside lab, Hollowbrook | n/a | 1 (+ optional Sir Biscuit, level 1) | 5 | Basic: Chikorita, Cyndaquil or Totodile | none (starter only) |
+| 2 | Gym 1, Crestfall (Scheme 1) | ace 12 | 2 | 8 to 9 | Basic (same three) | Lillipup 'Sir Biscuit' (7 to 8) |
+| 3 | Gym 3, Ghost (Scheme 3) | ace 25 | 3 | 20 to 22 | Stage 2: Bayleef, Quilava or Croconaw (all evolve by 18) | Sir Biscuit as Herdier, Eevee |
+| 4 | Gym 5, Ice (Scheme 5) | ace 37 | 4 | 30 to 33 | By line (see the forms table): Bayleef or Meganium, Quilava, Feraligatr (Totodile's line is already at stage 3) | Herdier, Vaporeon (he bought a Water Stone), Kirlia |
+| 5 | Gym 6, Flying (Scheme 6, parents watch) | ace 42 | 5 | 37 to 40 | Stage 3: Meganium, Typhlosion or Feraligatr (all evolved by 36) | Stoutland 'Sir Biscuit' (32 min), Vaporeon, Gardevoir, Pyroar |
 | 6 | Gym 7, Poison (Scheme 7) | ace 48 | 6 | 43 to 46 | Stage 3 | Stoutland, Vaporeon, Gardevoir, Pyroar, Pupitar |
 | 7 | Victory Road (R20) | ace 60 | 6 | 55 to 57 | Stage 3 | same six, Pupitar has become Tyranitar |
 | 8 | Finale, just before the Champion | E4 65 | 6 | 68 to 72 | Stage 3 | Stoutland 68, Gardevoir 69, Vaporeon 70, Tyranitar 70, Pyroar 70, starter 72 ([postgame.md](postgame.md)). **No Garchomp: that is Cynthia's ace** |
+
+**Starter forms by level (read from `gen_2_families.h`, 2026-10-12).** Write the form that matches the starter's level in each block; the starter version carries its own level, so these bands decide the species name.
+
+| Line | Stage 1 | Stage 2 | Stage 3 |
+|---|---|---|---|
+| Chikorita | up to level 15 | Bayleef, levels 16 to 31 | Meganium, level 32 and up |
+| Cyndaquil | up to level 13 | Quilava, levels 14 to 35 | Typhlosion, level 36 and up |
+| Totodile | up to level 17 | Croconaw, levels 18 to 29 | Feraligatr, level 30 and up |
+
+Fights 6 to 8 use stage 3 for all three lines. Fight 8's starter is the final form at 72: Meganium, Typhlosion or Feraligatr ([postgame.md](postgame.md)). Togepi, Togetic and Togekiss never appear on his side. Move lists for the stage 2 and 3 versions are not written yet: pick them with `design/tools/pickmoves.py` when each fight is built.
 
 **Levels are targets, not a cap.** A 'Behind ace' value is the leader's ace at that time and the level range is where the fight is written (for example fight 3 at 20 to 22, under the gym 3 ace of 25). The engine level cap is OFF by the author's decision of 2026-10-12, so nothing holds the player to these numbers, and the `src/caps.c` table is an inert reference. Brief 3 in [decisions/battle.md](decisions/battle.md) words the same values as 'with cap 25' and 'with cap 42': read those as the ace.
 

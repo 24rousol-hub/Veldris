@@ -90,7 +90,7 @@ Level: 12
 
 ## Troglodyte
 
-His Pokémon is one of the three starters on show, at random. **One trainer entry per fight** (the pool prune, see [story-outline.md](story-outline.md)). Until the starters are chosen, Emerald's three are stand-ins.
+His Pokémon is one of the three starters on show, at random. **One trainer entry per fight** (the pool prune, see [story-outline.md](story-outline.md)). **The three are Chikorita (ball 1, Grass, tag `Tag6`), Cyndaquil (ball 2, Fire, `Tag7`) and Totodile (ball 3, Water, `Tag8`), chosen by the author on 2026-10-12 (set A, Johto plus Togepi).** The fourth, Togepi, is the player's alone: Troglodyte never has it. Emerald's Treecko, Torchic and Mudkip were stand-ins until then. The four lines, their evolution levels and a balance note are in 'The four starter lines' at the end of this file.
 
 ### Fight 1: right outside the lab in Hollowbrook (author: one Pokémon, the usual rival opener)
 The level is my proposal: 5, the same as your starter. No IVs or EVs, as for every trainer.
@@ -106,28 +106,25 @@ AI: Check Bad Move
 Party Size: 1
 Pool Prune: Rival Starter
 
-Treecko
+Chikorita
 Level: 5
 Tags: Tag6
-- Pound
-- Leer
-- Leafage
-
-Torchic
-Level: 5
-Tags: Tag7
-- Scratch
-- Growl
-- Ember
-
-Mudkip
-Level: 5
-Tags: Tag8
 - Tackle
 - Growl
-- Water Gun
+
+Cyndaquil
+Level: 5
+Tags: Tag7
+- Tackle
+- Leer
+
+Totodile
+Level: 5
+Tags: Tag8
+- Scratch
+- Leer
 ```
-All three versions are tagged and Party Size is 1, so exactly one survives the prune. The moves are each starter's level-up moves at level 5 (checked against the learnsets this ROM uses).
+All three versions are tagged and Party Size is 1, so exactly one survives the prune. The moves are each starter's level-up moves at level 5 (checked against `gen_9.h`, the learnsets this ROM uses): Chikorita learns Razor Leaf only at 6, Cyndaquil gets Smokescreen at 6 and Ember at 10, Totodile gets Water Gun at 6, so each has two moves now. **The built block** in `src/data/trainers.party` is the source of truth: it also carries `Ball: Luxury`, the zero IVs and `Lead` (`Tags: Lead / Tag6` and so on), which this draft leaves out. The 2026-10-12 swap replaced Treecko (Pound, Leer, Leafage), Torchic (Scratch, Growl, Ember) and Mudkip (Tackle, Growl, Water Gun), the stand-ins used in every earlier test.
 
 **Gag: a level 1 LILLIPUP pet (APPROVED by the author, 2026-09-30).** Add this block, change `Party Size` to 2, and leave it untagged so it is always picked. LILLIPUP is in this build (Gen 5 Pokémon are on). It faints to anything, which is the joke. Its dialogue is in `design/dialogue/hollowbrook.inc` (`TrogPetIntro`, `TrogPetAfter`).
 ```
@@ -159,27 +156,55 @@ Level: 7
 - Tackle
 - Leer
 
-Treecko
+Chikorita
 Level: 8
 Tags: Tag6
-- Pound
-- Leer
-- Leafage
-- Quick Attack
-
-Torchic
-Level: 8
-Tags: Tag7
-- Scratch
-- Growl
-- Ember
-- Quick Attack
-
-Mudkip
-Level: 8
-Tags: Tag8
 - Tackle
 - Growl
+- Razor Leaf
+
+Cyndaquil
+Level: 8
+Tags: Tag7
+- Tackle
+- Leer
+- Smokescreen
+
+Totodile
+Level: 8
+Tags: Tag8
+- Scratch
+- Leer
 - Water Gun
 ```
+At level 8 each Johto starter knows only three level-up moves (the old Treecko and Torchic versions had four, with Quick Attack; Cyndaquil gets Quick Attack only at 13). Nothing is padded with a move the species cannot know at that level. The built block in `src/data/trainers.party` is the source of truth.
 It costs one more trainer id (two for Troglodyte in total so far, five brand-new ids with Greta and the gym trainers, or none if he reuses a vanilla entry).
+
+## The four starter lines (author, 2026-10-12: set A, Johto plus Togepi)
+
+Evolution data read from `src/data/pokemon/species_info/gen_2_families.h` (the Togepi line sits there too) on 2026-10-12. `P_FRIENDSHIP_EVO_THRESHOLD` is `GEN_LATEST`, so the friendship needed is 160.
+
+| Ball | Species | Type | Stage 2 | Stage 3 | Whose |
+|---|---|---|---|---|---|
+| 1 | Chikorita | Grass | Bayleef at level 16 | Meganium at level 32 | on show; Troglodyte's pick `Tag6` |
+| 2 | Cyndaquil | Fire | Quilava at level 14 | Typhlosion at level 36 | on show; Troglodyte's pick `Tag7` |
+| 3 | Totodile | Water | Croconaw at level 18 | Feraligatr at level 30 | on show; Troglodyte's pick `Tag8` |
+| 4 | Togepi | Fairy | Togetic on any level-up while friendship is 160 or more (Fairy and Flying) | Togekiss when Togetic is given a Shiny Stone (Fairy and Flying) | revealed by Fennick; the player's only. A normal level 5 Pokémon, not an egg |
+
+Troglodyte's later fights write the stage that fits the level ([troglodyte-arc.md](troglodyte-arc.md)). The Togepi line has no Troglodyte version.
+
+**Balance note (honest).** Matchups below use this ROM's own type chart (`src/data/types_info.h`) against the gym's type only, with the gym order Normal, Bug, Ghost, Steel, Ice, Flying, Poison, Fairy, Water ([gyms.md](gyms.md)). The gym teams mix other types, so this is a first guide, not a promise.
+
+| Line | Strong into | Weak into | Plain |
+|---|---|---|---|
+| Chikorita (Grass) | gym 9 (Water) | gyms 2, 5, 6 and 7 (Bug, Ice, Flying and Poison all hit Grass for double); gym 4 (Steel) resists its Grass moves | gyms 1, 3, 8 |
+| Cyndaquil (Fire) | gyms 2, 4 and 5 (Bug, Steel, Ice: Fire hits them for double and Fire resists their moves), and it resists Fairy moves at gym 8 | gym 9 (Water) | gyms 1, 3, 6, 7 |
+| Totodile (Water) | gyms 4 and 5 on defence (it resists Steel and Ice) | none by type; its Water moves are resisted at gym 9 | gyms 1, 2, 3, 6, 7, 8 |
+| Togepi (Fairy) | gym 2 on defence (it resists Bug) | gyms 4 and 7 (Steel and Poison hit Fairy for double and resist Fairy moves) | the rest |
+| Togetic and Togekiss (Fairy and Flying) | gym 2 (Flying hits Bug for double, and Bug does a quarter) | gyms 4, 5 and 7 (Steel, Ice and Poison all hit for double) | the rest |
+
+- **The Grass starter has the roughest road**: four of the first seven gyms are bad for it (gyms 2, 5, 6 and 7), and Steel resists its moves at gym 4. Its payoff is gym 9.
+- **The Fire starter has the easiest early game** (gyms 2, 4 and 5), then meets the Water gym last.
+- **The Water starter is the safe middle**: no gym from 1 to 8 punishes it by type. It evolves into Feraligatr at 30, earlier than the other two reach their last stage (32 and 36).
+- **Togepi is the odd one out and the weakest fighter.** Its base Attack is 20, it knows Growl, Pound and Sweet Kiss at level 5, its only attacking moves before level 32 are Pound and (from level 16) Ancient Power (Double-Edge comes at 32, Last Resort at 48), and Togetic needs friendship (160) on a level-up rather than a set level. No gym is weak to Fairy, so by type it never hits a gym for double. It is a gift more than a fighter, and a Togepi player should expect to catch a second attacker early. Togepi cannot learn Cut (it is not in its teachable list), so with Togepi as the only Pokémon the Cut field move stays unusable until another Pokémon that can learn Cut joins the party ([field-moves.md](field-moves.md)); the other three starters can all learn it.
+- This corrects an earlier line in the decision brief, which called Togepi strong into gym 7: Fairy is **weak** into Poison.

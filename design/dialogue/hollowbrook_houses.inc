@@ -4,10 +4,13 @@
 @ Check widths: python3 design/tools/dialogue_check.py design/dialogue/hollowbrook_houses.inc
 @ Pokemon only, no real animals. Nobody here swears (only Goldsworths do). Single curly quotes for speech.
 @ 'Before' = before the lab scene. 'After' = after the player has a starter.
-@ Starter variants: the player's species has not been decided (the author picks later), so the text buffers it in
-@ {STR_VAR_1} (bufferspeciesname from the var holding the player's starter). The three variants are kept as
-@ separate labels so each can be rewritten once the species exist: A, B, C = the three on-show balls in order.
-@ Stand-ins until then are Treecko (A), Torchic (B), Mudkip (C). Pick the label with a 'switch' on VAR_STARTER_MON.
+@ Starter variants: the text buffers the player's species in {STR_VAR_1} (bufferspeciesname from the var holding
+@ the player's starter). The three variants are kept as separate labels so each can be rewritten per species:
+@ A, B, C = the three on-show balls in order. The species were chosen by the author on 2026-10-12: Chikorita (A),
+@ Cyndaquil (B), Totodile (C); the fourth starter, Togepi, gets the generic line. Until then the stand-ins were
+@ Treecko (A), Torchic (B), Mudkip (C). The wording below was written for those stand-ins and has not been
+@ re-read for the Johto species (for example 'Very calm' in C was written for Mudkip). Pick the label with a
+@ 'switch' on VAR_STARTER_MON.
 
 @ ===================================================================
 @ THE NEIGHBOUR'S HOUSE (three NPCs, next door to the player)

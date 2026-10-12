@@ -316,6 +316,7 @@ class Game:
             "max_hp": int.from_bytes(raw[L.off("Pokemon", "maxHP"):][:2], "little"),
             "personality": pers,
             "exp": field(0, "PokemonSubstruct0", "experience"),
+            "is_egg": bool(field(3, "PokemonSubstruct3", "isEgg")),
         }
 
     def _party_at(self, ptr_symbol, count_symbol):

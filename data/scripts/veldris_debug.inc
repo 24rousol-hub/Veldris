@@ -81,7 +81,7 @@ Veldris_Debug_ResetStory::
 	clearflag FLAG_VELDRIS_OUTFIT_DP
 	return
 
-@ The state the lab scene leaves: the player took ball 3 (Mudkip, VAR_STARTER_MON 2), Troglodyte took ball 1 (Treecko,
+@ The state the lab scene leaves: the player took ball 3 (Totodile, VAR_STARTER_MON 2), Troglodyte took ball 1 (Chikorita,
 @ VAR_TROG_STARTER 0), the other two balls stay on the table, Troglodyte waits outside (the town shows him while the
 @ state is 3), the grandfather sits on his bench. The Hollowbrook frame table starts the fight on the next load of the town.
 Veldris_Debug_StateChosen::
@@ -198,24 +198,24 @@ Veldris_Debug_Preset2::
 	waitstate
 	end
 
-@ 3 "Trog fight 1 (door)": the starter is chosen (Mudkip L5, the only party member) and the player arrives on the lab
+@ 3 "Trog fight 1 (door)": the starter is chosen (Totodile L5, the only party member) and the player arrives on the lab
 @ door tile outside, which fires Troglodyte's first fight from the town's frame table.
 Veldris_Debug_Preset3::
 	call Veldris_Debug_ResetStory
 	call Veldris_Debug_StateChosen
 	callnative ZeroPlayerPartyMons
-	givemon SPECIES_MUDKIP, 5
+	givemon SPECIES_TOTODILE, 5
 	warp MAP_HOLLOWBROOK, 1
 	waitstate
 	end
 
-@ 4 "After Trog fight": free roam, state 4, Mudkip L8, the key items and a few consumables, in front of the player's house.
+@ 4 "After Trog fight": free roam, state 4, Totodile L8, the key items and a few consumables, in front of the player's house.
 Veldris_Debug_Preset4::
 	call Veldris_Debug_ResetStory
 	call Veldris_Debug_StateRoam
 	call Veldris_Debug_Stock
 	callnative ZeroPlayerPartyMons
-	givemon SPECIES_MUDKIP, 8
+	givemon SPECIES_TOTODILE, 8
 	warp MAP_HOLLOWBROOK, 9, 21
 	waitstate
 	end

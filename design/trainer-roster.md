@@ -37,12 +37,12 @@ When a new TROGLODYTE block is added, also add its row to `VELDRIS_TROGLODYTE_FI
 | `TRAINER_CRESTFALL_GYM_1` | 771 (was Roxanne 3) | DALE | **placeholder** Youngster pic, Youngster | Zigzagoon 9 |
 | `TRAINER_CRESTFALL_GYM_2` | 772 (was Roxanne 4) | WREN | **placeholder** Gentleman pic, Gentleman | Slakoth 10 |
 | `TRAINER_CRESTFALL_GRETA` | 770 (was Roxanne 2) | GRETA | `Veldris Leader Normal` (kwenio ORAS lass, indexed), Leader | Skitty 10, Miltank 12 (Oran Berry) |
-| `TRAINER_TROGLODYTE_HOLLOWBROOK` | 520 (was Brendan Route 103 Mudkip) | TROGLODYTE | Veldris Troglodyte pic (DP Rich Boy, 2026-10-01), Rival | SIR BISCUIT (Lillipup) 1, plus his starter 5 |
-| `TRAINER_TROGLODYTE_CRESTFALL` | 521 (was Brendan Route 110 Mudkip) | TROGLODYTE | same | SIR BISCUIT 7, plus his starter 8 (starters also know Quick Attack for Treecko and Torchic) |
+| `TRAINER_TROGLODYTE_HOLLOWBROOK` | 520 (was Brendan Route 103 Mudkip) | TROGLODYTE | Veldris Troglodyte pic (DP Rich Boy, 2026-10-01), Rival | SIR BISCUIT (Lillipup) 1, plus his starter 5 (Chikorita, Cyndaquil or Totodile since 2026-10-12) |
+| `TRAINER_TROGLODYTE_CRESTFALL` | 521 (was Brendan Route 110 Mudkip) | TROGLODYTE | same | SIR BISCUIT 7, plus his starter 8 (Chikorita with Razor Leaf, Cyndaquil with Smokescreen, Totodile with Water Gun; three moves each, see [teams.md](teams.md); the stand-in Treecko and Torchic versions also knew Quick Attack) |
 
 Teams are from [teams.md](teams.md). All have `IVs: 0` on every Pokémon. Troglodyte uses `Pool Prune: Rival Starter` with `Party Size: 2`.
 
-**Battle check (mGBA, same method as above):** all five show the right intro, name and first Pokémon. TROGLODYTE's second Pokémon was seen to be exactly one starter (Treecko, `VAR_TROG_STARTER` = 0) after SIR BISCUIT fainted, so the pool prune works. Not yet seen: the Torchic and Mudkip variants (set the var to 1 or 2), full fights, and the old Hoenn Route 103 and 110 scripts that now point at the renamed ids.
+**Battle check (mGBA, same method as above):** all five show the right intro, name and first Pokémon. TROGLODYTE's second Pokémon was seen to be exactly one starter (Treecko, `VAR_TROG_STARTER` = 0, with the stand-in starters) after SIR BISCUIT fainted, so the pool prune works. Not yet seen (with the stand-in starters): the Torchic and Mudkip variants (set the var to 1 or 2), full fights, and the old Hoenn Route 103 and 110 scripts that now point at the renamed ids. **Since 2026-10-12** the three versions are Chikorita, Cyndaquil and Totodile (built and tested: two unit tests in `test/veldris.c` (ball order, and what the pool prune keeps), and the door fight, fight 1, seen in mGBA for all three picks; fight 2 at level 8 not played in the emulator).
 
 **Caveats.** The Rival class shows 'PKMN TRAINER' in the intro, so a Veldris class name would need a small text edit. **Author rule (2026-10-01): always reuse vanilla ids.** Greta, DALE and WREN were first built on new ids 855 to 857 and moved to reused ids 770 to 772 the same day, so all 9 brand-new ids (855 to 863) are free again and `TRAINERS_COUNT_EMERALD` is back at 855. The other six Troglodyte fights should reuse vanilla ids too.
 
@@ -60,7 +60,7 @@ Three vanilla Route 102 entries reused (no new ids). Names are PROPOSED.
 | `TRAINER_VELDRIS_ROUTE1_LASS` | `TRAINER_TIANA` (603) | MAISIE | Lass | Zigzagoon 4, Skitty 4 |
 | `TRAINER_VELDRIS_ROUTE1_FARMER` | `TRAINER_RICK` (615) | AMOS | **placeholder** Hiker pic and class (no farmer class yet; the DP rancher sprites in the asset repo are an option) | Zigzagoon 5, Skitty 5 |
 
-All IVs 0. **Checked in mGBA:** TOBY spots the player, walks over, says his intro, battles with Lillipup 3 (before the 2026-10-01 level raise), pays out and says his after line. **MAISIE and AMOS fought 2026-10-09 (mGBA, debug warps):** both spot the player, walk up, say the intro, send out Zigzagoon then Skitty (levels 4 and 5), and give the defeat and after lines. Their Skitty uses Sing, so a test Mudkip spends turns asleep.
+All IVs 0. **Checked in mGBA:** TOBY spots the player, walks over, says his intro, battles with Lillipup 3 (before the 2026-10-01 level raise), pays out and says his after line. **MAISIE and AMOS fought 2026-10-09 (mGBA, debug warps):** both spot the player, walk up, say the intro, send out Zigzagoon then Skitty (levels 4 and 5), and give the defeat and after lines. Their Skitty uses Sing, so a test Mudkip (a stand-in starter then) spends turns asleep.
 
 ## Gym battlefield conditions (BUILT 2026-10-08, PROPOSED defaults)
 

@@ -11,7 +11,7 @@
 - Locals are sincere and slightly odd.
 - **Pokémon only (author, 2026-09-29):** no real animals (no hens, cats or cows, even as jokes). Ambient creatures are Pokémon, common and Normal type where possible.
 - Keep speeches short. A grudge is funnier when it is brief.
-- **Open question (seen in game 2026-10-09):** names that come from a buffer (`bufferspeciesname`, item pickups) print in Title Case ('Mudkip', 'Potion', 'Repel') because this tree's species and item names are not capitals, while the hand-written lines use ALL CAPS ('ZIGZAGOON', 'POKéMON', 'POTIONs'). One sentence can show both: 'ZIGZAGOON sniffs at your Mudkip.' Also, 'Is that a {STR_VAR_1}?' reads wrongly for a species starting with a vowel. Both wait for the author to pick the starters and a convention.
+- **Open question (seen in game 2026-10-09):** names that come from a buffer (`bufferspeciesname`, item pickups) print in Title Case ('Mudkip' then, with the stand-in starters; now 'Totodile', 'Potion', 'Repel') because this tree's species and item names are not capitals, while the hand-written lines use ALL CAPS ('ZIGZAGOON', 'POKéMON', 'POTIONs'). One sentence can show both: 'ZIGZAGOON sniffs at your Mudkip.' (now 'your Totodile'). Also, 'Is that a {STR_VAR_1}?' reads wrongly for a species starting with a vowel; **the starters are picked now (Chikorita, Cyndaquil, Totodile, and Togepi for the fourth) and none starts with a vowel, so that part is settled.** The Title Case versus ALL CAPS convention still waits for the author.
 
 Per-character voice notes are in [characters.md](characters.md).
 

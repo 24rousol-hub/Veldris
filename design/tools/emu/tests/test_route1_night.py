@@ -82,9 +82,10 @@ def fight_or_flee(emu):
 @testkit.test("Route 1 tall grass gives the Night table at night", slow=True)
 def route1_night(emu):
     g = emu.game
-    g.debug_preset(4)  # Mudkip L8, story state 4, standing outside the house (the debug menu's Scripts 4)
+    g.debug_preset(4)  # Totodile L8, story state 4, standing outside the house (the debug menu's Scripts 4)
     party = [m["species_id"] for m in g.party()]
-    check(party == [g.L.const("SPECIES_MUDKIP")], "preset 4 should leave one Mudkip in the party, got %s" % party)
+    check(party == [g.L.const("SPECIES_TOTODILE")], "preset 4 should leave one Totodile in the party, got %s"
+          % [g.L.name_of("SPECIES_", i) or i for i in party])
     g.warp(ROUTE1, 5, 5, check_tile=False)  # any tile: we only need the map loaded to look for grass
     L = g.L
     day = facts.wild_land_species(g.L.repo, DAY_LABEL)
