@@ -1,18 +1,18 @@
 # Gyms 2 to 9
 
-Status: **Type order, level cap and town/city mix DECIDED by the author on 2026-10-01 (see Decided). Everything else below (names, leaders, gimmicks, badges, TMs, exact teams, which towns are cities beyond Crestfall) is still PROPOSED until approved (CLAUDE.md rule 9).**
+Status: **Type order, level ceiling (60) and town/city mix DECIDED by the author on 2026-10-01 (see Decided). Everything else below (names, leaders, gimmicks, badges, TMs, exact teams, which towns are cities beyond Crestfall) is still PROPOSED until approved (CLAUDE.md rule 9).**
 
 **Fixed (author):** Gym 1 is Crestfall (T3), a town (changed from city by the author, 2026-10-01), Normal type, Greta (young, sassy, kind), STANDARD BADGE, silver outside and blue inside, Greta 10 and 12. Details in [characters.md](characters.md) and [teams.md](teams.md).
 
 ## Decided (author, 2026-10-01)
 
 1. **Type order is Option B:** Normal (Greta, fixed), Bug, Ghost, Steel, Ice, Flying, Poison, Fairy, Water. **Gym 6 is Flying and gives Fly (Feather Badge).** Option A is kept only as a short appendix.
-2. **Total gym level cap is 60.** Gym 1 stays at 12. The curve runs from about 17 to 19 at gym 2 up to 58 to 60 at gym 9, and **the gym 9 ace is 60**. Teams and trainers below are rescaled to it (the exact numbers are PROPOSED).
+2. **Total gym level ceiling is 60** (the gym 9 ace; this is a design ceiling, not the engine level cap, which is OFF by the author's choice of 2026-10-12, see the Level cap note below). Gym 1 stays at 12. The curve runs from about 17 to 19 at gym 2 up to 58 to 60 at gym 9, and **the gym 9 ace is 60**. Teams and trainers below are rescaled to it (the exact numbers are PROPOSED).
 3. **The Elite Four starts at level 65**, so gym 9 at 60 leads straight into it. Details live in [postgame.md](postgame.md).
 4. **Gym towns are a mix of towns and cities.** Crestfall (T3) is a town (author, 2026-10-01; it was a city before). The other city picks below are PROPOSED.
 5. **No IVs or EVs, Pokemon only.**
 
-**Level cap note:** done 2026-10-01, `src/caps.c` badge 9 row is **60** (the Champion row is 75; full table in open question 7 below). The cap is still switched off in `include/config/caps.h`.
+**Level cap note:** done 2026-10-01, `src/caps.c` badge 9 row is **60** (the Champion row is 75; full table in open question 7 below). **The author chose NO level caps on 2026-10-12** (decision 3 in [decisions-pending.md](decisions-pending.md)): `include/config/caps.h` is off, nothing is built, and the `src/caps.c` table is an inert reference that mirrors the gym aces. **AI (my applied reading of the author's 'short ladder' answer, 2026-10-12):** leaders sit on a short ladder, Basic for gym 3 and Sharp for gyms 4 to 9, with Ace Pokemon on gyms 3 to 9; Greta and Hachimel stay Basic. See [ai-ladder.md](ai-ladder.md).
 
 **Not decided here:** town names (placeholders), the Goldsworth scheme per gym ([story-outline.md](story-outline.md)), trainer classes and pictures, moves (species and levels only, moves go into [teams.md](teams.md) once approved).
 
@@ -152,7 +152,7 @@ Normal, Bug, Ghost, Steel, Ice, Flying, Poison, Fairy, Water. The Water gym come
 4. Which non-gym places are cities (T9, T13 and others), and so how many Goldsworth houses in total (game-bible decision 12).
 5. Is the order T7, T8 before T10 to T12 right, or should the north chain come first?
 6. Tune levels in play: with no IVs or EVs fights run a little easier than vanilla.
-7. `src/caps.c` level caps now follow the gym aces (12, 19, 25, 31, 37, 42, 48, 55, 60) and the Champion at 75. **Done 2026-10-01.** The cap is still switched off in `include/config/caps.h`, so it only matters if you turn it on.
+7. `src/caps.c` level caps now follow the gym aces (12, 19, 25, 31, 37, 42, 48, 55, 60) and the Champion at 75. **Done 2026-10-01.** The cap is switched off in `include/config/caps.h` and the author chose to keep it off (2026-10-12), so the table is an inert reference.
 
 ---
 

@@ -28,4 +28,4 @@ Note for new-game testing: a save made **before** 2026-10-09 has neither the ite
 
 ## Level cap note
 
-`src/caps.c` has a level cap plan (off). An always-on Exp. Share speeds up levelling, so the cap, when it is switched on, matters more. See `design/engine-limits.md`.
+`src/caps.c` has a level cap plan, and the author chose to keep it **off** (2026-10-12: 'no level caps'). An always-on Exp. Share speeds up levelling, so a cap would have mattered more; with no cap the player can out-level a gym. See `design/engine-limits.md`.

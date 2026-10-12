@@ -23,7 +23,7 @@ The tracked **`.githooks/pre-commit`** runs on every commit once you set `git co
 | `dialogue_check.py --staged` | every `.inc`, `.c`, `.h`. **Only the lines the commit adds are judged**, so vanilla text that already overflows does not block you; the staged blob is read, not the working file |
 | `slide_check.py` | the slides file, when `opponents.h`, `battle_partner.h` or `trainer_slide.h` is staged |
 | `wild_lint.py --staged` | `src/data/wild_encounters.json` (a time-of-day set without its plain Day table is an error) |
-| `trainer_lint.py` | `trainers.party`, `opponents.h`, `veldris_journal.h`, any map `scripts.inc` |
+| `trainer_lint.py` | `trainers.party`, `opponents.h`, `battle_ai.h`, `veldris_journal.h`, `trainer_lint.py` itself, any map `scripts.inc` |
 | `check_debug_reset.py` | `design/flags.md` or `data/scripts/veldris_debug.inc` |
 | `localid_lint.py --staged` | staged `data/maps/*/map.json` (a `local_id` may not be used by another map) |
 | `teamcheck.py` | the trainer-team docs (`teams`, `trainer-roster`, `gyms`, `postgame`, `troglodyte-arc`) |

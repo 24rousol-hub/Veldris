@@ -102,7 +102,7 @@ if has '^src/data/wild_encounters\.json$'; then
   lint "wild_lint.py found a problem in wild_encounters.json" python3 -B design/tools/wild_lint.py --staged
 fi
 
-if has '^(src/data/trainers\.party|include/constants/opponents\.h|include/veldris_journal\.h|data/maps/[^/]+/scripts\.inc)$'; then
+if has '^(src/data/trainers\.party|include/constants/(opponents|battle_ai)\.h|include/veldris_journal\.h|design/tools/trainer_lint\.py|data/maps/[^/]+/scripts\.inc)$'; then
   lint "trainer_lint.py found a problem in the trainer data or scripts" python3 -B design/tools/trainer_lint.py
 fi
 

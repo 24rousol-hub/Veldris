@@ -8,6 +8,7 @@ Fixed by the author: Elite Four of 4 members; the Champion is an aged Cynthia (2
 
 - Level scale (author, 2026-10-01): the Elite Four starts at level 65 and the League ends at 75 with the Champion. Elite Four sizes 5, 5, 5, 6. Troglodyte's final fight is just before the Champion: 6 Pokémon, about levels 68 to 72. Champion 6 Pokémon, levels 73 to 75.
 - No EVs, and every Pokémon gets an explicit `IVs: 0 ...` line (author; a missing `IVs:` line means 31, see [teams.md](teams.md)). Species are all in this tree (checked against `include/constants/species.h`). Moves are not chosen here: pick from `gen_9.h` learnsets when the blocks go into `src/data/trainers.party`.
+- AI (my applied reading of the author's 2026-10-12 'short ladder' answer; PROPOSED until the League is built): the four members and the Champion all use the Sharp rung with Ace Pokemon, `AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon`. Never Smart Trainer, Prediction or Omniscient. Table and reasons in [ai-ladder.md](ai-ladder.md).
 - Trainer ids: the four members, the Champion and the final Troglodyte fight are 6 ids. Only 9 brand-new ids fit and gyms use them, so these should **reuse vanilla Hoenn entries** (CLAUDE.md, 'A new trainer'). The vanilla Sidney, Phoebe, Glacia, Drake and Wallace entries are the natural ones.
 
 ## Elite Four, Option A (default, PROPOSED; types adjusted 2026-10-01)
@@ -46,7 +47,7 @@ Greta as Champion (old Option B) and Troglodyte as Champion (old Option C) were 
 
 Place: a corridor outside the Champion's chamber, after DRAYDEN.
 
-Team (Pool Prune: Rival Starter as in [teams.md](teams.md)): fixed Pokémon Stoutland 68 (SIR BISCUIT, now grown), Gardevoir 69, Vaporeon 70, Tyranitar 70, Pyroar 70, plus one starter final form, tagged per starter, at level 72 (stand-in Sceptile, Blaziken or Swampert). Party Size 6, the five fixed plus one survivor of the prune. Milotic moved to the Champion. No IVs or EVs. Well-bred, poorly trained: no held items, AI Basic Trainer (or the lowest that makes him lose).
+Team (Pool Prune: Rival Starter as in [teams.md](teams.md)): fixed Pokémon Stoutland 68 (SIR BISCUIT, now grown), Gardevoir 69, Vaporeon 70, Tyranitar 70, Pyroar 70, plus one starter final form, tagged per starter, at level 72 (stand-in Sceptile, Blaziken or Swampert). Party Size 6, the five fixed plus one survivor of the prune. Milotic moved to the Champion. No IVs or EVs. Well-bred, poorly trained: no held items. AI (author, 2026-10-12): the Sharp rung, `Basic Trainer / Hp Aware / Try To 2hko`, never Ace Pokemon (his party order is random); see [ai-ladder.md](ai-ladder.md).
 
 | Beat | Arc A: contemptuous then humbled |
 |---|---|

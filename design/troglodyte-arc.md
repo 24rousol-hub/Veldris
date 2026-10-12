@@ -11,6 +11,8 @@ Sample lines: [dialogue/troglodyte_arc_samples.inc](dialogue/troglodyte_arc_samp
 3. **Level curve:** gym 1 leader ace 12, gym 9 leader ace 60, Elite Four starts at 65, Champion (an aged Cynthia, not Troglodyte) at 75. Troglodyte's last fight is just before the Champion, at about 68 to 72.
 4. Fight 8 is the finale before Cynthia.
 5. **Villain teams (author, 2026-10-04):** somewhere after the badge 5 to 7 team-up with the Commons, **the player and Troglodyte fight the Commons leader together** (a double battle with Troglodyte as partner). A natural humbling point for Arc A. Not yet placed in the fight schedule below. See [factions.md](factions.md).
+6. **AI: the author asked for a short ladder, weak to better, not crazy good (2026-10-12).** The rungs are my applied reading and stay changeable. Fights 1 and 2 (built) use the Dim rung (`Check Bad Move`). The unbuilt fights are PROPOSED as: fights 3 to 6 Basic, fights 7 and 8 Sharp. He never gets `Ace Pokemon` (his party order is random) and always sits at or under the rung of the leader of his time. Table, lines and reasons: [ai-ladder.md](ai-ladder.md). Not to be confused with the 'Basic' in the Starter stage column below, which means the starter's unevolved form.
+7. **Level caps (author, 2026-10-12): none.** The engine cap stays OFF. The level ranges below are what each fight is written at, not a ceiling the player is held to. The `src/caps.c` table (12, 19, 25, 31, 37, 42, 48, 55, 60, then 75 for the Champion) is an inert reference.
 
 ## Arc A
 
@@ -50,6 +52,8 @@ Notes: Scheme 3's old water joke (meters, POLITOED rain, invoice of minus four h
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Leader ace | 12 | 18 | 24 | 30 | 36 | 42 | 48 | 54 | 60 | 65 start | 75 |
 
+The row above is the original proposal, in even steps of 6. **The built aces differ** (12, 19, 25, 31, 37, 42, 48, 55, 60 for gyms 1 to 9, see [trainer-roster.md](trainer-roster.md)), and the 'Behind ace' column of the fight table below uses the built ones.
+
 He trails the current leader's ace by a few levels. **No IVs, no EVs.** Each fight is **one trainer entry** using `Pool Prune: Rival Starter` (kept): `Party Size` is the fixed Pokémon plus one, and the three starter versions are tagged `Tag6` (1st on show), `Tag7` (2nd), `Tag8` (3rd) so exactly one survives. Each entry writes the right evolution stage for its level ([story-outline.md](story-outline.md), 'Starters and the lab scene'). Party size grows from 1 to 6 at fight 6.
 
 Starter lines use Emerald stand-ins until the real species are chosen (Treecko, Torchic, Mudkip evolve at 16 and 36). Fixed species are **PROPOSED stand-ins** for 'well-bred, poorly trained'. Evolution levels checked against the stand-ins: Lillipup 16 and 32, Ralts 20 and 30, Eevee (Water Stone, any level), Litleo 35, Larvitar 30 and Pupitar 55. **Fixed 2026-10-01 (author): Troglodyte no longer has Garchomp.** Cynthia's ace is Garchomp, so his later fights now build up to the `postgame.md` team (Stoutland, Gardevoir, Vaporeon, Tyranitar, Pyroar plus his starter).
@@ -64,6 +68,10 @@ Starter lines use Emerald stand-ins until the real species are chosen (Treecko, 
 | 6 | Gym 7, Poison (Scheme 7) | ace 48 | 6 | 43 to 46 | Stage 3 | Stoutland, Vaporeon, Gardevoir, Pyroar, Pupitar |
 | 7 | Victory Road (R20) | ace 60 | 6 | 55 to 57 | Stage 3 | same six, Pupitar has become Tyranitar |
 | 8 | Finale, just before the Champion | E4 65 | 6 | 68 to 72 | Stage 3 | Stoutland 68, Gardevoir 69, Vaporeon 70, Tyranitar 70, Pyroar 70, starter 72 ([postgame.md](postgame.md)). **No Garchomp: that is Cynthia's ace** |
+
+**Levels are targets, not a cap.** A 'Behind ace' value is the leader's ace at that time and the level range is where the fight is written (for example fight 3 at 20 to 22, under the gym 3 ace of 25). The engine level cap is OFF by the author's decision of 2026-10-12, so nothing holds the player to these numbers, and the `src/caps.c` table is an inert reference. Brief 3 in [decisions/battle.md](decisions/battle.md) words the same values as 'with cap 25' and 'with cap 42': read those as the ace.
+
+**AI rung per fight (fights 1 and 2 built; 3 to 8 are a PROPOSED plan, not an author answer).** Fights 1 and 2 Dim, 3 to 6 Basic, 7 and 8 Sharp, never Ace Pokemon. The exact `AI:` lines are in [ai-ladder.md](ai-ladder.md).
 
 Fight 8 is fixed as the finale before Cynthia (open decision 2 in [game-bible.md](game-bible.md) is settled on the Champion: not Troglodyte). Eight encounters. Fights fall at gyms 1, 3, 5, 6, 7 only, so he is not at every gym; the other gyms only get the scheme.
 

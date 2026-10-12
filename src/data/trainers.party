@@ -4594,7 +4594,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon
 Mugshot: Purple
 
 Houndoom
@@ -4645,7 +4645,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon
 Mugshot: Green
 
 Espeon
@@ -4696,7 +4696,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon
 Mugshot: Pink
 
 Goodra
@@ -4755,7 +4755,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon
 Mugshot: Blue
 
 Breloom
@@ -4833,7 +4833,7 @@ Gender: Female
 Music: Girl
 Items: Super Potion / Super Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Ace Pokemon
 Starting Status: Trick Room Temporary
 
 Shuppet
@@ -4868,7 +4868,7 @@ Gender: Male
 Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon
 Starting Status: Electric Terrain Temporary
 
 Bronzor
@@ -4903,7 +4903,7 @@ Gender: Male
 Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon
 Starting Status: Weather Snow Temporary
 
 Sneasel
@@ -4946,7 +4946,7 @@ Gender: Male
 Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon
 Starting Status: Tailwind Opponent Temporary
 
 Swellow
@@ -4989,7 +4989,7 @@ Gender: Male
 Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon
 Starting Status: Toxic Spikes Player L1
 
 Weezing
@@ -5040,7 +5040,7 @@ Gender: Female
 Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon
 Starting Status: Misty Terrain Temporary
 
 Azumarill
@@ -5091,7 +5091,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon
 Starting Status: Weather Rain Temporary
 
 Gyarados
@@ -6262,7 +6262,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Hp Aware / Try To 2hko / Ace Pokemon
 Mugshot: Yellow
 
 Spiritomb
@@ -9524,7 +9524,7 @@ Gender: Male
 Music: Rich
 Mugshot: Gold
 Double Battle: No
-AI: Basic Trainer
+AI: Check Bad Move
 Party Size: 2
 Pool Prune: Rival Starter
 
@@ -9570,7 +9570,7 @@ Gender: Male
 Music: Rich
 Mugshot: Gold
 Double Battle: No
-AI: Basic Trainer
+AI: Check Bad Move
 Party Size: 2
 Pool Prune: Rival Starter
 

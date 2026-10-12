@@ -1,22 +1,24 @@
 # Battle decisions: five briefs for the author
 
-Written 2026-10-09 by the `decisions-battle` stream. **Everything here is PROPOSED.** Nothing in the repo was edited. Facts come from reading the tree at commit `8bb23927` ("read") and from a throw-away lab build in a scratch clone, run in mGBA ("ran"; the lab patch is `prototypes/battle_lab.patch`, never merged; its screenshots stayed in the scratch area and are not in the repo). Each brief ends with a one-word answer.
+Written 2026-10-09 by the `decisions-battle` stream. **Everything here is PROPOSED.** Nothing in the repo was edited. **Update 2026-10-12: the author answered briefs 1 and 3** (the 'Author's answer' paragraphs and the Answer sheet column below are the only additions). The brief texts are the original proposals and are kept as they were, so read them as options, not as the decisions. Facts come from reading the tree at commit `8bb23927` ("read") and from a throw-away lab build in a scratch clone, run in mGBA ("ran"; the lab patch is `prototypes/battle_lab.patch`, never merged; its screenshots stayed in the scratch area and are not in the repo). Each brief ends with a one-word answer.
 
 ## Answer sheet
 
-| # | Question | Answer with one of | My pick |
-|---|---|---|---|
-| 1 | How clever should opponents get as the game goes on? | `ladder` / `flat` / `custom` | `ladder` |
-| 2 | What do trainer Pokémon get when a block forgets the `IVs:` line? | `zero` / `explicit` / `leave` | `zero` |
-| 3 | Level caps (stop the team out-levelling the next gym) | `off` / `soft` / `hard` / `hardobey` | `soft` |
-| 4 | Stat boosts at the start of boss fights | `none` / `legends` / `bosses` | `legends` |
-| 5 | Tag battles and two-opponent battles | `none` / `tag` / `both` | `both` |
+| # | Question | Answer with one of | My pick | Author's answer (2026-10-12) |
+|---|---|---|---|---|
+| 1 | How clever should opponents get as the game goes on? | `ladder` / `flat` / `custom` | `ladder` | **Short ladder, weak to better, not crazy good** (3 rungs: Dim, Basic, Sharp). See [../ai-ladder.md](../ai-ladder.md) |
+| 2 | What do trainer Pokémon get when a block forgets the `IVs:` line? | `zero` / `explicit` / `leave` | `zero` | open |
+| 3 | Level caps (stop the team out-levelling the next gym) | `off` / `soft` / `hard` / `hardobey` | `soft` | **`off`**, nothing built |
+| 4 | Stat boosts at the start of boss fights | `none` / `legends` / `bosses` | `legends` | open |
+| 5 | Tag battles and two-opponent battles | `none` / `tag` / `both` | `both` | open |
 
-Example reply: `1 ladder, 2 zero, 3 soft, 4 legends, 5 both`.
+Example reply for the open ones: `2 zero, 4 legends, 5 both`.
 
 ---
 
 ## 1. AI ladder: weak early, smart late
+
+> **Author's answer (2026-10-12): a short ladder.** The author's words: 'Like the starters, short AI ladder weak to better but not crazy good, no level caps,'. The author gave the direction (short, weak to better, not crazy good). **Applied as three rungs only** (my reading, changeable): Dim (`AI: Check Bad Move`), Basic (`AI: Basic Trainer`) and Sharp (`AI: Basic Trainer / Hp Aware / Try To 2hko`), with `/ Ace Pokemon` added for gym leaders 3 to 9, the Elite Four and Cynthia (not for Troglodyte, Greta or Hachimel). **No Smart Trainer, Prediction or Omniscient anywhere (my reading of 'not crazy good').** So the Smart, Smart plus and Smartest rungs, and their rows in the fight table below, are NOT adopted. Where each block sits, the Troglodyte plan, the test notes and the lint and test that hold the table are in [../ai-ladder.md](../ai-ladder.md). Data only: no engine edit. The 'like the starters' part is item S1 and is not answered here.
 
 **Plain words.** Every opponent built so far (all 18 blocks: gym leaders, Elite Four, Cynthia, Greta and her two trainers, both Troglodyte fights) thinks the same way: `Basic Trainer` (never picks a move that will fail, takes a knockout when it sees one, otherwise the strongest move, and swaps only in a few special cases). The engine has a dial from 'random but sane' up to 'knows your moves and predicts your swaps'. A ladder lets Troglodyte fumble early and the League fight like a player.
 
@@ -31,7 +33,7 @@ Example reply: `1 ladder, 2 zero, 3 soft, 4 legends, 5 both`.
 | Handicap and doubles | Negate Unaware, Attacks Partner, Smart Tera, Double Battle (the engine sets it in doubles) |
 | **Bundles** | `Basic Trainer` = Check Bad Move + Try To Faint + Check Viability. `Smart Trainer` = Basic + Omniscient + Smart Switching + Smart Mon Choices + Pp Stall Prevention + Smart Tera + Randomize Switchin. `Prediction` = the three Predict flags. `Assumptions` = Assume Stab + Assume Status Moves + Weigh Ability Prediction |
 
-**How the party file sets it (read, and ran).** One line per block, `AI: Flag / Flag / Flag`. The name is the constant without `AI_FLAG_`, any capitals, spaces or underscores, bundles allowed, up to 64 (`tools/trainerproc/main.c` lines 1198 and 1891). I ran `AI: Smart Trainer / Prediction / Hp Aware / Try To 2hko / Ace Pokemon` through the tool and compiled the result against the header: fine. A typo (`AI: Foo Bar`) is not silent: it becomes `AI_FLAG_FOO_BAR undeclared`, a build error. No `AI:` line means no flags at all (every move scores the same, so moves are random). Today in `trainers.party` (855 blocks, 839 with an `AI:` line): 640 `Check Bad Move`, 175 `Basic Trainer`, 24 older mixes; all 18 Veldris blocks `Basic Trainer`.
+**How the party file sets it (read, and ran).** One line per block, `AI: Flag / Flag / Flag`. The name is the constant without `AI_FLAG_`, any capitals, spaces or underscores, bundles allowed, up to 64 (`tools/trainerproc/main.c` lines 1198 and 1891). I ran `AI: Smart Trainer / Prediction / Hp Aware / Try To 2hko / Ace Pokemon` through the tool and compiled the result against the header: fine. A typo (`AI: Foo Bar`) is not silent: it becomes `AI_FLAG_FOO_BAR undeclared`, a build error. No `AI:` line means no flags at all (every move scores the same, so moves are random). Today in `trainers.party` (855 blocks, 839 with an `AI:` line): 640 `Check Bad Move`, 175 `Basic Trainer`, 24 older mixes; all 18 Veldris blocks `Basic Trainer` (as of 2026-10-09, before the 2026-10-12 ladder).
 
 **Two behaviours worth knowing (read).**
 - `Check Bad Move` alone gives *random but sane*: it only removes moves that would fail, then picks among equals (`ChooseMoveOrAction_Singles`, `src/battle_ai_main.c`). `Try To Faint` and `Check Viability` are what make the AI hunt knockouts and damage.
@@ -90,7 +92,7 @@ For scale, the upstream test suite caps singles at 2 frames (no flags) and 7 (Sm
 6. **The debug 'Try Battle' ignores the block's AI line** (it uses the AI flags set in its own menu, `gDebugAIFlags`, `src/battle_ai_main.c` line 315, and `GetDebugAiTrainer` in `include/data.h`). Test through a real script fight.
 7. AI is random, so a rung change cannot be proved by one fight; it needs a few.
 
-**Test plan.** (1) `make -j4` after the 14 edits. (2) A throw-away debug slot that starts a chosen trainer with `trainerbattle_no_intro` (the lab's scripts `Veldris_Lab_*` in `prototypes/battle_lab.patch` are exactly that) and `DEBUG_AI_DELAY_TIMER` TRUE in a private build to read the thinking time. (3) Troglodyte 1: expect Growl and Tail Whip turns; Cynthia: expect swaps and no wasted moves; check six turns each. (4) Never ship the timer switch.
+**Test plan.** (1) `make -j4` after the 14 edits. (2) A throw-away debug slot that starts a chosen trainer with `trainerbattle_no_intro` (the lab's scripts `Veldris_Lab_*` in `prototypes/battle_lab.patch` are exactly that) and `DEBUG_AI_DELAY_TIMER` TRUE in a private build to read the thinking time. (3) Troglodyte 1: expect Growl and Tail Whip turns; Cynthia: expect swaps and no wasted moves; check six turns each (superseded 2026-10-12: the adopted ladder gives nobody Smart Switching, so Cynthia should NOT swap on bad matchups; see [../ai-ladder.md](../ai-ladder.md) 'How to test'). (4) Never ship the timer switch.
 
 **Answer:** `ladder` (as tabled), `flat` (keep Basic everywhere, nothing changes), `custom` (you edit the table above).
 
@@ -127,6 +129,8 @@ For scale, the upstream test suite caps singles at 2 frames (no flags) and 7 (Sm
 ---
 
 ## 3. Level caps
+
+> **Author's answer (2026-10-12): `off`.** The author's words: 'no level caps'. Nothing is built and no config or C file changes: `include/config/caps.h` is already off (`B_EXP_CAP_TYPE` `EXP_CAP_NONE`, `B_LEVEL_CAP_TYPE` `LEVEL_CAP_NONE`, `B_RARE_CANDY_CAP` FALSE, `B_LEVEL_CAP_EXP_UP` FALSE). The `src/caps.c` table stays as an inert reference. The League gap in finding (a) below is moot while the cap is off. The doc drift in finding (b) was already fixed in `gyms.md` and `engine-limits.md` (the table says 60 for badge 9 and 75 for the Champion). The levels below, such as Troglodyte's 'fight 3 at 20 to 22 with cap 25', are target ranges under the leader's ace, not an active cap. Everything else in this brief is the original proposal, kept for the record (and for the day the author wants a cap after all).
 
 **Plain words.** The engine can stop a Pokémon from gaining levels past 'the strongest thing you must beat next' (the next gym leader's ace). The cap table is already written in `src/caps.c` but switched off. With the Exp. Share on from the first frame, the whole team of six levels up together, so a cap matters more here than in a normal game.
 

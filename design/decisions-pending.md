@@ -1,6 +1,6 @@
 # Decisions waiting for you
 
-Status: **PROPOSED, nothing here is built or wired.** Written 2026-10-10 from the overnight work (briefs checked against the tree, most of them also tried in a scratch copy in mGBA). Reply with the codes, for example `Q1 B, 1 ladder, 2 zero, U1 B`. Anything you skip stays as it is today. Rule 10 applies: story beats (the starters, house fights, slide wording for gym leaders, the League, Cynthia, the Commons and the Crown) wait for your answer, they are not built.
+Status: **partly answered.** Written 2026-10-10 from the overnight work (briefs checked against the tree, most of them also tried in a scratch copy in mGBA). **Answered by the author on 2026-10-12:** item 1, the AI ladder (the short 3-rung version, [ai-ladder.md](ai-ladder.md); data only, the `AI:` lines are set in `src/data/trainers.party` for the 14 ladder blocks), and item 3, level caps (off; nothing built, `include/config/caps.h` was already off). **S1 (the starters):** the author wrote 'Like the starters' on the same day, then confirmed set A (Johto + Togepi) when asked; the build is its own commit, next. **Everything else is still open and PROPOSED: nothing else here is built or wired.** Reply with the codes, for example `Q1 B, 2 zero, U1 B`. Anything you skip stays as it is today. Rule 10 applies: story beats (the starters, house fights, slide wording for gym leaders, the League, Cynthia, the Commons and the Crown) wait for your answer, they are not built.
 
 ## Quick-answer sheet
 
@@ -14,13 +14,13 @@ Status: **PROPOSED, nothing here is built or wired.** Written 2026-10-10 from th
 | Q6 | Clock hours | A Morning/Day/Evening/Night (built) / B Gen 4 style | keep A | [story.md](decisions/story.md) |
 | Q7 | Route 1 night species | keep Hoothoot, Rattata, Spinarak, Murkrow / change | keep | [story.md](decisions/story.md) |
 | Q8 | The 17 furniture lines | keep / richer / poorer | keep | [story.md](decisions/story.md) |
-| S1 | The four starters (open decision 14) | A Johto + Togepi / B Sinnoh + Riolu / C Unova + Eevee / D Hoenn stand-ins | A (B if you want Cynthia seeded early) | [story.md](decisions/story.md) |
+| S1 | The four starters (open decision 14) | A Johto + Togepi / B Sinnoh + Riolu / C Unova + Eevee / D Hoenn stand-ins | A (B if you want Cynthia seeded early). **ANSWERED by the author 2026-10-12: A (Johto + Togepi).** He wrote "Like the starters", which was ambiguous, so I asked and he picked A. Being built as its own commit. | [story.md](decisions/story.md) |
 | S2 | Which places are cities, and the skyscraper (decisions 12 and 8) | adopt your sketch labels / tell me what changes | adopt | [story.md](decisions/story.md) |
 | S3 | Goldsworth house fights (decision 11) | A NPC only / B one shared family trainer id for 2 or 3 loud houses | B | [story.md](decisions/story.md) |
 | S4 | How cruel may a Goldsworth be (decision 10) | A never to innocent townsfolk / B rude to townsfolk, never cruel to children or animals | A | [story.md](decisions/story.md) |
-| 1 | AI ladder: weak early, smart late | ladder / flat / custom | ladder | [battle.md](decisions/battle.md) |
+| 1 | AI ladder: weak early, smart late. **ANSWERED by the author 2026-10-12** | ladder / flat / custom | **Answer (author): a short ladder, weak to better but not crazy good.** Applied as three rungs, my reading and changeable: Dim, Basic, Sharp; no Smart Trainer, Prediction or Omniscient. Data only. My pick was the 6-rung ladder | [ai-ladder.md](ai-ladder.md), [battle.md](decisions/battle.md) |
 | 2 | Default IVs when a block forgets `IVs:` | zero / explicit / leave | zero | [battle.md](decisions/battle.md) |
-| 3 | Level caps | off / soft / hard / hardobey | soft | [battle.md](decisions/battle.md) |
+| 3 | Level caps. **ANSWERED by the author 2026-10-12** | off / soft / hard / hardobey | **Answer: off.** Nothing built: `include/config/caps.h` was already off, and the `src/caps.c` table stays as an inert reference. My pick was soft | [battle.md](decisions/battle.md), [ai-ladder.md](ai-ladder.md) |
 | 4 | Stat boosts at the start of boss fights | none / legends / bosses | legends | [battle.md](decisions/battle.md) |
 | 5 | Tag battles and two-opponent battles | none / tag / both | both | [battle.md](decisions/battle.md) |
 | U1 | Hold a button to skip text | A no (just FAST default) / B hold R / C hold B | B | [ui.md](decisions/ui.md) |
@@ -39,7 +39,7 @@ Status: **PROPOSED, nothing here is built or wired.** Written 2026-10-10 from th
 ## What is in each file
 
 - [decisions/story.md](decisions/story.md): the small calls (Q1 to Q8) and the story and world calls still open in the game bible (starters, cities, house fights, tone).
-- [decisions/battle.md](decisions/battle.md): five battle briefs. Each was tried in a throw-away lab build in mGBA (AI thinking time per rung, hard and soft level cap, boss boost message, a tag battle, a two-opponent battle). The lab patch is `decisions/prototypes/battle_lab.patch` (never merged).
+- [decisions/battle.md](decisions/battle.md): five battle briefs (briefs 1 and 3 are answered, each has an 'Author's answer' paragraph; the decided AI ladder is in [ai-ladder.md](ai-ladder.md)). Each was tried in a throw-away lab build in mGBA (AI thinking time per rung, hard and soft level cap, boss boost message, a tag battle, a two-opponent battle). The lab patch is `decisions/prototypes/battle_lab.patch` (never merged).
 - [decisions/ui.md](decisions/ui.md): five briefs with pictures in `decisions/img/` and the prototype patches in `decisions/prototypes/` (hold-R skip, config and defaults bundle, Crestfall light sprites). Two filler-NPC drafts for U2 are in `decisions/relearn_giver_lines_DRAFT.inc`.
 - [decisions/arch.md](decisions/arch.md): the Hoenn purge brief (what Hoenn costs, three options measured in a scratch clone and run in the robot, a recommendation). The tested SKIP recipe is in `decisions/prototypes/hoenn-skip/`.
 - [trainer-slide-options/](trainer-slide-options/): PROPOSED mid-battle lines for all nine gym leaders and for the Elite Four, Cynthia and the villain bosses, three tones each, every line measured with the game's own line breaker. Nothing is wired. To approve, tell me the letters; I paste the matching rows from the `*_COMMENTED.h` files into `src/data/veldris_trainer_slides.h`.

@@ -4,6 +4,8 @@ Status: **PROPOSED** unless marked. Levels and the number of Pokémon per traine
 
 **No IVs or EVs on any trainer (author, 2026-09-29): they belong to the player only.** **CORRECTION (2026-10-01, checked by building):** leaving out the `IVs:` line does NOT give zero IVs. The build tool (`tools/trainerproc`) then writes `TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31)`, so every Pokémon would be maxed. To honour the rule, **every Pokémon needs `IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe`** (the 13 leader, Elite Four and Champion blocks in `src/data/trainers.party` have it). Leaving out `EVs:` is correct: no EV field is written, so EVs are 0. The blocks drafted below were written before this correction, so add the IVs line when pasting them. A trainer with 0 IVs is a little weaker than vanilla's, so tune levels or moves if it feels soft.
 
+**AI line (from the author's 'short ladder' answer of 2026-10-12; the rung contents are my applied reading and stay changeable).** The `AI:` line of every block comes from the short ladder in [ai-ladder.md](ai-ladder.md): Dim `Check Bad Move`, Basic `Basic Trainer`, Sharp `Basic Trainer / Hp Aware / Try To 2hko`, plus `/ Ace Pokemon` for gym leaders 3 to 9, the Elite Four and Cynthia (never for Troglodyte). In this file Greta, DALE and WREN stay `Basic Trainer`; Troglodyte's fights 1 and 2 are `Check Bad Move` (Dim). Later Troglodyte fights follow the table in [ai-ladder.md](ai-ladder.md). Never `Smart Trainer`, `Prediction` or `Omniscient`.
+
 Moves are checked against the learnsets this ROM actually uses (`P_LVL_UP_LEARNSETS` is `GEN_LATEST`, so `gen_9.h`). Each move is learned by that species at or below its level.
 
 ## Crestfall gym (gym 1, Normal type, STANDARD BADGE)
@@ -100,7 +102,7 @@ Pic: (TBD: must already exist)
 Gender: Male
 Music: (TBD)
 Double Battle: No
-AI: Basic Trainer
+AI: Check Bad Move
 Party Size: 1
 Pool Prune: Rival Starter
 
@@ -147,7 +149,7 @@ Pic: (TBD: must already exist)
 Gender: Male
 Music: (TBD)
 Double Battle: No
-AI: Basic Trainer
+AI: Check Bad Move
 Party Size: 2
 Pool Prune: Rival Starter
 
