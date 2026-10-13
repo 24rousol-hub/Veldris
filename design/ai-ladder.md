@@ -10,7 +10,7 @@ Status: **the direction was given by the author on 2026-10-12; the rung contents
 - 'No level caps' is the last section.
 - 'Like the starters' was item S1. It was ambiguous, so the author was asked, and confirmed set A (Johto + Togepi). The starters are not part of this page.
 
-**Not the author's words (my applied reading, changeable):** the three rungs and the flags each holds, `Ace Pokemon` on gym leaders 3 to 9, the League and Cynthia, the per-block mapping, the exclusion of Smart Trainer, Prediction, Omniscient and Smart Switching, and the Troglodyte plan. The author asked only for a short ladder, weak to better, not crazy good, and no level caps.
+**Not the author's words (my applied reading, changeable):** the three rungs and the flags each holds, `Ace Pokemon` on gym leaders 3 to 9, the League and Cynthia, the per-block mapping, the exclusion of Smart Trainer, Prediction, Omniscient and Smart Switching, and the middle of the Troglodyte plan. The author asked for a short ladder, weak to better, not crazy good, and no level caps. **One Troglodyte answer is the author's (2026-10-13): he should be genuinely sharp**, so he ends on the Sharp rung (see 'Troglodyte' below).
 
 ## The three rungs
 
@@ -48,9 +48,11 @@ Find each block in `src/data/trainers.party` by its `=== TRAINER_X ===` header.
 
 That is 14 blocks edited. Greta and Hachimel are not edited but are pinned at Basic by the lint and the unit test (16 rows in all). Not touched and not pinned: Greta's two gym trainers DALE and WREN (`Basic Trainer`) and the three Route 1 trainers (`Check Bad Move`); for them only the allowed-flag check applies.
 
-## Troglodyte, fights not built yet (PROPOSED plan only)
+## Troglodyte, fights not built yet (end state decided, middle PROPOSED)
 
-Nothing to edit now. This table is my plan, not an author answer. When a fight is built, copy its line from this table. **Never Ace Pokemon for Troglodyte.** He always sits at or under the rung of the leader of his time, so he stays the easier opponent.
+**Author's answer (2026-10-13): he should be genuinely sharp.** So he is not a pushover at the end: fights 7 and 8 are on the Sharp rung, the top rung of this ladder (the same as the Elite Four and Cynthia). Nothing is built for this yet, because only fights 1 and 2 exist. The rows for fights 3 to 6 are still my plan, not an author answer. When a fight is built, copy its line from this table. **Never Ace Pokemon for Troglodyte** (his party order is random, see 'Why Ace Pokemon'). He always sits at or under the rung of the leader of his time, so he is never smarter than the gym leader he is racing; how hard he is to beat comes from his teams and levels ([troglodyte-arc.md](troglodyte-arc.md)).
+
+**Open, not blocking:** the leaders of gyms 5 to 7 are already Sharp, so fights 4 to 6 could be Sharp too if you want him sharp earlier. Until you say so they stay Basic, as in the table.
 
 | Fight | Where | Leader of his time | Rung |
 |---|---|---|---|

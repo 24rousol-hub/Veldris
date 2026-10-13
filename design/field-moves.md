@@ -48,6 +48,20 @@ No new flags, vars, save fields, assets or text. A player who never picks a Pok�
 
 **Not run:** Rock Smash, Strength, Waterfall and Dive individually (they go through the same `checkfieldmove` path as Cut and Surf), a completed Fly trip, and Sweet Scent with a Pokémon that knows it.
 
+## Cut and the early catches (checked 2026-10-13)
+
+**Is anything locked behind Cut?** No built map has a Cut tree (Hollowbrook, Crestfall, Route 1 and the interiors have none). Every Cut tree in the planned map cards (`design/maps/detail/`) guards an optional thing: an item in a nook (Super Potion, Ether, Iron, Full Heal, TM Giga Drain, Revive, Silver Powder, Star Piece, Max Elixir) or a shortcut. Greta gives the Cut HM at the Crestfall gym, and Cut becomes usable with badge 1.
+
+**Who can Cut?** A species can when Cut is in its generated teachable list (this build's 'can learn' rule, see above). Of the early wild Pokémon:
+
+| Where | Can learn Cut | Cannot |
+|---|---|---|
+| Route 1 by day (BUILT) | Zigzagoon 30%, Bidoof 15%, Sentret 15%, Slakoth 1% (**61%** of encounters) | Lillipup 30%, Skitty 8%, Miltank 1% |
+| Route 1 at night (BUILT) | Zigzagoon 30%, Rattata 15%, Slakoth 1% (**46%**) | Hoothoot 40%, Skitty 8%, Spinarak 5%, Murkrow 1% |
+| Route 2 (PROPOSED, a post-gym-1 road) | Zigzagoon, Patrat (two slots), Sentret, Bidoof, Meowth, Slakoth (**65%**) | Lillipup, Pidove (two slots), Skitty, Miltank |
+
+Route 1 is the only wild grass before badge 1, so a player who catches there normally has a Cut learner before Cut is usable. A Togepi-only party (the Togepi line can learn Flash and Rock Smash, and Fly from Togetic, but not Cut) just gets the vanilla 'this tree looks like it can be CUT down' text until it catches one. Nothing is lost for good, so no code change was made. If the author ever wants the Togepi line to Cut without a second Pokémon, it is one extra row in the hack-owned `src/veldris_field_moves.c`; ask.
+
 ## Optional extras, not built
 
 - **Press A in a dark cave to light it** (a yes/no prompt) instead of using the party menu: 2 more upstream files plus a small script. Ask if you want it.

@@ -56,8 +56,8 @@ Example reply for the open ones: `2 zero, 4 legends, 5 both`.
 |---|---|---|---|
 | Troglodyte 1 (lab door) | `TRAINER_TROGLODYTE_HOLLOWBROOK`, line 9527 | Basic | **Dim** |
 | Troglodyte 2 (Crestfall) | `TRAINER_TROGLODYTE_CRESTFALL`, line 9573 | Basic | **Dim** |
-| Troglodyte 3, 4 (gym 3, gym 5) | not built | | Basic |
-| Troglodyte 5 to 8 (gym 6, gym 7, Victory Road, finale) | not built | | Sharp (never Smart: he stays one rung under the leaders of his time; `postgame.md` already asks for 'the lowest that makes him lose') |
+| Troglodyte 3 to 6 (gym 3, gym 5, gym 6, gym 7) | not built | | Basic (PROPOSED; could be Sharp earlier if the author wants) |
+| Troglodyte 7, 8 (Victory Road, finale) | not built | | **Sharp** (author, 2026-10-13: he should be genuinely sharp; never Smart, and never above the leaders of his time; the canonical table is in [../ai-ladder.md](../ai-ladder.md)) |
 | Gym 1 GRETA | `TRAINER_CRESTFALL_GRETA`, 16853 | Basic | Basic (unchanged) |
 | Gym 2 HACHIMEL | 4809 | Basic | Basic (unchanged) |
 | Gym 3 SANZUFORD | 4836 | Basic | Basic `/ Ace Pokemon` |
