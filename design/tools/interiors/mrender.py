@@ -3,7 +3,7 @@ import json, sys, re
 import numpy as np
 from pathlib import Path
 from PIL import Image, ImageDraw
-V=Path('/home/claude/veldris')
+V=Path(__file__).resolve().parents[3]  # repo root
 def tsdir(name):
     h=(V/'src/data/tilesets/headers.h').read_text()
     m=re.search(r'const struct Tileset '+name+r' =\s*\{(.*?)\};',h,re.S); body=m.group(1)
