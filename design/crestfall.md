@@ -89,7 +89,7 @@ Sign scripts are in `data/maps/Crestfall/scripts.inc` (town and field text from 
 | Centre gates (shut, opened by `setmetatile` on load once `FLAG_BADGE01_GET` is set) | (6-8,11) and (6-8,16) |
 | Statues (signs) / exit mat | (3,21), (11,21) / (7-8,22) |
 
-Rewards: STANDARD BADGE (`FLAG_BADGE01_GET`), **HM CUT** (`FLAG_RECEIVED_HM_CUT`, the vanilla flag reused) and **TM CRUNCH** (new **TM51**, flag `FLAG_RECEIVED_TM_CRUNCH` = the unused vanilla Rock Tomb flag). The aisle walls are new north-south railing tiles (metatiles 736-740 in the Petalburg Gym tileset, drawn the way vanilla draws Route 117's fence), built by `design/tools/gym/gym_rails.py`; the map by `design/tools/gym/crestfall_gym.py`. Greta's lines are the earlier drafts (PROPOSED); DALE's and WREN's were reworded because the hay maze is gone. **Checked in mGBA:** entering, the new railings, the shut centre gates. **Checked by the robot test** `design/tools/emu/tests/test_gym1.py` (`--slow`, 2026-10-13): WREN's battle, Greta's battle, the badge, HM CUT and TM CRUNCH in the bag, the centre gates open and stay open after leaving and coming back. **Difficulty note:** Greta (Skitty L10 with Sing/Fake Out/Attract, Miltank L12 with Rollout) beat the preset's six level 11 test Pokemon in 2 of 3 early runs when the robot only used move 1; the test retries a whiteout. **Scheme 1** is built (below).
+Rewards: STANDARD BADGE (`FLAG_BADGE01_GET`), **HM CUT** (`FLAG_RECEIVED_HM_CUT`, the vanilla flag reused) and **TM CRUNCH** (new **TM51**, flag `FLAG_RECEIVED_TM_CRUNCH` = the unused vanilla Rock Tomb flag). The aisle walls are new north-south railing tiles (metatiles 736-740 in the Petalburg Gym tileset, drawn the way vanilla draws Route 117's fence), built by `design/tools/gym/gym_rails.py`; the map by `design/tools/gym/crestfall_gym.py`. Greta's lines are the earlier drafts (PROPOSED); DALE's and WREN's were reworded because the hay maze is gone. **Checked in mGBA:** entering, the new railings, the shut centre gates. **Checked by the robot test** `design/tools/emu/tests/test_gym1.py` (`--slow`, 2026-10-13): WREN's battle, Greta's battle, the badge, HM CUT and TM CRUNCH in the bag, the centre gates open and stay open after leaving and coming back. **Difficulty note:** Greta (Skitty L10 with Sing/Fake Out/Attract at the time, Miltank L12 with Rollout) beat the preset's six level 11 test Pokemon in 2 of 3 early runs when the robot only used move 1; the test retries a whiteout. The author then swapped Skitty's Attract for Tail Whip (2026-10-13). **Scheme 1** is built (below).
 
 ## Scheme 1, as built (2026-10-08)
 
@@ -110,7 +110,7 @@ Scene order: Hollis walks up and asks the player to step aside, the player steps
 
 **Gotcha found in testing:** two maps cannot share a `local_id` name. `LOCALID_CRESTFALL_GRETA` already belonged to the gym, so the town's copy silently became the photographer's id. The outdoor one is `LOCALID_CRESTFALL_GRETA_OUTSIDE`.
 
-Still to rewrite (old scheme): the Route 1 surveyors, House A wife's lines, the Wendlebury traveller's hay-maze line.
+Still to rewrite (old scheme): House A wife's lines, the Wendlebury traveller's hay-maze line. The Route 1 surveyors became the photo crew on 2026-10-13 (PROPOSED lines, [route1.md](route1.md)).
 
 ## Where Scheme 1 beats happen (old consultant plan, superseded)
 1. **Setup** (before the gym): consultant outside in town; locals and the old farmer grumble; the two surveyors on Route 1 hint first.

@@ -125,7 +125,7 @@ Crestfall_Text_GretaAfterTrog::
 
 @ First talk, before the battle.
 Crestfall_Text_GretaIntro::
-	.string "Well, hello. You must be {PLAYER}.\n"
+	.string "Well, hello again, {PLAYER}.\n"
 	.string "The whole town has been talking.\p"
 	.string "I'm GRETA. Crestfall's gym leader.\n"
 	.string "Yes, I know. I look too young.\p"

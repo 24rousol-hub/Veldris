@@ -8,9 +8,10 @@ def tsdir(name):
     h=(V/'src/data/tilesets/headers.h').read_text()
     m=re.search(r'const struct Tileset '+name+r' =\s*\{(.*?)\};',h,re.S); body=m.group(1)
     tiles=re.search(r'\.tiles = (\w+)',body).group(1)
-    g=(V/'src/data/tilesets/graphics.h').read_text()
-    p=re.search(tiles+r'\[\] = INCGFX_U32\("([^"]+)/tiles.png"',g)
-    return V/p.group(1)
+    for f in ('src/data/tilesets/graphics.h','src/graphics.c'):   # outdoor primaries (General) live in graphics.c
+        p=re.search(tiles+r'\[\] = INCGFX_U32\("([^"]+)/tiles.png"',(V/f).read_text())
+        if p: return V/p.group(1)
+    raise SystemExit('tiles for %s not found' % name)
 def read_pal(p):
     t=Path(p).read_text().split(); n=int(t[2]); return [tuple(int(x) for x in t[3+i*3:6+i*3]) for i in range(n)]
 class TS:

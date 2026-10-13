@@ -75,7 +75,7 @@ Level: 10
 - Fake Out
 - Tackle
 - Sing
-- Attract
+- Tail Whip
 
 Miltank @ Oran Berry
 Level: 12
@@ -84,7 +84,7 @@ Level: 12
 - Rollout
 - Defense Curl
 ```
-- **Skitty opens with Fake Out** (a flinch), then Sing and Attract make it annoying rather than deadly.
+- **Skitty opens with Fake Out** (a flinch), then Sing makes it annoying rather than deadly. **Attract was swapped for Tail Whip (author, 2026-10-13)** after the robot test lost to her 2 runs in 3.
 - **Miltank is the ace.** Rollout plus Defense Curl is the classic early-game Miltank problem, and she learns nothing better by level 12. With no IVs she is a little weaker than a vanilla leader's Pokémon, so this may land about right for a player at level 10 to 12. Tell me if you want it softer (drop Defense Curl) or harder.
 - The Oran Berry copies the vanilla first gym leader, Roxanne. Greta's two Pokémon are a level 10 and a level 12, as you asked.
 

@@ -60,6 +60,7 @@ The draft dialogue for this scene, and for the rest of Hollowbrook, is in [dialo
 - There are **four** starters. Three are on show in the lab.
 - Troglodyte forces a Pokémon out of Fennick and takes **one of the three on show, at random**.
 - Fennick then reveals the **fourth** as an apology to the player, and the player picks from what is left.
+- **Pokédex and Poké Balls (author, 2026-10-13): Fennick gives both** right after the player's choice: the National Pokédex (Veldris has every generation, so the Hoenn list would leave out even the starters) and 5 Poké Balls. Wording PROPOSED (`Hollowbrook_Text_LabDex*`, `LabBalls*`). A save made before this gets them by talking to Fennick.
 - **Which species: DECIDED (author, 2026-10-12, set A, Johto plus Togepi).** Ball 1 (Grass) is **Chikorita**, ball 2 (Fire) **Cyndaquil**, ball 3 (Water) **Totodile**, and the fourth Fennick reveals is **Togepi** (an ordinary level 5 Pokémon from `givemon`, not an egg). Troglodyte takes one of the first three at random and keeps SIR BISCUIT in every fight. Emerald's Treecko, Torchic and Mudkip (and Pikachu as the fourth) were only stand-ins until then. The four lines and a balance note are in [teams.md](teams.md); the options the author chose from are kept in [decisions/story.md](decisions/story.md).
 
 **How it can be built, and what it costs (checked in this tree):**

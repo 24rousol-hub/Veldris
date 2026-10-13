@@ -97,6 +97,9 @@ Veldris_Debug_StateChosen::
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_ADVENTURE_STARTED
 	setflag FLAG_VISITED_HOLLOWBROOK
+	setflag FLAG_SYS_POKEDEX_GET @ Fennick gives the Pokedex (National) and 5 Poke Balls right after the choice
+	special SetUnlockedPokedexFlags
+	special EnableNationalPokedex
 	setvar VAR_HOLLOWBROOK_STATE, 3
 	return
 

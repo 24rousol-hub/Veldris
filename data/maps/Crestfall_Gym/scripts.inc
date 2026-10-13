@@ -90,7 +90,7 @@ Crestfall_Gym_EventScript_StatueCertified::
 @ Greta's lines are the earlier drafts in design/dialogue/crestfall.inc (PROPOSED); the gym trainers' lines are
 @ reworded from that draft because the hay maze is gone.
 Crestfall_Gym_Text_GretaIntro:
-	.string "Well, hello. You must be {PLAYER}.\n"
+	.string "Well, hello again, {PLAYER}.\n"
 	.string "The whole town has been talking.\p"
 	.string "I'm GRETA. Crestfall's gym leader.\n"
 	.string "Yes, I know. I look too young.\p"

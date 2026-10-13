@@ -115,7 +115,7 @@ VeldrisRoute1_EventScript_SentretLookout::
 	release
 	end
 
-@ Scheme 1 surveyors: their main lines until the first badge, the 'After' lines once Greta's gym is saved
+@ Scheme 1 photo crew (were surveyors in the old consultant scheme; lines rewritten 2026-10-13, PROPOSED): their main lines until the first badge, the 'After' lines once Greta's gym is saved
 VeldrisRoute1_EventScript_SurveyorA::
 	lock
 	faceplayer
@@ -254,25 +254,27 @@ VeldrisRoute1_Text_Trainer3AfterBadge:
 	.string "beans again.$"
 
 VeldrisRoute1_Text_SurveyorA:
-	.string "Do not step on the markers.\n"
-	.string "This road is under assessment.\p"
-	.string "Our client finds it\n"
-	.string "insufficiently profitable.$"
+	.string "Careful! That case is a lighting\n"
+	.string "rig. It costs more than you.\p"
+	.string "We're shooting the GOLDSWORTH\n"
+	.string "boy's first badge. In CRESTFALL.$"
 
 VeldrisRoute1_Text_SurveyorAAfter:
-	.string "Forty paces from that post to\n"
-	.string "this one. Wasteful. Very wasteful.$"
+	.string "The shoot was cancelled. Nobody\n"
+	.string "will tell us why.\p"
+	.string "Somebody pinned a photo to the\n"
+	.string "town noticeboard, though.$"
 
 VeldrisRoute1_Text_SurveyorB:
-	.string "Are you a stakeholder?\n"
+	.string "Are you with the family?\n"
 	.string "No? Then please move along.\p"
-	.string "We have a gym to rationalise.\n"
-	.string "It's on the schedule.$"
+	.string "The gym is booked all day.\n"
+	.string "Private session.$"
 
 VeldrisRoute1_Text_SurveyorBAfter:
-	.string "I counted a hundred and four\n"
-	.string "bushes. It felt like a lot.$"
+	.string "I carried that tripod all this\n"
+	.string "way for one photo. A bad one.$"
 
 VeldrisRoute1_Text_LocalWorried:
-	.string "Those suits keep measuring our\n"
-	.string "ditches. I like my ditches.$"
+	.string "Those camera people keep tramping\n"
+	.string "through my ditches. I like my ditches.$"

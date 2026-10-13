@@ -40,7 +40,7 @@ Bodies live in the hack-owned `data/scripts/veldris_debug.inc`. In `data/scripts
 |---|---|---|
 | 1 | New game (bedroom) | Whole story back to new game, no Pokémon, no shoes, no Journal; Exp. Share in the bag and on and run-by-default on, as in a real new game; warps to the 2F room. Walk down for Mom's scene |
 | 2 | Lab scene (Trog 1) | State 1 (Mom's scene done, shoes given), no Pokémon; warps into the lab at (6,11). Press Up once for the lab scene |
-| 3 | Trog fight 1 (door) | Starter chosen (Totodile L5, ball 3; Troglodyte has ball 1, so his starter is Chikorita); arrives on the lab door tile, which fires Troglodyte's first fight. Until 2026-10-12 (stand-in starters) the player's starter here was Mudkip and his was Treecko |
+| 3 | Trog fight 1 (door) | Starter chosen (Totodile L5, ball 3; Troglodyte has ball 1, so his starter is Chikorita), Pokédex (National) on since 2026-10-13; arrives on the lab door tile, which fires Troglodyte's first fight. Until 2026-10-12 (stand-in starters) the player's starter here was Mudkip and his was Treecko |
 | 4 | After Trog fight | Free roam, state 4, Totodile L8 (a Mudkip L8 until 2026-10-12), key items and a few consumables, in front of the player's house |
 | 5 | Crestfall: redo gym | Gym 1 untouched (no badge, Greta/Dale/Wren unbeaten), team L11, inside the gym door |
 | 6 | Crestfall done | Gym 1 as Greta leaves it (badge 1, HM CUT, TM CRUNCH), team L12, outside the Center |

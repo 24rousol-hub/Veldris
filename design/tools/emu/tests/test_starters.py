@@ -179,6 +179,8 @@ def take_ball(emu, n, species):
     name = shown_name(species)
     before = balls_present(g)
     check(n in before, "ball %d is not on the table (balls there: %s)" % (n, sorted(before)))
+    g.flag_clear("FLAG_SYS_POKEDEX_GET")
+    balls_before = g.bag_count("ITEM_POKE_BALL")
     emu.press_until("A", g.script_running, wait=2.0)
     prompts = click_through(emu)
     check(prompts, "ball %d never showed its YES/NO question" % n)
@@ -191,6 +193,10 @@ def take_ball(emu, n, species):
     check_eq(g.var_get("VAR_HOLLOWBROOK_STATE"), 3, "story state after choosing (Troglodyte waits outside)")
     check(g.flag_get(hide_flag(n)), "%s should be set once ball %d is taken" % (hide_flag(n), n))
     check_eq(sorted(balls_present(g)), sorted(before - {n}), "balls left on the table after taking ball %d" % n)
+    # Fennick then gives the Pokedex (National) and 5 Poke Balls (author, 2026-10-13)
+    check(g.flag_get("FLAG_SYS_POKEDEX_GET"), "Fennick should give the Pokedex after the choice")
+    check(g.flag_get("FLAG_SYS_NATIONAL_DEX"), "the Pokedex should be the National one")
+    check_eq(g.bag_count("ITEM_POKE_BALL") - balls_before, 5, "Poke Balls Fennick gives after the choice")
 
 
 # ---------------------------------------------------------------------------------------------------------------------

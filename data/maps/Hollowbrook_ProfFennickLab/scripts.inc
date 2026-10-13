@@ -383,7 +383,8 @@ Hollowbrook_ProfFennickLab_EventScript_TakeBall4::
 	setflag FLAG_HIDE_HOLLOWBROOK_LAB_BALL_4
 	return
 
-@ State 3 lets Troglodyte appear outside and unblocks the door. No Pokedex handout yet.
+@ State 3 lets Troglodyte appear outside and unblocks the door. Fennick then hands over the Pokedex and 5 Poke Balls
+@ (author, 2026-10-13: Fennick gives both).
 Hollowbrook_ProfFennickLab_EventScript_ChoiceDone::
 	hidemonpic
 	setvar VAR_HOLLOWBROOK_STATE, 3
@@ -391,9 +392,26 @@ Hollowbrook_ProfFennickLab_EventScript_ChoiceDone::
 	setflag FLAG_ADVENTURE_STARTED
 	applymovement LOCALID_HOLLOWBROOK_LAB_FENNICK, Common_Movement_FacePlayer
 	waitmovement 0
+	call Hollowbrook_ProfFennickLab_EventScript_GiveDexAndBalls
 	msgbox Hollowbrook_Text_LabAfterChoice, MSGBOX_DEFAULT
 	release
 	end
+
+@ The National Pokedex from the start: Veldris has Pokemon from every generation, and the Hoenn list would leave out
+@ even the starters. EnableNationalPokedex is the vanilla special (src/event_data.c), so no engine edit.
+Hollowbrook_ProfFennickLab_EventScript_GiveDexAndBalls::
+	msgbox Hollowbrook_Text_LabDexGive, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message Hollowbrook_Text_LabDexReceived
+	waitmessage
+	waitfanfare
+	setflag FLAG_SYS_POKEDEX_GET
+	special SetUnlockedPokedexFlags
+	special EnableNationalPokedex
+	msgbox Hollowbrook_Text_LabBallsGive, MSGBOX_DEFAULT
+	giveitem ITEM_POKE_BALL, 5
+	msgbox Hollowbrook_Text_LabBallsAfter, MSGBOX_DEFAULT
+	return
 
 @ ===========================================================================
 @ LAB NPCS AND FURNITURE
@@ -447,12 +465,20 @@ Hollowbrook_ProfFennickLab_EventScript_FennickBadge::
 Hollowbrook_ProfFennickLab_EventScript_Fennick::
 	lock
 	faceplayer
+	@ A save made before the handout existed (2026-10-13): give the Pokedex and balls now.
+	call_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_ProfFennickLab_EventScript_DexIfMissing
 	goto_if_set FLAG_BADGE01_GET, Hollowbrook_ProfFennickLab_EventScript_FennickBadge
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 4, Hollowbrook_ProfFennickLab_EventScript_FennickRepeat
 	goto_if_ge VAR_HOLLOWBROOK_STATE, 3, Hollowbrook_ProfFennickLab_EventScript_FennickAfter
 	msgbox Hollowbrook_Text_LabApology3, MSGBOX_DEFAULT
 	release
 	end
+
+Hollowbrook_ProfFennickLab_EventScript_DexIfMissing::
+	goto_if_set FLAG_SYS_POKEDEX_GET, Hollowbrook_ProfFennickLab_EventScript_DexIfMissingDone
+	call Hollowbrook_ProfFennickLab_EventScript_GiveDexAndBalls
+Hollowbrook_ProfFennickLab_EventScript_DexIfMissingDone::
+	return
 
 Hollowbrook_ProfFennickLab_EventScript_FennickAfter::
 	msgbox Hollowbrook_Text_FennickIdleAfter, MSGBOX_DEFAULT
@@ -599,6 +625,26 @@ Hollowbrook_Text_LabBallAsk::
 
 Hollowbrook_Text_LabBallChosen::
 	.string "{PLAYER} chose the {STR_VAR_1}!$"
+
+@ Pokedex and Poke Ball handout (PROPOSED wording, 2026-10-13)
+Hollowbrook_Text_LabDexGive::
+	.string "Oh, and before I forget. Which\n"
+	.string "I do. Often.\p"
+	.string "This is a POKéDEX. It records\n"
+	.string "every POKéMON you meet or catch.$"
+
+Hollowbrook_Text_LabDexReceived::
+	.string "{PLAYER} received the POKéDEX!$"
+
+Hollowbrook_Text_LabBallsGive::
+	.string "And take these. You can't catch\n"
+	.string "anything with good intentions.$"
+
+Hollowbrook_Text_LabBallsAfter::
+	.string "Throw one at a wild POKéMON once\n"
+	.string "it's weak. Not at people.\p"
+	.string "I mention that for no particular\n"
+	.string "reason. BEAUREGARD.$"
 
 Hollowbrook_Text_LabAfterChoice::
 	.string "A fine choice. Look after it.\n"
