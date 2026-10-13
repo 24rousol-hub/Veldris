@@ -1,22 +1,25 @@
-"""Shared eatery and shop layouts of the 'shops' family: a cafe, a canteen and a counter shop, Gen 4 Interior set.
+"""Shared eatery and shop layouts of the 'shops' family: a cafe, a canteen, a counter shop and the League lounge floors.
 
-Three layouts, each a different floor plan reused by several buildings of the cards in design/maps/detail/ (the `uses` of
-every spec names them):
+Five layouts, each a different floor plan on the Gen 4 Interior set, reused by the buildings of the cards in
+design/maps/detail/ that the `uses` of each spec name:
 
-    CAFE      11 x 8   a counter on the back wall with the host in the aisle, small tables on stools, an armchair booth
-    CANTEEN   13 x 10  a long serving counter, a tiled kitchen behind it, two big tables with six stools each
-    SHOP      11 x 9   three shelves of jars, an L-shaped counter with the keeper's pocket behind it, two display tables
+    CAFE        11 x 8   a counter on the back wall with the host in the aisle, small tables on stools, an armchair booth
+    CANTEEN     13 x 10  a long serving counter, a tiled kitchen behind it, two big tables with six stools each
+    SHOP        11 x 9   three shelves of jars, an L-shaped counter with the keeper's pocket behind it, two display tables
+    LOUNGE_1F   31 x 12  the League lounge: a bar under jar shelves, a rug with low tables, a clerk's desk and a cloak counter
+    LOUNGE_2F   31 x 12  the lounge terrace: nine tables in a three by three grid on a teal floor, stairs down
 
-The Team Aqua 'Brick Cafe' set that the cafe and canteen cards ask for is not in the tree, so these are the Gen 4 fallbacks
-the cards allow. Marts, Pokemon Centers, the Pretty Petal flower shop and the Lavaridge herb shop keep their vanilla layouts
-(the cards say so). The reading room with its archive and the salt works are built by the offices family (fam_offices.py:
-READING, ARCHIVE, WORKSHOP), the same plans, so they are not repeated here.
+The Team Aqua 'Brick Cafe' set that the cafe, canteen and lounge cards ask for is not in the tree, so these are the Gen 4
+fallbacks the cards allow. Marts, Pokemon Centers, the Pretty Petal flower shop and the Lavaridge herb shop keep their vanilla
+layouts (the cards say so). The reading room with its archive, the salt works and the counter offices are built by the offices
+family (fam_offices.py: READING, ARCHIVE, WORKSHOP, COUNTER), the same plans, so they are not repeated here.
 
 Pieces come from the built Hollowbrook interiors (houses.py) and from the sibling families fam_homes.py (the wood room, the
-stools, the rug, the door mat, the armchairs, the barrel) and fam_houses.py (the plain dining table). A piece carries a slice
-of the floor behind it, so every piece below was checked on the floor it stands on: the table legs and the stools are drawn
-for wood, the stove, the fridge and the kitchen counter for tile, the barrel for the dark foot row of the back wall.
-Collision follows the kit: furniture is solid; floor, rugs and stools are walkable (an NPC can sit on a stool).
+stools, the rug, the door mat, the stairs, the armchairs, the barrel) and fam_houses.py (the dining table, the teal floor). A
+piece carries a slice of the floor behind it, so every piece below was checked on the floor it stands on: the table legs and the
+stools are drawn for wood, the stove, the fridge and the kitchen counter for tile, the barrel for the dark foot row of the back
+wall, the low tables and their cushions for the blue rug, the teal table and cushion for the teal floor. Collision follows the
+kit: furniture is solid; floor, rugs and stools are walkable (an NPC can sit on a stool or a cushion).
 
 Counters: only the plate (641), cup (721) and return (624) tiles carry MB_COUNTER, so a keeper is talked to across those
 tiles; every keeper spot below stands behind one of them. The plain ends (640, 643) and middle (642) have no behaviour.
@@ -42,7 +45,7 @@ COUNTER_BACK = FH.COUNTER_WALL             # 617 wallpaper with the raised back 
 
 # --- furniture ---------------------------------------------------------------------------------------------------------
 SMALL_TABLE = HM.FOOTSTOOL                 # 808 one-tile framed table, solid; the only small table piece the set has
-TEAL_TABLE = ((534, 535), (951, 952))
+TEAL_TABLE = ((534, 535), (951, 952))      # the lab's aide desk: 2 x 2 with an orange top, teal floor behind its legs
 TABLE = FH.DINING_TABLE                    # 534/535 over 564/565, 2 x 2 with an orange top, green floor behind its legs
 
 
@@ -180,6 +183,14 @@ def shop() -> Spec:
 
 
 def lounge_1f() -> Spec:
+    """LOUNGE_1F 31 x 12, door mat (14,11)+(15,11). Back wall: clock (0), five jar shelves (2-11) over the bar, picture (12),
+    four windows (14-15) (17-18) (20-21) (23-24), picture (26), stairs up (29-30, rows 0-3) whose walkable step (29,2) is the
+    east-arrow warp (enter walking east from (28,2)). Bar: counter row 4 from x3 to x11 (cups, one plate at (7,4)), the
+    bartender's pocket row 3 (open at both ends), four stools (4,5) (6,5) (8,5) (10,5). A blue rug x11-20, y5-8 with three
+    low tables (14-15,6) (12-13,7) (16-17,7) and cushions (13,6) (16,6) (14,7) (15,7) (18,7), an armchair on each side (9,6-7)
+    and (21,6-7). Window table (24-25,4-5) with a stool each side (23,4) (26,4). Two nooks: a small table (3,7) with a cushion
+    (2,7), a small table (26,7) with a cushion (27,7). The League desk (8-10,9) and the cloak counter (19-22,9), staff row 10.
+    Potted trees (1,9-10) and (29,9-10)."""
     g = HM.room(31, 12)
     HM.high(g, 0, HM.CLOCK)
     for x in range(2, 12, 2):
@@ -198,22 +209,39 @@ def lounge_1f() -> Spec:
         K.put(g, x, y, (HM.LOW_TABLE,))
     HM.stools(g, ((13, 6), (15, 7)), HM.CUSHION_BLUE[0])
     HM.stools(g, ((16, 6), (14, 7), (18, 7)), HM.CUSHION_BLUE[1])
-    g[7, 3] = W_ | SMALL_TABLE
-    HM.stools(g, ((2, 7),))
-    g[7, 26] = W_ | SMALL_TABLE
-    HM.stools(g, ((27, 7),))
     K.put(g, 24, 4, TABLE)
     HM.stools(g, ((23, 4), (26, 4)))
+    g[7, 3] = g[7, 26] = W_ | SMALL_TABLE
+    HM.stools(g, ((2, 7), (27, 7)))
     counter(g, 8, 9, (COUNTER_PLATE,))
     counter(g, 19, 9, (COUNTER_PLATE, COUNTER_CUP))
     K.put(g, 1, 9, HM.PLANT)
     K.put(g, 29, 9, HM.PLANT)
-    return Spec("LAYOUT_VELDRIS_LOUNGE_1F", "VeldrisLounge1F", g, doors=HM.door_mat(g, 14),
-                npc=((7, 3), (7, 5), (23, 4), (13, 6), (2, 7), (27, 7), (9, 10), (9, 8), (20, 10), (20, 8)),
-                title="Lounge 1F", uses="", notes="")
+    return Spec(
+        "LAYOUT_VELDRIS_LOUNGE_1F", "VeldrisLounge1F", g, doors=HM.door_mat(g, 14),
+        npc=((7, 3), (7, 5), (23, 4), (13, 6), (2, 7), (27, 7), (9, 10), (9, 8), (20, 10), (20, 8)),
+        title="League lounge, ground floor: a bar under jar shelves, a rug with low tables, a clerk's desk, a cloak counter",
+        uses="Vesperhaven_LoungeFloor1 (vesperhaven 6.3, card 31 x 12)",
+        notes="The card's plan on Gen 4 pieces, one row lower in the bar: the jar shelves fill rows 1-2, so the bartender is "
+              "at (7,3) (card (7,2)) behind the plate tile of the counter (7,4) (card row 3), and the stools are on row 5 "
+              "(card row 4). Everything below keeps the card's tiles: OSSIAN (2,7) on a cushion with the small table (3,7) "
+              "(the card's black armchair; the two armchairs flank the rug instead); HYACINTH (23,4) on a stool at the "
+              "window table; DRAYDEN (13,6) on a cushion left of the low table (14-15,6); DUNMORE (27,7) on a cushion by a "
+              "small table (26,7); the clerk (9,10) behind the desk (8-10,9), the player at (9,8); TROGLODYTE (20,10) behind "
+              "the cloak counter (19-22,9), the player at (20,8). The bartender can stand behind any cup or plate tile "
+              "(4,3) (6,3) (7,3) (8,3) (10,3), the cloak clerk at (21,10) too. The pockets are open at their ends, so every "
+              "staff tile is reachable. Stairs to 2F: the step (29,2) (tile 672, east-arrow warp; card (29,1)) goes to the "
+              "2F step (29,2); the player arrives on it and walks west. Not as the card: no arched lit windows, brick wall "
+              "or checker floor (Brick Cafe), no coat racks (the card's 'R' tiles by the cloak counter: put them as signs "
+              "on the counter tiles, the staff row must stay open). Set behaviours in Porymap: jar shelf tops (546, 547) "
+              "are MB_BOOKSHELF, so give the bases (2-11,2) signs facing any, or set a cabinet behaviour; barrels none.")
 
 
 def lounge_2f() -> Spec:
+    """LOUNGE_2F 31 x 12, teal floor, no door: the way in is the stairwell (28-29, rows 1-3) whose walkable step (29,2) is
+    the west-arrow warp (enter walking west from (30,2)). Back wall: windows (4-5) (10-11) (16-17) (22-23) onto the pool,
+    pictures (8) (14) (20), clock (26). Nine tables 2 x 2 at x5-6, x15-16, x25-26 and y3-4, y6-7, y9-10, each with the leader's
+    cushion on its left at (x-1, y). Potted trees (1,9-10) and (29,9-10)."""
     g = K.blank(31, 12, FH.TEAL, H.WALLTOP, H.WALL, FH.TEAL_FOOT)
     for x in (4, 10, 16, 22):
         HM.high(g, x, H.WINDOW)
@@ -227,8 +255,21 @@ def lounge_2f() -> Spec:
             HM.stools(g, ((x - 1, y),), FH.TEAL_CUSHION)
     K.put(g, 1, 9, FH.TEAL_PLANT)
     K.put(g, 29, 9, FH.TEAL_PLANT)
-    return Spec("LAYOUT_VELDRIS_LOUNGE_2F", "VeldrisLounge2F", g, doors=((30, 3),),
-                npc=((4, 3),), title="Lounge 2F", uses="", notes="")
+    return Spec(
+        "LAYOUT_VELDRIS_LOUNGE_2F", "VeldrisLounge2F", g, doors=((30, 3),),
+        npc=((4, 3), (14, 3), (24, 3), (4, 6), (14, 6), (24, 6), (4, 9), (14, 9), (24, 9),
+             (5, 2), (5, 5), (15, 5), (25, 5), (5, 8), (15, 8), (25, 8)),
+        title="League lounge, terrace: nine tables in a three by three grid",
+        uses="Vesperhaven_LoungeFloor2 (vesperhaven 6.4, card 31 x 12)",
+        notes="The card's plan: nine tables, one gym leader each in gym order left to right and top to bottom, the leader on "
+              "the cushion to the left of the table facing right ((4,3) GRETA, (14,3) HACHIMEL, (24,3) SANZUFORD, (4,6) "
+              "HAGANE, (14,6) WAKASAGI, (24,6) TOBIN, (4,9) ASEBY, (14,9) SUZURAN, (24,9) MIZZLE: exactly the card's "
+              "tiles), the player above or below a table ((5,2), (5,5), (5,8) and the same in x15 and x25). The tables are "
+              "2 x 2 (the card draws 2 x 1), so each leader's table takes two rows. The floor is teal for the pool; the "
+              "card's Brick Cafe vocabulary is not in the tree. The only way in is the stairs: the step (29,2) (tile 695, "
+              "west-arrow warp; card (29,1)) goes to the 1F step (29,2); the player enters walking west from (30,2); the "
+              "lint warning 'door (30,3) is not on the bottom row' is expected (no exit mat, as the Apiary's upper floor). "
+              "Nine leader objects and nothing else, well under 15.")
 
 
 SPECS = [cafe(), canteen(), shop(), lounge_1f(), lounge_2f()]
