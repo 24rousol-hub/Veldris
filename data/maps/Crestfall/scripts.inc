@@ -62,6 +62,94 @@ Crestfall_EventScript_LocalBefore::
 	release
 	end
 
+@ ===========================================================================
+@ TOWNSFOLK (placed 2026-10-13, lines PROPOSED). Author: some people are fans of the Commons, and very few know
+@ about the Drowned Crown (only the fisherman hints at it, without the name). Scheme lines switch on
+@ VAR_CRESTFALL_STATE (the private booking is over), gym lines on FLAG_BADGE01_GET.
+@ ===========================================================================
+
+Crestfall_EventScript_Farmhand::
+	lock
+	faceplayer
+	goto_if_ge VAR_CRESTFALL_STATE, 1, Crestfall_EventScript_FarmhandAfter
+	msgbox Crestfall_Text_Farmhand, MSGBOX_DEFAULT
+	release
+	end
+Crestfall_EventScript_FarmhandAfter::
+	msgbox Crestfall_Text_FarmhandAfter, MSGBOX_DEFAULT
+	release
+	end
+
+Crestfall_EventScript_OldFarmer::
+	lock
+	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Crestfall_EventScript_OldFarmerAfter
+	msgbox Crestfall_Text_OldFarmer, MSGBOX_DEFAULT
+	release
+	end
+Crestfall_EventScript_OldFarmerAfter::
+	msgbox Crestfall_Text_OldFarmerAfter, MSGBOX_DEFAULT
+	release
+	end
+
+Crestfall_EventScript_PondKid::
+	lock
+	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Crestfall_EventScript_PondKidAfter
+	msgbox Crestfall_Text_PondKid, MSGBOX_DEFAULT
+	release
+	end
+Crestfall_EventScript_PondKidAfter::
+	msgbox Crestfall_Text_PondKidAfter, MSGBOX_DEFAULT
+	release
+	end
+
+Crestfall_EventScript_HardHatKid::
+	msgbox Crestfall_Text_HardHatKid, MSGBOX_NPC
+	end
+
+Crestfall_EventScript_CommonsFan::
+	lock
+	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Crestfall_EventScript_CommonsFanAfter
+	msgbox Crestfall_Text_CommonsFan, MSGBOX_DEFAULT
+	release
+	end
+Crestfall_EventScript_CommonsFanAfter::
+	msgbox Crestfall_Text_CommonsFanAfter, MSGBOX_DEFAULT
+	release
+	end
+
+Crestfall_EventScript_Sceptic::
+	lock
+	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Crestfall_EventScript_ScepticAfter
+	msgbox Crestfall_Text_Sceptic, MSGBOX_DEFAULT
+	release
+	end
+Crestfall_EventScript_ScepticAfter::
+	msgbox Crestfall_Text_ScepticAfter, MSGBOX_DEFAULT
+	release
+	end
+
+@ Heading north: Route 3 is closed by the Commons' fake road works after badge 1 (design/factions.md).
+Crestfall_EventScript_Traveller::
+	lock
+	faceplayer
+	goto_if_set FLAG_BADGE01_GET, Crestfall_EventScript_TravellerAfter
+	msgbox Crestfall_Text_Traveller, MSGBOX_DEFAULT
+	release
+	end
+Crestfall_EventScript_TravellerAfter::
+	msgbox Crestfall_Text_TravellerAfter, MSGBOX_DEFAULT
+	release
+	end
+
+@ The only hint at the Drowned Crown in town, and he does not name them.
+Crestfall_EventScript_Fisherman::
+	msgbox Crestfall_Text_Fisherman, MSGBOX_NPC
+	end
+
 Crestfall_EventScript_FarmSign::
 	msgbox Crestfall_Text_FarmSign, MSGBOX_SIGN
 	end
@@ -456,3 +544,93 @@ Crestfall_Text_S1_GretaInvite::
 	.string "a week, I'd guess.\p"
 	.string "Come on in, {PLAYER}. Mind the\n"
 	.string "gates. They only open for winners.$"
+
+@ ---- Townsfolk (2026-10-13, PROPOSED) ----
+Crestfall_Text_Farmhand:
+	.string "GRETA's booked all day for some\n"
+	.string "rich kid. A private session.\p"
+	.string "At a public gym. Paid for by\n"
+	.string "us. I'm not bitter. I'm farming.$"
+
+Crestfall_Text_FarmhandAfter:
+	.string "Saw the photo on the board.\n"
+	.string "Two turns!\p"
+	.string "I've been to look at it four\n"
+	.string "times. For my health.$"
+
+Crestfall_Text_OldFarmer:
+	.string "Sixty years I've worked this\n"
+	.string "field. Never once seen a\l"
+	.string "GOLDSWORTH lift a spade.\p"
+	.string "The COMMONS say that's what's\n"
+	.string "wrong with VELDRIS.\p"
+	.string "Not wrong. Not right either.\n"
+	.string "Just loud.$"
+
+Crestfall_Text_OldFarmerAfter:
+	.string "The other rich families all\n"
+	.string "packed up and left, you know.\p"
+	.string "Only the GOLDSWORTHS stayed.\n"
+	.string "Stubborn. I almost respect it.$"
+
+Crestfall_Text_PondKid:
+	.string "There's a fish in this pond.\n"
+	.string "I named him DAVE.\p"
+	.string "He doesn't know. Please don't\n"
+	.string "tell him.$"
+
+Crestfall_Text_PondKidAfter:
+	.string "You beat GRETA? DAVE says\n"
+	.string "well done.\p"
+	.string "...I can tell. He blinked.$"
+
+Crestfall_Text_HardHatKid:
+	.string "When I grow up I'm joining\n"
+	.string "the COMMONS!\p"
+	.string "I don't know what they do.\n"
+	.string "But they get HARD HATS.$"
+
+Crestfall_Text_CommonsFan:
+	.string "Heard of the COMMONS? VELDRIS\n"
+	.string "belongs to everyone, they say.\p"
+	.string "Not to one family in a tower.\n"
+	.string "Makes sense to me.$"
+
+Crestfall_Text_CommonsFanAfter:
+	.string "The COMMONS are fixing the road\n"
+	.string "north, I heard. Road works.\p"
+	.string "Nobody asked them to. Good of\n"
+	.string "them, though. Right?$"
+
+Crestfall_Text_Sceptic:
+	.string "The COMMONS came through last\n"
+	.string "month. Handed out leaflets.\p"
+	.string "‘Take it back from the rich!’\n"
+	.string "Take what back? From who?$"
+
+Crestfall_Text_ScepticAfter:
+	.string "My nephew joined the COMMONS.\n"
+	.string "Now dinner is ‘a meeting.’\p"
+	.string "He still won't do the dishes.\n"
+	.string "Very political.$"
+
+Crestfall_Text_Traveller:
+	.string "I'm off north to BRIARWICK.\n"
+	.string "Lovely road. Nice and quiet.$"
+
+Crestfall_Text_TravellerAfter:
+	.string "Road works on the north road.\n"
+	.string "Workers in green hard hats.\p"
+	.string "‘Closed for repairs,’ they said.\n"
+	.string "The road looked fine to me.$"
+
+Crestfall_Text_Fisherman:
+	.string "Nothing bites in this pond.\n"
+	.string "I come for the quiet.\p"
+	.string "My grandad fished the south\n"
+	.string "coast. Said the sea once\l"
+	.string "swallowed a whole city.\p"
+	.string "And that folk out there still\n"
+	.string "call themselves its crown.\p"
+	.string "...Nobody believes me either.\n"
+	.string "Don't worry about it.$"

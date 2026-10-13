@@ -22,3 +22,14 @@ Crestfall_PokemonCenter_1F_EventScript_Visitor::
 Crestfall_PokemonCenter_1F_Text_Visitor:
 	.string "I came here to see the gym.\n"
 	.string "I stayed for the tomatoes.$"
+
+@ A Commons fan (placed 2026-10-13, line PROPOSED)
+Crestfall_PokemonCenter_1F_EventScript_CommonsVisitor::
+	msgbox Crestfall_PokemonCenter_1F_Text_CommonsVisitor, MSGBOX_NPC
+	end
+
+Crestfall_PokemonCenter_1F_Text_CommonsVisitor:
+	.string "The COMMONS say healing should\n"
+	.string "be free for everyone.\p"
+	.string "It already is, in here.\n"
+	.string "I still clapped. It felt right.$"

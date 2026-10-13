@@ -37,6 +37,25 @@ Map names follow [towns-and-routes.md](towns-and-routes.md): `Crestfall`, `Crest
 | Shopkeeper | Mart | `Shopkeeper*` | extra |
 | Goldsworth cousins (boaster, lounger, pet owner), butler | Goldsworth house | `GoldCousin*`, `GoldLounger*`, `GoldPetOwner`, `GoldButler` | extra |
 
+## Townsfolk, as built (2026-10-13, lines PROPOSED)
+
+Placed at the author's request ('place all of the NPCs'). The author's steer: **some people are fans of the Commons, and very few know about the Drowned Crown.** So the town has two fans, a sceptic and a neutral old farmer, and only the fisherman hints at the Crown (without its name). The old consultant drafts above (farmhands, kids, grandma, old farmer, House A wife) belong to the superseded scheme and were not used; the market stalls and barn are not in layout B. Scheme lines switch on `VAR_CRESTFALL_STATE` 1, gym lines on `FLAG_BADGE01_GET`; no new flags.
+
+| NPC | Sprite | Tile | Before / after | Line in short |
+|---|---|---|---|---|
+| Farmhand | `MAN_4` | (20,21), faces the field | scheme | gym booked for a rich kid, 'paid for by us' / the two-turn photo |
+| Old farmer | `OLD_MAN` | (24,21), faces the field | badge | never seen a Goldsworth lift a spade; the Commons are 'not wrong, not right, just loud' / the other rich families left, only the Goldsworths stayed |
+| Pond kid | `LITTLE_GIRL` | (19,18), faces the pond | badge | a fish called DAVE / DAVE says well done |
+| Hard hat kid | `BOY_1` | (3,17) | one line | wants to join the Commons for the hard hats |
+| Commons fan | `MAN_3` | (28,17) | badge | 'Veldris belongs to everyone' / the Commons are 'fixing' the road north (the Route 3 fake road works) |
+| Sceptic | `WOMAN_3` | (12,17) | badge | Commons leaflets, 'take what back?' / her nephew joined, dinner is now 'a meeting' |
+| Traveller | `CAMPER` | (27,6), on the north road | badge | off to Briarwick / road works by men in green hard hats, the road looked fine |
+| Fisherman | `FISHERMAN` | (23,15), faces the pond | one line | grandad said the sea swallowed a city and folk on the coast call themselves its crown (the only Crown hint) |
+| House A wife | `WOMAN_5` | House A (3,5) | scheme | the rich boy 'hired' a badge / the photo; 'the Commons lot would put it on a banner' |
+| Center visitor 2 | `PICNICKER` | Center (3,5) | one line | the Commons want free healing; it already is, she clapped anyway |
+
+None stands on the Scheme 1 paths (Hollis and Troglodyte leave down column 14 and along row 15). Crestfall has 13 objects (3 hidden until the scene), under the 15 limit. **Checked by the robot test** `design/tools/emu/tests/test_townsfolk.py`: each NPC gives its before line and its after line.
+
 Goldsworth house: the boaster cousin (BARNABY, name PROPOSED) brags about the family, per author. Residents swear mildly (PG-13) and are rude to the player, not cruel to townsfolk. No battle, no flag needed beyond the before/after-gym check.
 
 ## As built (2026-10-01): layout B 'village green'
@@ -61,7 +80,7 @@ A sand square with a pond on a grass-and-flower island in the middle, the path l
 |---|---|---|---|
 | `Crestfall_PokemonCenter_1F` | `LAYOUT_VELDRIS_POKEMON_CENTER_1F` (vanilla Center with the escalator painted out, see below) | Nurse (`LOCALID_CRESTFALL_NURSE`), a hiker visitor ('I stayed for the tomatoes'). **No 2F** (author, 2026-10-08) | Crestfall warp 1, (9,14) |
 | `Crestfall_Mart` | vanilla `LAYOUT_MART` | Clerk ('Hay is not for sale'), stock POKé BALL, POTION, ANTIDOTE, PARALYZE HEAL, AWAKENING; shopkeeper with a before/after-badge line | warp 2, (31,14) |
-| `Crestfall_HouseA` | H1 cottage | The retired husband (old man) and his SKITTY by the stove. **The wife is not placed yet:** her lines are about the Scheme 1 consultants, which are not approved | warp 0, (3,14) |
+| `Crestfall_HouseA` | H1 cottage | The retired husband (old man), his SKITTY by the stove, and the wife (placed 2026-10-13, see Townsfolk) | warp 0, (3,14) |
 | `Crestfall_HouseB` | H5 bedroom house | The stuck young trainer (before/after badge) | warp 3, (36,14) |
 
 **Fly point:** `FLAG_VISITED_CRESTFALL` (set on entering the town), `HEAL_LOCATION_CRESTFALL` lands on (9,15) outside the Center, whiteout returns to the nurse. **Checked in mGBA:** entering and leaving every door, the nurse heal, the Mart menu. **Not checked:** Fly itself, the town-map picture (still Hoenn art). **The gym is not built** (Greta's story beat and Scheme 1 need the author first).
@@ -110,7 +129,7 @@ Scene order: Hollis walks up and asks the player to step aside, the player steps
 
 **Gotcha found in testing:** two maps cannot share a `local_id` name. `LOCALID_CRESTFALL_GRETA` already belonged to the gym, so the town's copy silently became the photographer's id. The outdoor one is `LOCALID_CRESTFALL_GRETA_OUTSIDE`.
 
-Still to rewrite (old scheme): House A wife's lines, the Wendlebury traveller's hay-maze line. The Route 1 surveyors became the photo crew on 2026-10-13 (PROPOSED lines, [route1.md](route1.md)).
+Still to rewrite (old scheme): the Wendlebury traveller's hay-maze line. House A's wife got new lines on 2026-10-13. The Route 1 surveyors became the photo crew on 2026-10-13 (PROPOSED lines, [route1.md](route1.md)).
 
 ## Where Scheme 1 beats happen (old consultant plan, superseded)
 1. **Setup** (before the gym): consultant outside in town; locals and the old farmer grumble; the two surveyors on Route 1 hint first.

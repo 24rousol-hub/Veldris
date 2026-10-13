@@ -47,6 +47,7 @@ The growing anti-rich discourse explains why **only the Goldsworths have stayed 
 | After Wendlebury | **Route 8** (Wendlebury to Briarwick) | **Blocked until badge 2** (author, 2026-10-08), so Teddy's favour is the only way on. Mothwood now branches off R8. Who blocks it is not decided |
 | **After badge 2** | **Mothwood** (off Route 8) | **Required story event (author, 2026-10-08), a Lake of Rage moment.** A ranger closed Route 8 over odd happenings; inside, time is stopping because **the Drowned Crown are stealing a Time Gear-like piece of Dialga's seal from the shrine**. The player's first real look at the Crown, inland where they should not be. Encounters: **Shedinja** during the event (author, 2026-10-08), **Celebi** at the shrine in the post-game (author). Shaymin is kept for Primrose Vale (author) |
 | Early to mid game | land routes | Commons blocks and rallies; the Crown only as rumours, a boat on the horizon |
+| From Crestfall (built 2026-10-13) | townsfolk | **Public opinion (author, 2026-10-13): some people are fans of the Commons, and very few know about the Crown.** Crestfall has two fans, a sceptic and a neutral farmer; one fisherman's grandad story is the only Crown hint, and it never names them ([crestfall.md](crestfall.md), Townsfolk) |
 | After Surf (Hoarfell, gym 5) | sea routes, south coast | The Crown takes over the sea routes |
 | **Badges 5 to 7** | TBD | **The alliance breaks; temporary team-up with the Commons (author)** |
 | Then | TBD | **Commons leader vs the player and Troglodyte (author)**. The leader changes approach |
