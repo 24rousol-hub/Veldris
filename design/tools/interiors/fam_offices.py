@@ -49,12 +49,14 @@ TEAL_DESK = FH.DESK                                  # writing desk with a monit
 SIDE_TABLE = ((534, 535), (951, 952))                # 2 x 2 table with an orange top (the lab's aide desks)
 TABLE_TOP = (832, 833, 834)                          # long lab table, top row: left end, middle, right end
 TABLE_FRONT = (840, 841, 842)                        # its front row (it carries MB_COUNTER); the middle repeats for any width
-CHEST_LOW = (904, 905)                               # low brown chest, 2 x 1, with teal behind it: a trunk
 
 # --- the wood floor (the houses') and the pieces drawn for it ------------------------------------------------------
 WOOD_SHELF = H.SHELF                                 # bookshelf, 2 x 2, green behind its base
 WOOD_PLANT = HM.PLANT                                # potted tree, 1 x 2
-DESK_LOW = ((542, 543),)                             # the dining table's front alone: a 2 x 1 table, top and legs
+WOOD_TABLE = HM.DINING_TABLE                         # 2 x 2 table with an orange cloth, top and legs, drawn for wood
+# The table's front half alone (2 x 1) has no top rim and looks cut off: the layouts here use WOOD_TABLE. It stays only
+# because fam_halls.py puts it by a window.
+DESK_LOW = ((542, 543),)
 STOOL = HM.STOOL                                     # 605 walkable cushion stool
 HEARTH = HM.STOVE_WOOD                               # stove with its base drawn for wood, 2 x 2, against the wall
 SALT_JAR = 649                                       # red clay pot with a white heap, one tile
@@ -105,10 +107,11 @@ def seats(g, cells, tile: int) -> None:
 # ---------------------------------------------------------------- the layouts
 def counter_office() -> K.Spec:
     """COUNTER 11 x 8, teal floor, door mat (4..6,7) on the warp tile (5,7). Back wall: shelf (0-1), picture (2), window
-    (3-4), clock (5), writing desk (6-7), shelf (8-9), filing cabinet (10). Reception counter x2-7 at y4 (plate and cup
-    tiles x3-6): the clerk stands at x3-6 in row 3 behind it, the pocket is open at the right end (8,3)-(8,4) and sealed
-    on the left by a potted tree (0,3-4). A brown trunk (9-10,4) closes the counter's right end. Customers' side: display
-    table (6-7,5-6), potted trees in both lower corners (0,6-7) and (10,6-7)."""
+    (3-4), clock (5), writing desk (6-7), shelf (8-9), filing cabinet (10). Reception counter x1-7 at y4 (plate and cup
+    tiles x2-6): its left end touches the potted tree (0,3-4), so the clerk's row 3 is sealed on the left; the pocket is
+    open only at the right end (8,3)-(8,4). A stack of three cardboard boxes (9-10,4) and (10,5) is the unclaimed luggage.
+    Customers' side: display table (6-7,5-6), a bench of two cushions (8-9,5), a potted tree in the lower right corner
+    (10,6-7) and one in the lower left (0,6-7)."""
     g = teal_room(11, 8)
     HM.on_wall(g, 0, TEAL_SHELF)
     HM.high(g, 2, PICTURE)
@@ -117,31 +120,37 @@ def counter_office() -> K.Spec:
     HM.on_wall(g, 6, TEAL_DESK)
     HM.on_wall(g, 8, TEAL_SHELF)
     HM.on_wall(g, 10, FILING)
-    counter_run(g, 2, 4, 6)
+    counter_run(g, 1, 4, 7)
     K.put(g, 0, 3, TEAL_PLANT)
-    K.put(g, 9, 4, (CHEST_LOW,))
+    for x, y in ((9, 4), (10, 4), (10, 5)):
+        g[y, x] = W_ | BOX
     K.put(g, 6, 5, SIDE_TABLE)
+    seats(g, ((8, 5), (9, 5)), TEAL_CUSHION)
     K.put(g, 0, 6, TEAL_PLANT)
     K.put(g, 10, 6, TEAL_PLANT)
     FH.put_mat(g, 5, FH.TEAL_MAT_ENDS)
     return K.Spec(
         "LAYOUT_VELDRIS_OFFICE_COUNTER", "VeldrisOffice_Counter", g, doors=((5, 7),),
-        npc=((3, 3), (4, 3), (5, 3), (8, 3), (2, 5), (4, 5), (5, 5), (8, 5)),
+        npc=((3, 3), (4, 3), (5, 3), (8, 3), (2, 5), (4, 5), (5, 5), (8, 5), (9, 5)),
         title="Counter office: a reception counter with the clerk behind it, 11 x 8",
         uses="Waymeet_LostProperty (waymeet 4.5), Gloomsby_Parlour (gloomsby 3.8) and Gildhaven_SalesOffice (gildhaven 4.8), "
              "all 11 x 8, exact fit; Waymeet_DockOffice (waymeet 4.4) and Cragdale_QuarryOffice (cragdale 4.5), 10 x 8 cards, "
              "so one column wider here",
-        notes="Clerk spots (3..6,3): the player talks from (x,5) across the plate and cup tiles x3-6, which already carry "
-              "MB_COUNTER (the end pieces (2,4) and (7,4) do not). Card tiles that fit as written: Dock harbourmaster and "
+        notes="Clerk spots (3..5,3): the player talks from (x,5) across the plate and cup tiles x2-6, which already carry "
+              "MB_COUNTER (the end pieces (1,4) and (7,4) do not); the display table stands in front of x6-7, so (6,3) is "
+              "not a clerk spot. The left end (1,4) touches the potted tree (0,3-4), so the only way behind the counter is "
+              "the right-hand gap (8,3)-(8,4). Card tiles that fit as written: Dock harbourmaster and "
               "Lost Property clerk (5,3), Quarry clerk (4,3), Dock deckhand (2,5), Lost Property man and Sales model-maker "
               "(8,5). Not as the cards: the Sales clerk (card (5,4)) and the Parlour mortician (card (4,4)) stand at (5,3) "
               "and (4,3), because row 4 is the counter here. Props the cards name: the display table (6-7,5-6) is the Dock's "
               "chart table with the canal model (sign on (7,5)) and the Sales Office's model of Gildhaven (sign on (6,5)); "
-              "the brown trunk (9-10,4) is Lost Property's 'UNCLAIMED' trunk (card (9,3), sign on (9,4)); the writing desk "
-              "(6-7,1-2) is the Quarry ledger and the picture (2,0-1) its map (sign on (2,2), read from (2,3)); the Dock's "
+              "the stack of boxes (9-10,4), (10,5) is Lost Property's 'UNCLAIMED' trunk (card (9,3), sign on (9,4)); the "
+              "writing desk (6-7,1-2) is the Quarry ledger and the picture (2,0-1) its map (sign on (2,2), read from (2,3)); the Dock's "
               "tide table sign goes on (3,2), read from (3,3); the shelf bases (1,2), (8,2), (9,2) take Lost Property's hats "
-              "and umbrellas. The desk monitor (933) is the Hollowbrook bedroom-PC tile: a prop here. No bench: Parlour's "
-              "two cushions (8,5), (9,5) are not drawn. Sales Office has no glass pieces (Little Office is not in the tree).")
+              "and umbrellas. The desk monitor (933) is the Hollowbrook bedroom-PC tile: a prop here. The two cushions "
+              "(8-9,5) are the Parlour's bench and walkable, so the Lost Property man can wander over them. The card's "
+              "plants at (1,3) and (9,3) are not drawn ((1,3) is the clerk's end of the counter, (9,3) a shelf front). "
+              "Sales Office has no glass pieces (Little Office is not in the tree).")
 
 
 def open_office() -> K.Spec:
@@ -164,7 +173,7 @@ def open_office() -> K.Spec:
     FH.put_mat(g, 5, FH.TEAL_MAT_ENDS, tiles=2)
     return K.Spec(
         "LAYOUT_VELDRIS_OFFICE_DESKS", "VeldrisOffice_Desks", g, doors=((5, 7), (6, 7)),
-        npc=((4, 5), (7, 5), (9, 4), (1, 5), (2, 5), (3, 3), (6, 2), (8, 3)),
+        npc=((4, 5), (7, 5), (9, 4), (1, 5), (2, 5), (10, 5), (10, 6), (9, 6), (3, 3), (6, 2), (8, 3)),
         title="Open office: a desk at each end of the wall and a long table, 12 x 8",
         uses="Gloomsby_ProductionOffice (gloomsby 3.9, 13 x 8 card, so one column narrower here) and Smeltham_MineOffice "
              "(smeltham 3.4, 11 x 8 card, so one column wider here)",
@@ -172,11 +181,12 @@ def open_office() -> K.Spec:
               "x10-11); the folding table is the long table x4-7, y3-4 (card x5-7, y3-4); the script board is the picture "
               "(7,0-1), sign on (7,1), read from (7,2) along the foot row behind the table (card (6,1)); producer (4,5) and "
               "runner (9,4) are the card's own tiles; the boxes are objects the flag hides after Scheme 3, free floor for "
-              "them at (1,5), (2,5), (11,6) (card (11,5) and (12,5) are a plant and off the map). Mine Office: the table is "
-              "the desk (card x6-8, y3-4), the clerk at (7,5) facing north as the card says; hard-hat shelf = the shelf "
-              "(8-9,1-2), exactly the card's x8-9; the mine map = the picture (7,0-1) (card (8,1)); window pair (5-6) as the "
-              "card; plants (0,5-6) and (11,5-6) for the plant column. Not as the Mine card: no kitchen block or kettle (put "
-              "the kettle in the shelf's sign line). The mat is at (5,7)+(6,7) for both buildings, not the Mine card's (2,7).")
+              "them at (1,5), (2,5), (10,5), (10,6), (9,6) (the card's (11,5), (11,6), (12,5) are the plant column or off "
+              "the map). Mine Office: the table is the desk (card x6-8, y3-4), the clerk at (7,5) facing north as the card "
+              "says; hard-hat shelf = the shelf (8-9,1-2), exactly the card's x8-9; the mine map = the picture (7,0-1) "
+              "(card (8,1)); window pair (5-6) as the card; plants (0,5-6) and (11,5-6) for the plant column. Not as the "
+              "Mine card: no kitchen block or kettle (put the kettle in the shelf's sign line). The mat is at (5,7)+(6,7) "
+              "for both buildings, not the Mine card's (2,7).")
 
 
 def front_hall() -> K.Spec:
@@ -202,7 +212,7 @@ def front_hall() -> K.Spec:
     FH.put_mat(g, 6, FH.TEAL_MAT_ENDS)
     return K.Spec(
         "LAYOUT_VELDRIS_OFFICE_HALL", "VeldrisOffice_Hall", g, doors=((6, 9),),
-        npc=((6, 2), (5, 4), (6, 4), (7, 4), (6, 6), (2, 5), (12, 7), (9, 8)),
+        npc=((6, 2), (5, 4), (6, 4), (7, 4), (6, 6), (2, 5), (12, 7), (9, 7)),
         title="Front hall: a U-shaped counter, a dark inner doorway and a rug, 13 x 10",
         uses="Brinecombe_HarbourOffice (brinecombe 5.4, 13 x 10, exact fit) and Kingsquay_TallowAndCrane (kingsquay 6.9, "
              "14 x 10 card, so one column narrower here)",
@@ -210,20 +220,24 @@ def front_hall() -> K.Spec:
               "so the player talks across (6,5) from (6,6) as the card says); tide table = the left shelf base (1,2) (card "
               "(1,2)); the dark back door is the doorway (5-7,0-1), centred instead of the card's (9,1), no warp; chart "
               "table = the aide table (10-11,6-7) (card (11,4),(11,5)); plants (0,8-9) and (12,8-9) (card (1,8),(11,8)); "
-              "the card's round rug is the 5 x 2 blue rug (4-8,7-8); sailor at (9,8) (card (10,7)). Tallow & Crane: second "
+              "the card's round rug is the 5 x 2 blue rug (4-8,7-8); sailor at (9,7) facing east to the chart table "
+              "(card (10,7), which is the table here). Tallow & Crane: second "
               "clerk at (7,4) (card (7,3)), Mr Tallow at (6,2) before the locked doorway as the card says (the foot row "
               "is open round the arms); invoice table (10-11,6-7) and Pip (12,7) are the card's own tiles; the filing "
               "shelves 'Q' are the shelves (0-1,1-2) and (11-12,1-2) (signs on (1,2) and (11,2)); windows at (3-4) and "
               "(8-9) (card (3,1) and (9,1)); the mat is one warp tile (6,9) (card (6,9)+(7,9)). Doorway tile (6,1) (769) "
               "carries MB_NON_ANIMATED_DOOR and is solid: put a sign on it for 'closed for conclusions', or nothing for "
-              "the Harbour's decorative door. Little Office is not in the tree, so Tallow & Crane has no glass partition.")
+              "the Harbour's decorative door. Counter behaviour: the plate and cup tiles x4-8 of the run and the left arm's "
+              "top tile (3,3) (624) carry MB_COUNTER, the right arm's top (9,3) does not, so a player at (2,3) can talk across "
+              "(3,3) to (4,3): leave (4,3) empty. Little Office is not in the tree, so Tallow & Crane has no glass "
+              "partition.")
 
 
 def reading_room() -> K.Spec:
     """READING 12 x 11, wood floor, door mat (5,10)+(6,10). Back wall: bookshelves (0-1) and (2-3), clock (4), two pictures
     (5) (6) as the poster, window (7-8), stairwell down (9-10, rows 1-3) whose walkable step (10,2) is the west-arrow warp
-    (enter walking west from (11,2)). Two reading desks (3-4,5) and (7-8,5), each with two cushion stools in front at y6.
-    Standing bookshelves (1-2,7-8) and (9-10,7-8), blue rug (4-7,8-9), potted trees (0,8-9) and (11,8-9)."""
+    (enter walking west from (11,2)). Two reading tables (3-4,4-5) and (7-8,4-5), each with two cushion stools in front
+    at y6. Standing bookshelves (1-2,7-8) and (9-10,7-8), blue rug (4-7,8-9), potted trees (0,8-9) and (11,8-9)."""
     g = HM.room(12, 11)
     HM.on_wall(g, 0, WOOD_SHELF)
     HM.on_wall(g, 2, WOOD_SHELF)
@@ -232,8 +246,8 @@ def reading_room() -> K.Spec:
     HM.high(g, 6, PICTURE)
     HM.high(g, 7, WINDOW)
     HM.stairs_down(g, 9)
-    K.put(g, 3, 5, DESK_LOW)
-    K.put(g, 7, 5, DESK_LOW)
+    K.put(g, 3, 4, WOOD_TABLE)
+    K.put(g, 7, 4, WOOD_TABLE)
     seats(g, ((3, 6), (4, 6), (7, 6), (8, 6)), STOOL)
     K.put(g, 1, 7, WOOD_SHELF)
     K.put(g, 9, 7, WOOD_SHELF)
@@ -244,7 +258,7 @@ def reading_room() -> K.Spec:
     return K.Spec(
         "LAYOUT_VELDRIS_OFFICE_READING", "VeldrisOffice_Reading", g, doors=doors,
         npc=((5, 4), (6, 4), (3, 7), (8, 7), (11, 2), (2, 4)),
-        title="Reading room: shelves, a poster, two reading desks and a stairwell down, 12 x 11",
+        title="Reading room: shelves, a poster, two reading tables and a stairwell down, 12 x 11",
         uses="HemlockReach_ReadingRoom (hemlock-reach 5.5, 12 x 11, exact fit). Gildhaven_PilotsClub (gildhaven 4.6, 12 x 14) "
              "is the same Trainer School plan three rows taller: duplicate this layout, add three rows and paint the "
              "stairwell over",
@@ -254,8 +268,9 @@ def reading_room() -> K.Spec:
               "(3,7) and (8,7): the card's tiles. The poster is the two pictures (5,0-1) and (6,0-1) (card: the green "
               "board at (5,2),(6,2): signs on (5,2) and (6,2), read from (5,3) and (6,3)). Bookshelves (0-3) (card x1-2), "
               "window (7-8) (card x8-10, the stairwell takes x9-10). The card's four desks at (3,5), (4,5), (7,5), (8,5) "
-              "with stools at y6 are two 2-wide tables with two stools each. Plants (0,8-9) and (11,8-9) (card (1,9), "
-              "(10,9)). Extras beyond the card (it says 'the rest is open floor'): the standing bookshelves and the rug; "
+              "with stools at y6 are two 2 x 2 tables (3-4,4-5) and (7-8,4-5), whose front row is the card's y5, with "
+              "two stools each; (5,4) and (6,4) stay free between them for the archivist. Plants (0,8-9) and (11,8-9) "
+              "(card (1,9), (10,9)). Extras beyond the card (it says 'the rest is open floor'): the standing bookshelves and the rug; "
               "paint them out in Porymap if the room feels full. Mat (5,10)+(6,10) (card (6,10)).")
 
 
@@ -263,7 +278,8 @@ def archive() -> K.Spec:
     """ARCHIVE 9 x 8, wood floor, no door: the way in is the staircase (7-8, rows 0-3) whose walkable bottom step (7,2) is
     the east-arrow warp (enter walking east from (6,2)). Back wall: three bookshelves (0-1) (2-3) (4-5). A line of crates
     at x4 (rows 3 and 5-7) leaves a one-tile passage at (4,4); the boulder spot (5,4) is just east of it. West of the
-    line, crates (1,5) and (2,5). Cabinets (0,3-4) and (8,4-5), a table (6-7,6)."""
+    line, crates (1,5) and (2,5). Cabinets (0,3-4) and (8,4-5), a sorting table (5-6,6-7) that leaves (7,5)-(8,7)
+    open round it."""
     g = HM.room(9, 8)
     HM.on_wall(g, 0, WOOD_SHELF)
     HM.on_wall(g, 2, WOOD_SHELF)
@@ -275,7 +291,7 @@ def archive() -> K.Spec:
         g[5, x] = W_ | BOX
     K.put(g, 0, 3, FILING)
     K.put(g, 8, 4, FILING)
-    K.put(g, 6, 6, DESK_LOW)
+    K.put(g, 5, 6, WOOD_TABLE)
     return K.Spec(
         "LAYOUT_VELDRIS_OFFICE_ARCHIVE", "VeldrisOffice_Archive", g, doors=((6, 3),),
         npc=((6, 2), (5, 4), (4, 4), (3, 4), (1, 4), (6, 5)),
@@ -288,14 +304,17 @@ def archive() -> K.Spec:
               "the card says. The card's route does not work as written (the ball at (7,5) is on the boulder's own side), "
               "so the plan here: push the boulder west from (6,4) through (4,4) into (3,4), then (2,4), which opens the "
               "west half; put the TM Rock Tomb ball there, e.g. (1,4) (card (7,5)). Crates (1,5), (2,5) are the card's. "
-              "Extras: cabinets (0,3-4) and (8,4-5), a sorting table (6-7,6). Shelf bases carry the bookshelf behaviour.")
+              "Extras: cabinets (0,3-4) and (8,4-5), a sorting table (5-6,6-7) (talk to it from (5,5) or (6,5)). The "
+              "boulder can also be pushed north or south, from (5,5) or (5,3): that opens (4,4) without the west push. It "
+              "is harmless (Strength is still needed, nothing locks: pushed north the boulder sticks at (5,3) and only "
+              "hides that shelf's line), so no crate was added at (5,3). Shelf bases carry the bookshelf behaviour.")
 
 
 def workshop() -> K.Spec:
     """WORKSHOP 13 x 10, wood floor, door mat (6,9)+(7,9). Back wall: shelf (0-1), window (2-3), shelf (4-5), window (6-7),
     clock (8), hearths (9-10) and (11-12). Drying table: a counter x4-8 at y4 (plates at x5-7). Salt jars in a column
-    (0,3-6), barrels (12,5-6) beside a cabinet (11,5-6), crates (11,7) (12,7) (12,8), a tea table (6-7,6) between the
-    stools (5,6) and (8,6)."""
+    (0,3-6), barrels (12,5-6) beside a cabinet (11,5-6), crates (11,7) (12,7) (12,8), a tea table (6-7,6-7) with a
+    stool each side of its top (5,6) and (8,6)."""
     g = HM.room(13, 10)
     HM.on_wall(g, 0, WOOD_SHELF)
     HM.high(g, 2, WINDOW)
@@ -312,7 +331,7 @@ def workshop() -> K.Spec:
     K.put(g, 11, 5, FILING)
     for x, y in ((11, 7), (12, 7), (12, 8)):
         g[y, x] = W_ | BOX
-    K.put(g, 6, 6, DESK_LOW)
+    K.put(g, 6, 6, WOOD_TABLE)
     seats(g, ((5, 6), (8, 6)), STOOL)
     doors = HM.door_mat(g, 6)
     return K.Spec(
@@ -326,9 +345,10 @@ def workshop() -> K.Spec:
               "stands in front of them at (10,3) (card (10,5)); salt jars (0,3-6) (card (1,3)-(1,6): at the edge so no "
               "dead corridor), barrels (12,5-6) are the card's jugs (card (10,3),(10,4), moved off the hearth fronts), "
               "the cabinet (11,5-6) is the sieve rack (card (11,6), bg event), stools (5,6) and (8,6) with a tea table "
-              "between them (6-7,6) and the raker at (3,6) are the card's tiles plus the table, crates (11-12,7-8) are sacks of salt. The card's two windows at x3 and x9 "
-              "are (2-3) and (6-7), its shelf of bowls x2-4 is (0-1) and (4-5). Not as the card: no green mat, no timber "
-              "and stone look.")
+              "between them (6-7,6-7) (the table is an extra: (6,5) and (7,5) stay free for the foreman's talk spot, and "
+              "row 8 stays free to the door) and the raker at (3,6) are the card's tiles, crates (11-12,7-8) are sacks of "
+              "salt. The card's two windows at x3 and x9 are (2-3) and (6-7), its shelf of bowls x2-4 is (0-1) and (4-5). "
+              "Not as the card: no green mat, no timber and stone look.")
 
 
 SPECS = [counter_office(), open_office(), front_hall(), reading_room(), archive(), workshop()]

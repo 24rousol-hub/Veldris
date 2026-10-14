@@ -19,6 +19,8 @@ the cards allow. CHAMPIONS and CASINO copy pieces block for block from the vanil
 their collision and elevation are the originals (the two slopes of the Hall of Fame's exit notch are normalised to solid).
 Collision follows the kit: furniture solid; floor, rugs and cushions walkable; a seat is a walkable tile so that a person can
 sit on it. Nothing here blocks the floor in front of a bookshelf, and no walkable pocket is cut off unless `closed` says so.
+LOUNGE_1F and LOUNGE_2F are the only layouts for the two lounge floors of Vesperhaven: fam_shops.py no longer defines a
+lounge pair (its docstring points here), so there is nothing to choose between when the layouts are installed.
 
 Run `python3 layoutkit.py fam_halls OUT_DIR` from this folder to lint the specs and write the pictures.
 """
@@ -32,11 +34,11 @@ import fam_offices as OF
 from layoutkit import F_, W_, Spec
 
 # --- the front edge of a raised stage: the blue counter's end pieces (blue top, orange front) on the blue carpet -------------
-LIP_LEFT, LIP_RIGHT = 640, 643                       # a lip segment is a left end then a right end
+LIP_LEFT, LIP_RIGHT = OF.COUNTER_L, OF.COUNTER_R     # a lip segment is a left end then a right end
 
 # --- the stone floor of the tower: the Hollowbrook kitchen tile, with a darker flagstone row under the wallpaper -------------
 FLAGSTONE_FOOT = 521                                 # the foot row of a stone room (the wood and teal floors have their own)
-URN = 648                                            # red pot drawn on tile floor, one tile, solid
+URN = FH.POT                                         # red pot drawn on tile floor, one tile, solid
 SHELF_JARS = ((546, 547), (562, 563))                # shelf of jars and bottles, 2 x 2, against the wall (bookshelf behaviour)
 
 # --- the terrace balustrade: the flat staircase railing of the Gen 4 set; an end, a repeating pair, an end ------------------
@@ -145,11 +147,13 @@ def playhouse() -> Spec:
               "director stands in the two-tile step of the stage lip (5,5)-(6,5) and is talked to from (6,6), free between "
               "the stools (5,6) and (7,6); the actors are reached by walking up the step. The stage is the card's 6 x 3 blue "
               "carpet (the card's two rug blocks side by side). Not as the card: the stage has a front lip (the blue "
-              "counter's end pieces: blue top, orange front) that the card does not draw, and the card's plants (1,4) and "
-              "(11,4) and flower table (11,3) moved to (0,4-5), (12,4-5) and the footstool (11,4), because pieces at (2,3), "
-              "(10,3) and (11,3) would stand in front of the bookshelves and block them. The wings are the bookshelves "
-              "(signs on their lower tiles (1,2) (2,2) (10,2) (11,2), read from row 3). The backdrop is the two windows and "
-              "the picture (6,0-1): the set has no curtains or footlights.")
+              "counter's end pieces: blue top, orange front) that the card does not draw. The plants moved out to the wall "
+              "edge, (0,4-5) and (12,4-5), so that the two sides match and a plant never stands in front of a shelf (the "
+              "card's (1,4) and (11,4) would, if they name the base of a 2-tall plant: it would cover (1,3) and (11,3)). The "
+              "card's flower table (11,3) is dropped for the footstool (11,4): (11,3) is the front of the right shelf's "
+              "right-hand tile and must stay free. The wings are the bookshelves (signs on their lower tiles (1,2) (2,2) "
+              "(10,2) (11,2), read from row 3). The backdrop is the two windows and the picture (6,0-1): the set has no "
+              "curtains or footlights.")
 
 
 def tower() -> Spec:
@@ -242,8 +246,10 @@ def lounge_1f() -> Spec:
               "(28,2)); pair it with Lounge 2F's landing (30,2) and arrive back from 2F on (28,2), not on the step. Not as the "
               "card: the set has no brick wall, hanging bottles or coat racks: the jar shelves (0-1) and (12-13) close the "
               "bar's ends, a hat shelf (23-24,10-11) stands in for the racks, and the card's armchairs are brown, not "
-              "black. The bartender's row is the wall's foot row, reachable only through (2,3) at the bar's left end. The "
-              "columns x0 and x30 are floor (the card draws walls there).")
+              "black. The hat shelf is decoration: its front is the map edge and a bookshelf speaks only when faced from the "
+              "south, so to make it readable put a facing-any sign on its top tile (23,10) or (24,10), read from (23,9) or "
+              "(24,9) facing south. The bartender's row is the wall's foot row, reachable only through (2,3) at the bar's left "
+              "end. The columns x0 and x30 are floor (the card draws walls there).")
 
 
 def lounge_2f() -> Spec:
@@ -301,7 +307,7 @@ def champions() -> Spec:
         solidify(g, x, h - 1)
     return Spec(
         "LAYOUT_VELDRIS_HALL_CHAMPIONS", "VeldrisHall_Champions", g, doors=((4, h - 1), (5, h - 1), (6, h - 1)),
-        npc=((5, 6), (2, 13), (8, 13)),
+        npc=((5, 6), (2, 14), (8, 14)),
         primary="gTileset_Building", secondary=CABLE_CLUB,
         title="Hall of Past Champions: the Hall of Fame look, 11 x 16",
         uses="Vesperhaven_HallOfPastChampions (vesperhaven 6.7, 10 x 16 card, one column wider here); the same plan and image "
@@ -312,17 +318,24 @@ def champions() -> Spec:
               "wall and diamond floor are not reproduced, this is the vanilla purple. Card tiles: the portraits are signs on "
               "the wall tiles (0,y) and (10,y) for y = 4 6 8 10 12 (the card's x0 and x9), read from (1,y) and (9,y); "
               "Cynthia's is (0,12), the unfinished frame (10,12); the walls carry no frame art, the only visible "
-              "frames are the three green screens in the top wall. The attendant stands at (5,6) (card (5,5)); the two "
-              "Rare Candy balls at (2,13) and (8,13) (card (2,14) and (7,14), mirrored for the extra column). Exit: "
-              "the notch's three mat tiles (4..6,15), warp on the middle one (card mats (4,15),(5,15)).")
+              "frames are the three green screens in the top wall. The attendant stands at (5,6) (card (5,5), which is the "
+              "console's walkable base row, where a person would stand in front of the picture of the machine); the two "
+              "Rare Candy balls at (2,14) and (8,14) (card (2,14) and (7,14), the second mirrored for the extra column). "
+              "Exit: the notch's three mat tiles (4..6,15), warp on the middle one (card mats (4,15),(5,15)). Why 11 and "
+              "not the card's 10: the vanilla recess is a symmetrical 5 columns wide over a 3-wide console, so an even "
+              "room would leave both off-centre by half a tile; one tile over a card is what the shared-layout rule "
+              "allows. The card (vesperhaven.md 6.7 and the warp table in 7) then needs: width 11, portraits x0 and x10, "
+              "mats (4..6,15), attendant (5,6), candies (2,14) and (8,14).")
 
 
 def shrine() -> Spec:
     """SHRINE 10 x 9, wood floor, door mat (4..5,8). Back wall: window (0-1), scroll picture (2), stairwell down (3-4, rows
     1-3) whose walkable step (4,2) is the west-arrow warp (enter walking west from (5,2)), window (5-6), clock (7), the carved
-    door (8, rows 0-1: a tall locked chest in the wall). Three pools of teal glass, solid, two by two: (1-2,4-5), (1-2,7-8)
-    and (7-8,7-8); a pale light patch (8,6); the blue carpet clock face x3-5 y4-6; potted trees (9,4-5) and (0,7-8).
-    The mirror puzzle's beam runs through free floor: (8,6) (7,6) (6,6), (6,5) (6,4), (7,4) (8,4), (8,3) (8,2)."""
+    door (8, rows 0-1: a tall locked chest in the wall). Three pools of teal glass, solid, two by two: (1-2,5-6), (1-2,7-8)
+    (these two touch, as the card's do) and (7-8,7-8); a pale light patch (8,6); the blue carpet clock face x3-5 y4-6; potted
+    trees (9,4-5) and (0,7-8). The hermit's corner (x0-2, rows 2-3) is walled in by the stairwell on the east, so row 4
+    stays free across x0-2 and joins it to the carpet. The mirror puzzle's beam runs through free floor: (8,6) (7,6) (6,6),
+    (6,5) (6,4), (7,4) (8,4), (8,3) (8,2)."""
     g = HM.room(10, 9)
     HM.high(g, 0, H.WINDOW)
     HM.high(g, 2, HM.PICTURE)
@@ -330,7 +343,7 @@ def shrine() -> Spec:
     HM.high(g, 5, H.WINDOW)
     HM.high(g, 7, HM.CLOCK)
     K.put(g, 8, 0, OF.FILING)
-    for x, y in ((1, 4), (1, 7), (7, 7)):
+    for x, y in ((1, 5), (1, 7), (7, 7)):
         K.put(g, x, y, ((HM.GLASS, HM.GLASS),) * 2)
     g[6, 8] = F_ | H.TILE
     for y in range(4, 7):
@@ -352,10 +365,13 @@ def shrine() -> Spec:
               "ball (7,2), mirrors M1 (6,6), M2 (6,4), M3 (8,4), exit mat (5,8) (here (4,8)+(5,8), warp on both), the "
               "skylight patch (8,6) (a pale tile), the carved door (8,1) (swap its two tiles with setmetatile when the beam "
               "lands: the closed look is the chest 811/819, put the open look in Porymap). Every tile of the beam path is "
-              "free floor. Not as the card: the pools are three 2 x 2 squares at (1-2,4-5), (1-2,7-8) and (7-8,7-8) (the "
-              "card's P1 and P2 touch and its P3 is 2 x 1), a free row at y6 joins the hermit's corner to the rest; the "
-              "clock face is a plain blue 3 x 3 carpet (the set has no clock pattern); x0 and x9 are floor, the card's "
-              "walls.")
+              "free floor. The hermit's corner (x0-2, rows 2-3) is shut in by the two-wide stairwell (3-4, rows 1-3), where "
+              "the card leaves (3,2) and (3,3) free: it is joined to the room by row 4, free across x0-2 and open to the "
+              "carpet at (3,4), so the player walks in three tiles wide; the strip (0,5)-(0,6) beside the pool is a short "
+              "dead end, still reachable. Not as the card: the pools are three 2 x 2 squares at (1-2,5-6), (1-2,7-8) and "
+              "(7-8,7-8) (the card's P1 y4-5 and P2 y6-7 touch, as these two do, one row lower so that row 4 is free; its "
+              "P3 is 2 x 1); the clock face is a plain blue 3 x 3 carpet (the set has no clock pattern); x0 and x9 are "
+              "floor, the card's walls.")
 
 
 def casino() -> Spec:
@@ -397,10 +413,13 @@ def casino() -> Spec:
               "tiles), the coin terminals at the middle, two double banks (x6-9 and x11-14, rows 6-11), two roulette "
               "tables on the right, the mat at (3,15). The two clerks stand inside the booth recesses at (3,2) and "
               "(16,2) (walkable but sealed, listed as closed), talked to from the walkable front row (3,4) and (16,4) "
-              "across the counter top (row 3, MB_COUNTER). Manager (9,3) between the booths, gamblers at (5,8) and "
-              "(10,8), croupier at (16,8) beside the first table (card (17,8)). Not as the card: the tables are at "
-              "x17-18 (the card's x17 only), the left column holds round stools instead of plants and stools (a plant "
-              "piece exists only against the wall), and there is no central poster (the terminals take its place).")
+              "across the counter top (row 3, MB_COUNTER); the card's coin clerk (2,2) is a recess tile too, so (2,2) works "
+              "as well as (3,2). Manager (9,3) between the booths. The card's gamblers (7,9) and (12,9) fall on slot "
+              "machines in this arrangement (the banks cover x6-9 and x11-14, rows 6-11), so they stand in the free aisles "
+              "at (5,8) and (10,8). The croupier is at (16,8) beside the first table (card (17,8), now a table tile). Not as "
+              "the card: the tables are at x17-18 (the card's x17 only), the left column holds round stools instead of "
+              "plants and stools (a plant piece exists only against the wall), and there is no central poster at (12,1) "
+              "(the coin terminals (9-10,1-2) take its place).")
 
 
 SPECS = [playhouse(), tower(), lounge_1f(), lounge_2f(), champions(), shrine(), casino()]

@@ -23,7 +23,9 @@ What stands in for the card's pieces (nothing is drawn, every tile is the vanill
     vase of flowers, and the petal trail on y 16 shows the five flower pieces in the order they must bloom. The set has
     no piece for pure pink, yellow or blue, so pink is a vase of tulips, yellow a yellow and a blue flower, blue the
     bed (see BLOOMS); the author may repaint them later;
-  * a gym statue is a fern on a stand one cell tall (a bud is taller): the shop has no statue and no plaque.
+  * a gym statue is the shop's wooden stool, a barrel on three legs: a complete piece one cell tall, so it cannot be
+    mistaken for a bud or a petal (both are two cells tall). The shop has no statue and no plaque; the statue signs
+    are written by the author over this stand-in.
 
 Initial state (what this module ships): the hedge door cell is a flower box, every bud is a fern stand. In the solved
 state (`SOLVED`) the five buds are flowers and the door cell is floor. `check_puzzle` proves the stages on temporary
@@ -66,11 +68,12 @@ VASE_PINK = (535, 543)       # a vase of pink tulips against a cream panel: uppe
 VASES_YELLOW = (542, 550)    # a yellow and a blue flower in two vases against a cream panel
 BASKET_WHITE = 571           # a basket of white blooms on a green stand (replaces the fern base)
 BASKET_RED = 572             # a basket of red blooms on a green stand (replaces the fern base)
+STOOL = 581                  # the shop's wooden stool (a barrel on three legs), one complete cell on a floor background
 MAT = (6, 7)                 # primary tiles: the two halves of the orange door mat
 ID_MASK = 0x03FF             # bits 0-9 of a map block are the metatile id (the top six bits are collision and elevation)
 
 BUD_CLOSED = (FERN_TOP, FERN_BASE)   # a closed bud, upper and lower cell: a fern stand two cells tall
-STATUE = FERN_BASE                   # a gym statue: a fern on a stand, one cell tall
+STATUE = STOOL                       # a gym statue stand-in: one whole cell, unlike the two-cell buds and petals
 BLOOMS = (                   # the five buds in the order they bloom: (colour, upper cell, lower cell); also the petals
     ("white", FERN_TOP, BASKET_WHITE),
     ("pink", *VASE_PINK),
@@ -228,6 +231,7 @@ def build(opened: bool = False, bloomed: int = 0) -> np.ndarray:
 
 
 def _spec(grid: np.ndarray, **fields) -> Spec:
+    """The gym's Spec around `grid`; the other fields (npc, closed, notes...) come from the caller."""
     return Spec("LAYOUT_PRIMROSE_VALE_GYM", "PrimroseVale_Gym", grid, PRIMARY, SECONDARY, doors=DOORS, **fields)
 
 
@@ -237,6 +241,7 @@ SOLVED = build(opened=True, bloomed=len(BLOOMS))     # temporary, never shipped:
 
 
 def _id(grid: np.ndarray, x: int, y: int) -> int:
+    """The metatile id at (x, y) of `grid`, without the collision and elevation bits."""
     return int(grid[y, x]) & ID_MASK
 
 
@@ -281,6 +286,8 @@ def check_puzzle() -> list[str]:
     pieces = {(BLOOMS[k][1], BLOOMS[k][2]) for k in range(len(BLOOMS))}
     if len(pieces) != len(BLOOMS) or BUD_CLOSED in pieces:
         problems.append("the five blooms and the closed bud must be six different pictures")
+    if STATUE in {mid for piece in pieces | {BUD_CLOSED} for mid in piece}:
+        problems.append("the statue must not be a cell of a bud or a petal piece")
     errors, warnings = K.lint(_spec(SOLVED, npc=OBJECT_SPOTS + (LEADER, HEDGE_DOOR)))
     problems += [f"solved grid: {m}" for m in errors + warnings]
     seen = {c for cells in SIGHT.values() for c in cells}
@@ -311,9 +318,10 @@ def _notes() -> str:
         "The card's tile map is kept cell for cell, with these changes: (1) the bed row y2 and the hedge row y3 are one "
         "bed two cells tall, SUZURAN's cell (6, 2) is a floor cell in it and the hedge door (6, 3) is its lower box; "
         "(2) every bud and every petal piece is two cells tall, its upper cell on the row above the card's cell; "
-        "(3) bud 5's stand is (11, 16), not the card's (10, 15), because the red petal's upper cell stands on (10, 15); "
+        "(3) bud 5's stand is (11, 16) facing north, not the card's (10, 15), because the red petal's upper cell stands "
+        "on (10, 15): the puzzle table of the card (primrose-vale.md 6.2, row 5) must be updated to match; "
         "(4) the card's wall row y18 is plain floor with the two mat tiles in it, as in every vanilla interior (the set has "
-        "no front-wall piece); (5) a statue is a fern stand one cell tall. "
+        "no front-wall piece); (5) a statue is the shop's wooden stool (581), a whole one-cell piece. "
         "INITIAL STATE (shipped): the hedge door (6, 3) is a solid flower box, the five buds are fern stands (549 over "
         "565), and SUZURAN's cell (6, 2) is walkable but sealed (Spec.closed). "
         "SOLVED STATE (proved by check_puzzle on a temporary grid, never shipped): bud k blooms in order with "
@@ -337,18 +345,18 @@ def _notes() -> str:
         "Look compromises: the card's lawn, sand, trees and arched windows do not exist in this set (pale floor, a darker "
         "path, fern racks, square windows); the five blooms are the closest pictures to white, pink, yellow, blue and red "
         "(pink is tulips, yellow is a yellow and a blue flower, blue is the mixed bed; the tulips and the vases stand "
-        "against a small cream panel, because the set only has them as wall vases); the statues are fern stands; the "
+        "against a small cream panel, because the set only has them as wall vases); the statues are wooden stools; the "
         "petals are standing pieces, not floor tiles. No new art is drawn."
     )
 
 
 def primrose_vale_gym() -> Spec:
     """Primrose Vale Gym 14 x 19 in its initial state (hedge door shut, buds closed); see the module docstring."""
-    opened_only = sorted(K.reachable(_spec(SOLVED)) - K.reachable(_spec(INITIAL)))
+    solved_only = sorted(K.reachable(_spec(SOLVED)) - K.reachable(_spec(INITIAL)))
     return _spec(
         INITIAL,
         npc=OBJECT_SPOTS,
-        closed=tuple(c for c in opened_only if K.passable(INITIAL[c[1], c[0]])),
+        closed=tuple(c for c in solved_only if K.passable(INITIAL[c[1], c[0]])),
         title="Primrose Vale Gym: flower hall, five buds, hedge door",
         uses="Primrose Vale Gym (Gym 8, Fairy; SUZURAN). Used by that one building only.",
         notes=_notes(),

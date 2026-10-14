@@ -33,7 +33,7 @@ The detailed pass requested by the author: description, walk-through, every buil
 | [waymeet.md](waymeet.md) | WAYMEET, detailed design (town, place 11, crossroads and rail stop, no gym) | 207 |
 | [wendlebury.md](wendlebury.md) | WENDLEBURY: detailed town design (PROPOSED, 2026-10-01) | 266 |
 
-Hollowbrook is built (see [../../interiors.md](../../interiors.md)); it has no file here.
+Hollowbrook is built (see [../../interiors.md](../../interiors.md)); it has no file here. The shared house, shop, office, hall and gym interiors the cards name are built as layouts (no maps yet): [../interiors/layouts-built.md](../interiors/layouts-built.md) says which layout fits which building.
 
 ## Decisions and corrections from this pass
 

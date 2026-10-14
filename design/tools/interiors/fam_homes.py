@@ -21,6 +21,8 @@ so it sits on wood (the Fennick lab uses the same tile on its teal floor). Put a
 
 Run `python3 layoutkit.py fam_homes OUT_DIR` from this folder to lint and draw them.
 """
+from __future__ import annotations
+
 import numpy as np
 
 import houses as H
@@ -40,9 +42,12 @@ ARMCHAIR_E = ((937,), (945,))       # armchair seen from the side, facing east, 
 ARMCHAIR_W = ((938,), (946,))       # the same facing west
 LOVESEAT = ((670, 671), (678, 679))  # two-seat sofa seen from behind (it faces north), 2 x 2, on wood
 PLANT = ((H.PLANT[0],), (H.PLANT[1],))  # the Hollowbrook potted tree, 1 wide 2 tall, on wood
-COUNTER_RUN = (640, 641, 642, 643)  # free-standing counter, 1 tall: left end, middle, middle with a bowl, right end
+COUNTER_LEFT = 640                  # free-standing counter, 1 tall: left end
+COUNTER_TALK = 641                  # counter middle with a plate: the only middle piece that has MB_COUNTER
+COUNTER_PLAIN = 642                 # plain counter middle, no behaviour
+COUNTER_RIGHT = 643                 # counter right end
 STOOL = H.CUSHION                   # cushion stool on wood (walkable, as in Hollowbrook)
-STOOL_TILE = 607                    # the same stool drawn for tiled floor (Hollowbrook 1F kitchen)
+STOOL_TILE = 607                    # the same stool drawn for tiled floor; solid, as in the Hollowbrook 1F kitchen
 LOW_TABLE = (593, 594)              # 2 x 1 low table, drawn for the blue carpet
 CUSHION_BLUE = (597, 598)           # a left and a right cushion drawn for the blue carpet (walkable)
 MAT = 513                           # plain door mat tile, behaviour south-arrow warp
@@ -55,6 +60,9 @@ GLASS = 737                         # teal glass floor, the dome's own floor
 # bottom step is the one walkable arrow-warp tile. Source of each block: (layout id, x, y, width, height).
 STAIRS_UP_SRC = ("LAYOUT_HOLLOWBROOK_PLAYERS_HOUSE_1F", 11, 0, 2, 4)    # cap row, three stair rows; step (0,2) = 672, east-arrow warp
 STAIRS_DOWN_SRC = ("LAYOUT_HOLLOWBROOK_PLAYERS_HOUSE_2F", 9, 1, 2, 3)   # stairwell rows; step (1,1) = 695, west-arrow warp
+# The people behind a counter stand on the foot row; the counter piece with the behaviour goes in front of them.
+INN_KEEPER = (3, 2)                 # Wendlebury card: the innkeeper, talked to from (3,4) across the counter tile (3,3)
+APIARY_WILF = (3, 2)                # Briarwick card: Wilf behind the honey counter, talked to from (3,4) across (3,3)
 
 
 # ---------------------------------------------------------------- helpers for the builders
@@ -106,8 +114,20 @@ def stairs_down(g: np.ndarray, x: int) -> None:
     K.stamp(g, x, 1, K.grab(*STAIRS_DOWN_SRC))
 
 
+def counter(g: np.ndarray, x: int, y: int, talk_x: int | None = None) -> None:
+    """A solid four-tile counter at (x to x+3, y). Only tile 641 of its two middle pieces carries the counter behaviour,
+    and a person behind the counter can be talked to across it only from the tile in front of a 641. So 641 is laid in
+    column `talk_x` (x+1 or x+2), where the person stands behind it; None keeps the natural order (nobody stands behind)."""
+    talk_x = x + 1 if talk_x is None else talk_x
+    if talk_x not in (x + 1, x + 2):
+        raise ValueError(f"talk_x {talk_x} is not a middle column of the counter at x {x}")
+    middle = (COUNTER_TALK, COUNTER_PLAIN) if talk_x == x + 1 else (COUNTER_PLAIN, COUNTER_TALK)
+    K.put(g, x, y, ((COUNTER_LEFT, *middle, COUNTER_RIGHT),))
+
+
 def stools(g: np.ndarray, cells, tile: int = STOOL) -> None:
-    """Walkable cushion stools (the Hollowbrook cushions are walkable) at the given (x, y) cells."""
+    """Walkable cushions at the given (x, y) cells: by default the wood stool, tile 605, which is walkable in the built
+    Hollowbrook houses. Other families pass the cushion drawn for their own floor."""
     for x, y in cells:
         g[y, x] = F_ | tile
 
@@ -144,7 +164,9 @@ def flat() -> Spec:
               "table). Not as the cards: the stove stands on wood (no tiled kitchen floor, no counter), the clock (5,1) "
               "stands in for a tide table or barometer, the bookshelf (6-7,1-2) for the rod rack, paintings or first-aid "
               "shelf (put those bg events on its lower tiles (6,2) and (7,2), the tiles the player faces). The cards "
-              "disagree on the mat tile ((2,7) Cleaners, (3,7) Move Deleter and G4-B): it is (3,7)+(4,7) here.")
+              "disagree on the mat tile ((2,7) Cleaners, (3,7) Move Deleter and G4-B): it is (3,7)+(4,7) here, so "
+              "Gildhaven_CleanersFlat and Gildhaven_MoveDeletersHouse both get warps on (3,7) and (4,7) (their cards' "
+              "door tables want that update; the Move Deleter's 11 x 8 template is 10 x 8 here).")
 
 
 def study() -> Spec:
@@ -212,7 +234,11 @@ def lodge() -> Spec:
               "spots: (5,3) warden and marshkeeper, (5,4) the hut boy and dock hand, (8,3) lodge elder, (3,5) member, "
               "(6,6) young climber. The stove is the hearth (bg event for the kettle or thermos), the dining table is "
               "the plank table, the beds read as bunks in the boathouse. The partition is a plain wall stub (no door "
-              "frame): the nook is open along rows 6-7.")
+              "frame): the nook is open along rows 6-7. Mat (2,7)+(3,7) is the tile the Hoarfell, Mothwood, Route 4 "
+              "and Cragdale cards use ((2,7)); the Hemlock boathouse card has its mat at (4,7), so its warps go on "
+              "(2,7) and (3,7) and the card needs that update. The Hoarfell, Mothwood and Route 4 cards are 11 x 8, "
+              "this is 12 x 8 (one column wider, on the right); their NPC tiles all stay free. Hemlock's pots, bowl "
+              "shelf and bench are not drawn (the bench is the plank table).")
 
 
 def parlour() -> Spec:
@@ -247,15 +273,15 @@ def parlour() -> Spec:
 
 
 def inn() -> Spec:
-    """Inn 14 x 9. Reception: window (1-2), clock (4), counter x1-4 at y3 with the keeper's pocket behind it (row 2, x0-5),
-    potted tree (0,3-4) sealing the left end, stools (2,4) and (4,4). Lounge: TV (6-7), flower table (6-7,4-6),
-    cushions (5,5) and (8,5). Rooms corner behind a partition at x8 (rows 2-4): bed (9-10), chest (11), bed (12-13),
-    dining table (10-11,5-6) with stools (9,5) (9,6) (12,5) (12,6), potted tree (13,7-8). Mat (6,8)+(7,8)."""
+    """Inn 14 x 9. Reception: window (1-2), clock (4), counter x1-4 at y3 (the counter-behaviour piece under the keeper at
+    (3,3)) with the keeper's pocket behind it (row 2, x0-5), potted tree (0,3-4) sealing the left end, stools (2,4) and
+    (4,4). Lounge: TV (6-7), flower table (6-7,4-6), cushions (5,5) and (8,5). Rooms corner behind a partition at x8
+    (rows 2-4): bed (9-10), chest (11), bed (12-13), dining table (10-11,5-6) with stools (9,5) (9,6) (12,5) (12,6),
+    potted tree (13,7-8). Mat (6,8)+(7,8)."""
     g = room(14, 9)
     high(g, 1, H.WINDOW)
     high(g, 4, CLOCK)
-    for i, m in enumerate(COUNTER_RUN):
-        g[3, 1 + i] = W_ | m
+    counter(g, 1, 3, talk_x=INN_KEEPER[0])
     K.put(g, 0, 3, PLANT)
     stools(g, ((2, 4), (4, 4)))
     on_wall(g, 6, H.TV)
@@ -271,15 +297,19 @@ def inn() -> Spec:
     doors = door_mat(g, 6)
     return Spec(
         "LAYOUT_VELDRIS_INN", "VeldrisInn", g, doors=doors,
-        npc=((3, 2), (3, 4), (2, 4), (4, 4), (5, 5), (8, 5), (11, 3)),
+        npc=(INN_KEEPER, (3, 4), (2, 4), (4, 4), (5, 5), (8, 5), (11, 3)),
         title="Inn: reception, lounge and a rooms corner with two beds",
         uses="Wendlebury_Inn (wendlebury 3.5). Can stand in for Cragdale_Hostel (cragdale 4.3) and Gildhaven_Hotel_1F "
              "(gildhaven 4.5): their cards say 12 x 9 with the vanilla motel geometry, so that is the author's call",
         notes="Wendlebury's card plan at its own 14 x 9, mat (6,8). The keeper (3,2) stands behind the counter; the "
-              "player talks from (3,4) between the two stools. The pocket is open at its right end ((5,2)-(5,3)) so it "
-              "is reachable and never sealed. The beds flank a chest of drawers, as a bedside table. Beds are scenery "
-              "(the Inn does not heal). The kitchen of the card is dropped (stove and fridge would hide the keeper's "
-              "pocket); the counter is the kitchen counter, there is no bell or key board.")
+              "player talks from (3,4) between the two stools. The counter tile in front of her, (3,3), is the one "
+              "middle piece with the counter behaviour (tile 641), so she can be talked to across it with no tileset "
+              "edit; the other counter tiles are scenery. Keep (3,4) free for the player: the card's guest, who also "
+              "stands at (3,4), belongs on a stool tile, (2,4) or (4,4), or in the lounge. The pocket is open at its "
+              "right end ((5,2)-(5,3)) so it is reachable and never sealed. The beds flank a chest of drawers, as a "
+              "bedside table. Beds are scenery (the Inn does not heal). The kitchen of the card is dropped (stove and "
+              "fridge would hide the keeper's pocket); the counter is the kitchen counter, there is no bell or key "
+              "board.")
 
 
 def apiary_1f() -> Spec:
@@ -292,8 +322,7 @@ def apiary_1f() -> Spec:
     high(g, 2, H.WINDOW)
     high(g, 5, CLOCK)
     stairs_up(g, 10)
-    for i, m in enumerate(COUNTER_RUN):
-        g[3, 2 + i] = W_ | m
+    counter(g, 2, 3, talk_x=APIARY_WILF[0])
     g[3:8, 6:10] = F_ | GLASS
     K.put(g, 7, 4, DOME)
     rug(g, 2, 5, 4, 2)
@@ -302,12 +331,13 @@ def apiary_1f() -> Spec:
     doors = door_mat(g, 5)
     return Spec(
         "LAYOUT_VELDRIS_APIARY_1F", "VeldrisApiary1F", g, doors=doors,
-        npc=((3, 2), (3, 4), (9, 5), (9, 6), (9, 2)),
+        npc=(APIARY_WILF, (3, 4), (9, 5), (9, 6), (9, 2)),
         title="Apiary, ground floor: honey counter, glass hive dais, stairs up",
         uses="Briarwick_Apiary_1F (briarwick 3.4)",
         notes="The card's plan with the hive dome (the lab's dome machine, there is no honey-gold recolour) moved off the "
               "wall to the middle of a glass dais: the dome's art has teal corners, so it must stand on teal floor and "
-              "cannot touch the wall. Wilf (3,2) is behind the honey counter, talked to from (3,4); the card's two "
+              "cannot touch the wall. Wilf (3,2) is behind the honey counter, talked to from (3,4) across the counter "
+              "tile (3,3), which is tile 641 and already carries the counter behaviour (no tileset edit); the card's two "
               "Combee (8,5) and (9,6) become (9,5) and (9,6) on the dais edge. Stairs up: the walkable step (10,2) "
               "(tile 672, east-arrow warp) goes to Briarwick_Apiary_2F (10,2); arrive back on (9,2). Honey barrels "
               "stand on the foot row at (7,2), (8,2).")
@@ -333,18 +363,20 @@ def apiary_2f() -> Spec:
         title="Apiary, upper floor: the old keeper's room",
         uses="Briarwick_Apiary_2F (briarwick 3.4)",
         notes="Reached only by the stairs: the walkable step (10,2) (tile 695, west-arrow warp) leads back to "
-              "Briarwick_Apiary_1F (10,2); the player arrives on (11,2). The kit has no stairs-only floor, so the one "
-              "door entry is the landing (11,3) and the lint warns 'not on the bottom row': expected, there is no "
-              "exit mat. The old keeper stands at (5,3), Combee at (8,5). The trophy cabinet is the left shelf, the "
-              "card's bookshelf the right one (bg events on their lower tiles).")
+              "Briarwick_Apiary_1F (10,2); the player arrives on (11,2), the card's arrival tile. The kit has no "
+              "stairs-only floor, so the Spec's one door entry is (11,3), the tile below the landing, used only as "
+              "the lint's anchor to flood-fill the room from (not a warp): the lint warns 'not on the bottom row', "
+              "expected, there is no exit mat. The old keeper stands at (5,3), Combee at (8,5). The trophy cabinet is "
+              "the left shelf, the card's bookshelf the right one (bg events on their lower tiles).")
 
 
 def penthouse() -> Spec:
     """Penthouse 15 x 10, a home that is slightly too big. Wall: stove (0-1), fridge (2-3), windows (4-5) and (6-7),
     picture (8), window (9-10), bookshelf (11-12), chest (13). Tiled kitchen x0-4 y3-6 with a counter island x1-4 at y5
-    and stools (1,6) and (3,6). Lounge: rug x6-11 y3-5 with the low table (8-9,4) and cushions (7,4) and (10,4); a
-    sofa of two loveseats (6-9,6-7) facing the windows; armchairs (11,7-8) and (13,7-8) round a footstool (12,8);
-    potted trees (14,4-5) and (0,7-8). Mat (2,9)+(3,9); the floor tile (1,8) is the private stair door."""
+    and solid stools (1,6) and (3,6) under it. Lounge: rug x6-11 y3-5 with the low table (8-9,4) and cushions (7,4) and
+    (10,4); a row of two loveseats (6-9,6-7), seen from behind, facing the windows; armchairs (11,7-8) and (13,7-8)
+    round a footstool (12,8); potted trees (14,4-5) and (0,7-8). Mat (2,9)+(3,9); the floor tile (1,8) is the private
+    stair door."""
     g = room(15, 10)
     g[3:7, 0:5] = F_ | H.TILE
     on_wall(g, 0, H.STOVE)
@@ -355,9 +387,9 @@ def penthouse() -> Spec:
     high(g, 9, H.WINDOW)
     on_wall(g, 11, H.SHELF)
     on_wall(g, 13, CHEST)
-    for i, m in enumerate(COUNTER_RUN):
-        g[5, 1 + i] = W_ | m
-    stools(g, ((1, 6), (3, 6)), STOOL_TILE)
+    counter(g, 1, 5)
+    for x in (1, 3):
+        g[6, x] = W_ | STOOL_TILE
     rug(g, 6, 3, 6, 3)
     K.put(g, 8, 4, (LOW_TABLE,))
     g[4, 7] = F_ | CUSHION_BLUE[0]
@@ -377,10 +409,13 @@ def penthouse() -> Spec:
         uses="Gildhaven_GoldsworthTower_6F (gildhaven 4.4.6). Layout only, no story content",
         notes="The card's plan: window wall, cook's counter nobody uses (the island), photo shelf (11-12) and locked "
               "cabinet (13), a rug and sofa too big for the room. People tiles: housemaid (3,3), Mr. (10,6), Mrs. (5,7). "
-              "The card's Troglodyte tile (7,7) is under the sofa: use (5,6). The framed list is the picture (8,0-1) "
-              "(sign on (8,2)); the photo shelf's sign goes on (12,2), the cabinet's on (13,2). The private stair door "
-              "(1,8) is a plain floor tile (no door or stair art fits a south room): put its warp there next to the "
-              "exit mat.")
+              "The card's Troglodyte tile (7,7) is under the sofa: use (5,6). The sofa is two loveseats seen from "
+              "behind: each reads as a pair of armchairs, so the row reads as four big seats facing the windows. The "
+              "island needs no behaviour (nobody stands behind it) and its two stools are solid, as in Hollowbrook's "
+              "kitchen. The framed list is the picture (8,0-1) (sign on (8,2)); the photo shelf's sign goes on (12,2), "
+              "the cabinet's on (13,2). The private stair door (1,8) is a plain floor tile (no door or stair art fits "
+              "a south room): put its single warp there, beside the exit mat. It is off the way from the mat into the "
+              "room (north from (2,8) or (3,8)), so only a step west from (2,8) fires it.")
 
 
 SPECS = [flat(), study(), lodge(), parlour(), inn(), apiary_1f(), apiary_2f(), penthouse()]

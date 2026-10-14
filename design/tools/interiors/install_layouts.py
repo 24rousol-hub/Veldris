@@ -2,7 +2,7 @@
 
     python3 install_layouts.py            # lint everything, then install (re-runnable: a layout with the same id is replaced in place)
     python3 install_layouts.py --check    # lint only
-    python3 install_layouts.py --doc      # print the markdown table for design/maps/interiors/layouts-built.md
+    python3 install_layouts.py --doc      # print the index table and per-layout sections for design/maps/interiors/layouts-built.md
 
 Families are the fam_*.py modules next to this file (each defines SPECS). Run from this folder, or anywhere (paths are repo-relative).
 Layouts are installed WITHOUT a map: the author adds each one as a map in Porymap (Layouts tab, right-click, Add New Map with Layout).
@@ -45,19 +45,49 @@ def install(specs):
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
 
 
-def doc(specs):
-    rows = ["| Layout id | Size | Tilesets | Exit mat | Used by |", "|---|---|---|---|---|"]
-    for s in specs:
-        rows.append(f"| `{s.layout_id}` | {s.w} x {s.h} | `{s.primary}` + `{s.secondary}` | "
-                    f"{', '.join(f'({x},{y})' for x, y in s.doors)} | {s.uses} |")
-    return "\n".join(rows)
+FAMILY_TITLES = {
+    "fam_houses": "Shared houses H2, H4, H6",
+    "fam_homes": "Character homes, inn, apiary, penthouse",
+    "fam_shops": "Cafes, canteen and shop",
+    "fam_offices": "Offices, reading room, archive, workshop",
+    "fam_halls": "Playhouse, tower room, lounge, champions' hall, shrine hall, casino",
+    "fam_gym_briarwick": "Gym 2 Bug: Briarwick",
+    "fam_gym_gloomsby": "Gym 3 Ghost: Gloomsby",
+    "fam_gym_smeltham": "Gym 4 Steel: Smeltham",
+    "fam_gym_hoarfell": "Gym 5 Ice: Hoarfell",
+    "fam_gym_gildhaven": "Gym 6 Flying: Gildhaven",
+    "fam_gym_hemlock": "Gym 7 Poison: Hemlock Reach",
+    "fam_gym_primrose": "Gym 8 Fairy: Primrose Vale",
+    "fam_gym_beaconmouth": "Gym 9 Water: Beaconmouth Lighthouse (three floors)",
+}
+
+
+def doc(mods):
+    """The markdown body of design/maps/interiors/layouts-built.md (index table plus one section per layout), from the specs."""
+    out = ["| Layout id | Size | Tilesets | Exit mat | Used by |", "|---|---|---|---|---|"]
+    body = []
+    count = 0
+    for m in mods:
+        specs = m.SPECS
+        count += len(specs)
+        body.append(f"\n## {FAMILY_TITLES.get(m.__name__, m.__name__)} (`{m.__name__}.py`)\n")
+        for s in specs:
+            mats = ", ".join(f"({x},{y})" for x, y in s.doors)
+            out.append(f"| `{s.layout_id}` | {s.w} x {s.h} | `{s.primary}` + `{s.secondary}` | {mats} | {s.uses} |")
+            body.append(f"### `{s.layout_id}`: {s.title}\n")
+            body.append(f"{s.w} x {s.h}, `{s.primary}` + `{s.secondary}`, folder `data/layouts/{s.folder}`, exit mat {mats}. "
+                        f"Used by: {s.uses}\n")
+            body.append(f"{s.notes.strip()}\n")
+    return count, "\n".join(out), "\n".join(body)
 
 
 if __name__ == "__main__":
-    specs = K.collect(*families())
-    errors = K.check_all(specs)
+    mods = families()
+    specs = K.collect(*mods)
+    errors = K.check_all(specs, verbose="--doc" not in sys.argv)
     if "--doc" in sys.argv:
-        print(doc(specs))
+        n, table, body = doc(mods)
+        print(f"{n} layouts\n\n{table}\n{body}")
     elif errors:
         sys.exit(f"{errors} errors, nothing installed")
     elif "--check" not in sys.argv:
