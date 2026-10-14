@@ -110,15 +110,25 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
     {8, 4},
 };
 
-#define GRASS_STARTER (IS_FRLG ? SPECIES_BULBASAUR  : SPECIES_TREECKO)
-#define FIRE_STARTER  (IS_FRLG ? SPECIES_CHARMANDER : SPECIES_TORCHIC)
-#define WATER_STARTER (IS_FRLG ? SPECIES_SQUIRTLE   : SPECIES_MUDKIP )
+// Veldris (author, 2026-10-12, design/decisions/story.md): the three on show are Johto's Chikorita (ball 1, Grass),
+// Cyndaquil (ball 2, Fire) and Totodile (ball 3, Water). The order is also the order of the party-file tags Tag6, Tag7
+// and Tag8 on the two Troglodyte trainers (src/data/trainers.party), checked by a test in test/veldris.c.
+#define GRASS_STARTER (IS_FRLG ? SPECIES_BULBASAUR  : SPECIES_CHIKORITA )
+#define FIRE_STARTER  (IS_FRLG ? SPECIES_CHARMANDER : SPECIES_CYNDAQUIL)
+#define WATER_STARTER (IS_FRLG ? SPECIES_SQUIRTLE   : SPECIES_TOTODILE  )
 
-static const u16 sStarterMon[STARTER_MON_COUNT] =
+// Veldris: the fourth starter (revealed by Prof. Fennick as an apology) is not on the choose screen, so it sits
+// after the three. VAR_STARTER_MON can now hold 3. It is Togepi, an ordinary level 5 Pokemon (not an egg), given by
+// givemon in data/maps/Hollowbrook_ProfFennickLab/scripts.inc (author, 2026-10-12).
+#define VELDRIS_FOURTH_STARTER SPECIES_TOGEPI
+#define STARTER_MON_TABLE_SIZE (STARTER_MON_COUNT + 1)
+
+static const u16 sStarterMon[STARTER_MON_TABLE_SIZE] =
 {
     GRASS_STARTER,
     FIRE_STARTER,
     WATER_STARTER,
+    VELDRIS_FOURTH_STARTER,
 };
 
 static const struct BgTemplate sBgTemplates[3] =
@@ -349,7 +359,7 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
 // .text
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
-    if (chosenStarterId > STARTER_MON_COUNT)
+    if (chosenStarterId >= STARTER_MON_TABLE_SIZE)
         chosenStarterId = 0;
     return sStarterMon[chosenStarterId];
 }

@@ -67,6 +67,20 @@ void write_text_file(string filepath, string text) {
     out_file.close();
 }
 
+// For headers that C sources include: leave the file and its timestamp alone when the content is unchanged, so make
+// does not recompile every C file after an edit that did not change them.
+void write_text_file_if_changed(string filepath, string text) {
+    ifstream existing_file(filepath, std::ifstream::binary);
+
+    if (existing_file.is_open()) {
+        std::stringstream existing_text;
+        existing_text << existing_file.rdbuf();
+        if (existing_text.str() == text)
+            return;
+    }
+    write_text_file(filepath, text);
+}
+
 
 string json_to_string(const Json &data, const string &field = "", bool silent = false) {
     const Json value = !field.empty() ? data[field] : data;
@@ -468,7 +482,7 @@ void process_event_constants(const vector<string> &map_filepaths, string output_
     }
 
     ids_file_text << get_include_guard_end(guard_name);
-    write_text_file(output_ids_file, ids_file_text.str());
+    write_text_file_if_changed(output_ids_file, ids_file_text.str());
 }
 
 string generate_groups_text(Json groups_data, vector<string> &invalid_maps) {
@@ -690,7 +704,7 @@ string generate_map_constants_text(string groups_filepath, Json groups_data, vec
         mapCountText << map_count_vec[i] << ", ";            //DEBUG
     }                                                        //DEBUG
     mapCountText << "0};\n";                                 //DEBUG
-    write_text_file(file_dir + ".." + s + ".." + s + "src" + s + "data" + s + "map_group_count.h", mapCountText.str());
+    write_text_file_if_changed(file_dir + ".." + s + ".." + s + "src" + s + "data" + s + "map_group_count.h", mapCountText.str());
 
     return text.str();
 }
@@ -720,7 +734,7 @@ void clean_heal_locations(vector<string> &valid_map_ids)
         }
     }
 
-    write_text_file("src/data/heal_locations.json", new_json.str());
+    write_text_file_if_changed("src/data/heal_locations.json", new_json.str());
 }
 
 // Output paths are directories with trailing path separators
@@ -766,11 +780,11 @@ void process_groups(string groups_filepath, vector<string> &map_filepaths, strin
     string map_header_text = generate_map_constants_text(groups_filepath, groups_data, valid_map_ids);
 
     clean_heal_locations(valid_map_ids);
-    write_text_file(output_asm + sep + "groups.inc", groups_text);
-    write_text_file(output_asm + sep + "connections.inc", connections_text);
-    write_text_file(output_asm + sep + "headers.inc", headers_text);
-    write_text_file(output_asm + sep + "events.inc", events_text);
-    write_text_file(output_c + sep + "map_groups.h", map_header_text);
+    write_text_file_if_changed(output_asm + sep + "groups.inc", groups_text);
+    write_text_file_if_changed(output_asm + sep + "connections.inc", connections_text);
+    write_text_file_if_changed(output_asm + sep + "headers.inc", headers_text);
+    write_text_file_if_changed(output_asm + sep + "events.inc", events_text);
+    write_text_file_if_changed(output_c + sep + "map_groups.h", map_header_text);
 }
 
 string generate_layout_headers_text(Json layouts_data) {
@@ -931,9 +945,9 @@ void process_layouts(string layouts_filepath, string output_asm, string output_c
     string layouts_table_text = generate_layouts_table_text(layouts_data);
     string layouts_constants_text = generate_layouts_constants_text(layouts_data);
 
-    write_text_file(output_asm + "layouts.inc", layout_headers_text);
-    write_text_file(output_asm + "layouts_table.inc", layouts_table_text);
-    write_text_file(output_c + "layouts.h", layouts_constants_text);
+    write_text_file_if_changed(output_asm + "layouts.inc", layout_headers_text);
+    write_text_file_if_changed(output_asm + "layouts_table.inc", layouts_table_text);
+    write_text_file_if_changed(output_c + "layouts.h", layouts_constants_text);
 }
 
 int main(int argc, char *argv[]) {

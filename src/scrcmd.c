@@ -1,4 +1,5 @@
 #include "global.h"
+#include "veldris_field_moves.h"
 #include "frontier_util.h"
 #include "battle_setup.h"
 #include "battle_util.h"
@@ -2314,6 +2315,18 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext *ctx)
             gSpecialVar_Result = i;
             gSpecialVar_0x8004 = species;
             break;
+        }
+    }
+
+    // Veldris: nobody knows the move; a party Pokemon that can learn it will do (compat moves only)
+    if (gSpecialVar_Result == PARTY_SIZE)
+    {
+        u32 slot = FindMonForFieldMove(fieldMove);
+
+        if (slot != PARTY_SIZE)
+        {
+            gSpecialVar_Result = slot;
+            gSpecialVar_0x8004 = GetMonData(&gParties[B_TRAINER_PLAYER][slot], MON_DATA_SPECIES);
         }
     }
 

@@ -51,8 +51,8 @@
 
 #else
 
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
+#define FLAG_VISITED_HOLLOWBROOK 0x20
+#define FLAG_VISITED_CRESTFALL 0x21
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag
@@ -193,6 +193,7 @@
 #define FLAG_SMART_PAINTING_MADE             0xA3
 #define FLAG_TOUGH_PAINTING_MADE             0xA4
 #define FLAG_RECEIVED_TM_ROCK_TOMB           0xA5
+#define FLAG_RECEIVED_TM_CRUNCH              FLAG_RECEIVED_TM_ROCK_TOMB // Veldris: Greta's TM (Rustboro's gym is unused)
 #define FLAG_RECEIVED_TM_BULK_UP             0xA6
 #define FLAG_RECEIVED_TM_SHOCK_WAVE          0xA7
 #define FLAG_RECEIVED_TM_OVERHEAT            0xA8
@@ -665,8 +666,8 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
 #define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
+#define FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_POTION 0x265
+#define FLAG_HIDDEN_ITEM_VELDRIS_ROUTE1_REPEL 0x266
 #define FLAG_UNUSED_0x267  0x267 // Unused Flag
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag
@@ -1222,10 +1223,10 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
+#define FLAG_HOLLOWBROOK_GRANDPA_TALKED1                            0x493
+#define FLAG_HOLLOWBROOK_GRANDPA_TALKED2                            0x494
+#define FLAG_HOLLOWBROOK_MOM_GOT_MON_TOLD                           0x495
+#define FLAG_VELDRIS_ROUTE1_GUIDE_POTIONS                           0x496
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
@@ -1364,7 +1365,7 @@
 #define FLAG_BADGE06_GET                      (SYSTEM_FLAGS + 0xC)
 #define FLAG_BADGE07_GET                      (SYSTEM_FLAGS + 0xD)
 #define FLAG_BADGE08_GET                      (SYSTEM_FLAGS + 0xE)
-#define NUM_BADGES                            (1 + FLAG_BADGE08_GET - FLAG_BADGE01_GET)
+#define NUM_BADGES                            9 // Veldris: badges 1-8 are contiguous above, badge 9 is FLAG_BADGE09_GET. The list lives in include/veldris_badges.h
 
 // Towns and Cities
 #define FLAG_VISITED_LITTLEROOT_TOWN                (SYSTEM_FLAGS + 0xF)
@@ -1387,11 +1388,11 @@
 #define FLAG_IS_CHAMPION                            (SYSTEM_FLAGS + 0x1F) // Seems to be related to linking.
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
-#define FLAG_UNUSED_0x881                           (SYSTEM_FLAGS + 0x21) // Unused Flag
-#define FLAG_UNUSED_0x882                           (SYSTEM_FLAGS + 0x22) // Unused Flag
-#define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
+#define FLAG_SYS_RUN_BY_DEFAULT                     (SYSTEM_FLAGS + 0x21) // Veldris: set = run unless B is held (clear = vanilla, B runs). L toggles it. Was FLAG_UNUSED_0x881. See design/running-shoes.md
+#define FLAG_SYS_EXP_SHARE_ON                       (SYSTEM_FLAGS + 0x22) // Veldris: set = the Exp. Share key item is switched on (whole party gains Exp). Was FLAG_UNUSED_0x882. See design/exp-share.md
+#define FLAG_VELDRIS_OUTFIT_RS                      (SYSTEM_FLAGS + 0x23) // Veldris: Ruby/Sapphire outfit unlocked
 #define FLAG_UNUSED_0x884                           (SYSTEM_FLAGS + 0x24) // Unused Flag
-#define FLAG_UNUSED_0x885                           (SYSTEM_FLAGS + 0x25) // Unused Flag
+#define FLAG_VELDRIS_OUTFIT_DP                      (SYSTEM_FLAGS + 0x25) // Veldris: Diamond/Pearl outfit unlocked
 #define FLAG_UNUSED_0x886                           (SYSTEM_FLAGS + 0x26) // Unused Flag
 #define FLAG_UNUSED_0x887                           (SYSTEM_FLAGS + 0x27) // Unused Flag
 
@@ -1403,7 +1404,7 @@
 #define FLAG_SYS_SAFARI_MODE                        (SYSTEM_FLAGS + 0x2C)
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)
 
-#define FLAG_UNUSED_0x88E                           (SYSTEM_FLAGS + 0x2E) // Unused Flag
+#define FLAG_BADGE09_GET                            (SYSTEM_FLAGS + 0x2E) // Veldris: 9th badge (was FLAG_UNUSED_0x88E). See design/badges.md
 #define FLAG_UNUSED_0x88F                           (SYSTEM_FLAGS + 0x2F) // Unused Flag
 
 #define FLAG_SYS_TV_HOME                            (SYSTEM_FLAGS + 0x30)
@@ -1507,13 +1508,13 @@
 
 #define FLAG_RECEIVED_POKEDEX_FROM_BIRCH            (SYSTEM_FLAGS + 0x84)
 
-#define FLAG_UNUSED_0x8E5                           (SYSTEM_FLAGS + 0x85) // Unused Flag
-#define FLAG_UNUSED_0x8E6                           (SYSTEM_FLAGS + 0x86) // Unused Flag
-#define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
-#define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
-#define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
-#define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
-#define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
+#define FLAG_HIDE_HOLLOWBROOK_LAB_TROG              (SYSTEM_FLAGS + 0x85)
+#define FLAG_HIDE_HOLLOWBROOK_LAB_BALL_1            (SYSTEM_FLAGS + 0x86)
+#define FLAG_HIDE_HOLLOWBROOK_LAB_BALL_2            (SYSTEM_FLAGS + 0x87)
+#define FLAG_HIDE_HOLLOWBROOK_LAB_BALL_3            (SYSTEM_FLAGS + 0x88)
+#define FLAG_HIDE_HOLLOWBROOK_LAB_BALL_4            (SYSTEM_FLAGS + 0x89)
+#define FLAG_HIDE_HOLLOWBROOK_GRANDPA               (SYSTEM_FLAGS + 0x8A)
+#define FLAG_HIDE_HOLLOWBROOK_TROG                  (SYSTEM_FLAGS + 0x8B)
 #define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag
 #define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag
 #define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // Unused Flag

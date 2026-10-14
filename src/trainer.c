@@ -1,5 +1,6 @@
 #include "global.h"
 #include "constants/trainers.h"
+#include "veldris_look.h" // Veldris: player customization
 
 static enum TrainerPicID GetEmeraldTrainerPic(enum Gender gender)
 {
@@ -27,6 +28,6 @@ enum TrainerPicID GetPlayerTrainerPic(enum Gender gender, enum GameVersion versi
             return GetKantoTrainerPic(gender);
         case VERSION_EMERALD:
         default:
-            return GetEmeraldTrainerPic(gender);
+            return VeldrisLook_PlayerTrainerPic(gender, GetEmeraldTrainerPic(gender)); // Veldris: outfits
     }
 }

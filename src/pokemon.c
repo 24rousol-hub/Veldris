@@ -76,6 +76,7 @@
 #include "constants/trainers.h"
 #include "constants/union_room.h"
 #include "constants/weather.h"
+#include "veldris_look.h" // Veldris: player customization
 
 extern enum Item gSpecialVar_ItemId;
 
@@ -5646,9 +5647,9 @@ enum TrainerPicID FacilityClassToPicIndex(u16 facilityClass)
 enum TrainerPicID PlayerGenderToFrontTrainerPicId(enum Gender playerGender)
 {
     if (playerGender != MALE)
-        return FacilityClassToPicIndex(IS_FRLG ? FACILITY_CLASS_LEAF : FACILITY_CLASS_MAY);
+        return VeldrisLook_PlayerTrainerPic(playerGender, FacilityClassToPicIndex(IS_FRLG ? FACILITY_CLASS_LEAF : FACILITY_CLASS_MAY)); // Veldris
     else
-        return FacilityClassToPicIndex(IS_FRLG ? FACILITY_CLASS_RED : FACILITY_CLASS_BRENDAN);
+        return VeldrisLook_PlayerTrainerPic(playerGender, FacilityClassToPicIndex(IS_FRLG ? FACILITY_CLASS_RED : FACILITY_CLASS_BRENDAN)); // Veldris
 }
 
 void HandleSetPokedexFlag(enum NationalDexOrder nationalNum, u8 caseId, u32 personality)

@@ -1,0 +1,101 @@
+diff --git a/data/battle_scripts_2.s b/data/battle_scripts_2.s
+index 9475895a..8e8a8aed 100755
+--- a/data/battle_scripts_2.s
++++ b/data/battle_scripts_2.s
+@@ -198,10 +198,6 @@ BattleScript_TryPrintCaughtMonInfo:
+ 	setbyte gBattleCommunication, 0
+ 	displaydexinfo
+ BattleScript_TryNicknameCaughtMon::
+-	printstring STRINGID_GIVENICKNAMECAPTURED
+-	waitstate
+-	setbyte gBattleCommunication, 0
+-	trygivecaughtmonnick
+ 	givecaughtmon BattleScript_SuccessBallThrowEnd
+ 	printfromtable gCaughtMonStringIds
+ 	waitmessage B_WAIT_TIME_LONG
+diff --git a/include/config/battle.h b/include/config/battle.h
+index be988b06..54dd0168 100644
+--- a/include/config/battle.h
++++ b/include/config/battle.h
+@@ -355,7 +355,7 @@
+ #define B_SHOW_CATEGORY_ICON                TRUE       // If set to TRUE, an icon in the summary and move relearner will show a move's category.
+ #define B_HIDE_HEALTHBOX_IN_ANIMS           TRUE       // If set to TRUE, healthboxes will be hidden during move animations.
+ #define B_WAIT_TIME_MULTIPLIER              10         // This determines how long text pauses for in battle. Vanilla is 16. Lower values result in faster battles.
+-#define B_QUICK_MOVE_CURSOR_TO_RUN          FALSE      // If set to TRUE, pushing B in the battle menu in a wild encounter will move the cursor to the Run option.
++#define B_QUICK_MOVE_CURSOR_TO_RUN          TRUE       // If set to TRUE, pushing B in the battle menu in a wild encounter will move the cursor to the Run option.
+ #define B_RUN_TRAINER_BATTLE                TRUE       // If set to TRUE, players can run from Trainer battles as in Gen9+. This is treated as a white out.
+ #define B_MOVE_DESCRIPTION_BUTTON           L_BUTTON   // If set to a button other than B_LAST_USED_BALL_BUTTON, pressing this button will open the move description menu.
+ #define B_SHOW_USELESS_Z_MOVE_INFO          FALSE      // If set to TRUE, Z-Moves without additional effects, like newer generation status moves, will say "No additional effect."
+diff --git a/include/config/overworld.h b/include/config/overworld.h
+index 5b80052a..7dd90c66 100644
+--- a/include/config/overworld.h
++++ b/include/config/overworld.h
+@@ -8,7 +8,7 @@
+ // Other settings
+ #define OW_POISON_DAMAGE                GEN_LATEST // In Gen4, Pokémon no longer faint from Poison in the overworld. In Gen5+, they no longer take damage at all.
+ #define OW_DOUBLE_APPROACH_WITH_ONE_MON FALSE      // If enabled, you can be spotted by two trainers at the same time even if you only have one eligible Pokémon in your party.
+-#define OW_HIDE_REPEAT_MAP_POPUP        FALSE      // If enabled, map popups will not appear if entering a map with the same Map Section Id as the last.
++#define OW_HIDE_REPEAT_MAP_POPUP        TRUE       // If enabled, map popups will not appear if entering a map with the same Map Section Id as the last.
+ #define OW_WHITEOUT_CUTSCENE            GEN_LATEST // In Gen4+, whiting out shows an additional message and post whiteout event script cutscene with a healing NPC. (While this change was also in FRLG, for the sake of simplicity, setting this to GEN_3 will result in RSE behavior.)
+ #define OW_DEFOG_FIELD_MOVE             FALSE      // If enabled, Defog can be used as a Field Move as seen in DPPt.
+ #define OW_ROCK_CLIMB_FIELD_MOVE        FALSE      // If enabled, Rock Climb can be used as a Field Move as seen in DPPt.
+@@ -58,7 +58,7 @@
+                                                   // 16x32, 32x32, 64x64 etc are fine
+ #define OW_MON_WANDER_WALK             TRUE       // If true, OW Pokémon with MOVEMENT_TYPE_WANDER will walk-in-place in between steps.
+ // Follower Pokémon
+-#define OW_FOLLOWERS_ENABLED           FALSE      // Enables follower Pokémon, HGSS style. Requires OW_POKEMON_OBJECT_EVENTS. Note that additional scripting may be required for them to be fully supported!
++#define OW_FOLLOWERS_ENABLED           TRUE       // Enables follower Pokémon, HGSS style. Requires OW_POKEMON_OBJECT_EVENTS. Note that additional scripting may be required for them to be fully supported!
+ #define OW_FOLLOWERS_BOBBING           TRUE       // If TRUE, follower Pokémon will bob up and down during their idle & walking animations
+ #define OW_FOLLOWERS_POKEBALLS         TRUE       // If TRUE, follower Pokémon will emerge from the Poké Ball they are stored in, instead of a normal Poké Ball
+ #define OW_FOLLOWERS_WEATHER_FORMS     FALSE      // If TRUE, Castform and Cherrim gain FORM_CHANGE_OVERWORLD_WEATHER, which will make them transform in the overworld based on the weather.
+@@ -115,7 +115,7 @@
+ #define BATTLE_PYRAMID_RANDOM_ENCOUNTERS    FALSE    // If set to TRUE, battle pyramid Pokemon will be generated randomly based on the round's challenge instead of hardcoded in src/data/battle_frontier/battle_pyramid_level_50_wild_mons.h (or open_level_wild_mons.h)
+ 
+ // Map pop-up config
+-#define OW_POPUP_GENERATION        GEN_3    // Different generations display location names in overworld pop-ups differently.
++#define OW_POPUP_GENERATION        GEN_5    // Different generations display location names in overworld pop-ups differently.
+                                             // Only choices are GEN_3 and GEN_5, all others will default to Gen3 pop-ups.
+                                             // Due to changes in project scope, as detailed in docs/team_procedures/scope.md,
+                                             // no other overworld popups will be implemented in expansion.
+@@ -131,7 +131,7 @@
+ 
+ // Configuration
+ #define OW_POPUP_BW_COLOR          OW_POPUP_BW_COLOR_BLACK  // B2W2 use different colors for their map pop-ups.
+-#define OW_POPUP_BW_TIME_MODE      OW_POPUP_BW_TIME_NONE    // Determines what type of time is shown.
++#define OW_POPUP_BW_TIME_MODE      OW_POPUP_BW_TIME_12_HR    // Determines what type of time is shown.
+ #define OW_POPUP_BW_ALPHA_BLEND    FALSE                    // Enables alpha blending/transparency for the pop-ups. Mainly intended to be used with the black color option.
+                                                             // Setting this to TRUE will cause graphical errors with the Day Night System enabled.
+                                                             // It will also cause minor visual glitches of shadow and reflection sprites adjusting their transparency when the pop-up disappear
+diff --git a/include/config/summary_screen.h b/include/config/summary_screen.h
+index f3aa3d5b..06d032c3 100644
+--- a/include/config/summary_screen.h
++++ b/include/config/summary_screen.h
+@@ -44,8 +44,8 @@ Info taken from https://bulbapedia.bulbagarden.net/wiki/Stats_judge.
+ // Relearner flags - Redundant if P_ENABLE_MOVE_RELEARNERS is TRUE, but still added here incase you don't want all relearners unlocked at the same time.
+ // To use the following features in scripting, replace the 0s with the flag ID you're assigning it to.
+ // Eg: Replace with FLAG_UNUSED_0x264 so you can use that flag to toggle the feature.
+-#define P_FLAG_EGG_MOVES                 0       // If this flag is set, enables egg move relearner.
+-#define P_FLAG_TUTOR_MOVES               0       // If this flag is set, enables tutor move relearner.
++#define P_FLAG_EGG_MOVES                 FLAG_UNUSED_0x883       // If this flag is set, enables egg move relearner.
++#define P_FLAG_TUTOR_MOVES               FLAG_UNUSED_0x884       // If this flag is set, enables tutor move relearner.
+ 
+ // Move Relearner summary screen
+ #define P_SUMMARY_SCREEN_MOVE_RELEARNER  TRUE   // If TRUE, shows an option for Pokémon to relearn moves on the summary screen moves page.
+diff --git a/src/new_game.c b/src/new_game.c
+index 211dc5a1..f88a31a3 100644
+--- a/src/new_game.c
++++ b/src/new_game.c
+@@ -101,10 +101,10 @@ static void InitPlayerTrainerId(void)
+ // L=A isnt set here for some reason.
+ static void SetDefaultOptions(void)
+ {
+-    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
++    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
+     gSaveBlock2Ptr->optionsWindowFrameType = 0;
+-    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
+-    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
++    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_STEREO;
++    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
+     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
+     gSaveBlock2Ptr->regionMapZoom = FALSE;
+ }

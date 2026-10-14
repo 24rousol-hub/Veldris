@@ -1,0 +1,1018 @@
+{
+ "note": "Reference data for the PROPOSED Veldris layout, for entering cells by hand in the Region Map Editor. Cells are [x, y] on the 28x15 grid. Not read by the build.",
+ "grid": {
+  "width": 28,
+  "height": 15
+ },
+ "towns": [
+  {
+   "n": 1,
+   "section": "MAPSEC_HOLLOWBROOK",
+   "name": "HOLLOWBROOK",
+   "cell": [
+    3,
+    12
+   ]
+  },
+  {
+   "n": 2,
+   "section": "MAPSEC_WENDLEBURY",
+   "name": "WENDLEBURY",
+   "cell": [
+    8,
+    11
+   ]
+  },
+  {
+   "n": 3,
+   "section": "MAPSEC_CRESTFALL",
+   "name": "CRESTFALL",
+   "cell": [
+    5,
+    7
+   ]
+  },
+  {
+   "n": 4,
+   "section": "MAPSEC_VELDRIS_TOWN_04",
+   "name": "TOWN 04",
+   "cell": [
+    2,
+    4
+   ]
+  },
+  {
+   "n": 5,
+   "section": "MAPSEC_VELDRIS_TOWN_05",
+   "name": "TOWN 05",
+   "cell": [
+    8,
+    2
+   ]
+  },
+  {
+   "n": 6,
+   "section": "MAPSEC_VELDRIS_TOWN_06",
+   "name": "TOWN 06",
+   "cell": [
+    12,
+    4
+   ]
+  },
+  {
+   "n": 7,
+   "section": "MAPSEC_VELDRIS_TOWN_07",
+   "name": "TOWN 07",
+   "cell": [
+    11,
+    8
+   ]
+  },
+  {
+   "n": 8,
+   "section": "MAPSEC_VELDRIS_TOWN_08",
+   "name": "TOWN 08",
+   "cell": [
+    14,
+    12
+   ]
+  },
+  {
+   "n": 9,
+   "section": "MAPSEC_VELDRIS_TOWN_09",
+   "name": "TOWN 09",
+   "cell": [
+    19,
+    11
+   ]
+  },
+  {
+   "n": 10,
+   "section": "MAPSEC_VELDRIS_TOWN_10",
+   "name": "TOWN 10",
+   "cell": [
+    16,
+    2
+   ]
+  },
+  {
+   "n": 11,
+   "section": "MAPSEC_VELDRIS_TOWN_11",
+   "name": "TOWN 11",
+   "cell": [
+    21,
+    3
+   ]
+  },
+  {
+   "n": 12,
+   "section": "MAPSEC_VELDRIS_TOWN_12",
+   "name": "TOWN 12",
+   "cell": [
+    25,
+    4
+   ]
+  },
+  {
+   "n": 13,
+   "section": "MAPSEC_VELDRIS_TOWN_13",
+   "name": "TOWN 13",
+   "cell": [
+    18,
+    5
+   ]
+  },
+  {
+   "n": 14,
+   "section": "MAPSEC_VELDRIS_TOWN_14",
+   "name": "TOWN 14",
+   "cell": [
+    26,
+    10
+   ]
+  },
+  {
+   "n": 15,
+   "section": "MAPSEC_VELDRIS_TOWN_15",
+   "name": "TOWN 15",
+   "cell": [
+    23,
+    12
+   ]
+  },
+  {
+   "n": 16,
+   "section": "MAPSEC_VELDRIS_TOWN_16",
+   "name": "TOWN 16",
+   "cell": [
+    18,
+    8
+   ]
+  },
+  {
+   "n": 17,
+   "section": "MAPSEC_VELDRIS_TOWN_17",
+   "name": "TOWN 17",
+   "cell": [
+    22,
+    7
+   ]
+  },
+  {
+   "n": 18,
+   "section": "MAPSEC_VELDRIS_TOWN_18",
+   "name": "TOWN 18",
+   "cell": [
+    25,
+    8
+   ]
+  }
+ ],
+ "routes": [
+  {
+   "n": 1,
+   "section": "MAPSEC_VELDRIS_ROUTE_1",
+   "from": 1,
+   "to": 2,
+   "kind": "land",
+   "cells": [
+    [
+     4,
+     12
+    ],
+    [
+     5,
+     12
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     6,
+     11
+    ],
+    [
+     7,
+     11
+    ]
+   ]
+  },
+  {
+   "n": 2,
+   "section": "MAPSEC_VELDRIS_ROUTE_2",
+   "from": 2,
+   "to": 3,
+   "kind": "land",
+   "cells": [
+    [
+     8,
+     10
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     7,
+     9
+    ],
+    [
+     6,
+     9
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     5,
+     8
+    ]
+   ]
+  },
+  {
+   "n": 3,
+   "section": "MAPSEC_VELDRIS_ROUTE_3",
+   "from": 3,
+   "to": 4,
+   "kind": "land",
+   "cells": [
+    [
+     4,
+     7
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     2,
+     7
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     2,
+     5
+    ]
+   ]
+  },
+  {
+   "n": 4,
+   "section": "MAPSEC_VELDRIS_ROUTE_4",
+   "from": 4,
+   "to": 5,
+   "kind": "land",
+   "cells": [
+    [
+     3,
+     4
+    ],
+    [
+     4,
+     4
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     6,
+     4
+    ],
+    [
+     7,
+     4
+    ],
+    [
+     8,
+     4
+    ],
+    [
+     8,
+     3
+    ]
+   ]
+  },
+  {
+   "n": 5,
+   "section": "MAPSEC_VELDRIS_ROUTE_5",
+   "from": 5,
+   "to": 6,
+   "kind": "land",
+   "cells": [
+    [
+     9,
+     2
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     10,
+     3
+    ],
+    [
+     10,
+     4
+    ],
+    [
+     11,
+     4
+    ]
+   ]
+  },
+  {
+   "n": 6,
+   "section": "MAPSEC_VELDRIS_ROUTE_6",
+   "from": 6,
+   "to": 7,
+   "kind": "land",
+   "cells": [
+    [
+     12,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     11,
+     7
+    ]
+   ]
+  },
+  {
+   "n": 7,
+   "section": "MAPSEC_VELDRIS_ROUTE_7",
+   "from": 7,
+   "to": 8,
+   "kind": "land",
+   "cells": [
+    [
+     12,
+     8
+    ],
+    [
+     12,
+     9
+    ],
+    [
+     12,
+     10
+    ],
+    [
+     13,
+     10
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     14,
+     11
+    ]
+   ]
+  },
+  {
+   "n": 8,
+   "section": "MAPSEC_VELDRIS_ROUTE_8",
+   "from": 8,
+   "to": 9,
+   "kind": "land",
+   "cells": [
+    [
+     15,
+     12
+    ],
+    [
+     16,
+     12
+    ],
+    [
+     16,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     18,
+     11
+    ]
+   ]
+  },
+  {
+   "n": 9,
+   "section": "MAPSEC_VELDRIS_ROUTE_9",
+   "from": 9,
+   "to": 15,
+   "kind": "land",
+   "cells": [
+    [
+     19,
+     12
+    ],
+    [
+     20,
+     12
+    ],
+    [
+     21,
+     12
+    ],
+    [
+     22,
+     12
+    ]
+   ]
+  },
+  {
+   "n": 10,
+   "section": "MAPSEC_VELDRIS_ROUTE_10",
+   "from": 15,
+   "to": 14,
+   "kind": "land",
+   "cells": [
+    [
+     23,
+     11
+    ],
+    [
+     23,
+     10
+    ],
+    [
+     24,
+     10
+    ],
+    [
+     25,
+     10
+    ]
+   ]
+  },
+  {
+   "n": 11,
+   "section": "MAPSEC_VELDRIS_ROUTE_11",
+   "from": 6,
+   "to": 10,
+   "kind": "land",
+   "cells": [
+    [
+     12,
+     3
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     15,
+     2
+    ]
+   ]
+  },
+  {
+   "n": 12,
+   "section": "MAPSEC_VELDRIS_ROUTE_12",
+   "from": 10,
+   "to": 13,
+   "kind": "land",
+   "cells": [
+    [
+     16,
+     3
+    ],
+    [
+     16,
+     4
+    ],
+    [
+     17,
+     4
+    ],
+    [
+     18,
+     4
+    ]
+   ]
+  },
+  {
+   "n": 13,
+   "section": "MAPSEC_VELDRIS_ROUTE_13",
+   "from": 13,
+   "to": 11,
+   "kind": "land",
+   "cells": [
+    [
+     19,
+     5
+    ],
+    [
+     20,
+     5
+    ],
+    [
+     21,
+     5
+    ],
+    [
+     21,
+     4
+    ]
+   ]
+  },
+  {
+   "n": 14,
+   "section": "MAPSEC_VELDRIS_ROUTE_14",
+   "from": 11,
+   "to": 12,
+   "kind": "land",
+   "cells": [
+    [
+     22,
+     3
+    ],
+    [
+     23,
+     3
+    ],
+    [
+     23,
+     4
+    ],
+    [
+     24,
+     4
+    ]
+   ]
+  },
+  {
+   "n": 15,
+   "section": "MAPSEC_VELDRIS_ROUTE_15",
+   "from": 3,
+   "to": 7,
+   "kind": "land",
+   "cells": [
+    [
+     6,
+     7
+    ],
+    [
+     7,
+     7
+    ],
+    [
+     8,
+     7
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ]
+   ]
+  },
+  {
+   "n": 16,
+   "section": "MAPSEC_VELDRIS_ROUTE_16",
+   "from": 2,
+   "to": 8,
+   "kind": "land",
+   "cells": [
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ]
+   ]
+  },
+  {
+   "n": 17,
+   "section": "MAPSEC_VELDRIS_ROUTE_17",
+   "from": 5,
+   "to": 10,
+   "kind": "land",
+   "cells": [
+    [
+     8,
+     1
+    ],
+    [
+     9,
+     1
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     11,
+     1
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     14,
+     1
+    ],
+    [
+     15,
+     1
+    ],
+    [
+     16,
+     1
+    ]
+   ]
+  },
+  {
+   "n": 18,
+   "section": "MAPSEC_VELDRIS_ROUTE_18",
+   "from": 13,
+   "to": 16,
+   "kind": "sea",
+   "cells": [
+    [
+     18,
+     6
+    ],
+    [
+     18,
+     7
+    ]
+   ]
+  },
+  {
+   "n": 19,
+   "section": "MAPSEC_VELDRIS_ROUTE_19",
+   "from": 16,
+   "to": 17,
+   "kind": "sea",
+   "cells": [
+    [
+     19,
+     8
+    ],
+    [
+     20,
+     8
+    ],
+    [
+     20,
+     7
+    ],
+    [
+     21,
+     7
+    ]
+   ]
+  },
+  {
+   "n": 20,
+   "section": "MAPSEC_VELDRIS_ROUTE_20",
+   "from": 17,
+   "to": 18,
+   "kind": "sea",
+   "cells": [
+    [
+     22,
+     8
+    ],
+    [
+     23,
+     8
+    ],
+    [
+     24,
+     8
+    ]
+   ]
+  },
+  {
+   "n": 21,
+   "section": "MAPSEC_VELDRIS_ROUTE_21",
+   "from": 12,
+   "to": 18,
+   "kind": "sea",
+   "cells": [
+    [
+     25,
+     5
+    ],
+    [
+     25,
+     6
+    ],
+    [
+     25,
+     7
+    ]
+   ]
+  },
+  {
+   "n": 22,
+   "section": "MAPSEC_VELDRIS_ROUTE_22",
+   "from": 14,
+   "to": 18,
+   "kind": "sea",
+   "cells": [
+    [
+     26,
+     9
+    ],
+    [
+     26,
+     8
+    ]
+   ]
+  },
+  {
+   "n": 23,
+   "section": "MAPSEC_VELDRIS_ROUTE_23",
+   "from": 9,
+   "to": 16,
+   "kind": "sea",
+   "cells": [
+    [
+     19,
+     10
+    ],
+    [
+     19,
+     9
+    ],
+    [
+     18,
+     9
+    ]
+   ]
+  },
+  {
+   "n": 24,
+   "section": "MAPSEC_VELDRIS_ROUTE_24",
+   "from": 1,
+   "to": null,
+   "kind": "land",
+   "cells": [
+    [
+     2,
+     12
+    ],
+    [
+     1,
+     12
+    ]
+   ]
+  },
+  {
+   "n": 25,
+   "section": "MAPSEC_VELDRIS_ROUTE_25",
+   "from": 3,
+   "to": null,
+   "kind": "land",
+   "cells": [
+    [
+     5,
+     6
+    ],
+    [
+     4,
+     6
+    ],
+    [
+     3,
+     6
+    ]
+   ]
+  },
+  {
+   "n": 26,
+   "section": "MAPSEC_VELDRIS_ROUTE_26",
+   "from": 4,
+   "to": null,
+   "kind": "land",
+   "cells": [
+    [
+     2,
+     3
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     3,
+     1
+    ]
+   ]
+  },
+  {
+   "n": 27,
+   "section": "MAPSEC_VELDRIS_ROUTE_27",
+   "from": 5,
+   "to": null,
+   "kind": "land",
+   "cells": [
+    [
+     7,
+     2
+    ],
+    [
+     6,
+     2
+    ],
+    [
+     5,
+     2
+    ]
+   ]
+  },
+  {
+   "n": 28,
+   "section": "MAPSEC_VELDRIS_ROUTE_28",
+   "from": 6,
+   "to": null,
+   "kind": "land",
+   "cells": [
+    [
+     13,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     14,
+     3
+    ]
+   ]
+  },
+  {
+   "n": 29,
+   "section": "MAPSEC_VELDRIS_ROUTE_29",
+   "from": 8,
+   "to": null,
+   "kind": "land",
+   "cells": [
+    [
+     14,
+     13
+    ],
+    [
+     13,
+     13
+    ]
+   ]
+  },
+  {
+   "n": 30,
+   "section": "MAPSEC_VELDRIS_ROUTE_30",
+   "from": 10,
+   "to": null,
+   "kind": "land",
+   "cells": [
+    [
+     17,
+     2
+    ],
+    [
+     18,
+     2
+    ],
+    [
+     18,
+     1
+    ]
+   ]
+  },
+  {
+   "n": 31,
+   "section": "MAPSEC_VELDRIS_ROUTE_31",
+   "from": 11,
+   "to": null,
+   "kind": "land",
+   "cells": [
+    [
+     21,
+     2
+    ],
+    [
+     22,
+     2
+    ],
+    [
+     23,
+     2
+    ],
+    [
+     24,
+     2
+    ],
+    [
+     24,
+     3
+    ]
+   ]
+  },
+  {
+   "n": 32,
+   "section": "MAPSEC_VELDRIS_ROUTE_32",
+   "from": 14,
+   "to": null,
+   "kind": "land",
+   "cells": [
+    [
+     26,
+     11
+    ],
+    [
+     26,
+     12
+    ],
+    [
+     25,
+     12
+    ],
+    [
+     25,
+     13
+    ]
+   ]
+  },
+  {
+   "n": 33,
+   "section": "MAPSEC_VELDRIS_ROUTE_33",
+   "from": 15,
+   "to": null,
+   "kind": "land",
+   "cells": [
+    [
+     23,
+     13
+    ],
+    [
+     22,
+     13
+    ]
+   ]
+  }
+ ]
+}

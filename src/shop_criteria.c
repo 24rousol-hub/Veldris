@@ -1,4 +1,5 @@
 #include "global.h"
+#include "veldris_badges.h"
 #include "item.h"
 #include "script.h"
 #include "event_data.h"
@@ -48,13 +49,7 @@ void TryFreeDynamicShopItemList(const u16 **ogItemList)
 
 static UNUSED bool32 ShopCriteriaByBadgeCount(u32 count)
 {
-    u32 badgeCount = 0;
-
-    for (u32 badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++)
-    {
-        if (FlagGet(badgeFlag))
-            badgeCount++;
-    }
+    u32 badgeCount = GetBadgeCount();
 
     if (badgeCount >= count)
         return TRUE;
