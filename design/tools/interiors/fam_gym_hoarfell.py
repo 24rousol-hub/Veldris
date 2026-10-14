@@ -8,10 +8,11 @@ shortest one.
 
 Tilesets: `gTileset_Building` plus `gTileset_Cave`, the pair the card names with the Building primary in place of the
 General one. The slide needs the metatile behaviour MB_ICE, and the only MB_ICE metatile with ice art in the compiled
-tilesets is Cave 909, the floor of the Shoal Cave ice room (the Seafoam pair is FRLG and not compiled, and the Sootopolis
-gym set has only a south-only slide and cracking ice). Every metatile used here draws with the Cave set's own palette 11
-and nothing from the primary's palettes (`check_palettes` proves it), so the Building primary looks the same as the General
-one and brings what a gym needs: the orange exit mat (primary 6 and 7, MB_SOUTH_ARROW_WARP) and the indoor map type.
+tilesets is Cave 909, the floor of the Shoal Cave ice room (the Mirage Tower set holds an identical copy and nothing else
+icy; the Seafoam pair is FRLG and not compiled, and the Sootopolis gym set has only a south-only slide and cracking ice).
+Every metatile used here draws with the Cave set's own palette 11 and nothing from the primary's palettes
+(`check_palettes` proves it), so the Building primary looks the same as the General one and brings what a gym needs: the
+orange exit mat (primary 6 and 7, MB_SOUTH_ARROW_WARP) and the indoor map type.
 
 Where this layout differs from the card (`check_puzzle` proves each change, and shows the card's version failing):
   * Soft-lock. Played as a slide puzzle the card's grid traps the player: the band of ice at the top (y5 to y7) and the
@@ -21,6 +22,9 @@ Where this layout differs from the card (`check_puzzle` proves each change, and 
   * The first fight was meant to be unavoidable, but row 17 let the player step from the carpet onto six other ice cells
     and slide past the Fisherman. Those six cells (x 3, 4, 6, 8, 10 and 11 on y17) are ice boulders here, so the start
     patch (7, 17) is the only way onto the field.
+  * The Hiker's sight is 2, not the card's 3. A trainer who notices the player walks up to him and then stays where he
+    ended; a Hiker who saw (8, 15) would walk to (7, 15), the only channel between the field and the start patch, and shut
+    the player in for good. With sight 2 no trainer can end his walk on a cell that cuts the player off.
   * The exit mat is the tileset's two-tile mat, (7, 22) and (8, 22), as in the Crestfall gym.
   * The card's third wall row and its snow bank (y2 to y4) are the dais: a terrace (y2, y3) and its front face (y4), with
     the notch (7, 4) cut into the face for WAKASAGI. The emblem on the wall at (7, 1) and the Poke Ball statues have no
@@ -36,6 +40,7 @@ Run `python3 layoutkit.py fam_gym_hoarfell OUT_DIR` from this folder to lint and
 """
 from __future__ import annotations
 
+import itertools
 from collections import deque
 from collections.abc import Iterable
 from typing import NamedTuple
@@ -118,6 +123,7 @@ STATUES = ((5, 20), (9, 20))       # the card's Poke Ball statues, which are pil
 STATUE_VIEW = tuple((x, y + 1) for x, y in STATUES)   # the cell in front of each statue, where its sign is read from
 ROUTE = ((7, 16), (7, 10), (2, 10), (2, 9), (6, 9), (6, 6), (7, 6), (7, 5))   # the card's 8 moves, as the stop after each
 DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1))
+CARD_HIKER_SIGHT = 3               # the Hiker's sight on the card
 
 
 class Trainer(NamedTuple):
@@ -131,7 +137,7 @@ class Trainer(NamedTuple):
 
 TRAINERS = (
     Trainer("Fisherman", (6, 16), (1, 0), 2, "."),     # a boulder ends his line after (7, 16): the first fight
-    Trainer("Hiker", (5, 15), (1, 0), 3, "s"),         # sees (6, 15) to (8, 15)
+    Trainer("Hiker", (5, 15), (1, 0), 2, "s"),         # sees (6, 15) and (7, 15); the card's sight 3 adds (8, 15), a trap
     Trainer("Lass", (3, 16), (0, -1), 5, "s"),         # sees the lane (3, 11) to (3, 15)
 )
 
@@ -194,13 +200,14 @@ def check_palettes() -> list[str]:
 Cell = tuple[int, int]
 Path = tuple[Cell, ...]      # the cells one key press passes through; the last is where the player stands still
 Graph = dict[Cell, list[Path]]
+SEEN = (False, True)         # whether a trainer sees a player who only slides through his line
 
 
 class Facts(NamedTuple):
     """What the slide puzzle of a plan does."""
     stuck: set[Cell]                          # standing cells with no way back to the carpet
-    route: tuple[int, int, list[Cell]]        # from the start patch to the goal: moves, how many shortest routes, one of them
-    skippable: dict[str, tuple[bool, bool]]   # trainer -> goal reachable without his line: (if a stop in it counts, if a slide through it counts)
+    route: tuple[int, int, list[Cell]]        # start patch to goal: moves, how many shortest routes, one of them
+    skippable: dict[str, tuple[bool, bool]]   # trainer -> can the goal be reached without his line, for each of SEEN
 
 
 def _cells(plan: tuple[str, ...], ch: str) -> list[Cell]:
@@ -304,9 +311,31 @@ def _sight(plan: tuple[str, ...], trainer: Trainer) -> frozenset[Cell]:
 def _facts(plan: tuple[str, ...]) -> Facts:
     """Run the slide puzzle of `plan` from the carpet, with the three trainers standing where they stand."""
     graph = _graph(plan, ENTRY, frozenset(t.pos for t in TRAINERS))
-    skippable = {t.name: tuple(LEADER_TALK in _reach(graph, ENTRY, _sight(plan, t), passing) for passing in (False, True))
+    skippable = {t.name: tuple(LEADER_TALK in _reach(graph, ENTRY, _sight(plan, t), passing) for passing in SEEN)
                  for t in TRAINERS}
     return Facts(_stuck(graph, ENTRY), _shortest(graph, START, LEADER_TALK), skippable)
+
+
+def _approach_traps(plan: tuple[str, ...], trainers: tuple[Trainer, ...]) -> list[str]:
+    """Ways a trainer's walk can shut the player in. A trainer who notices the player walks along his line until he stands
+    next to him and stays there, so he can end on his own cell or on any cell of his line but the last one he sees. For every
+    mix of those end cells, every stop the player can reach must still lead back to the carpet. Returns the first few
+    stops that do not, with the end cells that cut them off."""
+    start_objects = frozenset(t.pos for t in trainers)
+    stops = _graph(plan, ENTRY, start_objects)
+    ends = [[(t.pos[0] + t.facing[0] * k, t.pos[1] + t.facing[1] * k) for k in range(len(_sight(plan, t)))] or [t.pos]
+            for t in trainers]
+    traps = []
+    for combo in itertools.product(*ends):
+        cut_off = [stop for stop in stops if stop not in combo and ENTRY not in _graph(plan, stop, frozenset(combo))]
+        if cut_off:
+            traps.append(f"trainers ending on {sorted(combo)} cut off the stops {sorted(cut_off)[:4]}")
+    return traps
+
+
+def _defects(facts: Facts) -> set[str]:
+    """The card's two defects a puzzle shows: a soft-lock ('stuck'), and a first fight that can be skipped ('Fisherman')."""
+    return ({"stuck"} if facts.stuck else set()) | ({"Fisherman"} if any(facts.skippable["Fisherman"]) else set())
 
 
 def _card_plan(gate: bool = True, escape: bool = True) -> tuple[str, ...]:
@@ -323,7 +352,8 @@ def check_puzzle() -> list[str]:
     The plan agrees with the card's object spots and the leader can only be reached from the goal patch; the card's route
     is still the one shortest route from the start patch; no stop is a soft-lock; the Fisherman cannot be avoided, the Lass
     can be skipped, and the Hiker cannot be avoided once a sliding player counts as seen; and the checker still finds the
-    card's two defects, each of the two changes undone alone and together."""
+    card's two defects, with each of the two changes undone alone and together. No trainer's walk to the player can shut him
+    in, and the checker still sees the trap in the card's Hiker sight."""
     problems: list[str] = []
     for label, spot, ch in (("WAKASAGI", LEADER, "L"), ("the goal patch", LEADER_TALK, "G"), ("the start patch", START, "S")):
         if _cells(PLAN, ch) != [spot]:
@@ -335,7 +365,8 @@ def check_puzzle() -> list[str]:
         problems.append("the mat cells differ from DOORS")
     if _cells(PLAN, "a") != list(STATUES):
         problems.append(f"the statues are not where the card has them, {STATUES}")
-    approaches = [c for c in ((LEADER[0] + dx, LEADER[1] + dy) for dx, dy in DIRECTIONS) if not _blocked(PLAN, c, frozenset())]
+    neighbours = [(LEADER[0] + dx, LEADER[1] + dy) for dx, dy in DIRECTIONS]
+    approaches = [c for c in neighbours if not _blocked(PLAN, c, frozenset())]
     if approaches != [LEADER_TALK]:
         problems.append(f"WAKASAGI can be walked up to from {approaches}, not only from the goal patch")
     if any(PLAN[y][x] != "B" for x, y in GATE) or PLAN[ESCAPE_PATCH[1]][ESCAPE_PATCH[0]] != "s":
@@ -348,13 +379,17 @@ def check_puzzle() -> list[str]:
     for name, wanted in (("Fisherman", (False, False)), ("Hiker", (True, False)), ("Lass", (True, True))):
         if facts.skippable[name] != wanted:
             problems.append(f"{name}: goal reachable without his line is {facts.skippable[name]}, expected {wanted}")
-    for label, plan, defects in (("both changes", _card_plan(), {"stuck", "Fisherman"}),
-                                 ("the gate", _card_plan(escape=False), {"Fisherman"}),
-                                 ("the escape patch", _card_plan(gate=False), {"stuck"})):
+    problems += _approach_traps(PLAN, TRAINERS)
+    card_trainers = tuple(t._replace(sight=CARD_HIKER_SIGHT) if t.name == "Hiker" else t for t in TRAINERS)
+    if not _approach_traps(PLAN, card_trainers):
+        problems.append("the checker no longer sees the trap in the card's Hiker sight")
+    for label, plan, expected in (("both changes", _card_plan(), {"stuck", "Fisherman"}),
+                                  ("the gate", _card_plan(escape=False), {"Fisherman"}),
+                                  ("the escape patch", _card_plan(gate=False), {"stuck"})):
         card = _facts(plan)
-        found = ({"stuck"} if card.stuck else set()) | ({"Fisherman"} if card.skippable["Fisherman"] != (False, False) else set())
-        if found != defects or card.route[:2] != (len(ROUTE), 1):
-            problems.append(f"card plan without {label}: found {found} and route {card.route[:2]}, expected {defects}")
+        if _defects(card) != expected or card.route[:2] != (len(ROUTE), 1):
+            problems.append(f"card plan without {label}: found {_defects(card)} and route {card.route[:2]}, "
+                            f"expected {expected}")
     return problems
 
 
@@ -369,53 +404,67 @@ def _cell_list(cells: Iterable[Cell]) -> str:
     return ", ".join(str(c) for c in sorted(cells, key=lambda c: (c[1], c[0])))
 
 
-def hoarfell_gym() -> Spec:
-    """Hoarfell Gym 15 x 23; see the module docstring and the notes below."""
+def _moves_named(stops: tuple[Cell, ...]) -> str:
+    """'north, west' for the key presses that lead from one stop to the next."""
+    names = {(0, -1): "north", (0, 1): "south", (-1, 0): "west", (1, 0): "east"}
+    return ", ".join(names[((b[0] > a[0]) - (b[0] < a[0]), (b[1] > a[1]) - (b[1] < a[1]))] for a, b in zip(stops, stops[1:]))
+
+
+def _notes() -> str:
+    """The Spec notes: what the tilesets give, the puzzle, the changes to the card, the objects, and what is left to do."""
     sights = "; ".join(f"{t.name} {t.pos} facing {'east' if t.facing[0] > 0 else 'north'}, sight {t.sight}, sees "
                        f"{_cell_list(_sight(PLAN, t))}" for t in TRAINERS)
+    return " ".join((
+        "Cave secondary on the Building primary (reason in the module docstring: Cave 909 is the only MB_ICE tile with ice "
+        "art, and every tile used draws with Cave palette 11 only, which check_palettes proves). Nothing to set in Porymap "
+        "for the slide: 909 already has MB_ICE (it is the vanilla Shoal Cave ice room's floor), the patches (655) are "
+        "MB_NORMAL, the mat (primary 6 and 7) is MB_SOUTH_ARROW_WARP, and the colliding pieces are solid in the block word. "
+        "Map settings: indoor, MUS_GYM, gym battle scene. The border is primary metatile 1 (black).",
+        "Initial state is the only state: no gate, no switch, no setmetatile, and Spec.closed is empty. A player can walk to "
+        "every walkable cell, so the puzzle is the slide. check_puzzle models it (a step onto 909 carries on until the next "
+        "cell is a wall, a boulder or an object; any other cell stops) and proves on the shipped grid, with the three "
+        f"trainers standing where they stand, that the goal patch {LEADER_TALK} is reached from the start patch {START} in "
+        f"{len(ROUTE)} moves by one route only, the card's: {_moves_named((START,) + ROUTE)}, stopping on "
+        f"{', '.join(str(c) for c in ROUTE)}. From the carpet the player first walks to the start patch. No stop on the "
+        "field is a soft-lock: from every stop some sequence of slides leads back to the carpet. "
+        f"WAKASAGI {LEADER} faces down, in the notch of the dais face; his only walkable neighbour is {LEADER_TALK}, so the "
+        "dais cannot be walked round.",
+        f"Changes to the card: the escape patch {ESCAPE_PATCH} (the card has ice there), because the card's grid soft-locks "
+        "(see the docstring: the ice band y5 to y7 and the pocket (11, 9) to (12, 9) cannot be left once entered); and six "
+        f"gate boulders on y17 at {_cell_list(GATE)} (the card has ice), because the card let the player step off the carpet "
+        "onto other ice cells and skip the Fisherman. Both changes leave the card's route the one shortest route; "
+        "check_puzzle also runs the card's own grid and finds both defects. The Hiker's sight is "
+        f"{TRAINERS[1].sight}, not the card's {CARD_HIKER_SIGHT}: a trainer who notices the player walks up to him and "
+        "stays there, and a Hiker who saw (8, 15) would end on (7, 15), the only channel between the field and the carpet, "
+        "shutting the player in (check_puzzle tries every mix of end cells and finds none that cuts him off at sight 2; "
+        "keep (7, 15) and (7, 16) free of objects and signs). Also: the "
+        f"exit mat is two tiles, {DOORS[0]} and {DOORS[1]} (put a warp on each, both to Hoarfell warp 2, arrival (22, 16)); "
+        "the dais is a terrace (y2, y3) plus a front face (y4) instead of the card's wall row and snow bank.",
+        f"Objects ({len(TRAINERS) + 1} of the 15 allowed): WAKASAGI, then {sights}. The Fisherman's line ends at the boulder "
+        "(8, 16). Fights: the engine tests the player's destination tile every frame (trainer_see.c "
+        "GetTrainerApproachDistance), so a trainer should also notice a player who slides through his line. If so, the route "
+        "forces the Fisherman (the stop (7, 16)) and the Hiker (the slide up column 7 passes (7, 15)), and only the Lass can "
+        "be skipped; the checker asserts this reading, and that the Hiker is skippable only if a sliding player is not seen. "
+        "Test it in the game; if a slide is not noticed, put a coord_event on (7, 15) to start the Hiker (the Fisherman sees "
+        f"the stop, so he is safe). Statues: stand-ins (a pile of ice crystals) at {_cell_list(STATUES)}; put a sign "
+        f"bg_event on each, read from {_cell_list(STATUE_VIEW)}. Optional coord_event on the carpet row y18 for the card's "
+        "'ICE! WALK ON IT AND YOU GLIDE' hint; the start patch is also the natural place for a thermos line.",
+        "Look compromises: a frozen cave, not a building (scalloped ice walls, no emblem on the back wall, a plain snow "
+        "carpet instead of the purple one, an orange door mat); the patches are pale (the vanilla ice room uses the same "
+        "tile); the statues are the same family as the boulders but stand on the carpet, which no boulder does. The older "
+        "'heater tile' idea (gyms.md, the town card) is not in the detail card and is not built: the Cave set has no heater "
+        "art (its red lava tiles 863 to 883 are the nearest, and are not used).",
+    ))
+
+
+def hoarfell_gym() -> Spec:
+    """Hoarfell Gym 15 x 23; see the module docstring and the notes."""
     return _spec(
         build(),
         npc=(LEADER, LEADER_TALK, START) + tuple(t.pos for t in TRAINERS) + STATUE_VIEW,
         title="Hoarfell Gym: ice hall, slide puzzle, leader's dais",
         uses="Hoarfell Gym (Gym 5, Ice; WAKASAGI, FROST BADGE). Used by that one building only.",
-        notes=(
-            "Cave secondary on the Building primary (reason in the module docstring: Cave 909 is the only MB_ICE tile with ice "
-            "art, and every tile used draws with Cave palette 11 only, which check_palettes proves). Nothing to set in "
-            "Porymap for the slide: 909 already has MB_ICE (it is the vanilla Shoal Cave ice room's floor), the patches (655) "
-            "are MB_NORMAL, the mat (primary 6 and 7) is MB_SOUTH_ARROW_WARP, and the colliding pieces are solid in the block "
-            "word. Map settings: indoor, MUS_GYM, gym battle scene. The border is primary metatile 1 (black). "
-            "Initial state is the only state: no gate, no switch, no setmetatile, and Spec.closed is empty; a player can "
-            "walk to every walkable cell, and the puzzle is the slide. check_puzzle models it (a step onto 909 carries on "
-            "until the next cell is a wall, a boulder or an object; any other cell stops) and proves on the shipped grid, with "
-            "the three trainers standing where they stand, that the goal patch (7, 5) is reached from the start patch (7, 17) "
-            "in 8 moves by one route only, the card's: stops "
-            + ", ".join(str(c) for c in ROUTE)
-            + " (north, north, west, north, east, north, east, north). From the carpet the player first walks (7, 18) to the "
-            "start patch. No stop on the field is a soft-lock: from every stop some sequence of slides leads back to the "
-            "carpet. WAKASAGI at (7, 4) facing down, in the notch of the dais face: his only walkable neighbour is (7, 5), so "
-            "the dais cannot be walked round. "
-            "Changes to the card: the escape patch (4, 5) (the card has ice there), because the card's grid soft-locks (see "
-            "the docstring: the ice band y5 to y7 and the pocket (11, 9) to (12, 9) cannot be left once entered); and six "
-            f"gate boulders on y17 at {_cell_list(GATE)} (the card has ice), because the card let the player step off the "
-            "carpet onto other ice cells and skip the Fisherman. Both changes keep the card's route the one shortest route; "
-            "check_puzzle runs the card's own grid and finds both defects. Also: the exit mat is two tiles, (7, 22) and "
-            "(8, 22), put a warp on each, both to Hoarfell warp 2 (arrival (22, 16)); the dais is a terrace (y2, y3) plus a "
-            "front face (y4) instead of the card's wall row and snow bank. "
-            f"Objects (4 of the 15 allowed): WAKASAGI, then {sights}. The Fisherman's line ends at the boulder (8, 16). "
-            "Fights: the engine tests the player's destination tile every frame (trainer_see.c GetTrainerApproachDistance), so "
-            "a trainer should also notice a player who slides through his line. If so, the route forces the Fisherman (the "
-            "stop (7, 16)) and the Hiker (the slide up column 7 passes (7, 15)), and only the Lass can be skipped; the "
-            "checker asserts this reading and that the Hiker is skippable only if a sliding player is not seen. Test it in "
-            "the game; if a slide is not noticed, put a coord_event on (7, 15) to start the Hiker (the Fisherman sees the "
-            "stop, so he is safe). Statues: stand-ins (a pile of ice crystals) at (5, 20) and (9, 20); put a sign bg_event "
-            "on each, read from (5, 21) and (9, 21). Optional coord_event on the carpet row y18 for the card's 'ICE! WALK ON IT "
-            "AND YOU GLIDE' hint; the start patch (7, 17) is also the natural place for a thermos line. "
-            "Look compromises: a frozen cave, not a building (scalloped ice walls, no emblem on the back wall, a plain snow "
-            "carpet instead of the purple one, an orange door mat); the patches are pale (the vanilla ice room uses the same "
-            "tile); the statues are the same family as the boulders but stand on the carpet, which no boulder does. The "
-            "older 'heater tile' idea (gyms.md, the town card) is not in the detail card and is not built: the Cave set has "
-            "no heater art (its red lava tiles 863 to 883 are the nearest, and are not used)."
-        ),
+        notes=_notes(),
     )
 
 
